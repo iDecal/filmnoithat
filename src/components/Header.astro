@@ -48,39 +48,51 @@ const nav = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-base-200">
+<header class="w-full bg-white border-b sticky top-0 z-50">
 
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <!-- 🌿 LOGO -->
-    <a href="/" class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-full bg-primary-500"></div>
-      <div class="font-medium tracking-wide">
-        Film Nội Thất
-      </div>
+    <!-- LOGO -->
+    <a href="/" class="text-xl font-light tracking-wide">
+      Film Nội Thất
     </a>
 
-    <!-- 🧭 DESKTOP MENU -->
-    <nav class="hidden md:flex items-center gap-6 text-sm text-base-700">
+    <!-- DESKTOP MENU -->
+    <nav class="hidden md:flex items-center gap-8">
 
-      {nav.map(item => (
+      {nav.map((item) => (
         <div class="relative group">
 
-          <a href={item.href} class="flex items-center gap-1 hover:text-primary-500 transition">
+          <a
+            href={item.href}
+            class="flex items-center gap-1 py-2 hover:text-orange-600 transition"
+          >
             {item.label}
             {item.children && <span class="text-xs">▾</span>}
           </a>
 
           {item.children && (
-            <div class="absolute left-0 top-full mt-3 hidden group-hover:block bg-white border border-base-200 rounded-xl shadow-lg min-w-[220px] overflow-hidden">
+            <div
+              class="absolute left-0 top-full w-56 opacity-0 invisible
+                     group-hover:opacity-100 group-hover:visible
+                     transition-all duration-200 z-50"
+            >
 
-              {item.children.map(child => (
-                <a href={child.href}
-                   class="block px-4 py-2 text-sm hover:bg-base-100">
-                  {child.label}
-                </a>
-              ))}
+              <!-- bridge hover -->
+              <div class="h-3"></div>
 
+              <div class="bg-white border rounded-xl shadow-lg overflow-hidden">
+
+                {item.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >
+                    {child.label}
+                  </a>
+                ))}
+
+              </div>
             </div>
           )}
 
@@ -89,48 +101,53 @@ const nav = [
 
     </nav>
 
-    <!-- CTA -->
-    <a href="/lien-he"
-      class="hidden md:block bg-primary-500 text-white text-sm px-5 py-2 rounded-full hover:opacity-90">
-      Nhận báo giá
-    </a>
-
-    <!-- MOBILE BTN -->
-    <button id="menuBtn" class="md:hidden flex flex-col gap-1">
-      <span class="w-6 h-[2px] bg-base-900"></span>
-      <span class="w-6 h-[2px] bg-base-900"></span>
-      <span class="w-6 h-[2px] bg-base-900"></span>
+    <!-- MOBILE BUTTON -->
+    <button
+      id="menuBtn"
+      class="md:hidden text-2xl"
+      aria-label="Open menu"
+    >
+      ☰
     </button>
 
   </div>
 
-  <!-- 📱 MOBILE MENU -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-base-200 bg-white">
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="hidden md:hidden border-t bg-white">
 
-    <div class="px-6 py-4 space-y-4 text-sm">
+    <div class="px-6 py-4 space-y-2">
 
-      {nav.map(item => (
-        <div class="border-b border-base-100 pb-3">
+      {nav.map((item) => (
+        <details class="border-b pb-2">
 
-          <a href={item.href} class="block font-medium py-2">
+          <summary class="py-3 flex justify-between items-center cursor-pointer">
             {item.label}
-          </a>
+            {item.children && <span>+</span>}
+          </summary>
 
-          {item.children && (
-            <div class="pl-4 space-y-2 text-base-600">
-              {item.children.map(child => (
+          {item.children ? (
+            <div class="pl-4 pb-2 space-y-2 text-sm text-gray-600">
+
+              {item.children.map((child) => (
                 <a href={child.href} class="block py-1">
                   {child.label}
                 </a>
               ))}
+
             </div>
+          ) : (
+            <a href={item.href} class="block py-2 text-sm">
+              Đi tới {item.label}
+            </a>
           )}
 
-        </div>
+        </details>
       ))}
 
-      <a href="/lien-he"
-        class="block text-center bg-primary-500 text-white py-3 rounded-xl mt-4">
+      <a
+        href="/lien-he"
+        class="block text-center bg-orange-600 text-white py-3 rounded-xl mt-4"
+      >
         Nhận báo giá
       </a>
 
@@ -140,11 +157,12 @@ const nav = [
 
 </header>
 
+<!-- SCRIPT MOBILE TOGGLE -->
 <script>
   const btn = document.getElementById("menuBtn");
   const menu = document.getElementById("mobileMenu");
 
   btn?.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+    menu?.classList.toggle("hidden");
   });
 </script>
