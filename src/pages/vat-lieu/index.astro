@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const materials = [
+  {
+    name: "Film vân gỗ",
+    desc: "Mô phỏng gỗ tự nhiên: sồi, walnut, teak. Dùng cho tủ, bàn, kệ."
+  },
+  {
+    name: "Film vân vải",
+    desc: "Hiệu ứng textile mềm, sang trọng, phù hợp văn phòng cao cấp."
+  },
+  {
+    name: "Film kim loại",
+    desc: "Hiệu ứng inox, nhôm xước, mang phong cách hiện đại."
+  },
+  {
+    name: "Film giả đá",
+    desc: "Đá marble, granite – nâng cấp không gian sang trọng."
+  }
+];
+---
+
+<BaseLayout>
+
+<!-- 🌿 HERO SEO -->
+<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
+
+  <p class="text-xs tracking-[0.35em] uppercase text-base-500">
+    Vật liệu film nội thất
+  </p>
+
+  <h1 class="mt-6 text-4xl md:text-5xl font-light leading-tight">
+    Bộ sưu tập film nội thất<br />
+    <span class="text-primary-500 font-medium">cho mọi bề mặt công trình</span>
+  </h1>
+
+  <p class="mt-6 max-w-2xl mx-auto text-base-600">
+    Từ vân gỗ, vân vải đến kim loại và đá – giải pháp thay đổi vật liệu mà không cần phá bỏ nội thất.
+  </p>
+
+</section>
+
+<!-- 🌿 MATERIAL GRID -->
+<section class="py-24 px-6">
+
+  <div class="max-w-6xl mx-auto">
+
+    <h2 class="text-3xl font-light text-center">
+      Các dòng vật liệu chính
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-12">
+
+      {materials.map(m => (
+        <div class="bg-white border border-base-200 rounded-2xl p-6 hover:shadow-lg transition">
+
+          <h3 class="text-lg font-medium">{m.name}</h3>
+
+          <p class="text-sm text-base-600 mt-2 leading-relaxed">
+            {m.desc}
+          </p>
+
+          <div class="mt-6 w-12 h-[2px] bg-primary-500/40"></div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 WHY MATERIAL SECTION -->
+<section class="py-24 px-6 bg-base-100">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+
+    <div class="bg-base-200 rounded-2xl h-80"></div>
+
+    <div>
+      <h2 class="text-3xl font-light">
+        Vì sao chọn film nội thất?
+      </h2>
+
+      <ul class="mt-6 space-y-3 text-base-700 text-sm">
+        <li>• Thay đổi vật liệu mà không cần thay mới</li>
+        <li>• Đa dạng màu sắc & texture</li>
+        <li>• Thi công nhanh, ít ảnh hưởng công trình</li>
+        <li>• Chi phí thấp hơn 60–80%</li>
+      </ul>
+
+      <p class="mt-6 text-base-600 text-sm">
+        Đây là giải pháp phổ biến trong thiết kế nội thất hiện đại và cải tạo công trình thương mại.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 CTA -->
+<section class="py-28 bg-base-900 text-white text-center px-6">
+
+  <h2 class="text-3xl font-light">
+    Chọn vật liệu phù hợp cho công trình của bạn
+  </h2>
+
+  <p class="text-white/60 mt-4 max-w-xl mx-auto">
+    Chúng tôi tư vấn loại film theo từng bề mặt: bàn, tủ, tường, trần và thang máy.
+  </p>
+
+  <a href="/lien-he"
+    class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-full">
+    Nhận tư vấn vật liệu
+  </a>
+
+</section>
+
+</BaseLayout>
