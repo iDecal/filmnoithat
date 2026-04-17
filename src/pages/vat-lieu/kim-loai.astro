@@ -1,1 +1,130 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
+// 1. Dữ liệu các thương hiệu
+const brands = [
+  {
+    id: "toda",
+    name: "Toda Interior Film",
+    origin: "Hàn Quốc",
+    desc: "Dòng film kiến trúc cao cấp với công nghệ kháng khuẩn và bề mặt vân gỗ siêu thực, chống trầy xước tuyệt đối.",
+    features: ["Kháng khuẩn", "Chống cháy", "Độ bền 10 năm"]
+  },
+  {
+    id: "infeel",
+    name: "Infeel Interior Film",
+    origin: "Hàn Quốc",
+    desc: "Thương hiệu nổi tiếng với các mẫu vân đá Marble, xi măng và màu đơn sắc (Matte) cực kỳ tinh tế.",
+    features: ["Dễ thi công", "Bề mặt lỳ (Matte)", "Chống bám bẩn"]
+  },
+  {
+    id: "coance",
+    name: "Coance Interior Film",
+    origin: "Hàn Quốc",
+    desc: "Giải pháp tối ưu cho các dòng vân vải dệt, vân da và các bề mặt chức năng với chi phí hợp lý.",
+    features: ["Vân vải độc đáo", "Chịu nhiệt", "Giá tốt"]
+  }
+];
+
+// 2. Dữ liệu sản phẩm mẫu (Bạn có thể thêm mã màu vào đây)
+const materials = [
+  { brand: 'toda', name: "Vân Gỗ Sồi Toda - T122", id: "toda-1", image: "/images/vat-lieu/toda-wood.webp" },
+  { brand: 'infeel', name: "Đá Trắng Marble Infeel - HN450", id: "infeel-1", image: "/images/vat-lieu/infeel-stone.webp" },
+  { brand: 'coance', name: "Vân Vải Canvas Coance - CV88", id: "coance-1", image: "/images/vat-lieu/coance-fabric.webp" },
+  { brand: 'toda', name: "Vân Gỗ Óc Chó Toda - T566", id: "toda-2", image: "/images/vat-lieu/toda-walnut.webp" },
+  { brand: 'infeel', name: "Màu Đơn Sắc Infeel Matte - xanh", id: "infeel-2", image: "/images/vat-lieu/infeel-matte.webp" },
+  { brand: 'coance', name: "Vân Kim Loại Coance - Met01", id: "coance-2", image: "/images/vat-lieu/coance-metal.webp" },
+];
+---
+
+<BaseLayout 
+  title="Vật Liệu Film Nội Thất Chính Hãng: Toda, Infeel & Coance"
+  description="Tổng kho phân phối và thi công Film dán nội thất từ 3 thương hiệu hàng đầu Hàn Quốc: Toda, Infeel, Coance. Đầy đủ chứng chỉ chống cháy và kháng khuẩn."
+>
+
+  <section class="py-20 px-6 bg-base-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-light mb-4 italic">Đối tác <span class="font-medium">Vật liệu chiến lược</span></h1>
+        <p class="text-base-500">iDecal tự hào cung cấp giải pháp từ 3 nhà sản xuất Film kiến trúc hàng đầu thế giới.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {brands.map(brand => (
+          <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-base-100 hover:shadow-xl transition duration-500">
+            <div class="text-primary-500 font-bold text-xs tracking-widest mb-4 uppercase">{brand.origin}</div>
+            <h3 class="text-2xl font-bold mb-4">{brand.name}</h3>
+            <p class="text-sm text-base-500 leading-relaxed mb-6">{brand.desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {brand.features.map(f => (
+                <span class="text-[10px] bg-base-50 text-base-600 px-2 py-1 rounded-md italic">{f}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-wrap justify-center gap-4 mb-16" id="filter-buttons">
+        <button class="filter-btn active bg-primary-500 text-white px-8 py-2 rounded-full font-bold text-sm transition" data-filter="all">Tất cả</button>
+        <button class="filter-btn border border-base-200 px-8 py-2 rounded-full font-bold text-sm hover:bg-base-50 transition" data-filter="toda">Toda</button>
+        <button class="filter-btn border border-base-200 px-8 py-2 rounded-full font-bold text-sm hover:bg-base-50 transition" data-filter="infeel">Infeel</button>
+        <button class="filter-btn border border-base-200 px-8 py-2 rounded-full font-bold text-sm hover:bg-base-50 transition" data-filter="coance">Coance</button>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="material-grid">
+        {materials.map(item => (
+          <div class="material-card group" data-brand={item.brand}>
+            <div class="aspect-square rounded-2xl overflow-hidden mb-4 bg-base-100 shadow-sm group-hover:shadow-lg transition duration-500">
+              <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy" />
+            </div>
+            <p class="text-[10px] font-bold text-primary-500 uppercase mb-1 tracking-widest">{item.brand}</p>
+            <h4 class="font-medium text-base-900 group-hover:text-primary-500 transition text-sm md:text-base">{item.name}</h4>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .filter-btn.active {
+    background-color: #f97316; /* primary-500 */
+    color: white;
+    border-color: #f97316;
+  }
+  
+  .material-card.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Script xử lý bộ lọc đơn giản
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.material-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Đổi trạng thái button
+      buttons.forEach(b => b.classList.remove('active', 'bg-primary-500', 'text-white'));
+      btn.classList.add('active', 'bg-primary-500', 'text-white');
+
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const brand = card.getAttribute('data-brand');
+        if (filter === 'all' || brand === filter) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
