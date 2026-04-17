@@ -42,7 +42,6 @@ const nav = [
       { label: "So sánh vật liệu", href: "/blog/so-sanh-film-noi-that" }
     ]
   },
-  { label: "Dự án", href: "/du-an" },
   { label: "Giới thiệu", href: "/gioi-thieu" },
   { label: "Liên hệ", href: "/lien-he" }
 ];
@@ -113,7 +112,7 @@ const nav = [
     <!-- MOBILE BUTTON -->
     <button
       id="menuBtn"
-      class="md:hidden text-2xl transition"
+      class="md:hidden text-3xl transition"
       aria-label="Toggle menu"
     >
       ☰
@@ -129,7 +128,7 @@ const nav = [
       {nav.map((item) => (
         <details class="border-b pb-2">
 
-          <summary class="py-3 flex justify-between items-center cursor-pointer">
+          <summary class="py-3 flex justify-between items-center cursor-pointer text-xl font-medium">
             {item.label}
             {item.children && <span>+</span>}
           </summary>
