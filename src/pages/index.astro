@@ -1,3 +1,142 @@
-<h1 class="text-5xl text-red-500">
-  TEST TAILWIND
-</h1>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { title: "Dán film thang máy", desc: "Biến kim loại lạnh thành vật liệu nội thất sang trọng." },
+  { title: "Dán film tủ bếp", desc: "Thay đổi màu sắc mà không cần thay mới." },
+  { title: "Dán film kính văn phòng", desc: "Tăng riêng tư nhưng vẫn giữ ánh sáng." },
+  { title: "Dán film showroom", desc: "Tạo không gian thương hiệu cao cấp." }
+];
+
+const projects = [
+  { title: "Thang máy khách sạn", tag: "Toda", style: "Vân gỗ sồi sáng" },
+  { title: "Văn phòng tech", tag: "Infeel", style: "Kính mờ tối giản" },
+  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ walnut trầm" }
+];
+---
+
+<BaseLayout>
+
+<!-- 🌿 HERO -->
+<section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+
+  <!-- background glow -->
+  <div class="absolute inset-0 bg-gradient-to-b from-base-50 to-base-100"></div>
+
+  <div class="relative max-w-4xl text-center">
+
+    <p class="text-xs tracking-[0.35em] text-base-500 uppercase">
+      Interior Film Studio
+    </p>
+
+    <h1 class="mt-6 text-5xl md:text-6xl font-light leading-tight text-base-900">
+      Không gian không cần phá bỏ<br />
+      <span class="font-medium text-primary-500">chỉ cần một lớp film mới</span>
+    </h1>
+
+    <p class="mt-6 text-base-600 max-w-xl mx-auto">
+      Giải pháp dán film nội thất cho thang máy, tủ bếp, kính văn phòng và showroom —
+      giữ nguyên cấu trúc, thay đổi cảm xúc không gian.
+    </p>
+
+    <div class="mt-10 flex gap-4 justify-center">
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-full transition">
+        Xem dự án
+      </button>
+
+      <button class="border border-base-300 px-6 py-3 rounded-full hover:bg-base-100 transition">
+        Liên hệ tư vấn
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🌫 SERVICES -->
+<section class="py-24 px-6 bg-base-100">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-light">Dịch vụ thi công</h2>
+      <p class="text-base-500 mt-3">Tối ưu không gian bằng vật liệu film nội thất</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {services.map(s => (
+        <div class="group bg-white border border-base-200 rounded-2xl p-6 hover:shadow-xl transition">
+
+          <h3 class="text-lg font-medium group-hover:text-primary-500 transition">
+            {s.title}
+          </h3>
+
+          <p class="text-base-600 mt-2 text-sm leading-relaxed">
+            {s.desc}
+          </p>
+
+          <div class="mt-6 w-10 h-[2px] bg-primary-500/30 group-hover:w-20 transition-all"></div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- 🏛 PROJECT SHOWCASE -->
+<section class="py-28 px-6">
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-light">Dự án thực tế</h2>
+      <p class="text-base-500 mt-3">Cảm nhận sự thay đổi từ vật liệu</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      {projects.map(p => (
+        <div class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-xl transition">
+
+          <div class="h-40 bg-gradient-to-br from-base-200 to-base-300"></div>
+
+          <div class="p-6">
+
+            <div class="flex items-center justify-between">
+              <h3 class="font-medium">{p.title}</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-base-100">
+                {p.tag}
+              </span>
+            </div>
+
+            <p class="text-sm text-base-600 mt-3">
+              {p.style}
+            </p>
+
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 🌙 CTA -->
+<section class="py-28 bg-base-900 text-white text-center px-6">
+
+  <h2 class="text-3xl font-light">
+    Biến không gian của bạn thành trải nghiệm mới
+  </h2>
+
+  <p class="text-white/60 mt-4 max-w-xl mx-auto">
+    Tư vấn giải pháp film nội thất phù hợp cho từng loại công trình.
+  </p>
+
+  <button class="mt-8 bg-white text-black px-6 py-3 rounded-full hover:opacity-90 transition">
+    Nhận tư vấn ngay
+  </button>
+
+</section>
+
+</BaseLayout>
