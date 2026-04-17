@@ -1,84 +1,110 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+// Dữ liệu các công trình thực tế
 const projects = [
   {
-    title: "Văn phòng công ty công nghệ",
-    type: "Văn phòng",
-    material: "Film vân vải + kính mờ",
-    image: "/images/projects/van-phong-01.jpg"
+    title: "Cải tạo tủ bếp căn hộ Vinhomes Grand Park",
+    location: "Quận 9, TP.HCM",
+    material: "Film Infeel - Vân gỗ Sồi & Trắng Matte",
+    image: "/images/projects/tu-bep-vinhomes.webp",
+    category: "Căn hộ",
+    desc: "Giải pháp làm mới tủ bếp cũ bị bong tróc bề mặt bằng Film nội thất chịu nhiệt, thi công trong 6 tiếng."
   },
   {
-    title: "Nhà phố hiện đại",
-    type: "Nhà ở",
-    material: "Film vân gỗ walnut",
-    image: "/images/projects/nha-pho-01.jpg"
+    title: "Dán Film cabin thang máy tòa nhà văn phòng",
+    location: "Quận 1, TP.HCM",
+    material: "Film Toda - Vân kim loại Titan Đen",
+    image: "/images/projects/thang-may-q1.webp",
+    category: "Thương mại",
+    desc: "Phục hồi bề mặt inox thang máy bị trầy xước, mang lại diện mạo sang trọng và chống bám vân tay."
   },
   {
-    title: "Showroom nội thất",
-    type: "Showroom",
-    material: "Film kim loại + matte",
-    image: "/images/projects/showroom-01.jpg"
+    title: "Thi công dán decal kính & nội thất văn phòng",
+    location: "Thủ Dầu Một, Bình Dương",
+    material: "Film Coance - Vân vải & Decal mờ",
+    image: "/images/projects/van-phong-bd.webp",
+    category: "Văn phòng",
+    desc: "Tạo không gian làm việc hiện đại, riêng tư với sự kết hợp giữa film vân vải và decal kính mờ logo."
+  },
+  {
+    title: "Làm mới bàn ăn mặt đá bị nứt",
+    location: "District 7, TP.HCM",
+    material: "Film Infeel - Vân đá Marble trắng",
+    image: "/images/projects/ban-an-q7.webp",
+    category: "Căn hộ",
+    desc: "Xử lý vết nứt bề mặt bàn đá bằng cách dán film vân đá Marble cao cấp, chống thấm nước tuyệt đối."
   }
 ];
+
+const categories = ["Tất cả", "Căn hộ", "Văn phòng", "Thương mại"];
 ---
 
-<BaseLayout>
+<BaseLayout 
+  title="Công Trình Thực Tế - Hình Ảnh Thi Công Tại iDecal"
+  description="Xem các dự án dán film nội thất thực tế tại TP.HCM và Bình Dương. Hình ảnh trước và sau khi thi công tủ bếp, thang máy, văn phòng từ đội ngũ iDecal."
+>
 
-<!-- 🌿 HERO -->
-<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
+  <section class="py-20 px-6 bg-base-50">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-light mb-6 italic">Công trình <span class="font-medium">Thực tế</span></h1>
+      <p class="text-base-500 max-w-2xl mx-auto text-lg">
+        Chứng thực chất lượng qua hàng trăm dự án đã hoàn thiện. Chúng tôi nói không với ảnh mạng, 100% hình ảnh từ công trường.
+      </p>
+    </div>
+  </section>
 
-  <h1 class="text-4xl md:text-5xl font-light">
-    Công trình thực tế
-  </h1>
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {projects.map((item) => (
+          <div class="group cursor-pointer">
+            <div class="aspect-video rounded-[2rem] overflow-hidden mb-8 bg-base-100 shadow-sm border border-base-100 group-hover:shadow-2xl transition-all duration-500">
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                loading="lazy"
+              />
+            </div>
+            
+            <div class="flex gap-3 mb-4">
+              <span class="text-[10px] font-bold bg-primary-500 text-white px-3 py-1 rounded-full uppercase tracking-widest">{item.category}</span>
+              <span class="text-[10px] font-bold border border-base-200 text-base-400 px-3 py-1 rounded-full uppercase tracking-widest">{item.location}</span>
+            </div>
 
-  <p class="mt-6 text-base-600 max-w-2xl mx-auto">
-    Những dự án dán film nội thất đã hoàn thiện trên thực tế: văn phòng, nhà phố, showroom và khách sạn.
-  </p>
+            <h2 class="text-2xl font-bold text-base-900 mb-4 group-hover:text-primary-500 transition">
+              {item.title}
+            </h2>
+            
+            <div class="bg-base-50 p-6 rounded-2xl border border-base-100">
+              <p class="text-sm text-base-600 mb-3"><strong class="text-base-900">Vật liệu:</strong> {item.material}</p>
+              <p class="text-sm text-base-500 leading-relaxed italic">"{item.desc}"</p>
+            </div>
+            
+            <div class="mt-6 flex items-center gap-2 text-primary-500 font-bold text-xs tracking-widest uppercase">
+              Xem chi tiết dự án <span>→</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-</section>
-
-<!-- 🏛 GRID -->
-<section class="py-24 px-6">
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-
-    {projects.map(p => (
-      <a href="/du-an/demo"
-         class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300">
-
-        <!-- IMAGE -->
-        <div class="h-52 overflow-hidden">
-          <img
-            src={p.image}
-            alt={p.title}
-            class="w-full h-full object-cover hover:scale-110 transition duration-700"
-            loading="lazy"
-          />
-        </div>
-
-        <!-- CONTENT -->
-        <div class="p-6">
-
-          <h3 class="font-medium text-lg">
-            {p.title}
-          </h3>
-
-          <p class="text-sm text-base-600 mt-2">
-            {p.type}
-          </p>
-
-          <p class="text-xs text-orange-600 mt-3">
-            {p.material}
-          </p>
-
-        </div>
-
-      </a>
-    ))}
-
-  </div>
-
-</section>
+  <section class="py-24 px-6 bg-base-900 text-white rounded-[4rem] mx-4 mb-24 overflow-hidden relative">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-3xl md:text-5xl font-light mb-8 italic">Bạn muốn không gian của mình <span class="text-primary-500">thay đổi như thế này?</span></h2>
+      <p class="text-white/50 mb-12 max-w-xl mx-auto">Chỉ cần gửi ảnh bề mặt nội thất hiện tại qua Zalo, chúng tôi sẽ tư vấn mẫu vân và báo giá thi công trọn gói.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://zalo.me/0866077040" class="bg-primary-500 text-white px-10 py-5 rounded-full font-bold hover:bg-primary-600 transition shadow-xl">
+          Tư vấn qua Zalo ngay
+        </a>
+        <a href="/lien-he" class="bg-white text-base-900 px-10 py-5 rounded-full font-bold hover:bg-base-100 transition">
+          Yêu cầu khảo sát
+        </a>
+      </div>
+    </div>
+  </section>
 
 </BaseLayout>
