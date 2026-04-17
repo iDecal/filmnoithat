@@ -1,0 +1,76 @@
+---
+
+const services = [
+  "Dán film nội thất",
+  "Dán film tủ bếp",
+  "Dán film bàn làm việc",
+  "Dán film tường",
+  "Dán film trần"
+];
+
+const materials = [
+  "Film vân gỗ",
+  "Film vân vải",
+  "Film kim loại",
+  "Film giả đá"
+];
+---
+
+<footer class="bg-base-900 text-white">
+
+  <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+
+    <!-- Brand -->
+    <div>
+      <h3 class="font-medium text-lg">Film Nội Thất</h3>
+      <p class="text-sm text-white/60 mt-3 leading-relaxed">
+        Giải pháp dán film nội thất cho thang máy, tủ bếp, bàn, tường và không gian công trình cao cấp.
+      </p>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h4 class="text-sm font-medium mb-4">Dịch vụ</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        {services.map(s => (
+          <li class="hover:text-white transition cursor-pointer">{s}</li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Materials -->
+    <div>
+      <h4 class="text-sm font-medium mb-4">Vật liệu</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        {materials.map(m => (
+          <li class="hover:text-white transition cursor-pointer">{m}</li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h4 class="text-sm font-medium mb-4">Liên hệ</h4>
+
+      <p class="text-sm text-white/70">
+        Quy Nhơn, Bình Định
+      </p>
+
+      <p class="text-sm text-white/70 mt-2">
+        Hotline: 09xx xxx xxx
+      </p>
+
+      <a href="/lien-he"
+        class="inline-block mt-4 text-sm bg-white text-black px-4 py-2 rounded-full">
+        Nhận báo giá
+      </a>
+    </div>
+
+  </div>
+
+  <!-- bottom -->
+  <div class="border-t border-white/10 py-6 text-center text-xs text-white/50">
+    © {new Date().getFullYear()} Film Nội Thất. All rights reserved.
+  </div>
+
+</footer>
