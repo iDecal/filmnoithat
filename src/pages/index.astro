@@ -51,25 +51,39 @@ const blogPosts = [
 
 <BaseLayout title="Film Dán Nội Thất - Vật Liệu & Thi Công Cao Cấp">
 
-<section class="min-h-[90vh] flex items-center justify-center px-6 relative overflow-hidden bg-base-50">
+<section class="min-h-[90vh] flex items-center justify-center px-6 relative overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/cong-trinh/banner-film-dan-noi-that.jpg" 
+      alt="Không gian nội thất dán film cao cấp" 
+      class="w-full h-full object-cover scale-105"
+    />
+    <div class="absolute inset-0 bg-white/80 dark:bg-base-900/40 backdrop-blur-[2px]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white"></div>
+  </div>
+
   <div class="relative max-w-5xl text-center z-10">
-    <p class="text-xs tracking-[0.4em] text-base-500 uppercase mb-6 font-bold">Interior Film Studio</p>
+    <p class="text-xs tracking-[0.4em] text-base-500 uppercase mb-6 font-bold animate-fade-in">
+      Interior Film Studio
+    </p>
     <h1 class="text-5xl md:text-7xl font-light leading-tight text-base-900">
       Film Dán Nội Thất Cao Cấp<br />
       <span class="font-medium text-primary-500 italic">Giải Pháp Cải Tạo Không Gian Toàn Diện</span>
     </h1>
-    <p class="mt-8 text-base-600 max-w-2xl mx-auto text-lg leading-relaxed">
+    <p class="mt-8 text-base-600 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
       Chuyên vật liệu film nội thất chính hãng và dịch vụ thi công trọn gói tại TP.HCM & Bình Dương. Cải tạo không gian chỉ trong 24h.
     </p>
     <div class="mt-12 flex flex-wrap gap-4 justify-center">
-      <a href="#kho-vat-lieu" class="bg-primary-500 hover:bg-primary-600 text-white px-10 py-4 rounded-full transition shadow-xl font-bold">
+      <a href="#kho-vat-lieu" class="bg-primary-500 hover:bg-primary-600 text-white px-10 py-4 rounded-full transition shadow-xl font-bold hover:scale-105 duration-300">
         Khám phá vật liệu
       </a>
-      <a href="https://zalo.me/0866077040" class="border border-base-300 px-10 py-4 rounded-full hover:bg-white transition font-medium">
+      <a href="https://zalo.me/0866077040" class="border border-base-300 bg-white/50 backdrop-blur px-10 py-4 rounded-full hover:bg-white transition font-medium hover:shadow-lg duration-300">
         Nhận báo giá thi công
       </a>
     </div>
   </div>
+
+  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
 </section>
 
 <section id="kho-vat-lieu" class="py-24 px-6 bg-white">
