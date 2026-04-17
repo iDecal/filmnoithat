@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const post = {
+  title: "Cách chọn film nội thất phù hợp",
+  content: `
+Film nội thất là giải pháp thay đổi bề mặt không gian mà không cần phá bỏ kết cấu hiện tại...
+
+- Film vân gỗ phù hợp không gian ấm
+- Film kim loại phù hợp showroom hiện đại
+- Film vân vải phù hợp văn phòng cao cấp
+
+Việc chọn đúng vật liệu giúp tăng thẩm mỹ và độ bền công trình.
+`
+};
+---
+
+<BaseLayout>
+
+<section class="py-24 px-6 max-w-3xl mx-auto">
+
+  <h1 class="text-4xl font-light leading-tight">
+    {post.title}
+  </h1>
+
+  <article class="mt-10 text-base-700 leading-relaxed whitespace-pre-line">
+    {post.content}
+  </article>
+
+</section>
+
+</BaseLayout>
