@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const project = {
+  title: "Cải tạo văn phòng công nghệ bằng film nội thất",
+  location: "Quy Nhơn",
+  material: "Film vân vải + kính mờ",
+  problem: "Không gian cũ đơn điệu, thiếu riêng tư",
+  solution: "Dán film vân vải cho vách + kính mờ phân khu",
+  result: "Không gian hiện đại, tăng tính riêng tư và thẩm mỹ"
+};
+---
+
+<BaseLayout>
+
+<!-- 🌿 HERO -->
+<section class="py-24 px-6 max-w-4xl mx-auto">
+
+  <h1 class="text-4xl font-light leading-tight">
+    {project.title}
+  </h1>
+
+  <p class="text-sm text-base-500 mt-4">
+    {project.location} • {project.material}
+  </p>
+
+</section>
+
+<!-- 🧠 STORY -->
+<section class="py-12 px-6 max-w-4xl mx-auto">
+
+  <h2 class="text-2xl font-light">Bối cảnh</h2>
+  <p class="mt-3 text-base-600">{project.problem}</p>
+
+  <h2 class="text-2xl font-light mt-10">Giải pháp</h2>
+  <p class="mt-3 text-base-600">{project.solution}</p>
+
+  <h2 class="text-2xl font-light mt-10">Kết quả</h2>
+  <p class="mt-3 text-base-600">{project.result}</p>
+
+</section>
+
+<!-- 🌿 BEFORE / AFTER -->
+<section class="py-20 px-6">
+
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+
+    <!-- BEFORE -->
+    <div class="bg-base-200 rounded-2xl h-72 flex items-center justify-center text-base-500">
+      BEFORE IMAGE
+    </div>
+
+    <!-- AFTER -->
+    <div class="bg-primary-500/10 border border-primary-500 rounded-2xl h-72 flex items-center justify-center text-primary-500">
+      AFTER IMAGE
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 CTA -->
+<section class="py-24 bg-base-900 text-white text-center px-6">
+
+  <h2 class="text-3xl font-light">
+    Bạn muốn không gian như vậy?
+  </h2>
+
+  <a href="/lien-he"
+     class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-full">
+    Tư vấn ngay
+  </a>
+
+</section>
+
+</BaseLayout>
