@@ -1,29 +1,46 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const post = {
-  title: "Cách chọn film nội thất phù hợp",
-  content: `
-Film nội thất là giải pháp thay đổi bề mặt không gian mà không cần phá bỏ kết cấu hiện tại...
+// 📌 Danh sách bài blog (tạm thời hardcode)
+const posts = [
+  {
+    slug: "cach-chon-film-noi-that",
+    title: "Cách chọn film nội thất phù hợp",
+    content: "Nội dung bài viết về cách chọn film nội thất..."
+  },
+  {
+    slug: "bao-gia-dan-film",
+    title: "Báo giá dán film nội thất mới nhất",
+    content: "Chi phí thi công film nội thất phụ thuộc vào..."
+  },
+  {
+    slug: "film-van-go-la-gi",
+    title: "Film vân gỗ là gì?",
+    content: "Film vân gỗ là vật liệu mô phỏng gỗ tự nhiên..."
+  }
+];
 
-- Film vân gỗ phù hợp không gian ấm
-- Film kim loại phù hợp showroom hiện đại
-- Film vân vải phù hợp văn phòng cao cấp
+// 🔥 QUAN TRỌNG: báo cho Astro biết có những page nào
+export async function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
 
-Việc chọn đúng vật liệu giúp tăng thẩm mỹ và độ bền công trình.
-`
-};
+// nhận data từ getStaticPaths
+const { post } = Astro.props;
 ---
 
 <BaseLayout>
 
 <section class="py-24 px-6 max-w-3xl mx-auto">
 
-  <h1 class="text-4xl font-light leading-tight">
+  <h1 class="text-4xl font-light">
     {post.title}
   </h1>
 
-  <article class="mt-10 text-base-700 leading-relaxed whitespace-pre-line">
+  <article class="mt-10 text-base-700 leading-relaxed">
     {post.content}
   </article>
 
