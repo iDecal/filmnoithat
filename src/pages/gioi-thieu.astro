@@ -1,140 +1,118 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const stats = [
+  { label: "Dự án hoàn thiện", value: "500+" },
+  { label: "Năm kinh nghiệm", value: "10+" },
+  { label: "Đối tác tin dùng", value: "50+" },
+  { label: "Mẫu film có sẵn", value: "1000+" },
+];
+
+const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vinhomes"];
 ---
 
-<BaseLayout>
+<BaseLayout title="Giới thiệu - Film Dán Nội Thất Pro" description="Tìm hiểu về hành trình và sứ mệnh của chúng tôi trong việc mang đến giải pháp cải tạo không gian bằng film dán nội thất cao cấp.">
 
-<!-- 🌿 HERO -->
-<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
+  <section class="py-24 px-6 bg-base-50 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <p class="text-xs tracking-[0.3em] text-primary-500 uppercase font-bold mb-4">Câu chuyện của chúng tôi</p>
+      <h1 class="text-4xl md:text-6xl font-light text-base-900 leading-tight">
+        Giữ nguyên cấu trúc<br />
+        <span class="italic font-medium">Thay đổi cảm xúc không gian</span>
+      </h1>
+    </div>
+  </section>
 
-  <h1 class="text-4xl md:text-5xl font-light">
-    Về chúng tôi
-  </h1>
+  <section class="px-6 -mt-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl">
+        <img src="/images/about-hero.webp" alt="Đội ngũ thi công dán film nội thất" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
 
-  <p class="mt-6 text-base-600 max-w-2xl mx-auto">
-    Đơn vị thi công film nội thất chuyên nghiệp – mang đến giải pháp thay đổi không gian mà không cần phá bỏ cấu trúc hiện hữu.
-  </p>
+  <section class="py-24 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <h2 class="text-3xl font-light mb-8">Chúng tôi là ai?</h2>
+        <div class="space-y-6 text-base-600 leading-relaxed">
+          <p>
+            Được thành lập với niềm đam mê về vật liệu bề mặt, chúng tôi không chỉ cung cấp <strong>film dán nội thất</strong>, mà còn mang đến giải pháp cải tạo không gian thông minh, bền vững.
+          </p>
+          <p>
+            Thay vì phá bỏ những món đồ cũ gây lãng phí và ô nhiễm môi trường, chúng tôi sử dụng công nghệ film kiến trúc cao cấp để hồi sinh chúng với diện mạo sang trọng, hiện đại chỉ trong thời gian ngắn.
+          </p>
+          <p class="italic border-l-4 border-primary-500 pl-6 py-2 bg-base-50">
+            "Sự tỉ mỉ trong từng đường dao là cách chúng tôi tôn trọng không gian của khách hàng."
+          </p>
+        </div>
+      </div>
 
-</section>
+      <div class="grid grid-cols-2 gap-4">
+        {stats.map(s => (
+          <div class="p-8 border border-base-200 rounded-2xl text-center hover:bg-white hover:shadow-xl transition transition-duration-500">
+            <p class="text-3xl font-medium text-primary-500 mb-2">{s.value}</p>
+            <p class="text-xs uppercase tracking-widest text-base-400 font-bold">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-<!-- 🌿 STORY -->
-<section class="py-24 px-6">
+  <section class="py-24 px-6 bg-base-900 text-white rounded-[3rem] mx-4 md:mx-10 mb-24">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-light text-center mb-16 italic text-white/80">Tại sao khách hàng tin chọn chúng tôi?</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="text-4xl mb-6">🎯</div>
+          <h3 class="text-xl font-medium mb-4">Kỹ thuật tinh xảo</h3>
+          <p class="text-white/60 text-sm leading-relaxed text-left">Đội ngũ kỹ thuật viên am hiểu xử lý mọi góc cạnh khó nhất như thang máy, tủ bếp cong hay bề mặt kim loại.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-6">💎</div>
+          <h3 class="text-xl font-medium mb-4">Vật liệu chính hãng</h3>
+          <p class="text-white/60 text-sm leading-relaxed text-left">Cam kết sử dụng các dòng film cao cấp từ Hàn Quốc (Toda, Infeel...) đảm bảo độ bám dính và bền màu trên 10 năm.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-6">🛡️</div>
+          <h3 class="text-xl font-medium mb-4">Trách nhiệm tối thượng</h3>
+          <p class="text-white/60 text-sm leading-relaxed text-left">Chúng tôi không chỉ dán film, chúng tôi bảo hành sự an tâm của bạn với chính sách hậu mãi từ 2-5 năm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <section class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-12 border-t border-base-200 pt-24">
+      <div class="max-w-sm">
+        <h2 class="text-3xl font-light italic mb-4">Đối tác chiến lược</h2>
+        <p class="text-base-500 text-sm">Chúng tôi tự hào đã đồng hành cùng các đơn vị lớn trong việc làm mới không gian thương hiệu.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-50 grayscale hover:grayscale-0 transition duration-700">
+        {partners.map(p => (
+          <div class="text-center font-bold text-lg tracking-widest text-base-400">{p}</div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-    <!-- IMAGE -->
-    <div class="h-80 bg-gradient-to-br from-base-200 to-base-300 rounded-2xl"></div>
-
-    <!-- TEXT -->
-    <div>
-
-      <h2 class="text-3xl font-light">
-        Hành trình của chúng tôi
-      </h2>
-
-      <p class="mt-4 text-base-600 leading-relaxed">
-        Film nội thất không chỉ là vật liệu trang trí — đó là cách chúng tôi giúp không gian sống và làm việc
-        trở nên mới mẻ, tinh tế và tiết kiệm hơn.
+  <section class="py-24 px-6 bg-base-50 border-t border-base-200">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-light mb-8">Khu vực hoạt động</h2>
+      <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
+        {["Thủ Đức", "Quận 7", "Quận 12", "Bình Thạnh", "Thuận An", "Dĩ An"].map(area => (
+          <span class="px-6 py-2 bg-white rounded-full border border-base-200 shadow-sm">{area}</span>
+        ))}
+      </div>
+      <p class="mt-12 text-base-500 text-sm leading-relaxed">
+        Chúng tôi sẵn sàng khảo sát và mang mẫu film thực tế đến tận công trình của bạn hoàn toàn miễn phí tại TP.HCM và Bình Dương.
       </p>
-
-      <p class="mt-4 text-base-600 leading-relaxed">
-        Từ những công trình nhỏ như bàn, tủ bếp đến những dự án lớn như văn phòng và showroom,
-        chúng tôi luôn chú trọng từng chi tiết thi công.
-      </p>
-
+      <div class="mt-10">
+        <a href="https://zalo.me/your-number" class="bg-primary-500 text-white px-10 py-4 rounded-full font-bold hover:shadow-2xl transition">
+          Liên hệ tư vấn ngay
+        </a>
+      </div>
     </div>
-
-  </div>
-
-</section>
-
-<!-- 🌿 VALUES -->
-<section class="py-24 px-6 bg-base-100">
-
-  <div class="max-w-6xl mx-auto text-center">
-
-    <h2 class="text-3xl font-light">
-      Giá trị chúng tôi theo đuổi
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-
-      <div class="bg-white border border-base-200 rounded-2xl p-6">
-        <h3 class="font-medium">Tối giản</h3>
-        <p class="text-sm text-base-600 mt-2">
-          Giữ nguyên cấu trúc, thay đổi bề mặt – không phá bỏ.
-        </p>
-      </div>
-
-      <div class="bg-white border border-base-200 rounded-2xl p-6">
-        <h3 class="font-medium">Chính xác</h3>
-        <p class="text-sm text-base-600 mt-2">
-          Thi công tỉ mỉ từng chi tiết, đảm bảo độ hoàn thiện cao.
-        </p>
-      </div>
-
-      <div class="bg-white border border-base-200 rounded-2xl p-6">
-        <h3 class="font-medium">Hiệu quả</h3>
-        <p class="text-sm text-base-600 mt-2">
-          Tối ưu chi phí nhưng vẫn giữ thẩm mỹ cao cấp.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- 🌿 SERVICES SNAPSHOT -->
-<section class="py-24 px-6">
-
-  <div class="max-w-6xl mx-auto">
-
-    <h2 class="text-3xl font-light text-center">
-      Chúng tôi thi công
-    </h2>
-
-    <div class="grid md:grid-cols-4 gap-6 mt-12 text-center">
-
-      <div class="p-6 bg-base-100 border border-base-200 rounded-2xl">
-        <p class="font-medium">Bàn & kệ</p>
-      </div>
-
-      <div class="p-6 bg-base-100 border border-base-200 rounded-2xl">
-        <p class="font-medium">Tủ bếp</p>
-      </div>
-
-      <div class="p-6 bg-base-100 border border-base-200 rounded-2xl">
-        <p class="font-medium">Tường & trần</p>
-      </div>
-
-      <div class="p-6 bg-base-100 border border-base-200 rounded-2xl">
-        <p class="font-medium">Thang máy</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- 🌿 CTA -->
-<section class="py-28 bg-base-900 text-white text-center px-6">
-
-  <h2 class="text-3xl font-light">
-    Sẵn sàng nâng cấp không gian của bạn?
-  </h2>
-
-  <p class="text-white/60 mt-4 max-w-xl mx-auto">
-    Hãy để chúng tôi giúp bạn biến không gian cũ thành một trải nghiệm mới.
-  </p>
-
-  <a href="/lien-he"
-    class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-full">
-    Liên hệ ngay
-  </a>
-
-</section>
+  </section>
 
 </BaseLayout>
