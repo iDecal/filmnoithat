@@ -1,26 +1,157 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const materials = [
+  {
+    name: "Oak Light",
+    image: "/images/materials/van-go/oak-light-01.jpg"
+  },
+  {
+    name: "Walnut Dark",
+    image: "/images/materials/van-go/walnut-dark-01.jpg"
+  },
+  {
+    name: "Ash Gray",
+    image: "/images/materials/van-go/ash-gray-01.jpg"
+  },
+  {
+    name: "Teak Natural",
+    image: "/images/materials/van-go/teak-natural-01.jpg"
+  },
+  {
+    name: "Wood Beige",
+    image: "/images/materials/van-go/wood-beige-01.jpg"
+  },
+  {
+    name: "Wood Classic",
+    image: "/images/materials/van-go/wood-classic-01.jpg"
+  }
+];
 ---
 
-<BaseLayout>
+<BaseLayout title="Film vân gỗ – Giải pháp thay đổi không gian nội thất hiện đại">
 
-<section class="py-24 px-6 max-w-4xl mx-auto">
+<!-- 🌿 HERO SEO -->
+<section class="py-24 px-6 bg-gradient-to-b from-base-50 to-base-100 text-center">
 
-  <h1 class="text-4xl font-light">
+  <h1 class="text-4xl md:text-5xl font-light">
     Film vân gỗ nội thất
   </h1>
 
-  <p class="mt-6 text-base-600 leading-relaxed">
-    Film vân gỗ là giải pháp thay thế gỗ tự nhiên trong nội thất hiện đại...
+  <p class="mt-6 max-w-2xl mx-auto text-base-600">
+    Film vân gỗ là giải pháp hoàn hảo giúp thay đổi không gian nội thất nhanh chóng,
+    mang lại cảm giác ấm áp, sang trọng như gỗ thật nhưng tiết kiệm chi phí và thi công linh hoạt.
   </p>
 
-  <h2 class="mt-10 text-2xl">Ứng dụng</h2>
+</section>
 
-  <ul class="mt-4 text-sm text-base-700 space-y-2">
-    <li>• Tủ bếp</li>
-    <li>• Bàn làm việc</li>
-    <li>• Kệ trang trí</li>
-  </ul>
+<!-- 🌿 GIỚI THIỆU SEO -->
+<section class="py-20 px-6">
+
+  <div class="max-w-4xl mx-auto space-y-6 text-base-700 leading-relaxed">
+
+    <h2 class="text-2xl font-medium">
+      Film vân gỗ là gì?
+    </h2>
+
+    <p>
+      Film vân gỗ nội thất là loại vật liệu phủ bề mặt cao cấp, mô phỏng chân thực các loại gỗ tự nhiên
+      như oak, walnut, teak… được ứng dụng trong cải tạo bàn, tủ, kệ, tường và nhiều bề mặt nội thất khác.
+    </p>
+
+    <h2 class="text-2xl font-medium">
+      Ưu điểm của film vân gỗ
+    </h2>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Thẩm mỹ giống gỗ thật đến 90%</li>
+      <li>Thi công nhanh – không cần tháo dỡ</li>
+      <li>Chống trầy xước, chống ẩm tốt</li>
+      <li>Chi phí thấp hơn gỗ tự nhiên</li>
+      <li>Dễ dàng thay đổi phong cách nội thất</li>
+    </ul>
+
+  </div>
+
+</section>
+
+<!-- 🪵 GALLERY VÂN GỖ -->
+<section class="py-24 px-6 bg-base-50">
+
+  <div class="max-w-6xl mx-auto">
+
+    <h2 class="text-3xl font-light text-center mb-12">
+      Bộ sưu tập film vân gỗ
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+      {materials.map(m => (
+        <div class="group overflow-hidden rounded-2xl border border-base-200 bg-white">
+
+          <div class="aspect-square overflow-hidden">
+            <img
+              src={m.image}
+              alt={m.name}
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="p-4 text-center">
+            <p class="text-sm">{m.name}</p>
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 ỨNG DỤNG -->
+<section class="py-24 px-6">
+
+  <div class="max-w-4xl mx-auto space-y-6 text-base-700">
+
+    <h2 class="text-2xl font-medium">
+      Ứng dụng film vân gỗ
+    </h2>
+
+    <p>
+      Film vân gỗ được sử dụng rộng rãi trong nhiều không gian:
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Dán bàn làm việc, bàn họp</li>
+      <li>Dán tủ bếp, tủ quần áo</li>
+      <li>Dán tường trang trí</li>
+      <li>Dán thang máy, showroom</li>
+    </ul>
+
+  </div>
+
+</section>
+
+<!-- 🌿 CTA -->
+<section class="py-20 px-6 text-center bg-base-100 border-t">
+
+  <h2 class="text-2xl font-light">
+    Biến không gian của bạn thành một lớp gỗ hoàn hảo
+  </h2>
+
+  <p class="mt-4 text-base-600">
+    Liên hệ ngay để được tư vấn và nhận mẫu film thực tế
+  </p>
+
+  <a
+    href="/lien-he"
+    class="inline-block mt-6 bg-orange-600 text-white px-6 py-3 rounded-full hover:bg-orange-700 transition"
+  >
+    Nhận báo giá
+  </a>
 
 </section>
 
