@@ -53,8 +53,11 @@ const nav = [
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
     <!-- LOGO -->
-    <a href="/" class="text-xl font-light tracking-wide">
-      Film Nội Thất
+    <a href="/" class="flex items-center gap-2">
+      <!-- có thể thay bằng img -->
+      <span class="text-xl font-light tracking-wide">
+        Film Nội Thất
+      </span>
     </a>
 
     <!-- DESKTOP MENU -->
@@ -77,8 +80,6 @@ const nav = [
                      group-hover:opacity-100 group-hover:visible
                      transition-all duration-200 z-50"
             >
-
-              <!-- bridge hover -->
               <div class="h-3"></div>
 
               <div class="bg-white border rounded-xl shadow-lg overflow-hidden">
@@ -99,13 +100,21 @@ const nav = [
         </div>
       ))}
 
+      <!-- 🔥 NÚT NHẬN BÁO GIÁ DESKTOP -->
+      <a
+        href="/lien-he"
+        class="ml-4 bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition"
+      >
+        Nhận báo giá
+      </a>
+
     </nav>
 
     <!-- MOBILE BUTTON -->
     <button
       id="menuBtn"
-      class="md:hidden text-2xl"
-      aria-label="Open menu"
+      class="md:hidden text-2xl transition"
+      aria-label="Toggle menu"
     >
       ☰
     </button>
@@ -127,13 +136,11 @@ const nav = [
 
           {item.children ? (
             <div class="pl-4 pb-2 space-y-2 text-sm text-gray-600">
-
               {item.children.map((child) => (
                 <a href={child.href} class="block py-1">
                   {child.label}
                 </a>
               ))}
-
             </div>
           ) : (
             <a href={item.href} class="block py-2 text-sm">
@@ -144,6 +151,7 @@ const nav = [
         </details>
       ))}
 
+      <!-- CTA MOBILE -->
       <a
         href="/lien-he"
         class="block text-center bg-orange-600 text-white py-3 rounded-xl mt-4"
@@ -157,12 +165,18 @@ const nav = [
 
 </header>
 
-<!-- SCRIPT MOBILE TOGGLE -->
+<!-- SCRIPT: TOGGLE + ĐỔI ICON ☰ ↔ ✕ -->
 <script>
   const btn = document.getElementById("menuBtn");
   const menu = document.getElementById("mobileMenu");
 
+  let open = false;
+
   btn?.addEventListener("click", () => {
+    open = !open;
     menu?.classList.toggle("hidden");
+
+    // đổi icon
+    btn.textContent = open ? "✕" : "☰";
   });
 </script>
