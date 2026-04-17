@@ -1,1 +1,159 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const services = [
+  "Dán film bàn làm việc",
+  "Dán film tủ bếp",
+  "Dán film tường nội thất",
+  "Dán film trần nhà",
+  "Dán film kệ / nội thất trưng bày",
+  "Dán film thang máy"
+];
+
+const materials = [
+  "Film vân gỗ",
+  "Film vân vải",
+  "Film kim loại",
+  "Film giả đá",
+  "Film matte tối giản"
+];
+---
+
+<BaseLayout>
+
+<!-- 🌿 HERO SEO -->
+<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
+
+  <p class="text-xs tracking-[0.3em] text-base-500 uppercase">
+    Dịch vụ thi công film nội thất
+  </p>
+
+  <h1 class="mt-6 text-4xl md:text-5xl font-light leading-tight">
+    Dán film nội thất – thay đổi không gian<br />
+    <span class="text-primary-500 font-medium">không cần phá bỏ</span>
+  </h1>
+
+  <p class="mt-6 max-w-2xl mx-auto text-base-600">
+    Giải pháp thi công film nội thất cho bàn, tủ, tường, trần, kệ và thang máy.
+    Tiết kiệm chi phí, giữ nguyên kết cấu nhưng nâng cấp thẩm mỹ.
+  </p>
+
+  <div class="mt-8 flex gap-3 justify-center">
+    <a href="/lien-he"
+      class="bg-primary-500 text-white px-6 py-3 rounded-full hover:opacity-90">
+      Nhận báo giá
+    </a>
+
+    <a href="/du-an"
+      class="border border-base-300 px-6 py-3 rounded-full">
+      Xem dự án
+    </a>
+  </div>
+
+</section>
+
+<!-- 🧠 WHY SECTION (SEO + TRUST) -->
+<section class="py-24 px-6">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+
+    <div>
+      <h2 class="text-3xl font-light">
+        Vì sao chọn dán film nội thất?
+      </h2>
+
+      <p class="text-base-600 mt-4 leading-relaxed">
+        Thay vì đập bỏ và thi công lại toàn bộ nội thất,
+        film nội thất giúp bạn làm mới bề mặt nhanh chóng,
+        tiết kiệm chi phí và giảm thời gian thi công.
+      </p>
+
+      <ul class="mt-6 space-y-3 text-sm text-base-700">
+        <li>• Không phá vỡ kết cấu hiện tại</li>
+        <li>• Thi công nhanh trong 1–2 ngày</li>
+        <li>• Chi phí thấp hơn thay mới 60–80%</li>
+        <li>• Đa dạng vật liệu: gỗ, vải, kim loại</li>
+      </ul>
+    </div>
+
+    <div class="bg-base-200 rounded-2xl h-80"></div>
+
+  </div>
+
+</section>
+
+<!-- 🧩 SERVICES -->
+<section class="py-24 px-6 bg-base-100">
+
+  <div class="max-w-6xl mx-auto">
+
+    <h2 class="text-3xl font-light text-center">
+      Hạng mục thi công
+    </h2>
+
+    <p class="text-center text-base-500 mt-3">
+      Áp dụng cho mọi bề mặt nội thất phẳng và công trình
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
+
+      {services.map(s => (
+        <div class="bg-white border border-base-200 rounded-2xl p-6 hover:shadow-lg transition">
+
+          <h3 class="font-medium">{s}</h3>
+
+          <p class="text-sm text-base-600 mt-2">
+            Thi công film trang trí giúp làm mới bề mặt mà không cần thay mới nội thất.
+          </p>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🌿 MATERIAL SECTION -->
+<section class="py-24 px-6">
+
+  <div class="max-w-6xl mx-auto">
+
+    <h2 class="text-3xl font-light text-center">
+      Vật liệu sử dụng
+    </h2>
+
+    <div class="grid md:grid-cols-5 gap-4 mt-12 text-center">
+
+      {materials.map(m => (
+        <div class="p-4 border border-base-200 rounded-xl bg-white">
+          <p class="text-sm font-medium">{m}</p>
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🏛 CTA -->
+<section class="py-28 bg-base-900 text-white text-center px-6">
+
+  <h2 class="text-3xl font-light">
+    Bạn muốn làm mới không gian của mình?
+  </h2>
+
+  <p class="text-white/60 mt-4 max-w-xl mx-auto">
+    Gửi yêu cầu, chúng tôi sẽ tư vấn vật liệu + báo giá chi tiết theo công trình.
+  </p>
+
+  <a href="/lien-he"
+    class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-full">
+    Liên hệ ngay
+  </a>
+
+</section>
+
+</BaseLayout>
