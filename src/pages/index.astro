@@ -1,140 +1,207 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-// Dữ liệu dịch vụ
 const services = [
-  { title: "Dán film thang máy", desc: "Biến kim loại lạnh thành vật liệu nội thất sang trọng, xử lý hoàn hảo mọi góc cạnh." },
-  { title: "Dán film tủ bếp & tủ áo", desc: "Thay đổi màu sắc không gian bếp mà không cần thay mới, chống nước, chống dầu mỡ." },
-  { title: "Dán film kính văn phòng", desc: "Tăng tính riêng tư, tạo không gian làm việc chuyên nghiệp nhưng vẫn giữ ánh sáng tự nhiên." },
-  { title: "Dán nội thất Showroom", desc: "Cải tạo quầy lễ tân, kệ trưng bày cho các thương hiệu như Toyota, The Hive." }
+  { 
+    title: "Dán film thang máy", 
+    desc: "Biến kim loại lạnh thành vật liệu nội thất sang trọng, xử lý hoàn hảo mọi góc cạnh.",
+    image: "/images/service-elevator.webp" 
+  },
+  { 
+    title: "Dán film tủ bếp & tủ áo", 
+    desc: "Thay đổi màu sắc không gian bếp mà không cần thay mới, chống nước, chống dầu mỡ.",
+    image: "/images/service-kitchen.webp" 
+  },
+  { 
+    title: "Dán film kính văn phòng", 
+    desc: "Tăng tính riêng tư, tạo không gian làm việc chuyên nghiệp nhưng vẫn giữ ánh sáng tự nhiên.",
+    image: "/images/service-glass.webp" 
+  },
+  { 
+    title: "Dán nội thất Showroom", 
+    desc: "Cải tạo quầy lễ tân, kệ trưng bày cho các thương hiệu như Toyota, The Hive.",
+    image: "/images/service-showroom.webp" 
+  }
 ];
 
-// Dữ liệu dự án với ảnh thực tế
 const projects = [
-  { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi sáng", img: "/images/project-thang-may.webp" },
-  { title: "Văn phòng Tech", tag: "Infeel", style: "Kính mờ tối giản", img: "/images/project-van-phong.webp" },
-  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm", img: "/images/project-nha-pho.webp" }
+  { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi sáng tự nhiên", image: "/images/p1.webp" },
+  { title: "Văn phòng Tech", tag: "Infeel", style: "Kính mờ tối giản & hiện đại", image: "/images/p2.webp" },
+  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm sang trọng", image: "/images/p3.webp" }
+];
+
+const blogPosts = [
+  { 
+    title: "5 Lý do nên chọn Film dán thay vì sơn bệt", 
+    date: "15/04/2026", 
+    link: "#", 
+    image: "/images/blog-1.webp" 
+  },
+  { 
+    title: "Hướng dẫn tự dán film tại nhà đẹp như thợ", 
+    date: "10/04/2026", 
+    link: "#", 
+    image: "/images/blog-2.webp" 
+  }
+];
+
+const reasons = [
+  { icon: "💰", title: "Tiết kiệm 70% chi phí", desc: "So với việc thay mới nội thất gỗ hoặc đá tự nhiên." },
+  { icon: "✨", title: "Thi công sạch sẽ", desc: "Không mùi sơn, không bụi bặm, có thể ở ngay sau khi làm." },
+  { icon: "🛡️", title: "Độ bền vượt trội", desc: "Chống cháy lan, chống trầy xước và kháng ẩm mốc tuyệt đối." }
+];
+
+const steps = [
+  { icon: "📱", step: "Tiếp nhận", desc: "Tư vấn mẫu mã qua Zalo/Hotline hoặc tại công trình." },
+  { icon: "📏", step: "Khảo sát", desc: "Đo đạc thực tế và tư vấn loại vật liệu phù hợp." },
+  { icon: "📝", step: "Báo giá", desc: "Minh bạch chi phí vật tư và nhân công dán." },
+  { icon: "🛠️", step: "Thi công", desc: "Đảm bảo thẩm mỹ, xử lý kỹ mọi góc cạnh." },
+  { icon: "🤝", step: "Bảo hành", desc: "Cam kết hỗ trợ bong tróc từ 2-5 năm." }
 ];
 ---
 
-<BaseLayout title="Film Dán Nội Thất - Vật Liệu & Thi Công Chuyên Nghiệp">
+<BaseLayout title="Film Dán Nội Thất - Dịch Vụ Thi Công & Vật Tư Cao Cấp">
 
-<section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden bg-base-50">
-  <div class="absolute inset-0 opacity-10">
-    <img src="/images/hero-pattern.webp" alt="Vân film nội thất" class="w-full h-full object-cover" />
-  </div>
+<section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-base-50 to-base-100"></div>
   <div class="relative max-w-4xl text-center">
     <p class="text-xs tracking-[0.35em] text-base-500 uppercase">Interior Film Studio</p>
     <h1 class="mt-6 text-5xl md:text-7xl font-light leading-tight text-base-900">
       Vật liệu mới cho<br />
-      <span class="font-medium text-primary-500 italic text-4xl md:text-6xl text-right block md:inline">không gian cũ</span>
+      <span class="font-medium text-primary-500 italic">không gian cũ</span>
     </h1>
+    <p class="mt-6 text-base-600 max-w-xl mx-auto italic">
+      Thay diện mạo mới cho tủ bếp, bàn ghế, văn phòng tại TP.HCM & Bình Dương chỉ trong 24h — giữ nguyên cấu trúc, thay đổi cảm xúc không gian.
+    </p>
     <div class="mt-10 flex gap-4 justify-center">
-      <button class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full transition shadow-lg">Xem dự án</button>
-      <button class="border border-base-300 px-8 py-4 rounded-full hover:bg-white transition">Tư vấn vật liệu</button>
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full transition shadow-lg">
+        Xem mẫu Film
+      </button>
+      <button class="border border-base-300 px-8 py-3 rounded-full hover:bg-white transition">
+        Báo giá thi công
+      </button>
     </div>
   </div>
 </section>
 
-<section class="py-10 px-6 max-w-7xl mx-auto">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="space-y-4">
-      <img src="/images/detail-1.webp" alt="Cận cảnh vân gỗ" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
-      <img src="/images/detail-2.webp" alt="Thi công dán tủ" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
-    </div>
-    <div class="pt-8 space-y-4">
-      <img src="/images/detail-3.webp" alt="Bề mặt vân đá" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
-      <img src="/images/detail-4.webp" alt="Showroom Toyota" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
-    </div>
-    <div class="space-y-4">
-      <img src="/images/detail-5.webp" alt="Cửa thang máy" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
-      <img src="/images/detail-6.webp" alt="Văn phòng The Hive" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
-    </div>
-    <div class="pt-8 space-y-4">
-      <img src="/images/detail-7.webp" alt="Mẫu film màu đơn sắc" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
-      <img src="/images/detail-8.webp" alt="Kỹ thuật dán góc cạnh" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
-    </div>
-  </div>
-</section>
-
-<section class="py-24 px-6 bg-white">
+<section class="py-24 px-6 bg-base-100">
   <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-x-12 gap-y-12 items-center">
-      <div>
-        <h2 class="text-3xl font-light mb-8 italic text-primary-500">Giải pháp từ vật liệu bề mặt</h2>
-        <div class="grid gap-6">
-          {services.map(s => (
-            <div class="group border-l-2 border-base-100 pl-6 hover:border-primary-500 transition">
-              <h3 class="text-lg font-medium">{s.title}</h3>
-              <p class="text-base-500 mt-1 text-sm">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div class="relative">
-        <img src="/images/service-main.webp" alt="Thi công dán film chuyên nghiệp" class="rounded-3xl shadow-2xl" />
-        <div class="absolute -bottom-6 -left-6 bg-primary-500 text-white p-6 rounded-2xl hidden md:block">
-          <p class="text-2xl font-bold">10+</p>
-          <p class="text-xs uppercase tracking-widest">Năm kinh nghiệm</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-28 px-6 bg-base-50">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-20">
-      <h2 class="text-4xl font-light">Dự án thực tế</h2>
-      <p class="text-base-500 mt-4">Cảm nhận sự thay đổi từ những chi tiết nhỏ nhất</p>
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-light">Dịch vụ thi công chuyên nghiệp</h2>
+      <p class="text-base-500 mt-3 max-w-2xl mx-auto">Chuyên xử lý các bề mặt khó như góc cạnh tủ bếp, cửa thang máy với độ tỉ mỉ cao nhất.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {projects.map(p => (
-        <div class="group cursor-pointer">
-          <div class="overflow-hidden rounded-3xl mb-6 aspect-[4/5] relative">
-            <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-              <span class="bg-white text-black px-6 py-2 rounded-full text-sm font-medium">Chi tiết dự án</span>
-            </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      {services.map(s => (
+        <div class="group bg-white border border-base-200 rounded-3xl overflow-hidden hover:shadow-2xl transition duration-500">
+          <div class="aspect-video overflow-hidden">
+            <img src={s.image} alt={s.title} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
           </div>
-          <div class="flex items-center justify-between">
-            <h3 class="text-xl font-light">{p.title}</h3>
-            <span class="text-[10px] tracking-widest px-3 py-1 border border-base-300 rounded-full uppercase">{p.tag}</span>
+          <div class="p-8">
+            <h3 class="text-xl font-medium group-hover:text-primary-500 transition">{s.title}</h3>
+            <p class="text-base-600 mt-2 text-sm leading-relaxed">{s.desc}</p>
           </div>
-          <p class="text-sm text-base-400 mt-2">{p.style}</p>
         </div>
       ))}
     </div>
   </div>
 </section>
 
-<section class="py-24 px-6 max-w-5xl mx-auto text-center">
-  <h2 class="text-3xl font-light mb-12 italic">Sự lột xác của nội thất cũ</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="relative rounded-2xl overflow-hidden">
-        <img src="/images/before.webp" alt="Nội thất cũ" class="w-full h-80 object-cover" />
-        <span class="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 text-xs rounded">Trước</span>
+<section class="py-24 px-6 bg-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20">
+    <div>
+      <h2 class="text-3xl font-light mb-12 italic text-primary-500">Tại sao nên chọn Film dán?</h2>
+      <ul class="space-y-10">
+        {reasons.map((r, i) => (
+          <li class="flex gap-6">
+            <span class="text-3xl flex-shrink-0">{r.icon}</span>
+            <div>
+              <h4 class="font-medium text-lg text-base-900 mb-1">{r.title}</h4>
+              <p class="text-base-600 text-sm leading-relaxed">{r.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
-    <div class="relative rounded-2xl overflow-hidden">
-        <img src="/images/after.webp" alt="Nội thất mới dán film" class="w-full h-80 object-cover" />
-        <span class="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 text-xs rounded">Sau khi dán film</span>
+    <div class="bg-base-50 p-10 rounded-3xl">
+      <h2 class="text-3xl font-light mb-10 text-center">Quy trình làm việc</h2>
+      <div class="space-y-8">
+        {steps.map((s, i) => (
+          <div class="flex gap-5 items-center">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm text-xl italic font-serif">
+              {s.icon}
+            </div>
+            <div>
+              <p class="text-xs text-primary-500 font-bold uppercase tracking-widest">Bước {i+1}</p>
+              <h4 class="font-medium text-base-900">{s.step}</h4>
+              <p class="text-xs text-base-500 mt-1">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 px-6 bg-base-100">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 font-light">
+      <h2 class="text-3xl">Dự án tiêu biểu</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {projects.map(p => (
+        <div class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-xl transition group">
+          <div class="h-64 bg-base-200 overflow-hidden">
+             <img src={p.image} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-medium">{p.title}</h3>
+              <span class="text-[10px] tracking-widest px-2 py-1 rounded-full bg-base-50 uppercase">{p.tag}</span>
+            </div>
+            <p class="text-sm text-base-500 mt-2">{p.style}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="py-24 px-6 bg-white border-t border-base-200">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-end mb-14">
+        <h2 class="text-3xl font-light italic">Kiến thức & Xu hướng</h2>
+        <a href="#" class="text-sm text-primary-500 underline underline-offset-8">Xem tất cả bài viết</a>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12">
+      {blogPosts.map(post => (
+        <a href={post.link} class="group block">
+          <div class="aspect-video rounded-3xl overflow-hidden mb-6">
+            <img src={post.image} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+          </div>
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-xs text-base-400 font-medium">{post.date}</span>
+            <span class="text-[10px] font-bold text-primary-500 uppercase tracking-widest">Tin tức</span>
+          </div>
+          <h3 class="text-2xl font-light group-hover:text-primary-500 transition leading-snug">{post.title}</h3>
+          <p class="mt-4 text-primary-500 font-bold text-sm flex items-center gap-2"> ĐỌC THÊM <span class="group-hover:translate-x-2 transition">→</span></p>
+        </a>
+      ))}
     </div>
   </div>
 </section>
 
 <section class="py-32 bg-base-900 text-white text-center px-6 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-20">
-    <img src="/images/cta-bg.webp" alt="Background vật liệu" class="w-full h-full object-cover" />
-  </div>
   <div class="relative z-10">
-    <h2 class="text-4xl font-light">Bắt đầu không gian mới ngay hôm nay</h2>
-    <p class="text-white/60 mt-6 max-w-xl mx-auto text-sm leading-relaxed">
-      Chúng tôi cung cấp vật liệu và giải pháp thi công dán film nội thất chuyên nghiệp cho mọi công trình tại TP.HCM & Bình Dương.
+    <h2 class="text-4xl font-light">Biến không gian của bạn thành trải nghiệm mới</h2>
+    <p class="text-white/60 mt-6 max-w-xl mx-auto leading-relaxed text-sm">
+      Tư vấn giải pháp film nội thất phù hợp cho từng loại công trình tại TP.HCM & Bình Dương. Nhận ngay bộ mẫu film thực tế tại nhà.
     </p>
-    <button class="mt-10 bg-primary-500 text-white px-10 py-4 rounded-full hover:bg-white hover:text-black transition-all font-bold">
-      Liên hệ báo giá
-    </button>
+    <div class="mt-10">
+      <button class="bg-white text-black px-12 py-4 rounded-full hover:bg-primary-500 hover:text-white transition font-bold shadow-xl">
+        Chat Zalo báo giá ngay
+      </button>
+    </div>
   </div>
 </section>
 
