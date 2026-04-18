@@ -1,1 +1,115 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const kitchenBenefits = [
+  { 
+    title: "Chống ẩm & Chống thấm", 
+    desc: "Lớp film PVC cao cấp ngăn nước thấm vào cốt gỗ, bảo vệ tủ bếp khỏi ẩm mốc và bong tróc.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5" /></svg>`
+  },
+  { 
+    title: "Chịu nhiệt & Chống cháy", 
+    desc: "Chịu được nhiệt độ cao từ bếp nấu, không bị co ngót hay biến dạng trong quá trình sử dụng.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0120 13a7.99 7.99 0 01-2.343 5.657z" /></svg>`
+  },
+  { 
+    title: "Dễ dàng vệ sinh", 
+    desc: "Bề mặt film chống bám dầu mỡ, chỉ cần lau nhẹ bằng khăn ẩm là sạch như mới.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>`
+  }
+];
+
+const gallery = [
+  { src: "/images/projects/tu-bep-truoc.jpg", label: "Hiện trạng cũ" },
+  { src: "/images/projects/tu-bep-sau.jpg", label: "Sau khi dán Film" }
+];
+---
+
+<BaseLayout 
+  title="Dịch Vụ Dán Film Nội Thất Tủ Bếp - Làm Mới Không Gian Bếp Trong Ngày"
+  description="iDecal chuyên dán film trang trí tủ bếp tại TP.HCM & Bình Dương. Giải pháp cải tạo tủ bếp cũ, bong tróc bằng film vân gỗ, vân đá cao cấp, thi công nhanh gọn."
+>
+
+  <section class="py-24 px-6 bg-base-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-light mb-6 italic leading-tight">Cải tạo <span class="font-medium text-base-900">Tủ Bếp</span> cũ thành mới</h1>
+        <p class="text-base-500 text-lg mb-10 leading-relaxed">
+          Tiết kiệm đến 80% chi phí so với thay mới. Với Film nội thất cao cấp từ Hàn Quốc, chúng tôi giúp tủ bếp nhà bạn sở hữu diện mạo sang trọng, chống thấm và chịu nhiệt tuyệt đối.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://zalo.me/0866077040" class="bg-primary-500 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-primary-600 transition-all">Nhận báo giá qua Zalo</a>
+        </div>
+      </div>
+      <div class="relative group">
+        <div class="aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+          <img src="/images/services/dan-film-tu-bep-cover.jpg" alt="Dán film tủ bếp chuyên nghiệp" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl hidden md:block border border-base-100">
+          <p class="text-primary-500 font-bold text-2xl">Thi công nhanh</p>
+          <p class="text-base-400 text-sm">Hoàn thiện trong 6 - 8 tiếng</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-light italic mb-4 text-base-900">Tại sao nên dán Film cho tủ bếp?</h2>
+        <div class="w-20 h-1 bg-primary-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {kitchenBenefits.map(b => (
+          <div class="p-10 rounded-[2rem] bg-base-50 border border-transparent hover:border-primary-200 hover:bg-white hover:shadow-xl transition-all duration-500">
+            <div class="text-primary-500 mb-6" set:html={b.icon} />
+            <h3 class="font-bold text-xl text-base-900 mb-4">{b.title}</h3>
+            <p class="text-sm text-base-500 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-base-900 text-white rounded-[4rem] mx-4 mb-24">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-light italic text-center mb-16">Sự khác biệt <span class="font-medium">Trước & Sau</span></h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {gallery.map(item => (
+          <div class="space-y-4">
+            <div class="aspect-video rounded-3xl overflow-hidden border-2 border-white/10">
+              <img src={item.src} alt={item.label} class="w-full h-full object-cover" />
+            </div>
+            <p class="text-center font-bold text-white/50 uppercase tracking-widest text-xs">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h2 class="text-3xl font-bold text-base-900">Dịch vụ chuyên nghiệp tại TP.HCM</h2>
+          <p class="text-base-500 leading-relaxed">
+            Chúng tôi hiểu rằng tủ bếp là trái tim của ngôi nhà. Với kinh nghiệm thi công hàng trăm công trình tại <strong>Quận 7, Quận 12, Thủ Đức và Bình Dương</strong>, iDecal cam kết:
+          </p>
+          <ul class="space-y-3 text-sm text-base-600">
+            <li class="flex items-center gap-2">✅ Film nội thất nhập khẩu 100% Hàn Quốc</li>
+            <li class="flex items-center gap-2">✅ Thợ tay nghề cao, xử lý mí cắt cực đẹp</li>
+            <li class="flex items-center gap-2">✅ Vệ sinh sạch sẽ trước và sau thi công</li>
+            <li class="flex items-center gap-2">✅ Bảo hành bong tróc lên đến 2 năm</li>
+          </ul>
+        </div>
+        <div class="bg-primary-50 p-8 rounded-[3rem] text-center border border-primary-100">
+          <p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-xs">Liên hệ khảo sát</p>
+          <h3 class="text-2xl font-bold text-base-900 mb-6">Bạn cần báo giá chính xác?</h3>
+          <p class="text-sm text-base-500 mb-8 italic">Hãy gửi ảnh tủ bếp hiện tại của bạn, chúng tôi sẽ báo giá sơ bộ trong 5 phút.</p>
+          <a href="https://zalo.me/0866077040" class="block bg-primary-500 text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-primary-600 transition-all">Gửi ảnh qua Zalo ngay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
