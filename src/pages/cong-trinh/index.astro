@@ -42,24 +42,43 @@ const categories = ["Tất cả", "Căn hộ", "Văn phòng", "Thương mại"];
 
 <BaseLayout 
   title="Công Trình Thực Tế - Hình Ảnh Thi Công Tại iDecal"
-  description="Xem các dự án dán film nội thất thực tế tại TP.HCM và Bình Dương. Hình ảnh trước và sau khi thi công tủ bếp, thang máy, văn phòng từ đội ngũ iDecal."
+  description="Xem các dự án dán film nội thất thực tế tại TP.HCM và Bình Dương. Hình ảnh từ công trường iDecal."
 >
+  <script is:inline src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <section class="py-20 px-6 bg-base-50">
     <div class="max-w-7xl mx-auto text-center">
       <h1 class="text-4xl md:text-6xl font-light mb-6 italic">Công trình <span class="font-medium">Thực tế</span></h1>
-      <p class="text-base-500 max-w-2xl mx-auto text-lg">
+      <p class="text-base-500 max-w-2xl mx-auto text-lg leading-relaxed">
         Chứng thực chất lượng qua hàng trăm dự án đã hoàn thiện. Chúng tôi nói không với ảnh mạng, 100% hình ảnh từ công trường.
       </p>
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-white">
+  <section class="py-16 px-6 bg-white" x-data="{ activeTab: 'Tất cả' }">
     <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        {categories.map((cat) => (
+          <button 
+            class="px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 border shadow-sm"
+            :class={`activeTab === '${cat}' ? 'bg-primary-500 border-primary-500 text-white shadow-primary-200' : 'bg-white border-base-100 text-base-400 hover:border-primary-500 hover:text-primary-500'`}
+            @click={`activeTab = '${cat}'`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         {projects.map((item) => (
-          <div class="group cursor-pointer">
+          <div 
+            class="group cursor-pointer transition-all duration-500"
+            x-show={`activeTab === 'Tất cả' || activeTab === '${item.category}'`}
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-95"
+            x-transition:enter-end="opacity-100 transform scale-100"
+          >
             <div class="aspect-video rounded-[2rem] overflow-hidden mb-8 bg-base-100 shadow-sm border border-base-100 group-hover:shadow-2xl transition-all duration-500">
               <img 
                 src={item.image} 
@@ -106,5 +125,4 @@ const categories = ["Tất cả", "Căn hộ", "Văn phòng", "Thương mại"];
       </div>
     </div>
   </section>
-
 </BaseLayout>
