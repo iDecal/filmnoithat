@@ -29,10 +29,23 @@ const metalProducts = [
   }
 ];
 
+// Thêm icon cho từng tính năng
 const features = [
-  { title: "Chống vân tay", detail: "Lớp phủ đặc biệt giúp bề mặt kim loại luôn sạch sẽ." },
-  { title: "Chịu nhiệt tốt", detail: "Phù hợp dán các thiết bị tỏa nhiệt như tủ lạnh, lò nướng." },
-  { title: "Trọng lượng nhẹ", detail: "Tạo vẻ ngoài kim loại thật mà không gây nặng tải cho công trình." }
+  { 
+    title: "Chống vân tay", 
+    detail: "Lớp phủ đặc biệt giúp bề mặt kim loại luôn sạch sẽ.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5a1.5 1.5 0 013 0v1.5m-3 0h3" /></svg>`
+  },
+  { 
+    title: "Chịu nhiệt tốt", 
+    detail: "Phù hợp dán các thiết bị tỏa nhiệt như tủ lạnh, lò nướng.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0120 13a7.99 7.99 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14l.879 2.121z" /></svg>`
+  },
+  { 
+    title: "Trọng lượng nhẹ", 
+    detail: "Tạo vẻ ngoài kim loại thật mà không gây nặng tải cho công trình.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>`
+  }
 ];
 ---
 
@@ -41,24 +54,25 @@ const features = [
   description="Bộ sưu tập film dán vân kim loại: Inox xước, titan, đồng, nhôm xước chính hãng Toda, Infeel. Chuyên dụng dán cabin thang máy, tủ lạnh tại TP.HCM & Bình Dương."
 >
 
-  <section class="py-20 px-6 bg-base-900 text-white relative overflow-hidden">
+  <section class="py-24 px-6 bg-base-900 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-20">
       <img src="/images/blog/cong-trinh-dan-film-noi-that-van-kim-loai.jpg" class="w-full h-full object-cover" alt="Background vân kim loại" />
     </div>
     <div class="relative z-10 max-w-5xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-light mb-6 italic">Vân <span class="font-medium">Kim Loại</span></h1>
-      <p class="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed">
+      <h1 class="text-4xl md:text-7xl font-light mb-6 italic tracking-tight">Vân <span class="font-medium">Kim Loại</span></h1>
+      <p class="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed font-light">
         Mang lại vẻ đẹp công nghiệp, hiện đại và sang trọng của kim loại thật lên mọi bề mặt nội thất với chi phí tối ưu nhất.
       </p>
     </div>
   </section>
 
-  <section class="py-16 px-6 bg-base-50">
+  <section class="py-20 px-6 bg-base-50">
     <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
       {features.map(f => (
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-base-100">
-          <h3 class="font-bold text-primary-500 mb-2 uppercase text-xs tracking-widest">{f.title}</h3>
-          <p class="text-sm text-base-500">{f.detail}</p>
+        <div class="bg-white p-10 rounded-3xl shadow-sm border border-base-100 hover:shadow-xl transition-all duration-500">
+          <div class="text-primary-500 mb-6" set:html={f.icon} />
+          <h3 class="font-bold text-base-900 mb-3 text-lg uppercase tracking-wider">{f.title}</h3>
+          <p class="text-sm text-base-500 leading-relaxed">{f.detail}</p>
         </div>
       ))}
     </div>
@@ -69,10 +83,10 @@ const features = [
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         {metalProducts.map(item => (
           <div class="group">
-            <div class="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-base-100 shadow-sm group-hover:shadow-2xl transition duration-500">
+            <div class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-base-100 shadow-sm group-hover:shadow-2xl transition duration-700">
               <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
             </div>
-            <p class="text-[10px] font-bold text-primary-500 uppercase mb-2">{item.brand}</p>
+            <p class="text-[10px] font-bold text-primary-500 uppercase mb-2 tracking-widest">{item.brand}</p>
             <h2 class="text-lg font-bold text-base-900 mb-2 group-hover:text-primary-500 transition">{item.name}</h2>
             <p class="text-xs text-base-500 leading-relaxed line-clamp-2">{item.desc}</p>
           </div>
@@ -81,17 +95,27 @@ const features = [
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-base-50 rounded-[3rem] mx-4 mb-24">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-light italic mb-12">Ứng dụng <span class="font-medium text-base-900">Thực tế</span></h2>
-      <div class="grid md:grid-cols-2 gap-12 text-left text-sm leading-relaxed text-base-600">
-        <div class="bg-white p-6 rounded-xl">
-          <h4 class="font-bold text-base-900 mb-2">Dán cabin thang máy</h4>
-          <p>Thay vì thay mới tấm inox đắt tiền, dán film kim loại giúp che phủ các vết trầy xước cũ, làm mới thang máy chỉ trong 4-6 tiếng thi công.</p>
+  <section class="py-24 px-6 bg-base-50 rounded-[4rem] mx-4 mb-24">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-light italic mb-16 text-center">Ứng dụng <span class="font-medium text-base-900">Thực tế</span></h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-3xl flex gap-6 items-start shadow-sm border border-base-100">
+          <div class="bg-primary-50 p-4 rounded-2xl text-primary-500 shrink-0">
+             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl text-base-900 mb-3">Dán cabin thang máy</h4>
+            <p class="text-sm text-base-500 leading-relaxed">Thay vì thay mới tấm inox đắt tiền, dán film kim loại giúp che phủ các vết trầy xước cũ, làm mới thang máy chỉ trong 4-6 tiếng thi công.</p>
+          </div>
         </div>
-        <div class="bg-white p-6 rounded-xl">
-          <h4 class="font-bold text-base-900 mb-2">Cải tạo đồ gia dụng</h4>
-          <p>Làm mới tủ lạnh, máy giặt cũ bằng vân nhôm xước hoặc titan, giúp thiết bị cũ trở nên hiện đại và đồng bộ với không gian bếp mới.</p>
+        <div class="bg-white p-8 rounded-3xl flex gap-6 items-start shadow-sm border border-base-100">
+          <div class="bg-primary-50 p-4 rounded-2xl text-primary-500 shrink-0">
+             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl text-base-900 mb-3">Cải tạo đồ gia dụng</h4>
+            <p class="text-sm text-base-500 leading-relaxed">Làm mới tủ lạnh, máy giặt cũ bằng vân nhôm xước hoặc titan, giúp thiết bị cũ trở nên hiện đại và đồng bộ với không gian bếp mới.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -99,10 +123,13 @@ const features = [
 
   <section class="pb-24 px-6 text-center">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-light mb-8 italic">Bạn cần xem mẫu vân kim loại trực tiếp?</h2>
-      <a href="https://zalo.me/0866077040" class="inline-block bg-primary-500 text-white px-12 py-5 rounded-full font-bold shadow-xl hover:bg-primary-600 transition-all">
-        Gửi bảng mã màu qua Zalo
-      </a>
+      <div class="bg-primary-500 p-12 rounded-[3rem] text-white shadow-2xl shadow-primary-200">
+        <h2 class="text-3xl font-bold mb-6">Bạn cần xem mẫu vân kim loại trực tiếp?</h2>
+        <p class="mb-10 text-white/80">iDecal hỗ trợ mang mẫu khảo sát tận nơi tại TP.HCM & Bình Dương trong vòng 24h.</p>
+        <a href="https://zalo.me/0866077040" class="inline-block bg-white text-primary-500 px-12 py-5 rounded-full font-bold shadow-xl hover:scale-105 transition-all">
+          Gửi bảng mã màu qua Zalo
+        </a>
+      </div>
     </div>
   </section>
 
