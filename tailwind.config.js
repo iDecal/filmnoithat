@@ -4,21 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Đổi mã màu ở đây, toàn bộ web sẽ đổi theo
+        // ĐEN: Dùng cho tiêu đề và chữ chính để cực kỳ rõ nét
         'primary': {
-          50: '#f0f7ff',
-          600: '#0066cc', // Màu xanh thương hiệu chính
-          900: '#004d99', // Màu xanh đậm heading
+          900: '#1a1a1a', // Đen than (Rich Black)
+          800: '#333333',
         },
+        // VÀNG: Điểm nhấn thương hiệu, nút bấm
         'accent': {
-          500: '#ffc107', // Màu vàng icon/button
+          500: '#fbbf24', // Vàng ấm (Amber)
+          600: '#f59e0b',
+        },
+        // XANH NHẸ: Dùng làm màu nền section, khối nội dung (giúp web thanh thoát)
+        'secondary': {
+          50: '#f0f9ff',  // Xanh da trời cực nhẹ (Sky blue tint)
+          100: '#e0f2fe',
+          600: '#0ea5e9', // Xanh để dùng cho icon hoặc link
         }
-      },
-      fontFamily: {
-        // Đổi tên font ở đây để áp dụng cho toàn web
-        'sans': ['Inter', 'Roboto', 'sans-serif'], 
-        'heading': ['Montserrat', 'sans-serif'],
-      },
+      }
     },
   },
   plugins: [],
