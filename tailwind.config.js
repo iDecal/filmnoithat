@@ -1,28 +1,25 @@
+/** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{astro,html,js,ts}"],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
-        base: {
-          50: "#f8faf9",
-          100: "#eef2f0",
-          200: "#dfe7e3",
-          300: "#c8d3cd",
-          400: "#a9b8b0",
-          500: "#7f9289",
-          600: "#5f726a",
-          700: "#44534d",
-          800: "#2c3733",
-          900: "#141b19"
+        // Đổi mã màu ở đây, toàn bộ web sẽ đổi theo
+        'primary': {
+          50: '#f0f7ff',
+          600: '#0066cc', // Màu xanh thương hiệu chính
+          900: '#004d99', // Màu xanh đậm heading
         },
-        primary: {
-          500: "#2c6e6a"
-        },
-        accent: {
-          500: "#b08d57"
+        'accent': {
+          500: '#ffc107', // Màu vàng icon/button
         }
-      }
-    }
+      },
+      fontFamily: {
+        // Đổi tên font ở đây để áp dụng cho toàn web
+        'sans': ['Inter', 'Roboto', 'sans-serif'], 
+        'heading': ['Montserrat', 'sans-serif'],
+      },
+    },
   },
-  plugins: []
-};
+  plugins: [],
+}
