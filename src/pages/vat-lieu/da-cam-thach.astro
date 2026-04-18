@@ -1,1 +1,145 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
+// Dữ liệu sản phẩm giả đá (Marble & Stone)
+const stoneProducts = [
+  { 
+    brand: 'Infeel', 
+    name: "Marble Trắng Volakas - vân mây", 
+    desc: "Vân mây xám nhẹ trên nền trắng tinh khiết, lựa chọn số 1 cho bàn ăn và vách tivi.", 
+    image: "/images/vat-lieu/gia-da/marble-volakas.jpg",
+    tags: ["Sang trọng", "Best Seller"]
+  },
+  { 
+    brand: 'Toda', 
+    name: "Đá Granite Đen Kim Sa", 
+    desc: "Hiệu ứng ánh kim lấp lánh trên nền đen huyền bí, cực kỳ bền màu cho khu vực bếp.", 
+    image: "/images/vat-lieu/gia-da/granite-den.jpg",
+    tags: ["Chống trầy"]
+  },
+  { 
+    brand: 'Coance', 
+    name: "Đá Marble Nâu Tây Ban Nha", 
+    desc: "Tông màu ấm với các đường vân tia chớp mạnh mẽ, tạo điểm nhấn đẳng cấp cho quầy bar.", 
+    image: "/images/vat-lieu/gia-da/marble-brown.jpg",
+    tags: ["Cổ điển"]
+  },
+  { 
+    brand: 'Infeel', 
+    name: "Đá Terrazzo Hiện Đại", 
+    desc: "Họa tiết đá mài trẻ trung, phù hợp cho các không gian cafe, studio sáng tạo.", 
+    image: "/images/vat-lieu/gia-da/terrazzo.jpg",
+    tags: ["Modern"]
+  }
+];
+
+const stoneFeatures = [
+  { 
+    title: "Vân đá 3D siêu thực", 
+    detail: "Bề mặt được in dập nổi kỹ thuật số, mang lại cảm giác mát lạnh và vân chạm như đá thật.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zM9 12l2 2 4-4" /></svg>`
+  },
+  { 
+    title: "Chống thấm & ố vàng", 
+    detail: "Khác với đá tự nhiên dễ bị thấm trà, cà phê; film giả đá kháng hoàn toàn mọi vết bẩn.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5" /></svg>`
+  },
+  { 
+    title: "Thi công không bụi", 
+    detail: "Dán trực tiếp lên bề mặt cũ (gỗ, nhựa, đá hỏng), không cần tháo dỡ hay dùng máy cắt đá bụi bặm.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`
+  }
+];
+---
+
+<BaseLayout 
+  title="Film Dán Nội Thất Giả Đá - Marble & Granite Cao Cấp | iDecal"
+  description="Bộ sưu tập Film dán nội thất vân đá Marble, Granite từ Hàn Quốc. Giải pháp cải tạo mặt bàn, vách tivi, thang máy giả đá sang trọng, chống thấm tuyệt đối tại TP.HCM."
+>
+
+  <section class="py-24 px-6 bg-base-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <img src="/images/vat-lieu/gia-da/bg-marble-luxury.jpg" class="w-full h-full object-cover" alt="Background vân đá sang trọng" />
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-light mb-6 italic">Vân <span class="font-medium">Giả Đá</span></h1>
+      <p class="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed font-light">
+        Sở hữu vẻ đẹp vĩnh cửu của đá Marble và Granite mà không cần lo lắng về tải trọng hay chi phí bảo trì đắt đỏ.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-base-50">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      {stoneFeatures.map(f => (
+        <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-base-100 hover:shadow-2xl transition-all duration-500">
+          <div class="text-primary-500 mb-6" set:html={f.icon} />
+          <h3 class="font-bold text-base-900 mb-3 text-lg">{f.title}</h3>
+          <p class="text-sm text-base-500 leading-relaxed">{f.detail}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex justify-between items-center mb-16">
+        <h2 class="text-3xl font-light italic">Mã màu <span class="font-medium">Nổi bật</span></h2>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-base-300">Bộ sưu tập 2026</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        {stoneProducts.map(item => (
+          <div class="group">
+            <div class="aspect-square rounded-[2.5rem] overflow-hidden mb-6 bg-base-100 shadow-sm group-hover:shadow-2xl transition duration-500 relative">
+              <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+              <div class="absolute top-4 left-4 flex gap-2">
+                {item.tags.map(tag => (
+                  <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-bold uppercase text-base-900 shadow-sm">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div class="px-2">
+               <p class="text-[10px] font-bold text-primary-500 uppercase mb-2 tracking-widest">{item.brand}</p>
+               <h3 class="text-xl font-bold text-base-900 mb-2 group-hover:text-primary-500 transition">{item.name}</h3>
+               <p class="text-sm text-base-400 leading-relaxed line-clamp-2 italic">"{item.desc}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-base-900 text-white rounded-[4rem] mx-4 mb-24">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl font-light italic mb-8 italic">Tại sao nên dùng Film giả đá để <span class="text-primary-500 font-medium">Cải tạo mặt bàn?</span></h2>
+        <div class="space-y-8">
+          <div class="flex gap-4">
+            <div class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2.5 shrink-0"></div>
+            <p class="text-white/70 leading-relaxed"><strong class="text-white">Kháng khuẩn & An toàn:</strong> Bề mặt film đạt chứng chỉ thân thiện môi trường, an toàn khi tiếp xúc trực tiếp với thực phẩm trên bàn ăn.</p>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2.5 shrink-0"></div>
+            <p class="text-white/70 leading-relaxed"><strong class="text-white">Không để lại vết ố:</strong> Các bề mặt đá thật như Carrara rất dễ bị ố bởi rượu vang hay nước mắm. Film nội thất giải quyết triệt để vấn đề này.</p>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2.5 shrink-0"></div>
+            <p class="text-white/70 leading-relaxed"><strong class="text-white">Dễ dàng thay đổi:</strong> Sau vài năm, nếu bạn muốn đổi phong cách sang vân gỗ hay kim loại, việc lột bỏ và dán mới cực kỳ đơn giản.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white/5 rounded-3xl p-8 border border-white/10">
+        <h4 class="font-bold text-xl mb-6 text-center">Ứng dụng phổ biến</h4>
+        <ul class="space-y-4">
+          <li class="flex justify-between border-b border-white/10 pb-2"><span>Dán mặt bàn ăn, bàn trà</span> <span class="text-primary-500">✓</span></li>
+          <li class="flex justify-between border-b border-white/10 pb-2"><span>Dán vách tivi, đầu giường</span> <span class="text-primary-500">✓</span></li>
+          <li class="flex justify-between border-b border-white/10 pb-2"><span>Dán cabin thang máy</span> <span class="text-primary-500">✓</span></li>
+          <li class="flex justify-between border-b border-white/10 pb-2"><span>Dán tủ bếp & Lavabo</span> <span class="text-primary-500">✓</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24 px-6 text-center">
+    <div class="max
