@@ -14,14 +14,14 @@ const materials = [
 ];
 ---
 
-<BaseLayout 
-  title="Tổng Kho Film Dán Nội Thất - Đầy Đủ Các Loại Vân Cao Cấp" 
+<BaseLayout
+  title="Tổng Kho Film Dán Nội Thất - Đầy Đủ Các Loại Vân Cao Cấp"
   description="Khám phá bộ sưu tập film dán nội thất đa dạng: vân gỗ, vân đá, bê tông, kim loại. Vật liệu chính hãng, độ bền trên 10 năm, thi công tại TP.HCM & Bình Dương."
 >
-  
+
   <section class="py-20 px-6 bg-base-50">
     <div class="max-w-7xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-light mb-6 italic">Bộ sưu tập <span class="font-medium">Vật Liệu</span></h1>
+      <h1 class="text-4xl md:text-6xl font-semibold mb-6 not-italic">Bộ sưu tập <span class="font-medium">Vật Liệu</span></h1>
       <p class="text-base-500 max-w-2xl mx-auto text-lg">
         Chúng tôi cung cấp hơn 1000+ mẫu film dán kiến trúc với bề mặt mô phỏng chân thực, đáp ứng mọi phong cách thiết kế từ cổ điển đến công nghiệp.
       </p>
@@ -34,22 +34,22 @@ const materials = [
         {materials.map((item) => (
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-base-100 shadow-sm group-hover:shadow-2xl transition-all duration-500">
-              <img 
-                src={item.image} 
-                alt={`Film dán nội thất ${item.name}`} 
+              <img
+                src={item.image}
+                alt={`Film dán nội thất ${item.name}`}
                 class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                 loading="lazy"
               />
             </div>
-            
+
             <h2 class="text-xl font-bold text-base-900 mb-3 group-hover:text-primary-500 transition">
               {item.name}
             </h2>
             <p class="text-sm text-base-500 leading-relaxed mb-4 line-clamp-3">
               {item.desc}
             </p>
-            
-            <a href={`/vat-lieu/${item.id}`} class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary-500 border-b border-primary-500 pb-1 inline-block hover:bg-primary-500 hover:text-white hover:px-2 transition-all">
+
+            <a href={`/vat-lieu/${item.id}`} class="text-xs font-bold tracking-[0.2em] uppercase text-primary-500 border-b border-primary-500 pb-1 inline-block hover:bg-primary-500 hover:text-white hover:px-2 transition-all">
               Xem chi tiết
             </a>
           </div>
@@ -60,8 +60,8 @@ const materials = [
 
   <section class="py-24 px-6 bg-base-900 text-white rounded-[3rem] mx-4 md:mx-10 mb-24">
     <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-light italic mb-8 text-center text-white/90">Tại sao nên chọn Film dán thay vì vật liệu truyền thống?</h3>
-      <div class="grid md:grid-cols-2 gap-12 text-sm text-white/60">
+      <h3 class="text-3xl font-semibold not-italic mb-8 text-center text-white/90">Tại sao nên chọn Film dán thay vì vật liệu truyền thống?</h3>
+      <div class="grid md:grid-cols-2 gap-12 text-sm text-white/80">
         <div class="space-y-4">
           <p class="text-white font-medium">1. Khả năng kháng khuẩn & chống mốc</p>
           <p>Film nội thất cao cấp có lớp phủ nano giúp ngăn chặn vi khuẩn và nấm mốc, cực kỳ an toàn cho tủ bếp và môi trường có độ ẩm cao.</p>
@@ -84,8 +84,8 @@ const materials = [
 
   <section class="pb-24 px-6 text-center">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-light mb-8">Bạn chưa tìm thấy mẫu ưng ý?</h2>
-      <p class="text-base-500 mb-10 italic">
+      <h2 class="text-3xl font-semibold mb-8">Bạn chưa tìm thấy mẫu ưng ý?</h2>
+      <p class="text-base-500 mb-10 not-italic">
         Chúng tôi có catalog với hơn 1000 mẫu vân thực tế tại văn phòng. Hãy để kỹ thuật viên mang mẫu đến tận nhà tư vấn cho bạn.
       </p>
       <a href="https://zalo.me/0866077040" class="inline-block bg-primary-500 text-white px-12 py-5 rounded-full font-bold shadow-xl hover:bg-primary-600 transition-all scale-100 hover:scale-105">

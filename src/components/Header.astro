@@ -5,7 +5,7 @@ const nav = [
     href: "/dich-vu/dan-film-noi-that",
     children: [
       { label: "Tổng quan dịch vụ", href: "/dich-vu/dan-film-noi-that" },
-      { label: "Dán film bàn & kệ", href: "/dich-vu/ban-ke" },
+      { label: "Dán film bàn & kệ", href: "/dich-vu/dan-film-ban" },
       { label: "Dán film tủ bếp", href: "/dich-vu/dan-film-tu-bep" },
       { label: "Dán film tường & trần", href: "/dich-vu/dan-film-tran" },
       { label: "Dán film thang máy", href: "/dich-vu/dan-film-thang-may" }
@@ -47,135 +47,73 @@ const nav = [
 ];
 ---
 
-<header class="w-full bg-white border-b sticky top-0 z-50">
-
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-
-    <!-- LOGO -->
-    <a href="/" class="flex items-center gap-2">
-      <!-- có thể thay bằng img -->
-      <span class="text-xl font-light tracking-wide">
-        Film Nội Thất
+<header class="site-header sticky top-0 z-50 border-b border-base-200 bg-white/95 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+    <a href="/" class="flex items-center gap-3 shrink-0" aria-label="Film Nội Thất — Trang chủ">
+      <span class="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-500 text-white" aria-hidden="true">
+        <svg width="27" height="27" viewBox="0 0 28 28" fill="none"><path d="M5 22V6h18M5 14h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m15 22 8-8v8h-8Z" fill="currentColor" opacity=".55"/></svg>
+      </span>
+      <span>
+        <span class="block text-base font-semibold text-base-900 leading-snug">Film Nội Thất</span>
+        <span class="block text-xs text-base-500 mt-1">Vật liệu & thi công</span>
       </span>
     </a>
 
-    <!-- DESKTOP MENU -->
-    <nav class="hidden md:flex items-center gap-8">
-
-      {nav.map((item) => (
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="Điều hướng chính">
+      {nav.map(item => (
         <div class="relative group">
-
-          <a
-            href={item.href}
-            class="flex items-center gap-1 py-2 hover:text-orange-600 transition"
-          >
+          <a href={item.href} class="flex items-center gap-1 py-3 hover:text-primary-500 transition-colors">
             {item.label}
-            {item.children && <span class="text-xs">▾</span>}
+            {item.children && <span aria-hidden="true" class="text-base-400">⌄</span>}
           </a>
-
           {item.children && (
-            <div
-              class="absolute left-0 top-full w-56 opacity-0 invisible
-                     group-hover:opacity-100 group-hover:visible
-                     transition-all duration-200 z-50"
-            >
-              <div class="h-3"></div>
-
-              <div class="bg-white border rounded-xl shadow-lg overflow-hidden">
-
-                {item.children.map((child) => (
-                  <a
-                    href={child.href}
-                    class="block px-4 py-2 text-sm hover:bg-gray-100"
-                  >
-                    {child.label}
-                  </a>
-                ))}
-
+            <div class="absolute left-0 top-full w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150">
+              <div class="bg-white border border-base-200 rounded-2xl shadow-lg p-2">
+                {item.children.map(child => <a href={child.href} class="block px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-600">{child.label}</a>)}
               </div>
             </div>
           )}
-
         </div>
       ))}
-
-      <!-- 🔥 NÚT NHẬN BÁO GIÁ DESKTOP -->
-      <a
-        href="/lien-he"
-        class="ml-4 bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition"
-      >
-        Nhận báo giá
-      </a>
-
+      <a href="/lien-he" class="button-primary">Nhận tư vấn</a>
     </nav>
 
-    <!-- MOBILE BUTTON -->
-    <button
-      id="menuBtn"
-      class="md:hidden text-3xl transition"
-      aria-label="Toggle menu"
-    >
-      ☰
-    </button>
-
+    <button id="menuBtn" class="lg:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
   </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden md:hidden border-t bg-white">
-
-    <div class="px-6 py-4 space-y-2">
-
-      {nav.map((item) => (
-        <details class="border-b pb-2">
-
-          <summary class="py-3 flex justify-between items-center cursor-pointer text-xl font-medium">
-            {item.label}
-            {item.children && <span>+</span>}
-          </summary>
-
-          {item.children ? (
-            <div class="pl-4 pb-2 space-y-2 text-sm text-gray-600">
-              {item.children.map((child) => (
-                <a href={child.href} class="block py-1">
-                  {child.label}
-                </a>
-              ))}
-            </div>
-          ) : (
-            <a href={item.href} class="block py-2 text-sm">
-              Đi tới {item.label}
-            </a>
-          )}
-
+  <nav id="mobileMenu" class="hidden lg:hidden border-t border-base-200 bg-white max-h-[75vh] overflow-y-auto" aria-label="Điều hướng trên điện thoại">
+    <div class="max-w-7xl mx-auto px-6 py-4 space-y-2">
+      {nav.map(item => item.children ? (
+        <details class="border-b border-base-200 pb-2">
+          <summary class="py-3 cursor-pointer font-medium">{item.label}</summary>
+          <div class="pl-4 pb-2 space-y-1 text-sm text-base-600">
+            {item.children.map(child => <a href={child.href} class="block py-3 hover:text-primary-500">{child.label}</a>)}
+          </div>
         </details>
-      ))}
-
-      <!-- CTA MOBILE -->
-      <a
-        href="/lien-he"
-        class="block text-center bg-orange-600 text-white py-3 rounded-xl mt-4"
-      >
-        Nhận báo giá
-      </a>
-
+      ) : <a href={item.href} class="block py-3 border-b border-base-200 font-medium">{item.label}</a>)}
+      <a href="/lien-he" class="button-primary w-full mt-4">Nhận tư vấn</a>
     </div>
-
-  </div>
-
+  </nav>
 </header>
 
-<!-- SCRIPT: TOGGLE + ĐỔI ICON ☰ ↔ ✕ -->
 <script>
-  const btn = document.getElementById("menuBtn");
+  const button = document.getElementById("menuBtn");
   const menu = document.getElementById("mobileMenu");
-
-  let open = false;
-
-  btn?.addEventListener("click", () => {
-    open = !open;
-    menu?.classList.toggle("hidden");
-
-    // đổi icon
-    btn.textContent = open ? "✕" : "☰";
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle("hidden", !open);
+    button?.setAttribute("aria-expanded", String(open));
+    button?.setAttribute("aria-label", open ? "Đóng menu" : "Mở menu");
+    if (button) button.textContent = open ? "✕" : "☰";
+  };
+  button?.addEventListener("click", () => setOpen(button.getAttribute("aria-expanded") !== "true"));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && button?.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      button.focus();
+    }
+  });
+  menu?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setOpen(false)));
+  window.matchMedia("(min-width: 1024px)").addEventListener("change", event => {
+    if (event.matches) setOpen(false);
   });
 </script>

@@ -15,10 +15,10 @@ const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vi
 
   <section class="py-24 px-6 bg-base-50 relative overflow-hidden">
     <div class="max-w-4xl mx-auto text-center relative z-10">
-      <p class="text-xs tracking-[0.3em] text-primary-500 uppercase font-bold mb-4">Câu chuyện của chúng tôi</p>
-      <h1 class="text-4xl md:text-6xl font-light text-base-900 leading-tight">
+      <p class="text-xs tracking-widest text-primary-500 uppercase font-bold mb-4">Câu chuyện của chúng tôi</p>
+      <h1 class="text-4xl md:text-6xl font-semibold text-base-900 leading-tight">
         Giữ nguyên cấu trúc<br />
-        <span class="italic font-medium">Thay đổi cảm xúc không gian</span>
+        <span class="not-italic font-medium">Thay đổi cảm xúc không gian</span>
       </h1>
     </div>
   </section>
@@ -34,7 +34,7 @@ const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vi
   <section class="py-24 px-6">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
       <div>
-        <h2 class="text-3xl font-light mb-8">Chúng tôi là ai?</h2>
+        <h2 class="text-3xl font-semibold mb-8">Chúng tôi là ai?</h2>
         <div class="space-y-6 text-base-600 leading-relaxed">
           <p>
             Được thành lập với niềm đam mê về vật liệu bề mặt, chúng tôi không chỉ cung cấp <strong>film dán nội thất</strong>, mà còn mang đến giải pháp cải tạo không gian thông minh, bền vững.
@@ -42,7 +42,7 @@ const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vi
           <p>
             Thay vì phá bỏ những món đồ cũ gây lãng phí và ô nhiễm môi trường, chúng tôi sử dụng công nghệ film kiến trúc cao cấp để hồi sinh chúng với diện mạo sang trọng, hiện đại chỉ trong thời gian ngắn.
           </p>
-          <p class="italic border-l-4 border-primary-500 pl-6 py-2 bg-base-50">
+          <p class="not-italic border-l-4 border-primary-500 pl-6 py-2 bg-base-50">
             "Sự tỉ mỉ trong từng đường dao là cách chúng tôi tôn trọng không gian của khách hàng."
           </p>
         </div>
@@ -52,7 +52,7 @@ const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vi
         {stats.map(s => (
           <div class="p-8 border border-base-200 rounded-2xl text-center hover:bg-white hover:shadow-xl transition transition-duration-500">
             <p class="text-3xl font-medium text-primary-500 mb-2">{s.value}</p>
-            <p class="text-xs uppercase tracking-widest text-base-400 font-bold">{s.label}</p>
+            <p class="text-xs uppercase tracking-widest text-base-500 font-bold">{s.label}</p>
           </div>
         ))}
       </div>
@@ -61,36 +61,36 @@ const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vi
 
   <section class="py-24 px-6 bg-base-900 text-white rounded-[3rem] mx-4 md:mx-10 mb-24">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-light text-center mb-16 italic text-white/80">Tại sao khách hàng tin chọn chúng tôi?</h2>
+      <h2 class="text-3xl font-semibold text-center mb-16 not-italic text-white/80">Tại sao khách hàng tin chọn chúng tôi?</h2>
       <div class="grid md:grid-cols-3 gap-12">
         <div class="text-center">
           <div class="text-4xl mb-6">🎯</div>
           <h3 class="text-xl font-medium mb-4">Kỹ thuật tinh xảo</h3>
-          <p class="text-white/60 text-sm leading-relaxed text-left">Đội ngũ kỹ thuật viên am hiểu xử lý mọi góc cạnh khó nhất như thang máy, tủ bếp cong hay bề mặt kim loại.</p>
+          <p class="text-white/80 text-sm leading-relaxed text-left">Đội ngũ kỹ thuật viên am hiểu xử lý mọi góc cạnh khó nhất như thang máy, tủ bếp cong hay bề mặt kim loại.</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-6">💎</div>
           <h3 class="text-xl font-medium mb-4">Vật liệu chính hãng</h3>
-          <p class="text-white/60 text-sm leading-relaxed text-left">Cam kết sử dụng các dòng film cao cấp từ Hàn Quốc (Toda, Infeel...) đảm bảo độ bám dính và bền màu trên 10 năm.</p>
+          <p class="text-white/80 text-sm leading-relaxed text-left">Cam kết sử dụng các dòng film cao cấp từ Hàn Quốc (Toda, Infeel...) đảm bảo độ bám dính và bền màu trên 10 năm.</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-6">🛡️</div>
           <h3 class="text-xl font-medium mb-4">Trách nhiệm tối thượng</h3>
-          <p class="text-white/60 text-sm leading-relaxed text-left">Chúng tôi không chỉ dán film, chúng tôi bảo hành sự an tâm của bạn với chính sách hậu mãi từ 2-5 năm.</p>
+          <p class="text-white/80 text-sm leading-relaxed text-left">Chúng tôi không chỉ dán film, chúng tôi bảo hành sự an tâm của bạn với chính sách hậu mãi từ 2-5 năm.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="py-24 px-6 max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-12 border-t border-base-200 pt-24">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-12 border-t border-base-200 pt-24">
       <div class="max-w-sm">
-        <h2 class="text-3xl font-light italic mb-4">Đối tác chiến lược</h2>
+        <h2 class="text-3xl font-semibold not-italic mb-4">Đối tác chiến lược</h2>
         <p class="text-base-500 text-sm">Chúng tôi tự hào đã đồng hành cùng các đơn vị lớn trong việc làm mới không gian thương hiệu.</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-50 grayscale hover:grayscale-0 transition duration-700">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center grayscale hover:grayscale-0 transition duration-700">
         {partners.map(p => (
-          <div class="text-center font-bold text-lg tracking-widest text-base-400">{p}</div>
+          <div class="text-center font-bold text-lg tracking-widest text-base-500">{p}</div>
         ))}
       </div>
     </div>
@@ -98,7 +98,7 @@ const partners = ["Toyota", "The Hive", "Showroom Thảo Điền", "Căn hộ Vi
 
   <section class="py-24 px-6 bg-base-50 border-t border-base-200">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-light mb-8">Khu vực hoạt động</h2>
+      <h2 class="text-2xl font-semibold mb-8">Khu vực hoạt động</h2>
       <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
         {["Thủ Đức", "Quận 7", "Quận 12", "Bình Thạnh", "Thuận An", "Dĩ An"].map(area => (
           <span class="px-6 py-2 bg-white rounded-full border border-base-200 shadow-sm">{area}</span>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  backHref: string;
+  image?: string;
+  imageAlt?: string;
+  applications: string[];
+  notes: string[];
+}
+
+const { title, description, category, backHref, image, imageAlt, applications, notes } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Film Nội Thất`} description={description}>
+  <section class="px-6 py-20 bg-base-50">
+    <div class="max-w-6xl mx-auto">
+      <a href={backHref} class="text-primary-600 hover:underline">← {category}</a>
+      <h1 class="text-4xl md:text-6xl font-semibold text-base-900 mt-8 mb-6">{title}</h1>
+      <p class="max-w-3xl text-lg leading-relaxed text-base-700">{description}</p>
+      {image && <img src={image} alt={imageAlt || title} class="mt-10 w-full max-w-3xl max-h-[32rem] object-cover rounded-3xl" />}
+    </div>
+  </section>
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold mb-6">Ứng dụng gợi ý</h2>
+        <ul class="list-disc pl-6 space-y-4 text-base-700">
+          {applications.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold mb-6">Lưu ý trước khi thi công</h2>
+        <ul class="list-disc pl-6 space-y-4 text-base-700">
+          {notes.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="px-6 py-16 bg-base-900 text-white text-center">
+    <h2 class="text-3xl mb-6">Tư vấn mẫu và phương án thi công</h2>
+    <p class="max-w-2xl mx-auto mb-8">Gửi ảnh hiện trạng, kích thước và phong cách mong muốn để iDecal tư vấn vật liệu phù hợp và báo giá theo thực tế.</p>
+    <a href="https://zalo.me/0866077040" class="inline-block bg-primary-500 hover:bg-primary-600 px-8 py-4 rounded-full font-bold">Liên hệ qua Zalo</a>
+  </section>
+</BaseLayout>

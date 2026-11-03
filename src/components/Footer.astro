@@ -10,10 +10,10 @@ const footerLinks = {
     { title: "Cải tạo nội thất Showroom", href: "/dich-vu/cai-tao-showroom" },
   ],
   products: [
-    { title: "Film vân gỗ cao cấp", href: "/san-pham/van-go" },
-    { title: "Film vân đá Marble", href: "/san-pham/van-da" },
-    { title: "Film màu đơn sắc", href: "/san-pham/mau-don-sac" },
-    { title: "Vật liệu Film Infeel/Toda", href: "/san-pham/chinh-hang" },
+    { title: "Film vân gỗ cao cấp", href: "/vat-lieu/van-go" },
+    { title: "Film vân đá Marble", href: "/vat-lieu/da-cam-thach" },
+    { title: "Film màu đơn sắc", href: "/vat-lieu/don-sac" },
+    { title: "Vật liệu Film Infeel/Toda", href: "/vat-lieu" },
   ],
   company: [
     { title: "Giới thiệu", href: "/gioi-thieu" },
@@ -26,14 +26,14 @@ const footerLinks = {
 
 <footer class="bg-base-900 text-white pt-20 pb-10 px-6 border-t border-white/5">
   <div class="max-w-7xl mx-auto">
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-      
+
       <div class="space-y-6">
         <div class="text-2xl font-bold tracking-tighter">
-          IDEAL <span class="text-primary-500 italic">STUDIO</span>
+          Film Nội Thất <span class="text-primary-200 text-sm font-medium block mt-2">Vật liệu & thi công cùng iDecal</span>
         </div>
-        <p class="text-white/50 text-sm leading-relaxed">
+        <p class="text-white/80 text-sm leading-relaxed">
           Đơn vị chuyên sâu về giải pháp bề mặt nội thất. Chúng tôi giúp bạn tái tạo không gian sống bền vững, thẩm mỹ với chi phí tối ưu nhất.
         </p>
         <div class="flex gap-4">
@@ -44,11 +44,11 @@ const footerLinks = {
       </div>
 
       <div>
-        <h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-primary-500">Dịch vụ thi công</h4>
+        <h4 class="font-bold mb-6 uppercase text-sm tracking-wide text-primary-200">Dịch vụ thi công</h4>
         <ul class="space-y-4">
           {footerLinks.services.map(link => (
             <li>
-              <a href={link.href} class="text-white/60 hover:text-white hover:translate-x-2 transition-all inline-block text-sm">
+              <a href={link.href} class="text-white/80 hover:text-white hover:translate-x-2 transition-all inline-block text-sm">
                 {link.title}
               </a>
             </li>
@@ -57,11 +57,11 @@ const footerLinks = {
       </div>
 
       <div>
-        <h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-primary-500">Kho vật liệu</h4>
+        <h4 class="font-bold mb-6 uppercase text-sm tracking-wide text-primary-200">Kho vật liệu</h4>
         <ul class="space-y-4">
           {footerLinks.products.map(link => (
             <li>
-              <a href={link.href} class="text-white/60 hover:text-white hover:translate-x-2 transition-all inline-block text-sm">
+              <a href={link.href} class="text-white/80 hover:text-white hover:translate-x-2 transition-all inline-block text-sm">
                 {link.title}
               </a>
             </li>
@@ -70,8 +70,8 @@ const footerLinks = {
       </div>
 
       <div>
-        <h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-primary-500">Liên hệ trực tiếp</h4>
-        <ul class="space-y-4 text-sm text-white/60">
+        <h4 class="font-bold mb-6 uppercase text-sm tracking-wide text-primary-200">Liên hệ trực tiếp</h4>
+        <ul class="space-y-4 text-sm text-white/80">
           <li class="flex items-start gap-3">
             <span>📍</span>
             <span>Trụ sở: Đường số 7, Thủ Đức, TP. Hồ Chí Minh</span>
@@ -94,13 +94,13 @@ const footerLinks = {
     </div>
 
     <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-      
-      <div class="text-white/40 text-xs">
-        © {currentYear} Film Dán Nội Thất Pro. Tất cả quyền được bảo lưu. 
+
+      <div class="text-white/75 text-xs">
+        © {currentYear} Film Dán Nội Thất Pro. Tất cả quyền được bảo lưu.
         <span class="block md:inline mt-2 md:mt-0">Thiết kế & SEO bởi iDecal.</span>
       </div>
 
-      <ul class="flex gap-6 text-xs text-white/40">
+      <ul class="flex gap-6 text-xs text-white/75">
         {footerLinks.company.map(link => (
           <li><a href={link.href} class="hover:text-white transition">{link.title}</a></li>
         ))}

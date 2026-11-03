@@ -2,18 +2,18 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const ceilingBenefits = [
-  { 
-    title: "Trọng lượng siêu nhẹ", 
+  {
+    title: "Trọng lượng siêu nhẹ",
     desc: "Khác với việc ốp gỗ hay đá thật gây nặng tải cho trần thạch cao, film nội thất mang lại vẻ đẹp tương đương nhưng trọng lượng gần như bằng không.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>`
   },
-  { 
-    title: "Xử lý góc cong hoàn hảo", 
+  {
+    title: "Xử lý góc cong hoàn hảo",
     desc: "Khả năng co giãn khi gặp nhiệt của Film Hàn Quốc cho phép ôm sát các đường chỉ trần, hốc đèn led hoặc các thiết kế trần giật cấp phức tạp.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>`
   },
-  { 
-    title: "Không bám bụi mốc", 
+  {
+    title: "Không bám bụi mốc",
     desc: "Bề mặt kháng tĩnh điện giúp trần nhà luôn sạch sẽ, không bị ố vàng hay ẩm mốc như sơn nước truyền thống sau vài năm sử dụng.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.143-7.714L1 12l6.857-2.286L11 3z" /></svg>`
   }
@@ -27,7 +27,7 @@ const styles = [
 ];
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Dán Film Nội Thất Trần - Cải Tạo Trần Nhà Sang Trọng & Đẳng Cấp"
   description="iDecal chuyên thi công dán film trang trí trần nhà tại TP.HCM & Bình Dương. Giải pháp thay thế ốp gỗ, đá thật cho trần thạch cao. Chống ẩm, nhẹ tải, thi công tỉ mỉ."
 >
@@ -35,7 +35,7 @@ const styles = [
   <section class="py-24 px-6 bg-base-50 relative overflow-hidden">
     <div class="max-w-7-xl mx-auto text-center relative z-10">
       <span class="text-primary-500 font-bold tracking-widest uppercase text-xs mb-6 block">Kỹ thuật thi công đỉnh cao</span>
-      <h1 class="text-4xl md:text-7xl font-light mb-8 italic leading-tight">Nâng tầm <span class="font-medium text-base-900">Trần Nhà</span></h1>
+      <h1 class="text-4xl md:text-7xl font-semibold mb-8 not-italic leading-tight">Nâng tầm <span class="font-medium text-base-900">Trần Nhà</span></h1>
       <p class="text-base-500 text-lg mb-12 max-w-2xl mx-auto">
         Thay vì các mảng trần sơn trắng đơn điệu, iDecal mang đến vẻ đẹp của gỗ, đá và kim loại lên cao. An toàn, nhẹ nhàng và thẩm mỹ vượt trội.
       </p>
@@ -62,10 +62,10 @@ const styles = [
   <section class="py-24 px-6 bg-base-900 text-white rounded-[5rem] mx-4">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-20">
-        <h2 class="text-3xl font-light italic mb-4">Mẫu vân <span class="text-primary-500">phổ biến</span> cho trần</h2>
-        <p class="text-white/40">Phù hợp cho cả căn hộ cao cấp và không gian kinh doanh</p>
+        <h2 class="text-3xl font-semibold not-italic mb-4">Mẫu vân <span class="text-primary-500">phổ biến</span> cho trần</h2>
+        <p class="text-white/75">Phù hợp cho cả căn hộ cao cấp và không gian kinh doanh</p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         {styles.map(s => (
           <div class="group">
@@ -74,7 +74,7 @@ const styles = [
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div class="absolute bottom-6 left-6">
                 <h4 class="font-bold text-lg">{s.name}</h4>
-                <p class="text-xs text-white/60">{s.desc}</p>
+                <p class="text-xs text-white/80">{s.desc}</p>
               </div>
             </div>
           </div>
@@ -85,11 +85,11 @@ const styles = [
 
   <section class="py-24 px-6 bg-white">
     <div class="max-w-4xl mx-auto border-l-4 border-primary-500 pl-8 md:pl-16">
-      <h2 class="text-3xl font-bold text-base-900 mb-8 italic">Cam kết kỹ thuật từ iDecal</h2>
+      <h2 class="text-3xl font-bold text-base-900 mb-8 not-italic">Cam kết kỹ thuật từ iDecal</h2>
       <div class="space-y-10">
         <div>
           <h4 class="text-xl font-bold mb-3">1. Độ bám dính ngược</h4>
-          <p class="text-base-500 leading-relaxed italic">"Dán trần khó nhất là trọng lực kéo film xuống. Đội ngũ anh Nhân, anh Tiên sử dụng lớp keo tăng cường (Primer) chuyên dụng để đảm bảo film không bao giờ bong tróc hay võng theo thời gian."</p>
+          <p class="text-base-500 leading-relaxed not-italic">"Dán trần khó nhất là trọng lực kéo film xuống. Đội ngũ anh Nhân, anh Tiên sử dụng lớp keo tăng cường (Primer) chuyên dụng để đảm bảo film không bao giờ bong tróc hay võng theo thời gian."</p>
         </div>
         <div>
           <h4 class="text-xl font-bold mb-3">2. Xử lý thiết bị âm trần</h4>

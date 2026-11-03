@@ -2,6 +2,15 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Film Nội Thất - Dán Film Trang Trí Cao Cấp",
+  description = "Dịch vụ dán film nội thất: bàn, tủ, tường, trần, thang máy, showroom. Giải pháp thay đổi không gian không cần phá bỏ.",
+} = Astro.props;
 ---
 
 <html lang="vi">
@@ -9,17 +18,18 @@ import Footer from "../components/Footer.astro";
     <meta charset="UTF-8" />
 
     <!-- SEO BASE -->
-    <title>Film Nội Thất - Dán Film Trang Trí Cao Cấp</title>
-    <meta name="description" content="Dịch vụ dán film nội thất: bàn, tủ, tường, trần, thang máy, showroom. Giải pháp thay đổi không gian không cần phá bỏ." />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   </head>
 
   <body class="bg-base-50 text-base-900">
 
+    <a href="#main-content" class="skip-link button-primary">Đến nội dung chính</a>
     <Header />
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 

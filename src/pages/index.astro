@@ -3,29 +3,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // 1. Dữ liệu Sản phẩm (Vật liệu) - Thêm ảnh cụ thể
 const productCategories = [
-  { 
-    name: "Film Vân Gỗ", 
-    items: "Sồi (Oak), Óc Chó (Walnut), Gỗ Khô", 
+  {
+    name: "Film Vân Gỗ",
+    items: "Sồi (Oak), Óc Chó (Walnut), Gỗ Khô",
     image: "/images/vat-lieu/van-go/CAD402-goc.jpg",
-    link: "/san-pham/van-go"
+    link: "/vat-lieu/van-go"
   },
-  { 
-    name: "Film Vân Kim Loại", 
-    items: "Marble, Granite, Ceramic cao cấp", 
+  {
+    name: "Film Vân Kim Loại",
+    items: "Marble, Granite, Ceramic cao cấp",
     image: "/images/vat-lieu/kim-loai/CSM003.jpg",
     link: "/vat-lieu/kim-loai/"
   },
-  { 
-    name: "Film Giả Bê Tông", 
-    items: "Matte (Nhám mờ) & Glossy (Bóng)", 
+  {
+    name: "Film Giả Bê Tông",
+    items: "Matte (Nhám mờ) & Glossy (Bóng)",
     image: "/images/vat-lieu/be-tong/CORANCE-CAG816.jpg",
-    link: "/san-pham/be-tong"
+    link: "/vat-lieu/be-tong"
   },
-  { 
-    name: "Film Vân Vải & Da", 
-    items: "Canvas, Linen, Da thuộc nhân tạo", 
+  {
+    name: "Film Vân Vải & Da",
+    items: "Canvas, Linen, Da thuộc nhân tạo",
     image: "/images/vat-lieu/van-vai/CAN034.jpg",
-    link: "/san-pham/van-vai"
+    link: "/vat-lieu/van-vai"
   }
 ];
 
@@ -34,13 +34,13 @@ const services = [
   { title: "Dán film thang máy", desc: "Biến kim loại lạnh thành vật liệu nội thất sang trọng.", image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg" },
   { title: "Dán film tủ bếp", desc: "Thay đổi màu sắc không gian bếp mà không cần thay mới.", image: "/images/blog/dan-film-noi-that-tu-bep.webp" },
   { title: "Dán film kính văn phòng", desc: "Tăng tính riêng tư, giữ ánh sáng chuyên nghiệp.", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg" },
-  { title: "Dán showroom/cửa hàng", desc: "Cải tạo quầy kệ, vách trang trí nhanh chóng.", image: "/images/s-showroom.webp" }
+  { title: "Dán showroom/cửa hàng", desc: "Cải tạo quầy kệ, vách trang trí nhanh chóng.", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg" }
 ];
 
 const projects = [
-  { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi", image: "/images/p1.webp" },
-  { title: "Văn phòng Tech", tag: "Infeel", style: "Kính mờ hiện đại", image: "/images/cong-trinh/LG_interior_foil_Nautasign_4_13-01_.webp" },
-  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm", image: "/images/blog/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp" }
+  { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi", image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg" },
+  { title: "Văn phòng Tech", tag: "Infeel", style: "Kính mờ hiện đại", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg" },
+  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm", image: "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp" }
 ];
 
 const blogPosts = [
@@ -53,46 +53,41 @@ const blogPosts = [
 
 <BaseLayout title="Film Dán Nội Thất - Vật Liệu & Thi Công Cao Cấp">
 
-<section class="min-h-[90vh] flex items-center justify-center px-6 relative overflow-hidden">
-  <div class="absolute inset-0 z-0">
-    <img 
-      src="/images/cong-trinh/banner-film-dan-noi-that.jpg" 
-      alt="Không gian nội thất dán film cao cấp" 
-      class="w-full h-full object-cover scale-105"
-    />
-    <div class="absolute inset-0 bg-white/80 dark:bg-base-900/40 backdrop-blur-[2px]"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white"></div>
-  </div>
-
-  <div class="relative max-w-5xl text-center z-10">
-    <p class="text-xs tracking-[0.4em] text-base-500 uppercase mb-6 font-bold animate-fade-in">
-      Interior Film Studio
-    </p>
-    <h1 class="text-5xl md:text-7xl font-light leading-tight text-base-900">
-      Film Dán Nội Thất Cao Cấp<br />
-      <span class="font-medium text-primary-500 italic">Giải Pháp Cải Tạo Không Gian Toàn Diện</span>
-    </h1>
-    <p class="mt-8 text-base-600 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-      Chuyên vật liệu film nội thất chính hãng và dịch vụ thi công trọn gói tại TP.HCM & Bình Dương. Cải tạo không gian chỉ trong 24h.
-    </p>
-    <div class="mt-12 flex flex-wrap gap-4 justify-center">
-      <a href="#kho-vat-lieu" class="bg-primary-500 hover:bg-primary-600 text-white px-10 py-4 rounded-full transition shadow-xl font-bold hover:scale-105 duration-300">
-        Khám phá vật liệu
-      </a>
-      <a href="https://zalo.me/0866077040" class="border border-base-300 bg-white/50 backdrop-blur px-10 py-4 rounded-full hover:bg-white transition font-medium hover:shadow-lg duration-300">
-        Nhận báo giá thi công
-      </a>
+<section class="home-hero bg-base-50 px-6 py-12 md:py-20 border-b border-base-200">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div>
+      <p class="eyebrow mb-5">CUNG CẤP FILM · THI CÔNG NỘI THẤT</p>
+      <h1 class="text-4xl sm:text-5xl xl:text-6xl font-semibold text-base-900 leading-[1.2]">
+        Diện mạo mới.<br />
+        <span class="text-primary-500">Không gian thân quen.</span>
+      </h1>
+      <p class="mt-6 text-base-600 text-lg leading-relaxed max-w-xl">
+        Film dán nội thất cho bàn, tủ, tường và nhiều bề mặt khác. Cùng iDecal chọn vật liệu và phương án thi công phù hợp với không gian của bạn.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/vat-lieu/" class="button-primary">Tìm mẫu film <span aria-hidden="true" class="ml-3">↗</span></a>
+        <a href="/dich-vu/dan-film-noi-that/" class="button-secondary">Tư vấn thi công</a>
+      </div>
+      <div class="mt-8 pt-6 border-t border-base-200 flex flex-wrap gap-x-6 gap-y-2 text-sm text-base-600">
+        <span><span class="text-primary-500 mr-2" aria-hidden="true">✓</span>Tư vấn chọn mẫu</span>
+        <span><span class="text-primary-500 mr-2" aria-hidden="true">✓</span>TP.HCM & Bình Dương</span>
+      </div>
+    </div>
+    <div class="relative">
+      <img src="/images/cong-trinh/banner-film-dan-noi-that.jpg" alt="Các cuộn film nội thất với bề mặt vân dệt và tông màu trung tính" class="w-full aspect-[4/3] lg:aspect-[5/6] object-cover rounded-[1.5rem]" fetchpriority="high" width="1000" height="1200" />
+      <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur rounded-xl p-5 border border-white/80">
+        <p class="text-xs font-medium text-base-500 mb-1">TỪ VẬT LIỆU ĐẾN HOÀN THIỆN</p>
+        <p class="text-base font-semibold text-base-900">Chọn vân yêu thích. Làm mới tổ ấm.</p>
+      </div>
     </div>
   </div>
-
-  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
 </section>
 
 <section id="kho-vat-lieu" class="py-24 px-6 bg-white">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
       <div class="max-w-2xl">
-        <h2 class="text-4xl font-light italic text-base-900 mb-4">Tổng kho vật liệu film nội thất</h2>
+        <h2 class="text-4xl font-semibold not-italic text-base-900 mb-4">Tổng kho vật liệu film nội thất</h2>
         <p class="text-base-500 text-lg">Hàng trăm mẫu film có sẵn, từ vân gỗ tự nhiên đến vân đá sang trọng. Sẵn sàng giao ngay hoặc thi công trực tiếp.</p>
       </div>
       <a href="/vat-lieu" class="text-primary-500 font-bold border-b-2 border-primary-500 pb-1 hover:text-primary-600 transition">
@@ -117,7 +112,7 @@ const blogPosts = [
 <section class="py-24 px-6 bg-base-50">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-light italic mb-4">Thi Công Dán Film Nội Thất Chuyên Nghiệp</h2>
+      <h2 class="text-4xl font-semibold not-italic mb-4">Thi Công Dán Film Nội Thất Chuyên Nghiệp</h2>
       <p class="text-base-500 max-w-2xl mx-auto font-medium text-lg">Xử lý tỉ mỉ các chi tiết khó nhất, đảm bảo độ thẩm mỹ tuyệt đối cho công trình của bạn.</p>
     </div>
 
@@ -140,7 +135,7 @@ const blogPosts = [
 <section class="py-24 px-6 bg-white">
   <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
     <div>
-      <h2 class="text-4xl font-light mb-12 italic">Ưu Điểm Của Film Dán Nội Thất</h2>
+      <h2 class="text-4xl font-semibold mb-12 not-italic">Ưu Điểm Của Film Dán Nội Thất</h2>
       <div class="space-y-10">
         <div class="flex gap-6">
           <span class="text-3xl">💰</span>
@@ -165,13 +160,13 @@ const blogPosts = [
         </div>
       </div>
     </div>
-    
+
     <div class="bg-base-900 p-12 rounded-[3rem] text-white relative overflow-hidden">
-      <h2 class="text-3xl font-light mb-10 italic">Quy trình 5 bước</h2>
+      <h2 class="text-3xl font-semibold mb-10 not-italic">Quy trình 5 bước</h2>
       <div class="space-y-8 relative z-10">
         {["Tư vấn & Xem mẫu tại nhà", "Khảo sát & Đo đạc thực tế", "Báo giá vật tư & Nhân công", "Thi công tỉ mỉ từng mép cạnh", "Bàn giao & Bảo hành 2-5 năm"].map((step, i) => (
           <div class="flex gap-6 items-center border-b border-white/10 pb-4">
-            <span class="text-primary-500 font-serif italic text-2xl font-bold">0{i+1}.</span>
+            <span class="text-primary-500 font-sans not-italic text-2xl font-bold">0{i+1}.</span>
             <p class="font-medium text-lg">{step}</p>
           </div>
         ))}
@@ -183,7 +178,7 @@ const blogPosts = [
 <section class="py-24 px-6 bg-base-50">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
-        <h2 class="text-4xl font-light">Công trình thực tế</h2>
+        <h2 class="text-4xl font-semibold">Công trình thực tế</h2>
         <p class="text-base-500 mt-4">Các dự án cho Toyota, The Hive và hàng ngàn căn hộ tại TP.HCM & Bình Dương.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
@@ -191,11 +186,11 @@ const blogPosts = [
         <div class="group bg-white rounded-3xl overflow-hidden border border-base-200 shadow-sm hover:shadow-2xl transition duration-500">
           <div class="h-72 overflow-hidden relative">
             <img src={p.image} alt={p.title} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">{p.tag}</div>
+            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase">{p.tag}</div>
           </div>
           <div class="p-8">
             <h3 class="text-xl font-bold text-base-900 mb-2">{p.title}</h3>
-            <p class="text-sm text-base-500 italic">{p.style}</p>
+            <p class="text-sm text-base-500 not-italic">{p.style}</p>
           </div>
         </div>
       ))}
@@ -206,7 +201,7 @@ const blogPosts = [
 <section class="py-24 px-6 bg-white border-t border-base-200">
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-end mb-16">
-      <h2 class="text-3xl font-light italic">Kiến thức bề mặt</h2>
+      <h2 class="text-3xl font-semibold not-italic">Kiến thức bề mặt</h2>
       <a href="/blog" class="text-sm font-bold text-primary-500 uppercase tracking-widest">Xem tất cả</a>
     </div>
 
@@ -214,15 +209,15 @@ const blogPosts = [
       {blogPosts && blogPosts.map(post => (
         <a href={post.link || "#"} class="group block">
           <div class="aspect-video rounded-3xl overflow-hidden mb-6 bg-base-100">
-             <img 
-                src={post.image} 
-                alt={post.title} 
-                class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+             <img
+                src={post.image}
+                alt={post.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
           </div>
-          
+
           <div class="flex gap-4 items-center mb-4">
-             <span class="text-[10px] font-bold bg-primary-500 text-white px-3 py-1 rounded-full uppercase tracking-widest">Cẩm nang</span>
+             <span class="text-xs font-bold bg-primary-500 text-white px-3 py-1 rounded-full uppercase tracking-widest">Cẩm nang</span>
              <span class="text-xs text-base-400 font-medium">{post.date}</span>
           </div>
 
@@ -234,7 +229,7 @@ const blogPosts = [
             {post.excerpt}
           </p>
 
-          <p class="mt-6 text-primary-500 font-bold text-[10px] flex items-center gap-2 tracking-[0.2em] uppercase"> 
+          <p class="mt-6 text-primary-500 font-bold text-xs flex items-center gap-2 tracking-[0.2em] uppercase">
             Đọc thêm <span>→</span>
           </p>
         </a>

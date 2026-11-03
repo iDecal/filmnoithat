@@ -3,56 +3,56 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 // Dữ liệu sản phẩm vân gỗ (Wood Grain)
 const woodProducts = [
-  { 
-    brand: 'Toda', 
-    name: "Gỗ Óc Chó (Walnut) - W605", 
-    desc: "Vân gỗ sâu, tông màu nâu trầm sang trọng, mang lại vẻ đẹp đẳng cấp cho không gian phòng khách.", 
+  {
+    brand: 'Toda',
+    name: "Gỗ Óc Chó (Walnut) - W605",
+    desc: "Vân gỗ sâu, tông màu nâu trầm sang trọng, mang lại vẻ đẹp đẳng cấp cho không gian phòng khách.",
     image: "/images/vat-lieu/van-go/Corance-CAB742.jpg",
     tags: ["Cao cấp", "Vân nổi"]
   },
-  { 
-    brand: 'Infeel', 
-    name: "Gỗ Sồi Trắng (White Oak)", 
-    desc: "Màu sắc tươi sáng, vân gỗ thanh mảnh phù hợp với phong cách nội thất Scandinavian và tối giản.", 
+  {
+    brand: 'Infeel',
+    name: "Gỗ Sồi Trắng (White Oak)",
+    desc: "Màu sắc tươi sáng, vân gỗ thanh mảnh phù hợp với phong cách nội thất Scandinavian và tối giản.",
     image: "/images/vat-lieu/van-go/white-oak.jpg",
     tags: ["Minimalist"]
   },
-  { 
-    brand: 'Coance', 
-    name: "Gỗ Tần Bì (Ash Wood)", 
-    desc: "Sắc vàng nhẹ tự nhiên, bề mặt nhám mịn tạo cảm giác như chạm tay vào gỗ thật.", 
+  {
+    brand: 'Coance',
+    name: "Gỗ Tần Bì (Ash Wood)",
+    desc: "Sắc vàng nhẹ tự nhiên, bề mặt nhám mịn tạo cảm giác như chạm tay vào gỗ thật.",
     image: "/images/vat-lieu/van-go/CAD402-goc.jpg",
     tags: ["Tự nhiên"]
   },
-  { 
-    brand: 'Infeel', 
-    name: "Gỗ Teak Cổ Điển", 
-    desc: "Khả năng chịu nhiệt và bền màu tuyệt vời, chuyên dụng cho các khu vực có cường độ sử dụng cao.", 
+  {
+    brand: 'Infeel',
+    name: "Gỗ Teak Cổ Điển",
+    desc: "Khả năng chịu nhiệt và bền màu tuyệt vời, chuyên dụng cho các khu vực có cường độ sử dụng cao.",
     image: "/images/vat-lieu/van-go/classic-teak.jpg",
     tags: ["Bền bỉ"]
   }
 ];
 
 const woodFeatures = [
-  { 
-    title: "Vân gỗ dập nổi (Embossed)", 
+  {
+    title: "Vân gỗ dập nổi (Embossed)",
     detail: "Công nghệ dập nổi giúp mô phỏng từng thớ gỗ, mắt gỗ chân thực đến 99% so với gỗ tự nhiên.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h14a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`
   },
-  { 
-    title: "Tuyệt đối không mối mọt", 
+  {
+    title: "Tuyệt đối không mối mọt",
     detail: "Giải quyết triệt để nỗi lo lớn nhất của gỗ công nghiệp và gỗ tự nhiên trong môi trường khí hậu Việt Nam.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`
   },
-  { 
-    title: "Uốn cong linh hoạt", 
+  {
+    title: "Uốn cong linh hoạt",
     detail: "Dễ dàng dán bo tròn các cạnh bàn, phào chỉ hay các chi tiết uốn lượn mà gỗ thật khó thực hiện.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>`
   }
 ];
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Film Dán Nội Thất Vân Gỗ - Hàn Quốc Chính Hãng | iDecal"
   description="Bộ sưu tập Film dán nội thất vân gỗ Oak, Walnut, Teak nhập khẩu Hàn Quốc. Chuyên dán tủ áo, cửa phòng, nội thất chung cư chống ẩm, chống mối mọt tại TP.HCM."
 >
@@ -62,8 +62,8 @@ const woodFeatures = [
       <img src="/images/blog/film-dan-noi-that-van-go.jpg" class="w-full h-full object-cover" alt="Background vân gỗ ấm cúng" />
     </div>
     <div class="relative z-10 max-w-5xl mx-auto text-center">
-      <h1 class="text-5xl md:text-7xl font-light mb-6 italic tracking-tight">Vân <span class="font-medium">Gỗ Tự Nhiên</span></h1>
-      <p class="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed font-light">
+      <h1 class="text-5xl md:text-7xl font-semibold mb-6 not-italic tracking-tight">Vân <span class="font-medium">Gỗ Tự Nhiên</span></h1>
+      <p class="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed font-semibold">
         Mang hơi thở của thiên nhiên vào không gian sống với công nghệ in vân nổi 3D chân thực, bảo vệ nội thất bền bỉ qua nhiều thập kỷ.
       </p>
     </div>
@@ -85,7 +85,7 @@ const woodFeatures = [
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
         <div>
-          <h2 class="text-3xl font-light italic text-base-900">Mẫu vân gỗ <span class="font-medium">Ưa chuộng nhất</span></h2>
+          <h2 class="text-3xl font-semibold not-italic text-base-900">Mẫu vân gỗ <span class="font-medium">Ưa chuộng nhất</span></h2>
           <p class="text-base-400 mt-2 text-sm uppercase tracking-widest">Tuyển chọn từ kho vật liệu iDecal</p>
         </div>
         <a href="https://zalo.me/0866077040" class="text-sm font-bold text-orange-800 border-b-2 border-orange-800 pb-1">Tải trọn bộ Catalogue Wood Grain</a>
@@ -103,9 +103,9 @@ const woodFeatures = [
                   <span class="text-[9px] font-bold text-orange-700 bg-orange-50 px-2 py-0.5 rounded">{tag}</span>
                 ))}
               </div>
-              <p class="text-[10px] font-medium text-base-400 uppercase">{item.brand}</p>
+              <p class="text-xs font-medium text-base-400 uppercase">{item.brand}</p>
               <h3 class="text-lg font-bold text-base-900 group-hover:text-orange-800 transition">{item.name}</h3>
-              <p class="text-xs text-base-500 leading-relaxed line-clamp-2 italic">{item.desc}</p>
+              <p class="text-xs text-base-500 leading-relaxed line-clamp-2 not-italic">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -115,10 +115,10 @@ const woodFeatures = [
 
   <section class="py-24 px-6 bg-[#fdfaf7] rounded-[4rem] mx-4 mb-24">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-base-900 mb-8 italic">Giải pháp "Cứu" nội thất gỗ cũ</h2>
+      <h2 class="text-3xl font-bold text-base-900 mb-8 not-italic">Giải pháp "Cứu" nội thất gỗ cũ</h2>
       <div class="text-left space-y-6 text-base-600 leading-relaxed">
         <p>
-          Nếu tủ quần áo hoặc cửa phòng nhà bạn đang bị <strong>trầy xước, xuống màu hoặc lớp Melamine bị bong tróc</strong>, việc dán Film nội thất vân gỗ là phương án tối ưu nhất. 
+          Nếu tủ quần áo hoặc cửa phòng nhà bạn đang bị <strong>trầy xước, xuống màu hoặc lớp Melamine bị bong tróc</strong>, việc dán Film nội thất vân gỗ là phương án tối ưu nhất.
         </p>
         <div class="grid md:grid-cols-2 gap-8 mt-8">
           <div class="bg-white p-6 rounded-2xl shadow-sm">
@@ -136,7 +136,7 @@ const woodFeatures = [
 
   <section class="pb-24 px-6 text-center">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-light mb-8 italic text-base-900">Bạn muốn chạm thử bề mặt vân gỗ thực tế?</h2>
+      <h2 class="text-2xl font-semibold mb-8 not-italic text-base-900">Bạn muốn chạm thử bề mặt vân gỗ thực tế?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="https://zalo.me/0866077040" class="bg-orange-900 text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-orange-800 transition-all">
           Mang mẫu đến tận nhà khảo sát
