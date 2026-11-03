@@ -1,0 +1,37 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ProductCards from "../../components/ProductCards.astro";
+import { posts, postHref, formatDate, type Post } from "../../data/posts";
+import { findProducts } from "../../data/products";
+import { services, serviceHref } from "../../data/services";
+import { site } from "../../data/site";
+import { breadcrumbSchema } from "../../data/seo";
+export const getStaticPaths = (() => posts.map(post => ({ params: { slug: post.slug }, props: { post } }))) satisfies GetStaticPaths;
+interface Props { post: Post }
+const { post } = Astro.props;
+const relatedServices = services.filter(service => post.services.includes(service.slug));
+const schema = [
+  {
+    "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.description,
+    datePublished: post.date, image: new URL(post.image, Astro.site).href,
+    author: { "@type": "Organization", name: "iDecal", url: new URL("/gioi-thieu/", Astro.site).href },
+    publisher: { "@type": "Organization", name: site.name, url: Astro.site!.href },
+    mainEntityOfPage: { "@type": "WebPage", "@id": new URL(postHref(post), Astro.site).href },
+  },
+  breadcrumbSchema(Astro.site!, [{ name: "Kiến thức nội thất", path: "/blog/" }, { name: post.title, path: postHref(post) }]),
+];
+---
+<BaseLayout title={`${post.title} | iDecal`} description={post.description} image={post.image} pageType="article" structuredData={schema}>
+  <article>
+    <header class="px-4 sm:px-6 py-10 md:py-16 bg-base-50"><div class="max-w-4xl mx-auto"><Breadcrumbs items={[{ label: "Kiến thức nội thất", href: "/blog/" }, { label: post.title }]} /><p class="eyebrow mb-4">CẨM NANG FILM NỘI THẤT</p><h1 class="text-3xl md:text-5xl font-semibold">{post.title}</h1><p class="text-sm text-base-600 mt-5">Biên soạn: iDecal · <time datetime={post.date}>{formatDate(post.date)}</time></p><p class="mt-7 text-lg text-base-600">{post.intro}</p><img src={post.image} alt={post.title} class="w-full aspect-[16/9] object-cover rounded-2xl mt-8" width="1000" height="563" fetchpriority="high" /></div></header>
+    <div class="px-4 sm:px-6 py-12 md:py-16 bg-white"><div class="max-w-4xl mx-auto">
+      <nav aria-label="Mục lục bài viết" class="bg-base-50 border border-base-200 rounded-2xl p-6 mb-10"><h2 class="text-lg font-semibold mb-4">Trong bài viết này</h2><ol class="space-y-3">{post.sections.map(section => <li><a href={`#${section.id}`} class="text-primary-600 hover:underline">{section.title}</a></li>)}</ol></nav>
+      <div class="space-y-10">{post.sections.map(section => <section id={section.id} class="scroll-mt-28"><h2 class="text-2xl font-semibold mb-5">{section.title}</h2><div class="space-y-5 text-base-600 leading-relaxed">{section.paragraphs.map(text => <p>{text}</p>)}{section.bullets && <ul class="list-disc pl-6 space-y-3">{section.bullets.map(text => <li>{text}</li>)}</ul>}</div></section>)}</div>
+      <aside class="mt-12 p-6 border border-base-200 rounded-2xl bg-base-50"><h2 class="text-xl font-semibold mb-4">Bạn đang chuẩn bị thi công?</h2><p class="text-base-600">Mỗi nền và mã film có điều kiện sử dụng riêng. Gửi ảnh hiện trạng để được tư vấn, xem mẫu và xác nhận phạm vi trước khi quyết định.</p><ul class="space-y-3 mt-5">{relatedServices.map(service => <li><a href={serviceHref(service)} class="text-primary-600 hover:underline">{service.name} →</a></li>)}</ul><a href={site.zaloHref} class="button-primary mt-6">Trao đổi qua Zalo</a></aside>
+    </div></div>
+  </article>
+  <ProductCards products={findProducts(post.products)} title="Mẫu film được nhắc đến" />
+  <section class="px-4 sm:px-6 py-14 bg-white"><div class="max-w-4xl mx-auto"><h2 class="text-2xl font-semibold mb-6">Đọc tiếp</h2><ul class="space-y-4">{posts.filter(item => item.slug !== post.slug).map(item => <li><a href={postHref(item)} class="text-primary-600 hover:underline">{item.title} →</a></li>)}</ul></div></section>
+</BaseLayout>

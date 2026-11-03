@@ -1,0 +1,10 @@
+---
+interface Props { items: { label: string; href?: string }[] }
+const { items } = Astro.props;
+---
+<nav aria-label="Đường dẫn trang" class="text-sm text-base-600 mb-7">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-2">
+    <li><a href="/" class="hover:text-primary-600 hover:underline">Trang chủ</a></li>
+    {items.map(item => <li class="flex items-center gap-2"><span aria-hidden="true" class="text-base-400">/</span>{item.href ? <a href={item.href} class="hover:text-primary-600 hover:underline">{item.label}</a> : <span aria-current="page" class="text-base-900">{item.label}</span>}</li>)}
+  </ol>
+</nav>

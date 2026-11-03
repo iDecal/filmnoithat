@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { posts, postHref, formatDate } from "../data/posts";
+import { services as servicePages, serviceHref } from "../data/services";
 
 // 1. Dữ liệu Sản phẩm (Vật liệu) - Thêm ảnh cụ thể
 const productCategories = [
@@ -29,13 +31,7 @@ const productCategories = [
   }
 ];
 
-// 2. Dữ liệu Dịch vụ
-const services = [
-  { title: "Dán film thang máy", desc: "Biến kim loại lạnh thành vật liệu nội thất sang trọng.", image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg" },
-  { title: "Dán film tủ bếp", desc: "Thay đổi màu sắc không gian bếp mà không cần thay mới.", image: "/images/blog/dan-film-noi-that-tu-bep.webp" },
-  { title: "Dán film kính văn phòng", desc: "Tăng tính riêng tư, giữ ánh sáng chuyên nghiệp.", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg" },
-  { title: "Dán showroom/cửa hàng", desc: "Cải tạo quầy kệ, vách trang trí nhanh chóng.", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg" }
-];
+const services = servicePages.filter(service => service.slug !== "dan-film-noi-that");
 
 const projects = [
   { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi", image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg" },
@@ -43,12 +39,7 @@ const projects = [
   { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm", image: "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp" }
 ];
 
-const blogPosts = [
-  { title: "5 Lý do chọn Film dán thay vì sơn bệt",excerpt: "Tiết kiệm 70% chi phí, thi công sạch sẽ không mùi và độ bền vượt trội là những ưu điểm khiến Film nội thất dần thay thế sơn bệt truyền thống.",
-    date: "15/04/2026", date: "15/04/2026", image: "/images/blog/wd259-2-f13e5564-4976-42fd-9cec-adb506d15c94.webp" },
-  { title: "Hướng dẫn tự dán film tại nhà đúng kỹ thuật", excerpt: "Tiết kiệm 70% chi phí, thi công sạch sẽ không mùi và độ bền vượt trội là những ưu điểm khiến Film nội thất dần thay thế sơn bệt truyền thống.",
-    date: "15/04/2026",excerpt: "Tổng hợp các kỹ thuật xử lý góc cạnh, cách dùng máy khò nhiệt và dao cắt chuyên dụng để bạn có thể tự làm mới đồ nội thất gỗ ngay tại nhà.",date: "10/04/2026", image: "images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg" }
-];
+const blogPosts = posts;
 ---
 
 <BaseLayout title="Film Dán Nội Thất - Vật Liệu & Thi Công Cao Cấp">
@@ -65,7 +56,7 @@ const blogPosts = [
         Film dán nội thất cho bàn, tủ, tường và nhiều bề mặt khác. Cùng iDecal chọn vật liệu và phương án thi công phù hợp với không gian của bạn.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="/vat-lieu/" class="button-primary">Tìm mẫu film <span aria-hidden="true" class="ml-3">↗</span></a>
+        <a href="/vat-lieu/" class="button-primary">Tìm mẫu film <span aria-hidden="true" class="ml-3">→</span></a>
         <a href="/dich-vu/dan-film-noi-that/" class="button-secondary">Tư vấn thi công</a>
       </div>
       <div class="mt-8 pt-6 border-t border-base-200 flex flex-wrap gap-x-6 gap-y-2 text-sm text-base-600">
@@ -113,18 +104,18 @@ const blogPosts = [
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-4xl font-semibold not-italic mb-4">Thi Công Dán Film Nội Thất Chuyên Nghiệp</h2>
-      <p class="text-base-500 max-w-2xl mx-auto font-medium text-lg">Xử lý tỉ mỉ các chi tiết khó nhất, đảm bảo độ thẩm mỹ tuyệt đối cho công trình của bạn.</p>
+      <p class="text-base-500 max-w-2xl mx-auto font-medium text-lg">Tư vấn theo bề mặt và công năng, thống nhất mẫu film và phạm vi trước khi thi công.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map(s => (
         <div class="bg-white p-2 rounded-[2rem] border border-base-200 hover:shadow-xl transition group">
           <div class="aspect-square rounded-[1.8rem] overflow-hidden mb-6">
-            <img src={s.image} alt={s.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <img src={s.image} alt={`Tham khảo ${s.name.toLowerCase()}`} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
           </div>
           <div class="px-6 pb-6 text-center">
-            <h3 class="font-bold text-base-900 text-lg mb-2">{s.title}</h3>
-            <p class="text-sm text-base-500 leading-relaxed">{s.desc}</p>
+            <h3 class="font-bold text-base-900 text-lg mb-2"><a href={serviceHref(s)} class="hover:text-primary-600">{s.name}</a></h3>
+            <p class="text-sm text-base-500 leading-relaxed">{s.description}</p>
           </div>
         </div>
       ))}
@@ -140,22 +131,22 @@ const blogPosts = [
         <div class="flex gap-6">
           <span class="text-3xl">💰</span>
           <div>
-            <h4 class="font-bold text-xl text-base-900 mb-2">Tiết kiệm 70% chi phí</h4>
-            <p class="text-base-600">Thay đổi diện mạo nội thất mà không cần mua mới. Tiết kiệm tối đa ngân sách đầu tư.</p>
+            <h4 class="font-bold text-xl text-base-900 mb-2">Làm mới phần bề mặt</h4>
+            <p class="text-base-600">Cân nhắc giữ lại kết cấu còn tốt và thay đổi màu, họa tiết để phù hợp với không gian.</p>
           </div>
         </div>
         <div class="flex gap-6">
           <span class="text-3xl">✨</span>
           <div>
-            <h4 class="font-bold text-xl text-base-900 mb-2">Thi công sạch sẽ</h4>
-            <p class="text-base-600">Không bụi gỗ, không mùi sơn, không tiếng ồn. Bạn có thể sử dụng không gian ngay lập tức.</p>
+            <h4 class="font-bold text-xl text-base-900 mb-2">Chuẩn bị theo hiện trạng</h4>
+            <p class="text-base-600">Khảo sát lớp nền, bảo vệ khu vực xung quanh và thống nhất cách xử lý trước khi dán.</p>
           </div>
         </div>
         <div class="flex gap-6">
           <span class="text-3xl">🛡️</span>
           <div>
-            <h4 class="font-bold text-xl text-base-900 mb-2">Độ bền trên 10 năm</h4>
-            <p class="text-base-600">Khả năng kháng ẩm, chống trầy xước và chịu nhiệt cực tốt trong môi trường Việt Nam.</p>
+            <h4 class="font-bold text-xl text-base-900 mb-2">Chăm sóc theo vật liệu</h4>
+            <p class="text-base-600">Xác nhận giới hạn sử dụng và hướng dẫn vệ sinh của đúng mã film trước khi chọn.</p>
           </div>
         </div>
       </div>
@@ -164,7 +155,7 @@ const blogPosts = [
     <div class="bg-base-900 p-12 rounded-[3rem] text-white relative overflow-hidden">
       <h2 class="text-3xl font-semibold mb-10 not-italic">Quy trình 5 bước</h2>
       <div class="space-y-8 relative z-10">
-        {["Tư vấn & Xem mẫu tại nhà", "Khảo sát & Đo đạc thực tế", "Báo giá vật tư & Nhân công", "Thi công tỉ mỉ từng mép cạnh", "Bàn giao & Bảo hành 2-5 năm"].map((step, i) => (
+        {["Tư vấn & Xem mẫu tại nhà", "Khảo sát & Đo đạc thực tế", "Báo giá vật tư & Nhân công", "Thi công tỉ mỉ từng mép cạnh", "Bàn giao & Hướng dẫn chăm sóc"].map((step, i) => (
           <div class="flex gap-6 items-center border-b border-white/10 pb-4">
             <span class="text-primary-500 font-sans not-italic text-2xl font-bold">0{i+1}.</span>
             <p class="font-medium text-lg">{step}</p>
@@ -207,7 +198,7 @@ const blogPosts = [
 
     <div class="grid md:grid-cols-2 gap-12">
       {blogPosts && blogPosts.map(post => (
-        <a href={post.link || "#"} class="group block">
+        <a href={postHref(post)} class="group block">
           <div class="aspect-video rounded-3xl overflow-hidden mb-6 bg-base-100">
              <img
                 src={post.image}
@@ -218,7 +209,7 @@ const blogPosts = [
 
           <div class="flex gap-4 items-center mb-4">
              <span class="text-xs font-bold bg-primary-500 text-white px-3 py-1 rounded-full uppercase tracking-widest">Cẩm nang</span>
-             <span class="text-xs text-base-400 font-medium">{post.date}</span>
+             <span class="text-xs text-base-400 font-medium">{formatDate(post.date)}</span>
           </div>
 
           <h3 class="text-2xl font-medium leading-snug group-hover:text-primary-500 transition">
@@ -226,7 +217,7 @@ const blogPosts = [
           </h3>
 
           <p class="mt-3 text-base-500 text-sm leading-relaxed overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-            {post.excerpt}
+            {post.description}
           </p>
 
           <p class="mt-6 text-primary-500 font-bold text-xs flex items-center gap-2 tracking-[0.2em] uppercase">

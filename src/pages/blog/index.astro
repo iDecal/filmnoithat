@@ -1,71 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const posts = [
-  {
-    title: "Cách chọn film nội thất phù hợp cho từng không gian",
-    desc: "Hướng dẫn chọn film cho bàn, tủ, tường và thang máy.",
-    slug: "cach-chon-film-noi-that"
-  },
-  {
-    title: "Báo giá dán film nội thất mới nhất",
-    desc: "Cập nhật chi phí thi công film nội thất theo từng hạng mục.",
-    slug: "bao-gia-dan-film"
-  },
-  {
-    title: "Film vân gỗ là gì? Ứng dụng thực tế",
-    desc: "Tìm hiểu dòng film vân gỗ trong thiết kế nội thất hiện đại.",
-    slug: "film-van-go-la-gi"
-  },
-  {
-    title: "So sánh film nội thất và sơn phủ truyền thống",
-    desc: "Ưu và nhược điểm giữa film và sơn nội thất.",
-    slug: "so-sanh-film-noi-that"
-  }
-];
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { posts, postHref, formatDate } from "../../data/posts";
+import { breadcrumbSchema } from "../../data/seo";
 ---
-
-<BaseLayout>
-
-<!-- 🌿 HERO -->
-<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
-
-  <h1 class="text-4xl font-semibold">
-    Blog Film Nội Thất
-  </h1>
-
-  <p class="mt-4 text-base-600 max-w-2xl mx-auto">
-    Kiến thức, kinh nghiệm và giải pháp thi công film nội thất thực tế.
-  </p>
-
-</section>
-
-<!-- 🧠 BLOG GRID -->
-<section class="py-24 px-6">
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-
-    {posts.map(p => (
-      <a href={`/blog/${p.slug}`}
-        class="bg-white border border-base-200 rounded-2xl p-6 hover:shadow-lg transition">
-
-        <h2 class="font-medium text-lg leading-snug">
-          {p.title}
-        </h2>
-
-        <p class="text-sm text-base-600 mt-3">
-          {p.desc}
-        </p>
-
-        <div class="mt-6 text-xs text-primary-500">
-          Đọc thêm →
-        </div>
-
-      </a>
-    ))}
-
-  </div>
-
-</section>
-
+<BaseLayout title="Blog film nội thất: chọn mẫu, thi công & báo giá | iDecal" description="Cẩm nang film nội thất: cách chọn vật liệu, lưu ý dán tủ bếp và cách so sánh báo giá. Bài viết có liên kết đến mẫu film và dịch vụ phù hợp." structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Kiến thức nội thất", path: "/blog/" }])]}>
+  <section class="px-4 sm:px-6 py-10 md:py-16 bg-base-50"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Kiến thức nội thất" }]} /><p class="eyebrow mb-4">CẨM NANG CHỌN FILM & THI CÔNG</p><h1 class="text-3xl md:text-5xl font-semibold">Kiến thức film nội thất</h1><p class="text-base-600 text-lg mt-6 max-w-3xl">Thông tin để bạn chọn vật liệu, chuẩn bị bề mặt và trao đổi phương án thi công rõ ràng hơn.</p></div></section>
+  <section class="px-4 sm:px-6 py-14 bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+    {posts.map(post => <article class="rounded-2xl border border-base-200 overflow-hidden"><a href={postHref(post)} class="block group"><img src={post.image} alt={post.title} width="600" height="400" loading="lazy" class="w-full aspect-[3/2] object-cover" /><div class="p-6"><time datetime={post.date} class="text-xs text-base-600">{formatDate(post.date)}</time><h2 class="text-xl font-semibold mt-3 group-hover:text-primary-600">{post.title}</h2><p class="text-sm text-base-600 mt-4">{post.description}</p><span class="inline-block text-primary-600 font-medium mt-6">Đọc bài viết →</span></div></a></article>)}
+  </div></section>
 </BaseLayout>

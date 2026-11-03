@@ -6,11 +6,20 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  pageType?: "website" | "article";
+  structuredData?: Record<string, unknown>[];
 }
 const {
   title = "Film Nội Thất - Dán Film Trang Trí Cao Cấp",
   description = "Dịch vụ dán film nội thất: bàn, tủ, tường, trần, thang máy, showroom. Giải pháp thay đổi không gian không cần phá bỏ.",
+  image = "/images/cong-trinh/banner-film-dan-noi-that.jpg",
+  pageType = "website",
+  structuredData = [],
 } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const schemaJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 ---
 
 <html lang="vi">
@@ -21,6 +30,19 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Film Nội Thất" />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    {structuredData.length > 0 && <script type="application/ld+json" set:html={schemaJson} />}
 
   </head>
 

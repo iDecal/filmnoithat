@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import ProductCards from "./ProductCards.astro";
+import { services, serviceHref, type Service } from "../data/services";
+import { findProducts } from "../data/products";
+import { posts, postHref } from "../data/posts";
+import { site } from "../data/site";
+import { breadcrumbSchema } from "../data/seo";
+interface Props { service: Service }
+const { service } = Astro.props;
+const overview = service.slug === "dan-film-noi-that";
+const relatedServices = services.filter(item => item.slug !== service.slug);
+const relatedPosts = posts.filter(post => post.services.includes(service.slug));
+const selectedProducts = findProducts(service.products);
+const crumbs = overview ? [{ label: "Dịch vụ dán film nội thất" }] : [{ label: "Dịch vụ", href: "/dich-vu/dan-film-noi-that/" }, { label: service.name }];
+const schema = [
+  {
+    "@context": "https://schema.org", "@type": "Service",
+    name: service.name, serviceType: service.name, description: service.description,
+    url: new URL(serviceHref(service), Astro.site).href,
+    provider: { "@type": "Organization", name: "iDecal", url: Astro.site!.href, telephone: "+84866077040" },
+    areaServed: ["TP. Hồ Chí Minh", "Bình Dương"],
+  },
+  breadcrumbSchema(Astro.site!, overview ? [{ name: service.name, path: serviceHref(service) }] : [{ name: "Dịch vụ", path: "/dich-vu/dan-film-noi-that/" }, { name: service.name, path: serviceHref(service) }]),
+];
+const steps = [
+  ["01", "Tiếp nhận hiện trạng", "Gửi ảnh, kích thước, địa điểm và nhu cầu sử dụng để định hướng phương án khảo sát."],
+  ["02", "Khảo sát & chọn mẫu", "Kiểm tra nền, xem mẫu thực tế và thống nhất chiều vân, vị trí mối nối, phạm vi xử lý."],
+  ["03", "Chốt báo giá & thi công", "Xác nhận vật tư, nhân công, tháo lắp và tiến độ trước khi chuẩn bị bề mặt và dán film."],
+  ["04", "Kiểm tra & bàn giao", "Kiểm tra góc, mép, mối nối và phụ kiện; hướng dẫn sử dụng, vệ sinh theo vật liệu đã chọn."],
+];
+---
+<BaseLayout title={service.title} description={service.description} image={service.image} structuredData={schema}>
+  <section class="px-4 sm:px-6 py-10 md:py-16 bg-base-50">
+    <div class="max-w-7xl mx-auto">
+      <Breadcrumbs items={crumbs} />
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="eyebrow mb-4">THI CÔNG TẠI TP.HCM & BÌNH DƯƠNG</p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold">{service.name}</h1>
+          <p class="mt-6 text-base-600 text-lg">{service.intro}</p>
+          <div class="flex flex-wrap gap-3 mt-8"><a href={site.zaloHref} class="button-primary">Gửi ảnh để tư vấn</a><a href="#mau-film" class="button-secondary">Xem mẫu film</a></div>
+        </div>
+        <img src={service.image} alt={`Hình tham khảo vật liệu và không gian cho ${service.name.toLowerCase()}`} class="w-full aspect-[4/3] object-cover rounded-3xl" width="900" height="675" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 py-14 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-10 lg:gap-16">
+      <div class="space-y-10">
+        {service.sections.map(section => <section><h2 class="text-2xl font-semibold mb-4">{section.title}</h2><p class="text-base-600 leading-relaxed">{section.text}</p></section>)}
+      </div>
+      <aside class="self-start border border-base-200 bg-base-50 rounded-2xl p-6 md:p-8" aria-labelledby="prepare-title">
+        <h2 id="prepare-title" class="text-xl font-semibold">Thông tin cần để báo giá</h2>
+        <ul class="list-disc pl-5 mt-5 space-y-3 text-base-600 text-sm">{service.preparation.map(item => <li>{item}</li>)}</ul>
+        <p class="text-sm text-base-600 mt-6">Giá phụ thuộc mã film, khối lượng, xử lý nền, chi tiết góc cạnh và điều kiện thi công. Báo giá được xác nhận theo phạm vi công việc thực tế.</p>
+        <a href={site.phoneHref} class="inline-block mt-5 py-2 font-semibold text-primary-600 hover:underline">Gọi {site.phone}</a>
+      </aside>
+    </div>
+  </section>
+
+  <div id="mau-film"><ProductCards products={selectedProducts} title={`Mẫu film tham khảo cho ${service.name.toLowerCase()}`} /></div>
+
+  <section class="px-4 sm:px-6 py-14 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-8">Quy trình tư vấn và thi công</h2>
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">{steps.map(([number, title, text]) => <li class="border border-base-200 p-6 rounded-2xl"><span class="text-primary-600 font-semibold text-sm" aria-hidden="true">{number}</span><h3 class="font-semibold mt-3">{title}</h3><p class="text-sm text-base-600 mt-3">{text}</p></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 py-14 bg-base-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-8">Câu hỏi về {service.name.toLowerCase()}</h2>
+      <div class="space-y-4">{service.faqs.map(faq => <details class="rounded-2xl bg-white border border-base-200 p-6"><summary class="cursor-pointer font-semibold">{faq.question}</summary><p class="text-base-600 mt-4">{faq.answer}</p></details>)}</div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 py-14 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+      <div><h2 class="text-2xl font-semibold mb-5">Dịch vụ liên quan</h2><ul class="space-y-3">{relatedServices.map(item => <li><a href={serviceHref(item)} class="text-primary-600 py-1 inline-block hover:underline">{item.name} →</a></li>)}</ul></div>
+      <div><h2 class="text-2xl font-semibold mb-5">Cẩm nang trước khi thi công</h2><ul class="space-y-3">{relatedPosts.map(post => <li><a href={postHref(post)} class="text-primary-600 py-1 inline-block hover:underline">{post.title} →</a></li>)}</ul><a href="/blog/" class="inline-block mt-5 text-base-600 hover:underline">Xem tất cả bài viết →</a></div>
+    </div>
+  </section>
+</BaseLayout>

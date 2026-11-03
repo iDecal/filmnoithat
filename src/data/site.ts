@@ -54,7 +54,7 @@ export const navigation: NavigationItem[] = [
   {
     label: "Vật liệu",
     href: "/vat-lieu/",
-    children: [{ label: "Tất cả vật liệu", href: "/vat-lieu/" }, ...materialLinks],
+    children: [{ label: "Tất cả vật liệu", href: "/vat-lieu/" }, { label: "Mẫu film theo mã", href: "/san-pham/" }, ...materialLinks],
   },
   ...companyLinks,
 ];
@@ -62,4 +62,4 @@ export const navigation: NavigationItem[] = [
 export const normalizePath = (path: string) => path.replace(/\/+$/, "") || "/";
 export const isCurrentPage = (path: string, href: string) => normalizePath(path) === normalizePath(href);
 export const isCurrentSection = (path: string, item: NavigationItem) =>
-  isCurrentPage(path, item.href) || !!item.children?.some(link => isCurrentPage(path, link.href));
+  isCurrentPage(path, item.href) || !!item.children?.some(link => isCurrentPage(path, link.href) || normalizePath(path).startsWith(`${normalizePath(link.href)}/`));

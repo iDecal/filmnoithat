@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ProductCards from "../../components/ProductCards.astro";
+import { products, productHref, type Product } from "../../data/products";
+import { services, serviceHref } from "../../data/services";
+import { site } from "../../data/site";
+import { breadcrumbSchema } from "../../data/seo";
+export const getStaticPaths = (() => products.map(product => ({ params: { slug: product.slug }, props: { product } }))) satisfies GetStaticPaths;
+interface Props { product: Product }
+const { product } = Astro.props;
+const relatedServices = services.filter(service => service.slug !== "dan-film-noi-that" && service.products.includes(product.slug));
+const schema = [
+  { "@context": "https://schema.org", "@type": "Product", name: product.name, sku: product.code, category: product.category, description: product.description, image: new URL(product.image, Astro.site).href, url: new URL(productHref(product), Astro.site).href },
+  breadcrumbSchema(Astro.site!, [{ name: "Mẫu film", path: "/san-pham/" }, { name: product.name, path: productHref(product) }]),
+];
+---
+<BaseLayout title={`${product.name} | Mẫu & tư vấn iDecal`} description={product.description} image={product.image} structuredData={schema}>
+  <section class="px-4 sm:px-6 py-10 md:py-16 bg-white"><div class="max-w-7xl mx-auto">
+    <Breadcrumbs items={[{ label: "Mẫu film", href: "/san-pham/" }, { label: product.name }]} />
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <img src={product.image} alt={product.name} class="w-full aspect-square object-cover rounded-3xl border border-base-200" width="900" height="900" fetchpriority="high" />
+      <div><a href={product.categoryHref} class="eyebrow hover:underline">{product.category}</a><h1 class="text-3xl md:text-4xl font-semibold mt-4">{product.name}</h1><p class="text-base-600 text-lg mt-6">{product.description}</p>
+        <dl class="mt-6 divide-y divide-base-200 border-y border-base-200 text-sm"><div class="flex gap-6 py-4"><dt class="text-base-600 w-24 shrink-0">Mã mẫu</dt><dd class="font-semibold">{product.code}</dd></div><div class="flex gap-6 py-4"><dt class="text-base-600 w-24 shrink-0">Báo giá</dt><dd>Liên hệ theo số lượng và phạm vi thi công</dd></div></dl>
+        <p class="text-sm text-base-600 mt-5">Khổ rộng, độ dày, xuất xứ, giá và tình trạng cung cấp được xác nhận theo catalogue và lô vật liệu trước khi đặt hàng. Màu ảnh có thể khác mẫu thực tế.</p>
+        <div class="flex flex-wrap gap-3 mt-7"><a href={site.zaloHref} class="button-primary">Hỏi mẫu {product.code}</a><a href="/lien-he/" class="button-secondary">Liên hệ tư vấn</a></div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 mt-14"><section><h2 class="text-2xl font-semibold mb-5">Ứng dụng gợi ý</h2><ul class="list-disc pl-5 space-y-3 text-base-600">{product.applications.map(item => <li>{item}</li>)}</ul></section><section><h2 class="text-2xl font-semibold mb-5">Lưu ý khi chọn và thi công</h2><ul class="list-disc pl-5 space-y-3 text-base-600">{product.notes.map(item => <li>{item}</li>)}</ul></section></div>
+    <section class="mt-12"><h2 class="text-2xl font-semibold mb-5">Tham khảo dịch vụ sử dụng mẫu film</h2><ul class="flex flex-wrap gap-3">{relatedServices.map(service => <li><a href={serviceHref(service)} class="button-secondary">{service.name}</a></li>)}</ul></section>
+  </div></section>
+  <ProductCards products={products.filter(item => item.slug !== product.slug)} title="Các mẫu film khác" />
+</BaseLayout>

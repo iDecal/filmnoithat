@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear();
         <p class="text-white/80 text-sm leading-relaxed mt-5 max-w-sm">
           Cung cấp film trang trí và thi công cho bàn, tủ, tường, trần và thang máy. Cùng bạn chọn vật liệu phù hợp để làm mới không gian.
         </p>
-        <a href={site.zaloHref} class="inline-flex items-center justify-center min-h-11 px-5 py-3 mt-6 rounded-xl bg-white text-base-900 font-semibold text-sm hover:bg-primary-100 transition-colors">Tư vấn qua Zalo <span aria-hidden="true" class="ml-2">↗</span></a>
+        <a href={site.zaloHref} class="inline-flex items-center justify-center min-h-11 px-5 py-3 mt-6 rounded-xl bg-white text-base-900 font-semibold text-sm hover:bg-primary-100 transition-colors">Tư vấn qua Zalo <span aria-hidden="true" class="ml-2">→</span></a>
       </div>
 
       <nav aria-labelledby="footer-services-title">
@@ -26,7 +26,8 @@ const currentYear = new Date().getFullYear();
       <nav aria-labelledby="footer-materials-title">
         <h2 id="footer-materials-title" class="text-base font-semibold text-primary-200 mb-4">Film & vật liệu</h2>
         <ul class="space-y-1 text-sm">
-          <li><a href="/vat-lieu/" class="footer-link">Tất cả mẫu film</a></li>
+          <li><a href="/vat-lieu/" class="footer-link">Tất cả vật liệu</a></li>
+          <li><a href="/san-pham/" class="footer-link">Mẫu film theo mã</a></li>
           {materialLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
         </ul>
       </nav>
