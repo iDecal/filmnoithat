@@ -6,39 +6,28 @@
 
 @layer base {
   :root {
-  --color-base-50: 250 248 245;
-  --color-base-100: 242 238 232;
-  --color-base-200: 227 221 212;
-  --color-base-300: 203 196 184;
-  --color-base-400: 139 140 128;
-  --color-base-500: 98 104 95;
-  --color-base-600: 81 89 79;
-  --color-base-700: 65 76 66;
-  --color-base-800: 48 62 53;
-  --color-base-900: 32 54 44;
-  --color-base-950: 21 40 31;
-  --color-primary-50: 238 247 242;
-  --color-primary-100: 218 238 226;
-  --color-primary-200: 183 220 201;
-  --color-primary-300: 140 195 167;
-  --color-primary-400: 75 150 116;
-  --color-primary-500: 35 108 75;
-  --color-primary-600: 28 88 62;
-  --color-primary-700: 25 72 52;
-  --color-primary-800: 23 60 45;
-  --color-primary-900: 22 51 39;
-  --color-primary-950: 14 35 26;
-  --color-orange-50: 255 245 237;
-  --color-orange-100: 255 234 215;
-  --color-orange-200: 248 209 175;
-  --color-orange-300: 237 176 134;
-  --color-orange-400: 214 141 94;
-  --color-orange-500: 167 75 38;
-  --color-orange-600: 145 62 31;
-  --color-orange-700: 118 51 28;
-  --color-orange-800: 97 45 28;
-  --color-orange-900: 81 40 28;
-  --color-orange-950: 46 20 12;
+  --color-base-50: 248 250 252;
+  --color-base-100: 238 243 248;
+  --color-base-200: 220 228 238;
+  --color-base-300: 189 203 220;
+  --color-base-400: 113 128 150;
+  --color-base-500: 82 97 119;
+  --color-base-600: 67 82 105;
+  --color-base-700: 53 69 92;
+  --color-base-800: 36 54 79;
+  --color-base-900: 20 43 69;
+  --color-base-950: 12 27 44;
+  --color-primary-50: 239 245 251;
+  --color-primary-100: 225 236 247;
+  --color-primary-200: 199 218 238;
+  --color-primary-300: 156 185 218;
+  --color-primary-400: 100 139 184;
+  --color-primary-500: 36 70 107;
+  --color-primary-600: 27 53 84;
+  --color-primary-700: 24 46 73;
+  --color-primary-800: 21 40 63;
+  --color-primary-900: 16 33 55;
+  --color-primary-950: 10 22 38;
     color-scheme: light;
     font-family: "Be Vietnam Pro", system-ui, sans-serif;
     font-synthesis: none;
@@ -71,7 +60,7 @@
   a, button, summary { scroll-margin-top: 6rem; }
 
   :focus-visible {
-    outline: 3px solid rgb(var(--color-orange-500));
+    outline: 3px solid rgb(var(--color-primary-400));
     outline-offset: 5px;
     border-radius: 4px;
   }
