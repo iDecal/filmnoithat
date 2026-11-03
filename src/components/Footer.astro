@@ -1,124 +1,70 @@
 ---
-// Bạn có thể đưa các thông tin này vào file cấu hình hoặc hằng số
+import { site, serviceLinks, materialLinks, companyLinks } from "../data/site";
 const currentYear = new Date().getFullYear();
-
-const footerLinks = {
-  services: [
-    { title: "Dán film thang máy", href: "/dich-vu/dan-film-thang-may" },
-    { title: "Dán film tủ bếp", href: "/dich-vu/dan-film-tu-bep" },
-    { title: "Dán film kính văn phòng", href: "/dich-vu/dan-film-kinh-van-phong" },
-    { title: "Cải tạo nội thất Showroom", href: "/dich-vu/cai-tao-showroom" },
-  ],
-  products: [
-    { title: "Film vân gỗ cao cấp", href: "/vat-lieu/van-go" },
-    { title: "Film vân đá Marble", href: "/vat-lieu/da-cam-thach" },
-    { title: "Film màu đơn sắc", href: "/vat-lieu/don-sac" },
-    { title: "Vật liệu Film Infeel/Toda", href: "/vat-lieu" },
-  ],
-  company: [
-    { title: "Giới thiệu", href: "/gioi-thieu" },
-    { title: "Dự án tiêu biểu", href: "/du-an" },
-    { title: "Kiến thức nội thất", href: "/blog" },
-    { title: "Chính sách bảo hành", href: "/chinh-sach-bao-hanh" },
-  ]
-};
 ---
 
-<footer class="bg-base-900 text-white pt-20 pb-10 px-6 border-t border-white/5">
+<footer class="bg-base-900 text-white px-4 sm:px-6 pt-14 md:pt-20 pb-8">
   <div class="max-w-7xl mx-auto">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-
-      <div class="space-y-6">
-        <div class="text-2xl font-bold tracking-tighter">
-          Film Nội Thất <span class="text-primary-200 text-sm font-medium block mt-2">Vật liệu & thi công cùng iDecal</span>
-        </div>
-        <p class="text-white/80 text-sm leading-relaxed">
-          Đơn vị chuyên sâu về giải pháp bề mặt nội thất. Chúng tôi giúp bạn tái tạo không gian sống bền vững, thẩm mỹ với chi phí tối ưu nhất.
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12 pb-12">
+      <div>
+        <a href="/" class="inline-block text-2xl font-semibold leading-snug" aria-label={`${site.name} — Trang chủ`}>{site.name}</a>
+        <p class="text-primary-200 text-sm font-medium mt-3">{site.tagline}</p>
+        <p class="text-white/80 text-sm leading-relaxed mt-5 max-w-sm">
+          Cung cấp film trang trí và thi công cho bàn, tủ, tường, trần và thang máy. Cùng bạn chọn vật liệu phù hợp để làm mới không gian.
         </p>
-        <div class="flex gap-4">
-          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary-500 transition">FB</a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary-500 transition">YT</a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary-500 transition">ZL</a>
-        </div>
+        <a href={site.zaloHref} class="inline-flex items-center justify-center min-h-11 px-5 py-3 mt-6 rounded-xl bg-white text-base-900 font-semibold text-sm hover:bg-primary-100 transition-colors">Tư vấn qua Zalo <span aria-hidden="true" class="ml-2">↗</span></a>
       </div>
+
+      <nav aria-labelledby="footer-services-title">
+        <h2 id="footer-services-title" class="text-base font-semibold text-primary-200 mb-4">Dịch vụ thi công</h2>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/dich-vu/dan-film-noi-that/" class="footer-link">Tổng quan dịch vụ</a></li>
+          {serviceLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-materials-title">
+        <h2 id="footer-materials-title" class="text-base font-semibold text-primary-200 mb-4">Film & vật liệu</h2>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/vat-lieu/" class="footer-link">Tất cả mẫu film</a></li>
+          {materialLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
+        </ul>
+      </nav>
 
       <div>
-        <h4 class="font-bold mb-6 uppercase text-sm tracking-wide text-primary-200">Dịch vụ thi công</h4>
-        <ul class="space-y-4">
-          {footerLinks.services.map(link => (
-            <li>
-              <a href={link.href} class="text-white/80 hover:text-white hover:translate-x-2 transition-all inline-block text-sm">
-                {link.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <h2 class="text-base font-semibold text-primary-200 mb-4">Liên hệ tư vấn</h2>
+        <address class="not-italic text-sm leading-relaxed">
+          <p class="text-white/80">Hotline / Zalo</p>
+          <a href={site.phoneHref} class="inline-flex items-center min-h-11 text-xl font-semibold hover:text-primary-200 transition-colors">{site.phone}</a>
+          <a href={`mailto:${site.email}`} class="footer-link break-words">{site.email}</a>
+          <p class="text-white/80 mt-5">Khu vực phục vụ</p>
+          <p class="text-white mt-1">{site.serviceArea}</p>
+        </address>
+        <a href="/lien-he/" class="footer-link mt-4">Thông tin liên hệ <span aria-hidden="true">→</span></a>
       </div>
-
-      <div>
-        <h4 class="font-bold mb-6 uppercase text-sm tracking-wide text-primary-200">Kho vật liệu</h4>
-        <ul class="space-y-4">
-          {footerLinks.products.map(link => (
-            <li>
-              <a href={link.href} class="text-white/80 hover:text-white hover:translate-x-2 transition-all inline-block text-sm">
-                {link.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold mb-6 uppercase text-sm tracking-wide text-primary-200">Liên hệ trực tiếp</h4>
-        <ul class="space-y-4 text-sm text-white/80">
-          <li class="flex items-start gap-3">
-            <span>📍</span>
-            <span>Trụ sở: Đường số 7, Thủ Đức, TP. Hồ Chí Minh</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span>📍</span>
-            <span>Chi nhánh: Thuận An, Bình Dương</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span>📞</span>
-            <a href="tel:0862-208-108" class="hover:text-white font-bold text-white">0862-208-108</a>
-          </li>
-          <li class="flex items-start gap-3">
-            <span>✉️</span>
-            <a href="mailto:contact@filmnoithat.vn" class="hover:text-white">contact@filmnoithat.vn</a>
-          </li>
-        </ul>
-      </div>
-
     </div>
 
-    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-
-      <div class="text-white/75 text-xs">
-        © {currentYear} Film Dán Nội Thất Pro. Tất cả quyền được bảo lưu.
-        <span class="block md:inline mt-2 md:mt-0">Thiết kế & SEO bởi iDecal.</span>
-      </div>
-
-      <ul class="flex gap-6 text-xs text-white/75">
-        {footerLinks.company.map(link => (
-          <li><a href={link.href} class="hover:text-white transition">{link.title}</a></li>
-        ))}
-      </ul>
-
+    <div class="border-t border-white/20 pt-6 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+      <p class="text-sm text-white/80">© {currentYear} {site.name} · iDecal</p>
+      <nav aria-label="Thông tin website">
+        <ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+          {companyLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
+        </ul>
+      </nav>
     </div>
-
-    <div class="hidden">
-      <h2>Thi công dán film nội thất TP.HCM và Bình Dương chuyên nghiệp</h2>
-      <p>Cung cấp film dán vân gỗ, vân đá, film kiến trúc Infeel, Toda cho tủ bếp, thang máy, văn phòng.</p>
-    </div>
-
   </div>
 </footer>
 
 <style>
-  /* Đảm bảo Footer luôn nằm dưới cùng */
-  footer {
-    width: 100%;
+  .footer-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    padding-block: 0.625rem;
+    color: rgb(255 255 255 / 0.8);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 150ms;
   }
+  .footer-link:hover { color: white; text-decoration-line: underline; }
 </style>

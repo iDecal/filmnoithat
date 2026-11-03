@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
 
 const faqs = [
   {
@@ -42,7 +43,7 @@ const faqs = [
               </div>
               <div>
                 <h4 class="font-bold text-base-900">Hotline / Zalo</h4>
-                <p class="text-base-500 text-xl font-medium">0866 077 040</p>
+                <a href={site.phoneHref} class="inline-block py-2 text-primary-600 text-xl font-semibold hover:underline">{site.phone}</a>
               </div>
             </div>
 
@@ -61,7 +62,7 @@ const faqs = [
         <div class="bg-base-900 rounded-[3rem] p-10 md:p-16 text-white text-center flex flex-col justify-center">
           <h2 class="text-3xl font-semibold not-italic mb-6 text-white/90">Yêu cầu khảo sát tận nơi</h2>
           <p class="text-white/80 mb-10 text-sm">Chúng tôi sẽ mang theo Catalog hơn 1000 mẫu để bạn chọn trực tiếp trên bề mặt nội thất của mình.</p>
-          <a href="https://zalo.me/0866077040" class="bg-white text-black py-5 rounded-full font-bold text-lg hover:bg-primary-500 hover:text-white transition-all shadow-2xl">
+          <a href={site.zaloHref} class="bg-white text-black py-5 rounded-full font-bold text-lg hover:bg-primary-500 hover:text-white transition-all shadow-2xl">
             Chat qua Zalo ngay
           </a>
         </div>

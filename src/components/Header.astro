@@ -1,104 +1,67 @@
 ---
-const nav = [
-  {
-    label: "Dịch vụ",
-    href: "/dich-vu/dan-film-noi-that",
-    children: [
-      { label: "Tổng quan dịch vụ", href: "/dich-vu/dan-film-noi-that" },
-      { label: "Dán film bàn & kệ", href: "/dich-vu/dan-film-ban" },
-      { label: "Dán film tủ bếp", href: "/dich-vu/dan-film-tu-bep" },
-      { label: "Dán film tường & trần", href: "/dich-vu/dan-film-tran" },
-      { label: "Dán film thang máy", href: "/dich-vu/dan-film-thang-may" }
-    ]
-  },
-  {
-    label: "Vật liệu",
-    href: "/vat-lieu",
-    children: [
-      { label: "Tất cả vật liệu", href: "/vat-lieu" },
-      { label: "Film vân gỗ", href: "/vat-lieu/van-go" },
-      { label: "Film vân vải", href: "/vat-lieu/van-vai" },
-      { label: "Film kim loại", href: "/vat-lieu/kim-loai" },
-      { label: "Film giả đá", href: "/vat-lieu/da-cam-thach" }
-    ]
-  },
-  {
-    label: "Công trình",
-    href: "/cong-trinh",
-    children: [
-      { label: "Tất cả công trình", href: "/cong-trinh" },
-      { label: "Văn phòng", href: "/cong-trinh/van-phong" },
-      { label: "Nhà phố", href: "/cong-trinh/nha-pho" },
-      { label: "Showroom", href: "/cong-trinh/showroom" }
-    ]
-  },
-  {
-    label: "Blog",
-    href: "/blog",
-    children: [
-      { label: "Tất cả bài viết", href: "/blog" },
-      { label: "Cách chọn film nội thất", href: "/blog/cach-chon-film-noi-that" },
-      { label: "Báo giá thi công", href: "/blog/bao-gia-dan-film" },
-      { label: "So sánh vật liệu", href: "/blog/so-sanh-film-noi-that" }
-    ]
-  },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-  { label: "Liên hệ", href: "/lien-he" }
-];
+import { site, navigation, isCurrentPage, isCurrentSection } from "../data/site";
+const pathname = Astro.url.pathname;
 ---
 
 <header class="site-header sticky top-0 z-50 border-b border-base-200 bg-white/95 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-    <a href="/" class="flex items-center gap-3 shrink-0" aria-label="Film Nội Thất — Trang chủ">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${site.name} — Trang chủ`}>
       <span class="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-500 text-white" aria-hidden="true">
         <svg width="27" height="27" viewBox="0 0 28 28" fill="none"><path d="M5 22V6h18M5 14h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m15 22 8-8v8h-8Z" fill="currentColor" opacity=".55"/></svg>
       </span>
       <span>
-        <span class="block text-base font-semibold text-base-900 leading-snug">Film Nội Thất</span>
+        <span class="block text-base font-semibold text-base-900 leading-snug">{site.name}</span>
         <span class="block text-xs text-base-500 mt-1">Vật liệu & thi công</span>
       </span>
     </a>
 
-    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="Điều hướng chính">
-      {nav.map(item => (
-        <div class="relative group">
-          <a href={item.href} class="flex items-center gap-1 py-3 hover:text-primary-500 transition-colors">
+    <nav class="hidden lg:flex items-center gap-5 text-sm font-medium" aria-label="Điều hướng chính">
+      {navigation.map(item => item.children ? (
+        <details class="nav-dropdown relative" name="desktop-navigation">
+          <summary class:list={["nav-top-link flex items-center gap-2 cursor-pointer list-none rounded-lg px-2 py-3 hover:text-primary-500", { "text-primary-600 bg-primary-50": isCurrentSection(pathname, item) }]}>
             {item.label}
-            {item.children && <span aria-hidden="true" class="text-base-400">⌄</span>}
-          </a>
-          {item.children && (
-            <div class="absolute left-0 top-full w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150">
-              <div class="bg-white border border-base-200 rounded-2xl shadow-lg p-2">
-                {item.children.map(child => <a href={child.href} class="block px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-600">{child.label}</a>)}
-              </div>
-            </div>
-          )}
-        </div>
+            <svg class="nav-chevron w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <ul class="absolute left-0 top-full mt-2 w-72 max-h-[calc(100dvh-7rem)] overflow-y-auto bg-white border border-base-200 rounded-2xl shadow-lg p-2">
+            {item.children.map(child => (
+              <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link block px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-600">{child.label}</a></li>
+            ))}
+          </ul>
+        </details>
+      ) : (
+        <a href={item.href} aria-current={isCurrentPage(pathname, item.href) ? "page" : undefined} class="nav-top-link rounded-lg px-2 py-3 hover:text-primary-500">{item.label}</a>
       ))}
-      <a href="/lien-he" class="button-primary">Nhận tư vấn</a>
+      <a href="/lien-he/" class="button-primary shrink-0">Nhận tư vấn</a>
     </nav>
 
-    <button id="menuBtn" class="lg:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
+    <button type="button" id="menuBtn" class="lg:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
   </div>
 
-  <nav id="mobileMenu" class="hidden lg:hidden border-t border-base-200 bg-white max-h-[75vh] overflow-y-auto" aria-label="Điều hướng trên điện thoại">
-    <div class="max-w-7xl mx-auto px-6 py-4 space-y-2">
-      {nav.map(item => item.children ? (
-        <details class="border-b border-base-200 pb-2">
-          <summary class="py-3 cursor-pointer font-medium">{item.label}</summary>
-          <div class="pl-4 pb-2 space-y-1 text-sm text-base-600">
-            {item.children.map(child => <a href={child.href} class="block py-3 hover:text-primary-500">{child.label}</a>)}
-          </div>
+  <nav id="mobileMenu" class="hidden lg:hidden border-t border-base-200 bg-white max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain" aria-label="Điều hướng trên điện thoại">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-2">
+      {navigation.map(item => item.children ? (
+        <details class="mobile-nav-group border-b border-base-200 pb-2" name="mobile-navigation" open={isCurrentSection(pathname, item)}>
+          <summary class:list={["flex items-center justify-between gap-3 py-3 cursor-pointer list-none font-medium", { "text-primary-600": isCurrentSection(pathname, item) }]}>
+            {item.label}
+            <svg class="nav-chevron w-4 h-4 shrink-0 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <ul class="pl-3 pb-2 space-y-1 text-sm text-base-600">
+            {item.children.map(child => <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link block px-3 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-500">{child.label}</a></li>)}
+          </ul>
         </details>
-      ) : <a href={item.href} class="block py-3 border-b border-base-200 font-medium">{item.label}</a>)}
-      <a href="/lien-he" class="button-primary w-full mt-4">Nhận tư vấn</a>
+      ) : <a href={item.href} aria-current={isCurrentPage(pathname, item.href) ? "page" : undefined} class="nav-top-link block py-3 border-b border-base-200 font-medium">{item.label}</a>)}
+      <a href="/lien-he/" class="button-primary w-full mt-4">Nhận tư vấn</a>
+      <a href={site.phoneHref} class="block text-center text-sm font-medium py-3 text-base-600">Gọi tư vấn: {site.phone}</a>
     </div>
   </nav>
 </header>
 
 <script>
+  const header = document.querySelector<HTMLElement>(".site-header");
   const button = document.getElementById("menuBtn");
   const menu = document.getElementById("mobileMenu");
+  const dropdowns = [...document.querySelectorAll<HTMLDetailsElement>(".nav-dropdown")];
+  const closeDropdowns = () => dropdowns.forEach(dropdown => { dropdown.open = false; });
   const setOpen = (open: boolean) => {
     menu?.classList.toggle("hidden", !open);
     button?.setAttribute("aria-expanded", String(open));
@@ -106,14 +69,49 @@ const nav = [
     if (button) button.textContent = open ? "✕" : "☰";
   };
   button?.addEventListener("click", () => setOpen(button.getAttribute("aria-expanded") !== "true"));
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener("toggle", () => {
+      if (dropdown.open) dropdowns.forEach(other => { if (other !== dropdown) other.open = false; });
+    });
+    dropdown.addEventListener("focusout", event => {
+      if (!dropdown.contains((event as FocusEvent).relatedTarget as Node | null)) dropdown.open = false;
+    });
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && button?.getAttribute("aria-expanded") === "true") {
+    if (event.key !== "Escape") return;
+    const openDropdown = dropdowns.find(dropdown => dropdown.open);
+    if (openDropdown) {
+      openDropdown.open = false;
+      openDropdown.querySelector("summary")?.focus();
+    }
+    if (button?.getAttribute("aria-expanded") === "true") {
       setOpen(false);
       button.focus();
     }
   });
+  document.addEventListener("click", event => {
+    if (!header?.contains(event.target as Node)) {
+      closeDropdowns();
+      setOpen(false);
+    }
+  });
+  header?.addEventListener("focusout", event => {
+    if (!header.contains(event.relatedTarget as Node | null)) setOpen(false);
+  });
   menu?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setOpen(false)));
-  window.matchMedia("(min-width: 1024px)").addEventListener("change", event => {
-    if (event.matches) setOpen(false);
+  window.matchMedia("(min-width: 1024px)").addEventListener("change", () => {
+    setOpen(false);
+    closeDropdowns();
   });
 </script>
+
+<style>
+  summary::-webkit-details-marker { display: none; }
+  details[open] > summary > .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown[open] > summary,
+  a[aria-current="page"] {
+    color: rgb(var(--color-primary-600));
+    background: rgb(var(--color-primary-50));
+    font-weight: 600;
+  }
+</style>
