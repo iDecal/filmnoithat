@@ -18,21 +18,21 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <nav aria-labelledby="footer-services-title">
-        <h2 id="footer-services-title" class="text-base font-semibold text-primary-200 mb-4"><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 hover:underline">Dịch vụ</a></h2>
+        <h2 id="footer-services-title" class="text-base font-medium text-primary-200 mb-4"><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 hover:underline">Dịch vụ</a></h2>
         <ul class="space-y-1 text-sm">
           {serviceLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
       <nav aria-labelledby="footer-materials-title">
-        <h2 id="footer-materials-title" class="text-base font-semibold text-primary-200 mb-4"><a href="/vat-lieu/" class="inline-flex items-center min-h-11 hover:underline">Vật liệu</a></h2>
+        <h2 id="footer-materials-title" class="text-base font-medium text-primary-200 mb-4"><a href="/vat-lieu/" class="inline-flex items-center min-h-11 hover:underline">Vật liệu</a></h2>
         <ul class="space-y-1 text-sm">
           {materialLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
       <div>
-        <h2 class="text-base font-semibold text-primary-200 mb-4">Liên hệ tư vấn</h2>
+        <h2 class="text-base font-medium text-primary-200 mb-4">Liên hệ tư vấn</h2>
         <address class="not-italic text-sm leading-relaxed">
           <p class="text-white/80">Hotline / Zalo</p>
           <a href={site.phoneHref} class="inline-flex items-center min-h-11 text-xl font-semibold hover:text-primary-200 transition-colors">{site.phone}</a>
