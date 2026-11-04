@@ -44,7 +44,7 @@ const approach = [
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center gap-4 mb-6"><h2 id="home-categories-title" class="text-sm font-medium">Chọn chất liệu của bạn</h2><a href="/vat-lieu/" class="text-sm text-primary-600 inline-flex items-center gap-2 min-h-11">Tất cả <Icon name="arrow" size={17} /></a></div>
         <nav class="category-rail flex gap-4 sm:gap-8 lg:justify-between overflow-x-auto pb-2" aria-label="Danh mục film nội thất">
-          {materials.map(material => <a href={materialHref(material)} class="category-shortcut flex flex-col items-center gap-3 text-center shrink-0 min-w-20 sm:min-w-24"><span class="category-icon flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 text-base-700 transition-colors"><Icon name={categoryIcon(material.slug)!} size={28} /></span><span class="text-xs sm:text-sm font-medium">{material.shortName}</span></a>)}
+          {materials.map(material => <a href={materialHref(material)} class="category-shortcut flex flex-col items-center gap-3 text-center shrink-0 min-w-20 sm:min-w-24"><span class="category-icon bg-accent-100/60 rounded-xl flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 text-accent-700 transition-colors"><Icon name={categoryIcon(material.slug)!} size={28} /></span><span class="text-xs sm:text-sm font-medium">{material.shortName}</span></a>)}
         </nav>
       </div>
     </section>
@@ -60,8 +60,8 @@ const approach = [
 
     <section class="home-section px-4 sm:px-6 bg-base-900 ink-gradient text-white">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] gap-8 lg:gap-20">
-        <div><p class="home-kicker text-primary-200 mb-4">02 / DỊCH VỤ THI CÔNG</p><h2 class="home-heading text-white">Giữ kết cấu.<br />Đổi diện mạo.</h2><p class="text-white/80 mt-6 max-w-md">Mỗi bề mặt có một cách tiếp cận. Cùng khảo sát hiện trạng và chọn phương án trước khi bắt đầu.</p><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center gap-3 min-h-12 mt-7 pb-2 border-b border-white/40 text-sm font-medium">Tất cả dịch vụ <Icon name="arrow" size={18} /></a></div>
-        <div>{serviceItems.map(service => <a href={serviceHref(service)} class="home-service-link flex items-start sm:items-center gap-4 sm:gap-6 py-5 sm:py-6 border-b border-white/20 first:pt-0 group"><span class="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 text-primary-200 shrink-0"><Icon name={categoryIcon(service.slug)!} size={27} /></span><div class="flex-1 min-w-0"><h3 class="text-lg sm:text-xl font-medium">{service.name}</h3><p class="text-white/80 text-sm mt-2">{service.sections[0].title}</p></div><Icon name="arrow" size={20} class="text-primary-200 mt-3 sm:mt-0" /></a>)}</div>
+        <div><p class="home-kicker text-accent-200 mb-4">02 / DỊCH VỤ THI CÔNG</p><h2 class="home-heading text-white">Giữ kết cấu.<br />Đổi diện mạo.</h2><p class="text-white/80 mt-6 max-w-md">Mỗi bề mặt có một cách tiếp cận. Cùng khảo sát hiện trạng và chọn phương án trước khi bắt đầu.</p><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center gap-3 min-h-12 mt-7 pb-2 border-b border-white/40 text-sm font-medium">Tất cả dịch vụ <Icon name="arrow" size={18} /></a></div>
+        <div>{serviceItems.map(service => <a href={serviceHref(service)} class="home-service-link flex items-start sm:items-center gap-4 sm:gap-6 py-5 sm:py-6 border-b border-white/20 first:pt-0 group"><span class="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 text-accent-200 shrink-0"><Icon name={categoryIcon(service.slug)!} size={27} /></span><div class="flex-1 min-w-0"><h3 class="text-lg sm:text-xl font-medium">{service.name}</h3><p class="text-white/80 text-sm mt-2">{service.sections[0].title}</p></div><Icon name="arrow" size={20} class="text-accent-200 mt-3 sm:mt-0" /></a>)}</div>
       </div>
     </section>
 
@@ -74,7 +74,7 @@ const approach = [
       </div>
     </section>
 
-    <section id="cam-hung-chat-lieu" class="home-section px-4 sm:px-6 bg-base-50" aria-labelledby="home-inspiration-title">
+    <section id="cam-hung-chat-lieu" class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="home-inspiration-title">
       <div class="max-w-7xl mx-auto">
         <div class="home-section-heading">
           <div><p class="home-kicker mb-3">03 / CẢM HỨNG & CHẤT LIỆU</p><h2 id="home-inspiration-title" class="home-heading">Ý tưởng cho không gian.<br />Kiến thức để chọn đúng.</h2></div>
@@ -94,15 +94,15 @@ const approach = [
     </section>
 
     <section class="home-closing home-section px-4 sm:px-6 bg-base-900 ink-gradient text-white text-center">
-      <div class="max-w-3xl mx-auto"><span class="inline-flex text-primary-200 mb-5"><Icon name="interior" size={38} /></span><p class="home-kicker text-primary-200 mb-4">MỘT Ý TƯỞNG MỚI CHO KHÔNG GIAN QUEN</p><h2 class="home-heading">Cùng tạo nên<br />diện mạo bạn yêu thích.</h2><p class="text-white/80 mt-5 max-w-xl mx-auto">Gửi ảnh hiện trạng và phong cách bạn mong muốn. Cùng trao đổi từ mẫu film đến phương án thi công phù hợp.</p><div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-7"><a href={site.zaloHref} class="button-secondary home-action w-full sm:w-auto">Tư vấn qua Zalo <Icon name="arrow" size={18} class="ml-2" /></a><a href={site.phoneHref} class="inline-flex items-center gap-2 min-h-12 text-sm font-medium"><Icon name="phone" size={18} />{site.phone}</a></div></div>
+      <div class="max-w-3xl mx-auto"><span class="inline-flex text-accent-200 mb-5"><Icon name="interior" size={38} /></span><p class="home-kicker text-accent-200 mb-4">MỘT Ý TƯỞNG MỚI CHO KHÔNG GIAN QUEN</p><h2 class="home-heading">Cùng tạo nên<br />diện mạo bạn yêu thích.</h2><p class="text-white/80 mt-5 max-w-xl mx-auto">Gửi ảnh hiện trạng và phong cách bạn mong muốn. Cùng trao đổi từ mẫu film đến phương án thi công phù hợp.</p><div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-7"><a href={site.zaloHref} class="button-secondary button-accent home-action w-full sm:w-auto">Tư vấn qua Zalo <Icon name="arrow" size={18} class="ml-2" /></a><a href={site.phoneHref} class="inline-flex items-center gap-2 min-h-12 text-sm font-medium"><Icon name="phone" size={18} />{site.phone}</a></div></div>
     </section>
   </div>
 </BaseLayout>
 
 <style>
   .home-hero { padding-top: 2rem; padding-bottom: 2.25rem; }
-  .home-kicker { color: rgb(var(--color-primary-600)); font-size: 0.6875rem; line-height: 1.7; font-weight: 600; letter-spacing: 0.13em; }
-  .home-kicker.text-primary-200 { color: rgb(var(--color-primary-200)); }
+  .home-kicker { color: rgb(var(--color-accent-600)); font-size: 0.6875rem; line-height: 1.7; font-weight: 600; letter-spacing: 0.13em; }
+  .home-kicker.text-accent-200 { color: rgb(var(--color-accent-200)); }
   .home-title { font-size: clamp(1.75rem, 3.4vw, 3rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.03em; }
   .home-heading { font-size: clamp(1.375rem, 2.2vw, 1.875rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.025em; }
   .home-section { padding-block: clamp(2.75rem, 5.5vw, 5rem); }

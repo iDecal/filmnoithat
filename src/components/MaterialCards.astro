@@ -6,7 +6,7 @@ import { materialHref, type Material } from "../data/materials";
 interface Props { materials: Material[]; title?: string }
 const { materials, title = "Chất liệu tham khảo" } = Astro.props;
 ---
-<section class="px-4 sm:px-6 section-space bg-base-50">
+<section class="px-4 sm:px-6 section-space warm-surface">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-wrap items-end justify-between gap-4 mb-7"><div><h2 class="text-[1.375rem] md:text-2xl font-medium">{title}</h2><p class="mt-3 text-base-600">Khám phá bề mặt, cách phối màu và ứng dụng theo từng nhóm vật liệu.</p></div><a href="/vat-lieu/" class="text-primary-600 font-medium py-3 hover:underline">Tất cả vật liệu →</a></div>
     <div class:list={["grid grid-cols-2 gap-4 sm:gap-6", materials.length > 3 ? "lg:grid-cols-4" : "lg:grid-cols-3"]}>

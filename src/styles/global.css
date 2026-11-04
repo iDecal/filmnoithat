@@ -28,6 +28,17 @@
   --color-primary-800: 16 34 54;
   --color-primary-900: 11 31 53;
   --color-primary-950: 7 19 33;
+  --color-accent-50: 251 247 241;
+  --color-accent-100: 242 231 216;
+  --color-accent-200: 231 207 175;
+  --color-accent-300: 214 178 133;
+  --color-accent-400: 187 141 89;
+  --color-accent-500: 161 110 62;
+  --color-accent-600: 133 84 46;
+  --color-accent-700: 107 65 38;
+  --color-accent-800: 83 51 33;
+  --color-accent-900: 63 40 28;
+  --color-accent-950: 35 22 15;
     color-scheme: light;
     --font-heading: "Wix Madefor Text", system-ui, sans-serif;
     --font-body: "Wix Madefor Text", system-ui, sans-serif;
@@ -81,12 +92,14 @@
 
   .surface-gradient {
     background-color: rgb(var(--color-base-50));
-    background-image: linear-gradient(135deg, #fbfcfe 0%, #edf2f8 62%, #f7f9fc 100%);
+    background-image: linear-gradient(120deg, #fbf7f1 0%, #f5efe6 42%, #edf2f8 100%);
   }
+
+  .warm-surface { background-color: rgb(var(--color-accent-50)); }
 
   .ink-gradient {
     background-color: rgb(var(--color-base-900));
-    background-image: linear-gradient(120deg, #071321 0%, #102a46 65%, #153b5e 100%);
+    background-image: radial-gradient(ellipse at 100% 0%, rgb(187 141 89 / 0.14), transparent 60%), linear-gradient(120deg, #071321 0%, #102a46 65%, #153b5e 100%);
   }
 
   .button-primary, .button-secondary {
@@ -118,8 +131,18 @@
   }
 
   .button-secondary:hover {
-    background: rgb(var(--color-primary-50));
-    border-color: rgb(var(--color-primary-500));
+    background: rgb(var(--color-accent-50));
+    border-color: rgb(var(--color-accent-600));
+  }
+
+  .button-accent {
+    background: rgb(var(--color-accent-200));
+    color: rgb(var(--color-base-950));
+    border-color: rgb(var(--color-accent-200));
+  }
+  .button-accent:hover {
+    background: rgb(var(--color-accent-100));
+    border-color: rgb(var(--color-accent-100));
   }
 
   /* Keep accent text readable on the dark panels used across service pages. */
@@ -129,7 +152,7 @@
   }
 
   .eyebrow {
-    color: rgb(var(--color-primary-600));
+    color: rgb(var(--color-accent-600));
     font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.08em;

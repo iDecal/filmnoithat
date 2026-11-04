@@ -21,6 +21,7 @@ module.exports = {
           900: "rgb(var(--color-base-900) / <alpha-value>)",
           950: "rgb(var(--color-base-950) / <alpha-value>)",
         },
+        accent: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(shade => [shade, `rgb(var(--color-accent-${shade}) / <alpha-value>)`])),
         primary: {
           50: "rgb(var(--color-primary-50) / <alpha-value>)",
           100: "rgb(var(--color-primary-100) / <alpha-value>)",
