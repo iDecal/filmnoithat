@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
+        sans: ['"Wix Madefor Text"', 'system-ui', 'sans-serif'],
+        heading: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       colors: {
         base: {

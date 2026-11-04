@@ -25,7 +25,7 @@ const categoryIcons: Record<string, IconName> = {
   "dan-film-tuong": "wall", "dan-film-tran": "ceiling", "dan-film-thang-may": "elevator",
   "van-go": "wood", "da-cam-thach": "stone", "don-sac": "solid", "van-vai": "fabric",
   "be-tong": "concrete", "kim-loai": "metal", "trang-guong": "mirror",
-  "vat-lieu": "swatches", "san-pham": "swatches",
+  "vat-lieu": "swatches",
 };
 
 export const categoryIcon = (path: string): IconName | undefined => categoryIcons[path.split("/").filter(Boolean).at(-1) || ""];

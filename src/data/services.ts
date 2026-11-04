@@ -7,7 +7,7 @@ export interface Service {
   image: string;
   sections: { title: string; text: string }[];
   preparation: string[];
-  products: string[];
+  materials: string[];
   faqs: { question: string; answer: string }[];
 }
 
@@ -24,7 +24,7 @@ export const services: Service[] = [
       { title: "Khi nào nên sửa hoặc thay mới trước?", text: "Film là lớp hoàn thiện trang trí, không khắc phục được gỗ mục, cốt tủ trương nở, tường thấm nước hoặc kim loại gỉ nặng. Những phần hư hỏng cần được sửa, làm khô và kiểm tra lại trước khi thi công. Với kết cấu xuống cấp, thay mới có thể phù hợp hơn." },
     ],
     preparation: ["Ảnh tổng thể và ảnh cận cảnh các góc, mép, vùng bong tróc.", "Kích thước dự kiến, vị trí công trình và thời gian có thể thi công.", "Mẫu màu mong muốn, yêu cầu giữ lại hoặc tháo lắp phụ kiện."],
-    products: ["film-van-go-cad402", "film-van-be-tong-cag816", "film-kim-loai-csm003", "film-van-vai-can034"],
+    materials: ["van-go", "be-tong", "kim-loai", "van-vai"],
     faqs: [
       { question: "Dán film nội thất có cần tháo đồ cũ không?", answer: "Tùy hạng mục, có thể cần tháo tay nắm, cánh tủ hoặc phụ kiện để xử lý mép. Phạm vi tháo lắp cần được thống nhất sau khảo sát, không áp dụng một quy trình giống nhau cho mọi công trình." },
       { question: "Giá dán film nội thất được tính thế nào?", answer: "Báo giá phụ thuộc mã film, lượng vật tư, hiện trạng nền, số góc cạnh, mối nối, công tháo lắp và điều kiện tiếp cận. Cần xác nhận rõ phần vật tư, nhân công và xử lý bề mặt trong báo giá." },
@@ -42,7 +42,7 @@ export const services: Service[] = [
       { title: "Chọn film dán tủ bếp theo thói quen sử dụng", text: "Vân gỗ có thể phối với mặt đá và tường bếp sẵn có; film kim loại phù hợp khi cần điểm nhấn. Hãy xem mẫu dưới ánh sáng bếp và kiểm tra hướng dẫn của nhà cung cấp về nhiệt, hơi nước và vệ sinh. Film trang trí không phải lớp chống cháy hoặc giải pháp xử lý thấm." },
     ],
     preparation: ["Chụp cả tủ trên, tủ dưới và cận cảnh khu vực bồn rửa.", "Gửi số lượng cánh, kích thước và ảnh tay nắm, bản lề.", "Báo trước các vùng ẩm, bong lớp phủ hoặc gần nguồn nhiệt."],
-    products: ["film-van-go-cad402", "film-kim-loai-csm003"],
+    materials: ["van-go", "kim-loai"],
     faqs: [
       { question: "Có thể dán film lên tủ bếp bị phồng không?", answer: "Không nên dán trực tiếp lên vùng cốt tủ đã phồng hoặc mục. Cần xử lý nguyên nhân ẩm và sửa hay thay phần hỏng trước khi đánh giá khả năng dán." },
       { question: "Có phải tháo toàn bộ tủ bếp khi dán?", answer: "Không nhất thiết. Tùy thiết kế, kỹ thuật viên có thể chỉ tháo cánh hoặc tay nắm. Phạm vi tháo lắp và thời gian ngừng sử dụng bếp cần được chốt khi khảo sát." },
@@ -60,7 +60,7 @@ export const services: Service[] = [
       { title: "Sử dụng mặt bàn sau khi dán film", text: "Dùng tấm lót khi đặt vật nóng, không cắt trực tiếp trên film và tránh kéo lê đồ có cạnh sắc. Vệ sinh bằng khăn mềm theo hướng dẫn của mã vật liệu. Nếu bàn dùng cho thao tác nặng hoặc thường xuyên tiếp xúc nhiệt cao, nên cân nhắc một lớp hoàn thiện khác." },
     ],
     preparation: ["Gửi kích thước mặt bàn, độ dày và ảnh các cạnh.", "Cho biết bàn dùng làm việc, trưng bày hay phục vụ ăn uống.", "Đánh dấu vị trí lỗ đi dây, phụ kiện và vùng trầy hoặc phồng."],
-    products: ["film-van-go-cad402", "film-van-be-tong-cag816"],
+    materials: ["van-go", "be-tong"],
     faqs: [
       { question: "Film dán mặt bàn có chống được dao cắt không?", answer: "Không nên xem film trang trí như mặt bàn cắt. Cần dùng thớt hoặc tấm lót và kiểm tra giới hạn sử dụng của từng mã film." },
       { question: "Có dán riêng mặt bàn, giữ nguyên chân bàn được không?", answer: "Có thể khảo sát phương án chỉ dán mặt và cạnh khi kết cấu còn tốt. Phạm vi dán, vị trí kết thúc film và việc tháo phụ kiện cần được thống nhất trước." },
@@ -78,7 +78,7 @@ export const services: Service[] = [
       { title: "Chọn bề mặt theo khu vực sử dụng", text: "Vách sau sofa và vách đầu giường có nhu cầu khác khu vực hành lang thường xuyên va chạm. Có thể phối vân gỗ, vân vải hoặc bê tông cùng màu đơn sắc. Việc lựa chọn cần cân đối khả năng vệ sinh, mức độ tiếp xúc và thông số của từng mã vật liệu." },
     ],
     preparation: ["Gửi chiều rộng, chiều cao và ảnh toàn bộ vách.", "Cho biết tường sơn, vách gỗ hay vật liệu nền khác.", "Chụp vùng ẩm, nứt, ổ cắm, góc bo và vị trí đèn hắt."],
-    products: ["film-van-vai-can034", "film-van-be-tong-cag816", "film-van-go-cad402"],
+    materials: ["van-vai", "be-tong", "van-go"],
     faqs: [
       { question: "Có dán film lên tường đang bị ẩm không?", answer: "Không nên. Cần xử lý nguồn ẩm, để nền khô và kiểm tra lớp hoàn thiện trước khi khảo sát lại phương án dán film." },
       { question: "Dán film tường có nhìn thấy mối nối không?", answer: "Mức độ nhìn thấy phụ thuộc họa tiết, khổ vật liệu, ánh sáng và cách ghép. Vị trí mối nối cần được trao đổi trước thay vì mặc định bề mặt sẽ hoàn toàn liền mạch." },
@@ -96,7 +96,7 @@ export const services: Service[] = [
       { title: "Chọn mẫu theo ánh sáng thực tế", text: "Vân bê tông và vân vải có thể dùng làm hướng tham khảo khi phối trần với tường và đồ nội thất. Ánh sáng rọi ngang dễ làm lộ gờ nền hoặc mối ghép, vì vậy nên xem mẫu tại đúng vị trí và thống nhất hướng vân trước khi chốt vật tư." },
     ],
     preparation: ["Cung cấp diện tích, chiều cao trần và loại nền.", "Gửi ảnh cửa thăm, đèn và các thiết bị âm trần.", "Thông tin về giờ thi công, lối tiếp cận và các vùng có dấu thấm."],
-    products: ["film-van-vai-can034", "film-van-be-tong-cag816"],
+    materials: ["van-vai", "be-tong"],
     faqs: [
       { question: "Trần thạch cao có dán film được không?", answer: "Cần kiểm tra lớp hoàn thiện, độ khô, độ phẳng và độ bám. Không thể quyết định chỉ dựa vào tên vật liệu; từng nền và mã film phải được đánh giá cụ thể." },
       { question: "Giá dán film trần có giống dán vách không?", answer: "Không nhất thiết. Chiều cao, thiết bị tiếp cận, số chi tiết cần xử lý và điều kiện làm việc trên cao có thể làm thay đổi nhân công và tiến độ." },
@@ -114,7 +114,7 @@ export const services: Service[] = [
       { title: "Phối hợp quản lý và bảo trì thang máy", text: "Giờ thi công, phạm vi dừng khai thác và trách nhiệm bảo vệ thiết bị cần được chốt trước. Không che bảng điều khiển, cảm biến, biển tải trọng, khe thông gió hoặc thông tin an toàn. Yêu cầu về vật liệu và phòng cháy của tòa nhà cần được kiểm tra theo hồ sơ sản phẩm." },
     ],
     preparation: ["Gửi ảnh cabin, sảnh, các nẹp và chi tiết dự định dán.", "Cung cấp kích thước, loại nền và yêu cầu của ban quản lý.", "Thống nhất lịch với đơn vị quản lý, bảo trì và quy trình bàn giao."],
-    products: ["film-kim-loai-csm003", "film-van-go-cad402"],
+    materials: ["kim-loai", "van-go"],
     faqs: [
       { question: "Có cần phối hợp đơn vị bảo trì thang máy không?", answer: "Có. Chủ đầu tư hoặc ban quản lý cần thống nhất phạm vi, điều kiện dừng khai thác và trách nhiệm bảo vệ thiết bị với đơn vị liên quan trước khi thi công." },
       { question: "Film nào cũng dùng được trong cabin thang máy không?", answer: "Không. Cần kiểm tra điều kiện sử dụng, yêu cầu của tòa nhà và tài liệu kỹ thuật của mã film, bao gồm các yêu cầu về an toàn vật liệu nếu được áp dụng." },

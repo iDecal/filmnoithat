@@ -2,9 +2,9 @@
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import ProductCards from "../../components/ProductCards.astro";
+import MaterialCards from "../../components/MaterialCards.astro";
 import { posts, postHref, formatDate, type Post } from "../../data/posts";
-import { findProducts } from "../../data/products";
+import { findMaterials } from "../../data/materials";
 import { services, serviceHref } from "../../data/services";
 import { site } from "../../data/site";
 import { breadcrumbSchema } from "../../data/seo";
@@ -32,6 +32,6 @@ const schema = [
       <aside class="mt-12 p-6 border border-base-200 rounded-2xl bg-base-50"><h2 class="text-xl font-semibold mb-4">Bạn đang chuẩn bị thi công?</h2><p class="text-base-600">Mỗi nền và mã film có điều kiện sử dụng riêng. Gửi ảnh hiện trạng để được tư vấn, xem mẫu và xác nhận phạm vi trước khi quyết định.</p><ul class="space-y-3 mt-5">{relatedServices.map(service => <li><a href={serviceHref(service)} class="text-primary-600 hover:underline">{service.name} →</a></li>)}</ul><a href={site.zaloHref} class="button-primary mt-6">Trao đổi qua Zalo</a></aside>
     </div></div>
   </article>
-  <ProductCards products={findProducts(post.products)} title="Mẫu film được nhắc đến" />
+  <MaterialCards materials={findMaterials(post.materials)} title="Chất liệu được nhắc đến" />
   <section class="px-4 sm:px-6 py-14 bg-white"><div class="max-w-4xl mx-auto"><h2 class="text-2xl font-semibold mb-6">Đọc tiếp</h2><ul class="space-y-4">{posts.filter(item => item.slug !== post.slug).map(item => <li><a href={postHref(item)} class="text-primary-600 hover:underline">{item.title} →</a></li>)}</ul></div></section>
 </BaseLayout>

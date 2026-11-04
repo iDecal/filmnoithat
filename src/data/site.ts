@@ -54,7 +54,7 @@ export const navigation: NavigationItem[] = [
   {
     label: "Vật liệu",
     href: "/vat-lieu/",
-    children: [{ label: "Tất cả vật liệu", href: "/vat-lieu/" }, { label: "Mẫu film theo mã", href: "/san-pham/" }, ...materialLinks],
+    children: [{ label: "Tất cả vật liệu", href: "/vat-lieu/" }, ...materialLinks],
   },
   ...companyLinks,
 ];

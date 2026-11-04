@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear();
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12 pb-12">
       <div>
-        <a href="/" class="inline-block text-2xl font-semibold leading-snug" aria-label={`${site.name} — Trang chủ`}>{site.name}</a>
+        <a href="/" class="inline-block font-heading text-2xl font-semibold leading-snug" aria-label={`${site.name} — Trang chủ`}>{site.name}</a>
         <p class="text-primary-200 text-sm font-medium mt-3">{site.tagline}</p>
         <p class="text-white/80 text-sm leading-relaxed mt-5 max-w-sm">
           Cung cấp film trang trí và thi công cho bàn, tủ, tường, trần và thang máy. Cùng bạn chọn vật liệu phù hợp để làm mới không gian.
@@ -29,7 +29,6 @@ const currentYear = new Date().getFullYear();
         <h2 id="footer-materials-title" class="text-base font-semibold text-primary-200 mb-4">Film & vật liệu</h2>
         <ul class="space-y-1 text-sm">
           <li><a href="/vat-lieu/" class="footer-link">Tất cả vật liệu</a></li>
-          <li><a href="/san-pham/" class="footer-link">Mẫu film theo mã</a></li>
           {materialLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
