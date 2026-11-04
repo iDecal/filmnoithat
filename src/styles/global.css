@@ -6,28 +6,28 @@
 
 @layer base {
   :root {
-  --color-base-50: 246 249 252;
-  --color-base-100: 234 241 248;
-  --color-base-200: 214 226 239;
-  --color-base-300: 182 202 221;
-  --color-base-400: 120 149 173;
-  --color-base-500: 82 107 128;
-  --color-base-600: 65 89 110;
-  --color-base-700: 48 72 95;
-  --color-base-800: 29 52 76;
-  --color-base-900: 16 39 61;
-  --color-base-950: 10 26 42;
-  --color-primary-50: 238 247 254;
-  --color-primary-100: 220 238 250;
-  --color-primary-200: 182 216 240;
-  --color-primary-300: 129 185 223;
-  --color-primary-400: 76 146 194;
-  --color-primary-500: 27 92 138;
-  --color-primary-600: 22 75 115;
-  --color-primary-700: 18 61 96;
-  --color-primary-800: 16 47 76;
-  --color-primary-900: 12 37 60;
-  --color-primary-950: 8 26 43;
+  --color-base-50: 248 250 252;
+  --color-base-100: 240 244 248;
+  --color-base-200: 223 230 238;
+  --color-base-300: 189 202 216;
+  --color-base-400: 130 147 167;
+  --color-base-500: 83 98 120;
+  --color-base-600: 64 81 104;
+  --color-base-700: 48 66 90;
+  --color-base-800: 30 50 75;
+  --color-base-900: 11 28 48;
+  --color-base-950: 7 19 33;
+  --color-primary-50: 240 245 251;
+  --color-primary-100: 225 234 245;
+  --color-primary-200: 189 207 230;
+  --color-primary-300: 142 172 207;
+  --color-primary-400: 91 128 176;
+  --color-primary-500: 32 63 104;
+  --color-primary-600: 25 51 84;
+  --color-primary-700: 19 41 65;
+  --color-primary-800: 16 34 54;
+  --color-primary-900: 11 31 53;
+  --color-primary-950: 7 19 33;
     color-scheme: light;
     --font-heading: "Montserrat", system-ui, sans-serif;
     --font-body: "Wix Madefor Text", system-ui, sans-serif;
@@ -45,7 +45,7 @@
   body {
     margin: 0;
     font-size: 1rem;
-    line-height: 1.75;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -75,6 +75,20 @@
 }
 
 @layer components {
+  .section-space {
+    padding-block: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .surface-gradient {
+    background-color: rgb(var(--color-base-50));
+    background-image: linear-gradient(135deg, #fbfcfe 0%, #edf2f8 62%, #f7f9fc 100%);
+  }
+
+  .ink-gradient {
+    background-color: rgb(var(--color-base-900));
+    background-image: linear-gradient(120deg, #071321 0%, #102a46 65%, #153b5e 100%);
+  }
+
   .button-primary, .button-secondary {
     display: inline-flex;
     align-items: center;
@@ -82,7 +96,7 @@
     min-height: 3.25rem;
     padding: 0.875rem 1.5rem;
     border: 1px solid transparent;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1.5;
