@@ -66,13 +66,13 @@ export const materials: Material[] = [
     services: ["dan-film-thang-may", "dan-film-tu-bep"],
   },
   {
-    slug: "da-cam-thach", name: "Film vân đá cẩm thạch", shortName: "Vân đá", mood: "neutral", moodLabel: "Nổi bật & có chiều sâu",
-    description: "Tham khảo film vân đá cẩm thạch cho bàn, quầy và vách nội thất. Gợi ý phối họa tiết và cách xem mẫu, nối vân trước khi đặt vật liệu.",
-    intro: "Đường vân đá giúp một mảng nội thất trở thành điểm nhìn chính. Khi chọn film vân đá cẩm thạch, nên cân nhắc tỷ lệ họa tiết trên diện tích thật và giữ phần còn lại của không gian vừa đủ đơn giản.",
-    preview: "stone",
+    slug: "da-cam-thach", name: "Film vân đá", shortName: "Vân đá", mood: "neutral", moodLabel: "Nổi bật & có chiều sâu",
+    description: "Khám phá các mẫu film vân đá Stone và Marble từ catalogue INFEEL 2026 cho bàn, quầy và vách nội thất. Xem bề mặt, phối cảnh và tư vấn chọn mẫu.",
+    intro: "Từ bề mặt đá nhẹ đến vân cẩm thạch rõ nét, mỗi mẫu tạo một nhịp điệu khác nhau cho nội thất. Cân nhắc tỷ lệ họa tiết trên diện tích thật và so mẫu dưới ánh sáng công trình trước khi chọn.",
+    image: "/images/catalogue/infeel-2026/st-392.jpeg",
     colors: [{ name: "Trắng đá", value: "#efede7" }, { name: "Xám vân", value: "#b4b0a6" }, { name: "Nâu đá", value: "#86705d" }],
     applications: [{ title: "Vách điểm nhấn", text: "Đặt mẫu theo tỷ lệ vách để hình dung số lần lặp và vị trí mối nối." }, { title: "Quầy trang trí", text: "Cân đối hướng vân giữa mặt và các cạnh để bố cục liền mạch hơn." }, { title: "Bàn & kệ", text: "Kiểm tra công năng và giới hạn sử dụng trước khi chọn film làm lớp hoàn thiện." }],
-    notes: ["Hình hiệu ứng trên trang giúp định hướng phong cách, không thay thế mẫu vật liệu thật.", "Hỏi rõ khổ film và cách nối vân; không mặc định có thể ghép đối xứng.", "Film không thay thế việc sửa mặt đá nứt hoặc kết cấu hư hỏng."],
+    notes: ["Ảnh catalogue giúp định hướng phong cách, không thay thế việc so mẫu vật liệu thật.", "Hỏi rõ khổ film và cách nối vân; không mặc định có thể ghép đối xứng.", "Film không thay thế việc sửa mặt đá nứt hoặc kết cấu hư hỏng."],
     services: ["dan-film-tuong", "dan-film-ban"],
   },
   {

@@ -27,7 +27,7 @@ export const serviceLinks: NavigationLink[] = [
 
 export const materialLinks: NavigationLink[] = [
   { label: "Film vân gỗ", href: "/vat-lieu/van-go/" },
-  { label: "Film vân đá cẩm thạch", href: "/vat-lieu/da-cam-thach/" },
+  { label: "Film vân đá", href: "/vat-lieu/da-cam-thach/" },
   { label: "Film đơn sắc", href: "/vat-lieu/don-sac/" },
   { label: "Film vân vải", href: "/vat-lieu/van-vai/" },
   { label: "Film vân bê tông", href: "/vat-lieu/be-tong/" },
