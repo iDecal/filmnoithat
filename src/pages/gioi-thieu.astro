@@ -4,15 +4,60 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import { breadcrumbSchema } from "../data/seo";
 const principles = [
-  { title: "Hiểu bề mặt trước khi tư vấn", text: "Xem hiện trạng, công năng và những phần cần xử lý để chọn phương án phù hợp, thay vì bắt đầu bằng một mẫu film bất kỳ." },
-  { title: "Xem mẫu, chốt rõ phạm vi", text: "Trao đổi mã vật liệu, cách phối màu, mối nối, tháo lắp và phần việc trong báo giá trước khi thi công." },
-  { title: "Quan tâm đến lúc sử dụng", text: "Cùng kiểm tra phần hoàn thiện và cách chăm sóc theo vật liệu, để bạn biết cần lưu ý gì trong quá trình sử dụng." },
+  { title: "Hiểu điều bạn cần", text: "Một góc bếp ấm hơn, mặt bàn hợp với căn phòng hay vách trang trí có điểm nhấn — chúng tôi bắt đầu từ cách bạn muốn sử dụng và cảm nhận không gian." },
+  { title: "Chọn dựa trên thực tế", text: "Màu sắc, vân bề mặt, ánh sáng và tình trạng nền đều được cân nhắc. Mẫu film cần được đối chiếu với nội thất sẵn có và thông số của từng vật liệu." },
+  { title: "Rõ ràng trước khi bắt đầu", text: "Vật liệu, số lượng, phần việc và chi phí được trao đổi trước khi xác nhận. Với thi công, hai bên cùng thống nhất cách xử lý nền, tiến độ và kiểm tra khi bàn giao." },
 ];
 ---
-<BaseLayout title="Giới thiệu Film Nội Thất: vật liệu & thi công film nội thất" description="Tìm hiểu cách Film Nội Thất tư vấn vật liệu và thi công film nội thất: khảo sát bề mặt, chọn mẫu, thống nhất phạm vi và hướng dẫn chăm sóc sau hoàn thiện." structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Giới thiệu", path: "/gioi-thieu/" }])]}>
-  <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Giới thiệu" }]} /><div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"><div><p class="eyebrow mb-4">CUNG CẤP & THI CÔNG FILM NỘI THẤT</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">Giữ điều còn tốt.<br /><span class="text-primary-500">Làm mới điều bạn thích.</span></h1><p class="text-lg text-base-600 mt-6">Chúng tôi cung cấp film nội thất trên toàn quốc và nhận thi công theo nhu cầu. Bạn có thể mua riêng vật liệu hoặc trao đổi phương án thi công cho bàn, tủ, vách và các bề mặt cần làm mới. Mẫu film, số lượng, địa điểm và phạm vi công việc được thống nhất theo từng yêu cầu.</p><a href="/dich-vu/dan-film-noi-that/" class="button-primary mt-7">Khám phá dịch vụ</a></div><figure class="rounded-3xl overflow-hidden bg-white border border-base-200"><img src="/images/blog/film-dan-noi-that-van-go.jpg" alt="Không gian nội thất tham khảo với tông gỗ và màu sáng" class="w-full aspect-[5/4] object-cover" width="900" height="720" fetchpriority="high" /><figcaption class="px-6 py-4 text-sm text-base-600">Chọn vật liệu để hòa vào không gian, thay vì chỉ thay một màu mới.</figcaption></figure></div></div></section>
-  <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-8 lg:gap-16"><h2 class="text-[1.375rem] md:text-2xl font-medium">Một lớp hoàn thiện.<br />Nhiều điều cần cân nhắc.</h2><div class="space-y-5 text-base-600 text-lg"><p>Film có thể thay đổi màu và họa tiết trên bàn, tủ hoặc vách còn ổn định. Nhưng kết quả không chỉ phụ thuộc vào ảnh mẫu: độ phẳng, độ ẩm, ánh sáng và thói quen sử dụng đều cần được xem xét.</p><p>Vì vậy, cách làm việc của chúng tôi tập trung vào trao đổi hiện trạng, so mẫu và làm rõ phạm vi. Nếu bề mặt cần sửa hoặc phương án khác phù hợp hơn, điều đó nên được xác định trước khi thi công.</p></div></div></section>
-  <section class="px-4 sm:px-6 section-space bg-base-50"><div class="max-w-7xl mx-auto"><p class="eyebrow mb-3">CÁCH CHÚNG TÔI TIẾP CẬN</p><h2 class="text-[1.375rem] md:text-2xl font-medium mb-6">Rõ ràng để dễ cùng quyết định.</h2><div class="grid md:grid-cols-3 gap-6">{principles.map((item, index) => <article class="border-t border-base-300 pt-6 pb-2"><span class="text-primary-600 font-semibold">0{index + 1}</span><h3 class="text-lg font-semibold mt-4 mb-4">{item.title}</h3><p class="text-base-600">{item.text}</p></article>)}</div></div></section>
-  <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6"><a href="/vat-lieu/" class="rounded-2xl bg-base-50 border border-base-200 p-7 md:p-9 hover:border-primary-300 transition"><p class="eyebrow mb-4">BẠN ĐANG TÌM VẬT LIỆU?</p><h2 class="text-[1.375rem] font-medium">Chọn vân, chọn cảm giác.</h2><p class="text-base-600 mt-4">Khám phá gỗ, vải, bê tông, kim loại và các hướng phối cho nội thất.</p><span class="inline-block text-primary-600 font-semibold mt-6">Xem bộ sưu tập →</span></a><a href="/du-an/" class="rounded-2xl bg-base-50 border border-base-200 p-7 md:p-9 hover:border-primary-300 transition"><p class="eyebrow mb-4">BẠN ĐANG LÊN PHƯƠNG ÁN?</p><h2 class="text-[1.375rem] font-medium">Chuẩn bị trước khi thi công.</h2><p class="text-base-600 mt-4">Những thông tin cần có từ ảnh hiện trạng đến phạm vi công việc.</p><span class="inline-block text-primary-600 font-semibold mt-6">Xem cách chuẩn bị →</span></a></div></section>
-  <ContactCTA />
+<BaseLayout title="Về Film Nội Thất | Cung cấp film & thi công theo nhu cầu" description="Film Nội Thất cung cấp film trang trí toàn quốc và nhận thi công theo nhu cầu. Cùng chọn chất liệu, làm mới bàn, tủ, vách và hoàn thiện phương án phù hợp với không gian của bạn." structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Giới thiệu", path: "/gioi-thieu/" }])]}>
+  <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient">
+    <div class="max-w-7xl mx-auto">
+      <Breadcrumbs items={[{ label: "Giới thiệu" }]} />
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div>
+          <p class="eyebrow mb-4">VỀ FILM NỘI THẤT</p>
+          <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">Một bề mặt mới.<br /><span class="text-primary-500">Một cảm giác khác.</span></h1>
+          <p class="text-base sm:text-lg text-base-600 mt-6">Có những món nội thất vẫn dùng tốt, chỉ cần một màu sắc hoặc chất liệu mới để trở nên gần gũi hơn với không gian bạn mong muốn.</p>
+          <p class="text-base text-base-600 mt-4">Film Nội Thất cung cấp film trang trí và nhận thi công theo nhu cầu. Chúng tôi cùng bạn tìm cách làm mới bàn, tủ, vách và các bề mặt nội thất, bắt đầu từ những gì bạn đang có.</p>
+          <a href="/dich-vu/dan-film-noi-that/" class="button-primary mt-7">Khám phá dịch vụ</a>
+        </div>
+        <figure>
+          <img src="/images/home/interior-kitchen.webp" alt="Không gian bếp tham khảo kết hợp sắc gỗ sáng, tường xanh trầm và mặt bàn trắng" class="w-full aspect-[5/4] object-cover rounded-2xl" width="810" height="543" fetchpriority="high" />
+          <figcaption class="pt-3 text-sm text-base-600">Không gian tham khảo — sắc gỗ, màu nền và ánh sáng cùng tạo nên cảm giác của căn phòng.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 section-space bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-7 lg:gap-16">
+      <div><p class="eyebrow mb-4">ĐIỀU CHÚNG TÔI HƯỚNG ĐẾN</p><h2 class="text-[1.375rem] md:text-2xl font-medium">Vật liệu hợp với bạn.<br />Hoàn thiện hợp với không gian.</h2></div>
+      <div class="space-y-5 text-base-600">
+        <p>Một lớp vân gỗ có thể làm góc bếp ấm hơn. Một tông màu dịu có thể nối liền bàn, tủ và những mảng vách. Khi chọn đúng, bề mặt mới trở thành một phần tự nhiên của căn phòng.</p>
+        <p>Vì thế, chúng tôi quan tâm đến cả hình thức lẫn cách sử dụng: bạn thích cảm giác gì, bề mặt được dùng ra sao và phần nội thất nào muốn giữ lại. Từ đó, việc chọn film có một hướng đi rõ ràng hơn.</p>
+        <p>Film phù hợp với những bề mặt có nền ổn định và được chuẩn bị đúng cách. Nếu có dấu hiệu ẩm, bong hoặc hư hỏng, chúng tôi sẽ trao đổi phần cần xử lý trước để bạn có đủ thông tin khi quyết định.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 section-space bg-base-50">
+    <div class="max-w-7xl mx-auto">
+      <p class="eyebrow mb-4">CÁCH CHÚNG TÔI ĐỒNG HÀNH</p>
+      <h2 class="text-[1.375rem] md:text-2xl font-medium mb-7">Lắng nghe kỹ. Trao đổi rõ. Cùng chọn.</h2>
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-9">{principles.map((item, index) => <article class="border-t border-base-300 pt-6 pb-2"><span class="text-primary-600 text-sm font-semibold">0{index + 1}</span><h3 class="text-lg font-medium mt-4 mb-4">{item.title}</h3><p class="text-base-600">{item.text}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 section-space bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-2xl mb-8"><p class="eyebrow mb-4">THEO CÁCH BẠN CẦN</p><h2 class="text-[1.375rem] md:text-2xl font-medium">Từ chọn film đến hoàn thiện.</h2><p class="text-base-600 mt-4">Bạn có thể mua riêng vật liệu hoặc trao đổi thêm phương án thi công. Chúng tôi tiếp nhận nhu cầu trên toàn quốc, với cách cung cấp và thực hiện được thống nhất theo từng địa điểm.</p></div>
+      <div class="grid md:grid-cols-2 gap-7 lg:gap-12">
+        <article class="border-t border-base-200 pt-6"><h3 class="text-xl font-medium">Khi bạn cần mua film.</h3><p class="text-base-600 mt-4">Khám phá vân gỗ, đơn sắc, vân vải, bê tông, kim loại và những hiệu ứng trang trí khác. Gửi mẫu yêu thích, ứng dụng và số lượng dự kiến để trao đổi thông số, lượng vật tư và phương án giao hàng.</p><a href="/vat-lieu/" class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold mt-4 hover:underline">Tìm chất liệu phù hợp →</a></article>
+        <article class="border-t border-base-200 pt-6"><h3 class="text-xl font-medium">Khi bạn cần thi công.</h3><p class="text-base-600 mt-4">Từ tủ bếp, bàn và kệ đến tường, trần hoặc vách cabin thang máy, mỗi hạng mục cần được xem xét theo hiện trạng. Bạn gửi ảnh, kích thước và địa điểm; chúng tôi cùng làm rõ phương án, phạm vi và chi phí trước khi thực hiện.</p><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold mt-4 hover:underline">Xem các dịch vụ thi công →</a></article>
+      </div>
+      <p class="text-sm text-base-600 mt-8 pt-5 border-t border-base-200">Muốn tìm hiểu trước khi trao đổi? <a href="/blog/" class="inline-flex items-center min-h-11 text-primary-600 font-medium underline underline-offset-4">Đọc cẩm nang chọn film và chuẩn bị thi công.</a></p>
+    </div>
+  </section>
+
+  <ContactCTA title="Kể chúng tôi nghe về không gian của bạn." text="Một bức ảnh, một mẫu màu yêu thích hay một ý tưởng còn đang hình thành đều có thể là khởi đầu. Gửi nhu cầu mua film hoặc thi công để cùng tìm bước tiếp theo phù hợp." />
 </BaseLayout>
