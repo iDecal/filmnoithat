@@ -9,12 +9,12 @@ export interface NavigationItem extends NavigationLink {
 
 export const site = {
   name: "Film Nội Thất",
-  tagline: "Vật liệu & thi công cùng iDecal",
+  tagline: "Cung cấp film & thi công theo nhu cầu",
   phone: "0866 077 040",
   phoneHref: "tel:0866077040",
   zaloHref: "https://zalo.me/0866077040",
   email: "contact@filmnoithat.vn",
-  serviceArea: "TP. Hồ Chí Minh & Bình Dương",
+  serviceArea: "Toàn quốc — trao đổi theo địa điểm công trình",
 };
 
 export const serviceLinks: NavigationLink[] = [

@@ -16,16 +16,16 @@ const schema = [
   {
     "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.description,
     datePublished: post.date, image: new URL(post.image, Astro.site).href,
-    author: { "@type": "Organization", name: "iDecal", url: new URL("/gioi-thieu/", Astro.site).href },
+    author: { "@type": "Organization", name: "Film Nội Thất", url: new URL("/gioi-thieu/", Astro.site).href },
     publisher: { "@type": "Organization", name: site.name, url: Astro.site!.href },
     mainEntityOfPage: { "@type": "WebPage", "@id": new URL(postHref(post), Astro.site).href },
   },
   breadcrumbSchema(Astro.site!, [{ name: "Kiến thức nội thất", path: "/blog/" }, { name: post.title, path: postHref(post) }]),
 ];
 ---
-<BaseLayout title={`${post.title} | iDecal`} description={post.description} image={post.image} pageType="article" structuredData={schema}>
+<BaseLayout title={`${post.title} | Film Nội Thất`} description={post.description} image={post.image} pageType="article" structuredData={schema}>
   <article>
-    <header class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-4xl mx-auto"><Breadcrumbs items={[{ label: "Kiến thức nội thất", href: "/blog/" }, { label: post.title }]} /><p class="eyebrow mb-4">CẨM NANG FILM NỘI THẤT</p><h1 class="text-[1.75rem] md:text-4xl font-medium">{post.title}</h1><p class="text-sm text-base-600 mt-5">Biên soạn: iDecal · <time datetime={post.date}>{formatDate(post.date)}</time></p><p class="mt-7 text-lg text-base-600">{post.intro}</p><img src={post.image} alt={post.title} class="w-full aspect-[16/9] object-cover rounded-2xl mt-8" width="1000" height="563" fetchpriority="high" /></div></header>
+    <header class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-4xl mx-auto"><Breadcrumbs items={[{ label: "Kiến thức nội thất", href: "/blog/" }, { label: post.title }]} /><p class="eyebrow mb-4">CẨM NANG FILM NỘI THẤT</p><h1 class="text-[1.75rem] md:text-4xl font-medium">{post.title}</h1><p class="text-sm text-base-600 mt-5">Biên soạn: Film Nội Thất · <time datetime={post.date}>{formatDate(post.date)}</time></p><p class="mt-7 text-lg text-base-600">{post.intro}</p><img src={post.image} alt={post.title} class="w-full aspect-[16/9] object-cover rounded-2xl mt-8" width="1000" height="563" fetchpriority="high" /></div></header>
     <div class="px-4 sm:px-6 section-space bg-white"><div class="max-w-4xl mx-auto">
       <nav aria-label="Mục lục bài viết" class="bg-base-50 border border-base-200 rounded-2xl p-6 mb-10"><h2 class="text-lg font-medium mb-4">Trong bài viết này</h2><ol class="space-y-3">{post.sections.map(section => <li><a href={`#${section.id}`} class="text-primary-600 hover:underline">{section.title}</a></li>)}</ol></nav>
       <div class="space-y-10">{post.sections.map(section => <section id={section.id} class="scroll-mt-28"><h2 class="text-[1.375rem] font-medium mb-5">{section.title}</h2><div class="space-y-5 text-base-600 leading-relaxed">{section.paragraphs.map(text => <p>{text}</p>)}{section.bullets && <ul class="list-disc pl-6 space-y-3">{section.bullets.map(text => <li>{text}</li>)}</ul>}</div></section>)}</div>

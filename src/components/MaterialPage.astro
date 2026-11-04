@@ -18,7 +18,7 @@ const schema = [
   breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }, { name: material.name, path: materialHref(material) }]),
 ];
 ---
-<BaseLayout title={`${material.name}: mẫu & gợi ý ứng dụng | iDecal`} description={material.description} image={material.image} structuredData={schema}>
+<BaseLayout title={`${material.name}: mẫu & gợi ý ứng dụng | Film Nội Thất`} description={material.description} image={material.image} structuredData={schema}>
   <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Vật liệu", href: "/vat-lieu/" }, { label: material.name }]} />
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <div><p class="eyebrow flex items-center gap-3 mb-4"><Icon name={categoryIcon(material.slug)!} size={28} />{material.moodLabel}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{material.name}</h1><p class="mt-6 text-lg text-base-600">{material.intro}</p>
