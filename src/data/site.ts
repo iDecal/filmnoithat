@@ -46,15 +46,12 @@ export const navigation: NavigationItem[] = [
   {
     label: "Dịch vụ",
     href: "/dich-vu/dan-film-noi-that/",
-    children: [
-      { label: "Tổng quan dịch vụ", href: "/dich-vu/dan-film-noi-that/" },
-      ...serviceLinks,
-    ],
+    children: serviceLinks,
   },
   {
     label: "Vật liệu",
     href: "/vat-lieu/",
-    children: [{ label: "Tất cả vật liệu", href: "/vat-lieu/" }, ...materialLinks],
+    children: materialLinks,
   },
   ...companyLinks,
 ];
