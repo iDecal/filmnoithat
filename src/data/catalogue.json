@@ -7,7 +7,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-380.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8f8373"
+    }
   },
   {
     "slug": "lw-449",
@@ -17,7 +24,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-449.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#a5aaa3"
+    }
   },
   {
     "slug": "lw-450",
@@ -27,7 +41,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-450.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#93907f"
+    }
   },
   {
     "slug": "lw-776",
@@ -37,7 +58,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-776.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 325,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#b6b3aa"
+    }
   },
   {
     "slug": "lw-777",
@@ -47,7 +75,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-777.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 325,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#7c766d"
+    }
   },
   {
     "slug": "lw-821",
@@ -57,7 +92,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-821.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#8d8a85"
+    }
   },
   {
     "slug": "lw-822",
@@ -67,7 +109,14 @@
     "category": "be-tong",
     "image": "/images/catalogue/infeel-2026/lw-822.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#6c6963"
+    }
   },
   {
     "slug": "eh-158",
@@ -77,7 +126,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-158.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#ede8df"
+    }
   },
   {
     "slug": "eh-159",
@@ -87,7 +143,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-159.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#eadfcf"
+    }
   },
   {
     "slug": "eh-133",
@@ -97,7 +160,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-133.jpeg",
     "application": "/images/catalogue/infeel-2026/eh-133-ung-dung.jpeg",
-    "sourcePage": 24
+    "sourcePage": 24,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#d5d3c5"
+    }
   },
   {
     "slug": "eh-139",
@@ -107,7 +177,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-139.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#cec3ae"
+    }
   },
   {
     "slug": "eh-140",
@@ -117,7 +194,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-140.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#696962"
+    }
   },
   {
     "slug": "eh-147",
@@ -127,7 +211,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-147.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#c8c8c3"
+    }
   },
   {
     "slug": "eh-148",
@@ -137,7 +228,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-148.jpeg",
     "application": null,
-    "sourcePage": 24
+    "sourcePage": 24,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#e6e6e2"
+    }
   },
   {
     "slug": "eh-150",
@@ -147,7 +245,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-150.jpeg",
     "application": null,
-    "sourcePage": 24
+    "sourcePage": 24,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#e4e4da"
+    }
   },
   {
     "slug": "eh-152",
@@ -157,7 +262,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-152.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 325,
+    "imageHeight": 397,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#e8e7e6"
+    }
   },
   {
     "slug": "eh-153",
@@ -167,7 +279,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-153.jpeg",
     "application": null,
-    "sourcePage": 25
+    "sourcePage": 25,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#ecebe8"
+    }
   },
   {
     "slug": "ni-987",
@@ -177,7 +296,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/ni-987.jpeg",
     "application": "/images/catalogue/infeel-2026/ni-987-ung-dung.jpeg",
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 322,
+    "imageHeight": 355,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fbf6ea"
+    }
   },
   {
     "slug": "ni-949",
@@ -187,7 +313,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/ni-949.jpeg",
     "application": null,
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#64533b"
+    }
   },
   {
     "slug": "eh-134",
@@ -197,7 +330,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/eh-134.jpeg",
     "application": null,
-    "sourcePage": 24
+    "sourcePage": 24,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#696863"
+    }
   },
   {
     "slug": "ni-953",
@@ -207,7 +347,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/ni-953.jpeg",
     "application": null,
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Đen",
+      "family": "Đen",
+      "value": "#110b10"
+    }
   },
   {
     "slug": "st-110",
@@ -217,7 +364,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-110.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f1f1ed"
+    }
   },
   {
     "slug": "st-111",
@@ -227,7 +381,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-111.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 158,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#96968d"
+    }
   },
   {
     "slug": "st-118",
@@ -237,7 +398,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-118.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 158,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f2efe5"
+    }
   },
   {
     "slug": "st-304",
@@ -247,7 +415,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-304.png",
     "application": null,
-    "sourcePage": 19
+    "sourcePage": 19,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f3f1ec"
+    }
   },
   {
     "slug": "st-310",
@@ -257,7 +432,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-310.jpeg",
     "application": "/images/catalogue/infeel-2026/st-310-ung-dung.jpeg",
-    "sourcePage": 19
+    "sourcePage": 19,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#eeeade"
+    }
   },
   {
     "slug": "st-316",
@@ -267,7 +449,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-316.jpeg",
     "application": null,
-    "sourcePage": 18
+    "sourcePage": 18,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f3efe6"
+    }
   },
   {
     "slug": "st-319",
@@ -277,7 +466,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-319.jpeg",
     "application": "/images/catalogue/infeel-2026/st-319-ung-dung.jpeg",
-    "sourcePage": 18
+    "sourcePage": 18,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#dcd3c1"
+    }
   },
   {
     "slug": "st-340",
@@ -287,7 +483,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-340.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f3f0e7"
+    }
   },
   {
     "slug": "st-341",
@@ -297,7 +500,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-341.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c5bfb2"
+    }
   },
   {
     "slug": "st-342",
@@ -307,7 +517,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-342.jpeg",
     "application": null,
-    "sourcePage": 16
+    "sourcePage": 16,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#cdc9be"
+    }
   },
   {
     "slug": "st-343",
@@ -317,7 +534,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-343.jpeg",
     "application": null,
-    "sourcePage": 16
+    "sourcePage": 16,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f0ede3"
+    }
   },
   {
     "slug": "st-346",
@@ -327,7 +551,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-346.jpeg",
     "application": null,
-    "sourcePage": 16
+    "sourcePage": 16,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#9e9a8e"
+    }
   },
   {
     "slug": "st-349",
@@ -337,7 +568,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-349.jpeg",
     "application": null,
-    "sourcePage": 16
+    "sourcePage": 16,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#7a776e"
+    }
   },
   {
     "slug": "st-358",
@@ -347,7 +585,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-358.jpeg",
     "application": null,
-    "sourcePage": 18
+    "sourcePage": 18,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d6ccb7"
+    }
   },
   {
     "slug": "st-361",
@@ -357,7 +602,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-361.jpeg",
     "application": null,
-    "sourcePage": 19
+    "sourcePage": 19,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c0baae"
+    }
   },
   {
     "slug": "st-369",
@@ -367,7 +619,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-369.jpeg",
     "application": null,
-    "sourcePage": 17
+    "sourcePage": 17,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f1ebde"
+    }
   },
   {
     "slug": "st-382",
@@ -377,7 +636,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-382.jpeg",
     "application": "/images/catalogue/infeel-2026/st-382-ung-dung.jpeg",
-    "sourcePage": 17
+    "sourcePage": 17,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#ecdfcf"
+    }
   },
   {
     "slug": "st-386",
@@ -387,7 +653,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-386.jpeg",
     "application": null,
-    "sourcePage": 17
+    "sourcePage": 17,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c7c1b7"
+    }
   },
   {
     "slug": "st-388",
@@ -397,7 +670,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-388.jpeg",
     "application": null,
-    "sourcePage": 17
+    "sourcePage": 17,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f8f3ed"
+    }
   },
   {
     "slug": "st-392",
@@ -407,7 +687,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-392.jpeg",
     "application": "/images/catalogue/infeel-2026/st-392-ung-dung.jpeg",
-    "sourcePage": 15
+    "sourcePage": 15,
+    "imageWidth": 703,
+    "imageHeight": 888,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#ede6d9"
+    }
   },
   {
     "slug": "st-393",
@@ -417,7 +704,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-393.jpeg",
     "application": "/images/catalogue/infeel-2026/st-393-ung-dung.jpeg",
-    "sourcePage": 16
+    "sourcePage": 16,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e3decc"
+    }
   },
   {
     "slug": "st-394",
@@ -427,7 +721,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-394.jpeg",
     "application": null,
-    "sourcePage": 16
+    "sourcePage": 16,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#ccc5b5"
+    }
   },
   {
     "slug": "st-640",
@@ -437,7 +738,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-640.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#b3ada1"
+    }
   },
   {
     "slug": "st-645",
@@ -447,7 +755,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-645.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#82827d"
+    }
   },
   {
     "slug": "st-648",
@@ -457,7 +772,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-648.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e7e3d5"
+    }
   },
   {
     "slug": "st-656",
@@ -467,7 +789,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-656.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#545353"
+    }
   },
   {
     "slug": "st-935",
@@ -477,7 +806,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-935.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f2f1ec"
+    }
   },
   {
     "slug": "st-974",
@@ -487,7 +823,14 @@
     "category": "da-cam-thach",
     "image": "/images/catalogue/infeel-2026/st-974.jpeg",
     "application": null,
-    "sourcePage": 20
+    "sourcePage": 20,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d1cac0"
+    }
   },
   {
     "slug": "hg-978",
@@ -497,7 +840,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/hg-978.jpeg",
     "application": null,
-    "sourcePage": 26
+    "sourcePage": 26,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#94969a"
+    }
   },
   {
     "slug": "hg-980",
@@ -507,7 +857,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/hg-980.jpeg",
     "application": null,
-    "sourcePage": 26
+    "sourcePage": 26,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#fbfbfd"
+    }
   },
   {
     "slug": "hg-984",
@@ -517,7 +874,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/hg-984.jpeg",
     "application": null,
-    "sourcePage": 26
+    "sourcePage": 26,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Đen",
+      "family": "Đen",
+      "value": "#0b0b13"
+    }
   },
   {
     "slug": "hg-990",
@@ -527,7 +891,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/hg-990.png",
     "application": null,
-    "sourcePage": 26
+    "sourcePage": 26,
+    "imageWidth": 482,
+    "imageHeight": 528,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#ffffff"
+    }
   },
   {
     "slug": "hg-992",
@@ -537,7 +908,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/hg-992.png",
     "application": null,
-    "sourcePage": 26
+    "sourcePage": 26,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Đen",
+      "family": "Đen",
+      "value": "#060204"
+    }
   },
   {
     "slug": "hg-993",
@@ -547,7 +925,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/hg-993.png",
     "application": "/images/catalogue/infeel-2026/hg-993-ung-dung.jpeg",
-    "sourcePage": 26
+    "sourcePage": 26,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fcfcf3"
+    }
   },
   {
     "slug": "md-424",
@@ -557,7 +942,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/md-424.jpeg",
     "application": null,
-    "sourcePage": 14
+    "sourcePage": 14,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#384953"
+    }
   },
   {
     "slug": "md-970",
@@ -567,7 +959,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/md-970.jpeg",
     "application": null,
-    "sourcePage": 14
+    "sourcePage": 14,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f3f0e8"
+    }
   },
   {
     "slug": "md-974",
@@ -577,7 +976,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/md-974.jpeg",
     "application": null,
-    "sourcePage": 14
+    "sourcePage": 14,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f1ecdf"
+    }
   },
   {
     "slug": "md-975",
@@ -587,7 +993,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/md-975.jpeg",
     "application": "/images/catalogue/infeel-2026/md-975-ung-dung.jpeg",
-    "sourcePage": 14
+    "sourcePage": 14,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#898883"
+    }
   },
   {
     "slug": "md-976",
@@ -597,7 +1010,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/md-976.jpeg",
     "application": null,
-    "sourcePage": 14
+    "sourcePage": 14,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#5b5656"
+    }
   },
   {
     "slug": "ps-103",
@@ -607,7 +1027,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/ps-103.jpeg",
     "application": null,
-    "sourcePage": 10
+    "sourcePage": 10,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fbfbf6"
+    }
   },
   {
     "slug": "ps-104",
@@ -617,7 +1044,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/ps-104.jpeg",
     "application": null,
-    "sourcePage": 10
+    "sourcePage": 10,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e0ddcf"
+    }
   },
   {
     "slug": "ps-106",
@@ -627,7 +1061,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/ps-106.jpeg",
     "application": null,
-    "sourcePage": 10
+    "sourcePage": 10,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#cfcbc0"
+    }
   },
   {
     "slug": "ps-107",
@@ -637,7 +1078,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/ps-107.jpeg",
     "application": "/images/catalogue/infeel-2026/ps-107-ung-dung.jpeg",
-    "sourcePage": 10
+    "sourcePage": 10,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fcf2da"
+    }
   },
   {
     "slug": "ps-108",
@@ -647,7 +1095,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/ps-108.jpeg",
     "application": null,
-    "sourcePage": 10
+    "sourcePage": 10,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#717d73"
+    }
   },
   {
     "slug": "ps-109",
@@ -657,7 +1112,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/ps-109.jpeg",
     "application": null,
-    "sourcePage": 10
+    "sourcePage": 10,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#4e5a5d"
+    }
   },
   {
     "slug": "sl-249",
@@ -667,7 +1129,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-249.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#ffebaf"
+    }
   },
   {
     "slug": "sl-257",
@@ -677,7 +1146,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-257.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e8e3cf"
+    }
   },
   {
     "slug": "sl-260",
@@ -687,7 +1163,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-260.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương",
+      "family": "Xanh dương",
+      "value": "#c5d5e5"
+    }
   },
   {
     "slug": "sl-261",
@@ -697,7 +1180,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-261.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e5e1d6"
+    }
   },
   {
     "slug": "sl-262",
@@ -707,7 +1197,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-262.jpeg",
     "application": "/images/catalogue/infeel-2026/sl-262-ung-dung.jpeg",
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e3d5c5"
+    }
   },
   {
     "slug": "sl-265",
@@ -717,7 +1214,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-265.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f5f1e5"
+    }
   },
   {
     "slug": "sl-273",
@@ -727,7 +1231,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-273.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#5f5a59"
+    }
   },
   {
     "slug": "sl-500",
@@ -737,7 +1248,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-500.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#c8cac7"
+    }
   },
   {
     "slug": "sl-513",
@@ -747,7 +1265,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-513.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#faf9f6"
+    }
   },
   {
     "slug": "sl-514",
@@ -757,7 +1282,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-514.jpeg",
     "application": "/images/catalogue/infeel-2026/sl-514-ung-dung.jpeg",
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#242a28"
+    }
   },
   {
     "slug": "sl-515",
@@ -767,7 +1299,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-515.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f4f9f8"
+    }
   },
   {
     "slug": "sl-516",
@@ -777,7 +1316,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-516.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fffffb"
+    }
   },
   {
     "slug": "sl-519",
@@ -787,7 +1333,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-519.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#aea98c"
+    }
   },
   {
     "slug": "sl-521",
@@ -797,7 +1350,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-521.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f8f6f0"
+    }
   },
   {
     "slug": "sl-522",
@@ -807,7 +1367,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-522.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#2a2c2b"
+    }
   },
   {
     "slug": "sl-523",
@@ -817,7 +1384,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-523.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f0e9dc"
+    }
   },
   {
     "slug": "sl-524",
@@ -827,7 +1401,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-524.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá",
+      "family": "Xanh lá",
+      "value": "#26483c"
+    }
   },
   {
     "slug": "sl-526",
@@ -837,7 +1418,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-526.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Vàng",
+      "family": "Vàng",
+      "value": "#f4bc22"
+    }
   },
   {
     "slug": "sl-527",
@@ -847,7 +1435,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-527.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c6c2b7"
+    }
   },
   {
     "slug": "sl-528",
@@ -857,7 +1452,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-528.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Đỏ",
+      "family": "Đỏ",
+      "value": "#87383e"
+    }
   },
   {
     "slug": "sl-529",
@@ -867,7 +1469,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-529.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f1e0c5"
+    }
   },
   {
     "slug": "sl-530",
@@ -877,7 +1486,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-530.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#665949"
+    }
   },
   {
     "slug": "sl-532",
@@ -887,7 +1503,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-532.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Cam",
+      "family": "Cam",
+      "value": "#ef9448"
+    }
   },
   {
     "slug": "sl-533",
@@ -897,7 +1520,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-533.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Đỏ",
+      "family": "Đỏ",
+      "value": "#dd5d47"
+    }
   },
   {
     "slug": "sl-534",
@@ -907,7 +1537,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-534.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Đỏ",
+      "family": "Đỏ",
+      "value": "#d0393a"
+    }
   },
   {
     "slug": "sl-539",
@@ -917,7 +1554,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-539.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#615044"
+    }
   },
   {
     "slug": "sl-541",
@@ -927,7 +1571,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-541.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#3d3e3d"
+    }
   },
   {
     "slug": "sl-542",
@@ -937,7 +1588,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-542.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#676769"
+    }
   },
   {
     "slug": "sl-543",
@@ -947,7 +1605,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-543.jpeg",
     "application": "/images/catalogue/infeel-2026/sl-543-ung-dung.jpeg",
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#424645"
+    }
   },
   {
     "slug": "sl-544",
@@ -957,7 +1622,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-544.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Vàng",
+      "family": "Vàng",
+      "value": "#feda60"
+    }
   },
   {
     "slug": "sl-545",
@@ -967,7 +1639,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-545.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Đỏ",
+      "family": "Đỏ",
+      "value": "#cf5f7b"
+    }
   },
   {
     "slug": "sl-547",
@@ -977,7 +1656,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-547.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương",
+      "family": "Xanh dương",
+      "value": "#6ea0d2"
+    }
   },
   {
     "slug": "sl-548",
@@ -987,7 +1673,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-548.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#8e8d88"
+    }
   },
   {
     "slug": "sl-549",
@@ -997,7 +1690,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-549.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương",
+      "family": "Xanh dương",
+      "value": "#586a7a"
+    }
   },
   {
     "slug": "sl-551",
@@ -1007,7 +1707,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-551.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#777674"
+    }
   },
   {
     "slug": "sl-553",
@@ -1017,7 +1724,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-553.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#575757"
+    }
   },
   {
     "slug": "sl-554",
@@ -1027,7 +1741,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-554.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f6f6f4"
+    }
   },
   {
     "slug": "sl-557",
@@ -1037,7 +1758,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-557.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fbded0"
+    }
   },
   {
     "slug": "sl-558",
@@ -1047,7 +1775,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-558.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#304354"
+    }
   },
   {
     "slug": "sl-559",
@@ -1057,7 +1792,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-559.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#28292d"
+    }
   },
   {
     "slug": "sl-560",
@@ -1067,7 +1809,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-560.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f9f7f1"
+    }
   },
   {
     "slug": "sl-564",
@@ -1077,7 +1826,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-564.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#5b6161"
+    }
   },
   {
     "slug": "sl-565",
@@ -1087,7 +1843,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-565.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#204a7f"
+    }
   },
   {
     "slug": "sl-566",
@@ -1097,7 +1860,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-566.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#2c3b60"
+    }
   },
   {
     "slug": "sl-567",
@@ -1107,7 +1877,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-567.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá",
+      "family": "Xanh lá",
+      "value": "#94bb47"
+    }
   },
   {
     "slug": "sl-568",
@@ -1117,7 +1894,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-568.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá",
+      "family": "Xanh lá",
+      "value": "#0c6d47"
+    }
   },
   {
     "slug": "sl-570",
@@ -1127,7 +1911,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-570.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#2264a9"
+    }
   },
   {
     "slug": "sl-571",
@@ -1137,7 +1928,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-571.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fcfbf7"
+    }
   },
   {
     "slug": "sl-579",
@@ -1147,7 +1945,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-579.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#1e3579"
+    }
   },
   {
     "slug": "sl-581",
@@ -1157,7 +1962,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-581.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#fcfcfc"
+    }
   },
   {
     "slug": "sl-582",
@@ -1167,7 +1979,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-582.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#232826"
+    }
   },
   {
     "slug": "sl-584",
@@ -1177,7 +1996,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-584.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#a0a6a2"
+    }
   },
   {
     "slug": "sl-585",
@@ -1187,7 +2013,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-585.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#b0afad"
+    }
   },
   {
     "slug": "sl-587",
@@ -1197,7 +2030,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-587.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#2e3941"
+    }
   },
   {
     "slug": "sl-588",
@@ -1207,7 +2047,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-588.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương",
+      "family": "Xanh dương",
+      "value": "#96bdba"
+    }
   },
   {
     "slug": "sl-589",
@@ -1217,7 +2064,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-589.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fdfce2"
+    }
   },
   {
     "slug": "sl-591",
@@ -1227,7 +2081,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-591.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Vàng",
+      "family": "Vàng",
+      "value": "#dbe35a"
+    }
   },
   {
     "slug": "sl-593",
@@ -1237,7 +2098,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-593.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá",
+      "family": "Xanh lá",
+      "value": "#69c2b2"
+    }
   },
   {
     "slug": "sl-595",
@@ -1247,7 +2115,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-595.jpeg",
     "application": null,
-    "sourcePage": 9
+    "sourcePage": 9,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f8f6eb"
+    }
   },
   {
     "slug": "sl-596",
@@ -1257,7 +2132,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-596.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#233c5b"
+    }
   },
   {
     "slug": "sl-597",
@@ -1267,7 +2149,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-597.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá",
+      "family": "Xanh lá",
+      "value": "#98a264"
+    }
   },
   {
     "slug": "sl-598",
@@ -1277,7 +2166,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-598.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#ccc7b3"
+    }
   },
   {
     "slug": "sl-599",
@@ -1287,7 +2183,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-599.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#d0d3ca"
+    }
   },
   {
     "slug": "sl-600",
@@ -1297,7 +2200,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-600.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#505251"
+    }
   },
   {
     "slug": "sl-609",
@@ -1307,7 +2217,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-609.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#344658"
+    }
   },
   {
     "slug": "sl-610",
@@ -1317,7 +2234,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-610.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#ffffff"
+    }
   },
   {
     "slug": "sl-611",
@@ -1327,7 +2251,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-611.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c4b4a7"
+    }
   },
   {
     "slug": "sl-612",
@@ -1337,7 +2268,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-612.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#f2d18c"
+    }
   },
   {
     "slug": "sl-613",
@@ -1347,7 +2285,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-613.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá",
+      "family": "Xanh lá",
+      "value": "#a2a997"
+    }
   },
   {
     "slug": "sl-614",
@@ -1357,7 +2302,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-614.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xanh lá nhạt",
+      "family": "Xanh lá",
+      "value": "#c5dbce"
+    }
   },
   {
     "slug": "sl-616",
@@ -1367,7 +2319,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-616.jpeg",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#64615a"
+    }
   },
   {
     "slug": "sl-665",
@@ -1377,7 +2336,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-665.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fffcef"
+    }
   },
   {
     "slug": "sl-666",
@@ -1387,7 +2353,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-666.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f9f7f3"
+    }
   },
   {
     "slug": "sl-669",
@@ -1397,7 +2370,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sl-669.png",
     "application": null,
-    "sourcePage": 8
+    "sourcePage": 8,
+    "imageWidth": 125,
+    "imageHeight": 95,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f9f8ed"
+    }
   },
   {
     "slug": "sd-710",
@@ -1407,7 +2387,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-710.jpeg",
     "application": "/images/catalogue/infeel-2026/sd-710-ung-dung.jpeg",
-    "sourcePage": 12
+    "sourcePage": 12,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#bbb8b0"
+    }
   },
   {
     "slug": "sd-753",
@@ -1417,7 +2404,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-753.jpeg",
     "application": null,
-    "sourcePage": 12
+    "sourcePage": 12,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#b4aea1"
+    }
   },
   {
     "slug": "sd-840",
@@ -1427,7 +2421,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-840.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 355,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fdfcf7"
+    }
   },
   {
     "slug": "sd-841",
@@ -1437,7 +2438,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-841.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Đen",
+      "family": "Đen",
+      "value": "#202423"
+    }
   },
   {
     "slug": "sd-842",
@@ -1447,7 +2455,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-842.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#faf7ee"
+    }
   },
   {
     "slug": "sd-844",
@@ -1457,7 +2472,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-844.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#faf7f0"
+    }
   },
   {
     "slug": "sd-846",
@@ -1467,7 +2489,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-846.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#dfd8bd"
+    }
   },
   {
     "slug": "sd-848",
@@ -1477,7 +2506,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-848.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d2d0c3"
+    }
   },
   {
     "slug": "sd-850",
@@ -1487,7 +2523,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-850.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#56514d"
+    }
   },
   {
     "slug": "sd-852",
@@ -1497,7 +2540,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-852.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8a8170"
+    }
   },
   {
     "slug": "sd-853",
@@ -1507,7 +2557,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-853.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#8a8b85"
+    }
   },
   {
     "slug": "sd-854",
@@ -1517,7 +2574,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-854.png",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fffffa"
+    }
   },
   {
     "slug": "sd-856",
@@ -1527,7 +2591,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-856.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#3f4f5f"
+    }
   },
   {
     "slug": "sd-858",
@@ -1537,7 +2608,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-858.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#c8c7c2"
+    }
   },
   {
     "slug": "sd-863",
@@ -1547,7 +2625,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-863.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#393f4f"
+    }
   },
   {
     "slug": "sd-864",
@@ -1557,7 +2642,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-864.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#fbfcfd"
+    }
   },
   {
     "slug": "sd-865",
@@ -1567,7 +2659,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-865.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#8c857a"
+    }
   },
   {
     "slug": "sd-866",
@@ -1577,7 +2676,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-866.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#575757"
+    }
   },
   {
     "slug": "sd-870",
@@ -1587,7 +2693,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-870.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#6b675e"
+    }
   },
   {
     "slug": "sd-889",
@@ -1597,7 +2710,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-889.jpeg",
     "application": null,
-    "sourcePage": 12
+    "sourcePage": 12,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#d8d7ce"
+    }
   },
   {
     "slug": "sd-894",
@@ -1607,7 +2727,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-894.jpeg",
     "application": null,
-    "sourcePage": 12
+    "sourcePage": 12,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fcfaf2"
+    }
   },
   {
     "slug": "sd-914",
@@ -1617,7 +2744,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sd-914.jpeg",
     "application": null,
-    "sourcePage": 13
+    "sourcePage": 13,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c3bdaf"
+    }
   },
   {
     "slug": "se-268",
@@ -1627,7 +2761,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/se-268.jpeg",
     "application": null,
-    "sourcePage": 11
+    "sourcePage": 11,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f7f4ef"
+    }
   },
   {
     "slug": "se-269",
@@ -1637,7 +2778,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/se-269.jpeg",
     "application": "/images/catalogue/infeel-2026/se-269-ung-dung.jpeg",
-    "sourcePage": 11
+    "sourcePage": 11,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fbf6ec"
+    }
   },
   {
     "slug": "se-281",
@@ -1647,7 +2795,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/se-281.png",
     "application": null,
-    "sourcePage": 11
+    "sourcePage": 11,
+    "imageWidth": 325,
+    "imageHeight": 158,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#fefefd"
+    }
   },
   {
     "slug": "se-291",
@@ -1657,7 +2812,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/se-291.jpeg",
     "application": null,
-    "sourcePage": 11
+    "sourcePage": 11,
+    "imageWidth": 325,
+    "imageHeight": 159,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c4beb0"
+    }
   },
   {
     "slug": "se-297",
@@ -1667,7 +2829,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/se-297.jpeg",
     "application": null,
-    "sourcePage": 11
+    "sourcePage": 11,
+    "imageWidth": 320,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xanh lá nhạt",
+      "family": "Xanh lá",
+      "value": "#bfcec9"
+    }
   },
   {
     "slug": "se-637",
@@ -1677,7 +2846,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/se-637.jpeg",
     "application": "/images/catalogue/infeel-2026/se-637-ung-dung.jpeg",
-    "sourcePage": 11
+    "sourcePage": 11,
+    "imageWidth": 319,
+    "imageHeight": 158,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#69796f"
+    }
   },
   {
     "slug": "sm-403",
@@ -1687,7 +2863,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-403.png",
     "application": null,
-    "sourcePage": 4
+    "sourcePage": 4,
+    "imageWidth": 703,
+    "imageHeight": 888,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fffcf8"
+    }
   },
   {
     "slug": "sm-405",
@@ -1697,7 +2880,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-405.png",
     "application": null,
-    "sourcePage": 6
+    "sourcePage": 6,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fff9f0"
+    }
   },
   {
     "slug": "sm-499",
@@ -1707,7 +2897,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-499.jpeg",
     "application": null,
-    "sourcePage": 5
+    "sourcePage": 5,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#aca8a4"
+    }
   },
   {
     "slug": "sm-592",
@@ -1717,7 +2914,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-592.jpeg",
     "application": "/images/catalogue/infeel-2026/sm-592-ung-dung.jpeg",
-    "sourcePage": 5
+    "sourcePage": 5,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e3dfd4"
+    }
   },
   {
     "slug": "sm-604",
@@ -1727,7 +2931,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-604.jpeg",
     "application": null,
-    "sourcePage": 6
+    "sourcePage": 6,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e0d6cf"
+    }
   },
   {
     "slug": "sm-605",
@@ -1737,7 +2948,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-605.png",
     "application": null,
-    "sourcePage": 6
+    "sourcePage": 6,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f3f1e8"
+    }
   },
   {
     "slug": "sm-829",
@@ -1747,7 +2965,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-829.jpeg",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c0bba2"
+    }
   },
   {
     "slug": "sm-834",
@@ -1757,7 +2982,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-834.jpeg",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xanh dương đậm",
+      "family": "Xanh dương",
+      "value": "#34394a"
+    }
   },
   {
     "slug": "sm-835",
@@ -1767,7 +2999,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-835.jpeg",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#5a5a5f"
+    }
   },
   {
     "slug": "sm-836",
@@ -1777,7 +3016,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-836.png",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fefefa"
+    }
   },
   {
     "slug": "sm-839",
@@ -1787,7 +3033,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-839.jpeg",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Đen",
+      "family": "Đen",
+      "value": "#010609"
+    }
   },
   {
     "slug": "sm-843",
@@ -1797,7 +3050,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-843.png",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d3cfbf"
+    }
   },
   {
     "slug": "sm-845",
@@ -1807,7 +3067,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-845.jpeg",
     "application": "/images/catalogue/infeel-2026/sm-845-ung-dung.jpeg",
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#c3c2bd"
+    }
   },
   {
     "slug": "sm-847",
@@ -1817,7 +3084,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-847.png",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#9facac"
+    }
   },
   {
     "slug": "sm-849",
@@ -1827,7 +3101,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-849.jpeg",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#b5b0aa"
+    }
   },
   {
     "slug": "sm-886",
@@ -1837,7 +3118,14 @@
     "category": "don-sac",
     "image": "/images/catalogue/infeel-2026/sm-886.png",
     "application": null,
-    "sourcePage": 7
+    "sourcePage": 7,
+    "imageWidth": 482,
+    "imageHeight": 233,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#ffffff"
+    }
   },
   {
     "slug": "ni-941",
@@ -1847,7 +3135,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ni-941.jpeg",
     "application": null,
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#ab8e51"
+    }
   },
   {
     "slug": "ni-940",
@@ -1857,7 +3152,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ni-940.jpeg",
     "application": null,
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a99984"
+    }
   },
   {
     "slug": "ni-997",
@@ -1867,7 +3169,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ni-997.jpeg",
     "application": null,
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Vàng",
+      "family": "Vàng",
+      "value": "#baa25f"
+    }
   },
   {
     "slug": "mt-209",
@@ -1877,7 +3186,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-209.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#55554f"
+    }
   },
   {
     "slug": "mt-210",
@@ -1887,7 +3203,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-210.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#544c3f"
+    }
   },
   {
     "slug": "mt-213",
@@ -1897,7 +3220,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-213.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f9faf3"
+    }
   },
   {
     "slug": "mt-216",
@@ -1907,7 +3237,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-216.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f7f2e9"
+    }
   },
   {
     "slug": "mt-218",
@@ -1917,7 +3254,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-218.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#eaf4f6"
+    }
   },
   {
     "slug": "mt-227",
@@ -1927,7 +3271,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-227.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đỏ",
+      "family": "Nâu",
+      "value": "#977475"
+    }
   },
   {
     "slug": "mt-229",
@@ -1937,7 +3288,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-229.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#fef5ef"
+    }
   },
   {
     "slug": "mt-230",
@@ -1947,7 +3305,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-230.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#d9d9db"
+    }
   },
   {
     "slug": "mt-231",
@@ -1957,7 +3322,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-231.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a49375"
+    }
   },
   {
     "slug": "mt-232",
@@ -1967,7 +3339,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-232.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#6d6054"
+    }
   },
   {
     "slug": "mt-236",
@@ -1977,7 +3356,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-236.png",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fff9f2"
+    }
   },
   {
     "slug": "mt-662",
@@ -1987,7 +3373,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-662.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#3f3c39"
+    }
   },
   {
     "slug": "mt-725",
@@ -1997,7 +3390,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-725.jpeg",
     "application": null,
-    "sourcePage": 21
+    "sourcePage": 21,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#908d84"
+    }
   },
   {
     "slug": "mt-726",
@@ -2007,7 +3407,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-726.jpeg",
     "application": null,
-    "sourcePage": 21
+    "sourcePage": 21,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#9f8951"
+    }
   },
   {
     "slug": "mt-741",
@@ -2017,7 +3424,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-741.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#c5c7c6"
+    }
   },
   {
     "slug": "mt-745",
@@ -2027,7 +3441,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-745.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#cdcecf"
+    }
   },
   {
     "slug": "mt-746",
@@ -2037,7 +3458,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-746.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#a9a5a2"
+    }
   },
   {
     "slug": "mt-747",
@@ -2047,7 +3475,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-747.jpeg",
     "application": null,
-    "sourcePage": 22
+    "sourcePage": 22,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#27292f"
+    }
   },
   {
     "slug": "mt-762",
@@ -2057,7 +3492,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-762.jpeg",
     "application": null,
-    "sourcePage": 21
+    "sourcePage": 21,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#534e4b"
+    }
   },
   {
     "slug": "mt-782",
@@ -2067,7 +3509,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/mt-782.jpeg",
     "application": "/images/catalogue/infeel-2026/mt-782-ung-dung.jpeg",
-    "sourcePage": 21
+    "sourcePage": 21,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#3c3934"
+    }
   },
   {
     "slug": "ms-712",
@@ -2077,7 +3526,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ms-712.jpeg",
     "application": null,
-    "sourcePage": 23
+    "sourcePage": 23,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#6c5c4d"
+    }
   },
   {
     "slug": "ms-717",
@@ -2087,7 +3543,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ms-717.jpeg",
     "application": null,
-    "sourcePage": 23
+    "sourcePage": 23,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#aa8e5e"
+    }
   },
   {
     "slug": "ms-733",
@@ -2097,7 +3560,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ms-733.jpeg",
     "application": null,
-    "sourcePage": 23
+    "sourcePage": 23,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#525657"
+    }
   },
   {
     "slug": "ms-737",
@@ -2107,7 +3577,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ms-737.jpeg",
     "application": "/images/catalogue/infeel-2026/ms-737-ung-dung.jpeg",
-    "sourcePage": 23
+    "sourcePage": 23,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#8c8c88"
+    }
   },
   {
     "slug": "ms-738",
@@ -2117,7 +3594,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ms-738.jpeg",
     "application": null,
-    "sourcePage": 23
+    "sourcePage": 23,
+    "imageWidth": 323,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a68f68"
+    }
   },
   {
     "slug": "ni-910",
@@ -2127,7 +3611,14 @@
     "category": "kim-loai",
     "image": "/images/catalogue/infeel-2026/ni-910.jpeg",
     "application": null,
-    "sourcePage": 27
+    "sourcePage": 27,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Vàng",
+      "family": "Vàng",
+      "value": "#d7ad33"
+    }
   },
   {
     "slug": "wd-049",
@@ -2137,7 +3628,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-049.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#9e836a"
+    }
   },
   {
     "slug": "wd-311",
@@ -2147,7 +3645,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-311.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d6c7a9"
+    }
   },
   {
     "slug": "wd-307",
@@ -2157,7 +3662,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-307.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#dacdb6"
+    }
   },
   {
     "slug": "wd-820",
@@ -2167,7 +3679,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-820.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#907a52"
+    }
   },
   {
     "slug": "lw-892",
@@ -2177,7 +3696,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-892.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#9c8765"
+    }
   },
   {
     "slug": "lw-893",
@@ -2187,7 +3713,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-893.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8c6b44"
+    }
   },
   {
     "slug": "wd-827",
@@ -2197,7 +3730,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-827.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f4f0e7"
+    }
   },
   {
     "slug": "wd-828",
@@ -2207,7 +3747,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-828.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#efecd9"
+    }
   },
   {
     "slug": "wd-126",
@@ -2217,7 +3764,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-126.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#986d44"
+    }
   },
   {
     "slug": "lw-497",
@@ -2227,7 +3781,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-497.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#bca16f"
+    }
   },
   {
     "slug": "lw-498",
@@ -2237,7 +3798,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-498.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8b6f50"
+    }
   },
   {
     "slug": "lw-237",
@@ -2247,7 +3815,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-237.jpeg",
     "application": null,
-    "sourcePage": 36
+    "sourcePage": 36,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e7d9c4"
+    }
   },
   {
     "slug": "lw-238",
@@ -2257,7 +3832,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-238.jpeg",
     "application": null,
-    "sourcePage": 36
+    "sourcePage": 36,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d0bca1"
+    }
   },
   {
     "slug": "mw-131",
@@ -2267,7 +3849,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-131.jpeg",
     "application": null,
-    "sourcePage": 29
+    "sourcePage": 29,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#dfd4c0"
+    }
   },
   {
     "slug": "mw-132",
@@ -2277,7 +3866,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-132.jpeg",
     "application": "/images/catalogue/infeel-2026/mw-132-ung-dung.jpeg",
-    "sourcePage": 28
+    "sourcePage": 28,
+    "imageWidth": 703,
+    "imageHeight": 888,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c1b19c"
+    }
   },
   {
     "slug": "mw-137",
@@ -2287,7 +3883,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-137.jpeg",
     "application": null,
-    "sourcePage": 29
+    "sourcePage": 29,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a59071"
+    }
   },
   {
     "slug": "mw-138",
@@ -2297,7 +3900,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-138.jpeg",
     "application": null,
-    "sourcePage": 29
+    "sourcePage": 29,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#ba9f76"
+    }
   },
   {
     "slug": "mw-181",
@@ -2307,7 +3917,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-181.jpeg",
     "application": null,
-    "sourcePage": 30
+    "sourcePage": 30,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d6bf9c"
+    }
   },
   {
     "slug": "mw-186",
@@ -2317,7 +3934,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-186.jpeg",
     "application": "/images/catalogue/infeel-2026/mw-186-ung-dung.jpeg",
-    "sourcePage": 30
+    "sourcePage": 30,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#695746"
+    }
   },
   {
     "slug": "wd-121",
@@ -2327,7 +3951,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-121.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d9c8a3"
+    }
   },
   {
     "slug": "wd-800",
@@ -2337,7 +3968,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-800.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d8d0b5"
+    }
   },
   {
     "slug": "wd-811",
@@ -2347,7 +3985,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-811.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e4dece"
+    }
   },
   {
     "slug": "wd-243",
@@ -2357,7 +4002,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-243.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#eadfcc"
+    }
   },
   {
     "slug": "wd-793",
@@ -2367,7 +4019,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-793.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f7f0d8"
+    }
   },
   {
     "slug": "wd-794",
@@ -2377,7 +4036,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-794.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e1d9c1"
+    }
   },
   {
     "slug": "wd-008",
@@ -2387,7 +4053,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-008.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#bf8d4d"
+    }
   },
   {
     "slug": "wd-024",
@@ -2397,7 +4070,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-024.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#82583a"
+    }
   },
   {
     "slug": "wd-312",
@@ -2407,7 +4087,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-312.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#865534"
+    }
   },
   {
     "slug": "wd-624",
@@ -2417,7 +4104,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-624.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Đỏ",
+      "family": "Đỏ",
+      "value": "#79423a"
+    }
   },
   {
     "slug": "wd-634",
@@ -2427,7 +4121,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-634.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a1683a"
+    }
   },
   {
     "slug": "wd-664",
@@ -2437,7 +4138,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-664.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a16336"
+    }
   },
   {
     "slug": "mw-190",
@@ -2447,7 +4155,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-190.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#ac9571"
+    }
   },
   {
     "slug": "mw-191",
@@ -2457,7 +4172,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-191.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#755d42"
+    }
   },
   {
     "slug": "wd-112",
@@ -2467,7 +4189,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-112.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#efead9"
+    }
   },
   {
     "slug": "lw-098",
@@ -2477,7 +4206,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-098.jpeg",
     "application": null,
-    "sourcePage": 36
+    "sourcePage": 36,
+    "imageWidth": 325,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d2b68b"
+    }
   },
   {
     "slug": "lw-099",
@@ -2487,7 +4223,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-099.jpeg",
     "application": "/images/catalogue/infeel-2026/lw-099-ung-dung.jpeg",
-    "sourcePage": 36
+    "sourcePage": 36,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a68559"
+    }
   },
   {
     "slug": "wd-029",
@@ -2497,7 +4240,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-029.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#f4f2e8"
+    }
   },
   {
     "slug": "wd-066",
@@ -2507,7 +4257,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-066.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#decaa0"
+    }
   },
   {
     "slug": "wd-128",
@@ -2517,7 +4274,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-128.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e7ddc2"
+    }
   },
   {
     "slug": "wd-389",
@@ -2527,7 +4291,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-389.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8a7057"
+    }
   },
   {
     "slug": "wd-123",
@@ -2537,7 +4308,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-123.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e1d8c5"
+    }
   },
   {
     "slug": "wd-313",
@@ -2547,7 +4325,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-313.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#c99e64"
+    }
   },
   {
     "slug": "lw-994",
@@ -2557,7 +4342,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-994.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#765e4b"
+    }
   },
   {
     "slug": "wd-180",
@@ -2567,7 +4359,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-180.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#daaa70"
+    }
   },
   {
     "slug": "wd-300",
@@ -2577,7 +4376,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-300.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#e1c492"
+    }
   },
   {
     "slug": "wd-301",
@@ -2587,7 +4393,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-301.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d4b075"
+    }
   },
   {
     "slug": "wd-325",
@@ -2597,7 +4410,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-325.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d3b07d"
+    }
   },
   {
     "slug": "wd-326",
@@ -2607,7 +4427,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-326.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d2ad78"
+    }
   },
   {
     "slug": "lw-890",
@@ -2617,7 +4444,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-890.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#44413f"
+    }
   },
   {
     "slug": "wd-034",
@@ -2627,7 +4461,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-034.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#c8a879"
+    }
   },
   {
     "slug": "wd-035",
@@ -2637,7 +4478,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-035.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#ba9366"
+    }
   },
   {
     "slug": "lw-088",
@@ -2647,7 +4495,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-088.jpeg",
     "application": null,
-    "sourcePage": 34
+    "sourcePage": 34,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a89780"
+    }
   },
   {
     "slug": "lw-089",
@@ -2657,7 +4512,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-089.jpeg",
     "application": "/images/catalogue/infeel-2026/lw-089-ung-dung.jpeg",
-    "sourcePage": 33
+    "sourcePage": 33,
+    "imageWidth": 703,
+    "imageHeight": 888,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#9b7f60"
+    }
   },
   {
     "slug": "lw-090",
@@ -2667,7 +4529,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-090.jpeg",
     "application": null,
-    "sourcePage": 34
+    "sourcePage": 34,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#846c52"
+    }
   },
   {
     "slug": "lw-091",
@@ -2677,7 +4546,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-091.jpeg",
     "application": null,
-    "sourcePage": 35
+    "sourcePage": 35,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c6b395"
+    }
   },
   {
     "slug": "lw-092",
@@ -2687,7 +4563,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-092.jpeg",
     "application": null,
-    "sourcePage": 35
+    "sourcePage": 35,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a89783"
+    }
   },
   {
     "slug": "lw-093",
@@ -2697,7 +4580,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-093.jpeg",
     "application": "/images/catalogue/infeel-2026/lw-093-ung-dung.jpeg",
-    "sourcePage": 35
+    "sourcePage": 35,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#877665"
+    }
   },
   {
     "slug": "lw-096",
@@ -2707,7 +4597,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-096.jpeg",
     "application": null,
-    "sourcePage": 34
+    "sourcePage": 34,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#dbcfb7"
+    }
   },
   {
     "slug": "lw-097",
@@ -2717,7 +4614,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-097.jpeg",
     "application": null,
-    "sourcePage": 34
+    "sourcePage": 34,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a89a86"
+    }
   },
   {
     "slug": "lw-100",
@@ -2727,7 +4631,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-100.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#efe3ce"
+    }
   },
   {
     "slug": "lw-101",
@@ -2737,7 +4648,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-101.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d6c09d"
+    }
   },
   {
     "slug": "lw-491",
@@ -2747,7 +4665,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-491.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#ddc89c"
+    }
   },
   {
     "slug": "mw-178",
@@ -2757,7 +4682,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-178.jpeg",
     "application": null,
-    "sourcePage": 30
+    "sourcePage": 30,
+    "imageWidth": 325,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e5d9c4"
+    }
   },
   {
     "slug": "mw-179",
@@ -2767,7 +4699,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-179.jpeg",
     "application": null,
-    "sourcePage": 30
+    "sourcePage": 30,
+    "imageWidth": 325,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#bda888"
+    }
   },
   {
     "slug": "mw-184",
@@ -2777,7 +4716,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-184.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#b49870"
+    }
   },
   {
     "slug": "mw-185",
@@ -2787,7 +4733,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-185.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#937554"
+    }
   },
   {
     "slug": "mw-192",
@@ -2797,7 +4750,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-192.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#b5a88c"
+    }
   },
   {
     "slug": "mw-193",
@@ -2807,7 +4767,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-193.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#7d6b51"
+    }
   },
   {
     "slug": "wd-002",
@@ -2817,7 +4784,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-002.jpeg",
     "application": "/images/catalogue/infeel-2026/wd-002-ung-dung.jpeg",
-    "sourcePage": 40
+    "sourcePage": 40,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#eae5db"
+    }
   },
   {
     "slug": "wd-005",
@@ -2827,7 +4801,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-005.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#dcbd8f"
+    }
   },
   {
     "slug": "wd-006",
@@ -2837,7 +4818,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-006.jpeg",
     "application": null,
-    "sourcePage": 40
+    "sourcePage": 40,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e8e0ce"
+    }
   },
   {
     "slug": "wd-012",
@@ -2847,7 +4835,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-012.jpeg",
     "application": null,
-    "sourcePage": 39
+    "sourcePage": 39,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#dfd0b0"
+    }
   },
   {
     "slug": "wd-032",
@@ -2857,7 +4852,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-032.jpeg",
     "application": null,
-    "sourcePage": 39
+    "sourcePage": 39,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#dfcfaa"
+    }
   },
   {
     "slug": "wd-039",
@@ -2867,7 +4869,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-039.jpeg",
     "application": "/images/catalogue/infeel-2026/wd-039-ung-dung.jpeg",
-    "sourcePage": 38
+    "sourcePage": 38,
+    "imageWidth": 703,
+    "imageHeight": 888,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c4b38f"
+    }
   },
   {
     "slug": "wd-051",
@@ -2877,7 +4886,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-051.jpeg",
     "application": null,
-    "sourcePage": 39
+    "sourcePage": 39,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#dbcfb7"
+    }
   },
   {
     "slug": "wd-056",
@@ -2887,7 +4903,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-056.jpeg",
     "application": "/images/catalogue/infeel-2026/wd-056-ung-dung.jpeg",
-    "sourcePage": 39
+    "sourcePage": 39,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c2bcad"
+    }
   },
   {
     "slug": "wd-057",
@@ -2897,7 +4920,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-057.jpeg",
     "application": null,
-    "sourcePage": 40
+    "sourcePage": 40,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#e0dcd5"
+    }
   },
   {
     "slug": "wd-058",
@@ -2907,7 +4937,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-058.jpeg",
     "application": null,
-    "sourcePage": 40
+    "sourcePage": 40,
+    "imageWidth": 322,
+    "imageHeight": 396,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#74716c"
+    }
   },
   {
     "slug": "wd-084",
@@ -2917,7 +4954,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-084.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#e0c28c"
+    }
   },
   {
     "slug": "wd-114",
@@ -2927,7 +4971,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-114.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#dad4bf"
+    }
   },
   {
     "slug": "wd-115",
@@ -2937,7 +4988,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-115.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#b6a27e"
+    }
   },
   {
     "slug": "wd-143",
@@ -2947,7 +5005,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-143.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c8b58c"
+    }
   },
   {
     "slug": "wd-161",
@@ -2957,7 +5022,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-161.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#f1edde"
+    }
   },
   {
     "slug": "wd-162",
@@ -2967,7 +5039,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-162.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#837a6e"
+    }
   },
   {
     "slug": "wd-163",
@@ -2977,7 +5056,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-163.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d9c6a0"
+    }
   },
   {
     "slug": "wd-167",
@@ -2987,7 +5073,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-167.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#dcd8ca"
+    }
   },
   {
     "slug": "wd-168",
@@ -2997,7 +5090,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-168.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#bf9d6a"
+    }
   },
   {
     "slug": "wd-169",
@@ -3007,7 +5107,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-169.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#9c835a"
+    }
   },
   {
     "slug": "wd-171",
@@ -3017,7 +5124,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-171.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e9e2c9"
+    }
   },
   {
     "slug": "wd-172",
@@ -3027,7 +5141,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-172.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#e2d2ae"
+    }
   },
   {
     "slug": "wd-225",
@@ -3037,7 +5158,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-225.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#c1935b"
+    }
   },
   {
     "slug": "wd-234",
@@ -3047,7 +5175,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-234.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#be9666"
+    }
   },
   {
     "slug": "wd-235",
@@ -3057,7 +5192,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-235.jpeg",
     "application": "/images/catalogue/infeel-2026/wd-235-ung-dung.jpeg",
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 322,
+    "imageHeight": 355,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#b18757"
+    }
   },
   {
     "slug": "wd-330",
@@ -3067,7 +5209,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-330.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a18d69"
+    }
   },
   {
     "slug": "wd-331",
@@ -3077,7 +5226,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-331.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d6c7a9"
+    }
   },
   {
     "slug": "wd-332",
@@ -3087,7 +5243,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-332.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#bc9a71"
+    }
   },
   {
     "slug": "wd-653",
@@ -3097,7 +5260,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-653.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c1b69b"
+    }
   },
   {
     "slug": "wd-817",
@@ -3107,7 +5277,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-817.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#ddd8c4"
+    }
   },
   {
     "slug": "wd-818",
@@ -3117,7 +5294,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-818.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#bc9e6c"
+    }
   },
   {
     "slug": "wd-906",
@@ -3127,7 +5311,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-906.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d6bf95"
+    }
   },
   {
     "slug": "lw-447",
@@ -3137,7 +5328,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-447.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Trắng",
+      "family": "Trắng",
+      "value": "#f8f8f4"
+    }
   },
   {
     "slug": "wd-094",
@@ -3147,7 +5345,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-094.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#deaa6b"
+    }
   },
   {
     "slug": "wd-902",
@@ -3157,7 +5362,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-902.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#eee2c0"
+    }
   },
   {
     "slug": "wd-903",
@@ -3167,7 +5379,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-903.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#dfcaa7"
+    }
   },
   {
     "slug": "wd-175",
@@ -3177,7 +5396,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-175.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#474b46"
+    }
   },
   {
     "slug": "wd-174",
@@ -3187,7 +5413,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-174.jpeg",
     "application": null,
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Vàng",
+      "family": "Vàng",
+      "value": "#eadaa7"
+    }
   },
   {
     "slug": "wd-315",
@@ -3197,7 +5430,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-315.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#614b3c"
+    }
   },
   {
     "slug": "wd-124",
@@ -3207,7 +5447,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-124.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#edead9"
+    }
   },
   {
     "slug": "mw-182",
@@ -3217,7 +5464,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-182.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#b09c7e"
+    }
   },
   {
     "slug": "mw-183",
@@ -3227,7 +5481,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-183.jpeg",
     "application": null,
-    "sourcePage": 32
+    "sourcePage": 32,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#403f39"
+    }
   },
   {
     "slug": "mw-195",
@@ -3237,7 +5498,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-195.jpeg",
     "application": null,
-    "sourcePage": 29
+    "sourcePage": 29,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#ab8f6f"
+    }
   },
   {
     "slug": "mw-196",
@@ -3247,7 +5515,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-196.jpeg",
     "application": null,
-    "sourcePage": 29
+    "sourcePage": 29,
+    "imageWidth": 322,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8c7253"
+    }
   },
   {
     "slug": "mw-197",
@@ -3257,7 +5532,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-197.jpeg",
     "application": null,
-    "sourcePage": 29
+    "sourcePage": 29,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#504b46"
+    }
   },
   {
     "slug": "wd-302",
@@ -3267,7 +5549,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-302.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#d2aa67"
+    }
   },
   {
     "slug": "lw-487",
@@ -3277,7 +5566,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-487.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#928670"
+    }
   },
   {
     "slug": "wd-048",
@@ -3287,7 +5583,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-048.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Đỏ",
+      "family": "Đỏ",
+      "value": "#593f36"
+    }
   },
   {
     "slug": "wd-119",
@@ -3297,7 +5600,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-119.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a4865f"
+    }
   },
   {
     "slug": "wd-305",
@@ -3307,7 +5617,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-305.jpeg",
     "application": null,
-    "sourcePage": 43
+    "sourcePage": 43,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#c8a569"
+    }
   },
   {
     "slug": "wd-306",
@@ -3317,7 +5634,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-306.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#966743"
+    }
   },
   {
     "slug": "wd-323",
@@ -3327,7 +5651,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-323.jpeg",
     "application": null,
-    "sourcePage": 44
+    "sourcePage": 44,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#8b7151"
+    }
   },
   {
     "slug": "wd-324",
@@ -3337,7 +5668,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-324.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#685445"
+    }
   },
   {
     "slug": "wd-720",
@@ -3347,7 +5685,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-720.jpeg",
     "application": "/images/catalogue/infeel-2026/wd-720-ung-dung.jpeg",
-    "sourcePage": 42
+    "sourcePage": 42,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#cebb92"
+    }
   },
   {
     "slug": "lw-478",
@@ -3357,7 +5702,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-478.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 322,
+    "imageHeight": 400,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#cdbda1"
+    }
   },
   {
     "slug": "lw-241",
@@ -3367,7 +5719,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-241.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 325,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#b7975e"
+    }
   },
   {
     "slug": "lw-242",
@@ -3377,7 +5736,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/lw-242.jpeg",
     "application": null,
-    "sourcePage": 37
+    "sourcePage": 37,
+    "imageWidth": 325,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a47b4c"
+    }
   },
   {
     "slug": "mw-130",
@@ -3387,7 +5753,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-130.jpeg",
     "application": "/images/catalogue/infeel-2026/mw-130-ung-dung.jpeg",
-    "sourcePage": 31
+    "sourcePage": 31,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a68863"
+    }
   },
   {
     "slug": "mw-136",
@@ -3397,7 +5770,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/mw-136.jpeg",
     "application": null,
-    "sourcePage": 31
+    "sourcePage": 31,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#7a5d45"
+    }
   },
   {
     "slug": "wd-188",
@@ -3407,7 +5787,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-188.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#433c3b"
+    }
   },
   {
     "slug": "wd-189",
@@ -3417,7 +5804,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-189.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#483b34"
+    }
   },
   {
     "slug": "wd-259",
@@ -3427,7 +5821,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-259.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#5e4c40"
+    }
   },
   {
     "slug": "wd-288",
@@ -3437,7 +5838,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-288.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#4e433b"
+    }
   },
   {
     "slug": "wd-296",
@@ -3447,7 +5855,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-296.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu đậm",
+      "family": "Nâu",
+      "value": "#53433a"
+    }
   },
   {
     "slug": "wd-506",
@@ -3457,7 +5872,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-506.jpeg",
     "application": null,
-    "sourcePage": 45
+    "sourcePage": 45,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#826542"
+    }
   },
   {
     "slug": "wd-160",
@@ -3467,7 +5889,14 @@
     "category": "van-go",
     "image": "/images/catalogue/infeel-2026/wd-160.jpeg",
     "application": null,
-    "sourcePage": 41
+    "sourcePage": 41,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#efe7d0"
+    }
   },
   {
     "slug": "lw-411",
@@ -3477,7 +5906,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-411.jpeg",
     "application": null,
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#9e8c6e"
+    }
   },
   {
     "slug": "lw-414",
@@ -3487,7 +5923,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-414.jpeg",
     "application": null,
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám đậm",
+      "family": "Xám",
+      "value": "#292b28"
+    }
   },
   {
     "slug": "lw-748",
@@ -3497,7 +5940,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-748.jpeg",
     "application": "/images/catalogue/infeel-2026/lw-748-ung-dung.jpeg",
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fbf9ef"
+    }
   },
   {
     "slug": "ab-021",
@@ -3507,7 +5957,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/ab-021.jpeg",
     "application": null,
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#c6cabe"
+    }
   },
   {
     "slug": "fb-851",
@@ -3517,7 +5974,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-851.jpeg",
     "application": "/images/catalogue/infeel-2026/fb-851-ung-dung.jpeg",
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d5cfc1"
+    }
   },
   {
     "slug": "fb-899",
@@ -3527,7 +5991,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-899.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 325,
+    "imageHeight": 159,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#eae0ca"
+    }
   },
   {
     "slug": "fb-925",
@@ -3537,7 +6008,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-925.jpeg",
     "application": null,
-    "sourcePage": 46
+    "sourcePage": 46,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#fcfbf7"
+    }
   },
   {
     "slug": "fb-928",
@@ -3547,7 +6025,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-928.jpeg",
     "application": "/images/catalogue/infeel-2026/fb-928-ung-dung.jpeg",
-    "sourcePage": 46
+    "sourcePage": 46,
+    "imageWidth": 700,
+    "imageHeight": 397,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#b7b3af"
+    }
   },
   {
     "slug": "lw-461",
@@ -3557,7 +6042,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-461.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#ddd9ca"
+    }
   },
   {
     "slug": "lw-464",
@@ -3567,7 +6059,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-464.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#a4937d"
+    }
   },
   {
     "slug": "lw-721",
@@ -3577,7 +6076,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-721.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#d7caa7"
+    }
   },
   {
     "slug": "lw-722",
@@ -3587,7 +6093,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-722.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xanh dương",
+      "family": "Xanh dương",
+      "value": "#6a7e7f"
+    }
   },
   {
     "slug": "lw-723",
@@ -3597,7 +6110,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-723.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 325,
+    "imageHeight": 355,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e6e0cf"
+    }
   },
   {
     "slug": "lw-724",
@@ -3607,7 +6127,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lw-724.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Xám",
+      "family": "Xám",
+      "value": "#676d65"
+    }
   },
   {
     "slug": "lt-708",
@@ -3617,7 +6144,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/lt-708.jpeg",
     "application": null,
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#c3b384"
+    }
   },
   {
     "slug": "fb-931",
@@ -3627,7 +6161,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-931.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 352,
+    "color": {
+      "name": "Kem",
+      "family": "Kem",
+      "value": "#e1dcc9"
+    }
   },
   {
     "slug": "fb-932",
@@ -3637,7 +6178,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-932.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Xám sáng",
+      "family": "Xám",
+      "value": "#d1cec3"
+    }
   },
   {
     "slug": "fb-933",
@@ -3647,7 +6195,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/fb-933.jpeg",
     "application": null,
-    "sourcePage": 47
+    "sourcePage": 47,
+    "imageWidth": 322,
+    "imageHeight": 159,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#bbb4a1"
+    }
   },
   {
     "slug": "pw-426",
@@ -3657,7 +6212,14 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/pw-426.jpeg",
     "application": "/images/catalogue/infeel-2026/pw-426-ung-dung.jpeg",
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Be",
+      "family": "Be",
+      "value": "#bba27a"
+    }
   },
   {
     "slug": "pw-436",
@@ -3667,6 +6229,13 @@
     "category": "van-vai",
     "image": "/images/catalogue/infeel-2026/pw-436.jpeg",
     "application": null,
-    "sourcePage": 48
+    "sourcePage": 48,
+    "imageWidth": 322,
+    "imageHeight": 155,
+    "color": {
+      "name": "Nâu",
+      "family": "Nâu",
+      "value": "#7f6c4e"
+    }
   }
 ]

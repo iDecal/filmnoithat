@@ -1,19 +1,21 @@
 ---
-import { samplesForMaterial, sampleHref, cataloguePdf } from "../data/catalogue";
+import { samplesForMaterial, sampleHref, cataloguePdf, rollSpecification } from "../data/catalogue";
 interface Props { category: string }
 const samples = samplesForMaterial(Astro.props.category);
+const colors = [...new Set(samples.map(sample => sample.color.family))].sort((a,b) => a.localeCompare(b,"vi"));
 const groups = [...new Set(samples.map(sample => sample.group))];
 ---
 {samples.length > 0 && <section id="mau-vat-lieu" class="px-4 sm:px-6 section-space warm-surface" aria-labelledby="catalogue-title" data-catalogue>
   <div class="max-w-7xl mx-auto">
-    <div class="flex flex-wrap items-end justify-between gap-4 mb-6"><div><p class="eyebrow mb-3">BỘ SƯU TẬP INFEEL 2026</p><h2 id="catalogue-title" class="text-2xl md:text-[1.875rem] font-semibold">Tìm bề mặt bạn yêu thích.</h2><p class="text-sm text-base-600 mt-3">{samples.length} mẫu từ catalogue. Màu trên màn hình có thể khác mẫu thật; giá và tình trạng cung cấp được xác nhận khi tư vấn.</p></div><a href={cataloguePdf} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-semibold hover:underline">Xem catalogue PDF ↗</a></div>
-    <div class="catalogue-controls hidden grid-cols-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,0.65fr)_auto] gap-3 mb-5" data-catalogue-controls>
-      <label class="block text-sm font-medium">Tìm tên hoặc mã mẫu<input type="search" data-catalogue-search placeholder="Ví dụ: sồi, Walnut, WD 259…" class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal" /></label>
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-6"><div><p class="eyebrow mb-3">BỘ SƯU TẬP INFEEL 2026</p><h2 id="catalogue-title" class="text-2xl md:text-[1.875rem] font-semibold">Tìm bề mặt bạn yêu thích.</h2><p class="text-sm text-base-600 mt-3">{samples.length} mẫu từ catalogue. Tên tông màu hỗ trợ tìm kiếm, cần so với mẫu thật; giá và tình trạng cung cấp được xác nhận khi tư vấn. Quy cách cuộn: {rollSpecification}.</p></div><a href={cataloguePdf} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-semibold hover:underline">Xem catalogue PDF ↗</a></div>
+    <div class="catalogue-controls hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,0.7fr)_auto] gap-3 mb-5" data-catalogue-controls>
+      <label class="block text-sm font-medium">Tìm tên, màu hoặc mã mẫu<input type="search" data-catalogue-search placeholder="Ví dụ: trắng, xanh, sồi, WD259…" class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal" /></label>
       <label class="block text-sm font-medium">Dòng vật liệu<select data-catalogue-group class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal"><option value="">Tất cả dòng vật liệu</option>{groups.map(group => <option value={group}>{group}</option>)}</select></label>
+      <label class="block text-sm font-medium">Tông màu<select data-catalogue-color class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal"><option value="">Tất cả tông màu</option>{colors.map(color => <option value={color}>{color}</option>)}</select></label>
       <button type="button" data-catalogue-reset class="button-secondary sm:self-end">Xóa bộ lọc</button>
     </div>
     <p data-catalogue-status role="status" aria-live="polite" aria-atomic="true" class="text-sm text-base-600 mb-5">{samples.length} mẫu</p>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{samples.map(sample => <article data-catalogue-card data-search={`${sample.name} ${sample.code} ${sample.group}`} data-group={sample.group} class="min-w-0"><a href={sampleHref(sample)} class="group block"><div class="bg-white rounded-xl overflow-hidden border border-base-200"><img src={sample.image} alt={`${sample.name} — ${sample.code}`} width="480" height="480" loading="lazy" decoding="async" class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none" /></div><p class="text-xs text-base-600 mt-3">{sample.group}</p><h3 class="text-sm sm:text-base font-medium mt-1 group-hover:text-primary-600">{sample.name}</h3><p class="text-sm text-primary-600 font-semibold mt-1">{sample.code}</p><span class="inline-flex items-center min-h-11 text-xs sm:text-sm text-base-700 mt-1 group-hover:underline">Xem mẫu & tư vấn →</span></a></article>)}</div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{samples.map(sample => <article data-catalogue-card data-search={`${sample.title} ${sample.code} ${sample.group} ${sample.color.family}`} data-group={sample.group} data-color={sample.color.family} class="min-w-0"><a href={sampleHref(sample)} class="group block"><div class="bg-white rounded-xl overflow-hidden border border-base-200"><img src={sample.image} alt={`${sample.title} — ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-contain" /></div><p class="text-xs text-base-600 mt-3">{sample.group}</p><h3 class="text-sm sm:text-base font-medium mt-1 group-hover:text-primary-600">{sample.title}</h3><p class="text-sm text-primary-600 font-semibold mt-1">{sample.code}</p><span class="inline-flex items-center min-h-11 text-xs sm:text-sm text-base-700 mt-1 group-hover:underline">Xem mẫu & tư vấn →</span></a></article>)}</div>
     <div class="text-center mt-8"><button type="button" data-catalogue-more class="button-secondary hidden">Xem thêm mẫu</button></div>
     <p data-catalogue-empty class="text-base-600 py-8 hidden">Chưa tìm thấy mẫu phù hợp. Thử tên khác hoặc xóa bộ lọc để xem lại bộ sưu tập.</p>
   </div>
@@ -22,6 +24,7 @@ const groups = [...new Set(samples.map(sample => sample.group))];
   document.querySelectorAll<HTMLElement>("[data-catalogue]").forEach(root => {
     const search = root.querySelector<HTMLInputElement>("[data-catalogue-search]")!;
     const group = root.querySelector<HTMLSelectElement>("[data-catalogue-group]")!;
+    const color = root.querySelector<HTMLSelectElement>("[data-catalogue-color]")!;
     const cards = [...root.querySelectorAll<HTMLElement>("[data-catalogue-card]")];
     const more = root.querySelector<HTMLButtonElement>("[data-catalogue-more]")!;
     const status = root.querySelector<HTMLElement>("[data-catalogue-status]")!;
@@ -30,7 +33,8 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     let limit = 24;
     const update = () => {
       const query = normalize(search.value);
-      const matching = cards.filter(card => normalize(card.dataset.search || "").includes(query) && (!group.value || card.dataset.group === group.value));
+      const isColorQuery = !!query && cards.some(card => normalize(card.dataset.color || "") === query);
+      const matching = cards.filter(card => (isColorQuery ? normalize(card.dataset.color || "") === query : normalize(card.dataset.search || "").includes(query)) && (!group.value || card.dataset.group === group.value) && (!color.value || card.dataset.color === color.value));
       const visible = new Set(matching.slice(0, limit));
       cards.forEach(card => { card.hidden = !visible.has(card); });
       more.hidden = matching.length <= limit;
@@ -41,8 +45,9 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     more.classList.remove("hidden");
     empty.classList.remove("hidden");
     search.addEventListener("input", () => { limit = 24; update(); });
+    color.addEventListener("change", () => { limit = 24; update(); });
     group.addEventListener("change", () => { limit = 24; update(); });
-    root.querySelector("[data-catalogue-reset]")!.addEventListener("click", () => { search.value = ""; group.value = ""; limit = 24; update(); search.focus(); });
+    root.querySelector("[data-catalogue-reset]")!.addEventListener("click", () => { search.value = ""; group.value = ""; color.value = ""; limit = 24; update(); search.focus(); });
     more.addEventListener("click", () => {
       const before = cards.filter(card => !card.hidden).length;
       limit += 24; update();

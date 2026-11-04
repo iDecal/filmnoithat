@@ -2,7 +2,7 @@
 Usage: python scripts/import-infeel.py path/to/2026INFEELsamplebook_eng.pdf
 Requires PyMuPDF. Embedded images are extracted without recoloring or resizing.
 """
-import collections, json, re, shutil, sys
+import collections, json, re, shutil, sys, subprocess
 from pathlib import Path
 import fitz
 
@@ -70,6 +70,7 @@ index=set(' '.join(match) for match in pattern.findall(doc[1].get_text()))
 assert set(p['code'] for p in products)==index, 'Catalogue index and extracted samples differ'
 products.sort(key=lambda p:(p['category'],p['group'],p['code']))
 (root/'src/data/catalogue.json').write_text(json.dumps(products,ensure_ascii=False,indent=2)+'\n')
+subprocess.run([sys.executable, str(root/'scripts/label-catalogue-colors.py')], check=True)
 (root/'public/catalogues').mkdir(exist_ok=True)
 shutil.copyfile(sys.argv[1],root/'public/catalogues/infeel-2026.pdf')
 print(len(products),'verified unique samples;',collections.Counter(p['category'] for p in products))

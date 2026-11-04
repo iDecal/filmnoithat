@@ -24,3 +24,10 @@ Các phần liên quan:
 - `src/pages/sitemap.xml.ts`: gồm các trang mẫu.
 
 Khi nhập catalogue mới, cần đối chiếu lại tên dòng, phân loại và ảnh trước khi publish. Các mã chuẩn ở JSON là dữ liệu đối chiếu; không đổi mã để đặt tên thương mại.
+
+## Tông màu, quy cách và hiển thị ảnh
+
+- Quy cách cuộn **1,23 m × 30 m** do chủ website cung cấp, cấu hình chung ở `src/data/catalogue.ts`.
+- `scripts/label-catalogue-colors.py` đọc ảnh để ước lượng tông màu phục vụ tìm kiếm, không sửa ảnh. Tên tông màu không phải tên màu chuẩn hoặc cam kết màu của nhà sản xuất. Khi có thông tin màu chính thức cần đối chiếu và cập nhật.
+- Trình nhập gọi bước gán màu sau khi trích dữ liệu; yêu cầu thêm Pillow. Có thể chạy riêng bước gán màu sau khi cập nhật ảnh.
+- Lưới hiển thị trọn ảnh thay vì cắt và phóng vân. Trang chi tiết / hộp thoại giới hạn chiều rộng ảnh theo kích thước gốc để tránh phóng nhòe. Không tạo thêm chi tiết hoặc chỉnh màu vật liệu. PDF có giới hạn độ phân giải; ảnh nguồn độ phân giải cao hơn sẽ cần để tăng chi tiết thực sự.
