@@ -41,7 +41,7 @@
   --color-accent-950: 35 22 15;
     color-scheme: light;
     --font-heading: "Wix Madefor Text", system-ui, sans-serif;
-    --font-body: "Wix Madefor Text", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
     font-family: var(--font-body);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
