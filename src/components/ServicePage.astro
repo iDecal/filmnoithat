@@ -8,6 +8,7 @@ import { getServiceLayout } from "../data/serviceLayouts";
 import MaterialPreview from "./MaterialPreview.astro";
 import { findMaterials, materialHref } from "../data/materials";
 import { posts, postHref } from "../data/posts";
+import { projectsForService } from "../data/projects";
 import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
 interface Props { service: Service }
@@ -24,7 +25,8 @@ const mobileLeads: Record<string, string> = {
 };
 const relatedServices = services.filter(item => item.slug !== service.slug);
 const matchingPosts = posts.filter(post => post.services.includes(service.slug));
-const relatedPosts = (matchingPosts.length ? matchingPosts : posts).slice(0, 2);
+const relatedPosts = [...matchingPosts, ...posts.filter(post => !matchingPosts.includes(post))].slice(0, 3);
+const relatedProjects = projectsForService(service.slug);
 const selectedMaterials = findMaterials(service.materials);
 const crumbs = overview ? [{ label: "Dịch vụ dán film nội thất" }] : [{ label: "Dịch vụ", href: "/dich-vu/dan-film-noi-that/" }, { label: service.name }];
 const schema = [
@@ -41,6 +43,7 @@ const navigation = [
   { id: "pham-vi", label: "Phạm vi" }, { id: "luu-y", label: "Bề mặt & lưu ý" },
   { id: "mau-film", label: "Mẫu film" }, { id: "quy-trinh", label: "Quy trình" },
   { id: "nhan-tu-van", label: "Nhận báo giá" }, { id: "cau-hoi", label: "Câu hỏi" },
+  { id: "cong-trinh-lien-quan", label: "Công trình" }, { id: "blog-tu-van", label: "Blog tư vấn" },
 ];
 const steps = [
   { title: "Chia sẻ hiện trạng", text: "Gửi ảnh, kích thước, địa điểm và cách sử dụng để cùng xác định nhu cầu." },
@@ -116,7 +119,26 @@ const steps = [
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] gap-8 lg:gap-16"><div><p class="eyebrow mb-4">06 / GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-[1.375rem] sm:text-2xl font-medium">Những điều<br />bạn có thể đang hỏi.</h2><a href="/lien-he/" class="inline-block mt-5 py-3 text-primary-600 font-semibold hover:underline">Trao đổi thêm với Film Nội Thất →</a></div><div class="space-y-4">{service.faqs.map(faq => <details class="service-faq rounded-2xl bg-base-50 border border-base-200 p-5 sm:p-6"><summary class="flex justify-between items-start gap-4 cursor-pointer list-none font-semibold"><span>{faq.question}</span><svg class="service-faq-icon w-5 h-5 shrink-0 text-primary-600 mt-1 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></summary><p class="text-base-600 mt-5">{faq.answer}</p></details>)}</div></div>
     </section>
 
-    <section class="px-4 sm:px-6 py-9 md:py-14 bg-base-50 border-t border-base-200"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-14"><div><h2 class="text-[1.375rem] font-medium mb-5">Khám phá thêm dịch vụ</h2><ul class="related-services-list divide-y divide-base-200">{relatedServices.map(item => <li><a href={serviceHref(item)} class="flex items-center justify-between gap-3 py-4 text-base-700 font-medium hover:text-primary-600">{item.name}<span aria-hidden="true">→</span></a></li>)}</ul></div><div><h2 class="text-[1.375rem] font-medium mb-5">Đọc trước khi chọn film</h2><div class="space-y-4">{relatedPosts.map(post => <a href={postHref(post)} class="flex items-start gap-4 p-4 rounded-2xl border border-base-200 bg-white hover:border-primary-300 transition-colors"><img src={post.image} alt={post.title} width="88" height="88" loading="lazy" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover shrink-0" /><div><p class="text-xs text-base-600 mb-2">CẨM NANG</p><h3 class="text-sm sm:text-base font-semibold">{post.title}</h3></div></a>)}</div><a href="/blog/" class="inline-block text-primary-600 font-semibold text-sm py-3 mt-4 hover:underline">Xem tất cả bài viết →</a></div></div></section>
+    <section id="cong-trinh-lien-quan" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-base-50" aria-labelledby="related-projects-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-2xl mb-7"><p class="eyebrow mb-4">07 / CÔNG TRÌNH LIÊN QUAN</p><h2 id="related-projects-title" class="text-[1.375rem] sm:text-2xl md:text-[1.75rem] font-medium">Từ hiện trạng đến hoàn thiện.</h2><p class="text-base-600 mt-4">Hình ảnh, hạng mục và vật liệu trong các công trình {service.name.toLowerCase()} đã thực hiện, giúp bạn hình dung phương án cho không gian của mình.</p></div>
+        {relatedProjects.length ? <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{relatedProjects.map(project => <article id={`cong-trinh-${project.id}`} class="min-w-0 border-t border-base-200 pt-5">
+          <img src={project.image} alt={project.title} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" />
+          {project.location && <p class="text-xs text-base-600 mt-4">{project.location}</p>}
+          <h3 class="text-lg font-medium mt-4">{project.title}</h3><p class="text-sm text-base-600 mt-3">{project.summary}</p>
+          <details class="mt-4 border-t border-base-200"><summary class="min-h-11 py-3 text-sm text-primary-600 font-semibold cursor-pointer">Xem chi tiết công trình</summary><div class="text-sm text-base-600 pb-4"><p class="font-medium text-base-900 mb-2">Hạng mục thực hiện</p><ul class="list-disc pl-5 space-y-2">{project.scope.map(item => <li>{item}</li>)}</ul><p class="font-medium text-base-900 mt-4 mb-2">Vật liệu sử dụng</p><ul class="list-disc pl-5 space-y-2">{project.materials.map(item => <li>{item}</li>)}</ul>{project.gallery?.map(photo => <img src={photo.src} alt={photo.alt} width="900" height="600" loading="lazy" class="w-full h-auto rounded-xl mt-4" />)}</div></details>
+        </article>)}</div> : <div class="border-y border-base-200 py-6 sm:py-8"><p class="text-base-700">Hình ảnh công trình đã thi công cho hạng mục này đang được cập nhật.</p><p class="text-sm text-base-600 mt-3 max-w-2xl">Trong lúc chờ, bạn có thể xem các gợi ý phối vật liệu và không gian tham khảo để chuẩn bị ý tưởng.</p><a href="/cong-trinh/" class="inline-flex items-center min-h-11 mt-3 text-sm font-semibold text-primary-600 hover:underline">Xem không gian tham khảo →</a></div>}
+      </div>
+    </section>
+
+    <section id="blog-tu-van" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-white" aria-labelledby="service-blog-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7"><div class="max-w-2xl"><p class="eyebrow mb-4">08 / BLOG TƯ VẤN</p><h2 id="service-blog-title" class="text-[1.375rem] sm:text-2xl md:text-[1.75rem] font-medium">Tìm hiểu kỹ trước khi chọn.</h2><p class="text-base-600 mt-4">Đọc thêm về chọn film, chuẩn bị bề mặt và dự toán chi phí. Bài viết cùng hạng mục được ưu tiên hiển thị trước.</p></div><a href="/blog/" class="inline-flex items-center min-h-11 text-sm font-semibold text-primary-600 shrink-0 hover:underline">Tất cả bài tư vấn →</a></div>
+        <div class="grid md:grid-cols-3 gap-6">{relatedPosts.map(post => <article class="min-w-0 border-t border-base-200 pt-5"><a href={postHref(post)} class="group block"><img src={post.image} alt={post.title} width="800" height="500" loading="lazy" class="w-full aspect-[16/10] object-cover rounded-xl" /><p class="text-xs text-base-600 mt-4">{post.services.includes(service.slug) ? "CÙNG HẠNG MỤC" : "KIẾN THỨC NỀN TẢNG"}</p><h3 class="text-lg font-medium mt-3 group-hover:text-primary-600">{post.title}</h3><p class="text-sm text-base-600 mt-3">{post.description}</p><span class="inline-flex items-center min-h-11 text-sm font-semibold text-primary-600 mt-3 group-hover:underline">Đọc bài tư vấn →</span></a></article>)}</div>
+      </div>
+    </section>
+
+    <section class="px-4 sm:px-6 py-9 md:py-14 bg-base-50 border-t border-base-200"><div class="max-w-7xl mx-auto"><h2 class="text-[1.375rem] font-medium mb-5">Khám phá thêm dịch vụ</h2><ul class="related-services-list grid md:grid-cols-2 gap-x-10">{relatedServices.map(item => <li class="border-b border-base-200"><a href={serviceHref(item)} class="flex items-center justify-between gap-3 py-4 text-base-700 font-medium hover:text-primary-600">{item.name}<span aria-hidden="true">→</span></a></li>)}</ul></div></section>
   </div>
   <nav class="mobile-service-actions" aria-label="Liên hệ nhanh cho dịch vụ">
     <a href={site.phoneHref} class="button-secondary">Gọi ngay</a>
