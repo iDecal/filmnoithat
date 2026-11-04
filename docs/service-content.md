@@ -23,3 +23,7 @@ Công trình tự xuất hiện trên trang dịch vụ có slug trùng `service
 Thêm bài viết vào `src/data/posts.ts`, điền `services` bằng slug dịch vụ liên quan. Mỗi trang ưu tiên bài cùng hạng mục, sau đó bổ sung kiến thức nền tảng, tối đa 3 bài và không lặp. Liên kết “Tất cả bài tư vấn” dẫn tới danh sách đầy đủ.
 
 Sau khi cập nhật: chạy `ASTRO_TELEMETRY_DISABLED=1 npm run build` và kiểm tra ảnh, liên kết trước khi publish.
+
+## Ảnh ứng dụng trên trang dịch vụ con
+
+`src/data/serviceReferences.ts` chứa ảnh tham khảo riêng theo từng slug dịch vụ. Những ảnh này được gắn nhãn “Ảnh tham khảo” và không thay thế hồ sơ hoàn thành. Khi có công trình trong `completedProjects`, mục công trình sẽ ưu tiên hiển thị hồ sơ thực tế. Trang dịch vụ chung có bố cục riêng tại `src/pages/dich-vu/dan-film-noi-that.astro`.

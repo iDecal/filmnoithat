@@ -1,0 +1,9 @@
+---
+import { referencesForService } from "../data/serviceReferences";
+interface Props { slug: string }
+const references = referencesForService(Astro.props.slug);
+---
+{references.length > 0 && <div data-service-references>
+  <p class="text-sm text-base-600 mb-6 max-w-2xl">Hình ảnh ứng dụng tham khảo theo hạng mục. Đây chưa phải hồ sơ xác nhận công trình đã thi công; vật liệu và phạm vi thực hiện cần được khảo sát riêng.</p>
+  <div class="grid md:grid-cols-2 gap-6 sm:gap-8">{references.map(item => <figure class="min-w-0"><img src={item.image} alt={item.title} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><figcaption class="pt-4"><p class="text-xs text-primary-600 font-semibold">ẢNH THAM KHẢO</p><h3 class="text-lg font-medium mt-2">{item.title}</h3><p class="text-sm text-base-600 mt-3">{item.caption}</p><a href={item.material} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-semibold mt-2 hover:underline">Xem nhóm vật liệu phù hợp →</a></figcaption></figure>)}</div>
+</div>}
