@@ -5,7 +5,7 @@ module.exports = {
       borderRadius: { xl: "0.625rem", "2xl": "0.75rem", "3xl": "1.125rem" },
       fontFamily: {
         sans: ['"Wix Madefor Text"', 'system-ui', 'sans-serif'],
-        heading: ['Montserrat', 'system-ui', 'sans-serif'],
+        heading: ['"Wix Madefor Text"', 'system-ui', 'sans-serif'],
       },
       colors: {
         base: {

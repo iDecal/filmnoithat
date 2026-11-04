@@ -29,7 +29,7 @@
   --color-primary-900: 11 31 53;
   --color-primary-950: 7 19 33;
     color-scheme: light;
-    --font-heading: "Montserrat", system-ui, sans-serif;
+    --font-heading: "Wix Madefor Text", system-ui, sans-serif;
     --font-body: "Wix Madefor Text", system-ui, sans-serif;
     font-family: var(--font-body);
     font-synthesis: none;
