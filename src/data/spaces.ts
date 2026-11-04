@@ -1,0 +1,6 @@
+export const spaces = [
+  { title: "Góc bếp ấm cùng sắc gỗ", category: "home", label: "Nhà ở", image: "/images/blog/dan-film-noi-that-tu-bep.webp", text: "Tham khảo cách phối sắc gỗ với mặt bếp và các mảng tường sáng.", service: "/dich-vu/dan-film-tu-bep/", material: "/vat-lieu/van-go/" },
+  { title: "Mặt bàn cho không gian làm việc", category: "office", label: "Văn phòng", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg", text: "Cân bằng mặt bàn, ánh sáng và tông màu của nội thất xung quanh.", service: "/dich-vu/dan-film-ban/", material: "/vat-lieu/be-tong/" },
+  { title: "Điểm nhấn trong cabin thang máy", category: "commercial", label: "Không gian chung", image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg", text: "Gợi ý phối chất liệu cho vách cabin, cần khảo sát và phối hợp đơn vị quản lý.", service: "/dich-vu/dan-film-thang-may/", material: "/vat-lieu/kim-loai/" },
+  { title: "Vách nội thất với tông trung tính", category: "home", label: "Nhà ở", image: "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp", text: "Dùng một mảng vách làm nền, kết hợp chất liệu mềm và sắc gỗ để tạo sự hài hòa.", service: "/dich-vu/dan-film-tuong/", material: "/vat-lieu/van-vai/" },
+];

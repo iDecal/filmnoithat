@@ -1,120 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const projects = [
-  {
-    title: "Văn phòng tech",
-    material: "van-vai",
-    tag: "Vân vải"
-  },
-  {
-    title: "Tủ bếp hiện đại",
-    material: "van-go",
-    tag: "Vân gỗ"
-  },
-  {
-    title: "Showroom nội thất",
-    material: "kim-loai",
-    tag: "Kim loại"
-  },
-  {
-    title: "Nhà phố cao cấp",
-    material: "van-go",
-    tag: "Vân gỗ"
-  },
-  {
-    title: "Phòng họp công ty",
-    material: "van-vai",
-    tag: "Vân vải"
-  }
-];
-
-const filters = [
-  { label: "Tất cả", value: "all" },
-  { label: "Vân gỗ", value: "van-go" },
-  { label: "Vân vải", value: "van-vai" },
-  { label: "Kim loại", value: "kim-loai" },
-  { label: "Giả đá", value: "gia-da" }
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import { services, serviceHref } from "../../data/services";
+import { breadcrumbSchema } from "../../data/seo";
+const steps = [
+  { title: "Ghi lại điều bạn muốn thay đổi", text: "Màu tủ chưa hợp, mặt bàn đã cũ hay một vách cần điểm nhấn? Xác định phần muốn giữ lại và phần cần làm mới.", detail: "Chuẩn bị: ảnh tổng thể, vị trí công trình, công năng sử dụng." },
+  { title: "Xem hiện trạng trước khi chọn film", text: "Kiểm tra vùng ẩm, bong lớp phủ, cạnh hỏng và các phụ kiện. Những phần kết cấu không ổn định cần có phương án xử lý riêng.", detail: "Chuẩn bị: ảnh cận cảnh góc, mép và vùng hư hỏng." },
+  { title: "Chọn mẫu và chốt phạm vi", text: "So màu dưới ánh sáng thực tế, thống nhất chiều vân, mối nối, tháo lắp và lượng vật tư. Yêu cầu báo giá thể hiện rõ các phần việc.", detail: "Thống nhất: mã film, xử lý nền, nhân công, tiến độ và chi phí." },
+  { title: "Thi công, kiểm tra và chăm sóc", text: "Kiểm tra góc mép, mối nối và hoạt động của phụ kiện khi bàn giao. Nhận hướng dẫn sử dụng, vệ sinh và điều kiện bảo hành theo phạm vi đã chốt.", detail: "Bàn giao: ghi nhận kết quả và hướng dẫn chăm sóc vật liệu." },
 ];
 ---
-
-<BaseLayout>
-
-<!-- 🌿 HERO -->
-<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
-  <h1 class="text-4xl font-semibold">Dự án thực tế</h1>
-  <p class="mt-4 text-base-600 max-w-2xl mx-auto">
-    Bộ sưu tập công trình dán film nội thất theo từng loại vật liệu.
-  </p>
-</section>
-
-<!-- 🧩 FILTER -->
-<section class="px-6 pb-10">
-
-  <div class="max-w-6xl mx-auto flex flex-wrap gap-3 justify-center">
-
-    {filters.map(f => (
-      <button
-        class="filter-btn px-4 py-2 rounded-full border border-base-300 text-sm hover:bg-base-900 hover:text-white transition"
-        data-filter={f.value}
-      >
-        {f.label}
-      </button>
-    ))}
-
-  </div>
-
-</section>
-
-<!-- 🏛 GALLERY -->
-<section class="px-6 pb-24">
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-
-    {projects.map(p => (
-      <div
-        class="project-card bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-lg transition"
-        data-type={p.material}
-      >
-
-        <div class="h-40 bg-gradient-to-br from-base-200 to-base-300"></div>
-
-        <div class="p-6">
-          <h3 class="font-medium">{p.title}</h3>
-          <p class="text-sm text-base-600 mt-2">{p.tag}</p>
-        </div>
-
-      </div>
-    ))}
-
-  </div>
-
-</section>
-
-<!-- 🌿 FILTER SCRIPT -->
-<script>
-  const buttons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".project-card");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
-
-      cards.forEach(card => {
-        const type = card.dataset.type;
-
-        if (filter === "all" || type === filter) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-
-      // active state
-      buttons.forEach(b => b.classList.remove("bg-base-900", "text-white"));
-      btn.classList.add("bg-base-900", "text-white");
-    });
-  });
-</script>
-
+<BaseLayout title="Chuẩn bị dự án dán film nội thất: từ ý tưởng đến thi công | iDecal" description="Bốn bước chuẩn bị dự án dán film: ghi nhận nhu cầu, khảo sát nền, chọn mẫu và chốt phạm vi thi công. Checklist cho bàn, tủ, vách và thang máy." structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Công trình", path: "/cong-trinh/" }, { name: "Chuẩn bị dự án", path: "/du-an/" }])]}>
+  <section class="px-4 sm:px-6 py-10 md:py-16 bg-base-50"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Công trình", href: "/cong-trinh/" }, { label: "Chuẩn bị dự án" }]} /><div class="grid lg:grid-cols-2 gap-10 items-center"><div><p class="eyebrow mb-4">TỪ NHU CẦU ĐẾN PHƯƠNG ÁN</p><h1 class="text-3xl md:text-5xl font-semibold">Làm mới có kế hoạch.<br /><span class="text-primary-500">Rõ ràng từ bước đầu.</span></h1><p class="text-lg text-base-600 mt-6">Một phương án phù hợp bắt đầu từ hiện trạng, cách sử dụng và điều bạn mong muốn. Cùng chuẩn bị những thông tin cần thiết trước khi chọn vật liệu.</p><a href="#quy-trinh" class="button-primary mt-7">Xem 4 bước chuẩn bị</a></div><img src="/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg" alt="Tham khảo thao tác hoàn thiện bề mặt bằng film nội thất" class="w-full aspect-[4/3] object-cover rounded-3xl" width="900" height="675" fetchpriority="high" /></div></div></section>
+  <section id="quy-trinh" class="px-4 sm:px-6 py-14 md:py-20 bg-white"><div class="max-w-5xl mx-auto"><h2 class="text-2xl md:text-3xl font-semibold mb-10">Bốn bước, một phương án rõ ràng.</h2><ol class="space-y-6">{steps.map((step, index) => <li class="grid sm:grid-cols-[4rem_minmax(0,1fr)] gap-5 rounded-2xl border border-base-200 p-6 md:p-8"><span class="text-3xl text-primary-500 font-semibold">0{index + 1}</span><div><h3 class="text-xl font-semibold">{step.title}</h3><p class="text-base-600 mt-3">{step.text}</p><p class="mt-4 text-sm bg-base-50 p-4 rounded-xl text-base-700">{step.detail}</p></div></li>)}</ol></div></section>
+  <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Bắt đầu từ hạng mục của bạn</h2><div class="flex flex-wrap gap-3">{services.filter(service => service.slug !== "dan-film-noi-that").map(service => <a href={serviceHref(service)} class="button-secondary">{service.name} →</a>)}</div></div></section>
+  <ContactCTA />
 </BaseLayout>

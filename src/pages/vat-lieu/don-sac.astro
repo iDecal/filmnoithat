@@ -1,13 +1,7 @@
 ---
-import DetailPage from "../../components/DetailPage.astro";
+import MaterialPage from "../../components/MaterialPage.astro";
+import { materials } from "../../data/materials";
+const material = materials.find(item => item.slug === "don-sac")!;
 ---
 
-<DetailPage
-  title={"Film đơn sắc"}
-  description={"Các gam màu đơn sắc giúp tạo bề mặt liền mạch, dễ phối với vân gỗ, vân đá và các chi tiết nội thất hiện có."}
-  category={"Vật liệu"}
-  backHref={"/vat-lieu/"}
-  applications={["Đổi màu cánh tủ, hộc kéo và kệ trang trí.", "Tạo các mảng màu đồng bộ cho quầy và không gian làm việc."]}
-  notes={["Bề mặt cần khô, sạch, phẳng và ổn định; xử lý phần bong tróc trước khi dán.", "Kiểm tra mẫu thực tế và thông số của từng mã film trước khi chọn; độ bền phụ thuộc vật liệu, bề mặt và cách sử dụng."]}
-  image={"/images/vat-lieu/don-sac/DEN001.jpg"}
-/>
+<MaterialPage material={material} />

@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import MaterialPreview from "./MaterialPreview.astro";
+import ProductCards from "./ProductCards.astro";
+import ContactCTA from "./ContactCTA.astro";
+import { materials, materialHref, type Material } from "../data/materials";
+import { findProducts } from "../data/products";
+import { services, serviceHref } from "../data/services";
+import { site } from "../data/site";
+import { breadcrumbSchema } from "../data/seo";
+interface Props { material: Material }
+const { material } = Astro.props;
+const selectedProducts = findProducts(material.products);
+const relatedServices = services.filter(service => material.services.includes(service.slug));
+const relatedMaterials = materials.filter(item => item.slug !== material.slug).slice(0, 3);
+const schema = [
+  { "@context": "https://schema.org", "@type": "CollectionPage", name: material.name, description: material.description, url: new URL(materialHref(material), Astro.site).href },
+  breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }, { name: material.name, path: materialHref(material) }]),
+];
+---
+<BaseLayout title={`${material.name}: mẫu & gợi ý ứng dụng | iDecal`} description={material.description} image={material.image} structuredData={schema}>
+  <section class="px-4 sm:px-6 py-10 md:py-16 bg-base-50"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Vật liệu", href: "/vat-lieu/" }, { label: material.name }]} />
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div><p class="eyebrow mb-4">{material.moodLabel}</p><h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold">{material.name}</h1><p class="mt-6 text-lg text-base-600">{material.intro}</p>
+        <div class="mt-7"><p class="text-sm font-medium mb-3">Gợi ý tông phối</p><ul class="flex flex-wrap gap-4">{material.colors.map(color => <li class="flex items-center gap-2 text-sm text-base-600"><span class="w-6 h-6 rounded-full border border-black/10" style={{ backgroundColor: color.value }} aria-hidden="true" />{color.name}</li>)}</ul><p class="text-xs text-base-600 mt-3">Tông màu minh họa, cần so với mẫu thực tế trước khi chọn.</p></div>
+        <div class="flex flex-wrap gap-3 mt-8"><a href={site.zaloHref} class="button-primary">Tư vấn chọn mẫu</a><a href="#ung-dung" class="button-secondary">Xem cách ứng dụng</a></div>
+      </div>
+      <div class="aspect-square lg:aspect-[5/4] rounded-3xl overflow-hidden bg-base-100 border border-base-200"><MaterialPreview material={material} priority /></div>
+    </div>
+  </div></section>
+  <section id="ung-dung" class="px-4 sm:px-6 py-14 md:py-20 bg-white"><div class="max-w-7xl mx-auto"><p class="eyebrow mb-3">PHỐI VẬT LIỆU THEO CÔNG NĂNG</p><h2 class="text-2xl md:text-3xl font-semibold mb-8">Một bề mặt, nhiều cách ứng dụng.</h2><div class="grid md:grid-cols-3 gap-6">{material.applications.map((item, index) => <div class="rounded-2xl border border-base-200 p-6 md:p-8"><span class="text-sm font-semibold text-primary-600">0{index + 1}</span><h3 class="text-xl font-semibold mt-4 mb-3">{item.title}</h3><p class="text-base-600">{item.text}</p></div>)}</div></div></section>
+  {selectedProducts.length > 0 ? <ProductCards products={selectedProducts} title={`Mã mẫu ${material.name.toLowerCase()} để tham khảo`} /> : <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto rounded-2xl border border-base-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-5"><div><h2 class="text-2xl font-semibold">Chọn mã sau khi xem mẫu thực tế.</h2><p class="text-base-600 mt-3 max-w-2xl">Gửi phong cách và ảnh không gian bạn yêu thích để trao đổi mẫu, thông số và tình trạng cung cấp phù hợp.</p></div><a href={site.zaloHref} class="button-primary shrink-0">Hỏi mẫu vật liệu</a></div></section>}
+  <section class="px-4 sm:px-6 py-14 md:py-20 bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-6">Trước khi chốt vật liệu</h2><ul class="space-y-4 text-base-600">{material.notes.map(note => <li class="flex gap-3"><span aria-hidden="true" class="text-primary-600">✓</span><span>{note}</span></li>)}</ul></div><aside class="bg-base-50 border border-base-200 rounded-2xl p-6 md:p-8"><h2 class="text-2xl font-semibold mb-4">Từ mẫu film đến hoàn thiện</h2><p class="text-base-600 mb-5">Xem quy trình và những lưu ý riêng cho hạng mục bạn đang dự định làm mới.</p><ul class="space-y-3">{relatedServices.map(service => <li><a href={serviceHref(service)} class="inline-block py-2 text-primary-600 font-medium hover:underline">{service.name} →</a></li>)}</ul></aside></div></section>
+  <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thử một cách phối khác</h2><div class="grid sm:grid-cols-3 gap-5">{relatedMaterials.map(item => <a href={materialHref(item)} class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:border-primary-300 transition-colors"><div class="h-44"><MaterialPreview material={item} /></div><div class="p-5"><h3 class="font-semibold">{item.name}</h3><p class="text-sm text-base-600 mt-2">{item.moodLabel} →</p></div></a>)}</div></div></section>
+  <ContactCTA />
+</BaseLayout>

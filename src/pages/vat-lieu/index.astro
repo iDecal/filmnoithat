@@ -1,100 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import MaterialPreview from "../../components/MaterialPreview.astro";
+import FilterGallery from "../../components/FilterGallery.astro";
 import ProductCards from "../../components/ProductCards.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import { materials, materialHref } from "../../data/materials";
 import { products } from "../../data/products";
-
-// Danh sách vật liệu dựa trên ảnh bạn gửi
-const materials = [
-  { id: 'van-go', name: "Vân Gỗ Cao Cấp", desc: "Mô phỏng hoàn hảo thớ gỗ tự nhiên, mang lại vẻ sang trọng và ấm cúng.", image: "/images/vat-lieu/van-go/CAD402-goc.jpg" },
-  { id: 'don-sac', name: "Vân Đơn Sắc", desc: "Các tông màu tối giản, hiện đại phù hợp cho không gian tối giản (Minimalism).", image: "/images/vat-lieu/don-sac/DEN001.jpg" },
-  { id: 'da-cam-thach', name: "Vân Đá Cẩm Thạch", desc: "Họa tiết Marble sang trọng dành cho bàn bếp, vách tivi và sảnh đón.", image: null },
-  { id: 'van-vai', name: "Vân Vải", desc: "Hiệu ứng bề mặt vải dệt độc đáo, mang lại cảm giác mềm mại cho tủ quần áo.", image: "/images/vat-lieu/van-vai/CAN034.jpg" },
-  { id: 'be-tong', name: "Vân Bê Tông", desc: "Phong cách Industrial mạnh mẽ, thô mộc cho quán cafe, văn phòng.", image: "/images/vat-lieu/be-tong/CORANCE-CAG816-cuon.jpg" },
-  { id: 'kim-loai', name: "Vân Kim Loại", desc: "Hiệu ứng thép không gỉ, nhôm xước cho cửa thang máy và thiết bị.", image: "/images/vat-lieu/kim-loai/Inox-xuoc-bac.jpg" },
-  { id: 'trang-guong', name: "Vân Tráng Gương", desc: "Bề mặt siêu bóng, mở rộng không gian và tạo điểm nhấn đẳng cấp.", image: null },
-];
+import { breadcrumbSchema } from "../../data/seo";
+const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "Ấm áp", value: "warm" }, { label: "Trung tính", value: "neutral" }, { label: "Ánh kim & phản chiếu", value: "reflective" }];
 ---
-
-<BaseLayout
-  title="Tổng Kho Film Dán Nội Thất - Đầy Đủ Các Loại Vân Cao Cấp"
-  description="Khám phá bộ sưu tập film dán nội thất đa dạng: vân gỗ, vân đá, bê tông, kim loại. Vật liệu chính hãng, độ bền trên 10 năm, thi công tại TP.HCM & Bình Dương."
->
-
-  <section class="py-20 px-6 bg-base-50">
-    <div class="max-w-7xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-semibold mb-6 not-italic">Bộ sưu tập <span class="font-medium">Vật Liệu</span></h1>
-      <p class="text-base-500 max-w-2xl mx-auto text-lg">
-        Chúng tôi cung cấp hơn 1000+ mẫu film dán kiến trúc với bề mặt mô phỏng chân thực, đáp ứng mọi phong cách thiết kế từ cổ điển đến công nghiệp.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-24 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-        {materials.map((item) => (
-          <div class="group cursor-pointer">
-            <div class="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-base-100 shadow-sm group-hover:shadow-2xl transition-all duration-500">
-              {item.image ? <img
-                src={item.image}
-                alt={`Film dán nội thất ${item.name}`}
-                class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
-                loading="lazy"
-              /> : <div class="h-full flex items-center justify-center p-6 text-center text-base-600 text-sm">Liên hệ xem mẫu thực tế</div>}
-            </div>
-
-            <h2 class="text-xl font-bold text-base-900 mb-3 group-hover:text-primary-500 transition">
-              {item.name}
-            </h2>
-            <p class="text-sm text-base-500 leading-relaxed mb-4 line-clamp-3">
-              {item.desc}
-            </p>
-
-            <a href={`/vat-lieu/${item.id}`} class="text-xs font-bold tracking-[0.2em] uppercase text-primary-500 border-b border-primary-500 pb-1 inline-block hover:bg-primary-500 hover:text-white hover:px-2 transition-all">
-              Xem chi tiết
-            </a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 px-6 bg-base-900 text-white rounded-[3rem] mx-4 md:mx-10 mb-24">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-semibold not-italic mb-8 text-center text-white/90">Tại sao nên chọn Film dán thay vì vật liệu truyền thống?</h3>
-      <div class="grid md:grid-cols-2 gap-12 text-sm text-white/80">
-        <div class="space-y-4">
-          <p class="text-white font-medium">1. Khả năng kháng khuẩn & chống mốc</p>
-          <p>Film nội thất cao cấp có lớp phủ nano giúp ngăn chặn vi khuẩn và nấm mốc, cực kỳ an toàn cho tủ bếp và môi trường có độ ẩm cao.</p>
-        </div>
-        <div class="space-y-4">
-          <p class="text-white font-medium">2. Thi công không tiếng ồn, không mùi</p>
-          <p>Khác với việc sơn hay ốp đá thật, dán film không gây bụi bặm, không mùi hóa chất, có thể sử dụng ngay sau khi thi công xong.</p>
-        </div>
-        <div class="space-y-4">
-          <p class="text-white font-medium">3. Chịu nhiệt & Chống trầy xước</p>
-          <p>Bề mặt film chịu được nhiệt độ cao (lên đến 80°C) và các va đập thông thường, bảo vệ cốt gỗ bên trong luôn như mới.</p>
-        </div>
-        <div class="space-y-4">
-          <p class="text-white font-medium">4. Dễ dàng thay đổi</p>
-          <p>Khi muốn đổi phong cách, bạn chỉ cần bóc lớp film cũ mà không làm hư hại bề mặt gốc, giúp làm mới không gian liên tục với chi phí thấp.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pb-24 px-6 text-center">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-semibold mb-8">Bạn chưa tìm thấy mẫu ưng ý?</h2>
-      <p class="text-base-500 mb-10 not-italic">
-        Chúng tôi có catalog với hơn 1000 mẫu vân thực tế tại văn phòng. Hãy để kỹ thuật viên mang mẫu đến tận nhà tư vấn cho bạn.
-      </p>
-      <a href="https://zalo.me/0866077040" class="inline-block bg-primary-500 text-white px-12 py-5 rounded-full font-bold shadow-xl hover:bg-primary-600 transition-all scale-100 hover:scale-105">
-        Gửi mẫu catalog qua Zalo
-      </a>
-    </div>
-  </section>
-
-<ProductCards products={products} title="Mẫu film theo mã sản phẩm" />
-
+<BaseLayout title="Vật liệu film nội thất: chọn vân, màu & ứng dụng | iDecal" description="Khám phá 7 nhóm film nội thất: vân gỗ, đơn sắc, vải, bê tông, kim loại, đá và tráng gương. Chọn phong cách, xem mẫu và tư vấn theo bề mặt thực tế." structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }])]}>
+  <section class="px-4 sm:px-6 py-10 md:py-16 bg-base-50"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Vật liệu" }]} /><p class="eyebrow mb-4">BẮT ĐẦU TỪ CHẤT LIỆU BẠN THÍCH</p><h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold max-w-3xl">Một thay đổi nhỏ.<br /><span class="text-primary-500">Một cảm giác rất khác.</span></h1><p class="text-base-600 text-lg max-w-2xl mt-6">Chọn vân và tông màu để tìm hướng phối cho bàn, tủ hoặc vách. Từ đó, cùng xem mẫu thực tế và chọn mã film phù hợp.</p></div></section>
+  <section class="px-4 sm:px-6 py-12 md:py-16 bg-white"><div class="max-w-7xl mx-auto"><FilterGallery filters={filters} noun="nhóm vật liệu"><span slot="count">{materials.length} nhóm vật liệu</span><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{materials.map(material => <article data-filter-card={material.mood}><a href={materialHref(material)} class="group block border border-base-200 rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-md transition"><div class="aspect-[4/3] overflow-hidden bg-base-100"><MaterialPreview material={material} /></div><div class="p-6"><p class="eyebrow text-xs mb-2">{material.moodLabel}</p><h2 class="text-xl font-semibold">{material.name}</h2><p class="mt-3 text-sm text-base-600">{material.applications.map(item => item.title).join(" · ")}</p><span class="inline-block text-primary-600 text-sm font-semibold mt-5">Khám phá chất liệu →</span></div></a></article>)}</div></FilterGallery></div></section>
+  <ProductCards products={products} title="Bạn muốn chọn theo mã film?" />
+  <ContactCTA title="Chưa biết bắt đầu từ chất liệu nào?" text="Gửi ảnh nội thất hiện có và phong cách mong muốn. Cùng chọn một bảng màu hài hòa trước khi quyết định mã film." />
 </BaseLayout>
