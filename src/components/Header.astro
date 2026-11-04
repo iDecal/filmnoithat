@@ -1,4 +1,6 @@
 ---
+import Icon from "./Icon.astro";
+import { categoryIcon } from "../data/icons";
 import { site, navigation, isCurrentPage, isCurrentSection } from "../data/site";
 const pathname = Astro.url.pathname;
 ---
@@ -24,7 +26,7 @@ const pathname = Astro.url.pathname;
           </summary>
           <ul class="absolute left-0 top-full mt-2 w-72 max-h-[calc(100dvh-7rem)] overflow-y-auto bg-white border border-base-200 rounded-2xl shadow-lg p-2">
             {item.children.map(child => (
-              <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link block px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-600">{child.label}</a></li>
+              <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-600">{categoryIcon(child.href) && <Icon name={categoryIcon(child.href)!} size={20} class="text-primary-600" />}<span>{child.label}</span></a></li>
             ))}
           </ul>
         </details>
@@ -46,7 +48,7 @@ const pathname = Astro.url.pathname;
             <svg class="nav-chevron w-4 h-4 shrink-0 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
           <ul class="pl-3 pb-2 space-y-1 text-sm text-base-600">
-            {item.children.map(child => <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link block px-3 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-500">{child.label}</a></li>)}
+            {item.children.map(child => <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-500">{categoryIcon(child.href) && <Icon name={categoryIcon(child.href)!} size={20} class="text-primary-600" />}<span>{child.label}</span></a></li>)}
           </ul>
         </details>
       ) : <a href={item.href} aria-current={isCurrentPage(pathname, item.href) ? "page" : undefined} class="nav-top-link block py-3 border-b border-base-200 font-medium">{item.label}</a>)}

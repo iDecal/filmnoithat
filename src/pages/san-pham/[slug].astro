@@ -1,6 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { categoryIcon } from "../../data/icons";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import ProductCards from "../../components/ProductCards.astro";
 import { products, productHref, type Product } from "../../data/products";
@@ -21,7 +23,7 @@ const schema = [
     <Breadcrumbs items={[{ label: "Mẫu film", href: "/san-pham/" }, { label: product.name }]} />
     <div class="grid lg:grid-cols-2 gap-10 items-start">
       <img src={product.image} alt={product.name} class="w-full aspect-square object-cover rounded-3xl border border-base-200" width="900" height="900" fetchpriority="high" />
-      <div><a href={product.categoryHref} class="eyebrow hover:underline">{product.category}</a><h1 class="text-3xl md:text-4xl font-semibold mt-4">{product.name}</h1><p class="text-base-600 text-lg mt-6">{product.description}</p>
+      <div><a href={product.categoryHref} class="eyebrow inline-flex items-center gap-2 hover:underline"><Icon name={categoryIcon(product.categoryHref)!} size={20} />{product.category}</a><h1 class="text-3xl md:text-4xl font-semibold mt-4">{product.name}</h1><p class="text-base-600 text-lg mt-6">{product.description}</p>
         <dl class="mt-6 divide-y divide-base-200 border-y border-base-200 text-sm"><div class="flex gap-6 py-4"><dt class="text-base-600 w-24 shrink-0">Mã mẫu</dt><dd class="font-semibold">{product.code}</dd></div><div class="flex gap-6 py-4"><dt class="text-base-600 w-24 shrink-0">Báo giá</dt><dd>Liên hệ theo số lượng và phạm vi thi công</dd></div></dl>
         <p class="text-sm text-base-600 mt-5">Khổ rộng, độ dày, xuất xứ, giá và tình trạng cung cấp được xác nhận theo catalogue và lô vật liệu trước khi đặt hàng. Màu ảnh có thể khác mẫu thực tế.</p>
         <div class="flex flex-wrap gap-3 mt-7"><a href={site.zaloHref} class="button-primary">Hỏi mẫu {product.code}</a><a href="/lien-he/" class="button-secondary">Liên hệ tư vấn</a></div>

@@ -1,4 +1,6 @@
 ---
+import Icon from "./Icon.astro";
+import { categoryIcon } from "../data/icons";
 import { site, serviceLinks, materialLinks, companyLinks } from "../data/site";
 const currentYear = new Date().getFullYear();
 ---
@@ -19,7 +21,7 @@ const currentYear = new Date().getFullYear();
         <h2 id="footer-services-title" class="text-base font-semibold text-primary-200 mb-4">Dịch vụ thi công</h2>
         <ul class="space-y-1 text-sm">
           <li><a href="/dich-vu/dan-film-noi-that/" class="footer-link">Tổng quan dịch vụ</a></li>
-          {serviceLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
+          {serviceLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
@@ -28,7 +30,7 @@ const currentYear = new Date().getFullYear();
         <ul class="space-y-1 text-sm">
           <li><a href="/vat-lieu/" class="footer-link">Tất cả vật liệu</a></li>
           <li><a href="/san-pham/" class="footer-link">Mẫu film theo mã</a></li>
-          {materialLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
+          {materialLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
@@ -49,7 +51,7 @@ const currentYear = new Date().getFullYear();
       <p class="text-sm text-white/80">© {currentYear} {site.name} · iDecal</p>
       <nav aria-label="Thông tin website">
         <ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-          {companyLinks.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}
+          {companyLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
     </div>
@@ -67,5 +69,6 @@ const currentYear = new Date().getFullYear();
     text-underline-offset: 4px;
     transition: color 150ms;
   }
+  .icon-link { display: flex; align-items: center; gap: 0.5rem; }
   .footer-link:hover { color: white; text-decoration-line: underline; }
 </style>
