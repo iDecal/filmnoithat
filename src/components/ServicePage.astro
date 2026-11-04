@@ -1,17 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "./Breadcrumbs.astro";
-import ProductCards from "./ProductCards.astro";
 import { services, serviceHref, type Service } from "../data/services";
-import { findProducts } from "../data/products";
+import { getServiceLayout } from "../data/serviceLayouts";
+import { findProducts, productHref } from "../data/products";
 import { posts, postHref } from "../data/posts";
 import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
 interface Props { service: Service }
 const { service } = Astro.props;
 const overview = service.slug === "dan-film-noi-that";
+const design = getServiceLayout(service.slug);
 const relatedServices = services.filter(item => item.slug !== service.slug);
-const relatedPosts = posts.filter(post => post.services.includes(service.slug));
+const matchingPosts = posts.filter(post => post.services.includes(service.slug));
+const relatedPosts = (matchingPosts.length ? matchingPosts : posts).slice(0, 2);
 const selectedProducts = findProducts(service.products);
 const crumbs = overview ? [{ label: "Dịch vụ dán film nội thất" }] : [{ label: "Dịch vụ", href: "/dich-vu/dan-film-noi-that/" }, { label: service.name }];
 const schema = [
@@ -24,63 +26,113 @@ const schema = [
   },
   breadcrumbSchema(Astro.site!, overview ? [{ name: service.name, path: serviceHref(service) }] : [{ name: "Dịch vụ", path: "/dich-vu/dan-film-noi-that/" }, { name: service.name, path: serviceHref(service) }]),
 ];
+const navigation = [
+  { id: "pham-vi", label: "Phạm vi" }, { id: "luu-y", label: "Bề mặt & lưu ý" },
+  { id: "mau-film", label: "Mẫu film" }, { id: "quy-trinh", label: "Quy trình" },
+  { id: "nhan-tu-van", label: "Nhận báo giá" }, { id: "cau-hoi", label: "Câu hỏi" },
+];
 const steps = [
-  ["01", "Tiếp nhận hiện trạng", "Gửi ảnh, kích thước, địa điểm và nhu cầu sử dụng để định hướng phương án khảo sát."],
-  ["02", "Khảo sát & chọn mẫu", "Kiểm tra nền, xem mẫu thực tế và thống nhất chiều vân, vị trí mối nối, phạm vi xử lý."],
-  ["03", "Chốt báo giá & thi công", "Xác nhận vật tư, nhân công, tháo lắp và tiến độ trước khi chuẩn bị bề mặt và dán film."],
-  ["04", "Kiểm tra & bàn giao", "Kiểm tra góc, mép, mối nối và phụ kiện; hướng dẫn sử dụng, vệ sinh theo vật liệu đã chọn."],
+  { title: "Chia sẻ hiện trạng", text: "Gửi ảnh, kích thước, địa điểm và cách sử dụng để cùng xác định nhu cầu." },
+  { title: "Khảo sát & xem mẫu", text: "Kiểm tra nền, so mẫu dưới ánh sáng thực tế và thống nhất chiều vân, mối nối." },
+  { title: "Chốt phạm vi & thi công", text: "Xác nhận vật tư, xử lý nền, tháo lắp, nhân công và tiến độ trước khi thực hiện." },
+  { title: "Kiểm tra & bàn giao", text: "Xem lại góc mép, mối nối và phụ kiện; nhận hướng dẫn chăm sóc theo mã vật liệu." },
 ];
 ---
 <BaseLayout title={service.title} description={service.description} image={service.image} structuredData={schema}>
-  <section class="px-4 sm:px-6 py-10 md:py-16 bg-base-50">
-    <div class="max-w-7xl mx-auto">
-      <Breadcrumbs items={crumbs} />
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="eyebrow mb-4">THI CÔNG TẠI TP.HCM & BÌNH DƯƠNG</p>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold">{service.name}</h1>
-          <p class="mt-6 text-base-600 text-lg">{service.intro}</p>
-          <div class="flex flex-wrap gap-3 mt-8"><a href={site.zaloHref} class="button-primary">Gửi ảnh để tư vấn</a><a href="#mau-film" class="button-secondary">Xem mẫu film</a></div>
+  <div class="service-page">
+    <section class="px-4 sm:px-6 pt-7 pb-12 md:pt-10 md:pb-16 bg-base-50">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={crumbs} />
+        <div class="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-9 lg:gap-14 items-center">
+          <div>
+            <p class="eyebrow mb-5">VẬT LIỆU & THI CÔNG CÙNG iDECAL</p>
+            <h1 class="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.15]">{service.name}</h1>
+            <p class="text-2xl sm:text-3xl font-medium text-primary-500 mt-4 leading-snug text-balance">{design.accent}</p>
+            <p class="text-lg text-base-600 mt-6 max-w-xl">{design.lead}</p>
+            <div class="flex flex-wrap gap-3 mt-8"><a href="#nhan-tu-van" class="button-primary">Nhận tư vấn & báo giá →</a><a href="#mau-film" class="button-secondary">Chọn mẫu film</a></div>
+            <ul class="flex flex-wrap gap-x-5 gap-y-2 mt-7 text-sm text-base-600"><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Xem mẫu trước</li><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Chốt rõ phạm vi</li></ul>
+            <p class="text-xs text-base-600 mt-4">Tư vấn thi công tại {site.serviceArea}</p>
+          </div>
+          <div>
+            <figure class="rounded-3xl overflow-hidden bg-white border border-base-200"><img src={service.image} alt={`Hình tham khảo cho ${service.name.toLowerCase()}`} width="1000" height="800" fetchpriority="high" class="w-full aspect-[5/4] object-cover" /><figcaption class="px-5 py-4 text-sm text-base-600">{design.caption}</figcaption></figure>
+            <div class="grid grid-cols-2 gap-3 mt-4">{selectedProducts.slice(0, 2).map(product => <a href={productHref(product)} class="flex items-center gap-3 rounded-xl bg-white border border-base-200 p-3 hover:border-primary-300 transition-colors"><img src={product.image} alt={`Mẫu ${product.code}`} width="48" height="48" class="w-12 h-12 rounded-lg object-cover shrink-0" loading="lazy" /><div class="min-w-0"><span class="block text-xs text-base-600">Mẫu tham khảo</span><span class="block text-sm font-semibold mt-1">{product.code} <span aria-hidden="true">→</span></span></div></a>)}</div>
+          </div>
         </div>
-        <img src={service.image} alt={`Hình tham khảo vật liệu và không gian cho ${service.name.toLowerCase()}`} class="w-full aspect-[4/3] object-cover rounded-3xl" width="900" height="675" fetchpriority="high" />
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="px-4 sm:px-6 py-14 md:py-20 bg-white">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-10 lg:gap-16">
-      <div class="space-y-10">
-        {service.sections.map(section => <section><h2 class="text-2xl font-semibold mb-4">{section.title}</h2><p class="text-base-600 leading-relaxed">{section.text}</p></section>)}
+    <nav class="service-jump-nav px-4 sm:px-6 bg-white border-y border-base-200 xl:sticky xl:top-[85px] z-40" aria-label="Nội dung trang dịch vụ">
+      <div class="max-w-7xl mx-auto flex flex-wrap gap-x-5 sm:gap-x-7 py-3">{navigation.map((item, index) => <a data-service-link href={`#${item.id}`} class="service-jump-link inline-flex items-center gap-2 py-3 text-sm font-medium"><span aria-hidden="true" class="text-xs opacity-70">0{index + 1}</span>{item.label}</a>)}</div>
+    </nav>
+
+    <section id="pham-vi" data-service-section class="service-anchor px-4 sm:px-6 py-14 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-6 lg:gap-14 mb-9"><div><p class="eyebrow mb-4">01 / PHẠM VI CÔNG VIỆC</p><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">{design.scopeTitle}</h2></div><p class="text-base-600 lg:pt-8">{service.intro}</p></div>
+        {overview ? <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">{services.filter(item => item.slug !== service.slug).map(item => <a href={serviceHref(item)} class="group rounded-2xl border border-base-200 overflow-hidden hover:border-primary-300 transition-colors"><img src={item.image} alt={`Tham khảo ${item.name.toLowerCase()}`} width="600" height="375" loading="lazy" class="w-full aspect-[16/10] object-cover" /><div class="p-6"><h3 class="text-xl font-semibold group-hover:text-primary-600">{item.name}</h3><p class="text-sm text-base-600 mt-3">{getServiceLayout(item.slug).lead}</p><span class="inline-block text-primary-600 font-semibold text-sm mt-5">Xem hạng mục →</span></div></a>)}</div> : <div class="grid md:grid-cols-3 gap-5">{design.scope.map((item, index) => <article class="rounded-2xl border border-base-200 p-6 md:p-8 bg-base-50"><span class="text-primary-600 text-sm font-semibold">0{index + 1}</span><h3 class="text-xl font-semibold mt-5">{item.title}</h3><p class="text-base-600 mt-4">{item.text}</p></article>)}</div>}
       </div>
-      <aside class="self-start border border-base-200 bg-base-50 rounded-2xl p-6 md:p-8" aria-labelledby="prepare-title">
-        <h2 id="prepare-title" class="text-xl font-semibold">Thông tin cần để báo giá</h2>
-        <ul class="list-disc pl-5 mt-5 space-y-3 text-base-600 text-sm">{service.preparation.map(item => <li>{item}</li>)}</ul>
-        <p class="text-sm text-base-600 mt-6">Giá phụ thuộc mã film, khối lượng, xử lý nền, chi tiết góc cạnh và điều kiện thi công. Báo giá được xác nhận theo phạm vi công việc thực tế.</p>
-        <a href={site.phoneHref} class="inline-block mt-5 py-2 font-semibold text-primary-600 hover:underline">Gọi {site.phone}</a>
-      </aside>
-    </div>
-  </section>
+    </section>
 
-  <div id="mau-film"><ProductCards products={selectedProducts} title={`Mẫu film tham khảo cho ${service.name.toLowerCase()}`} /></div>
+    <section id="luu-y" data-service-section class="service-anchor bg-base-900 px-4 sm:px-6 py-14 md:py-20">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] gap-9 lg:gap-16">
+        <div><p class="text-primary-200 text-xs font-semibold tracking-widest mb-5">02 / HIỂU ĐÚNG BỀ MẶT</p><h2 class="text-white text-2xl sm:text-3xl md:text-4xl font-semibold">Đẹp từ mẫu.<br />Bền từ cách chuẩn bị.</h2><p class="text-white/80 mt-6">Lớp film là phần hoàn thiện bên ngoài. Hiện trạng nền và cách sử dụng quyết định những gì cần kiểm tra trước khi thi công.</p><a href="/blog/cach-chon-film-noi-that/" class="inline-block py-3 mt-5 text-primary-200 font-medium hover:underline">Đọc hướng dẫn chọn film →</a></div>
+        <div class="space-y-7">{service.sections.map((section, index) => <section class="grid grid-cols-[2rem_minmax(0,1fr)] gap-4 border-b border-white/20 pb-7 last:border-0 last:pb-0"><span class="text-primary-200 text-sm font-semibold pt-1">0{index + 1}</span><div><h3 class="text-white text-xl font-semibold mb-4">{section.title}</h3><p class="text-white/80 leading-relaxed">{section.text}</p></div></section>)}</div>
+      </div>
+    </section>
 
-  <section class="px-4 sm:px-6 py-14 md:py-20 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-8">Quy trình tư vấn và thi công</h2>
-      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">{steps.map(([number, title, text]) => <li class="border border-base-200 p-6 rounded-2xl"><span class="text-primary-600 font-semibold text-sm" aria-hidden="true">{number}</span><h3 class="font-semibold mt-3">{title}</h3><p class="text-sm text-base-600 mt-3">{text}</p></li>)}</ol>
-    </div>
-  </section>
+    <section id="mau-film" data-service-section class="service-anchor px-4 sm:px-6 py-14 md:py-20 bg-base-50">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.6fr)] gap-9 lg:gap-14">
+        <div><p class="eyebrow mb-4">03 / CHỌN VẬT LIỆU</p><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Chạm vào mẫu.<br />Hình dung màu mới.</h2><p class="text-base-600 mt-5">Những mã film để bắt đầu trao đổi cho {service.name.toLowerCase()}. So mẫu thực tế, hướng vân và thông số trước khi quyết định.</p><p class="text-sm text-base-600 mt-5">Giá và tình trạng cung cấp được xác nhận theo mã, số lượng và thời điểm đặt hàng.</p><a href="/san-pham/" class="inline-block py-3 mt-5 text-primary-600 font-semibold hover:underline">Khám phá tất cả mẫu film →</a></div>
+        <div class="grid sm:grid-cols-2 gap-5">{selectedProducts.map(product => <a href={productHref(product)} class="group bg-white rounded-2xl border border-base-200 overflow-hidden hover:border-primary-300 transition-colors"><img src={product.image} alt={product.name} width="600" height="450" loading="lazy" class="w-full aspect-[4/3] object-cover" /><div class="p-5 sm:p-6"><div class="flex items-center justify-between gap-3"><p class="text-xs text-primary-600 font-semibold">MÃ {product.code}</p><span aria-hidden="true" class="text-primary-600">→</span></div><h3 class="text-lg font-semibold mt-3 group-hover:text-primary-600">{product.name}</h3><p class="text-sm text-base-600 mt-3">{product.applications[0]}</p><span class="inline-block mt-5 text-primary-600 text-sm font-semibold">Xem mẫu & ứng dụng</span></div></a>)}</div>
+      </div>
+    </section>
 
-  <section class="px-4 sm:px-6 py-14 bg-base-50">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-8">Câu hỏi về {service.name.toLowerCase()}</h2>
-      <div class="space-y-4">{service.faqs.map(faq => <details class="rounded-2xl bg-white border border-base-200 p-6"><summary class="cursor-pointer font-semibold">{faq.question}</summary><p class="text-base-600 mt-4">{faq.answer}</p></details>)}</div>
-    </div>
-  </section>
+    <section id="quy-trinh" data-service-section class="service-anchor px-4 sm:px-6 py-14 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div><p class="eyebrow mb-4">04 / CÁCH CHÚNG TÔI LÀM VIỆC</p><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Rõ từng bước.<br />Cùng kiểm tra kết quả.</h2><figure class="mt-7 rounded-2xl overflow-hidden border border-base-200"><img src="/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg" alt="Hình tham khảo thao tác hoàn thiện bề mặt bằng film" width="800" height="500" loading="lazy" class="w-full aspect-[16/10] object-cover" /><figcaption class="p-4 text-sm text-base-600">Từ kiểm tra nền đến xử lý từng chi tiết hoàn thiện.</figcaption></figure></div>
+        <ol class="service-timeline">{steps.map((step, index) => <li class="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-5 pb-8 last:pb-0"><span class="service-step-number flex items-center justify-center w-11 h-11 rounded-full bg-primary-50 border border-primary-200 text-primary-600 font-semibold text-sm">0{index + 1}</span><div class="pb-7 border-b border-base-200"><h3 class="text-xl font-semibold pt-1">{step.title}</h3><p class="text-base-600 mt-3">{step.text}</p></div></li>)}</ol>
+      </div>
+    </section>
 
-  <section class="px-4 sm:px-6 py-14 bg-white">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-      <div><h2 class="text-2xl font-semibold mb-5">Dịch vụ liên quan</h2><ul class="space-y-3">{relatedServices.map(item => <li><a href={serviceHref(item)} class="text-primary-600 py-1 inline-block hover:underline">{item.name} →</a></li>)}</ul></div>
-      <div><h2 class="text-2xl font-semibold mb-5">Cẩm nang trước khi thi công</h2><ul class="space-y-3">{relatedPosts.map(post => <li><a href={postHref(post)} class="text-primary-600 py-1 inline-block hover:underline">{post.title} →</a></li>)}</ul><a href="/blog/" class="inline-block mt-5 text-base-600 hover:underline">Xem tất cả bài viết →</a></div>
-    </div>
-  </section>
+    <section id="nhan-tu-van" data-service-section class="service-anchor px-4 sm:px-6 py-14 md:py-20 bg-primary-50 border-y border-base-200">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] gap-9 lg:gap-16 items-start">
+        <div><p class="eyebrow mb-4">05 / NHẬN TƯ VẤN & BÁO GIÁ</p><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Một bức ảnh hiện trạng.<br />Một khởi đầu rõ ràng.</h2><p class="text-base-600 mt-5 max-w-2xl">Để tư vấn sát với công trình, hãy chuẩn bị những thông tin sau cho hạng mục {service.name.toLowerCase()}.</p><ol class="mt-7 space-y-4">{service.preparation.map((item, index) => <li class="flex gap-4"><span class="text-primary-600 font-semibold text-sm pt-1">0{index + 1}</span><span class="text-base-700">{item}</span></li>)}</ol><p class="text-sm text-base-600 mt-7 max-w-2xl">Báo giá phụ thuộc mã film, khối lượng, xử lý nền, góc cạnh, tháo lắp và điều kiện tiếp cận. Phạm vi và chi phí được thống nhất trước khi thi công.</p></div>
+        <aside class="rounded-3xl bg-white border border-base-200 p-6 sm:p-8" aria-labelledby="service-contact-title"><p class="eyebrow text-xs mb-4">TRAO ĐỔI TRỰC TIẾP CÙNG iDECAL</p><h2 id="service-contact-title" class="text-2xl font-semibold">Bạn gửi ảnh.<br />Cùng bàn phương án.</h2><p class="text-base-600 text-sm mt-4">Gửi qua Zalo để trao đổi mẫu vật liệu và các chi tiết của công trình.</p><a href={site.zaloHref} class="button-primary w-full mt-6">Gửi ảnh qua Zalo →</a><a href={site.phoneHref} class="button-secondary w-full mt-3">Gọi {site.phone}</a><div class="border-t border-base-200 mt-6 pt-5"><p class="text-xs text-base-600">CẦN GỬI THÔNG TIN CHI TIẾT?</p><a href={`mailto:${site.email}`} class="block text-sm font-medium text-primary-600 mt-2 py-2 break-words hover:underline">{site.email}</a><p class="text-xs text-base-600 mt-3">Khu vực thi công: {site.serviceArea}</p></div></aside>
+      </div>
+    </section>
+
+    <section id="cau-hoi" data-service-section class="service-anchor px-4 sm:px-6 py-14 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] gap-8 lg:gap-16"><div><p class="eyebrow mb-4">06 / GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-2xl sm:text-3xl font-semibold">Những điều<br />bạn có thể đang hỏi.</h2><a href="/lien-he/" class="inline-block mt-5 py-3 text-primary-600 font-semibold hover:underline">Trao đổi thêm với iDecal →</a></div><div class="space-y-4">{service.faqs.map(faq => <details class="service-faq rounded-2xl bg-base-50 border border-base-200 p-5 sm:p-6"><summary class="flex justify-between items-start gap-4 cursor-pointer list-none font-semibold"><span>{faq.question}</span><svg class="service-faq-icon w-5 h-5 shrink-0 text-primary-600 mt-1 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></summary><p class="text-base-600 mt-5">{faq.answer}</p></details>)}</div></div>
+    </section>
+
+    <section class="px-4 sm:px-6 py-12 md:py-16 bg-base-50 border-t border-base-200"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-14"><div><h2 class="text-2xl font-semibold mb-5">Khám phá thêm dịch vụ</h2><ul class="divide-y divide-base-200">{relatedServices.map(item => <li><a href={serviceHref(item)} class="flex items-center justify-between gap-3 py-4 text-base-700 font-medium hover:text-primary-600">{item.name}<span aria-hidden="true">→</span></a></li>)}</ul></div><div><h2 class="text-2xl font-semibold mb-5">Đọc trước khi chọn film</h2><div class="space-y-4">{relatedPosts.map(post => <a href={postHref(post)} class="flex items-start gap-4 p-4 rounded-2xl border border-base-200 bg-white hover:border-primary-300 transition-colors"><img src={post.image} alt={post.title} width="88" height="88" loading="lazy" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover shrink-0" /><div><p class="text-xs text-base-600 mb-2">CẨM NANG</p><h3 class="text-sm sm:text-base font-semibold">{post.title}</h3></div></a>)}</div><a href="/blog/" class="inline-block text-primary-600 font-semibold text-sm py-3 mt-4 hover:underline">Xem tất cả bài viết →</a></div></div></section>
+  </div>
 </BaseLayout>
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>("[data-service-link]")];
+  const sections = [...document.querySelectorAll<HTMLElement>("[data-service-section]")];
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (!visible.length) return;
+      const id = visible[0].target.id;
+      links.forEach(link => {
+        if (link.hash === `#${id}`) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    }, { rootMargin: "-20% 0px -55% 0px", threshold: 0 });
+    sections.forEach(section => observer.observe(section));
+  }
+</script>
+
+<style>
+  .service-anchor { scroll-margin-top: 1rem; }
+  .service-jump-link { color: rgb(var(--color-base-600)); border-bottom: 2px solid transparent; }
+  .service-jump-link:hover, .service-jump-link[aria-current="location"] { color: rgb(var(--color-primary-600)); border-bottom-color: rgb(var(--color-primary-500)); }
+  .service-timeline { position: relative; }
+  .service-timeline::before { content: ""; position: absolute; top: 1.5rem; bottom: 3rem; left: 1.375rem; width: 1px; background: rgb(var(--color-base-200)); }
+  .service-step-number { position: relative; z-index: 1; }
+  .service-faq summary::-webkit-details-marker { display: none; }
+  .service-faq[open] .service-faq-icon { transform: rotate(45deg); }
+  @media (min-width: 1280px) { .service-anchor { scroll-margin-top: 5.5rem; } }
+</style>
