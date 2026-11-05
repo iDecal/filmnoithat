@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { websiteSchema } from "../data/structuredData";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -9,6 +10,7 @@ interface Props {
   image?: string;
   pageType?: "website" | "article";
   structuredData?: Record<string, unknown>[];
+  faqs?: { question: string; answer: string }[];
 }
 const {
   title = "Film Nội Thất - Cung cấp film & thi công theo nhu cầu",
@@ -16,10 +18,11 @@ const {
   image = "/images/cong-trinh/banner-film-dan-noi-that.jpg",
   pageType = "website",
   structuredData = [],
+  faqs = [],
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
-const schemaJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Astro.url.pathname, title, description, image, supplied: structuredData, faqs })).replace(/</g, "\\u003c");
 ---
 
 <html lang="vi">
@@ -42,7 +45,7 @@ const schemaJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    {structuredData.length > 0 && <script type="application/ld+json" set:html={schemaJson} />}
+    <script type="application/ld+json" set:html={schemaJson} />
 
   </head>
 

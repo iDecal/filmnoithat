@@ -26,7 +26,7 @@ const preparation = [
   { title: "Thống nhất trước khi làm", text: "Xác nhận vật tư, chi phí, phương án giao hàng hoặc lịch thi công và cách kiểm tra khi bàn giao." },
 ];
 ---
-<BaseLayout title={service.title} description="Cung cấp film nội thất và thi công theo nhu cầu toàn quốc. Chọn dịch vụ dán film tủ bếp, bàn kệ, tường, trần hoặc thang máy; xem vật liệu và hướng dẫn chuẩn bị." image="/images/home/interior-kitchen.webp" structuredData={schema}>
+<BaseLayout faqs={service.faqs} title={service.title} description="Cung cấp film nội thất và thi công theo nhu cầu toàn quốc. Chọn dịch vụ dán film tủ bếp, bàn kệ, tường, trần hoặc thang máy; xem vật liệu và hướng dẫn chuẩn bị." image="/images/home/interior-kitchen.webp" structuredData={schema}>
   <div class="service-overview">
     <section class="px-4 sm:px-6 pt-6 sm:pt-10 pb-10 sm:pb-16 bg-base-50 surface-gradient">
       <div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Dịch vụ" }]} />
