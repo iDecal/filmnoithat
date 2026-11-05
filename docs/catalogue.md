@@ -35,12 +35,3 @@ Khi nhập catalogue mới, cần đối chiếu lại tên dòng, phân loại 
 Ảnh sản phẩm trong lưới, trang chi tiết và mẫu liên quan được đặt trong khung ngang 4:3 theo yêu cầu mới. `object-contain` giữ nguyên tỷ lệ và toàn bộ vân bên trong khung; hộp thoại vẫn xem ảnh gốc.
 
 Cập nhật hiển thị: khung sản phẩm 4:3 dùng `object-cover object-center` để phủ kín, không còn dải trắng. Ảnh giữ tỷ lệ và cắt phần dư tại tâm; hộp thoại tiếp tục dùng `object-contain` để xem toàn bộ ảnh gốc.
-
-## Nhóm mẫu và chọn màu
-
-`sampleFamilies` trong `src/data/catalogue.ts` gộp theo danh mục, tiền tố dòng catalogue và tên bề mặt gốc; tối đa 6 mã mỗi nhóm. Không gộp các dòng khác nhau và không khẳng định chúng có thông số kỹ thuật giống hệt. Tất cả 367 URL mã mẫu vẫn giữ nguyên.
-
-- Lưới danh mục hiển thị một thẻ mỗi nhóm. Nút màu tròn 44px đổi ảnh, tên, mã và cả hai liên kết trên thẻ; trạng thái được thể hiện bằng `aria-pressed` và thông báo hỗ trợ đọc màn hình.
-- Bộ lọc và tìm kiếm áp dụng cho từng mã trong nhóm, tự chọn mã phù hợp và ẩn nút màu không khớp. Trạng thái phân biệt số nhóm và số mẫu.
-- Trang chi tiết có các liên kết màu trong cùng nhóm; màu hiện tại dùng `aria-current=page`.
-- Khi tắt JavaScript vẫn có liên kết văn bản đến mọi mã trong nhóm.

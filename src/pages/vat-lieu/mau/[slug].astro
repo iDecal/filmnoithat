@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import { catalogue, sampleHref, cataloguePdf, rollSpecification, variantsForSample } from "../../../data/catalogue";
+import { catalogue, sampleHref, cataloguePdf, rollSpecification } from "../../../data/catalogue";
 import { materials, materialHref } from "../../../data/materials";
 import { services, serviceHref } from "../../../data/services";
 import { site } from "../../../data/site";
@@ -10,7 +10,6 @@ export function getStaticPaths() {
   return catalogue.map(sample => ({ params: { slug: sample.slug }, props: { sample } }));
 }
 const { sample } = Astro.props;
-const variants = variantsForSample(sample.slug);
 const material = materials.find(item => item.slug === sample.category)!;
 const related = catalogue.filter(item => item.category === sample.category && item.slug !== sample.slug).sort((a,b) => Number(b.group === sample.group)-Number(a.group === sample.group)).slice(0,4);
 const relatedServices = services.filter(service => material.services.includes(service.slug));
@@ -23,7 +22,6 @@ const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
       <figure class="min-w-0"><button type="button" data-open-sample aria-haspopup="dialog" aria-controls="sample-image-dialog" aria-label={`Phóng lớn ảnh mẫu ${sample.code}`} class="block w-full rounded-2xl overflow-hidden border border-base-200 bg-white cursor-zoom-in"><img src={sample.image} alt={`Bề mặt ${sample.title} ${sample.code} trích từ catalogue INFEEL 2026`} width={sample.imageWidth} height={sample.imageHeight} fetchpriority="high" class="sample-original w-full aspect-[4/3] object-cover object-center" /></button><figcaption class="text-xs text-base-600 mt-3">Ảnh catalogue · Nhấn để xem toàn bộ ảnh gốc. Tông màu được đặt theo ảnh để hỗ trợ lựa chọn. Màu sắc cần đối chiếu mẫu thật.</figcaption></figure>
       <div class="min-w-0"><p class="eyebrow mb-3">INFEEL 2026 / {sample.group}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{sample.title}</h1><p class="text-lg text-primary-600 font-semibold mt-4">Mã mẫu: {sample.code}</p><p class="text-base-600 mt-5">Một lựa chọn trong nhóm {material.name.toLowerCase()} để tham khảo khi phối nội thất. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
-        {variants.length > 1 && <div class="mt-6" data-detail-variants><p class="text-sm font-medium">Cùng dòng bề mặt · {variants.length} lựa chọn</p><nav aria-label="Chọn màu cùng nhóm" class="flex flex-wrap gap-1 mt-2">{variants.map(variant => <a href={sampleHref(variant)} aria-current={variant.slug === sample.slug ? "page" : undefined} aria-label={`${variant.color.name} — ${variant.code}`} title={`${variant.color.name} · ${variant.code}`} class="detail-color inline-flex items-center justify-center w-11 h-11 rounded-full"><span class="w-6 h-6 rounded-full border border-black/20" style={{backgroundColor:variant.color.value}} /></a>)}</nav><p class="text-xs text-base-600 mt-2">Chọn màu để xem đúng ảnh và thông tin mã tương ứng.</p></div>}
         <dl class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-3 mt-6 text-sm border-y border-base-200 py-5"><dt class="text-base-600">Bộ sưu tập</dt><dd>INFEEL 2026</dd><dt class="text-base-600">Dòng bề mặt</dt><dd>{sample.group}</dd><dt class="text-base-600">Tông màu</dt><dd>{sample.color.name} <span class="text-base-600">(tham khảo)</span></dd><dt class="text-base-600">Quy cách cuộn</dt><dd>{rollSpecification}</dd><dt class="text-base-600">Giá & cung cấp</dt><dd>Liên hệ xác nhận theo số lượng</dd></dl>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn mẫu {sample.code} qua Zalo</a><button type="button" data-copy-request class="button-secondary" data-request={request}>Sao chép yêu cầu mẫu</button></div><p data-copy-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3">Sao chép yêu cầu rồi gửi qua Zalo để trao đổi đúng mã mẫu.</p>
         <a href={`${cataloguePdf}#page=${sample.sourcePage}`} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-medium mt-4 hover:underline">Đối chiếu trong catalogue gốc ↗</a>
@@ -47,8 +45,6 @@ const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.
   });
 </script>
 <style>
-  .detail-color[aria-current="page"] { box-shadow: inset 0 0 0 2px rgb(var(--color-primary-500)); }
-  .detail-color:hover { background: rgb(var(--color-accent-100)); }
   .sample-dialog { width: min(56rem, calc(100% - 2rem)); max-height: 92dvh; overflow-y: auto; }
   .sample-dialog::backdrop { background: rgb(7 19 33 / .75); }
 </style>
