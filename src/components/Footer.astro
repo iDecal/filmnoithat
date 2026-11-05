@@ -7,8 +7,8 @@ const currentYear = new Date().getFullYear();
 
 <footer class="bg-base-900 text-white px-4 sm:px-6 pt-14 md:pt-20 pb-8">
   <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12 pb-12">
-      <div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-9 sm:gap-y-12 pb-12">
+      <div class="col-span-2 lg:col-span-1 min-w-0">
         <a href="/" class="inline-block font-heading text-2xl font-semibold leading-snug" aria-label={`${site.name} — Trang chủ`}>{site.name}</a>
         <p class="text-accent-200 text-sm font-medium mt-3">{site.tagline}</p>
         <p class="text-white/80 text-sm leading-relaxed mt-5 max-w-sm">
@@ -17,21 +17,21 @@ const currentYear = new Date().getFullYear();
         <a href={site.zaloHref} class="inline-flex items-center justify-center min-h-11 px-5 py-3 mt-6 rounded-xl bg-white text-base-900 font-semibold text-sm hover:bg-primary-100 transition-colors">Tư vấn qua Zalo <span aria-hidden="true" class="ml-2">→</span></a>
       </div>
 
-      <nav aria-labelledby="footer-services-title">
+      <nav aria-labelledby="footer-services-title" class="min-w-0">
         <h2 id="footer-services-title" class="text-lg font-semibold text-accent-200 mb-4"><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 hover:underline">Dịch vụ</a></h2>
         <ul class="space-y-1 text-sm">
           {serviceLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
-      <nav aria-labelledby="footer-materials-title">
+      <nav aria-labelledby="footer-materials-title" class="min-w-0">
         <h2 id="footer-materials-title" class="text-lg font-semibold text-accent-200 mb-4"><a href="/vat-lieu/" class="inline-flex items-center min-h-11 hover:underline">Vật liệu</a></h2>
         <ul class="space-y-1 text-sm">
           {materialLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
-      <div>
+      <div class="col-span-2 lg:col-span-1 min-w-0">
         <h2 class="text-lg font-semibold text-accent-200 mb-4">Liên hệ tư vấn</h2>
         <address class="not-italic text-sm leading-relaxed">
           <p class="text-white/80">Hotline / Zalo</p>
