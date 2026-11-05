@@ -27,3 +27,11 @@ Sau khi cập nhật: chạy `ASTRO_TELEMETRY_DISABLED=1 npm run build` và ki�
 ## Ảnh ứng dụng trên trang dịch vụ con
 
 `src/data/serviceReferences.ts` chứa ảnh tham khảo riêng theo từng slug dịch vụ. Những ảnh này được gắn nhãn “Ảnh tham khảo” và không thay thế hồ sơ hoàn thành. Khi có công trình trong `completedProjects`, mục công trình sẽ ưu tiên hiển thị hồ sơ thực tế. Trang dịch vụ chung có bố cục riêng tại `src/pages/dich-vu/dan-film-noi-that.astro`.
+
+## Liên kết công trình với sản phẩm
+
+Thêm `sampleSlugs` vào công trình thực tế trong `src/data/projects.ts`, ví dụ `sampleSlugs: ["wd-259", "mt-725"]`. Chỉ điền mã đã xác nhận thực sự sử dụng trong công trình. `gallery` lưu ảnh hiện trạng, chi tiết và hoàn thiện đã được phép công khai.
+
+`src/data/projectStories.ts` tự tạo trang `/cong-trinh/{id}/` cho công trình này, và slider trong sản phẩm sẽ ưu tiên đúng mã. Slider hiển thị toàn bộ ảnh trong hồ sơ, có nút trước/sau và hỗ trợ vuốt; không tự chạy.
+
+Trong lúc chưa có hồ sơ thực tế, website dùng 35 phối cảnh có mã từ PDF và 4 không gian tham khảo, gắn nhãn nguồn rõ ràng, không tự nhận đó là công trình đã thi công. Mẫu khác trong cùng nhóm được ghi “Cùng nhóm vật liệu”, không được coi là ảnh của mã đang xem.

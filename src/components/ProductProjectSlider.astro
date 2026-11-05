@@ -1,0 +1,51 @@
+---
+import { type CatalogueSample } from "../data/catalogue";
+import { storiesForSample, storyHref, storyLabel } from "../data/projectStories";
+interface Props { sample: CatalogueSample }
+const { sample } = Astro.props;
+const stories = storiesForSample(sample);
+const slides = stories.flatMap(story => story.images.map(photo => ({story,photo})));
+const hasActual = stories.some(story => story.kind === "completed" && story.sampleSlugs.includes(sample.slug));
+---
+<section id="cong-trinh-san-pham" class="px-4 sm:px-6 section-space bg-white" aria-labelledby="product-projects-title" data-project-slider>
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-6"><p class="eyebrow mb-3">TỪ BỀ MẶT ĐẾN KHÔNG GIAN</p><h2 id="product-projects-title" class="text-2xl md:text-[1.875rem] font-semibold">Công trình & ảnh ứng dụng.</h2><p class="text-base-600 mt-4">{hasActual ? `Khám phá công trình dùng mã ${sample.code}, cùng các hướng phối vật liệu liên quan.` : `Hồ sơ thi công thực tế dùng mã ${sample.code} đang được cập nhật. Dưới đây là ảnh ứng dụng tham khảo, có ghi rõ nguồn và mã được minh họa.`}</p></div>
+    {stories.length > 0 ? <>
+      <div class="project-track flex overflow-x-auto snap-x snap-mandatory gap-5 rounded-xl" tabindex="0" role="region" aria-label="Ảnh công trình và ứng dụng liên quan" aria-roledescription="bộ ảnh" data-project-track>{slides.map(({story,photo},index) => <article class="project-slide shrink-0 w-full min-w-0 snap-start" data-project-slide role="group" aria-label={`${index+1} / ${slides.length}`}>
+        <a href={storyHref(story)} class="block"><img src={photo.src} alt={photo.alt} width="1100" height="700" loading="lazy" class="w-full aspect-[4/3] sm:aspect-[16/9] object-contain rounded-xl bg-base-50" /></a>
+        <div class="flex flex-col sm:flex-row justify-between gap-4 py-5"><div class="max-w-2xl"><p class="text-xs text-accent-700 font-semibold">{storyLabel(story)} · {story.sampleSlugs.includes(sample.slug) ? `Đúng mã ${sample.code}` : "Cùng nhóm vật liệu"}</p><h3 class="text-lg font-medium mt-2">{story.title}</h3><p class="text-sm text-base-600 mt-3">{story.description}</p></div><a href={storyHref(story)} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-semibold sm:shrink-0 sm:self-start hover:underline">{story.kind === "completed" ? "Xem công trình thực tế →" : "Xem chi tiết ứng dụng →"}</a></div>
+      </article>)}</div>
+      <div class="hidden items-center justify-between gap-4 mt-2 border-t border-base-200 pt-4" data-slider-controls><p class="text-sm text-base-600" aria-live="polite" aria-atomic="true" data-slider-status>Ảnh 1 / {slides.length}</p><div class="flex gap-2"><button type="button" data-slide-prev class="button-secondary" aria-label="Ảnh trước">←</button><button type="button" data-slide-next class="button-secondary" aria-label="Ảnh tiếp theo">→</button></div></div>
+    </> : <a href="/cong-trinh/" class="button-secondary">Xem các không gian tham khảo</a>}
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>("[data-project-slider]").forEach(root => {
+    const track = root.querySelector<HTMLElement>("[data-project-track]");
+    if (!track) return;
+    const slides = [...track.querySelectorAll<HTMLElement>("[data-project-slide]")];
+    const prev = root.querySelector<HTMLButtonElement>("[data-slide-prev]")!;
+    const next = root.querySelector<HTMLButtonElement>("[data-slide-next]")!;
+    const status = root.querySelector<HTMLElement>("[data-slider-status]")!;
+    let index = 0;
+    const update = () => {
+      const left = track.getBoundingClientRect().left;
+      index = slides.reduce((best,slide,i) => Math.abs(slide.getBoundingClientRect().left-left) < Math.abs(slides[best].getBoundingClientRect().left-left) ? i : best, 0);
+      status.textContent = `Ảnh ${index+1} / ${slides.length}`;
+      prev.disabled = index === 0; next.disabled = index === slides.length-1;
+    };
+    const go = (target: number) => {
+      const slide = slides[Math.max(0,Math.min(target,slides.length-1))];
+      track.scrollBy({left:slide.getBoundingClientRect().left-track.getBoundingClientRect().left,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth"});
+    };
+    prev.addEventListener("click", () => go(index-1)); next.addEventListener("click", () => go(index+1));
+    track.addEventListener("keydown", event => { if(event.target !== track) return; if(event.key === "ArrowRight" || event.key === "ArrowLeft") {event.preventDefault();go(index+(event.key === "ArrowRight" ? 1 : -1));} });
+    track.addEventListener("scroll", update, {passive:true});
+    if ("ResizeObserver" in window) new ResizeObserver(update).observe(track);
+    root.querySelector<HTMLElement>("[data-slider-controls]")!.classList.replace("hidden","flex");update();
+  });
+</script>
+<style>
+  .project-track { scrollbar-width: thin; scrollbar-color: rgb(var(--color-base-300)) transparent; }
+  [data-slider-controls] button:disabled { opacity: .35; cursor: default; }
+</style>

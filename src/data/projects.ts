@@ -2,6 +2,7 @@ export interface CompletedProject {
   id: string;
   title: string;
   services: string[];
+  sampleSlugs?: string[];
   image: string;
   summary: string;
   location?: string;
