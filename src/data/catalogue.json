@@ -1671,15 +1671,19 @@
     "name": "Đơn sắc",
     "group": "Solid",
     "category": "don-sac",
-    "image": "/images/catalogue/infeel-2026/sl-548.jpeg",
+    "image": "/images/catalogue/infeel-supplement/sl-548.jpeg",
     "application": null,
     "sourcePage": 8,
-    "imageWidth": 125,
-    "imageHeight": 95,
+    "imageWidth": 230,
+    "imageHeight": 230,
     "color": {
       "name": "Xám",
       "family": "Xám",
       "value": "#8e8d88"
+    },
+    "imageSource": {
+      "pdf": "/catalogues/infeel-supplement.pdf",
+      "page": 21
     }
   },
   {
@@ -1773,15 +1777,19 @@
     "name": "Đơn sắc",
     "group": "Solid",
     "category": "don-sac",
-    "image": "/images/catalogue/infeel-2026/sl-558.jpeg",
+    "image": "/images/catalogue/infeel-supplement/sl-558.jpeg",
     "application": null,
     "sourcePage": 8,
-    "imageWidth": 125,
-    "imageHeight": 95,
+    "imageWidth": 235,
+    "imageHeight": 235,
     "color": {
       "name": "Xanh dương đậm",
       "family": "Xanh dương",
       "value": "#304354"
+    },
+    "imageSource": {
+      "pdf": "/catalogues/infeel-supplement.pdf",
+      "page": 21
     }
   },
   {
@@ -1824,15 +1832,19 @@
     "name": "Đơn sắc",
     "group": "Solid",
     "category": "don-sac",
-    "image": "/images/catalogue/infeel-2026/sl-564.jpeg",
+    "image": "/images/catalogue/infeel-supplement/sl-564.jpeg",
     "application": null,
     "sourcePage": 8,
-    "imageWidth": 125,
-    "imageHeight": 95,
+    "imageWidth": 233,
+    "imageHeight": 233,
     "color": {
       "name": "Xám",
       "family": "Xám",
       "value": "#5b6161"
+    },
+    "imageSource": {
+      "pdf": "/catalogues/infeel-supplement.pdf",
+      "page": 21
     }
   },
   {

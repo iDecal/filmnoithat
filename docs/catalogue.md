@@ -35,3 +35,19 @@ Khi nhập catalogue mới, cần đối chiếu lại tên dòng, phân loại 
 Ảnh sản phẩm trong lưới, trang chi tiết và mẫu liên quan được đặt trong khung ngang 4:3 theo yêu cầu mới. `object-contain` giữ nguyên tỷ lệ và toàn bộ vân bên trong khung; hộp thoại vẫn xem ảnh gốc.
 
 Cập nhật hiển thị: khung sản phẩm 4:3 dùng `object-cover object-center` để phủ kín, không còn dải trắng. Ảnh giữ tỷ lệ và cắt phần dư tại tâm; hộp thoại tiếp tục dùng `object-contain` để xem toàn bộ ảnh gốc.
+
+## Đối chiếu PDF bổ sung `_infeel_catalog.pdf`
+
+PDF bổ sung có 23 trang, metadata tạo năm 2022; không thay cho catalogue INFEEL 2026. Ảnh mẫu nằm trong các clipping path, cần đối chiếu vùng cắt và nhãn mã trước khi trích để tránh lấy ảnh của ô kế bên.
+
+Đã thay ba ảnh trùng mã và cải thiện rõ về độ phân giải: SL 548 (125×95 → 230×230), SL 558 (125×95 → 235×235), SL 564 (125×95 → 233×233). Các ảnh được xem trực quan và đối chiếu tông màu. Những mẫu chỉ cải thiện nhỏ về diện tích crop, độ phân giải thấp hơn hoặc lệch tông rõ hơn được giữ nguyên. Không làm sắc nét giả, nội suy hoặc sửa ảnh.
+
+Ảnh thay thế lưu tại `public/images/catalogue/infeel-supplement/`, giữ nguyên ảnh cũ để có thể quay lại. Dữ liệu `imageSource` ghi PDF nguồn và trang 21. Trang sản phẩm có liên kết PDF bổ sung; liên kết catalogue 2026 vẫn còn để đối chiếu thông tin mã. Các tên màu và khung 4:3 không thay đổi.
+
+Để áp dụng lại sau khi nhập catalogue chính:
+
+```sh
+python scripts/upgrade-infeel-images.py /path/to/_infeel_catalog.pdf
+```
+
+Trình nâng cấp xác minh SHA-256 nguồn trước khi trích những ảnh đã kiểm tra, cập nhật URL ảnh và kích thước, không ghi đè hay nén lại ảnh nguồn.
