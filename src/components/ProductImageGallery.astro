@@ -1,0 +1,42 @@
+---
+import { type CatalogueSample } from "../data/catalogue";
+import { imagesForProduct } from "../data/productImages";
+interface Props { sample: CatalogueSample }
+const { sample } = Astro.props;
+const images=imagesForProduct(sample);
+const first=images[0];
+---
+<div class="min-w-0" data-product-gallery>
+  <figure><button type="button" data-open-sample aria-haspopup="dialog" aria-controls="sample-image-dialog" aria-label={`Phóng lớn ảnh mẫu ${sample.code}`} class="block w-full rounded-2xl overflow-hidden border border-base-200 bg-white cursor-zoom-in"><img data-gallery-main src={first.src} alt={first.alt} width={first.width} height={first.height} fetchpriority="high" class="w-full aspect-[4/3] object-cover object-center" /></button><figcaption data-gallery-caption class="text-xs text-base-600 mt-3" aria-live="polite" aria-atomic="true">{first.caption}</figcaption></figure>
+  <div class="flex flex-wrap gap-2 sm:gap-3 mt-4" role="group" aria-label="Chọn ảnh sản phẩm">{images.map((image,index)=><button type="button" data-gallery-thumb data-src={image.src} data-alt={image.alt} data-caption={image.caption} data-href={image.href || ""} data-width={image.width} data-height={image.height} aria-pressed={index===0?"true":"false"} aria-label={`Ảnh ${index+1}: ${image.label}. ${image.caption}`} class="gallery-thumb w-16 sm:w-20 rounded-lg overflow-hidden bg-white border-2 border-transparent"><img src={image.src} alt="" aria-hidden="true" width="80" height="60" loading="lazy" class="w-full aspect-[4/3] object-cover" /><span class="block text-[10px] sm:text-xs py-1.5 text-base-700">{image.label}</span></button>)}</div>
+  <a href="#" data-gallery-story class="hidden items-center min-h-11 mt-3 text-sm text-primary-600 font-medium hover:underline">Xem chi tiết ảnh ứng dụng →</a>
+  <p class="text-xs text-base-600 mt-3">Chọn ảnh nhỏ để xem thêm · Bấm ảnh lớn để phóng to.</p>
+  <noscript>{images.slice(1).map(image=><figure class="mt-5"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" class="w-full h-auto rounded-xl" /><figcaption class="text-sm text-base-600 mt-2">{image.caption} {image.href && <a href={image.href} class="text-primary-600 underline">Xem chi tiết</a>}</figcaption></figure>)}</noscript>
+  <dialog id="sample-image-dialog" aria-labelledby="sample-dialog-title" class="sample-dialog rounded-xl bg-white p-4 sm:p-6"><div class="flex items-center justify-between gap-4 mb-4"><h2 id="sample-dialog-title" class="text-lg font-semibold">Ảnh sản phẩm & ứng dụng</h2><form method="dialog"><button class="button-secondary" aria-label="Đóng ảnh mẫu" autofocus>Đóng ×</button></form></div><img data-gallery-zoom src={first.src} alt={first.alt} width={first.width} height={first.height} class="mx-auto w-auto h-auto max-w-full max-h-[70dvh] object-contain" /><p data-gallery-zoom-caption class="text-xs text-base-600 mt-3">{first.caption}</p></dialog>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>("[data-product-gallery]").forEach(root=>{
+    const main=root.querySelector<HTMLImageElement>("[data-gallery-main]")!;
+    const zoom=root.querySelector<HTMLImageElement>("[data-gallery-zoom]")!;
+    const caption=root.querySelector<HTMLElement>("[data-gallery-caption]")!;
+    const zoomCaption=root.querySelector<HTMLElement>("[data-gallery-zoom-caption]")!;
+    const link=root.querySelector<HTMLAnchorElement>("[data-gallery-story]")!;
+    const dialog=root.querySelector<HTMLDialogElement>("dialog")!;
+    const thumbs=[...root.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]")];
+    thumbs.forEach(button=>button.addEventListener("click",()=>{
+      thumbs.forEach(thumb=>thumb.setAttribute("aria-pressed",String(thumb===button)));
+      [main,zoom].forEach(image=>{image.src=button.dataset.src!;image.alt=button.dataset.alt!;image.width=Number(button.dataset.width);image.height=Number(button.dataset.height);});
+      root.querySelector("[data-open-sample]")!.setAttribute("aria-label",`Phóng lớn ảnh: ${button.dataset.alt}`);
+      caption.textContent=button.dataset.caption!;zoomCaption.textContent=button.dataset.caption!;
+      link.classList.toggle("hidden",!button.dataset.href);link.classList.toggle("inline-flex",!!button.dataset.href);
+      if(button.dataset.href)link.href=button.dataset.href;
+    }));
+    root.querySelector("[data-open-sample]")!.addEventListener("click",()=>dialog.showModal());
+    dialog.addEventListener("click",event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
+  });
+</script>
+<style>
+  .gallery-thumb[aria-pressed="true"] { border-color: rgb(var(--color-primary-500)); }
+  .sample-dialog { width: min(56rem,calc(100% - 2rem)); max-height:92dvh; overflow-y:auto; }
+  .sample-dialog::backdrop { background:rgb(7 19 33 / .75); }
+</style>

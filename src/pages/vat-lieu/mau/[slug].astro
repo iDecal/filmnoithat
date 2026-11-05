@@ -1,4 +1,5 @@
 ---
+import ProductImageGallery from "../../../components/ProductImageGallery.astro";
 import ProductProjectSlider from "../../../components/ProductProjectSlider.astro";
 import Icon from "../../../components/Icon.astro";
 import { categoryIcon } from "../../../data/icons";
@@ -23,7 +24,7 @@ const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.
   <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto">
     <Breadcrumbs items={[{ label:"Vật liệu",href:"/vat-lieu/" },{label:material.name,href:materialHref(material)},{label:sample.code}]} />
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-      <figure class="min-w-0"><button type="button" data-open-sample aria-haspopup="dialog" aria-controls="sample-image-dialog" aria-label={`Phóng lớn ảnh mẫu ${sample.code}`} class="block w-full rounded-2xl overflow-hidden border border-base-200 bg-white cursor-zoom-in"><img src={sample.image} alt={`Bề mặt ${sample.title} ${sample.code} trích từ catalogue INFEEL`} width={sample.imageWidth} height={sample.imageHeight} fetchpriority="high" class="sample-original w-full aspect-[4/3] object-cover object-center" /></button><figcaption class="text-xs text-base-600 mt-3">Ảnh catalogue · Nhấn để xem toàn bộ ảnh gốc. Tông màu được đặt theo ảnh để hỗ trợ lựa chọn. Màu sắc cần đối chiếu mẫu thật.</figcaption></figure>
+      <ProductImageGallery sample={sample} />
       <div class="min-w-0"><p class="eyebrow mb-3">INFEEL 2026 / {sample.group}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{sample.title}</h1><p class="text-lg text-primary-600 font-semibold mt-4">Mã mẫu: {sample.code}</p><p class="text-base-600 mt-5">Một lựa chọn trong nhóm {material.name.toLowerCase()} để tham khảo khi phối nội thất. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
         <dl class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-3 mt-6 text-sm border-y border-base-200 py-5"><dt class="text-base-600">Bộ sưu tập</dt><dd>INFEEL 2026</dd><dt class="text-base-600">Dòng bề mặt</dt><dd>{sample.group}</dd><dt class="text-base-600">Tông màu</dt><dd>{sample.color.name} <span class="text-base-600">(tham khảo)</span></dd><dt class="text-base-600">Quy cách cuộn</dt><dd>{rollSpecification}</dd><dt class="text-base-600">Giá & cung cấp</dt><dd>Liên hệ xác nhận theo số lượng</dd></dl>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn mẫu {sample.code} qua Zalo</a><button type="button" data-copy-request class="button-secondary" data-request={request}>Sao chép yêu cầu mẫu</button></div><p data-copy-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3">Sao chép yêu cầu rồi gửi qua Zalo để trao đổi đúng mã mẫu.</p>
@@ -35,12 +36,9 @@ const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.
   <ProductProjectSlider sample={sample} />
   <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-5">Trước khi đặt mẫu.</h2><ul class="list-disc pl-5 space-y-3 text-base-600"><li>Gửi mã {sample.code}, số lượng hoặc kích thước cần dán và địa điểm nhận hàng / công trình.</li><li>Xác nhận khổ film, thông số, lô màu, lượng dư và tình trạng cung cấp trước khi đặt.</li><li>So mẫu dưới ánh sáng thực tế. Đặc tính kỹ thuật cần theo hồ sơ của đúng mẫu và phiên bản vật liệu.</li><li>Nếu thuê thi công, cần đánh giá nền và thống nhất chi phí xử lý, tháo lắp cùng phạm vi thực hiện.</li></ul></div><div class="warm-surface rounded-xl p-6 sm:p-8"><p class="eyebrow mb-3">CẦN HOÀN THIỆN NỘI THẤT?</p><h2 class="text-2xl font-semibold mb-5">Xem thêm cách ứng dụng.</h2><ul class="space-y-2" data-product-applications>{relatedServices.map(service => <li><a href={serviceHref(service)} class="flex items-center gap-3 min-h-11 py-2 text-primary-600 font-medium hover:underline"><span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-accent-100 text-accent-700 shrink-0"><Icon name={categoryIcon(service.slug)!} size={23} /></span><span class="flex-1">{service.name}</span><Icon name="arrow" size={18} /></a></li>)}</ul><a href={`${materialHref(material)}#mau-vat-lieu`} class="inline-flex items-center min-h-11 mt-4 text-sm text-primary-600 font-semibold hover:underline">Trở lại bộ sưu tập {material.shortName.toLowerCase()} →</a></div></div></section>
   <section class="px-4 sm:px-6 section-space warm-surface"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thêm lựa chọn cùng nhóm.</h2><div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">{related.map(item => <a href={sampleHref(item)} class="group min-w-0"><img src={item.image} alt={`${item.title} ${item.code}`} width={item.imageWidth} height={item.imageHeight} loading="lazy" class="w-full aspect-[4/3] object-cover object-center bg-white rounded-xl border border-base-200" /><h3 class="text-sm sm:text-base font-medium mt-3 group-hover:text-primary-600">{item.title}</h3><p class="text-sm text-primary-600 mt-1">{item.code}</p><span class="inline-flex min-h-11 items-center text-sm text-base-600">Xem mẫu →</span></a>)}</div></div></section>
-  <dialog id="sample-image-dialog" aria-labelledby="sample-dialog-title" class="sample-dialog rounded-xl bg-white p-4 sm:p-6"><div class="flex items-center justify-between gap-4 mb-4"><h2 id="sample-dialog-title" class="text-lg font-semibold">{sample.title} · {sample.code}</h2><form method="dialog"><button class="button-secondary" aria-label="Đóng ảnh mẫu" autofocus>Đóng ×</button></form></div><img src={sample.image} alt={`Ảnh gốc bề mặt mẫu ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} class="sample-original mx-auto w-auto h-auto max-w-full max-h-[70dvh] object-contain" /><p class="text-xs text-base-600 mt-3">Ảnh gốc từ catalogue; màu thực tế có thể khác màu hiển thị.</p></dialog>
+
 </BaseLayout>
 <script>
-  const dialog = document.querySelector<HTMLDialogElement>("#sample-image-dialog");
-  document.querySelector("[data-open-sample]")?.addEventListener("click", () => dialog?.showModal());
-  dialog?.addEventListener("click", event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
   document.querySelector<HTMLButtonElement>("[data-copy-request]")?.addEventListener("click", async event => {
     const button = event.currentTarget as HTMLButtonElement;
     const status = document.querySelector<HTMLElement>("[data-copy-status]")!;
@@ -48,7 +46,3 @@ const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.
     catch { status.textContent = "Bạn có thể gửi trực tiếp mã mẫu trên trang qua Zalo để được tư vấn."; }
   });
 </script>
-<style>
-  .sample-dialog { width: min(56rem, calc(100% - 2rem)); max-height: 92dvh; overflow-y: auto; }
-  .sample-dialog::backdrop { background: rgb(7 19 33 / .75); }
-</style>
