@@ -33,3 +33,5 @@ Khi nhập catalogue mới, cần đối chiếu lại tên dòng, phân loại 
 - Lưới và trang chi tiết hiển thị ảnh gốc với chiều cao tự động theo đúng tỷ lệ, không cắt vân hoặc ép khung 4:3 / vuông. Đã bỏ giới hạn chiều rộng theo số pixel gốc và khoảng đệm thêm ở bản trước theo yêu cầu chủ website; hộp thoại hiển thị trọn ảnh trong màn hình. Không tạo thêm chi tiết hoặc chỉnh màu vật liệu. PDF có giới hạn độ phân giải; ảnh nguồn độ phân giải cao hơn sẽ cần để tăng chi tiết thực sự.
 
 Ảnh sản phẩm trong lưới, trang chi tiết và mẫu liên quan được đặt trong khung ngang 4:3 theo yêu cầu mới. `object-contain` giữ nguyên tỷ lệ và toàn bộ vân bên trong khung; hộp thoại vẫn xem ảnh gốc.
+
+Cập nhật hiển thị: khung sản phẩm 4:3 dùng `object-cover object-center` để phủ kín, không còn dải trắng. Ảnh giữ tỷ lệ và cắt phần dư tại tâm; hộp thoại tiếp tục dùng `object-contain` để xem toàn bộ ảnh gốc.
