@@ -1,22 +1,33 @@
 ---
-import { samplesForMaterial, sampleHref, cataloguePdf, rollSpecification } from "../data/catalogue";
+import { samplesForMaterial, familiesForMaterial, sampleHref, cataloguePdf, rollSpecification } from "../data/catalogue";
 interface Props { category: string }
 const samples = samplesForMaterial(Astro.props.category);
+const families = familiesForMaterial(Astro.props.category);
 const colors = [...new Set(samples.map(sample => sample.color.family))].sort((a,b) => a.localeCompare(b,"vi"));
 const groups = [...new Set(samples.map(sample => sample.group))];
 ---
 {samples.length > 0 && <section id="mau-vat-lieu" class="px-4 sm:px-6 section-space warm-surface" aria-labelledby="catalogue-title" data-catalogue>
   <div class="max-w-7xl mx-auto">
-    <div class="flex flex-wrap items-end justify-between gap-4 mb-6"><div><p class="eyebrow mb-3">BỘ SƯU TẬP INFEEL 2026</p><h2 id="catalogue-title" class="text-2xl md:text-[1.875rem] font-semibold">Tìm bề mặt bạn yêu thích.</h2><p class="text-sm text-base-600 mt-3">{samples.length} mẫu từ catalogue. Tên tông màu hỗ trợ tìm kiếm, cần so với mẫu thật; giá và tình trạng cung cấp được xác nhận khi tư vấn. Quy cách cuộn: {rollSpecification}.</p></div><a href={cataloguePdf} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-semibold hover:underline">Xem catalogue PDF ↗</a></div>
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-6"><div><p class="eyebrow mb-3">BỘ SƯU TẬP INFEEL 2026</p><h2 id="catalogue-title" class="text-2xl md:text-[1.875rem] font-semibold">Tìm bề mặt bạn yêu thích.</h2><p class="text-sm text-base-600 mt-3">{samples.length} mẫu, sắp xếp theo dòng và kiểu bề mặt. Chạm vào ô màu tròn để đổi ảnh và mã mẫu. Tông màu chỉ để tham khảo; quy cách cuộn: {rollSpecification}.</p><p class="text-xs text-base-600 mt-2">Các mẫu cùng nhóm giúp dễ so sánh; thông số, giá và tình trạng cung cấp cần xác nhận theo từng mã.</p></div><a href={cataloguePdf} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-semibold hover:underline">Xem catalogue PDF ↗</a></div>
     <div class="catalogue-controls hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,0.7fr)_auto] gap-3 mb-5" data-catalogue-controls>
       <label class="block text-sm font-medium">Tìm tên, màu hoặc mã mẫu<input type="search" data-catalogue-search placeholder="Ví dụ: trắng, xanh, sồi, WD259…" class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal" /></label>
       <label class="block text-sm font-medium">Dòng vật liệu<select data-catalogue-group class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal"><option value="">Tất cả dòng vật liệu</option>{groups.map(group => <option value={group}>{group}</option>)}</select></label>
       <label class="block text-sm font-medium">Tông màu<select data-catalogue-color class="block w-full min-h-12 border border-base-300 rounded-lg px-4 py-3 mt-2 bg-white text-base font-normal"><option value="">Tất cả tông màu</option>{colors.map(color => <option value={color}>{color}</option>)}</select></label>
       <button type="button" data-catalogue-reset class="button-secondary sm:self-end">Xóa bộ lọc</button>
     </div>
-    <p data-catalogue-status role="status" aria-live="polite" aria-atomic="true" class="text-sm text-base-600 mb-5">{samples.length} mẫu</p>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{samples.map(sample => <article data-catalogue-card data-search={`${sample.title} ${sample.code} ${sample.group} ${sample.color.family}`} data-group={sample.group} data-color={sample.color.family} class="min-w-0"><a href={sampleHref(sample)} class="group block"><div class="bg-white rounded-xl overflow-hidden border border-base-200"><img src={sample.image} alt={`${sample.title} — ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover object-center" /></div><p class="text-xs text-base-600 mt-3">{sample.group}</p><h3 class="text-sm sm:text-base font-medium mt-1 group-hover:text-primary-600">{sample.title}</h3><p class="text-sm text-primary-600 font-semibold mt-1">{sample.code}</p><span class="inline-flex items-center min-h-11 text-xs sm:text-sm text-base-700 mt-1 group-hover:underline">Xem mẫu & tư vấn →</span></a></article>)}</div>
-    <div class="text-center mt-8"><button type="button" data-catalogue-more class="button-secondary hidden">Xem thêm mẫu</button></div>
+    <p data-catalogue-status role="status" aria-live="polite" aria-atomic="true" class="text-sm text-base-600 mb-5">{families.length} nhóm · {samples.length} mẫu</p>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{families.map(family => {
+      const sample = family.variants[0];
+      return <article data-catalogue-card class="min-w-0">
+        <a href={sampleHref(sample)} data-sample-link class="group block"><div class="bg-white rounded-xl overflow-hidden border border-base-200"><img data-sample-image src={sample.image} alt={`${sample.title} — ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover object-center" /></div><p class="text-xs text-base-600 mt-3">{family.group} · {family.variants.length} lựa chọn</p><h3 data-sample-title class="text-sm sm:text-base font-medium mt-1 group-hover:text-primary-600">{sample.title}</h3></a>
+        <p data-sample-code class="text-sm text-primary-600 font-semibold mt-1">{sample.code}</p>
+        <div data-variant-list class="hidden flex-wrap gap-0.5 mt-2" role="group" aria-label={`Chọn màu cho ${family.name}`}>{family.variants.map((variant,index) => <button type="button" data-variant data-search={`${variant.title} ${variant.code} ${variant.group}`} data-group={variant.group} data-color={variant.color.family} data-title={variant.title} data-code={variant.code} data-image={variant.image} data-width={variant.imageWidth} data-height={variant.imageHeight} data-href={sampleHref(variant)} aria-pressed={index === 0 ? "true" : "false"} aria-label={`${variant.color.name} — ${variant.code}`} title={`${variant.color.name} · ${variant.code}`} class="variant-swatch inline-flex items-center justify-center w-11 h-11 rounded-full shrink-0"><span class="block w-6 h-6 rounded-full border border-black/20" style={{ backgroundColor: variant.color.value }} /></button>)}</div>
+        <p data-selected-status class="sr-only" role="status" aria-live="polite" aria-atomic="true" />
+        <noscript><ul class="text-sm text-primary-600 mt-2">{family.variants.map(variant => <li><a href={sampleHref(variant)} class="inline-flex items-center min-h-11 underline">{variant.color.name} · {variant.code}</a></li>)}</ul></noscript>
+        <a data-sample-link href={sampleHref(sample)} class="inline-flex items-center min-h-11 text-xs sm:text-sm text-base-700 mt-1 hover:underline">Xem mẫu & tư vấn →</a>
+      </article>;
+    })}</div>
+    <div class="text-center mt-8"><button type="button" data-catalogue-more class="button-secondary hidden">Xem thêm nhóm mẫu</button></div>
     <p data-catalogue-empty class="text-base-600 py-8 hidden">Chưa tìm thấy mẫu phù hợp. Thử tên khác hoặc xóa bộ lọc để xem lại bộ sưu tập.</p>
   </div>
 </section>}
@@ -26,37 +37,55 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     const group = root.querySelector<HTMLSelectElement>("[data-catalogue-group]")!;
     const color = root.querySelector<HTMLSelectElement>("[data-catalogue-color]")!;
     const cards = [...root.querySelectorAll<HTMLElement>("[data-catalogue-card]")];
+    const variants = (card: HTMLElement) => [...card.querySelectorAll<HTMLButtonElement>("[data-variant]")];
+    const allVariants = cards.flatMap(variants);
     const more = root.querySelector<HTMLButtonElement>("[data-catalogue-more]")!;
     const status = root.querySelector<HTMLElement>("[data-catalogue-status]")!;
     const empty = root.querySelector<HTMLElement>("[data-catalogue-empty]")!;
     const normalize = (text: string) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "");
+    const selectVariant = (card: HTMLElement, button: HTMLButtonElement, announce = false) => {
+      variants(card).forEach(variant => variant.setAttribute("aria-pressed", String(variant === button)));
+      const image = card.querySelector<HTMLImageElement>("[data-sample-image]")!;
+      image.src = button.dataset.image!;
+      image.alt = `${button.dataset.title} — ${button.dataset.code}`;
+      image.width = Number(button.dataset.width); image.height = Number(button.dataset.height);
+      card.querySelector<HTMLElement>("[data-sample-title]")!.textContent = button.dataset.title!;
+      card.querySelector<HTMLElement>("[data-sample-code]")!.textContent = button.dataset.code!;
+      card.querySelectorAll<HTMLAnchorElement>("[data-sample-link]").forEach(link => { link.href = button.dataset.href!; });
+      if (announce) card.querySelector<HTMLElement>("[data-selected-status]")!.textContent = `Đã chọn ${button.dataset.title}, ${button.dataset.code}`;
+    };
     let limit = 24;
     const update = () => {
       const query = normalize(search.value);
-      const isColorQuery = !!query && cards.some(card => normalize(card.dataset.color || "") === query);
-      const matching = cards.filter(card => (isColorQuery ? normalize(card.dataset.color || "") === query : normalize(card.dataset.search || "").includes(query)) && (!group.value || card.dataset.group === group.value) && (!color.value || card.dataset.color === color.value));
+      const isColorQuery = !!query && allVariants.some(variant => normalize(variant.dataset.color || "") === query);
+      let sampleCount = 0;
+      const matching = cards.filter(card => {
+        const choices = variants(card).filter(variant => (isColorQuery ? normalize(variant.dataset.color || "") === query : normalize(variant.dataset.search || "").includes(query)) && (!group.value || variant.dataset.group === group.value) && (!color.value || variant.dataset.color === color.value));
+        sampleCount += choices.length;
+        variants(card).forEach(variant => { variant.hidden = !choices.includes(variant); });
+        if (!choices.length) return false;
+        const current = choices.find(variant => variant.getAttribute("aria-pressed") === "true") || choices[0];
+        selectVariant(card, current);
+        return true;
+      });
       const visible = new Set(matching.slice(0, limit));
       cards.forEach(card => { card.hidden = !visible.has(card); });
-      more.hidden = matching.length <= limit;
-      empty.hidden = matching.length > 0;
-      status.textContent = `Hiển thị ${Math.min(limit, matching.length)} / ${matching.length} mẫu`;
+      more.hidden = matching.length <= limit; empty.hidden = matching.length > 0;
+      status.textContent = `Hiển thị ${Math.min(limit, matching.length)} / ${matching.length} nhóm · ${sampleCount} mẫu`;
     };
     root.querySelector<HTMLElement>("[data-catalogue-controls]")!.classList.replace("hidden", "grid");
-    more.classList.remove("hidden");
-    empty.classList.remove("hidden");
-    search.addEventListener("input", () => { limit = 24; update(); });
-    color.addEventListener("change", () => { limit = 24; update(); });
-    group.addEventListener("change", () => { limit = 24; update(); });
+    root.querySelectorAll<HTMLElement>("[data-variant-list]").forEach(list => list.classList.replace("hidden", "flex"));
+    allVariants.forEach(button => button.addEventListener("click", () => selectVariant(button.closest<HTMLElement>("[data-catalogue-card]")!, button, true)));
+    more.classList.remove("hidden"); empty.classList.remove("hidden");
+    [search, group, color].forEach(control => control.addEventListener(control === search ? "input" : "change", () => { limit = 24; update(); }));
     root.querySelector("[data-catalogue-reset]")!.addEventListener("click", () => { search.value = ""; group.value = ""; color.value = ""; limit = 24; update(); search.focus(); });
-    more.addEventListener("click", () => {
-      const before = cards.filter(card => !card.hidden).length;
-      limit += 24; update();
-      cards.filter(card => !card.hidden)[before]?.querySelector("a")?.focus({ preventScroll: true });
-    });
+    more.addEventListener("click", () => { const before = cards.filter(card => !card.hidden).length; limit += 24; update(); cards.filter(card => !card.hidden)[before]?.querySelector("a")?.focus({ preventScroll: true }); });
     update();
   });
 </script>
 <style>
-  [data-catalogue-card][hidden], [data-catalogue-more][hidden], [data-catalogue-empty][hidden] { display: none; }
+  [data-catalogue-card][hidden], [data-catalogue-more][hidden], [data-catalogue-empty][hidden], [data-variant][hidden] { display: none; }
+  .variant-swatch[aria-pressed="true"] { box-shadow: inset 0 0 0 2px rgb(var(--color-primary-500)); }
+  .variant-swatch:hover { background-color: rgb(var(--color-accent-100)); }
   #mau-vat-lieu { scroll-margin-top: 6rem; }
 </style>
