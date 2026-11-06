@@ -1,3 +1,4 @@
+import { productHeading } from "./seoTitles";
 import { site as business } from "./site";
 import { catalogue, sampleHref } from "./catalogue";
 import { materials, materialHref } from "./materials";
@@ -52,7 +53,7 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   if (sample) {
     const productId = url + "#product";
     page.mainEntity = ref(productId);
-    graph.push({ "@type": "Product", "@id": productId, name: `${sample.title} ${sample.code}`, url,
+    graph.push({ "@type": "Product", "@id": productId, name: productHeading(sample), url,
       description, sku: sample.code, brand: { "@type": "Brand", name: sample.brand },
       category: materials.find(material => material.slug === sample.category)!.name,
       color: sample.color.name, image: [absolute(sample.image), ...(sample.application ? [absolute(sample.application)] : [])],
@@ -63,7 +64,7 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   const service = services.find(service => serviceHref(service) === path);
   if (service) {
     page.mainEntity = ref(url + "#service");
-    graph.push({ "@type": "Service", "@id": url + "#service", url, name:service.name, serviceType:service.name,
+    graph.push({ "@type": "Service", "@id": url + "#service", url, name:service.heading, serviceType:service.heading,
       description:service.description, image:absolute(service.image), provider:ref(orgId), areaServed:{"@type":"Country",name:"Việt Nam"}, mainEntityOfPage:ref(pageId) });
     if (service.slug === "dan-film-noi-that") {
       const children = services.filter(item => item.slug !== service.slug);

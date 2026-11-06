@@ -17,12 +17,12 @@ const { service } = Astro.props;
 const overview = service.slug === "dan-film-noi-that";
 const design = getServiceLayout(service.slug);
 const mobileLeads: Record<string, string> = {
-  "dan-film-noi-that": "Chọn film và phương án làm mới bàn, tủ, vách còn kết cấu tốt.",
-  "dan-film-tu-bep": "Đổi màu cánh tủ, giữ lại phần kết cấu còn tốt của góc bếp.",
-  "dan-film-ban": "Làm mới mặt bàn và kệ theo cách bạn sử dụng hằng ngày.",
-  "dan-film-tuong": "Tạo điểm nhấn cho vách, bắt đầu từ nền và ánh sáng thực tế.",
-  "dan-film-tran": "Chọn chất liệu cho trần, kiểm tra nền và các vị trí kỹ thuật.",
-  "dan-film-thang-may": "Làm mới vách cabin theo phạm vi được thống nhất với đơn vị quản lý.",
+  "dan-film-noi-that": "Film dán nội thất cho bàn, tủ và vách còn kết cấu tốt.",
+  "dan-film-tu-bep": "Đổi màu cánh tủ bếp với film dán nội thất, giữ lại phần cốt còn tốt.",
+  "dan-film-ban": "Làm mới bàn và kệ với film dán nội thất phù hợp cách sử dụng.",
+  "dan-film-tuong": "Chọn film dán nội thất cho vách theo nền và ánh sáng thực tế.",
+  "dan-film-tran": "Film dán nội thất cho trần: chọn chất liệu, kiểm tra nền và vị trí kỹ thuật.",
+  "dan-film-thang-may": "Film dán nội thất cho vách cabin theo phạm vi thống nhất với đơn vị quản lý.",
 };
 const relatedServices = services.filter(item => item.slug !== service.slug);
 const matchingPosts = posts.filter(post => post.services.includes(service.slug));
@@ -62,7 +62,7 @@ const steps = [
         <div class="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-5 lg:gap-14 items-center">
           <div>
             <p class="eyebrow flex items-center gap-2 text-xs mb-3 lg:mb-5"><Icon name={categoryIcon(service.slug)!} size={22} />THI CÔNG THEO NHU CẦU</p>
-            <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-medium leading-[1.18]">{service.name}</h1>
+            <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-medium leading-[1.18]">{service.heading}</h1>
             <p class="hidden lg:block text-2xl font-medium text-primary-500 mt-4 leading-snug text-balance">{design.accent}</p>
             <p class="lg:hidden text-base text-base-600 mt-3">{mobileLeads[service.slug]}</p>
             <p class="hidden lg:block text-lg text-base-600 mt-6 max-w-xl">{design.lead}</p>
