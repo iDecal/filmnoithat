@@ -33,7 +33,7 @@ for file in pages:
     page=next(n for n in graph if n['@id']==parsed.canonical+'#webpage')
     assert page['url']==parsed.canonical and page['inLanguage']=='vi-VN'
     assert page['isPartOf']['@id']==nodes['WebSite']['@id']
-    assert nodes['Organization']['name']=='Film Nội Thất'
+    assert nodes['Organization']['name']==('D-vinyl' if parsed.canonical.rstrip('/')=='https://filmnoithat.pages.dev' else 'Film Nội Thất')
     visible=normalized(' '.join(parsed.text))
     if 'Product' in nodes:
         product=nodes['Product'];assert product['sku'] in visible

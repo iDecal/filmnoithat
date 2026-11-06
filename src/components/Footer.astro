@@ -2,6 +2,8 @@
 import Icon from "./Icon.astro";
 import { categoryIcon } from "../data/icons";
 import { site, serviceLinks, materialLinks, companyLinks } from "../data/site";
+interface Props { brandName?: string }
+const { brandName = site.name } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -9,7 +11,7 @@ const currentYear = new Date().getFullYear();
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-9 sm:gap-y-12 pb-12">
       <div class="col-span-2 lg:col-span-1 min-w-0">
-        <a href="/" class="inline-block font-heading text-2xl font-semibold leading-snug" aria-label={`${site.name} — Trang chủ`}>{site.name}</a>
+        <a href="/" class="inline-block font-heading text-2xl font-semibold leading-snug" aria-label={`${brandName} — Trang chủ`}>{brandName}</a>
         <p class="text-accent-200 text-sm font-medium mt-3">{site.tagline}</p>
         <p class="text-white/80 text-sm leading-relaxed mt-5 max-w-sm">
           Cung cấp film trang trí và thi công cho bàn, tủ, tường, trần và thang máy. Cùng bạn chọn vật liệu phù hợp để làm mới không gian.
@@ -45,7 +47,7 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="border-t border-white/20 pt-6 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
-      <p class="text-sm text-white/80">© {currentYear} {site.name}</p>
+      <p class="text-sm text-white/80">© {currentYear} {brandName}</p>
       <nav aria-label="Thông tin website">
         <ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
           {companyLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}

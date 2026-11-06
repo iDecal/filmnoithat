@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
+  brandName?: string;
   description?: string;
   image?: string;
   pageType?: "website" | "article";
@@ -13,6 +14,7 @@ interface Props {
   faqs?: { question: string; answer: string }[];
 }
 const {
+  brandName = "Film Nội Thất",
   title = "Film Nội Thất - Cung cấp film & thi công theo nhu cầu",
   description = "Cung cấp film nội thất toàn quốc và nhận thi công theo nhu cầu cho bàn, tủ, tường, trần và thang máy. Tư vấn vật liệu, số lượng và báo giá theo công trình.",
   image = "/images/cong-trinh/banner-film-dan-noi-that.jpg",
@@ -22,12 +24,13 @@ const {
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
-const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Astro.url.pathname, title, description, image, supplied: structuredData, faqs })).replace(/</g, "\\u003c");
+const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Astro.url.pathname, title, description, image, supplied: structuredData, faqs, businessName: brandName })).replace(/</g, "\\u003c");
 ---
 
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
+    {process.env.CF_PAGES_BRANCH && process.env.CF_PAGES_BRANCH !== "main" && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- SEO BASE -->
     <title>{title}</title>
@@ -35,7 +38,7 @@ const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Ast
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href={canonical} />
     <meta property="og:locale" content="vi_VN" />
-    <meta property="og:site_name" content="Film Nội Thất" />
+    <meta property="og:site_name" content={brandName} />
     <meta property="og:type" content={pageType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -52,13 +55,13 @@ const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Ast
   <body class="bg-base-50 text-base-900">
 
     <a href="#main-content" class="skip-link button-primary">Đến nội dung chính</a>
-    <Header />
+    <Header brandName={brandName} />
 
     <main id="main-content">
       <slot />
     </main>
 
-    <Footer />
+    <Footer brandName={brandName} />
 
   </body>
 </html>

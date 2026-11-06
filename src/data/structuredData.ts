@@ -8,9 +8,10 @@ import { projectStories, storyHref, storyLabel } from "./projectStories";
 type Node = Record<string, unknown>;
 export interface SchemaPage {
   origin: URL; path: string; title: string; description: string; image: string;
+  businessName?: string;
   supplied?: Node[]; faqs?: { question: string; answer: string }[];
 }
-export function websiteSchema({ origin, path, title, description, image, supplied = [], faqs = [] }: SchemaPage) {
+export function websiteSchema({ origin, path, title, description, image, supplied = [], faqs = [], businessName = business.name }: SchemaPage) {
   const absolute = (value: string) => new URL(value, origin).href;
   const url = absolute(path);
   const orgId = absolute("/#organization");
@@ -18,10 +19,10 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   const pageId = url + "#webpage";
   const ref = (id: string) => ({ "@id": id });
   const graph: Node[] = [
-    { "@type": "Organization", "@id": orgId, name: business.name, url: origin.href, description: business.tagline,
+    { "@type": "Organization", "@id": orgId, name: businessName, url: origin.href, description: business.tagline,
       telephone: "+84866077040", email: business.email, areaServed: { "@type": "Country", name: "Việt Nam" },
       contactPoint: { "@type": "ContactPoint", telephone: "+84866077040", email: business.email, contactType: "customer service", availableLanguage: "vi", url: business.zaloHref } },
-    { "@type": "WebSite", "@id": siteId, url: origin.href, name: business.name, inLanguage: "vi-VN", publisher: ref(orgId) },
+    { "@type": "WebSite", "@id": siteId, url: origin.href, name: businessName, inLanguage: "vi-VN", publisher: ref(orgId) },
   ];
   const page: Node = { "@type": "WebPage", "@id": pageId, url, name: title, description, inLanguage: "vi-VN",
     isPartOf: ref(siteId), publisher: ref(orgId), primaryImageOfPage: ref(url + "#primaryimage") };

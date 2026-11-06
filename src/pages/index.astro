@@ -4,116 +4,105 @@ import Icon from "../components/Icon.astro";
 import MaterialPreview from "../components/MaterialPreview.astro";
 import { categoryIcon } from "../data/icons";
 import { materials, materialHref } from "../data/materials";
-import { services, serviceHref } from "../data/services";
-import { posts, postHref, formatDate } from "../data/posts";
-import { spaces } from "../data/spaces";
 import { site } from "../data/site";
-const featuredMaterials = [materials[0], materials[2], materials[3], materials[4]];
-const serviceItems = services.filter(service => service.slug !== "dan-film-noi-that");
-const approach = [
-  { title: "Hiểu không gian", text: "Bắt đầu từ ảnh hiện trạng, công năng và điều bạn muốn thay đổi." },
-  { title: "Chọn đúng chất liệu", text: "So mẫu, xem ánh sáng và làm rõ điều kiện bề mặt trước khi quyết định." },
-  { title: "Chỉn chu khi hoàn thiện", text: "Thống nhất phạm vi, kiểm tra từng chi tiết và hướng dẫn chăm sóc." },
+const featured = [
+  { slug: "van-go", title: "Film dán vân gỗ", text: "Ấm áp, tự nhiên, hợp phòng khách, phòng ngủ." },
+  { slug: "da-cam-thach", title: "Film dán vân đá, marble", text: "Sang trọng như đá thật, nhẹ và rẻ hơn nhiều." },
+  { slug: "don-sac", title: "Film dán màu trơn", text: "Hiện đại, tối giản, hợp tủ bếp, tủ quần áo." },
+  { slug: "kim-loai", title: "Film dán kim loại, bê tông", text: "Phong cách industrial cho quán cà phê, showroom." },
+].map(item => ({ ...item, material: materials.find(material => material.slug === item.slug)! }));
+const benefits = [
+  { icon: "cabinet" as const, title: "Chống nước, chống ẩm", text: "Phù hợp tủ bếp, nhà tắm." },
+  { icon: "check" as const, title: "Chống xước, dễ vệ sinh", text: "Bề mặt PVC cao cấp, lau chùi nhanh." },
+  { icon: "swatches" as const, title: "Hơn 100 mẫu", text: "Vân gỗ sồi, óc chó, marble, bê tông, màu trơn, kim loại." },
+  { icon: "wall" as const, title: "Keo bám chắc", text: "Hạn chế bong mép, bóc ra dễ." },
+  { icon: "solid" as const, title: "Giá rõ ràng", text: "Từ 280.000đ đến 550.000đ, chiết khấu cho đại lý và nhà thầu." },
+  { icon: "phone" as const, title: "Hỗ trợ tư vấn", text: "Chọn mẫu, tính khối lượng, hướng dẫn thi công." },
+];
+const applications = [
+  { icon: "cabinet" as const, title: "Tủ bếp & tủ quần áo", href: "/dich-vu/dan-film-tu-bep/" },
+  { icon: "interior" as const, title: "Cửa gỗ", href: "/vat-lieu/van-go/" },
+  { icon: "table" as const, title: "Bàn làm việc & mặt quầy", href: "/dich-vu/dan-film-ban/" },
+  { icon: "wall" as const, title: "Tường & vách ngăn", href: "/dich-vu/dan-film-tuong/" },
+];
+const steps = ["Chọn mẫu tại showroom hoặc qua catalogue.", "Gửi kích thước, nhận báo giá nhanh qua Zalo.", "Giao hàng toàn quốc hoặc hướng dẫn thi công.", "Hỗ trợ kỹ thuật sau bán hàng."];
+const faqs = [
+  { question: "Film dán nội thất có bền không?", answer: "Film chất lượng tốt dùng được nhiều năm nếu dán đúng kỹ thuật trên bề mặt sạch, phẳng." },
+  { question: "Có chống nước không?", answer: "Có, nhưng cần xử lý kỹ mép dán ở khu vực tiếp xúc nước nhiều." },
+  { question: "Tự dán tại nhà được không?", answer: "Được với bề mặt nhỏ. Tủ bếp, cửa lớn nên nhờ thợ để tránh bọt khí, nhăn." },
+  { question: "Giá film dán nội thất bao nhiêu?", answer: "Tại D-vinyl, giá từ 280.000đ đến 550.000đ tùy chất liệu và mẫu. Liên hệ để báo giá chính xác." },
+  { question: "Dán đè film cũ được không?", answer: "Nên bóc film cũ và vệ sinh sạch để bám tốt nhất." },
 ];
 ---
-<BaseLayout title="Film dán nội thất – Vật liệu INFEEL, Corance & thi công" description="Cung cấp film nội thất và nhận thi công theo nhu cầu trên toàn quốc. Chọn film cho bàn, tủ, vách, trần, thang máy; tư vấn vật liệu và báo giá theo công trình." image="/images/home/interior-kitchen.webp">
+<BaseLayout brandName="D-vinyl" title="Film Dán Nội Thất Cao Cấp – Vân Gỗ, Vân Đá | D-vinyl" description="Film dán nội thất D-vinyl chống nước, chống xước, bền màu. Hơn 100 mẫu vân gỗ, vân đá, màu trơn. Giá từ 280.000đ. Giao toàn quốc, báo giá ngay!" image="/images/home/interior-kitchen.webp" faqs={faqs}>
   <div class="home-luxe">
-    <section class="home-hero bg-base-50 surface-gradient px-4 sm:px-6">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-8 lg:gap-14 items-center">
-        <div class="home-hero-copy">
-          <p class="home-kicker mb-5">CUNG CẤP & THI CÔNG FILM NỘI THẤT</p>
-          <h1 class="home-title">Tinh tế bề mặt.<br /><span class="text-primary-500">Khác biệt<br class="hidden xl:block" /> không gian.</span></h1>
-          <p class="text-base sm:text-lg text-base-600 mt-5 lg:mt-7 max-w-lg">Mua film để tự hoàn thiện hoặc chọn dịch vụ thi công theo nhu cầu. Cùng tìm chất liệu phù hợp để làm mới không gian của bạn.</p>
-          <div class="grid grid-cols-2 sm:flex gap-3 mt-6 lg:mt-8">
-            <a href="/vat-lieu/" class="button-primary home-action">Chọn vật liệu <Icon name="arrow" size={18} class="ml-2 hidden sm:block" /></a>
-            <a href="/dich-vu/dan-film-noi-that/" class="button-secondary home-action">Tư vấn thi công</a>
-          </div>
-          <p class="text-xs sm:text-sm text-base-600 mt-6 lg:mt-8">Cung cấp film toàn quốc · Thi công theo địa điểm công trình</p>
+    <section class="home-hero px-4 sm:px-6 bg-base-50 surface-gradient">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-8 lg:gap-14 items-center">
+        <div>
+          <p class="home-kicker mb-5">D-vinyl / FILM DÁN NỘI THẤT CAO CẤP</p>
+          <h1 class="home-title">Film Dán Nội Thất <span class="whitespace-nowrap">D-vinyl</span> – <span class="text-primary-500">Làm Mới Không Gian Chỉ Trong Một Ngày</span></h1>
+          <p class="text-base sm:text-lg text-base-600 mt-6 max-w-xl">D-vinyl chuyên cung cấp film dán nội thất cao cấp: vân gỗ, vân đá, màu trơn, kim loại. Sản phẩm chống nước, chống xước, dễ vệ sinh, giúp tủ bếp, cửa, bàn ghế cũ trở nên như mới với chi phí thấp hơn nhiều so với thay mới. Giá chỉ từ 280.000đ.</p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-7"><a href="/vat-lieu/" class="button-primary">Xem bộ sưu tập <Icon name="arrow" size={18} class="ml-2" /></a><a href="#bao-gia" class="button-secondary">Nhận báo giá miễn phí</a></div>
+          <p class="text-xs sm:text-sm text-base-600 mt-6">Giao toàn quốc · Tư vấn chọn mẫu · Hỗ trợ thi công</p>
         </div>
-        <figure class="min-w-0">
-          <div class="relative overflow-hidden rounded-2xl">
-            <img src="/images/home/interior-kitchen.webp" alt="Không gian bếp tham khảo với cánh tủ gỗ sáng, nền xanh trầm và mặt bàn trắng" width="810" height="543" fetchpriority="high" class="home-hero-photo w-full aspect-[4/3] lg:aspect-[5/4] object-cover" />
-
-          </div>
-          <figcaption class="flex justify-between flex-wrap gap-2 pt-3 text-xs text-base-600"><span>Không gian tham khảo</span><a href="/vat-lieu/van-go/" class="hover:underline">Khám phá vân gỗ →</a></figcaption>
-        </figure>
+        <figure class="min-w-0"><img src="/images/home/interior-kitchen.webp" alt="Film dán nội thất vân gỗ cho không gian tủ bếp sáng và hiện đại – ảnh tham khảo" width="810" height="543" fetchpriority="high" class="w-full aspect-[4/3] lg:aspect-[5/6] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Gợi ý phối chất liệu cho không gian bếp · Ảnh tham khảo</figcaption></figure>
       </div>
     </section>
 
-    <section class="px-4 sm:px-6 py-8 sm:py-10 bg-base-50 border-y border-base-200" aria-labelledby="home-categories-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center gap-4 mb-6"><h2 id="home-categories-title" class="text-base font-semibold">Chọn chất liệu của bạn</h2><a href="/vat-lieu/" class="text-sm text-primary-600 inline-flex items-center gap-2 min-h-11">Tất cả <Icon name="arrow" size={17} /></a></div>
-        <nav class="category-rail flex gap-4 sm:gap-8 lg:justify-between overflow-x-auto pb-2" aria-label="Danh mục film nội thất">
-          {materials.map(material => <a href={materialHref(material)} class="category-shortcut flex flex-col items-center gap-3 text-center shrink-0 min-w-20 sm:min-w-24"><span class="category-icon bg-accent-100/60 rounded-xl flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 text-accent-700 transition-colors"><Icon name={categoryIcon(material.slug)!} size={28} /></span><span class="text-xs sm:text-sm font-medium">{material.shortName}</span></a>)}
-        </nav>
+    <section class="home-section px-4 sm:px-6 bg-white" aria-labelledby="benefits-title">
+      <div class="max-w-7xl mx-auto"><div class="home-section-heading"><div><p class="home-kicker mb-3">ĐẸP HƠN TỪ BỀ MẶT</p><h2 id="benefits-title" class="home-heading">Vì Sao Chọn Film Dán Nội Thất D-vinyl?</h2></div><p class="text-base-600 max-w-sm">Một lớp hoàn thiện mới cho nội thất quen thuộc.</p></div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-7">{benefits.map(item => <article class="border-t border-base-200 pt-6"><span class="inline-flex w-11 h-11 rounded-xl bg-accent-100 text-accent-700 items-center justify-center"><Icon name={item.icon} size={24} /></span><h3 class="text-lg font-medium mt-4">{item.title}</h3><p class="text-base-600 text-sm mt-2">{item.text}</p></article>)}</div>
       </div>
     </section>
 
-    <section class="home-section px-4 sm:px-6 bg-white">
-      <div class="max-w-7xl mx-auto">
-        <div class="home-section-heading"><div><p class="home-kicker mb-3">01 / BỘ SƯU TẬP VẬT LIỆU</p><h2 class="home-heading">Chất liệu tạo nên<br />cảm xúc.</h2></div><div class="max-w-sm"><p class="text-base-600 mb-4">Từ sắc gỗ ấm đến bề mặt ánh kim, tìm một cách phối hài hòa với không gian của bạn.</p><a href="/vat-lieu/" class="home-text-link">Khám phá bộ sưu tập <Icon name="arrow" size={18} /></a></div></div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7">
-          {featuredMaterials.map(material => <a href={materialHref(material)} class="material-editorial group block"><div class="aspect-[3/4] rounded-xl overflow-hidden bg-base-100"><MaterialPreview material={material} /></div><div class="flex items-start gap-2 sm:gap-3 mt-4"><Icon name={categoryIcon(material.slug)!} size={22} class="text-primary-600 mt-0.5" /><div><h3 class="text-base sm:text-lg font-medium">{material.name}</h3><p class="hidden sm:block text-sm text-base-600 mt-2">{material.moodLabel}</p></div></div></a>)}
-        </div>
+    <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="materials-title">
+      <div class="max-w-7xl mx-auto"><div class="home-section-heading"><div><p class="home-kicker mb-3">CHỌN CHẤT LIỆU BẠN YÊU THÍCH</p><h2 id="materials-title" class="home-heading">Danh Mục Film Dán Nội Thất Nổi Bật</h2></div><a href="/vat-lieu/" class="home-text-link shrink-0">Xem bộ sưu tập <Icon name="arrow" size={18} /></a></div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7">{featured.map(item => <article class="min-w-0"><a href={`${materialHref(item.material)}#mau-vat-lieu`} class="block group"><div class="aspect-[4/3] rounded-xl overflow-hidden bg-base-100"><MaterialPreview material={item.material} /></div><div class="flex gap-2 items-start mt-4"><Icon name={categoryIcon(item.slug)!} size={21} class="text-primary-600 shrink-0 mt-0.5" /><h3 class="text-base sm:text-lg font-medium group-hover:text-primary-600">{item.title}</h3></div><p class="text-sm text-base-600 mt-2">{item.text}</p><span class="home-text-link text-sm mt-2">Chọn mẫu <Icon name="arrow" size={16} /></span></a>{item.slug === "kim-loai" && <a href="/vat-lieu/be-tong/#mau-vat-lieu" class="text-sm text-primary-600 underline underline-offset-4 inline-flex min-h-11 items-center">Xem thêm film bê tông →</a>}</article>)}</div>
       </div>
     </section>
 
-    <section class="home-section px-4 sm:px-6 bg-base-900 ink-gradient text-white">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] gap-8 lg:gap-20">
-        <div><p class="home-kicker text-accent-200 mb-4">02 / DỊCH VỤ THI CÔNG</p><h2 class="home-heading text-white">Giữ kết cấu.<br />Đổi diện mạo.</h2><p class="text-white/80 mt-6 max-w-md">Mỗi bề mặt có một cách tiếp cận. Cùng khảo sát hiện trạng và chọn phương án trước khi bắt đầu.</p><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center gap-3 min-h-12 mt-7 pb-2 border-b border-white/40 text-sm font-medium">Tất cả dịch vụ <Icon name="arrow" size={18} /></a></div>
-        <div>{serviceItems.map(service => <a href={serviceHref(service)} class="home-service-link flex items-start sm:items-center gap-4 sm:gap-6 py-5 sm:py-6 border-b border-white/20 first:pt-0 group"><span class="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 text-accent-200 shrink-0"><Icon name={categoryIcon(service.slug)!} size={27} /></span><div class="flex-1 min-w-0"><h3 class="text-lg sm:text-xl font-medium">{service.name}</h3><p class="text-white/80 text-sm mt-2">{service.sections[0].title}</p></div><Icon name="arrow" size={20} class="text-accent-200 mt-3 sm:mt-0" /></a>)}</div>
-      </div>
+    <section class="home-section px-4 sm:px-6 bg-base-900 ink-gradient text-white" aria-labelledby="applications-title">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"><div><p class="home-kicker text-accent-200 mb-4">TỪ NHÀ Ở ĐẾN KHÔNG GIAN KINH DOANH</p><h2 id="applications-title" class="home-heading text-white">Film Dán Nội Thất Dùng Ở Đâu?</h2><p class="text-white/80 mt-5 max-w-lg">Tủ bếp, tủ quần áo, cửa gỗ, bàn làm việc, mặt quầy, tường, vách ngăn. Phù hợp nhà ở, căn hộ, văn phòng, quán cà phê, khách sạn.</p><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center gap-3 min-h-11 mt-6 text-accent-200 font-medium">Tìm hiểu dịch vụ thi công <Icon name="arrow" size={18} /></a></div><div class="grid sm:grid-cols-2 gap-4">{applications.map(item => <a href={item.href} class="rounded-xl border border-white/20 p-5 sm:p-6 hover:bg-white/5 transition-colors"><Icon name={item.icon} size={28} class="text-accent-200 mb-5" /><h3 class="font-medium text-base">{item.title}</h3><span class="inline-flex items-center gap-2 text-sm text-white/80 mt-3 min-h-11">Xem ứng dụng <Icon name="arrow" size={16} /></span></a>)}</div></div>
     </section>
 
+    <section class="home-section px-4 sm:px-6 bg-white" aria-labelledby="steps-title"><div class="max-w-7xl mx-auto"><p class="home-kicker mb-3">DỄ CHỌN MẪU. RÕ CÁCH ĐẶT HÀNG.</p><h2 id="steps-title" class="home-heading">Quy Trình Đặt Hàng 4 Bước</h2><ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 mt-8">{steps.map((step,index) => <li class="border-t border-base-300 pt-5"><span class="text-accent-600 font-heading text-3xl font-medium">0{index+1}</span><p class="text-base-600 mt-4">{step}</p></li>)}</ol></div></section>
 
+    <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="faq-title"><div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.3fr)] gap-8 lg:gap-16"><div><p class="home-kicker mb-3">TRƯỚC KHI CHỌN MẪU</p><h2 id="faq-title" class="home-heading">Câu Hỏi Thường Gặp</h2><a href="/blog/" class="home-text-link mt-4">Đọc thêm cẩm nang <Icon name="arrow" size={18} /></a></div><div class="space-y-3">{faqs.map(faq => <details class="bg-white border border-base-200 rounded-xl p-5 sm:p-6"><summary class="font-medium cursor-pointer leading-relaxed">{faq.question}</summary><p class="text-base-600 mt-4 leading-relaxed">{faq.answer}</p></details>)}</div></div></section>
 
-    <section class="home-section px-4 sm:px-6 bg-white">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-        <figure class="order-2 lg:order-1"><img src="/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg" alt="Hình tham khảo thao tác hoàn thiện film trên bề mặt" width="1024" height="530" loading="lazy" class="w-full aspect-[16/10] lg:aspect-[4/5] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 pt-3">Một lớp hoàn thiện, nhiều chi tiết cần quan tâm.</figcaption></figure>
-        <div class="order-1 lg:order-2"><p class="home-kicker mb-4">CHẤT LIỆU ĐẸP. CÁCH LÀM RÕ RÀNG.</p><h2 class="home-heading">Chỉn chu từ lựa chọn<br />đến hoàn thiện.</h2><ol class="mt-8 divide-y divide-base-200">{approach.map((step, index) => <li class="flex gap-5 py-5"><span class="text-primary-600 text-sm pt-1">0{index + 1}</span><div><h3 class="text-lg font-medium">{step.title}</h3><p class="text-sm text-base-600 mt-2">{step.text}</p></div></li>)}</ol><a href="/du-an/" class="home-text-link mt-5">Cách chuẩn bị dự án <Icon name="arrow" size={18} /></a></div>
-      </div>
-    </section>
-
-    <section id="cam-hung-chat-lieu" class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="home-inspiration-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="home-section-heading">
-          <div><p class="home-kicker mb-3">03 / CẢM HỨNG & CHẤT LIỆU</p><h2 id="home-inspiration-title" class="home-heading">Ý tưởng cho không gian.<br />Kiến thức để chọn đúng.</h2></div>
-          <div class="flex flex-wrap gap-x-5 gap-y-1"><a href="/cong-trinh/" class="home-text-link text-sm">Xem không gian <Icon name="arrow" size={17} /></a><a href="/blog/" class="home-text-link text-sm">Xem bài viết <Icon name="arrow" size={17} /></a></div>
-        </div>
-        <div class="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-8 lg:gap-12">
-          <div>
-            <a href={spaces[0].service} class="space-feature group block"><img src={spaces[0].image} alt={spaces[0].title} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><div class="flex items-start justify-between gap-4 mt-4"><div><p class="text-xs text-base-600 mb-2">{spaces[0].label} · Hình tham khảo</p><h3 class="text-lg sm:text-xl font-medium">{spaces[0].title}</h3></div><Icon name="arrow" size={20} class="text-primary-600 mt-3" /></div></a>
-            <div class="grid grid-cols-2 gap-4 mt-6">{spaces.slice(1, 3).map(space => <a href={space.service} class="group"><img src={space.image} alt={space.title} width="450" height="280" loading="lazy" class="w-full aspect-[16/10] object-cover rounded-xl" /><p class="text-xs text-base-600 mt-3 mb-1">{space.label} · Tham khảo</p><h3 class="text-sm sm:text-base font-medium">{space.title}</h3></a>)}</div>
-          </div>
-          <div class="lg:border-l lg:border-base-200 lg:pl-10">
-            <p class="home-kicker mb-5">ĐỌC THÊM TRƯỚC KHI CHỌN VẬT LIỆU</p>
-            <div class="divide-y divide-base-200">{posts.map(post => <a href={postHref(post)} class="group flex items-start gap-4 sm:gap-5 py-5 first:pt-0"><img src={post.image} alt={post.title} width="140" height="140" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shrink-0" /><div class="min-w-0"><p class="text-xs text-base-600 mb-2"><time datetime={post.date}>{formatDate(post.date)}</time> / Cẩm nang</p><h3 class="text-base sm:text-lg font-medium">{post.title}</h3><span class="home-text-link text-sm mt-1">Đọc bài viết <Icon name="arrow" size={16} /></span></div></a>)}</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-closing home-section px-4 sm:px-6 bg-base-900 ink-gradient text-white text-center">
-      <div class="max-w-3xl mx-auto"><span class="inline-flex text-accent-200 mb-5"><Icon name="interior" size={38} /></span><p class="home-kicker text-accent-200 mb-4">MỘT Ý TƯỞNG MỚI CHO KHÔNG GIAN QUEN</p><h2 class="home-heading">Cùng tạo nên<br />diện mạo bạn yêu thích.</h2><p class="text-white/80 mt-5 max-w-xl mx-auto">Gửi ảnh hiện trạng và phong cách bạn mong muốn. Cùng trao đổi từ mẫu film đến phương án thi công phù hợp.</p><div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-7"><a href={site.zaloHref} class="button-secondary button-accent home-action w-full sm:w-auto">Tư vấn qua Zalo <Icon name="arrow" size={18} class="ml-2" /></a><a href={site.phoneHref} class="inline-flex items-center gap-2 min-h-12 text-sm font-medium"><Icon name="phone" size={18} />{site.phone}</a></div></div>
-    </section>
+    <section id="bao-gia" class="home-section px-4 sm:px-6 bg-white" aria-labelledby="quote-title"><div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16"><div><p class="home-kicker mb-3">D-vinyl | filmnoithat.vn</p><h2 id="quote-title" class="home-heading">Nhận Báo Giá Film Dán Nội Thất Hôm Nay</h2><p class="text-base-600 mt-5">Chọn mẫu, gửi kích thước và nhu cầu. D-vinyl sẽ tư vấn phương án phù hợp với không gian của bạn.</p><address class="not-italic mt-7 space-y-4 text-base-600"><a href={site.phoneHref} class="flex items-center gap-3 min-h-11 text-primary-600 font-semibold"><Icon name="phone" size={22} />Hotline/Zalo: 0866 077 040</a><p>606/20 Quốc lộ 13, P. Hiệp Bình, TP.HCM</p></address><a href={site.zaloHref} class="home-text-link mt-4">Trao đổi trực tiếp qua Zalo <Icon name="arrow" size={18} /></a></div>
+      <form data-quote-form class="rounded-2xl warm-surface p-6 sm:p-8 space-y-5"><label class="block text-sm font-medium" for="quote-name">Họ tên<input id="quote-name" name="name" autocomplete="name" required maxlength="100" class="quote-input" placeholder="Tên của bạn" /></label><label class="block text-sm font-medium" for="quote-phone">Số điện thoại<input id="quote-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[+0-9 ()\-]{9,20}" maxlength="20" class="quote-input" placeholder="Số điện thoại liên hệ" /></label><label class="block text-sm font-medium" for="quote-needs">Nhu cầu<textarea id="quote-needs" name="needs" rows="4" required maxlength="2000" class="quote-input" placeholder="Mã mẫu, kích thước, hạng mục hoặc địa điểm cần tư vấn…"></textarea></label><p class="text-xs text-base-600">Form giúp soạn yêu cầu để bạn sao chép và gửi qua Zalo. Thông tin chỉ được gửi khi bạn gửi tin nhắn trong Zalo.</p><button type="submit" class="button-primary w-full">Soạn yêu cầu báo giá <Icon name="arrow" size={18} class="ml-2" /></button><div data-quote-result hidden class="space-y-3"><label class="block text-sm font-medium" for="quote-message">Nội dung gửi D-vinyl<textarea id="quote-message" readonly rows="6" class="quote-input"></textarea></label><button type="button" data-quote-copy class="button-secondary w-full">Sao chép yêu cầu</button><a href={site.zaloHref} class="button-primary w-full">Mở Zalo để gửi yêu cầu</a></div><p data-quote-status role="status" aria-live="polite" class="text-sm text-base-600"></p><noscript><p class="text-sm text-base-600">Vui lòng gọi 0866 077 040 hoặc dùng đường dẫn Zalo bên cạnh để gửi nhu cầu.</p></noscript></form>
+    </div></section>
   </div>
 </BaseLayout>
-
+<script>
+const form = document.querySelector<HTMLFormElement>("[data-quote-form]");
+form?.addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(form);
+  const message = document.querySelector<HTMLTextAreaElement>("#quote-message")!;
+  message.value = `Xin chào D-vinyl, tôi muốn nhận báo giá film dán nội thất.\nHọ tên: ${String(data.get("name")).trim()}\nSố điện thoại: ${String(data.get("phone")).trim()}\nNhu cầu: ${String(data.get("needs")).trim()}`;
+  document.querySelector<HTMLElement>("[data-quote-result]")!.hidden = false;
+  document.querySelector<HTMLElement>("[data-quote-status]")!.textContent = "Đã soạn yêu cầu. Bạn hãy sao chép rồi mở Zalo để gửi cho D-vinyl.";
+});
+document.querySelector("[data-quote-copy]")?.addEventListener("click", async () => {
+  const message = document.querySelector<HTMLTextAreaElement>("#quote-message")!;
+  const status = document.querySelector<HTMLElement>("[data-quote-status]")!;
+  try { await navigator.clipboard.writeText(message.value); status.textContent = "Đã sao chép. Mở Zalo và dán nội dung để gửi yêu cầu."; }
+  catch { message.focus(); message.select(); status.textContent = "Hãy sao chép nội dung đang được chọn, sau đó gửi qua Zalo."; }
+});
+</script>
 <style>
-  .home-hero { padding-top: 2rem; padding-bottom: 2.25rem; }
-  .home-kicker { color: rgb(var(--color-accent-600)); font-size: 0.6875rem; line-height: 1.7; font-weight: 600; letter-spacing: 0.13em; }
-  .home-kicker.text-accent-200 { color: rgb(var(--color-accent-200)); }
-  .home-title { font-size: clamp(1.75rem, 3.4vw, 3rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.03em; }
-  .home-heading { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.3; letter-spacing: -0.025em; }
-  .home-section { padding-block: clamp(2.75rem, 5.5vw, 5rem); }
-  .home-section-heading { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 1.25rem; margin-bottom: 2rem; }
-  .home-text-link { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 44px; padding-block: 0.5rem; color: rgb(var(--color-primary-600)); font-weight: 500; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-  .home-text-link:hover { text-decoration-line: underline; }
-  .category-rail { scrollbar-width: thin; scrollbar-color: rgb(var(--color-base-300)) transparent; }
-  .category-shortcut:hover .category-icon { background: transparent; color: rgb(var(--color-primary-600)); }
-  .home-service-link:hover h3 { color: rgb(var(--color-primary-200)); }
-  .material-editorial:hover h3, .space-feature:hover h3 { color: rgb(var(--color-primary-600)); }
-  @media (max-width: 639px) { .home-action { font-size: 0.875rem; padding: 12px 10px; min-height: 48px; } }
-  @media (min-width: 768px) { .home-section-heading { flex-direction: row; align-items: flex-end; gap: 2rem; margin-bottom: 2rem; } }
-  @media (min-width: 1024px) { .home-hero { padding-top: 4rem; padding-bottom: 4rem; } }
+.home-hero { padding-block: clamp(2rem, 5vw, 4rem); }
+.home-kicker { color: rgb(var(--color-accent-600)); font-size: .6875rem; line-height: 1.7; font-weight: 600; letter-spacing: .12em; }
+.home-kicker.text-accent-200 { color: rgb(var(--color-accent-200)); }
+.home-title { font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 500; line-height: 1.25; letter-spacing: -.03em; }
+.home-heading { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.3; letter-spacing: -.025em; max-width: 40rem; }
+.home-section { padding-block: clamp(2.75rem, 5.5vw, 5rem); }
+.home-section-heading { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 1.25rem; margin-bottom: 2rem; }
+.home-text-link { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; padding-block: .5rem; color: rgb(var(--color-primary-600)); font-weight: 500; }
+.home-text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.quote-input { display: block; width: 100%; min-height: 48px; margin-top: .5rem; border: 1px solid rgb(var(--color-base-300)); border-radius: .5rem; padding: .75rem 1rem; background: white; font-size: 1rem; font-weight: 400; }
+#bao-gia { scroll-margin-top: 6rem; }
+[data-quote-result][hidden] { display: none; }
+@media(min-width:768px) { .home-section-heading { flex-direction: row; align-items: flex-end; gap: 2rem; } }
 </style>

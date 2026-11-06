@@ -2,17 +2,19 @@
 import Icon from "./Icon.astro";
 import { categoryIcon } from "../data/icons";
 import { site, navigation, isCurrentPage, isCurrentSection } from "../data/site";
+interface Props { brandName?: string }
+const { brandName = site.name } = Astro.props;
 const pathname = Astro.url.pathname;
 ---
 
 <header class="site-header sticky top-0 z-50 border-b border-base-200 bg-white/95 backdrop-blur-md">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${site.name} — Trang chủ`}>
+    <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${brandName} — Trang chủ`}>
       <span class="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-500 text-white" aria-hidden="true">
         <svg width="27" height="27" viewBox="0 0 28 28" fill="none"><path d="M5 22V6h18M5 14h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m15 22 8-8v8h-8Z" fill="currentColor" opacity=".55"/></svg>
       </span>
       <span>
-        <span class="block font-heading text-base font-semibold text-base-900 leading-snug">{site.name}</span>
+        <span class="block font-heading text-base font-semibold text-base-900 leading-snug">{brandName}</span>
         <span class="block text-xs text-base-500 mt-1">Vật liệu & thi công</span>
       </span>
     </a>
