@@ -1,3 +1,5 @@
+import kitchenPosts from "./kitchenPosts.json";
+
 export interface Post {
   slug: string;
   title: string;
@@ -5,12 +7,20 @@ export interface Post {
   date: string;
   image: string;
   intro: string;
-  sections: { id: string; title: string; paragraphs: string[]; bullets?: string[] }[];
+  imageAlt?: string;
+  focusKeyword?: string;
+  faqs?: { question: string; answer: string }[];
+  sections: {
+    id: string; title: string; paragraphs: string[]; bullets?: string[];
+    subsections?: { title: string; paragraphs: string[] }[];
+    links?: { label: string; href: string }[];
+  }[];
   materials: string[];
   services: string[];
 }
 
 export const posts: Post[] = [
+  ...kitchenPosts,
   {
     slug: "cach-chon-film-noi-that",
     title: "Cách chọn film dán nội thất: Cẩm nang cho từng bề mặt",

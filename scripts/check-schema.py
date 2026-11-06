@@ -69,7 +69,7 @@ for file in pages:
             for item in value:visit(item)
     visit(schema)
 for file,ref in refs:assert ref in all_ids,(file,'unresolved schema reference',ref)
-assert counts['Product']==len(samples) and counts['BlogPosting']==3 and counts['Service']==6 and counts['ImageGallery']==39
+assert counts['Product']==len(samples) and counts['BlogPosting']==3+len(json.loads((ROOT/'src/data/kitchenPosts.json').read_text())) and counts['Service']==6 and counts['ImageGallery']==39
 assert counts['Organization']==len(pages) and counts['WebSite']==len(pages)
 print(f'PASS {len(pages)} pages: JSON-LD syntax, unique IDs, entity references, local URLs and visible FAQ/product/article content.')
 print(dict(sorted(counts.items())))
