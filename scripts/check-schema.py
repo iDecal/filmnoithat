@@ -21,6 +21,7 @@ class Page(HTMLParser):
         if tag=='script' and self.current is not None:self.scripts.append(self.current);self.current=None
 
 def normalized(value):return ' '.join(value.split())
+samples=[{**s,'brand':'INFEEL','rollSpecification':'1,23 m × 30 m'} for s in json.loads((ROOT/'src/data/catalogue.json').read_text())]+json.loads((ROOT/'src/data/corance.json').read_text())
 pages=list((ROOT/'dist').rglob('*.html'));counts=collections.Counter();documents=[];all_ids=set();refs=[]
 for file in pages:
     parsed=Page(file.read_text());assert len(parsed.scripts)==1,(file,'duplicate or missing JSON-LD')
@@ -37,8 +38,10 @@ for file in pages:
     if 'Product' in nodes:
         product=nodes['Product'];assert product['sku'] in visible
         assert product['mainEntityOfPage']['@id']==page['@id']
-        assert product['brand']['name']=='INFEEL'
-        assert '1,23 m × 30 m' in visible
+        expected = next(item for item in samples if item['code'] == product['sku'] and ('corance-' in file.parent.name) == (item['brand'] == 'Corance'))
+        assert product['brand']['name']==expected['brand']
+        assert expected['rollSpecification'] in visible
+        assert product['additionalProperty'][0]['value']==expected['rollSpecification']
         assert all(k not in product for k in ['offers','aggregateRating','review'])
     if 'BlogPosting' in nodes:
         post=nodes['BlogPosting'];date.fromisoformat(post['datePublished']);assert post['headline'] in visible
@@ -66,7 +69,7 @@ for file in pages:
             for item in value:visit(item)
     visit(schema)
 for file,ref in refs:assert ref in all_ids,(file,'unresolved schema reference',ref)
-assert counts['Product']==367 and counts['BlogPosting']==3 and counts['Service']==6 and counts['ImageGallery']==39
+assert counts['Product']==len(samples) and counts['BlogPosting']==3 and counts['Service']==6 and counts['ImageGallery']==39
 assert counts['Organization']==len(pages) and counts['WebSite']==len(pages)
 print(f'PASS {len(pages)} pages: JSON-LD syntax, unique IDs, entity references, local URLs and visible FAQ/product/article content.')
 print(dict(sorted(counts.items())))

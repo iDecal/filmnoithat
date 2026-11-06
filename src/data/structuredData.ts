@@ -1,5 +1,5 @@
 import { site as business } from "./site";
-import { catalogue, sampleHref, rollSpecification } from "./catalogue";
+import { catalogue, sampleHref } from "./catalogue";
 import { materials, materialHref } from "./materials";
 import { services, serviceHref } from "./services";
 import { posts, postHref } from "./posts";
@@ -52,10 +52,10 @@ export function websiteSchema({ origin, path, title, description, image, supplie
     const productId = url + "#product";
     page.mainEntity = ref(productId);
     graph.push({ "@type": "Product", "@id": productId, name: `${sample.title} ${sample.code}`, url,
-      description, sku: sample.code, brand: { "@type": "Brand", name: "INFEEL" },
+      description, sku: sample.code, brand: { "@type": "Brand", name: sample.brand },
       category: materials.find(material => material.slug === sample.category)!.name,
       color: sample.color.name, image: [absolute(sample.image), ...(sample.application ? [absolute(sample.application)] : [])],
-      additionalProperty: [{ "@type": "PropertyValue", name: "Quy cách cuộn", value: rollSpecification },
+      additionalProperty: [{ "@type": "PropertyValue", name: "Quy cách cuộn", value: sample.rollSpecification },
         { "@type": "PropertyValue", name: "Dòng bề mặt", value: sample.group },
         { "@type": "PropertyValue", name: "Tông màu", value: `${sample.color.name} (tham khảo)` }], mainEntityOfPage: ref(pageId) });
   }

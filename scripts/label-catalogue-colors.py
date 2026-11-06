@@ -1,11 +1,11 @@
 """Estimate display color families from catalogue swatches; never edits image files.
 Requires Pillow. Color labels are visual navigation aids, not manufacturer specs.
 """
-import colorsys, collections, json
+import colorsys, collections, json, sys
 from pathlib import Path
 from PIL import Image, ImageStat
 root = Path(__file__).resolve().parents[1]
-path = root/'src/data/catalogue.json'
+path = Path(sys.argv[1]) if len(sys.argv) > 1 else root/'src/data/catalogue.json'
 samples = json.loads(path.read_text())
 for sample in samples:
     image = Image.open(root/'public'/sample['image'].lstrip('/')).convert('RGB')

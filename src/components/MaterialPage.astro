@@ -31,7 +31,7 @@ const schema = [
         <div class="mt-7"><p class="text-sm font-medium mb-3">Gợi ý tông phối</p><ul class="flex flex-wrap gap-4">{material.colors.map(color => <li class="flex items-center gap-2 text-sm text-base-600"><span class="w-6 h-6 rounded-full border border-black/10" style={{ backgroundColor: color.value }} aria-hidden="true" />{color.name}</li>)}</ul><p class="text-xs text-base-600 mt-3">Tông màu minh họa, cần so với mẫu thực tế trước khi chọn.</p></div>
         <div class="flex flex-wrap gap-3 mt-8"><a href={hasSamples ? "#mau-vat-lieu" : site.zaloHref} class="button-primary">{hasSamples ? "Khám phá mẫu film" : "Tư vấn chọn mẫu"}</a><a href="#ung-dung" class="button-secondary">Xem cách ứng dụng</a></div>
       </div>
-      <div class="aspect-square lg:aspect-[5/4] rounded-3xl overflow-hidden bg-base-100 border border-base-200">{heroSample ? <img src={heroSample.application || heroSample.image} alt={`${heroSample.application ? "Ứng dụng tham khảo" : "Bề mặt mẫu"} ${heroSample.code} từ catalogue INFEEL 2026`} width="900" height="720" fetchpriority="high" class="w-full h-full object-cover" /> : <MaterialPreview material={material} priority />}</div>
+      <div class="aspect-square lg:aspect-[5/4] rounded-3xl overflow-hidden bg-base-100 border border-base-200">{heroSample ? <img src={heroSample.application || heroSample.image} alt={`${heroSample.application ? "Ứng dụng tham khảo" : "Bề mặt mẫu"} ${heroSample.code} từ catalogue ${heroSample.collection}`} width="900" height="720" fetchpriority="high" class="w-full h-full object-cover" /> : <MaterialPreview material={material} priority />}</div>
     </div>
   </div></section>
   <CatalogueGrid category={material.slug} />

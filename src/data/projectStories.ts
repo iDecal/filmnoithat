@@ -17,8 +17,8 @@ export interface ProjectStory {
 }
 const catalogueStories: ProjectStory[] = catalogue.filter(sample => sample.application).map(sample => ({
   slug: `ung-dung-${sample.slug}`, title: `Gợi ý ứng dụng ${sample.name.toLowerCase()} ${sample.code}`,
-  kind: "catalogue", description: `Phối cảnh minh họa cho mẫu ${sample.code} trong catalogue INFEEL 2026. Tham khảo cách đặt chất liệu trong không gian và đối chiếu với mẫu thật trước khi chọn.`,
-  images: [{ src: sample.application!, alt: `Phối cảnh mẫu ${sample.code} từ catalogue INFEEL 2026` }],
+  kind: "catalogue", description: `Phối cảnh minh họa cho mẫu ${sample.code} trong catalogue ${sample.collection}. Tham khảo cách đặt chất liệu trong không gian và đối chiếu với mẫu thật trước khi chọn.`,
+  images: [{ src: sample.application!, alt: `Phối cảnh mẫu ${sample.code} từ catalogue ${sample.collection}` }],
   sampleSlugs: [sample.slug], categories: [sample.category], scope: [], materials: [sample.title], sourcePage: sample.sourcePage,
 }));
 const referenceStories: ProjectStory[] = spaces.map((space,index) => ({
@@ -37,6 +37,6 @@ export const storyHref = (story: ProjectStory) => `/cong-trinh/${story.slug}/`;
 export const storyLabel = (story: ProjectStory) => ({ completed: "Công trình thực tế", catalogue: "Ảnh ứng dụng catalogue", reference: "Không gian tham khảo" })[story.kind];
 export const storiesForSample = (sample: CatalogueSample) => {
   const exact = projectStories.filter(story => story.sampleSlugs.includes(sample.slug));
-  const related = projectStories.filter(story => !exact.includes(story) && story.categories.includes(sample.category));
+  const related = projectStories.filter(story => !exact.includes(story) && story.categories.includes(sample.category) && (story.kind !== "catalogue" || story.sampleSlugs.some(slug => catalogue.find(item => item.slug === slug)?.brand === sample.brand)));
   return [...exact, ...related].slice(0, 5);
 };

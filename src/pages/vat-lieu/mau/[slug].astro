@@ -6,7 +6,7 @@ import { categoryIcon } from "../../../data/icons";
 import { productSeoTitle } from "../../../data/seoTitles";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import { catalogue, sampleHref, cataloguePdf, rollSpecification } from "../../../data/catalogue";
+import { catalogue, sampleHref } from "../../../data/catalogue";
 import { materials, materialHref } from "../../../data/materials";
 import { services, serviceHref } from "../../../data/services";
 import { site } from "../../../data/site";
@@ -16,21 +16,21 @@ export function getStaticPaths() {
 }
 const { sample } = Astro.props;
 const material = materials.find(item => item.slug === sample.category)!;
-const related = catalogue.filter(item => item.category === sample.category && item.slug !== sample.slug).sort((a,b) => Number(b.group === sample.group)-Number(a.group === sample.group)).slice(0,4);
+const related = catalogue.filter(item => item.category === sample.category && item.brand === sample.brand && item.slug !== sample.slug).sort((a,b) => Number(b.group === sample.group)-Number(a.group === sample.group)).slice(0,4);
 const relatedServices = services.filter(service => material.services.includes(service.slug));
-const description = `${sample.title} ${sample.code}, dòng ${sample.group} trong catalogue INFEEL 2026. Xem ảnh bề mặt, tham khảo ứng dụng và liên hệ tư vấn mua film hoặc thi công.`;
-const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.title} (${sample.group}). Quy cách cuộn: ${rollSpecification}. Nhu cầu: mua film / thi công. Kích thước, số lượng: … Địa điểm: …`;
+const description = `${sample.title} ${sample.code}, dòng ${sample.group} trong catalogue ${sample.collection}. Xem ảnh bề mặt, tham khảo ứng dụng và liên hệ tư vấn mua film hoặc thi công.`;
+const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — ${sample.title} (${sample.group}). Quy cách cuộn: ${sample.rollSpecification}. Nhu cầu: mua film / thi công. Kích thước, số lượng: … Địa điểm: …`;
 ---
 <BaseLayout title={productSeoTitle(sample)} description={description} image={sample.image} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:material.name,path:materialHref(material)},{name:`${sample.title} ${sample.code}`,path:sampleHref(sample)}])]}>
   <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto">
     <Breadcrumbs items={[{ label:"Vật liệu",href:"/vat-lieu/" },{label:material.name,href:materialHref(material)},{label:sample.code}]} />
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
       <ProductImageGallery sample={sample} />
-      <div class="min-w-0"><p class="eyebrow mb-3">INFEEL 2026 / {sample.group}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{sample.title}</h1><p class="text-lg text-primary-600 font-semibold mt-4">Mã mẫu: {sample.code}</p><p class="text-base-600 mt-5">Một lựa chọn trong nhóm {material.name.toLowerCase()} để tham khảo khi phối nội thất. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
-        <dl class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-3 mt-6 text-sm border-y border-base-200 py-5"><dt class="text-base-600">Bộ sưu tập</dt><dd>INFEEL 2026</dd><dt class="text-base-600">Dòng bề mặt</dt><dd>{sample.group}</dd><dt class="text-base-600">Tông màu</dt><dd>{sample.color.name} <span class="text-base-600">(tham khảo)</span></dd><dt class="text-base-600">Quy cách cuộn</dt><dd>{rollSpecification}</dd><dt class="text-base-600">Giá & cung cấp</dt><dd>Liên hệ xác nhận theo số lượng</dd></dl>
+      <div class="min-w-0"><p class="eyebrow mb-3">{sample.collection} / {sample.group}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{sample.title}</h1><p class="text-lg text-primary-600 font-semibold mt-4">Mã mẫu: {sample.code}</p><p class="text-base-600 mt-5">Một lựa chọn trong nhóm {material.name.toLowerCase()} để tham khảo khi phối nội thất. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
+        <dl class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-3 mt-6 text-sm border-y border-base-200 py-5"><dt class="text-base-600">Bộ sưu tập</dt><dd>{sample.collection}</dd><dt class="text-base-600">Dòng bề mặt</dt><dd>{sample.group}</dd><dt class="text-base-600">Tông màu</dt><dd>{sample.color.name} <span class="text-base-600">(tham khảo)</span></dd><dt class="text-base-600">Quy cách cuộn</dt><dd>{sample.rollSpecification}</dd><dt class="text-base-600">Giá & cung cấp</dt><dd>Liên hệ xác nhận theo số lượng</dd></dl>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn mẫu {sample.code} qua Zalo</a><button type="button" data-copy-request class="button-secondary" data-request={request}>Sao chép yêu cầu mẫu</button></div><p data-copy-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3">Sao chép yêu cầu rồi gửi qua Zalo để trao đổi đúng mã mẫu.</p>
         {sample.imageSource && <a href={`${sample.imageSource.pdf}#page=${sample.imageSource.page}`} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-medium mt-3 mr-5 hover:underline">Nguồn ảnh từ catalogue bổ sung ↗</a>}
-        <a href={`${cataloguePdf}#page=${sample.sourcePage}`} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-medium mt-4 hover:underline">Đối chiếu trong catalogue gốc ↗</a>
+        <a href={`${sample.pdf}#page=${sample.sourcePage}`} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-medium mt-4 hover:underline">Đối chiếu trong catalogue gốc ↗</a>
       </div>
     </div>
   </div></section>
