@@ -13,7 +13,7 @@ export interface Post {
 export const posts: Post[] = [
   {
     slug: "cach-chon-film-noi-that",
-    title: "Cách chọn film nội thất phù hợp cho từng bề mặt",
+    title: "Cách chọn film dán nội thất: Cẩm nang cho từng bề mặt",
     description: "Chọn film nội thất theo nền vật liệu, công năng và ánh sáng. Hướng dẫn so sánh mẫu vân gỗ, vải, bê tông, kim loại trước khi mua hoặc thi công.",
     date: "2026-11-03", image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
     intro: "Chọn film nội thất không chỉ là chọn một màu đẹp trên catalogue. Cùng một họa tiết có thể cho cảm giác khác nhau khi đặt lên cánh tủ, mặt bàn hoặc vách có đèn hắt. Một lựa chọn phù hợp cần bắt đầu từ hiện trạng bề mặt, sau đó mới đến công năng và cách phối màu.",
@@ -28,7 +28,7 @@ export const posts: Post[] = [
   },
   {
     slug: "dan-film-tu-bep-can-luu-y-gi",
-    title: "Dán film tủ bếp cần lưu ý gì trước khi thi công?",
+    title: "Có nên dán film tủ bếp cũ? Những lưu ý trước khi làm",
     description: "Checklist trước khi dán film tủ bếp: kiểm tra cốt tủ, làm sạch dầu mỡ, xem mẫu, xử lý mép cánh và thống nhất phạm vi báo giá, bàn giao.",
     date: "2026-11-03", image: "/images/blog/dan-film-noi-that-tu-bep.webp",
     intro: "Khi tủ bếp còn sử dụng tốt nhưng màu đã cũ, dán film là một phương án có thể cân nhắc. Tuy nhiên, khu vực bếp chịu tác động của hơi nước, dầu mỡ và nhiệt, nên việc chuẩn bị bề mặt quan trọng hơn lựa chọn một họa tiết đẹp. Dưới đây là các điểm nên kiểm tra cùng đơn vị thi công.",
@@ -44,7 +44,7 @@ export const posts: Post[] = [
   },
   {
     slug: "bao-gia-dan-film",
-    title: "Báo giá dán film nội thất: các yếu tố cần kiểm tra",
+    title: "Giá dán film nội thất tính thế nào? Cách so sánh báo giá",
     description: "Hiểu cách báo giá dán film nội thất: mã vật liệu, khối lượng, hao hụt, xử lý nền, góc cạnh và tháo lắp. Checklist để so sánh báo giá rõ ràng.",
     date: "2026-11-03", image: "/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg",
     intro: "Hai công trình có cùng diện tích nhìn thấy vẫn có thể nhận báo giá khác nhau. Nguyên nhân thường nằm ở mã film, cách bố trí vân, tình trạng lớp nền và số chi tiết cần xử lý. Thay vì chỉ hỏi một giá theo mét vuông, hãy làm rõ những phần việc thực sự được tính trong báo giá.",

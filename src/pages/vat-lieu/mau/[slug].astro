@@ -3,6 +3,7 @@ import ProductImageGallery from "../../../components/ProductImageGallery.astro";
 import ProductProjectSlider from "../../../components/ProductProjectSlider.astro";
 import Icon from "../../../components/Icon.astro";
 import { categoryIcon } from "../../../data/icons";
+import { productSeoTitle } from "../../../data/seoTitles";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { catalogue, sampleHref, cataloguePdf, rollSpecification } from "../../../data/catalogue";
@@ -20,7 +21,7 @@ const relatedServices = services.filter(service => material.services.includes(se
 const description = `${sample.title} ${sample.code}, dòng ${sample.group} trong catalogue INFEEL 2026. Xem ảnh bề mặt, tham khảo ứng dụng và liên hệ tư vấn mua film hoặc thi công.`;
 const request = `Tôi muốn tư vấn mẫu INFEEL ${sample.code} — ${sample.title} (${sample.group}). Quy cách cuộn: ${rollSpecification}. Nhu cầu: mua film / thi công. Kích thước, số lượng: … Địa điểm: …`;
 ---
-<BaseLayout title={`${sample.title} ${sample.code} | Film Nội Thất`} description={description} image={sample.image} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:material.name,path:materialHref(material)},{name:`${sample.title} ${sample.code}`,path:sampleHref(sample)}])]}>
+<BaseLayout title={productSeoTitle(sample)} description={description} image={sample.image} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:material.name,path:materialHref(material)},{name:`${sample.title} ${sample.code}`,path:sampleHref(sample)}])]}>
   <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto">
     <Breadcrumbs items={[{ label:"Vật liệu",href:"/vat-lieu/" },{label:material.name,href:materialHref(material)},{label:sample.code}]} />
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">

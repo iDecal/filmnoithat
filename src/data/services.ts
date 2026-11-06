@@ -14,7 +14,7 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: "dan-film-noi-that", name: "Dán film nội thất",
-    title: "Dán film nội thất theo yêu cầu | Film Nội Thất",
+    title: "Dịch vụ dán film nội thất toàn quốc – Tư vấn & báo giá",
     description: "Dịch vụ dán film nội thất cho bàn, tủ bếp, tường, trần và thang máy theo nhu cầu. Xem mẫu film, quy trình khảo sát và yêu cầu báo giá.",
     intro: "Dán film nội thất là cách thay đổi màu và họa tiết bề mặt bằng lớp film trang trí. Phương án này phù hợp khi kết cấu nội thất còn tốt và bạn muốn làm mới diện mạo mà chưa cần thay toàn bộ bàn, tủ hoặc vách. Film Nội Thất tư vấn vật liệu và thi công theo hiện trạng theo nhu cầu của từng công trình.",
     image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
@@ -32,7 +32,7 @@ export const services: Service[] = [
   },
   {
     slug: "dan-film-tu-bep", name: "Dán film tủ bếp",
-    title: "Dán film tủ bếp theo nhu cầu | Film Nội Thất",
+    title: "Dán film tủ bếp toàn quốc – Khảo sát & tư vấn báo giá",
     description: "Làm mới tủ bếp bằng film vân gỗ hoặc kim loại. Tìm hiểu điều kiện bề mặt, xử lý dầu mỡ, mẫu film tham khảo và cách yêu cầu báo giá thi công.",
     intro: "Dán film tủ bếp giúp phối lại màu cánh tủ và các phần hoàn thiện bên ngoài khi cốt tủ vẫn ổn định. Trước khi chọn film dán tủ bếp, cần kiểm tra dầu mỡ, độ ẩm, cạnh cánh và khu vực gần bếp nấu, bồn rửa để xác định phạm vi thi công phù hợp.",
     image: "/images/blog/dan-film-noi-that-tu-bep.webp",
@@ -50,7 +50,7 @@ export const services: Service[] = [
   },
   {
     slug: "dan-film-ban", name: "Dán film bàn & kệ",
-    title: "Dán film mặt bàn, bàn làm việc & kệ | Film Nội Thất",
+    title: "Dán film bàn & kệ toàn quốc – Tư vấn mẫu và báo giá",
     description: "Tư vấn dán film mặt bàn, bàn làm việc và kệ theo nhu cầu. Xem mẫu vân gỗ, bê tông và lưu ý về mép bàn, vệ sinh, nhiệt khi sử dụng.",
     intro: "Dán film mặt bàn và kệ là phương án làm mới bề mặt trang trí khi phần khung, cốt và liên kết vẫn còn tốt. Với bàn làm việc hoặc quầy, việc chọn mã film cần tính đến tần suất sử dụng, khả năng vệ sinh và các cạnh thường xuyên tiếp xúc.",
     image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg",
@@ -68,7 +68,7 @@ export const services: Service[] = [
   },
   {
     slug: "dan-film-tuong", name: "Dán film tường",
-    title: "Dán film tường, vách trang trí nội thất | Film Nội Thất",
+    title: "Dán film tường toàn quốc – Tư vấn vật liệu & báo giá",
     description: "Dán film tường và vách trang trí theo nhu cầu. Xem mẫu vân gỗ, vải, bê tông; tìm hiểu xử lý nền, độ ẩm và mối nối trước khi thi công.",
     intro: "Dán film tường và vách trang trí giúp tạo mảng nhấn cho phòng khách, phòng ngủ hoặc văn phòng. Chất lượng lớp nền, độ ẩm và cách bố trí mối nối cần được xem xét trước khi chọn họa tiết film và diện tích thi công.",
     image: "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp",
@@ -86,7 +86,7 @@ export const services: Service[] = [
   },
   {
     slug: "dan-film-tran", name: "Dán film trần",
-    title: "Dán film trần nhà, trần trang trí | Film Nội Thất",
+    title: "Dán film trần nhà toàn quốc – Tư vấn mẫu & báo giá",
     description: "Khảo sát dán film trần nhà theo nhu cầu. Tư vấn nền trần, vị trí đèn, phương án tiếp cận và mẫu film vân vải, bê tông để tham khảo.",
     intro: "Dán film trần nhà cần đánh giá kỹ lớp nền và điều kiện thi công trên cao. Mục tiêu là tạo bề mặt trang trí phù hợp với không gian, đồng thời giữ nguyên khả năng tiếp cận các thiết bị và vị trí kỹ thuật trên trần.",
     image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
@@ -104,7 +104,7 @@ export const services: Service[] = [
   },
   {
     slug: "dan-film-thang-may", name: "Dán film thang máy",
-    title: "Dán film thang máy, trang trí cabin | Film Nội Thất",
+    title: "Dán film thang máy toàn quốc – Khảo sát và tư vấn báo giá",
     description: "Tư vấn dán film thang máy theo nhu cầu. Xem mẫu film kim loại, vân gỗ và lưu ý khảo sát cabin, phối hợp đơn vị bảo trì trước thi công.",
     intro: "Dán film thang máy tập trung vào các bề mặt trang trí của cabin hoặc sảnh sau khi được khảo sát và thống nhất với đơn vị quản lý. Phương án hoàn thiện cần phù hợp với vật liệu nền, tần suất sử dụng và yêu cầu kỹ thuật của công trình.",
     image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
