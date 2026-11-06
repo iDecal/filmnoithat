@@ -21,7 +21,7 @@ export const services: Service[] = [
     intro: "Film dán nội thất là lớp hoàn thiện giúp thay đổi màu sắc, họa tiết của bàn, tủ và vách mà vẫn giữ lại kết cấu còn tốt. Vật liệu và phương án thi công được lựa chọn theo hiện trạng, công năng và nhu cầu của từng công trình.",
     image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
     sections: [
-      { title: "Những bề mặt có thể cân nhắc dán film", text: "Bàn, cánh tủ, kệ, vách và một số chi tiết kim loại có thể được khảo sát để dán film khi nền khô, ổn định và đủ độ phẳng. Không phải mọi lớp sơn hay gỗ đều phù hợp; cần kiểm tra độ bám và tình trạng lớp phủ cũ trước khi chọn phương án." },
+      { title: "Bề mặt nào phù hợp với film dán nội thất?", text: "Bàn, cánh tủ, kệ, vách và một số chi tiết kim loại có thể được khảo sát để dán film khi nền khô, ổn định và đủ độ phẳng. Không phải mọi lớp sơn hay gỗ đều phù hợp; cần kiểm tra độ bám và tình trạng lớp phủ cũ trước khi chọn phương án." },
       { title: "Chọn vật liệu theo công năng", text: "Vân gỗ tạo cảm giác gần gũi, vân bê tông phù hợp với mảng nhấn, còn vân vải và kim loại giúp phối các chi tiết nội thất. Ngoài hình ảnh, hãy xem mẫu thực tế, cách vệ sinh và thông số kỹ thuật của mã film dự kiến dùng." },
       { title: "Khi nào nên sửa hoặc thay mới trước?", text: "Film là lớp hoàn thiện trang trí, không khắc phục được gỗ mục, cốt tủ trương nở, tường thấm nước hoặc kim loại gỉ nặng. Những phần hư hỏng cần được sửa, làm khô và kiểm tra lại trước khi thi công. Với kết cấu xuống cấp, thay mới có thể phù hợp hơn." },
     ],
@@ -40,7 +40,7 @@ export const services: Service[] = [
     intro: "Film dán nội thất giúp đổi màu cánh tủ bếp và các phần hoàn thiện bên ngoài khi cốt tủ còn ổn định. Trước khi chọn mẫu, cần kiểm tra dầu mỡ, độ ẩm, cạnh cánh và khu vực gần bếp nấu, bồn rửa để xác định phạm vi thi công phù hợp.",
     image: "/images/blog/dan-film-noi-that-tu-bep.webp",
     sections: [
-      { title: "Tủ bếp nào có thể dán film?", text: "Cánh tủ còn phẳng, khô và không bong lớp nền là điểm khởi đầu phù hợp để khảo sát. MDF bị trương nở, mép mục hoặc lớp phủ cũ mất độ bám cần được sửa trước. Việc phủ film lên phần hư hỏng chỉ che bề mặt và có thể làm giảm độ bền hoàn thiện." },
+      { title: "Tủ bếp nào phù hợp với film dán nội thất?", text: "Cánh tủ còn phẳng, khô và không bong lớp nền là điểm khởi đầu phù hợp để khảo sát. MDF bị trương nở, mép mục hoặc lớp phủ cũ mất độ bám cần được sửa trước. Việc phủ film lên phần hư hỏng chỉ che bề mặt và có thể làm giảm độ bền hoàn thiện." },
       { title: "Xử lý dầu mỡ và các mép cánh", text: "Dầu mỡ tích tụ quanh tay nắm và bếp nấu có thể cản trở độ bám. Kỹ thuật viên cần làm sạch bằng phương pháp phù hợp với lớp nền, để khô rồi kiểm tra lại. Vị trí bản lề, cạnh cánh và khe mở phải được tính trước để film không cọ sát khi sử dụng." },
       { title: "Chọn film dán tủ bếp theo thói quen sử dụng", text: "Vân gỗ có thể phối với mặt đá và tường bếp sẵn có; film kim loại phù hợp khi cần điểm nhấn. Hãy xem mẫu dưới ánh sáng bếp và kiểm tra hướng dẫn của nhà cung cấp về nhiệt, hơi nước và vệ sinh. Film trang trí không phải lớp chống cháy hoặc giải pháp xử lý thấm." },
     ],
@@ -59,7 +59,7 @@ export const services: Service[] = [
     intro: "Film dán nội thất là lựa chọn để làm mới mặt bàn, bàn làm việc, quầy và kệ khi kết cấu còn tốt. Cần chọn bề mặt theo tần suất sử dụng, khả năng vệ sinh và cách xử lý các cạnh, góc trước khi chốt vật liệu.",
     image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg",
     sections: [
-      { title: "Khảo sát mặt bàn trước khi thi công", text: "Các vết lõm, gờ nối, lớp phủ bong và khu vực ngấm nước cần được xử lý trước. Film mỏng có thể làm lộ khuyết điểm thay vì che kín chúng. Với mặt kính, đá hoặc sơn đặc biệt, nên kiểm tra độ bám của mã film trên nền thực tế." },
+      { title: "Chọn film dán nội thất cho bàn và kệ", text: "Các vết lõm, gờ nối, lớp phủ bong và khu vực ngấm nước cần được xử lý trước. Film mỏng có thể làm lộ khuyết điểm thay vì che kín chúng. Với mặt kính, đá hoặc sơn đặc biệt, nên kiểm tra độ bám của mã film trên nền thực tế." },
       { title: "Mép bàn và góc bo quyết định độ hoàn thiện", text: "Kỹ thuật viên cần đánh giá hình dáng góc, khoảng trống phía dưới và vị trí mối nối. Bàn có nhiều bo cong hoặc phụ kiện âm mặt bàn thường cần cách cắt và xử lý khác bàn phẳng. Những chi tiết này cũng ảnh hưởng đến lượng vật tư và nhân công." },
       { title: "Sử dụng mặt bàn sau khi dán film", text: "Dùng tấm lót khi đặt vật nóng, không cắt trực tiếp trên film và tránh kéo lê đồ có cạnh sắc. Vệ sinh bằng khăn mềm theo hướng dẫn của mã vật liệu. Nếu bàn dùng cho thao tác nặng hoặc thường xuyên tiếp xúc nhiệt cao, nên cân nhắc một lớp hoàn thiện khác." },
     ],
@@ -78,7 +78,7 @@ export const services: Service[] = [
     intro: "Film dán nội thất tạo điểm nhấn cho tường và vách bằng màu sắc hoặc họa tiết phù hợp với không gian. Độ khô, độ phẳng và khả năng bám của lớp nền cần được kiểm tra trước; film không thay thế việc xử lý tường thấm hay bong tróc.",
     image: "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp",
     sections: [
-      { title: "Phân biệt vách phẳng và tường sơn cũ", text: "Vách có nền phẳng, ổn định có điều kiện khác tường sơn đã phấn hóa hoặc bong tróc. Cần kiểm tra độ bám của lớp sơn, độ ẩm và các khe nứt. Tường thấm, mốc hoặc chưa khô phải xử lý nguyên nhân trước; film không thay thế lớp chống thấm." },
+      { title: "Film dán nội thất cho tường: kiểm tra lớp nền", text: "Vách có nền phẳng, ổn định có điều kiện khác tường sơn đã phấn hóa hoặc bong tróc. Cần kiểm tra độ bám của lớp sơn, độ ẩm và các khe nứt. Tường thấm, mốc hoặc chưa khô phải xử lý nguyên nhân trước; film không thay thế lớp chống thấm." },
       { title: "Bố trí vân và mối nối trên mảng rộng", text: "Với vân gỗ, vân vải hoặc bê tông, hãy thống nhất chiều vân và vị trí nối theo khổ film thực tế. Nên xem thử mẫu cạnh ánh sáng hắt và đường viền trang trí để dự tính độ lộ của mối nối, đặc biệt ở vách có đèn rọi." },
       { title: "Chọn bề mặt theo khu vực sử dụng", text: "Vách sau sofa và vách đầu giường có nhu cầu khác khu vực hành lang thường xuyên va chạm. Có thể phối vân gỗ, vân vải hoặc bê tông cùng màu đơn sắc. Việc lựa chọn cần cân đối khả năng vệ sinh, mức độ tiếp xúc và thông số của từng mã vật liệu." },
     ],
@@ -97,7 +97,7 @@ export const services: Service[] = [
     intro: "Film dán nội thất cho trần cần được chọn đồng bộ với tường, ánh sáng và đồ nội thất. Trước khi thi công, cần kiểm tra độ ổn định của nền, các vị trí kỹ thuật, mối ghép và điều kiện tiếp cận trên cao.",
     image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
     sections: [
-      { title: "Kiểm tra lớp nền và khả năng bám dính", text: "Trần sơn, trần thạch cao và trần ốp có yêu cầu xử lý khác nhau. Cần kiểm tra lớp sơn có bong, phấn hóa hoặc ẩm không. Việc thử độ bám và xác nhận vật liệu phù hợp với ứng dụng trên trần phải thực hiện trước khi thi công diện tích lớn." },
+      { title: "Film dán nội thất cho trần: khảo sát trước khi dán", text: "Trần sơn, trần thạch cao và trần ốp có yêu cầu xử lý khác nhau. Cần kiểm tra lớp sơn có bong, phấn hóa hoặc ẩm không. Việc thử độ bám và xác nhận vật liệu phù hợp với ứng dụng trên trần phải thực hiện trước khi thi công diện tích lớn." },
       { title: "Giữ thông thoáng các vị trí kỹ thuật", text: "Đèn, cửa thăm, đầu báo và các thiết bị âm trần cần có phương án bảo vệ hoặc tháo lắp do người phù hợp thực hiện. Không phủ film lên thiết bị an toàn và không che vị trí cần bảo trì. Chiều cao, lối vận chuyển và thiết bị tiếp cận cũng phải được khảo sát." },
       { title: "Chọn mẫu theo ánh sáng thực tế", text: "Vân bê tông và vân vải có thể dùng làm hướng tham khảo khi phối trần với tường và đồ nội thất. Ánh sáng rọi ngang dễ làm lộ gờ nền hoặc mối ghép, vì vậy nên xem mẫu tại đúng vị trí và thống nhất hướng vân trước khi chốt vật tư." },
     ],
@@ -116,7 +116,7 @@ export const services: Service[] = [
     intro: "Film dán nội thất giúp làm mới các bề mặt trang trí của cabin và sảnh thang máy sau khi khảo sát. Phương án cần phù hợp với vật liệu nền, tần suất sử dụng và yêu cầu kỹ thuật, đồng thời được thống nhất với đơn vị quản lý, bảo trì.",
     image: "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
     sections: [
-      { title: "Khảo sát cabin và phạm vi được thi công", text: "Trước khi dán, cần xác định rõ các mảng vách, nẹp và chi tiết có thể tiếp cận. Các phần liên quan đến vận hành, điện hoặc cơ cấu cửa phải do đơn vị có trách nhiệm kiểm tra. Không dùng việc dán film để che khuyết tật kỹ thuật hoặc gỉ nền chưa được xử lý." },
+      { title: "Film dán nội thất cho cabin: khảo sát phạm vi thi công", text: "Trước khi dán, cần xác định rõ các mảng vách, nẹp và chi tiết có thể tiếp cận. Các phần liên quan đến vận hành, điện hoặc cơ cấu cửa phải do đơn vị có trách nhiệm kiểm tra. Không dùng việc dán film để che khuyết tật kỹ thuật hoặc gỉ nền chưa được xử lý." },
       { title: "Chuẩn bị bề mặt kim loại", text: "Dầu, chất vệ sinh tồn dư và các mối ghép có thể ảnh hưởng độ bám. Cần làm sạch theo hướng dẫn vật liệu, thử độ bám và bố trí chiều vân giữa các tấm. Với film hiệu ứng kim loại, nên xem mẫu dưới ánh sáng cabin để đánh giá phản chiếu và màu sắc." },
       { title: "Phối hợp quản lý và bảo trì thang máy", text: "Giờ thi công, phạm vi dừng khai thác và trách nhiệm bảo vệ thiết bị cần được chốt trước. Không che bảng điều khiển, cảm biến, biển tải trọng, khe thông gió hoặc thông tin an toàn. Yêu cầu về vật liệu và phòng cháy của tòa nhà cần được kiểm tra theo hồ sơ sản phẩm." },
     ],
