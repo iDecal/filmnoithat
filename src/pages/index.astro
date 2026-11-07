@@ -1,4 +1,6 @@
 ---
+import { catalogue } from "../data/catalogue";
+import { formatRetailPrice } from "../data/infeelPrices";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import MaterialPreview from "../components/MaterialPreview.astro";
@@ -8,6 +10,7 @@ import { services, serviceHref } from "../data/services";
 import { posts, postHref, formatDate } from "../data/posts";
 import { spaces } from "../data/spaces";
 import { site } from "../data/site";
+const infeelStartingPrice = formatRetailPrice(Math.min(...catalogue.filter(sample => sample.brand === "INFEEL").map(sample => sample.pricePerMetre!)));
 const featured = [
   { slug: "van-go", title: "Film dán vân gỗ", text: "Ấm áp, tự nhiên, hợp phòng khách, phòng ngủ." },
   { slug: "da-cam-thach", title: "Film dán vân đá, marble", text: "Sang trọng như đá thật, nhẹ và rẻ hơn nhiều." },
@@ -18,18 +21,18 @@ const serviceItems = services.filter(service => service.slug !== "dan-film-noi-t
 const benefits = [
   { icon: "check" as const, title: "Bề mặt dễ chăm sóc", text: "Film chống nước, chống xước, dễ vệ sinh. Chọn mã phù hợp với công năng và xử lý kỹ các mép dán." },
   { icon: "swatches" as const, title: "Nhiều chất liệu để phối", text: "Vân gỗ, vân đá, màu trơn, kim loại và bê tông. So mẫu thật để chọn sắc độ hài hòa với nội thất sẵn có." },
-  { icon: "phone" as const, title: "Tư vấn rõ ràng trước khi đặt", text: "Giá tham khảo từ 280.000đ đến 550.000đ tùy mẫu. Hỗ trợ chọn film, tính khối lượng và hướng dẫn thi công; có chính sách cho đại lý và nhà thầu." },
+  { icon: "phone" as const, title: "Tư vấn rõ ràng trước khi đặt", text: `Giá vật liệu INFEEL từ ${infeelStartingPrice}/mét dài, niêm yết theo từng mã. Hỗ trợ chọn film, tính khối lượng và hướng dẫn thi công; có chính sách cho đại lý và nhà thầu.` },
 ];
 const steps = ["Chọn mẫu film dán nội thất tại showroom hoặc qua catalogue.", "Gửi kích thước, nhận báo giá nhanh qua Zalo.", "Giao hàng toàn quốc hoặc hướng dẫn thi công.", "Hỗ trợ kỹ thuật sau bán hàng."];
 const faqs = [
   { question: "Film dán nội thất có bền không?", answer: "Film chất lượng tốt dùng được nhiều năm nếu dán đúng kỹ thuật trên bề mặt sạch, phẳng." },
   { question: "Có chống nước không?", answer: "Có, nhưng cần xử lý kỹ mép dán ở khu vực tiếp xúc nước nhiều." },
   { question: "Tự dán tại nhà được không?", answer: "Được với bề mặt nhỏ. Tủ bếp, cửa lớn nên nhờ thợ để tránh bọt khí, nhăn." },
-  { question: "Giá film dán nội thất bao nhiêu?", answer: "Tại D-vinyl, giá từ 280.000đ đến 550.000đ tùy chất liệu và mẫu. Liên hệ để báo giá chính xác." },
+  { question: "Giá film dán nội thất bao nhiêu?", answer: `Vật liệu INFEEL có giá từ ${infeelStartingPrice}/mét dài theo khổ cuộn của từng mẫu, chưa gồm công thi công. Corance liên hệ báo giá. Chi phí giao hàng và tổng đơn được xác nhận khi đặt.` },
   { question: "Dán đè film cũ được không?", answer: "Nên bóc film cũ và vệ sinh sạch để bám tốt nhất." },
 ];
 ---
-<BaseLayout brandName="D-vinyl" title="Film dán nội thất D-vinyl – Vân gỗ, vân đá & thi công" description="Film dán nội thất D-vinyl chống nước, chống xước, bền màu. Hơn 100 mẫu vân gỗ, vân đá, màu trơn. Giá từ 280.000đ. Giao toàn quốc, báo giá ngay!" image="/images/home/interior-kitchen.webp" faqs={faqs}>
+<BaseLayout brandName="D-vinyl" title="Film dán nội thất D-vinyl – Vân gỗ, vân đá & thi công" description={`Film dán nội thất D-vinyl: vân gỗ, vân đá, màu trơn. Giá vật liệu INFEEL từ ${infeelStartingPrice}/mét dài, cung cấp toàn quốc và tư vấn thi công.`} image="/images/home/interior-kitchen.webp" faqs={faqs}>
   <div class="home-luxe">
     <section class="home-hero px-4 sm:px-6 bg-base-50 surface-gradient">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-8 lg:gap-14 items-center">
@@ -38,7 +41,7 @@ const faqs = [
           <h1 class="home-title">Film dán nội thất.<br /><span class="text-primary-500">Tinh tế từng không gian.</span></h1>
           <p class="text-base sm:text-lg text-base-600 mt-6 max-w-xl">Film dán nội thất D-vinyl giúp làm mới tủ bếp, cửa, bàn và vách với bề mặt vân gỗ, vân đá hoặc màu trơn. Chọn mua vật liệu hoặc tư vấn thi công theo nhu cầu để giữ lại kết cấu còn tốt và đổi diện mạo không gian.</p>
           <div class="flex flex-col sm:flex-row gap-3 mt-7"><a href="/vat-lieu/" class="button-primary">Xem bộ sưu tập <Icon name="arrow" size={18} class="ml-2" /></a><a href="#bao-gia" class="button-secondary">Nhận báo giá miễn phí</a></div>
-          <p class="text-xs sm:text-sm text-base-600 mt-6">Giá tham khảo từ 280.000đ · Cung cấp toàn quốc</p>
+          <p class="text-xs sm:text-sm text-base-600 mt-6">INFEEL từ {infeelStartingPrice}/mét dài · Cung cấp toàn quốc</p>
         </div>
         <figure class="min-w-0"><img src="/images/home/interior-kitchen.webp" alt="Film dán nội thất vân gỗ cho không gian tủ bếp sáng và hiện đại – ảnh tham khảo" width="810" height="543" fetchpriority="high" class="w-full aspect-[4/3] lg:aspect-[5/4] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Gợi ý phối chất liệu cho không gian bếp · Ảnh tham khảo</figcaption></figure>
       </div>

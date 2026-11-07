@@ -27,7 +27,8 @@ Khi nhập catalogue mới, cần đối chiếu lại tên dòng, phân loại 
 
 ## Tông màu, quy cách và hiển thị ảnh
 
-- Quy cách cuộn **1,23 m × 30 m** do chủ website cung cấp, cấu hình chung ở `src/data/catalogue.ts`.
+- Quy cách INFEEL theo bảng giá chủ website xác nhận: mặc định **1,23 m × 50 m**; LT **1,23 m × 30 m**, PW **1,06 m × 25 m**. Cấu hình tại `src/data/infeelPrices.ts`.
+- Giá bán công khai tính theo **mét dài**, chỉ lưu giá bán trong mã nguồn; giá nhập không đưa lên website. Mã LW/MT ngoại lệ được ưu tiên trước giá nhóm ký hiệu. Corance chưa có bảng giá và vẫn hiển thị liên hệ.
 - `scripts/label-catalogue-colors.py` đọc ảnh để ước lượng tông màu phục vụ tìm kiếm, không sửa ảnh. Tên tông màu không phải tên màu chuẩn hoặc cam kết màu của nhà sản xuất. Khi có thông tin màu chính thức cần đối chiếu và cập nhật.
 - Trình nhập gọi bước gán màu sau khi trích dữ liệu; yêu cầu thêm Pillow. Có thể chạy riêng bước gán màu sau khi cập nhật ảnh.
 - Lưới và trang chi tiết hiển thị ảnh gốc với chiều cao tự động theo đúng tỷ lệ, không cắt vân hoặc ép khung 4:3 / vuông. Đã bỏ giới hạn chiều rộng theo số pixel gốc và khoảng đệm thêm ở bản trước theo yêu cầu chủ website; hộp thoại hiển thị trọn ảnh trong màn hình. Không tạo thêm chi tiết hoặc chỉnh màu vật liệu. PDF có giới hạn độ phân giải; ảnh nguồn độ phân giải cao hơn sẽ cần để tăng chi tiết thực sự.

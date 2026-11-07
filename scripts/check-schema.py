@@ -21,7 +21,7 @@ class Page(HTMLParser):
         if tag=='script' and self.current is not None:self.scripts.append(self.current);self.current=None
 
 def normalized(value):return ' '.join(value.split())
-samples=[{**s,'brand':'INFEEL','rollSpecification':'1,23 m × 30 m'} for s in json.loads((ROOT/'src/data/catalogue.json').read_text())]+json.loads((ROOT/'src/data/corance.json').read_text())
+samples=[{**s,'brand':'INFEEL','rollSpecification':('1,23 m × 30 m' if s['code'].startswith('LT') else '1,06 m × 25 m' if s['code'].startswith('PW') else '1,23 m × 50 m')} for s in json.loads((ROOT/'src/data/catalogue.json').read_text())]+json.loads((ROOT/'src/data/corance.json').read_text())
 pages=list((ROOT/'dist').rglob('*.html'));counts=collections.Counter();documents=[];all_ids=set();refs=[]
 for file in pages:
     parsed=Page(file.read_text());assert len(parsed.scripts)==1,(file,'duplicate or missing JSON-LD')
@@ -42,7 +42,15 @@ for file in pages:
         assert product['brand']['name']==expected['brand']
         assert expected['rollSpecification'] in visible
         assert product['additionalProperty'][0]['value']==expected['rollSpecification']
-        assert all(k not in product for k in ['offers','aggregateRating','review'])
+        assert all(k not in product for k in ['aggregateRating','review'])
+        if expected['brand']=='INFEEL':
+            offer=product['offers'];assert offer['priceCurrency']=='VND'
+            assert isinstance(offer['price'],int) and offer['price']>0
+            assert f"{offer['price']:,}".replace(',','.')+'đ' in visible
+            unit=offer['priceSpecification'];assert unit['price']==offer['price'] and unit['priceCurrency']=='VND'
+            assert unit['referenceQuantity']['unitCode']=='MTR' and unit['referenceQuantity']['value']==1
+            assert 'mét dài' in visible
+        else:assert 'offers' not in product
     if 'BlogPosting' in nodes:
         post=nodes['BlogPosting'];date.fromisoformat(post['datePublished']);assert post['headline'] in visible
         assert post['author']['@id']==nodes['Organization']['@id']
