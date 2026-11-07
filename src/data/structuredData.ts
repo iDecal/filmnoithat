@@ -86,7 +86,7 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   if (post) {
     page.mainEntity = ref(url + "#article");
     graph.push({ "@type":"BlogPosting", "@id":url+"#article", url, headline:post.title, description:post.description,
-      datePublished:post.date, image:[absolute(post.image)], inLanguage:"vi-VN", author:ref(orgId), publisher:ref(orgId),
+      datePublished:post.date, image:[absolute(post.image), ...post.sections.flatMap(section => section.image ? [absolute(section.image.src)] : [])], inLanguage:"vi-VN", author:ref(orgId), publisher:ref(orgId),
       isPartOf:ref(absolute("/blog/#blog")), mainEntityOfPage:ref(pageId),
       about:post.materials.map(slug=>({"@type":"Thing",name:materials.find(item=>item.slug===slug)?.name || slug})) });
   }

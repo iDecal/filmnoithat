@@ -1,5 +1,9 @@
 import kitchenPosts from "./kitchenPosts.json";
 
+export interface PostImage {
+  src: string; alt: string; caption: string; width: number; height: number;
+}
+
 export interface Post {
   slug: string;
   title: string;
@@ -8,10 +12,14 @@ export interface Post {
   image: string;
   intro: string;
   imageAlt?: string;
+  imageCaption?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   focusKeyword?: string;
   faqs?: { question: string; answer: string }[];
   sections: {
     id: string; title: string; paragraphs: string[]; bullets?: string[];
+    image?: PostImage;
     subsections?: { title: string; paragraphs: string[] }[];
     links?: { label: string; href: string }[];
   }[];

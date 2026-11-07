@@ -1,11 +1,11 @@
 [
   {
     "slug": "gia-dan-film-tu-bep-cach-tinh-chi-phi",
-    "title": "Dán film tủ bếp giá bao nhiêu? Cách tính chi phí rõ ràng",
+    "title": "Giá dán film nội thất tủ bếp: cách tính và so sánh báo giá",
     "description": "Giá dán film tủ bếp phụ thuộc mã vật liệu, diện tích, xử lý nền và tháo lắp. Xem cách đọc báo giá, tính hao hụt và chuẩn bị thông tin khảo sát.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-nau-voi-dai-den-duoi-tu-tren.webp",
+    "imageAlt": "Tủ bếp vân gỗ nâu với dải đèn dưới tủ trên – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Giá dán film tủ bếp không chỉ là diện tích mặt ngoài nhân với một đơn giá. Hai bộ tủ có kích thước gần giống nhau vẫn có thể cần lượng vật tư và thời gian hoàn thiện khác nhau. Bài viết giúp bạn tách từng khoản chi phí, hiểu đơn vị tính và chuẩn bị thông tin để so sánh các phương án trên cùng một phạm vi.",
     "sections": [
@@ -14,14 +14,22 @@
         "title": "Dán film tủ bếp gồm những khoản chi phí nào?",
         "paragraphs": [
           "Một báo giá đầy đủ nên tách hoặc mô tả rõ vật liệu, nhân công dán, xử lý lớp nền, tháo lắp và vận chuyển. Nếu cánh tủ có lớp phủ cũ đang bong, công chuẩn bị có thể khác nhiều so với một cánh phẳng, khô và sạch. Đừng mặc định mọi phần việc đều đã nằm trong đơn giá được trao đổi ban đầu.",
-          "Mã film cũng ảnh hưởng cách cắt và bố trí vân. Với vân gỗ có hướng, người thi công cần canh chiều giữa các cánh; với vân đá lớn, cần bàn trước vị trí ghép. Vì vậy, lượng film mua vào có thể lớn hơn diện tích bề mặt nhìn thấy."
+          "Mã film cũng ảnh hưởng cách cắt và bố trí vân. Với vân gỗ có hướng, người thi công cần canh chiều giữa các cánh; với vân đá lớn, cần bàn trước vị trí ghép. Vì vậy, lượng film mua vào có thể lớn hơn diện tích bề mặt nhìn thấy.",
+          "Với bộ tủ vân gỗ trong ảnh tham khảo, cần ghi riêng cánh, hông và các cạnh muốn làm mới. Khi dự toán dán film nội thất tủ bếp, hãy thống nhất chiều vân và phần tháo lắp để so sánh báo giá trên cùng phạm vi."
         ],
         "links": [
           {
             "label": "Xem phạm vi dịch vụ dán film tủ bếp",
             "href": "/dich-vu/dan-film-tu-bep/"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-chu-l-phoi-van-go-va-canh-mau-dam.webp",
+          "alt": "Tủ bếp chữ L phối vân gỗ và cánh màu đậm – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp chữ L phối vân gỗ và cánh màu đậm. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 640,
+          "height": 480
+        }
       },
       {
         "id": "don-vi-tinh",
@@ -94,15 +102,18 @@
         "question": "Giá vật liệu có bao gồm công dán không?",
         "answer": "Không nên mặc định. Cần hỏi rõ báo giá là vật liệu, vật liệu kèm nhân công hay trọn hạng mục, cùng các khoản xử lý nền và vận chuyển nếu có."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp vân gỗ nâu với dải đèn dưới tủ trên. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 640,
+    "imageHeight": 480
   },
   {
     "slug": "dan-film-tu-bep-nho-chon-mau",
-    "title": "Dán film tủ bếp nhỏ: 5 cách chọn màu sáng và dễ phối",
+    "title": "Dán film tủ bếp nhỏ: 5 cách phối màu sáng, dễ áp dụng",
     "description": "Dán film tủ bếp nhỏ nên chọn màu nào? Gợi ý 5 cách phối màu trơn, vân gỗ và vân đá, cùng lưu ý ánh sáng, độ bóng và hướng vân trước khi chọn.",
     "date": "2026-11-06",
-    "image": "/images/home/interior-kitchen.webp",
-    "imageAlt": "Cánh tủ gỗ sáng trong không gian bếp — tham khảo phối màu khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-trang-phoi-mat-go-trong-goc-bep-nho.webp",
+    "imageAlt": "Tủ bếp trắng phối mặt gỗ trong góc bếp nhỏ – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Khi dán film tủ bếp nhỏ, điều quan trọng không phải luôn chọn màu trắng nhất mà là tạo sự liền mạch với tường, mặt đá và ánh sáng. Một bảng màu ít tương phản có thể giúp tổng thể nhẹ mắt hơn. Dưới đây là năm hướng phối để tham khảo, kèm cách thử mẫu trước khi làm mới cánh tủ.",
     "sections": [
@@ -118,7 +129,8 @@
         "id": "nam-cach-phoi",
         "title": "5 hướng phối màu film cho tủ bếp nhỏ",
         "paragraphs": [
-          "Những cách phối sau là gợi ý thiết kế, không phải quy tắc bắt buộc. Chọn một hướng làm nền, sau đó kiểm tra độ bóng và sắc độ của từng mã để giữ sự nhất quán."
+          "Những cách phối sau là gợi ý thiết kế, không phải quy tắc bắt buộc. Chọn một hướng làm nền, sau đó kiểm tra độ bóng và sắc độ của từng mã để giữ sự nhất quán.",
+          "Ảnh tủ bếp màu kem minh họa cách giữ bảng màu sáng và liền mạch quanh cửa sổ. Khi chọn film cho bếp nhỏ, hãy đặt mẫu cạnh mặt bếp và xem dưới cả ánh sáng tự nhiên lẫn đèn đang sử dụng."
         ],
         "subsections": [
           {
@@ -161,7 +173,14 @@
             "label": "Khám phá mẫu vân gỗ",
             "href": "/vat-lieu/van-go/"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-mau-kem-voi-canh-phang-va-anh-sang-tu-nhien.webp",
+          "alt": "Tủ bếp màu kem với cánh phẳng và ánh sáng tự nhiên – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp màu kem với cánh phẳng và ánh sáng tự nhiên. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 741,
+          "height": 414
+        }
       },
       {
         "id": "anh-sang",
@@ -207,15 +226,18 @@
         "question": "Film bóng có luôn làm bếp trông rộng hơn không?",
         "answer": "Không có lựa chọn phù hợp cho mọi bếp. Cần xem vị trí đèn, phản chiếu, độ phẳng nền và cảm nhận thực tế của đúng mẫu."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp trắng phối mặt gỗ trong góc bếp nhỏ. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 447,
+    "imageHeight": 447
   },
   {
     "slug": "dan-film-tu-bep-van-go-hay-don-sac",
-    "title": "Dán film tủ bếp: chọn vân gỗ hay màu trơn cho dễ phối?",
+    "title": "Dán film nội thất tủ bếp: phối vân gỗ hay màu trơn?",
     "description": "So sánh vân gỗ và màu trơn khi dán film tủ bếp: cảm nhận không gian, hướng vân, độ bóng và cách phối với mặt đá, tay nắm, ánh sáng thực tế.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-sang-ket-hop-canh-trang-va-dao-bep.webp",
+    "imageAlt": "Tủ bếp vân gỗ sáng kết hợp cánh trắng và đảo bếp – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Chọn vân gỗ hay màu trơn khi dán film tủ bếp là câu hỏi về cách phối và cách sử dụng, không chỉ về sở thích màu sắc. Vân gỗ tạo nhịp họa tiết, còn màu trơn giúp các mảng nghỉ rõ hơn. Cả hai đều cần được đối chiếu với mặt đá, ánh sáng và tình trạng lớp nền trước khi chốt mã.",
     "sections": [
@@ -224,14 +246,22 @@
         "title": "Dán film tủ bếp vân gỗ: ưu tiên nhịp vân và sắc độ",
         "paragraphs": [
           "Vân gỗ có thể tạo cảm giác gần gũi cho góc bếp, nhất là khi phối với mặt đá hoặc tường ít họa tiết. Tuy nhiên, tên gọi một loại gỗ chưa thể hiện toàn bộ cảm nhận: độ đậm, cỡ vân và bề mặt của từng mã vẫn cần xem trực tiếp.",
-          "Cánh tủ liền nhau nên có phương án canh chiều vân từ đầu. Nếu muốn đường vân tiếp nối, hãy hỏi khả năng thực hiện và lượng film cần thêm. Không nên chốt mua chỉ theo tổng diện tích mặt ngoài rồi mới bàn cách chia tấm."
+          "Cánh tủ liền nhau nên có phương án canh chiều vân từ đầu. Nếu muốn đường vân tiếp nối, hãy hỏi khả năng thực hiện và lượng film cần thêm. Không nên chốt mua chỉ theo tổng diện tích mặt ngoài rồi mới bàn cách chia tấm.",
+          "Ảnh tủ bếp vân gỗ và cuộn film gợi ý cách so sắc độ giữa mặt cánh, hông và các mảng màu trơn. Không thể xác định mã vật liệu chỉ qua ảnh; cần đối chiếu mẫu thật và quy cách của nhà cung cấp."
         ],
         "links": [
           {
             "label": "Xem bộ mẫu film vân gỗ",
             "href": "/vat-lieu/van-go/"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-nau-va-chi-tiet-cuon-film-trang-tri.webp",
+          "alt": "Tủ bếp vân gỗ nâu và chi tiết cuộn film trang trí – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp vân gỗ nâu và chi tiết cuộn film trang trí. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 550,
+          "height": 550
+        }
       },
       {
         "id": "mau-tron",
@@ -304,15 +334,18 @@
         "question": "Có nên đặt hai màu chỉ qua ảnh catalogue?",
         "answer": "Nên đối chiếu mẫu thật cạnh nhau và dưới ánh sáng bếp. Ảnh màn hình chỉ hỗ trợ chọn hướng phối ban đầu."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp vân gỗ sáng kết hợp cánh trắng và đảo bếp. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 576,
+    "imageHeight": 768
   },
   {
     "slug": "dan-film-tu-bep-mdf-melamine-laminate",
-    "title": "Dán film tủ bếp MDF, melamine, laminate cần lưu ý gì?",
+    "title": "Dán film tủ bếp MDF, melamine, laminate: kiểm tra nền",
     "description": "Dán film tủ bếp MDF phủ melamine hoặc laminate cần kiểm tra độ ẩm, cạnh cánh và độ bám lớp phủ. Xem cách phân biệt nền tốt với nền cần sửa.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-trang-phoi-go-sang-va-ke-mo.webp",
+    "imageAlt": "Tủ bếp trắng phối gỗ sáng và kệ mở – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Dán film tủ bếp MDF phủ melamine hoặc laminate có thể được cân nhắc khi lớp nền còn ổn định. Tuy nhiên, tên vật liệu cốt hay lớp phủ chưa đủ để khẳng định có thể dán ngay. Cần xem trạng thái thực tế của cánh, các cạnh và vùng gần chậu rửa trước khi chọn mã film và cách chuẩn bị.",
     "sections": [
@@ -329,7 +362,8 @@
         "title": "Nền nào phù hợp để dán film tủ bếp?",
         "paragraphs": [
           "Nền cần khô, ổn định, đủ độ phẳng và không có lớp phủ đang tách khỏi cốt. Người khảo sát cũng cần kiểm tra dầu mỡ, chất vệ sinh tồn dư, khe cánh và độ cọ sát khi đóng mở. Độ bám của film không thể bù cho một lớp nền vốn đã yếu.",
-          "Với nền chưa rõ đặc tính, phương án thử trên vùng phù hợp có thể giúp đánh giá trước. Cách làm sạch, xử lý hay dùng vật liệu hỗ trợ cần theo hướng dẫn của đúng hệ film và lớp nền, không áp dụng một thao tác giống nhau cho mọi bộ tủ."
+          "Với nền chưa rõ đặc tính, phương án thử trên vùng phù hợp có thể giúp đánh giá trước. Cách làm sạch, xử lý hay dùng vật liệu hỗ trợ cần theo hướng dẫn của đúng hệ film và lớp nền, không áp dụng một thao tác giống nhau cho mọi bộ tủ.",
+          "Ảnh cánh tủ dưới máy hút mùi giúp xác định các vị trí cần kiểm tra khi khảo sát: mép cánh, khe mở và vùng thường bám dầu. Hình ảnh tổng thể không cho biết cốt tủ hay chất lượng lớp phủ; cần kiểm tra trực tiếp trước khi dán film."
         ],
         "subsections": [
           {
@@ -338,7 +372,14 @@
               "Quan sát dấu hiệu nở cạnh, mềm cốt, đổi màu hoặc nước rò. Cần xử lý nguyên nhân ẩm và sửa nền trước; không dùng film trang trí như cách chống thấm cho phần cốt đang hỏng."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-canh-tu-bep-van-go-sang-ben-duoi-may-hut-mui.webp",
+          "alt": "Cánh tủ bếp vân gỗ sáng bên dưới máy hút mùi – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Cánh tủ bếp vân gỗ sáng bên dưới máy hút mùi. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 587,
+          "height": 600
+        }
       },
       {
         "id": "khi-can-sua",
@@ -389,15 +430,18 @@
         "question": "Melamine và laminate có dùng cùng một cách xử lý không?",
         "answer": "Không nên mặc định. Cần xác định tình trạng lớp phủ và làm theo hướng dẫn của hệ film, có thử độ bám khi cần thiết."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp trắng phối gỗ sáng và kệ mở. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 768,
+    "imageHeight": 576
   },
   {
     "slug": "dan-film-tu-bep-hay-thay-canh-tu",
-    "title": "Dán film tủ bếp hay thay cánh mới? Cách chọn phù hợp",
+    "title": "Dán film tủ bếp hay thay cánh mới? Tiêu chí lựa chọn",
     "description": "Dán film tủ bếp hay thay cánh mới tùy cốt tủ, bản lề và nhu cầu sử dụng. So sánh phạm vi sửa, chi phí, thời gian và mức độ thay đổi trước khi chọn.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-trung-tinh-voi-dao-bep-va-ghe-tron.webp",
+    "imageAlt": "Tủ bếp vân gỗ trung tính với đảo bếp và ghế tròn – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Dán film tủ bếp và thay cánh mới giải quyết hai nhóm nhu cầu có phần khác nhau. Film chủ yếu đổi lớp hoàn thiện trên nền còn tốt; thay cánh có thể phù hợp khi cánh đã hỏng hoặc cần thay đổi cấu tạo. Muốn chọn hợp lý, hãy kiểm tra cả bộ tủ thay vì chỉ so một đơn giá theo diện tích.",
     "sections": [
@@ -430,14 +474,22 @@
         "title": "Có thể thay cánh hỏng rồi làm mới phần còn tốt?",
         "paragraphs": [
           "Một phương án kết hợp có thể đáng xem xét nếu chỉ một số cánh hư hỏng. Tuy nhiên, nền cánh mới và cũ có thể khác nhau, nên cần xác nhận cách hoàn thiện và khả năng đồng bộ màu, độ bóng. Không mặc định cùng mã film sẽ che được mọi khác biệt nền.",
-          "Cần thống nhất người chịu trách nhiệm đo cánh mới, chỉnh phụ kiện và bàn giao. Nếu nhiều đơn vị cùng tham gia, hãy làm rõ trình tự để tránh dán xong mới khoan hoặc chỉnh gây tác động lên lớp hoàn thiện."
+          "Cần thống nhất người chịu trách nhiệm đo cánh mới, chỉnh phụ kiện và bàn giao. Nếu nhiều đơn vị cùng tham gia, hãy làm rõ trình tự để tránh dán xong mới khoan hoặc chỉnh gây tác động lên lớp hoàn thiện.",
+          "Phối tủ trắng với khối tủ cao vân gỗ trong ảnh là một hướng tham khảo cho diện mạo sau cải tạo. Quyết định dán film hay thay cánh phải dựa trên tình trạng nền, bản lề và kích thước cánh hiện có."
         ],
         "links": [
           {
             "label": "Kiểm tra tủ MDF và lớp phủ cũ",
             "href": "/blog/dan-film-tu-bep-mdf-melamine-laminate/"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-trang-phoi-tu-cao-van-go-sang.webp",
+          "alt": "Tủ bếp trắng phối tủ cao vân gỗ sáng – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp trắng phối tủ cao vân gỗ sáng. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 576,
+          "height": 768
+        }
       },
       {
         "id": "quyet-dinh",
@@ -480,15 +532,18 @@
         "question": "Có thể chỉ dán vài cánh tủ không?",
         "answer": "Có thể trao đổi phạm vi từng phần, nhưng cần xem sự đồng bộ về màu, chiều vân, độ bóng và phần nền cũ lộ ra."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp vân gỗ trung tính với đảo bếp và ghế tròn. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   },
   {
     "slug": "dan-film-tu-bep-hay-son-lai",
-    "title": "Dán film tủ bếp hay sơn lại? So sánh trước khi làm mới",
+    "title": "Dán film tủ bếp hay sơn lại? So sánh trước khi cải tạo",
     "description": "So sánh dán film tủ bếp và sơn lại về lớp nền, màu sắc, xử lý góc cạnh, thời gian và báo giá. Chọn phương án theo hiện trạng thay vì chỉ đơn giá.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-nau-voi-canh-tu-va-hong-dong-mau.webp",
+    "imageAlt": "Tủ bếp vân gỗ nâu với cánh tủ và hông đồng màu – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Dán film tủ bếp hay sơn lại đều có thể là hướng làm mới khi bộ tủ còn phù hợp để sửa. Film bổ sung một lớp bề mặt có sẵn họa tiết; sơn tạo lớp hoàn thiện theo hệ sơn được chọn. Hai phương án cần cách chuẩn bị và kiểm tra khác nhau, nên không thể chỉ nhìn màu cuối cùng hoặc một đơn giá để quyết định.",
     "sections": [
@@ -505,7 +560,8 @@
         "title": "So sánh màu, họa tiết và chi tiết cánh",
         "paragraphs": [
           "Film có thể giúp tham khảo nhiều kiểu vân gỗ, đá, màu trơn hoặc kim loại từ bộ mẫu. Cần xem đúng mã, độ bóng và hướng vân trên các cánh liền nhau. Với sơn, lựa chọn màu và hiệu ứng phải được đối chiếu bằng mẫu hoàn thiện của đơn vị thực hiện, không chỉ bằng ảnh.",
-          "Cánh có nẹp, soi rãnh hoặc góc phức tạp cần được đánh giá riêng. Không mặc định mọi hình dạng đều phù hợp để bo film hoặc mọi lớp phủ đều phù hợp sơn chồng. Yêu cầu một phương án xử lý góc và khe trước khi so sánh vẻ ngoài."
+          "Cánh có nẹp, soi rãnh hoặc góc phức tạp cần được đánh giá riêng. Không mặc định mọi hình dạng đều phù hợp để bo film hoặc mọi lớp phủ đều phù hợp sơn chồng. Yêu cầu một phương án xử lý góc và khe trước khi so sánh vẻ ngoài.",
+          "Ảnh tủ trắng và các cuộn màu giúp bắt đầu trao đổi về diện mạo mong muốn. Khi so sánh dán film nội thất tủ bếp với sơn lại, nên chốt cùng bảng màu, phạm vi và yêu cầu hoàn thiện cạnh trước khi tính chi phí."
         ],
         "subsections": [
           {
@@ -514,7 +570,14 @@
               "Hai vật liệu cùng gọi là trắng ấm vẫn có thể khác độ bóng và sắc độ. Đặt mẫu cạnh mặt đá, tường bếp và tay nắm để xem phương án nào hài hòa hơn."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-trang-va-cac-cuon-film-mau-minh-hoa.webp",
+          "alt": "Tủ bếp trắng và các cuộn film màu minh họa – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp trắng và các cuộn film màu minh họa. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 803,
+          "height": 803
+        }
       },
       {
         "id": "chi-phi-thoi-gian",
@@ -564,15 +627,18 @@
         "question": "Có thể dán film lên cánh đã sơn không?",
         "answer": "Cần kiểm tra lớp sơn còn bám chắc, nền sạch và khả năng tương thích với hệ film. Sơn bong, yếu hoặc chưa phù hợp phải được xử lý trước."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp vân gỗ nâu với cánh tủ và hông đồng màu. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 386,
+    "imageHeight": 518
   },
   {
     "slug": "ve-sinh-dau-mo-truoc-khi-dan-film-tu-bep",
-    "title": "Dán film tủ bếp: xử lý dầu mỡ và chuẩn bị nền đúng cách",
+    "title": "Chuẩn bị dán film tủ bếp: vệ sinh dầu mỡ và xử lý nền",
     "description": "Trước khi dán film tủ bếp cần kiểm tra dầu mỡ, lớp phủ và độ khô. Xem trình tự khảo sát, lưu ý chất làm sạch và phần việc nên giao kỹ thuật viên.",
     "date": "2026-11-06",
-    "image": "/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg",
-    "imageAlt": "Cuộn film và bề mặt vật liệu — ảnh tham khảo cho dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-sang-mau-phoi-dao-bep-va-ghe-xanh.webp",
+    "imageAlt": "Tủ bếp sáng màu phối đảo bếp và ghế xanh – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Dầu mỡ còn trên cạnh cánh hoặc quanh tay nắm có thể ảnh hưởng độ bám khi dán film tủ bếp. Tuy nhiên, làm sạch không có nghĩa dùng hóa chất mạnh nhất hoặc chà nhám mọi bề mặt. Cần chọn cách xử lý phù hợp với lớp nền và hệ film, đồng thời kiểm tra các nguyên nhân ẩm, bong trước khi thi công.",
     "sections": [
@@ -605,8 +671,16 @@
         "title": "Tháo phụ kiện và bảo vệ đồ dùng trong bếp",
         "paragraphs": [
           "Tay nắm, bản lề hoặc cánh tủ có thể cần tháo để tiếp cận các mép. Phạm vi tháo và người lắp lại phải được ghi rõ trước. Không tự tháo nhiều phụ kiện nếu chưa thống nhất cách đánh dấu và bảo quản, vì lắp lệch có thể làm cánh cọ lớp film sau đó.",
-          "Dọn thực phẩm và đồ dùng ra khỏi vùng thi công, bảo vệ mặt đá cùng các thiết bị theo phương án đã thống nhất. Đặt lịch vào lúc có thể ngừng sử dụng bếp để tránh hơi nước, dầu mỡ mới xuất hiện trong lúc chuẩn bị và dán."
-        ]
+          "Dọn thực phẩm và đồ dùng ra khỏi vùng thi công, bảo vệ mặt đá cùng các thiết bị theo phương án đã thống nhất. Đặt lịch vào lúc có thể ngừng sử dụng bếp để tránh hơi nước, dầu mỡ mới xuất hiện trong lúc chuẩn bị và dán.",
+          "Ở không gian bếp có đảo trong ảnh, hãy ghi nhận cả cánh tủ, hông đảo và khu vực gần bếp nấu trước khi vệ sinh. Đây là ảnh bố cục tham khảo, không phải minh họa thao tác làm sạch hay bằng chứng lớp nền đã đạt yêu cầu."
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-he-tu-bep-xam-sang-voi-ban-an-lien-ke.webp",
+          "alt": "Hệ tủ bếp xám sáng với bàn ăn liền kề – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Hệ tủ bếp xám sáng với bàn ăn liền kề. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 640,
+          "height": 480
+        }
       },
       {
         "id": "nghiem-thu-nen",
@@ -647,15 +721,18 @@
         "question": "Tủ bếp đã lau sạch có thể dán ngay không?",
         "answer": "Cần kiểm tra độ khô, chất vệ sinh tồn dư, độ bám lớp phủ và các góc mép. Việc có thể dán hay không phải dựa trên đánh giá thực tế."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp sáng màu phối đảo bếp và ghế xanh. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 575,
+    "imageHeight": 533
   },
   {
     "slug": "dan-film-tu-bep-bi-bong-mep",
-    "title": "Dán film tủ bếp bị bong mép: nguyên nhân và cách xử lý",
+    "title": "Film dán tủ bếp bị bong mép: nguyên nhân, cách xử lý",
     "description": "Dán film tủ bếp bị bong mép có thể liên quan nền, độ ẩm, cọ sát hoặc kỹ thuật. Xem cách ghi nhận hiện trạng và xử lý mà không làm hỏng thêm.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-xanh-dam-voi-canh-kinh-va-tay-nam-dong.webp",
+    "imageAlt": "Tủ bếp xanh đậm với cánh kính và tay nắm đồng – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Sau khi dán film tủ bếp, nếu xuất hiện bong mép, điều cần làm trước không phải bơm thêm keo hay dùng máy sấy nóng. Hiện tượng này có thể liên quan lớp nền, nước, cánh cọ nhau hoặc cách hoàn thiện. Bài viết hướng dẫn bạn ghi nhận dấu hiệu và trao đổi với đơn vị thi công để tìm nguyên nhân trước khi sửa.",
     "sections": [
@@ -672,7 +749,8 @@
         "title": "Các nhóm nguyên nhân cần kiểm tra",
         "paragraphs": [
           "Lớp nền yếu, dầu mỡ hoặc chất vệ sinh tồn dư có thể ảnh hưởng độ bám. Nước rò và cốt trương nở là vấn đề khác với bong đơn thuần trên nền còn tốt. Vị trí gần tay nắm hoặc khe cánh cũng có thể chịu tác động cơ học khi sử dụng.",
-          "Cách xử lý góc mép, bố trí mối nối và việc dùng vật liệu theo hướng dẫn cũng cần được kiểm tra. Không thể xác định chính xác chỉ từ tên thương hiệu hoặc một ảnh đơn lẻ; cần quan sát hiện trạng và quy trình đã thực hiện."
+          "Cách xử lý góc mép, bố trí mối nối và việc dùng vật liệu theo hướng dẫn cũng cần được kiểm tra. Không thể xác định chính xác chỉ từ tên thương hiệu hoặc một ảnh đơn lẻ; cần quan sát hiện trạng và quy trình đã thực hiện.",
+          "Ảnh bộ tủ xám phối vân gỗ chỉ minh họa các mảng và vị trí tiếp giáp cần quan sát. Để chẩn đoán film bong mép, cần thêm ảnh cận cảnh vùng lỗi và thông tin về nền, độ ẩm, nhiệt cùng thời điểm xuất hiện."
         ],
         "subsections": [
           {
@@ -681,7 +759,14 @@
               "Nếu film đi cùng lớp sơn hoặc lớp phủ cũ, phần mất độ bám có thể nằm ở nền. Chỉ ép lớp film xuống chưa giải quyết được nguyên nhân. Trường hợp này cần đánh giá sửa nền trước khi làm lại."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-xam-dam-phoi-mang-van-go-duoi-den-vang.webp",
+          "alt": "Tủ bếp xám đậm phối mảng vân gỗ dưới đèn vàng – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp xám đậm phối mảng vân gỗ dưới đèn vàng. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 673,
+          "height": 456
+        }
       },
       {
         "id": "xu-ly-ban-dau",
@@ -730,15 +815,18 @@
         "question": "Bong mép có phải luôn do film kém chất lượng không?",
         "answer": "Không thể kết luận như vậy. Nền, độ ẩm, dầu mỡ, cọ sát, kỹ thuật và điều kiện sử dụng đều cần được kiểm tra."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp xanh đậm với cánh kính và tay nắm đồng. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 495,
+    "imageHeight": 619
   },
   {
     "slug": "ve-sinh-tu-bep-sau-khi-dan-film",
-    "title": "Dán film tủ bếp: cách vệ sinh và chăm sóc sau thi công",
+    "title": "Vệ sinh tủ bếp sau khi dán film: dầu mỡ, nước và nhiệt",
     "description": "Sau khi dán film tủ bếp, vệ sinh thế nào để hạn chế trầy và tác động vào mép? Xem cách lau dầu mỡ, kiểm tra nước rò và dùng theo hướng dẫn mã film.",
     "date": "2026-11-06",
-    "image": "/images/home/interior-kitchen.webp",
-    "imageAlt": "Cánh tủ gỗ sáng trong không gian bếp — tham khảo phối màu khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-tu-bep-trang-va-dao-bep-voi-be-mat-van-da.webp",
+    "imageAlt": "Tủ bếp trắng và đảo bếp với bề mặt vân đá – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Sau khi dán film tủ bếp, cách vệ sinh nên dựa trên hướng dẫn của đúng mã vật liệu, không chỉ vào lời giới thiệu chống nước hay chống xước. Khăn mềm, xử lý vết bẩn phù hợp và theo dõi các mép gần chậu rửa là những việc cần trao đổi khi nhận bàn giao. Không có một loại hóa chất hay lịch sử dụng chung cho mọi bề mặt.",
     "sections": [
@@ -771,8 +859,16 @@
         "title": "Chú ý nước rò, hơi nóng và các cạnh cánh",
         "paragraphs": [
           "Kiểm tra định kỳ quanh chậu rửa, cạnh dưới và chỗ nối với thiết bị. Khi có nước rò, cần xử lý nguồn rò và theo dõi nền bên trong, không chỉ lau mặt ngoài. Film trang trí không thay thế việc sửa đường nước hoặc bảo vệ một cốt tủ đã hỏng.",
-          "Không để bề mặt tiếp xúc trực tiếp với nguồn nhiệt ngoài giới hạn của mã film. Với thiết bị tỏa nóng hoặc hơi nước, tham khảo hướng dẫn của cả thiết bị lẫn vật liệu để bố trí phù hợp. Không mặc định mọi mã dùng cho tủ bếp đều có cùng khả năng chịu nhiệt."
-        ]
+          "Không để bề mặt tiếp xúc trực tiếp với nguồn nhiệt ngoài giới hạn của mã film. Với thiết bị tỏa nóng hoặc hơi nước, tham khảo hướng dẫn của cả thiết bị lẫn vật liệu để bố trí phù hợp. Không mặc định mọi mã dùng cho tủ bếp đều có cùng khả năng chịu nhiệt.",
+          "Mảng vân gỗ phía trên mặt bếp trong ảnh gợi ý vùng cần chú ý khi lau dầu mỡ. Với bề mặt dán film, chọn khăn mềm và chất vệ sinh theo hướng dẫn của mã vật liệu; ảnh không xác nhận khả năng chịu nước hoặc chịu nhiệt."
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-trang-voi-mang-van-go-phia-tren-mat-bep.webp",
+          "alt": "Tủ bếp trắng với mảng vân gỗ phía trên mặt bếp – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp trắng với mảng vân gỗ phía trên mặt bếp. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 1255,
+          "height": 941
+        }
       },
       {
         "id": "theo-doi",
@@ -813,15 +909,18 @@
         "question": "Bao lâu sau khi dán có thể lau vệ sinh?",
         "answer": "Thời điểm cần được xác nhận theo vật liệu, lớp nền và điều kiện thi công. Hãy nhận hướng dẫn cụ thể khi bàn giao thay vì áp dụng một mốc chung."
       }
-    ]
+    ],
+    "imageCaption": "Tủ bếp trắng và đảo bếp với bề mặt vân đá. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 741,
+    "imageHeight": 414
   },
   {
     "slug": "cach-do-tu-bep-truoc-khi-dan-film",
-    "title": "Dán film tủ bếp: cách đo cánh tủ để nhận báo giá sát hơn",
+    "title": "Cách đo tủ bếp trước khi dán film và nhận báo giá",
     "description": "Hướng dẫn đo trước khi dán film tủ bếp: ghi từng cánh, cạnh, hông và nẹp. Phân biệt diện tích hoàn thiện với lượng film cần mua để hỏi giá rõ ràng.",
     "date": "2026-11-06",
-    "image": "/images/blog/dan-film-noi-that-tu-bep.webp",
-    "imageAlt": "Không gian bếp với cánh tủ vân gỗ — ảnh tham khảo trước khi dán film tủ bếp",
+    "image": "/images/blog/tu-bep/film-noi-that-dao-bep-trang-phoi-mat-va-hong-van-go.webp",
+    "imageAlt": "Đảo bếp trắng phối mặt và hông vân gỗ – gợi ý chọn film nội thất tủ bếp",
     "focusKeyword": "dán film tủ bếp",
     "intro": "Đo kích thước trước khi dán film tủ bếp giúp đơn vị tư vấn hiểu phạm vi và ước tính vật tư ban đầu. Bạn không cần tự lập một sơ đồ cắt chuyên nghiệp, nhưng nên ghi từng cánh thay vì chỉ chiều dài cả bộ tủ. Kích thước tự đo phục vụ trao đổi; số liệu thi công vẫn cần được kiểm tra lại trước khi cắt vật liệu.",
     "sections": [
@@ -838,7 +937,8 @@
         "title": "Ghi kích thước từng cánh và bề mặt cần dán",
         "paragraphs": [
           "Với mỗi cánh phẳng, ghi rộng, cao và số lượng cánh cùng cỡ. Đánh dấu có dán cạnh, mặt trong, hông tủ hoặc nẹp không. Các vị trí có rãnh, bo hoặc nhiều chi tiết nên chụp gần vì diện tích nhìn thẳng chưa mô tả hết phần phải hoàn thiện.",
-          "Một danh sách đơn giản có thể gồm mã cánh A1, rộng, cao, số lượng, mặt dán và ghi chú hiện trạng. Đính kèm ảnh tương ứng giúp người tư vấn đối chiếu số liệu thay vì đoán từ một chuỗi kích thước gửi riêng."
+          "Một danh sách đơn giản có thể gồm mã cánh A1, rộng, cao, số lượng, mặt dán và ghi chú hiện trạng. Đính kèm ảnh tương ứng giúp người tư vấn đối chiếu số liệu thay vì đoán từ một chuỗi kích thước gửi riêng.",
+          "Với đảo bếp phối hông vân gỗ như ảnh tham khảo, hãy đo mặt đứng và các cạnh cần dán thành từng phần riêng. Không cộng mặt bàn vào khối lượng dán film nếu hai bên chưa thống nhất bề mặt và vật liệu phù hợp."
         ],
         "subsections": [
           {
@@ -847,7 +947,14 @@
               "Một cánh rộng 0,4 m và cao 0,7 m có diện tích một mặt phẳng là 0,28 m². Con số này chưa gồm cạnh, phần bo, canh vân hoặc hao hụt cắt, nên không phải lượng film cần mua cho cánh đó."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-nau-voi-dai-den-duoi-tu-tren.webp",
+          "alt": "Tủ bếp vân gỗ nâu với dải đèn dưới tủ trên – gợi ý chọn film nội thất tủ bếp",
+          "caption": "Tủ bếp vân gỗ nâu với dải đèn dưới tủ trên. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+          "width": 640,
+          "height": 480
+        }
       },
       {
         "id": "khong-nham-don-vi",
@@ -908,6 +1015,9 @@
         "question": "Có thể mua film theo tổng mét vuông mặt cánh không?",
         "answer": "Cần tính thêm khổ cuộn, chiều vân, cách cắt và phần bo mép. Lượng vật tư nên được xác nhận theo đúng mã và sơ đồ bố trí trước khi đặt."
       }
-    ]
+    ],
+    "imageCaption": "Đảo bếp trắng phối mặt và hông vân gỗ. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
+    "imageWidth": 516,
+    "imageHeight": 387
   }
 ]
