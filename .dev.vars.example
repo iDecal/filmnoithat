@@ -1,0 +1,5 @@
+# Local Cloudflare Pages Functions only. Do not commit real credential values.
+GITHUB_OAUTH_CLIENT_ID=
+GITHUB_OAUTH_CLIENT_SECRET=
+# Must match the HTTPS origin of the CMS and the GitHub OAuth callback.
+CMS_SITE_URL=https://filmnoithat.pages.dev

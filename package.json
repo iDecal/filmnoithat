@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "node scripts/check-cms.mjs && astro build",
+    "preview": "astro preview",
+    "test:cms": "node --test tests/cms-oauth.test.mjs"
   },
   "dependencies": {
     "astro": "^4.0.0"

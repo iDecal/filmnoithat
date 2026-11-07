@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { site } from "../data/site";
 import { websiteSchema } from "../data/structuredData";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -14,7 +15,7 @@ interface Props {
   faqs?: { question: string; answer: string }[];
 }
 const {
-  brandName = "Film Nội Thất",
+  brandName = site.name,
   title = "Film Nội Thất - Cung cấp film & thi công theo nhu cầu",
   description = "Cung cấp film nội thất toàn quốc và nhận thi công theo nhu cầu cho bàn, tủ, tường, trần và thang máy. Tư vấn vật liệu, số lượng và báo giá theo công trình.",
   image = "/images/cong-trinh/banner-film-dan-noi-that.jpg",

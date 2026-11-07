@@ -1,0 +1,1051 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "iDecal/filmnoithat",
+    "branch": "main",
+    "base_url": "https://filmnoithat.pages.dev",
+    "auth_endpoint": "api/auth"
+  },
+  "publish_mode": "editorial_workflow",
+  "site_url": "https://filmnoithat.pages.dev",
+  "display_url": "https://filmnoithat.pages.dev",
+  "locale": "vi",
+  "media_folder": "public/images/uploads",
+  "public_folder": "/images/uploads",
+  "slug": {
+    "encoding": "ascii",
+    "clean_accents": true,
+    "sanitize_replacement": "-"
+  },
+  "collections": [
+    {
+      "name": "kitchen",
+      "label": "Blog tủ bếp",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "kitchen",
+          "label": "Blog tủ bếp",
+          "file": "src/data/kitchenPosts.json",
+          "fields": [
+            {
+              "name": "posts",
+              "label": "Blog tủ bếp",
+              "widget": "list",
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "slug",
+                  "label": "Đường dẫn bài viết",
+                  "widget": "string",
+                  "hint": "Không đổi mã của bài đã xuất bản để tránh mất URL.",
+                  "pattern": [
+                    "^[a-z0-9]+(-[a-z0-9]+)*$",
+                    "Chỉ dùng chữ thường không dấu, số và gạch ngang"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề bài / SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "date",
+                  "label": "Ngày đăng",
+                  "widget": "datetime",
+                  "date_format": "YYYY-MM-DD",
+                  "time_format": false,
+                  "format": "YYYY-MM-DD"
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh đại diện",
+                  "widget": "image"
+                },
+                {
+                  "name": "imageAlt",
+                  "label": "ALT ảnh đại diện",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "imageTitle",
+                  "label": "Tiêu đề ảnh",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "imageCaption",
+                  "label": "Chú thích ảnh",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "imageWidth",
+                  "label": "Chiều rộng ảnh (px)",
+                  "widget": "number",
+                  "required": false,
+                  "value_type": "int",
+                  "min": 1
+                },
+                {
+                  "name": "imageHeight",
+                  "label": "Chiều cao ảnh (px)",
+                  "widget": "number",
+                  "required": false,
+                  "value_type": "int",
+                  "min": 1
+                },
+                {
+                  "name": "focusKeyword",
+                  "label": "Từ khóa trọng tâm",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn mở đầu",
+                  "widget": "text"
+                },
+                {
+                  "name": "sections",
+                  "label": "Nội dung bài viết",
+                  "widget": "list",
+                  "summary": "{{fields.title}}",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "label": "Mã mục",
+                      "widget": "string",
+                      "pattern": [
+                        "^[a-z0-9]+(-[a-z0-9]+)*$",
+                        "Dùng chữ thường không dấu, số và dấu gạch ngang"
+                      ]
+                    },
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề mục",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "paragraphs",
+                      "label": "Các đoạn văn",
+                      "widget": "list",
+                      "required": true,
+                      "field": {
+                        "name": "value",
+                        "label": "Nội dung",
+                        "widget": "text"
+                      }
+                    },
+                    {
+                      "name": "image",
+                      "label": "Ảnh trong mục",
+                      "widget": "object",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "Ảnh",
+                          "widget": "image"
+                        },
+                        {
+                          "name": "title",
+                          "label": "Tiêu đề ảnh",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "alt",
+                          "label": "ALT – mô tả nội dung ảnh",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "caption",
+                          "label": "Chú thích ảnh",
+                          "widget": "text"
+                        },
+                        {
+                          "name": "width",
+                          "label": "Chiều rộng gốc (px)",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 1
+                        },
+                        {
+                          "name": "height",
+                          "label": "Chiều cao gốc (px)",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 1
+                        }
+                      ]
+                    },
+                    {
+                      "name": "bullets",
+                      "label": "Danh sách gạch đầu dòng",
+                      "widget": "list",
+                      "required": false,
+                      "field": {
+                        "name": "value",
+                        "label": "Nội dung",
+                        "widget": "text"
+                      }
+                    },
+                    {
+                      "name": "subsections",
+                      "label": "Mục nhỏ",
+                      "widget": "list",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "title",
+                          "label": "Tiêu đề",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "paragraphs",
+                          "label": "Các đoạn văn",
+                          "widget": "list",
+                          "required": true,
+                          "field": {
+                            "name": "value",
+                            "label": "Nội dung",
+                            "widget": "text"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "links",
+                      "label": "Liên kết liên quan",
+                      "widget": "list",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "label",
+                          "label": "Nội dung liên kết",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "href",
+                          "label": "Đường dẫn",
+                          "widget": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "materials",
+                  "label": "Mã nhóm vật liệu",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "services",
+                  "label": "Mã dịch vụ liên quan",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "faqs",
+                  "label": "Câu hỏi thường gặp",
+                  "widget": "list",
+                  "required": false,
+                  "fields": [
+                    {
+                      "name": "question",
+                      "label": "Câu hỏi",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "answer",
+                      "label": "Trả lời",
+                      "widget": "text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "guides",
+      "label": "Cẩm nang nội thất",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "guides",
+          "label": "Cẩm nang nội thất",
+          "file": "src/data/guidePosts.json",
+          "fields": [
+            {
+              "name": "posts",
+              "label": "Cẩm nang nội thất",
+              "widget": "list",
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "slug",
+                  "label": "Đường dẫn bài viết",
+                  "widget": "string",
+                  "hint": "Không đổi mã của bài đã xuất bản để tránh mất URL.",
+                  "pattern": [
+                    "^[a-z0-9]+(-[a-z0-9]+)*$",
+                    "Chỉ dùng chữ thường không dấu, số và gạch ngang"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề bài / SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "date",
+                  "label": "Ngày đăng",
+                  "widget": "datetime",
+                  "date_format": "YYYY-MM-DD",
+                  "time_format": false,
+                  "format": "YYYY-MM-DD"
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh đại diện",
+                  "widget": "image"
+                },
+                {
+                  "name": "imageAlt",
+                  "label": "ALT ảnh đại diện",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "imageTitle",
+                  "label": "Tiêu đề ảnh",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "imageCaption",
+                  "label": "Chú thích ảnh",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "imageWidth",
+                  "label": "Chiều rộng ảnh (px)",
+                  "widget": "number",
+                  "required": false,
+                  "value_type": "int",
+                  "min": 1
+                },
+                {
+                  "name": "imageHeight",
+                  "label": "Chiều cao ảnh (px)",
+                  "widget": "number",
+                  "required": false,
+                  "value_type": "int",
+                  "min": 1
+                },
+                {
+                  "name": "focusKeyword",
+                  "label": "Từ khóa trọng tâm",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn mở đầu",
+                  "widget": "text"
+                },
+                {
+                  "name": "sections",
+                  "label": "Nội dung bài viết",
+                  "widget": "list",
+                  "summary": "{{fields.title}}",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "label": "Mã mục",
+                      "widget": "string",
+                      "pattern": [
+                        "^[a-z0-9]+(-[a-z0-9]+)*$",
+                        "Dùng chữ thường không dấu, số và dấu gạch ngang"
+                      ]
+                    },
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề mục",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "paragraphs",
+                      "label": "Các đoạn văn",
+                      "widget": "list",
+                      "required": true,
+                      "field": {
+                        "name": "value",
+                        "label": "Nội dung",
+                        "widget": "text"
+                      }
+                    },
+                    {
+                      "name": "image",
+                      "label": "Ảnh trong mục",
+                      "widget": "object",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "Ảnh",
+                          "widget": "image"
+                        },
+                        {
+                          "name": "title",
+                          "label": "Tiêu đề ảnh",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "alt",
+                          "label": "ALT – mô tả nội dung ảnh",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "caption",
+                          "label": "Chú thích ảnh",
+                          "widget": "text"
+                        },
+                        {
+                          "name": "width",
+                          "label": "Chiều rộng gốc (px)",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 1
+                        },
+                        {
+                          "name": "height",
+                          "label": "Chiều cao gốc (px)",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 1
+                        }
+                      ]
+                    },
+                    {
+                      "name": "bullets",
+                      "label": "Danh sách gạch đầu dòng",
+                      "widget": "list",
+                      "required": false,
+                      "field": {
+                        "name": "value",
+                        "label": "Nội dung",
+                        "widget": "text"
+                      }
+                    },
+                    {
+                      "name": "subsections",
+                      "label": "Mục nhỏ",
+                      "widget": "list",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "title",
+                          "label": "Tiêu đề",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "paragraphs",
+                          "label": "Các đoạn văn",
+                          "widget": "list",
+                          "required": true,
+                          "field": {
+                            "name": "value",
+                            "label": "Nội dung",
+                            "widget": "text"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "links",
+                      "label": "Liên kết liên quan",
+                      "widget": "list",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "label",
+                          "label": "Nội dung liên kết",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "href",
+                          "label": "Đường dẫn",
+                          "widget": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "materials",
+                  "label": "Mã nhóm vật liệu",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "services",
+                  "label": "Mã dịch vụ liên quan",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "faqs",
+                  "label": "Câu hỏi thường gặp",
+                  "widget": "list",
+                  "required": false,
+                  "fields": [
+                    {
+                      "name": "question",
+                      "label": "Câu hỏi",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "answer",
+                      "label": "Trả lời",
+                      "widget": "text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "services",
+      "label": "Dịch vụ",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "services",
+          "label": "Dịch vụ",
+          "file": "src/data/services.json",
+          "fields": [
+            {
+              "name": "services",
+              "label": "Dịch vụ",
+              "widget": "list",
+              "summary": "{{fields.name}}",
+              "fields": [
+                {
+                  "name": "slug",
+                  "label": "Mã dịch vụ",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "name",
+                  "label": "Tên dịch vụ",
+                  "widget": "string"
+                },
+                {
+                  "name": "heading",
+                  "label": "Tiêu đề hiển thị",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "intro",
+                  "label": "Giới thiệu",
+                  "widget": "text"
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh dịch vụ",
+                  "widget": "image"
+                },
+                {
+                  "name": "imageAlt",
+                  "label": "ALT ảnh dịch vụ",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "sections",
+                  "label": "Nội dung",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "text",
+                      "label": "Nội dung",
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "preparation",
+                  "label": "Thông tin chuẩn bị",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "materials",
+                  "label": "Mã vật liệu liên quan",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "faqs",
+                  "label": "Câu hỏi thường gặp",
+                  "widget": "list",
+                  "required": true,
+                  "fields": [
+                    {
+                      "name": "question",
+                      "label": "Câu hỏi",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "answer",
+                      "label": "Trả lời",
+                      "widget": "text"
+                    }
+                  ]
+                }
+              ],
+              "allow_add": false,
+              "allow_delete": false,
+              "allow_reorder": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "materials",
+      "label": "Nhóm vật liệu",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "materials",
+          "label": "Nhóm vật liệu",
+          "file": "src/data/materials.json",
+          "fields": [
+            {
+              "name": "materials",
+              "label": "Nhóm vật liệu",
+              "widget": "list",
+              "summary": "{{fields.name}}",
+              "fields": [
+                {
+                  "name": "slug",
+                  "label": "Mã nhóm",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "name",
+                  "label": "Tên nhóm",
+                  "widget": "string"
+                },
+                {
+                  "name": "shortName",
+                  "label": "Tên ngắn",
+                  "widget": "string"
+                },
+                {
+                  "name": "mood",
+                  "label": "Phong cách",
+                  "widget": "select",
+                  "options": [
+                    "warm",
+                    "neutral",
+                    "reflective"
+                  ]
+                },
+                {
+                  "name": "moodLabel",
+                  "label": "Nhãn phong cách",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "intro",
+                  "label": "Giới thiệu",
+                  "widget": "text"
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh bề mặt",
+                  "widget": "image",
+                  "required": false
+                },
+                {
+                  "name": "preview",
+                  "label": "Hiệu ứng minh họa",
+                  "widget": "select",
+                  "required": false,
+                  "options": [
+                    "stone",
+                    "mirror"
+                  ]
+                },
+                {
+                  "name": "colors",
+                  "label": "Tông phối",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Tên màu",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "value",
+                      "label": "Mã màu",
+                      "widget": "string"
+                    }
+                  ]
+                },
+                {
+                  "name": "applications",
+                  "label": "Ứng dụng",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "text",
+                      "label": "Nội dung",
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "notes",
+                  "label": "Lưu ý",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                },
+                {
+                  "name": "services",
+                  "label": "Mã dịch vụ",
+                  "widget": "list",
+                  "required": true,
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                }
+              ],
+              "allow_add": false,
+              "allow_delete": false,
+              "allow_reorder": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pages",
+      "label": "Các trang & SEO",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "pages",
+          "label": "Nội dung các trang",
+          "file": "src/data/pageContent.json",
+          "fields": [
+            {
+              "name": "about",
+              "label": "Giới thiệu",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tiêu đề SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "headingLead",
+                  "label": "Tiêu đề chính",
+                  "widget": "string"
+                },
+                {
+                  "name": "headingAccent",
+                  "label": "Dòng tiêu đề nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn giới thiệu",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "projects",
+              "label": "Công trình",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tiêu đề SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "headingLead",
+                  "label": "Tiêu đề chính",
+                  "widget": "string"
+                },
+                {
+                  "name": "headingAccent",
+                  "label": "Dòng tiêu đề nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn giới thiệu",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "knowledge",
+              "label": "Kiến thức nội thất",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tiêu đề SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "headingLead",
+                  "label": "Tiêu đề chính",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn giới thiệu",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "contact",
+              "label": "Liên hệ",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tiêu đề SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "headingLead",
+                  "label": "Tiêu đề chính",
+                  "widget": "string"
+                },
+                {
+                  "name": "headingAccent",
+                  "label": "Dòng tiêu đề nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn giới thiệu",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "materials",
+              "label": "Trang tổng hợp vật liệu",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tiêu đề SEO",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả SEO",
+                  "widget": "text"
+                },
+                {
+                  "name": "headingLead",
+                  "label": "Tiêu đề chính",
+                  "widget": "string"
+                },
+                {
+                  "name": "headingAccent",
+                  "label": "Dòng tiêu đề nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Đoạn giới thiệu",
+                  "widget": "text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "business",
+      "label": "Thông tin liên hệ",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "business",
+          "label": "Thông tin doanh nghiệp",
+          "file": "src/data/business.json",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Tên doanh nghiệp",
+              "widget": "string"
+            },
+            {
+              "name": "tagline",
+              "label": "Mô tả ngắn",
+              "widget": "string"
+            },
+            {
+              "name": "phone",
+              "label": "Số điện thoại hiển thị",
+              "widget": "string"
+            },
+            {
+              "name": "phoneHref",
+              "label": "Liên kết gọi điện",
+              "widget": "string",
+              "hint": "Ví dụ tel:0866077040"
+            },
+            {
+              "name": "zaloHref",
+              "label": "Đường dẫn Zalo",
+              "widget": "string"
+            },
+            {
+              "name": "email",
+              "label": "Email",
+              "widget": "string"
+            },
+            {
+              "name": "serviceArea",
+              "label": "Phạm vi phục vụ",
+              "widget": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

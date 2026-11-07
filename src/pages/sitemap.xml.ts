@@ -5,7 +5,7 @@ import { catalogue, sampleHref } from "../data/catalogue";
 
 export const GET: APIRoute = ({ site }) => {
   if (!site) throw new Error("Configure the production site URL before generating the sitemap");
-  const staticPages = Object.keys(import.meta.glob("./**/*.astro")).filter(path => !path.includes("[")).map(path => {
+  const staticPages = Object.keys(import.meta.glob("./**/*.astro")).filter(path => !path.includes("[") && !path.startsWith("./admin/")).map(path => {
     const route = path.replace(/^\.\//, "/").replace(/index\.astro$/, "").replace(/\.astro$/, "/");
     return new URL(route, site).href;
   });

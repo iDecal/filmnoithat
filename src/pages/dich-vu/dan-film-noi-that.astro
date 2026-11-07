@@ -11,13 +11,13 @@ import { findMaterials } from "../../data/materials";
 import { posts, postHref } from "../../data/posts";
 import { spaces } from "../../data/spaces";
 import { breadcrumbSchema } from "../../data/seo";
-import { site } from "../../data/site";
+import { site, internationalPhone } from "../../data/site";
 const service = services.find(item => item.slug === "dan-film-noi-that")!;
 const categories = services.filter(item => item.slug !== service.slug);
 const schema = [breadcrumbSchema(Astro.site!, [{ name: "Dịch vụ", path: serviceHref(service) }]), {
   "@context": "https://schema.org", "@type": "Service", name: service.name, description: service.description,
   url: new URL(serviceHref(service), Astro.site).href,
-  provider: { "@type": "Organization", name: site.name, url: Astro.site!.href, telephone: "+84866077040" },
+  provider: { "@type": "Organization", name: site.name, url: Astro.site!.href, telephone: internationalPhone },
   areaServed: { "@type": "Country", name: "Việt Nam" },
 }, { "@context": "https://schema.org", "@type": "ItemList", itemListElement: categories.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.name, url: new URL(serviceHref(item), Astro.site).href })) }];
 const preparation = [

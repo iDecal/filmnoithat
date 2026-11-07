@@ -22,7 +22,8 @@ class Page(HTMLParser):
 
 def normalized(value):return ' '.join(value.split())
 samples=[{**s,'brand':'INFEEL','rollSpecification':('1,23 m × 30 m' if s['code'].startswith('LT') else '1,06 m × 25 m' if s['code'].startswith('PW') else '1,23 m × 50 m')} for s in json.loads((ROOT/'src/data/catalogue.json').read_text())]+json.loads((ROOT/'src/data/corance.json').read_text())
-pages=list((ROOT/'dist').rglob('*.html'));counts=collections.Counter();documents=[];all_ids=set();refs=[]
+# The noindex CMS application is not a public editorial page.
+pages=[p for p in (ROOT/'dist').rglob('*.html') if p.relative_to(ROOT/'dist').parts[0] != 'admin'];counts=collections.Counter();documents=[];all_ids=set();refs=[]
 for file in pages:
     parsed=Page(file.read_text());assert len(parsed.scripts)==1,(file,'duplicate or missing JSON-LD')
     schema=json.loads(parsed.scripts[0]);assert schema['@context']=='https://schema.org'
@@ -77,7 +78,7 @@ for file in pages:
             for item in value:visit(item)
     visit(schema)
 for file,ref in refs:assert ref in all_ids,(file,'unresolved schema reference',ref)
-assert counts['Product']==len(samples) and counts['BlogPosting']==3+len(json.loads((ROOT/'src/data/kitchenPosts.json').read_text())) and counts['Service']==6 and counts['ImageGallery']==39
+assert counts['Product']==len(samples) and counts['BlogPosting']==sum(len(json.loads((ROOT/name).read_text())['posts']) for name in ['src/data/kitchenPosts.json','src/data/guidePosts.json']) and counts['Service']==6 and counts['ImageGallery']==39
 assert counts['Organization']==len(pages) and counts['WebSite']==len(pages)
 print(f'PASS {len(pages)} pages: JSON-LD syntax, unique IDs, entity references, local URLs and visible FAQ/product/article content.')
 print(dict(sorted(counts.items())))

@@ -1,3 +1,5 @@
+import business from "./business.json";
+
 export interface NavigationLink {
   label: string;
   href: string;
@@ -7,15 +9,8 @@ export interface NavigationItem extends NavigationLink {
   children?: NavigationLink[];
 }
 
-export const site = {
-  name: "Film Nội Thất",
-  tagline: "Cung cấp film & thi công theo nhu cầu",
-  phone: "0866 077 040",
-  phoneHref: "tel:0866077040",
-  zaloHref: "https://zalo.me/0866077040",
-  email: "contact@filmnoithat.vn",
-  serviceArea: "Toàn quốc — trao đổi theo địa điểm công trình",
-};
+export const site = business;
+export const internationalPhone = "+" + business.phoneHref.replace(/^tel:/, "").replace(/^0/, "84").replace(/[^0-9]/g, "");
 
 export const serviceLinks: NavigationLink[] = [
   { label: "Dán film bàn & kệ", href: "/dich-vu/dan-film-ban/" },

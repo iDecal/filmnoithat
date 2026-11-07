@@ -11,7 +11,7 @@ import MaterialPreview from "./MaterialPreview.astro";
 import { findMaterials, materialHref } from "../data/materials";
 import { posts, postHref } from "../data/posts";
 import { projectsForService } from "../data/projects";
-import { site } from "../data/site";
+import { site, internationalPhone } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
 interface Props { service: Service }
 const { service } = Astro.props;
@@ -37,7 +37,7 @@ const schema = [
     "@context": "https://schema.org", "@type": "Service",
     name: service.name, serviceType: service.name, description: service.description,
     url: new URL(serviceHref(service), Astro.site).href,
-    provider: { "@type": "Organization", name: "Film Nội Thất", url: Astro.site!.href, telephone: "+84866077040" },
+    provider: { "@type": "Organization", name: "Film Nội Thất", url: Astro.site!.href, telephone: internationalPhone },
     areaServed: { "@type": "Country", name: "Việt Nam" },
   },
   breadcrumbSchema(Astro.site!, overview ? [{ name: service.name, path: serviceHref(service) }] : [{ name: "Dịch vụ", path: "/dich-vu/dan-film-noi-that/" }, { name: service.name, path: serviceHref(service) }]),
@@ -72,7 +72,7 @@ const steps = [
             <ul class="hidden lg:flex flex-wrap gap-x-5 gap-y-2 mt-7 text-sm text-base-600"><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Xem mẫu trước</li><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Chốt rõ phạm vi</li></ul>
           </div>
           <div>
-            <figure class="relative rounded-2xl lg:rounded-3xl overflow-hidden bg-white border border-base-200"><img src={service.image} alt={uploadedImageAlt(service.image, `Hình tham khảo cho ${service.name.toLowerCase()}`)} width="1000" height="800" fetchpriority="high" class="service-hero-image w-full aspect-[16/9] lg:aspect-[5/4] object-cover" /><span class="absolute bottom-3 left-3 lg:hidden bg-white/95 text-base-700 text-xs px-3 py-1 rounded-full">Ảnh tham khảo</span><figcaption class="hidden lg:block px-5 py-4 text-sm text-base-600">{design.caption}</figcaption></figure>
+            <figure class="relative rounded-2xl lg:rounded-3xl overflow-hidden bg-white border border-base-200"><img src={service.image} alt={service.imageAlt || uploadedImageAlt(service.image, `Hình tham khảo cho ${service.name.toLowerCase()}`)} width="1000" height="800" fetchpriority="high" class="service-hero-image w-full aspect-[16/9] lg:aspect-[5/4] object-cover" /><span class="absolute bottom-3 left-3 lg:hidden bg-white/95 text-base-700 text-xs px-3 py-1 rounded-full">Ảnh tham khảo</span><figcaption class="hidden lg:block px-5 py-4 text-sm text-base-600">{design.caption}</figcaption></figure>
 
           </div>
         </div>

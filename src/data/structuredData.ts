@@ -1,5 +1,5 @@
 import { productHeading } from "./seoTitles";
-import { site as business } from "./site";
+import { site as business, internationalPhone } from "./site";
 import { catalogue, sampleHref } from "./catalogue";
 import { materials, materialHref } from "./materials";
 import { services, serviceHref } from "./services";
@@ -21,8 +21,8 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   const ref = (id: string) => ({ "@id": id });
   const graph: Node[] = [
     { "@type": "Organization", "@id": orgId, name: businessName, url: origin.href, description: business.tagline,
-      telephone: "+84866077040", email: business.email, areaServed: { "@type": "Country", name: "Việt Nam" },
-      contactPoint: { "@type": "ContactPoint", telephone: "+84866077040", email: business.email, contactType: "customer service", availableLanguage: "vi", url: business.zaloHref } },
+      telephone: internationalPhone, email: business.email, areaServed: { "@type": "Country", name: "Việt Nam" },
+      contactPoint: { "@type": "ContactPoint", telephone: internationalPhone, email: business.email, contactType: "customer service", availableLanguage: "vi", url: business.zaloHref } },
     { "@type": "WebSite", "@id": siteId, url: origin.href, name: businessName, inLanguage: "vi-VN", publisher: ref(orgId) },
   ];
   const page: Node = { "@type": "WebPage", "@id": pageId, url, name: title, description, inLanguage: "vi-VN",
