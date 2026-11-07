@@ -19,7 +19,7 @@ export const services: Service[] = [
     title: "Film dán nội thất – Dịch vụ thi công & báo giá toàn quốc",
     description: "Thi công film dán nội thất giúp làm mới bàn, tủ, tường, trần và thang máy khi kết cấu còn tốt. Xem mẫu, quy trình khảo sát và tư vấn báo giá.",
     intro: "Film dán nội thất là lớp hoàn thiện giúp thay đổi màu sắc, họa tiết của bàn, tủ và vách mà vẫn giữ lại kết cấu còn tốt. Vật liệu và phương án thi công được lựa chọn theo hiện trạng, công năng và nhu cầu của từng công trình.",
-    image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
+    image: "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-trung-tinh-voi-dao-bep-va-ghe-tron.webp",
     sections: [
       { title: "Bề mặt nào phù hợp với film dán nội thất?", text: "Bàn, cánh tủ, kệ, vách và một số chi tiết kim loại có thể được khảo sát để dán film khi nền khô, ổn định và đủ độ phẳng. Không phải mọi lớp sơn hay gỗ đều phù hợp; cần kiểm tra độ bám và tình trạng lớp phủ cũ trước khi chọn phương án." },
       { title: "Chọn vật liệu theo công năng", text: "Vân gỗ tạo cảm giác gần gũi, vân bê tông phù hợp với mảng nhấn, còn vân vải và kim loại giúp phối các chi tiết nội thất. Ngoài hình ảnh, hãy xem mẫu thực tế, cách vệ sinh và thông số kỹ thuật của mã film dự kiến dùng." },
@@ -38,7 +38,7 @@ export const services: Service[] = [
     title: "Film dán nội thất tủ bếp – Thi công & tư vấn báo giá",
     description: "Film dán nội thất cho tủ bếp với bề mặt vân gỗ, đơn sắc hoặc kim loại. Tìm hiểu xử lý dầu mỡ, độ ẩm và các mép cánh trước khi thi công.",
     intro: "Film dán nội thất giúp đổi màu cánh tủ bếp và các phần hoàn thiện bên ngoài khi cốt tủ còn ổn định. Trước khi chọn mẫu, cần kiểm tra dầu mỡ, độ ẩm, cạnh cánh và khu vực gần bếp nấu, bồn rửa để xác định phạm vi thi công phù hợp.",
-    image: "/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp",
+    image: "/images/blog/tu-bep/film-noi-that-tu-bep-trang-voi-mang-van-go-phia-tren-mat-bep.webp",
     sections: [
       { title: "Tủ bếp nào phù hợp với film dán nội thất?", text: "Cánh tủ còn phẳng, khô và không bong lớp nền là điểm khởi đầu phù hợp để khảo sát. MDF bị trương nở, mép mục hoặc lớp phủ cũ mất độ bám cần được sửa trước. Việc phủ film lên phần hư hỏng chỉ che bề mặt và có thể làm giảm độ bền hoàn thiện." },
       { title: "Xử lý dầu mỡ và các mép cánh", text: "Dầu mỡ tích tụ quanh tay nắm và bếp nấu có thể cản trở độ bám. Kỹ thuật viên cần làm sạch bằng phương pháp phù hợp với lớp nền, để khô rồi kiểm tra lại. Vị trí bản lề, cạnh cánh và khe mở phải được tính trước để film không cọ sát khi sử dụng." },

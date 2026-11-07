@@ -1,3 +1,5 @@
+import kitchenPosts from "./kitchenPosts.json";
+
 // Ảnh do chủ website cung cấp; mô tả nội dung ảnh, không xác nhận địa điểm hoặc hồ sơ thi công.
 export const uploadedImages = [
   {
@@ -632,5 +634,7 @@ export const uploadedImages = [
 
 // Use the image description in existing slots, without adding visible text.
 export function uploadedImageAlt(src: string, fallback: string) {
-  return uploadedImages.find(image => image.src === src)?.alt || fallback;
+  const kitchenImage = kitchenPosts.find(post => post.image === src);
+  const inlineImage = kitchenPosts.flatMap(post => post.sections.flatMap(section => "image" in section && section.image ? [section.image] : [])).find(image => image.src === src);
+  return kitchenImage?.imageAlt || inlineImage?.alt || uploadedImages.find(image => image.src === src)?.alt || fallback;
 }
