@@ -188,7 +188,15 @@
         "paragraphs": [
           "Bề mặt phản chiếu rõ có thể làm nổi gợn nền hoặc bóng đèn. Bề mặt ít bóng lại cho cảm nhận khác về màu và vết chạm tay. Vì vậy, câu hỏi nên đặt là mã nào phù hợp ánh sáng và thói quen sử dụng, thay vì cho rằng bóng hay mờ luôn tốt hơn.",
           "Với tủ có nhiều cánh hẹp, thử đặt vân theo hai hướng trước khi cắt. Bản vẽ bố trí đơn giản giúp bạn hình dung các đường vân khi đóng cả bộ tủ, đồng thời giúp dự tính phần vật tư phải canh chiều."
-        ]
+        ],
+        "image": {
+          "src": "/images/thi-cong/tu-bep-xam-xanh-voi-canh-phang-va-dao-bep.webp",
+          "title": "Gợi ý film đơn sắc cho tủ bếp xám xanh",
+          "alt": "Tủ bếp xám xanh với cánh phẳng, đảo bếp và bàn ăn cạnh cửa kính",
+          "caption": "Gợi ý film đơn sắc cho tủ bếp xám xanh. Ảnh tham khảo.",
+          "width": 552,
+          "height": 362
+        }
       },
       {
         "id": "thu-mau",
@@ -291,7 +299,15 @@
         "paragraphs": [
           "Có thể phối theo nhóm chức năng, chẳng hạn tủ dưới dùng gỗ và tủ trên dùng màu trơn, nếu các sắc độ phù hợp nhau. Hãy giữ số lượng mã vừa phải và đánh dấu rõ trên bản chụp tổng thể để người cung cấp vật tư hiểu đúng phương án.",
           "Với cánh tủ có nẹp, hộc mở hoặc thiết bị âm, cần xác định phần nào dán và phần nào giữ nguyên. Màu nền cũ lộ ở khe hoặc mặt trong có thể ảnh hưởng cảm nhận khi mở tủ, nên phạm vi hoàn thiện cần được trao đổi cùng thiết kế màu."
-        ]
+        ],
+        "image": {
+          "src": "/images/thi-cong/tu-bep-xam-dam-phoi-dao-bep-va-anh-sang-tu-nhien.webp",
+          "title": "Phối film tủ bếp xám đậm trong không gian sáng",
+          "alt": "Hệ tủ và đảo bếp màu xám đậm cạnh cửa kính lớn",
+          "caption": "Phối film tủ bếp xám đậm trong không gian sáng. Ảnh tham khảo.",
+          "width": 709,
+          "height": 432
+        }
       },
       {
         "id": "so-sanh-cong-bang",

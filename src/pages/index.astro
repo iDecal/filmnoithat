@@ -72,7 +72,7 @@ const faqs = [
 
     <section class="home-section px-4 sm:px-6 bg-white" aria-labelledby="benefits-title">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <figure class="order-2 lg:order-1"><img src="/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg" alt="Tham khảo thao tác hoàn thiện film dán nội thất trên bề mặt" width="1024" height="530" loading="lazy" class="w-full aspect-[16/10] lg:aspect-[4/5] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Chỉn chu ở từng chi tiết hoàn thiện · Ảnh tham khảo</figcaption></figure>
+        <figure class="order-2 lg:order-1"><img src="/images/thi-cong/thi-cong-film-van-go-bang-may-kho-o-mep-cong.webp" alt="Thợ đeo găng dùng máy khò hỗ trợ uốn film vân gỗ theo mép cong" title="Thi công film nội thất vân gỗ tại mép cong" width="739" height="415" loading="lazy" class="w-full aspect-[16/10] lg:aspect-[4/5] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Chỉn chu ở từng chi tiết hoàn thiện · Ảnh tham khảo</figcaption></figure>
         <div class="order-1 lg:order-2"><p class="home-kicker mb-4">VÌ SAO CHỌN D-vinyl?</p><h2 id="benefits-title" class="home-heading">Đẹp từ lựa chọn.<br />Rõ ràng đến hoàn thiện.</h2><div class="mt-7 divide-y divide-base-200">{benefits.map(item => <article class="flex gap-4 py-5"><span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-accent-100 text-accent-700 shrink-0"><Icon name={item.icon} size={22} /></span><div><h3 class="text-base sm:text-lg font-medium">{item.title}</h3><p class="text-sm text-base-600 mt-2">{item.text}</p></div></article>)}</div></div>
       </div>
     </section>
@@ -92,7 +92,7 @@ const faqs = [
           </div>
           <div class="lg:border-l lg:border-base-200 lg:pl-10">
             <p class="home-kicker mb-5">ĐỌC THÊM TRƯỚC KHI CHỌN VẬT LIỆU</p>
-            <div class="divide-y divide-base-200">{posts.slice(0,3).map(post => <a href={postHref(post)} class="group flex items-start gap-4 sm:gap-5 py-5 first:pt-0"><img src={post.image} alt={post.title} width="140" height="140" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shrink-0" /><div class="min-w-0"><p class="text-xs text-base-600 mb-2"><time datetime={post.date}>{formatDate(post.date)}</time> / Cẩm nang</p><h3 class="text-base sm:text-lg font-medium">{post.title}</h3><span class="home-text-link text-sm mt-1">Đọc bài viết <Icon name="arrow" size={16} /></span></div></a>)}</div>
+            <div class="divide-y divide-base-200">{posts.slice(0,3).map(post => <a href={postHref(post)} class="group flex items-start gap-4 sm:gap-5 py-5 first:pt-0"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="140" height="140" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shrink-0" /><div class="min-w-0"><p class="text-xs text-base-600 mb-2"><time datetime={post.date}>{formatDate(post.date)}</time> / Cẩm nang</p><h3 class="text-base sm:text-lg font-medium">{post.title}</h3><span class="home-text-link text-sm mt-1">Đọc bài viết <Icon name="arrow" size={16} /></span></div></a>)}</div>
           </div>
         </div>
       </div>

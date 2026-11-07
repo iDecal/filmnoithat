@@ -1,7 +1,8 @@
+import { installationImages } from "./installationImages";
 import kitchenPosts from "./kitchenPosts.json";
 
 export interface PostImage {
-  src: string; alt: string; caption: string; width: number; height: number;
+  src: string; alt: string; caption: string; width: number; height: number; title?: string;
 }
 
 export interface Post {
@@ -12,6 +13,7 @@ export interface Post {
   image: string;
   intro: string;
   imageAlt?: string;
+  imageTitle?: string;
   imageCaption?: string;
   imageWidth?: number;
   imageHeight?: number;
@@ -33,12 +35,12 @@ export const posts: Post[] = [
     slug: "cach-chon-film-noi-that",
     title: "Cách chọn film dán nội thất: Cẩm nang cho từng bề mặt",
     description: "Chọn film nội thất theo nền vật liệu, công năng và ánh sáng. Hướng dẫn so sánh mẫu vân gỗ, vải, bê tông, kim loại trước khi mua hoặc thi công.",
-    date: "2026-11-03", image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
+    date: "2026-11-03", image: installationImages[0].src, imageAlt: installationImages[0].alt, imageTitle: installationImages[0].title, imageCaption: installationImages[0].caption, imageWidth: 1024, imageHeight: 768,
     intro: "Chọn film nội thất không chỉ là chọn một màu đẹp trên catalogue. Cùng một họa tiết có thể cho cảm giác khác nhau khi đặt lên cánh tủ, mặt bàn hoặc vách có đèn hắt. Một lựa chọn phù hợp cần bắt đầu từ hiện trạng bề mặt, sau đó mới đến công năng và cách phối màu.",
     sections: [
       { id: "kiem-tra-nen", title: "1. Bắt đầu từ bề mặt cần dán", paragraphs: ["Ghi lại vật liệu nền: gỗ có lớp phủ, kim loại, kính, tường sơn hay vách hoàn thiện. Sau đó kiểm tra lớp nền có khô, phẳng và ổn định không. Phần gỗ trương nở, sơn phấn hóa hoặc tường thấm cần được xử lý trước; một lớp film mới không khắc phục được các nguyên nhân này.", "Nếu chưa rõ khả năng bám dính, hãy gửi ảnh cận cảnh và yêu cầu đánh giá hoặc thử trên một vùng phù hợp. Bề mặt càng nhiều góc, nẹp và mối ghép càng cần khảo sát kỹ trước khi tính lượng vật tư."] },
-      { id: "chon-theo-cong-nang", title: "2. Chọn theo công năng, không chỉ theo họa tiết", paragraphs: ["Mặt bàn thường xuyên tiếp xúc đồ vật có yêu cầu khác vách sau sofa. Tủ bếp cần tính đến dầu mỡ, hơi nước và khoảng cách đến nguồn nhiệt. Cabin thang máy cần thêm sự thống nhất với ban quản lý và hồ sơ vật liệu theo yêu cầu công trình."], bullets: ["Bàn và kệ: hỏi rõ hướng dẫn vệ sinh, xử lý mép và cách dùng tấm lót.", "Tủ bếp: kiểm tra nền gần bồn rửa, tay nắm và bếp nấu.", "Vách và trần: xem cách bố trí vân, mối nối và điều kiện tiếp cận khi thi công."] },
-      { id: "so-sanh-mau", title: "3. Đặt mẫu cạnh nội thất hiện có", paragraphs: ["Vân gỗ, vân bê tông và vân vải là những hướng tham khảo khác nhau. Đừng quyết định chỉ từ ảnh sản phẩm: màu màn hình, độ sáng và cân bằng trắng của ảnh đều có thể làm thay đổi cảm nhận.", "Đặt mẫu cạnh sàn, tường và mặt đá sẵn có. Xem vào ban ngày lẫn lúc bật đèn, ở góc nhìn gần và xa. Với vân có hướng, thử đặt theo chiều đứng và ngang để biết cách bố trí nào phù hợp trước khi cắt."] },
+      { id: "chon-theo-cong-nang", image: installationImages[6], title: "2. Chọn theo công năng, không chỉ theo họa tiết", paragraphs: ["Mặt bàn thường xuyên tiếp xúc đồ vật có yêu cầu khác vách sau sofa. Tủ bếp cần tính đến dầu mỡ, hơi nước và khoảng cách đến nguồn nhiệt. Cabin thang máy cần thêm sự thống nhất với ban quản lý và hồ sơ vật liệu theo yêu cầu công trình."], bullets: ["Bàn và kệ: hỏi rõ hướng dẫn vệ sinh, xử lý mép và cách dùng tấm lót.", "Tủ bếp: kiểm tra nền gần bồn rửa, tay nắm và bếp nấu.", "Vách và trần: xem cách bố trí vân, mối nối và điều kiện tiếp cận khi thi công."] },
+      { id: "so-sanh-mau", image: installationImages[4], title: "3. Đặt mẫu cạnh nội thất hiện có", paragraphs: ["Vân gỗ, vân bê tông và vân vải là những hướng tham khảo khác nhau. Đừng quyết định chỉ từ ảnh sản phẩm: màu màn hình, độ sáng và cân bằng trắng của ảnh đều có thể làm thay đổi cảm nhận.", "Đặt mẫu cạnh sàn, tường và mặt đá sẵn có. Xem vào ban ngày lẫn lúc bật đèn, ở góc nhìn gần và xa. Với vân có hướng, thử đặt theo chiều đứng và ngang để biết cách bố trí nào phù hợp trước khi cắt."] },
       { id: "kiem-tra-thong-tin", title: "4. Xác nhận thông tin trước khi đặt hàng", paragraphs: ["Cần xác nhận mã film, khổ rộng, độ dày, lô hàng và các giới hạn sử dụng theo catalogue hoặc tài liệu của nhà cung cấp. Không mặc định mọi film đều chống cháy, chịu nhiệt hoặc chống xước như nhau.", "Nếu thuê thi công, yêu cầu báo giá thể hiện vật tư, nhân công, xử lý nền, tháo lắp và vị trí mối nối. Nếu chỉ mua vật liệu, trao đổi thêm cách bảo quản và lượng dư phù hợp cho việc canh vân, bo mép. Việc đo đạc và chốt mẫu trước giúp giảm sai lệch khi hoàn thiện."] },
     ],
     materials: ["van-go", "be-tong", "van-vai"],
@@ -55,7 +57,7 @@ export const posts: Post[] = [
       { id: "dau-mo", title: "2. Làm sạch dầu mỡ và đánh giá lớp phủ cũ", paragraphs: ["Dầu mỡ thường tích tụ quanh tay nắm, cạnh cánh và vùng gần bếp. Cách làm sạch cần phù hợp với lớp nền; không nên tùy tiện dùng dung môi mạnh có thể làm hỏng sơn hoặc nhựa phủ.", "Sau khi làm sạch và để khô, kỹ thuật viên cần kiểm tra lớp phủ cũ còn bám chắc không. Với nền chưa rõ đặc tính, việc thử độ bám trên vùng phù hợp giúp đánh giá trước khi thi công toàn bộ."] },
       { id: "chon-mau", title: "3. Chọn mẫu theo ánh sáng và cách sử dụng bếp", paragraphs: ["Mẫu vân gỗ có thể dùng để tham khảo khi phối cánh tủ với mặt đá và tường bếp. Nếu muốn thêm điểm nhấn, xem mẫu kim loại và so sánh trực tiếp dưới ánh sáng trong bếp. Đây là gợi ý phối vật liệu, không phải khẳng định mọi mã đều phù hợp mọi vị trí.", "Hãy xác nhận giới hạn về nhiệt, hơi nước và chất vệ sinh của mã film đã chọn. Không xem film trang trí như lớp chống cháy hoặc đặt bề mặt film tiếp xúc trực tiếp với nguồn nhiệt vượt hướng dẫn vật liệu."] },
       { id: "chot-pham-vi", title: "4. Chốt rõ phạm vi thi công và báo giá", paragraphs: ["Báo giá nên cho biết dán mặt ngoài hay cả cạnh và mặt trong, có tháo tay nắm hay cánh tủ không, ai chịu trách nhiệm xử lý lớp nền và lắp lại phụ kiện. Những khác biệt này làm thay đổi khối lượng công việc, vì vậy một đơn giá theo diện tích chưa đủ để so sánh."], bullets: ["Gửi ảnh tổng thể và ảnh cận cảnh vùng ẩm, bong hoặc trầy.", "Ghi số lượng cánh, kích thước và phần nội thất muốn giữ nguyên.", "Thống nhất giờ làm việc và thời gian bếp cần ngừng sử dụng.", "Xác nhận cách nghiệm thu, điều kiện bảo hành và hướng dẫn chăm sóc bằng văn bản."] },
-      { id: "nghiem-thu", title: "5. Kiểm tra khi bàn giao và sử dụng đúng cách", paragraphs: ["Quan sát mối nối, góc, mép cánh và khu vực quanh tay nắm. Đóng mở các cánh để kiểm tra độ cọ sát và xác nhận các phụ kiện hoạt động bình thường. Nếu có điểm bất thường, ghi nhận cùng đơn vị thi công thay vì tự bóc hoặc hơ nóng film.", "Trong quá trình sử dụng, lau vết bẩn bằng khăn mềm và sản phẩm vệ sinh được phép. Xử lý sớm nước rò từ chậu rửa và tránh chà nhám bề mặt. Việc chăm sóc cần theo hướng dẫn của đúng mã film và lớp nền bên dưới."] },
+      { id: "nghiem-thu", image: installationImages[3], title: "5. Kiểm tra khi bàn giao và sử dụng đúng cách", paragraphs: ["Quan sát mối nối, góc, mép cánh và khu vực quanh tay nắm. Đóng mở các cánh để kiểm tra độ cọ sát và xác nhận các phụ kiện hoạt động bình thường. Nếu có điểm bất thường, ghi nhận cùng đơn vị thi công thay vì tự bóc hoặc hơ nóng film.", "Trong quá trình sử dụng, lau vết bẩn bằng khăn mềm và sản phẩm vệ sinh được phép. Xử lý sớm nước rò từ chậu rửa và tránh chà nhám bề mặt. Việc chăm sóc cần theo hướng dẫn của đúng mã film và lớp nền bên dưới."] },
     ],
     materials: ["van-go", "kim-loai"],
     services: ["dan-film-tu-bep", "dan-film-ban"],
@@ -64,7 +66,7 @@ export const posts: Post[] = [
     slug: "bao-gia-dan-film",
     title: "Giá dán film nội thất tính thế nào? Cách so sánh báo giá",
     description: "Hiểu cách báo giá dán film nội thất: mã vật liệu, khối lượng, hao hụt, xử lý nền, góc cạnh và tháo lắp. Checklist để so sánh báo giá rõ ràng.",
-    date: "2026-11-03", image: "/images/cong-trinh/huong-dan-tu-dan-film-noi-that-DIY.jpg",
+    date: "2026-11-03", image: installationImages[5].src, imageAlt: installationImages[5].alt, imageTitle: installationImages[5].title, imageCaption: installationImages[5].caption, imageWidth: 739, imageHeight: 415,
     intro: "Hai công trình có cùng diện tích nhìn thấy vẫn có thể nhận báo giá khác nhau. Nguyên nhân thường nằm ở mã film, cách bố trí vân, tình trạng lớp nền và số chi tiết cần xử lý. Thay vì chỉ hỏi một giá theo mét vuông, hãy làm rõ những phần việc thực sự được tính trong báo giá.",
     sections: [
       { id: "vat-tu", title: "1. Mã film và lượng vật tư thực tế", paragraphs: ["Giá vật tư phụ thuộc mã film, khổ cuộn, nguồn cung và lượng cần đặt. Diện tích hoàn thiện không phải lúc nào cũng bằng lượng vật tư phải cắt: chiều vân, cách ghép mảng và phần bo mép có thể tạo hao hụt.", "Với tủ nhiều cánh hoặc vách có họa tiết định hướng, cần có cách chia tấm trước khi tính vật tư. Hãy hỏi báo giá đang tính theo mét dài, mét vuông hay trọn hạng mục để tránh so sánh các đơn vị khác nhau."] },
