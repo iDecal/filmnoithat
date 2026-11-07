@@ -1,0 +1,18 @@
+---
+import { uploadedImagesForPath } from "../data/uploadedImages";
+interface Props { material?: string; service?: string; featured?: boolean }
+const { material, service, featured = false } = Astro.props;
+const images = uploadedImagesForPath(Astro.url.pathname);
+const visible = images.slice(0, 4);
+const remaining = images.slice(4);
+---
+{images.length > 0 && <section class="px-4 sm:px-6 section-space bg-base-50" aria-label="Ảnh không gian và mẫu film">
+  <div class="max-w-7xl mx-auto">
+    <p class="eyebrow mb-3">TỪ MẪU FILM ĐẾN KHÔNG GIAN</p>
+    <h2 class="text-2xl md:text-3xl font-semibold">{material ? "Bề mặt và cách phối vật liệu" : service ? "Góc nhìn từ bề mặt thực tế" : "Khám phá thêm qua hình ảnh"}</h2>
+    <p class="text-base-600 mt-4 max-w-2xl">Tham khảo màu sắc, chi tiết bề mặt và cách phối film trong nội thất. Màu ảnh có thể khác mẫu thật tùy ánh sáng và màn hình.</p>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8">{visible.map(image => <figure class="min-w-0"><a href={image.src} target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden border border-base-200 bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500" aria-label={`Xem ảnh lớn: ${image.alt}`}><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" class="w-full h-56 sm:h-64 object-contain" /></a><figcaption class="text-sm text-base-600 mt-3">{image.caption}</figcaption></figure>)}</div>
+    {remaining.length > 0 && <details class="mt-8"><summary class="cursor-pointer text-primary-600 font-medium py-3">Xem thêm {remaining.length} ảnh</summary><div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-5">{remaining.map(image => <figure class="min-w-0"><a href={image.src} target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden border border-base-200 bg-white" aria-label={`Xem ảnh lớn: ${image.alt}`}><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" class="w-full h-56 sm:h-64 object-contain" /></a><figcaption class="text-sm text-base-600 mt-3">{image.caption}</figcaption></figure>)}</div></details>}
+    {featured && <a href="/vat-lieu/#anh-tham-khao" class="inline-block text-primary-600 font-medium mt-7">Xem toàn bộ ảnh vật liệu và không gian →</a>}
+  </div>
+</section>}

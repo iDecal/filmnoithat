@@ -1,3 +1,4 @@
+import { uploadedImagesForPath } from "./uploadedImages";
 import { productHeading } from "./seoTitles";
 import { site as business } from "./site";
 import { catalogue, sampleHref } from "./catalogue";
@@ -28,6 +29,18 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   const page: Node = { "@type": "WebPage", "@id": pageId, url, name: title, description, inLanguage: "vi-VN",
     isPartOf: ref(siteId), publisher: ref(orgId), primaryImageOfPage: ref(url + "#primaryimage") };
   graph.push(page, { "@type": "ImageObject", "@id": url + "#primaryimage", url: absolute(image), contentUrl: absolute(image) });
+  const galleryPhotos = uploadedImagesForPath(path);
+  if (galleryPhotos.length) {
+    const photoNodes = galleryPhotos.map(photo => ({
+      "@type": "ImageObject", "@id": absolute(photo.src) + "#image",
+      url: absolute(photo.src), contentUrl: absolute(photo.src),
+      name: photo.caption, caption: photo.caption, description: photo.alt,
+      encodingFormat: "image/webp", width: photo.width, height: photo.height,
+      inLanguage: "vi-VN", representativeOfPage: false,
+    }));
+    page.image = photoNodes.map(photo => ref(photo["@id"]));
+    graph.push(...photoNodes);
+  }
   const breadcrumb = supplied.find(item => item["@type"] === "BreadcrumbList");
   if (breadcrumb) {
     const { "@context": _context, ...values } = breadcrumb;

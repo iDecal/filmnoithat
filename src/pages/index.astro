@@ -1,4 +1,5 @@
 ---
+import UploadedImageGallery from "../components/UploadedImageGallery.astro";
 import { catalogue } from "../data/catalogue";
 import { formatRetailPrice } from "../data/infeelPrices";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -98,6 +99,7 @@ const faqs = [
       </div>
     </section>
 
+    <UploadedImageGallery featured />
     <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="faq-title"><div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.3fr)] gap-8 lg:gap-16"><div><p class="home-kicker mb-3">TRƯỚC KHI CHỌN MẪU</p><h2 id="faq-title" class="home-heading">Một vài điều bạn có thể đang hỏi.</h2><a href="/blog/" class="home-text-link mt-4">Đọc thêm cẩm nang <Icon name="arrow" size={18} /></a></div><div class="space-y-3">{faqs.map(faq => <details class="bg-white border border-base-200 rounded-xl p-5 sm:p-6"><summary class="font-medium cursor-pointer leading-relaxed">{faq.question}</summary><p class="text-base-600 mt-4 leading-relaxed">{faq.answer}</p></details>)}</div></div></section>
 
     <section id="bao-gia" class="home-section px-4 sm:px-6 bg-white" aria-labelledby="quote-title">

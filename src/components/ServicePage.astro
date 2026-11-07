@@ -1,4 +1,5 @@
 ---
+import UploadedImageGallery from "./UploadedImageGallery.astro";
 import Icon from "./Icon.astro";
 import ServiceReferenceGallery from "./ServiceReferenceGallery.astro";
 import { categoryIcon } from "../data/icons";
@@ -146,6 +147,7 @@ const steps = [
     <a href={site.phoneHref} class="button-secondary">Gọi ngay</a>
     <a href={site.zaloHref} class="button-primary">Tư vấn qua Zalo →</a>
   </nav>
+  <UploadedImageGallery service={service.slug} />
 </BaseLayout>
 
 <script>
