@@ -630,12 +630,7 @@ export const uploadedImages = [
   }
 ];
 
-// Keep visible galleries, structured data and the image sitemap in sync.
-export function uploadedImagesForPath(path: string) {
-  if (path === "/") return uploadedImages.filter(image => image.featured);
-  if (path === "/vat-lieu/" || path === "/dich-vu/dan-film-noi-that/") return uploadedImages;
-  const material = path.match(/^\/vat-lieu\/([^/]+)\/$/)?.[1];
-  if (material) return uploadedImages.filter(image => image.materials.includes(material));
-  const service = path.match(/^\/dich-vu\/([^/]+)\/$/)?.[1];
-  return service ? uploadedImages.filter(image => image.services.includes(service)) : [];
+// Use the image description in existing slots, without adding visible text.
+export function uploadedImageAlt(src: string, fallback: string) {
+  return uploadedImages.find(image => image.src === src)?.alt || fallback;
 }

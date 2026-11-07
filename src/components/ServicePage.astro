@@ -1,5 +1,5 @@
 ---
-import UploadedImageGallery from "./UploadedImageGallery.astro";
+import { uploadedImageAlt } from "../data/uploadedImages";
 import Icon from "./Icon.astro";
 import ServiceReferenceGallery from "./ServiceReferenceGallery.astro";
 import { categoryIcon } from "../data/icons";
@@ -72,7 +72,7 @@ const steps = [
             <ul class="hidden lg:flex flex-wrap gap-x-5 gap-y-2 mt-7 text-sm text-base-600"><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Xem mẫu trước</li><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Chốt rõ phạm vi</li></ul>
           </div>
           <div>
-            <figure class="relative rounded-2xl lg:rounded-3xl overflow-hidden bg-white border border-base-200"><img src={service.image} alt={`Hình tham khảo cho ${service.name.toLowerCase()}`} width="1000" height="800" fetchpriority="high" class="service-hero-image w-full aspect-[16/9] lg:aspect-[5/4] object-cover" /><span class="absolute bottom-3 left-3 lg:hidden bg-white/95 text-base-700 text-xs px-3 py-1 rounded-full">Ảnh tham khảo</span><figcaption class="hidden lg:block px-5 py-4 text-sm text-base-600">{design.caption}</figcaption></figure>
+            <figure class="relative rounded-2xl lg:rounded-3xl overflow-hidden bg-white border border-base-200"><img src={service.image} alt={uploadedImageAlt(service.image, `Hình tham khảo cho ${service.name.toLowerCase()}`)} width="1000" height="800" fetchpriority="high" class="service-hero-image w-full aspect-[16/9] lg:aspect-[5/4] object-cover" /><span class="absolute bottom-3 left-3 lg:hidden bg-white/95 text-base-700 text-xs px-3 py-1 rounded-full">Ảnh tham khảo</span><figcaption class="hidden lg:block px-5 py-4 text-sm text-base-600">{design.caption}</figcaption></figure>
 
           </div>
         </div>
@@ -147,7 +147,6 @@ const steps = [
     <a href={site.phoneHref} class="button-secondary">Gọi ngay</a>
     <a href={site.zaloHref} class="button-primary">Tư vấn qua Zalo →</a>
   </nav>
-  <UploadedImageGallery service={service.slug} />
 </BaseLayout>
 
 <script>

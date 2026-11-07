@@ -1,5 +1,4 @@
 ---
-import UploadedImageGallery from "../components/UploadedImageGallery.astro";
 import { catalogue } from "../data/catalogue";
 import { formatRetailPrice } from "../data/infeelPrices";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -33,7 +32,7 @@ const faqs = [
   { question: "Dán đè film cũ được không?", answer: "Nên bóc film cũ và vệ sinh sạch để bám tốt nhất." },
 ];
 ---
-<BaseLayout brandName="D-vinyl" title="Film dán nội thất D-vinyl – Vân gỗ, vân đá & thi công" description={`Film dán nội thất D-vinyl: vân gỗ, vân đá, màu trơn. Giá vật liệu INFEEL từ ${infeelStartingPrice}/mét dài, cung cấp toàn quốc và tư vấn thi công.`} image="/images/home/interior-kitchen.webp" faqs={faqs}>
+<BaseLayout brandName="D-vinyl" title="Film dán nội thất D-vinyl – Vân gỗ, vân đá & thi công" description={`Film dán nội thất D-vinyl: vân gỗ, vân đá, màu trơn. Giá vật liệu INFEEL từ ${infeelStartingPrice}/mét dài, cung cấp toàn quốc và tư vấn thi công.`} image="/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp" faqs={faqs}>
   <div class="home-luxe">
     <section class="home-hero px-4 sm:px-6 bg-base-50 surface-gradient">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-8 lg:gap-14 items-center">
@@ -44,7 +43,7 @@ const faqs = [
           <div class="flex flex-col sm:flex-row gap-3 mt-7"><a href="/vat-lieu/" class="button-primary">Xem bộ sưu tập <Icon name="arrow" size={18} class="ml-2" /></a><a href="#bao-gia" class="button-secondary">Nhận báo giá miễn phí</a></div>
           <p class="text-xs sm:text-sm text-base-600 mt-6">INFEEL từ {infeelStartingPrice}/mét dài · Cung cấp toàn quốc</p>
         </div>
-        <figure class="min-w-0"><img src="/images/home/interior-kitchen.webp" alt="Film dán nội thất vân gỗ cho không gian tủ bếp sáng và hiện đại – ảnh tham khảo" width="810" height="543" fetchpriority="high" class="w-full aspect-[4/3] lg:aspect-[5/4] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Gợi ý phối chất liệu cho không gian bếp · Ảnh tham khảo</figcaption></figure>
+        <figure class="min-w-0"><img src="/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp" alt="Tủ bếp phối cánh tủ màu đậm và vân gỗ sáng – ảnh tham khảo film nội thất" width="960" height="1280" fetchpriority="high" class="w-full aspect-[4/3] lg:aspect-[5/4] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Gợi ý phối chất liệu cho không gian bếp · Ảnh tham khảo</figcaption></figure>
       </div>
     </section>
 
@@ -99,7 +98,6 @@ const faqs = [
       </div>
     </section>
 
-    <UploadedImageGallery featured />
     <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="faq-title"><div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.3fr)] gap-8 lg:gap-16"><div><p class="home-kicker mb-3">TRƯỚC KHI CHỌN MẪU</p><h2 id="faq-title" class="home-heading">Một vài điều bạn có thể đang hỏi.</h2><a href="/blog/" class="home-text-link mt-4">Đọc thêm cẩm nang <Icon name="arrow" size={18} /></a></div><div class="space-y-3">{faqs.map(faq => <details class="bg-white border border-base-200 rounded-xl p-5 sm:p-6"><summary class="font-medium cursor-pointer leading-relaxed">{faq.question}</summary><p class="text-base-600 mt-4 leading-relaxed">{faq.answer}</p></details>)}</div></div></section>
 
     <section id="bao-gia" class="home-section px-4 sm:px-6 bg-white" aria-labelledby="quote-title">

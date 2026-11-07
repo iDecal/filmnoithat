@@ -1,5 +1,4 @@
 ---
-import UploadedImageGallery from "./UploadedImageGallery.astro";
 import { materialGuides } from "../data/materialGuides";
 import { materialSeoTitle, materialHeading } from "../data/seoTitles";
 import Icon from "./Icon.astro";
@@ -36,7 +35,6 @@ const schema = [
       <div class="aspect-square lg:aspect-[5/4] rounded-3xl overflow-hidden bg-base-100 border border-base-200">{heroSample ? <img src={heroSample.application || heroSample.image} alt={`Film dán nội thất ${material.shortName.toLowerCase()} — ${heroSample.application ? "Ứng dụng tham khảo" : "Bề mặt mẫu"} ${heroSample.code} từ catalogue ${heroSample.collection}`} width="900" height="720" fetchpriority="high" class="w-full h-full object-cover" /> : <MaterialPreview material={material} priority />}</div>
     </div>
   </div></section>
-  <UploadedImageGallery material={material.slug} />
   <CatalogueGrid category={material.slug} />
   <section id="ung-dung" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><p class="eyebrow mb-3">PHỐI VẬT LIỆU THEO CÔNG NĂNG</p><h2 class="text-2xl md:text-[1.625rem] font-semibold mb-6">Ứng dụng film dán nội thất {material.shortName.toLowerCase()}</h2><div class="grid md:grid-cols-3 gap-6">{material.applications.map((item, index) => <div class="rounded-2xl border border-base-200 p-6 md:p-8"><span class="text-sm font-semibold text-primary-600">0{index + 1}</span><h3 class="text-lg font-semibold mt-4 mb-3">{index === 0 ? `Film dán nội thất cho ${item.title.toLowerCase()}` : item.title}</h3><p class="text-base-600">{item.text}</p></div>)}</div></div></section>
   <section class="px-4 sm:px-6 section-space warm-surface"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold">Cách chọn mẫu {material.shortName.toLowerCase()} phù hợp</h2><div class="grid md:grid-cols-3 gap-6 mt-7">{materialGuides[material.slug].map(item => <article class="border-t border-base-200 pt-5"><h3 class="text-lg font-semibold">{item.title}</h3><p class="text-base-600 text-sm mt-3 leading-relaxed">{item.text}</p></article>)}</div></div></section>
