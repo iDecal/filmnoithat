@@ -16,8 +16,8 @@ export const services: Service[] = [
   {
     slug: "dan-film-noi-that", name: "Dán film nội thất",
     heading: "Thi công film dán nội thất",
-    title: "Film dán nội thất – Dịch vụ thi công & báo giá toàn quốc",
-    description: "Thi công film dán nội thất giúp làm mới bàn, tủ, tường, trần và thang máy khi kết cấu còn tốt. Xem mẫu, quy trình khảo sát và tư vấn báo giá.",
+    title: "Dịch Vụ Thi Công Phim Nội Thất & Decal Chuyên Nghiệp",
+    description: "Chuyên cung cấp dịch vụ thiết kế Decal, dán phim nội thất, giấy dán kính và decal trang trí trọn gói. Thi công nhanh chóng, chuẩn xác, bảo hành uy tín tại TP.HCM, Bình Dương, Đồng Nai, Vũng Tàu.",
     intro: "Film dán nội thất là lớp hoàn thiện giúp thay đổi màu sắc, họa tiết của bàn, tủ và vách mà vẫn giữ lại kết cấu còn tốt. Vật liệu và phương án thi công được lựa chọn theo hiện trạng, công năng và nhu cầu của từng công trình.",
     image: "/images/cong-trinh/banner-film-dan-noi-that.jpg",
     sections: [
