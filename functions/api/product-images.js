@@ -1,2 +1,2 @@
 import { uploadProductImage, deleteProductImage } from '../../server/product-image-upload.mjs';
-export const onRequest = context => context.request.method === 'DELETE' ? deleteProductImage(context) : uploadProductImage(context);
+export const onRequest = context => ['DELETE', 'PATCH'].includes(context.request.method) ? deleteProductImage(context) : uploadProductImage(context);

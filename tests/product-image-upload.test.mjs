@@ -32,8 +32,8 @@ test('rejects cross-origin and anonymous writes before calling GitHub',async()=>
   assert.equal(response.status,input.auth===false?401:403);
  }
 });
-test('rejects traversal, blank ALT, forged MIME and oversized files',async()=>{
- const cases=[{slug:'../settings'},{alt:''},{type:'image/png',bytes:new Uint8Array([1,2,3])},{bytes:new Uint8Array(5*1024*1024+1)}];
+test('rejects traversal, excessive ALT, forged MIME and oversized files',async()=>{
+ const cases=[{slug:'../settings'},{alt:'a'.repeat(501)},{type:'image/png',bytes:new Uint8Array([1,2,3])},{bytes:new Uint8Array(5*1024*1024+1)}];
  for(const input of cases){const response=await uploadProductImage({request:request(input),env:{}},()=>{throw new Error('must not call GitHub');});assert.ok([400,413].includes(response.status));}
 });
 test('read-only GitHub users cannot save photos',async()=>{
@@ -76,4 +76,35 @@ test('deleting a main photo promotes an uploaded alternative, but the last mater
 test('deletion retries concurrent edits and retains another editor’s uploaded photo',async()=>{
  const mock=github({race:true});assert.equal((await deleteProductImage({request:deleteRequest(),env:{}},mock.fetcher)).status,200);
  const blobs=mock.calls.filter(call=>call.url.endsWith('/git/blobs'));const product=JSON.parse(Buffer.from(blobs.at(-1).body.content,'base64').toString());assert.equal(product.gallery.length,1);assert.equal(product.gallery[0].src,'/images/concurrent.webp');
+});
+
+test('blank ALT automatically uses the product name, code and brand', async () => {
+ const mock=github({product:{...record,name:'Vân gỗ'}});
+ const response=await uploadProductImage({request:request({alt:''}),env:{}},mock.fetcher);
+ assert.equal(response.status,201); const {photo}=await response.json();
+ assert.equal(photo.title,'Film dán nội thất Vân gỗ 922-03 – TODA');
+ assert.equal(photo.alt,`Bề mặt ${photo.title}`);
+});
+function managementRequest(method,body,auth=true){return new Request(`${origin}/api/product-images`,{method,headers:{Origin:origin,'Content-Type':'application/json',...(auth?{Authorization:'Bearer test-token'}:{})},body:JSON.stringify({slug:record.slug,brand:record.brand,...body})});}
+test('setting primary swaps the material photo while preserving the former primary and metadata',async()=>{
+ const mock=github({product:{...record,imageAlt:'Original ALT',gallery:[{src:'/images/existing.webp',alt:'New ALT',title:'New title',width:80,height:60}]}});
+ const response=await deleteProductImage({request:managementRequest('PATCH',{src:'/images/existing.webp'}),env:{}},mock.fetcher);
+ assert.equal(response.status,200);
+ const stored=JSON.parse(Buffer.from(mock.calls.find(c=>c.url.endsWith('/git/blobs')).body.content,'base64').toString());
+ assert.equal(stored.image,'/images/existing.webp');assert.equal(stored.imageAlt,'New ALT');assert.equal(stored.imageTitle,'New title');assert.equal(stored.imageWidth,80);assert.equal(stored.gallery[0].src,record.image);
+});
+test('primary cannot be a reference or hidden image',async()=>{
+ for(const src of ['/images/reference.webp','/images/existing.webp']){
+ const mock=github({product:{...record,hiddenImages:['/images/existing.webp']}});
+ const response=await deleteProductImage({request:managementRequest('PATCH',{src}),env:{}},mock.fetcher);
+ assert.equal(response.status,409);assert.ok(!mock.calls.some(c=>c.method==='POST'));
+ }
+});
+test('product deletion removes only the product JSON, requires permission, and retries concurrent changes',async()=>{
+ for(const auth of [false,true]){
+ const mock=github({race:true});const response=await deleteProductImage({request:managementRequest('DELETE',{action:'delete-product'},auth),env:{}},mock.fetcher);
+ assert.equal(response.status,auth?200:401);
+ if(auth){const trees=mock.calls.filter(c=>c.url.endsWith('/git/trees'));assert.equal(trees.length,2);for(const c of trees)assert.deepEqual(c.body.tree,[{path:'src/content/products/toda/toda-922-03.json',mode:'100644',type:'blob',sha:null}]);assert.equal((await response.json()).deletedProduct,true);}
+ }
+ const mock=github({push:false});assert.equal((await deleteProductImage({request:managementRequest('DELETE',{action:'delete-product'}),env:{}},mock.fetcher)).status,403);
 });

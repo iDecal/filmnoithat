@@ -596,6 +596,12 @@
           "hint": "Chọn ảnh để thay ảnh chính. Để tải thêm ảnh và giữ ảnh chính, dùng mục Ảnh vật liệu bổ sung."
         },
         {
+          "name": "imageTitle",
+          "label": "Tiêu đề ảnh chính",
+          "widget": "string",
+          "required": false
+        },
+        {
           "name": "imageAlt",
           "label": "ALT ảnh bề mặt",
           "widget": "string",
@@ -615,6 +621,12 @@
               "label": "Tải ảnh vật liệu lên",
               "widget": "image",
               "choose_url": false
+            },
+            {
+              "name": "title",
+              "label": "Tiêu đề ảnh",
+              "widget": "string",
+              "required": false
             },
             {
               "name": "alt",
@@ -851,6 +863,12 @@
           "hint": "Chọn ảnh để thay ảnh chính. Để tải thêm ảnh và giữ ảnh chính, dùng mục Ảnh vật liệu bổ sung."
         },
         {
+          "name": "imageTitle",
+          "label": "Tiêu đề ảnh chính",
+          "widget": "string",
+          "required": false
+        },
+        {
           "name": "imageAlt",
           "label": "ALT ảnh bề mặt",
           "widget": "string",
@@ -870,6 +888,12 @@
               "label": "Tải ảnh vật liệu lên",
               "widget": "image",
               "choose_url": false
+            },
+            {
+              "name": "title",
+              "label": "Tiêu đề ảnh",
+              "widget": "string",
+              "required": false
             },
             {
               "name": "alt",
@@ -1106,6 +1130,12 @@
           "hint": "Chọn ảnh để thay ảnh chính. Để tải thêm ảnh và giữ ảnh chính, dùng mục Ảnh vật liệu bổ sung."
         },
         {
+          "name": "imageTitle",
+          "label": "Tiêu đề ảnh chính",
+          "widget": "string",
+          "required": false
+        },
+        {
           "name": "imageAlt",
           "label": "ALT ảnh bề mặt",
           "widget": "string",
@@ -1125,6 +1155,12 @@
               "label": "Tải ảnh vật liệu lên",
               "widget": "image",
               "choose_url": false
+            },
+            {
+              "name": "title",
+              "label": "Tiêu đề ảnh",
+              "widget": "string",
+              "required": false
             },
             {
               "name": "alt",

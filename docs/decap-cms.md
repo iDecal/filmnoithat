@@ -107,3 +107,12 @@ Chọn ảnh thu nhỏ rồi bấm **Xóa ảnh đang chọn**. Hộp xác nhậ
 Sản phẩm luôn giữ ít nhất một ảnh vật liệu. Khi ảnh chính là ảnh vật liệu cuối cùng, nút xóa bị vô hiệu hóa và có hướng dẫn tải ảnh mới. Nếu đã có ảnh vật liệu bổ sung, xóa ảnh chính sẽ chuyển ảnh bổ sung đầu tiên thành ảnh chính. Các ảnh tham khảo có thể được xóa khỏi sản phẩm riêng lẻ mà không tác động ảnh dùng chung ở trang khác.
 
 API xóa chỉ cập nhật hồ sơ sản phẩm và danh sách `hiddenImages`, không xóa tệp media dùng chung. Trong CMS, mục **Ảnh đã xóa khỏi sản phẩm** cho phép bỏ đường dẫn khỏi danh sách để ảnh tham khảo xuất hiện lại; ảnh vật liệu bổ sung đã gỡ có thể được chọn lại từ thư viện và thêm vào `gallery`. Xóa ảnh dùng cùng kiểm tra origin, quyền ghi GitHub và cơ chế cập nhật không force như khi tải ảnh.
+
+### Quản lý ảnh và xóa sản phẩm ngay trên trang chi tiết
+
+- Chọn nhiều tệp JPG/PNG/WebP cùng lúc (tối đa 5 MB mỗi tệp). Ảnh được làm nét nhẹ theo tùy chọn, có bản xem trước, rồi lưu lần lượt.
+- Tiêu đề ảnh và ALT tự lấy từ tên, mã và thương hiệu trong bản ghi sản phẩm mới nhất; không cần nhập lại. Các trường này vẫn có thể sửa trong CMS.
+- Nếu một ảnh lưu lỗi, bấm lưu lại để tiếp tục các ảnh còn lại trong hàng đợi; ảnh đã lưu thành công không gửi lại.
+- Chọn một ảnh vật liệu trong thư viện rồi bấm **Đặt ảnh đang chọn làm ảnh chính**. Ảnh chính cũ chuyển vào thư viện bổ sung. Ảnh tham khảo không được dùng làm ảnh chính.
+- **Xóa sản phẩm này** mở hộp xác nhận. Khi xác nhận, API xóa riêng bản ghi JSON sản phẩm khỏi nhánh `main`, giữ các tệp ảnh dùng chung và đưa người quản trị về `/vat-lieu`. Website cập nhật sau khi Cloudflare hoàn tất triển khai.
+- Các thao tác lưu, đổi ảnh chính và xóa vẫn yêu cầu đăng nhập GitHub có quyền sửa repository, kiểm tra origin và cập nhật Git không dùng force. Nội dung có thể khôi phục qua lịch sử Git.

@@ -5,6 +5,9 @@ const { sample } = Astro.props;
 ---
 <div class="mt-5" data-product-upload data-slug={sample.slug} data-brand={sample.brand} data-primary={sample.image} data-extra-count={(sample.gallery || []).filter(photo => !(sample.hiddenImages || []).includes(photo.src)).length}>
   <button type="button" data-upload-open aria-expanded="false" class="button-secondary w-full">Tải ảnh vật liệu lên</button>
+  <button type="button" data-image-primary class="button-secondary w-full mt-3">Đặt ảnh đang chọn làm ảnh chính</button>
+  <button type="button" data-product-delete class="button-secondary w-full mt-3">Xóa sản phẩm này</button>
+  <dialog data-product-delete-dialog class="rounded-2xl bg-white p-7" aria-label="Xóa sản phẩm"><h2 class="text-xl font-semibold">Xóa sản phẩm {sample.brand} {sample.code}?</h2><p class="mt-3">Sản phẩm sẽ bị gỡ khỏi website. Các tệp ảnh được giữ lại.</p><div class="flex gap-3 mt-5"><button type="button" data-product-delete-confirm class="button-primary">Xác nhận xóa sản phẩm</button><button type="button" data-product-delete-cancel class="button-secondary">Hủy</button></div></dialog>
   <button type="button" data-image-delete class="button-secondary w-full mt-3">Xóa ảnh đang chọn</button>
   <p data-delete-hint class="text-xs text-base-600 mt-2"></p>
   <dialog data-delete-dialog class="rounded-2xl bg-white p-5 sm:p-7 w-[min(30rem,calc(100%-2rem))]" aria-label="Xác nhận xóa ảnh sản phẩm">
@@ -15,12 +18,11 @@ const { sample } = Astro.props;
   </dialog>
   <form data-upload-form hidden class="mt-4 rounded-2xl border border-base-200 bg-white p-5 space-y-4">
     <p class="font-medium">Thêm ảnh cho mẫu {sample.brand} {sample.code}</p>
-    <label class="block text-sm font-medium">Chọn ảnh từ máy<input data-upload-file type="file" accept="image/jpeg,image/png,image/webp" required class="block w-full mt-2 text-sm" /></label>
-    <p class="text-xs text-base-600">JPG, PNG hoặc WebP, tối đa 5 MB. Ảnh mới được thêm vào thư viện, giữ nguyên ảnh chính.</p>
+    <label class="block text-sm font-medium">Chọn ảnh từ máy<input data-upload-file type="file" multiple accept="image/jpeg,image/png,image/webp" required class="block w-full mt-2 text-sm" /></label>
+    <p class="text-xs text-base-600">JPG, PNG hoặc WebP, tối đa 5 MB mỗi ảnh. Có thể chọn nhiều ảnh. Tiêu đề và ALT được tự điền theo tên sản phẩm và thương hiệu. Ảnh mới được thêm vào thư viện, giữ nguyên ảnh chính.</p>
     <label class="flex items-start gap-3 text-sm"><input data-upload-sharpen type="checkbox" checked class="mt-1" /><span>Tự động làm nét nhẹ<span class="block text-xs text-base-600 mt-1">Xem trước ảnh đã xử lý; bỏ chọn để giữ ảnh gốc.</span></span></label>
+    <div data-upload-previews class="flex flex-wrap gap-2"></div>
     <img data-upload-preview hidden alt="Xem trước ảnh đã chọn" class="w-full max-h-72 object-contain rounded-lg bg-base-50" />
-    <label class="block text-sm font-medium">ALT – mô tả nội dung ảnh<input data-upload-alt type="text" required maxlength="500" placeholder="Ví dụ: Bề mặt vân gỗ mẫu đang chụp dưới ánh sáng tự nhiên" class="block w-full mt-2 min-h-11 rounded-lg border border-base-300 px-3 py-2 font-normal" /></label>
-    <label class="block text-sm font-medium">Chú thích ảnh <span class="font-normal text-base-600">(không bắt buộc)</span><textarea data-upload-caption maxlength="1500" rows="2" class="block w-full mt-2 rounded-lg border border-base-300 px-3 py-2 font-normal" /></label>
     <p class="text-sm text-base-600">Khi lưu, đăng nhập GitHub bằng tài khoản có quyền chỉnh sửa website. Không cần mở trang quản trị. Ảnh được lưu trực tiếp và hiển thị công khai sau khi website cập nhật.</p>
     <div class="flex flex-wrap gap-3"><button data-upload-save type="submit" class="button-primary">Lưu ảnh vào sản phẩm</button><button data-upload-cancel type="button" class="button-secondary">Đóng</button></div>
   </form>
@@ -33,8 +35,6 @@ const { sample } = Astro.props;
     const open = root.querySelector<HTMLButtonElement>("[data-upload-open]")!;
     const fileInput = root.querySelector<HTMLInputElement>("[data-upload-file]")!;
     const sharpenInput = root.querySelector<HTMLInputElement>("[data-upload-sharpen]")!;
-    const altInput = root.querySelector<HTMLInputElement>("[data-upload-alt]")!;
-    const captionInput = root.querySelector<HTMLTextAreaElement>("[data-upload-caption]")!;
     const preview = root.querySelector<HTMLImageElement>("[data-upload-preview]")!;
     const save = root.querySelector<HTMLButtonElement>("[data-upload-save]")!;
     const status = root.querySelector<HTMLElement>("[data-upload-status]")!;
@@ -50,11 +50,17 @@ const { sample } = Astro.props;
     let processing = false;
     let preparation = 0;
     let preparedFile: File | null = null;
+    let pendingFiles: File[] = [];
+    let batchUrls: string[] = [];
     const selectedPhoto = () => gallery.querySelector<HTMLButtonElement>('[data-gallery-thumb][aria-pressed="true"]');
     const storedSource = (button: HTMLButtonElement) => button.dataset.storedSrc || button.dataset.src || "";
     const updateDeleteState = () => {
+      fileInput.disabled = busy; sharpenInput.disabled = busy; open.disabled = busy;
+      save.disabled = busy || processing || !pendingFiles.length;
       const selected = selectedPhoto();
       const lastMaterial = selected && storedSource(selected) === root.dataset.primary && Number(root.dataset.extraCount || 0) < 1;
+      root.querySelector<HTMLButtonElement>("[data-image-primary]")!.disabled = busy || processing || !selected || storedSource(selected) === root.dataset.primary || !(storedSource(selected) === root.dataset.primary || selected.dataset.material === "true");
+      root.querySelector<HTMLButtonElement>("[data-product-delete]")!.disabled = busy || processing;
       deleteButton.disabled = busy || processing || !selected || !!lastMaterial;
       deleteHint.textContent = lastMaterial ? "Để xóa ảnh chính, hãy tải thêm một ảnh vật liệu trước." : "Chọn ảnh trong thư viện rồi bấm xóa.";
     };
@@ -72,11 +78,12 @@ const { sample } = Astro.props;
     const prepare = async () => {
       if (busy) return;
       const version = ++preparation;
-      preparedFile = null; processing = false; save.disabled = false; updateDeleteState();
+      batchUrls.forEach(url => URL.revokeObjectURL(url)); batchUrls = []; root.querySelector("[data-upload-previews]")!.replaceChildren();
+      pendingFiles = []; preparedFile = null; processing = false; save.disabled = false; updateDeleteState();
       if (previewUrl) URL.revokeObjectURL(previewUrl);
       previewUrl = null; preview.hidden = true; status.textContent = "";
-      const original = fileInput.files?.[0]; if (!original) return;
-      if (!["image/jpeg","image/png","image/webp"].includes(original.type) || original.size > 5 * 1024 * 1024) { status.textContent = "Chọn ảnh JPG, PNG hoặc WebP, tối đa 5 MB."; fileInput.value = ""; return; }
+      const originals = [...(fileInput.files || [])]; const original = originals[0]; if (!original) return;
+      if (originals.some(file => !["image/jpeg","image/png","image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024)) { status.textContent = "Chọn ảnh JPG, PNG hoặc WebP, tối đa 5 MB."; fileInput.value = ""; return; }
       processing = true; save.disabled = true; updateDeleteState();
       status.textContent = sharpenInput.checked ? "Đang làm nét nhẹ và chuẩn bị ảnh xem trước…" : "Đang chuẩn bị ảnh gốc…";
       try {
@@ -85,14 +92,22 @@ const { sample } = Astro.props;
         const result = sharpenInput.checked ? await prepareProductImage(original) : null;
         if (version !== preparation) return;
         preparedFile = result?.file || original;
+        const batch: File[] = [preparedFile];
+        for (const next of originals.slice(1)) {
+          const processed = sharpenInput.checked ? await prepareProductImage(next) : null;
+          if (version !== preparation) return;
+          batch.push(processed?.file || next);
+        }
+        pendingFiles = batch;
         previewUrl = URL.createObjectURL(preparedFile); preview.src = previewUrl;
         await preview.decode();
         if (version !== preparation) return;
         preview.hidden = false;
-        status.textContent = result ? `Đã làm nét nhẹ${result.resized ? " và tối ưu kích thước" : ""}. Bạn có thể xem trước hoặc bỏ chọn để dùng ảnh gốc.` : "Đang dùng ảnh gốc, không làm nét.";
+        for (const file of batch) { const image = document.createElement("img"); const url = URL.createObjectURL(file); batchUrls.push(url); image.src = url; image.alt = `Xem trước ${file.name}`; image.className = "w-20 h-20 object-contain rounded-lg"; root.querySelector("[data-upload-previews]")!.append(image); }
+        status.textContent = `Đã chuẩn bị ${pendingFiles.length} ảnh. ` + (result ? `Đã làm nét nhẹ${result.resized ? " và tối ưu kích thước" : ""}. Bạn có thể xem trước hoặc bỏ chọn để dùng ảnh gốc.` : "Đang dùng ảnh gốc, không làm nét.");
       } catch (error) {
         if (version !== preparation) return;
-        preparedFile = null; preview.hidden = true;
+        pendingFiles = []; preparedFile = null; preview.hidden = true;
         status.textContent = error instanceof Error ? error.message : "Không đọc được ảnh. Hãy thử ảnh khác hoặc tắt làm nét.";
       } finally { if (version === preparation) { processing = false; save.disabled = !preparedFile; updateDeleteState(); } }
     };
@@ -119,19 +134,19 @@ const { sample } = Astro.props;
       const watch = window.setInterval(() => { if (!finished && popup.closed) { cleanup(); reject(new Error("Đã đóng đăng nhập. Bạn có thể bấm lưu để thử lại.")); } }, 500);
       const timeout = window.setTimeout(() => { cleanup(); popup.close(); reject(new Error("Đăng nhập hết thời gian. Vui lòng thử lại.")); }, 180000);
     });
-    const showInGallery = (url: string, alt: string, caption: string, width: number, height: number, storedSrc: string) => {
+    const showInGallery = (url: string, alt: string, title: string, caption: string, width: number, height: number, storedSrc: string) => {
       const gallery = root.parentElement?.querySelector<HTMLElement>("[data-product-gallery]"); if (!gallery) return;
       const button = document.createElement("button"); button.type = "button";
       button.className = "gallery-thumb w-16 sm:w-20 rounded-lg overflow-hidden bg-white border-2 border-transparent";
-      button.dataset.galleryThumb = ""; button.dataset.src = url; button.dataset.storedSrc = storedSrc;
-      button.dataset.alt = alt; button.dataset.caption = caption; button.dataset.width = String(width); button.dataset.height = String(height);
+      button.dataset.material = "true"; button.dataset.galleryThumb = ""; button.dataset.src = url; button.dataset.storedSrc = storedSrc;
+      button.dataset.title = title; button.dataset.alt = alt; button.dataset.caption = caption; button.dataset.width = String(width); button.dataset.height = String(height);
       button.setAttribute("aria-label", `Ảnh vừa tải lên: ${alt}`);
       const thumbnail = document.createElement("img"); thumbnail.src = url; thumbnail.alt = ""; thumbnail.className = "w-full aspect-[4/3] object-cover";
       const label = document.createElement("span"); label.textContent = "Vừa tải lên"; label.className = "block text-[10px] sm:text-xs py-1.5 text-base-700";
       button.append(thumbnail, label);
       button.addEventListener("click", () => {
         gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]").forEach(thumb => thumb.setAttribute("aria-pressed", String(thumb === button)));
-        gallery.querySelectorAll<HTMLImageElement>("[data-gallery-main], [data-gallery-zoom]").forEach(image => { image.src = url; image.alt = alt; image.width = width; image.height = height; });
+        gallery.querySelectorAll<HTMLImageElement>("[data-gallery-main], [data-gallery-zoom]").forEach(image => { image.src = url; image.alt = alt; image.title = title; image.width = width; image.height = height; });
         gallery.querySelectorAll<HTMLElement>("[data-gallery-caption], [data-gallery-zoom-caption]").forEach(element => { element.textContent = caption; });
       });
       gallery.querySelector('[role="group"]')?.append(button); button.click();
@@ -139,7 +154,7 @@ const { sample } = Astro.props;
     deleteConfirm.addEventListener("click", async () => {
       if (busy || !deleteTarget) return;
       const target = deleteTarget; const src = storedSource(target);
-      busy = true; deleteConfirm.disabled = true; save.disabled = true; open.disabled = true; fileInput.disabled = true; sharpenInput.disabled = true; altInput.disabled = true; captionInput.disabled = true; updateDeleteState();
+      busy = true; deleteConfirm.disabled = true; save.disabled = true; open.disabled = true; fileInput.disabled = true; sharpenInput.disabled = true; updateDeleteState();
       try {
         token = token || await login();
         const response = await fetch("/api/product-images", { method: "DELETE", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ slug: root.dataset.slug, brand: root.dataset.brand, src }) });
@@ -149,32 +164,59 @@ const { sample } = Astro.props;
         target.remove(); gallery.querySelector<HTMLButtonElement>("[data-gallery-thumb]")?.click();
         deleteDialog.close(); status.textContent = result.message;
       } catch (error) { status.textContent = error instanceof Error ? error.message : "Chưa xóa được ảnh."; deleteDialog.close(); }
-      finally { busy = false; deleteConfirm.disabled = false; save.disabled = processing || (!!fileInput.files?.length && !preparedFile); open.disabled = false; fileInput.disabled = false; sharpenInput.disabled = false; altInput.disabled = false; captionInput.disabled = false; updateDeleteState(); }
+      finally { busy = false; deleteConfirm.disabled = false; save.disabled = processing || (!!fileInput.files?.length && !preparedFile); open.disabled = false; fileInput.disabled = false; sharpenInput.disabled = false; updateDeleteState(); }
     });
+    const primaryButton = root.querySelector<HTMLButtonElement>("[data-image-primary]")!;
+    const productDeleteButton = root.querySelector<HTMLButtonElement>("[data-product-delete]")!;
+    const productDialog = root.querySelector<HTMLDialogElement>("[data-product-delete-dialog]")!;
+    productDeleteButton.addEventListener("click", () => { if (!busy && !processing) productDialog.showModal(); });
+    root.querySelector("[data-product-delete-cancel]")!.addEventListener("click", () => { if (!busy) productDialog.close(); });
+    const manage = async (removeProduct: boolean) => {
+      if (busy || processing) return;
+      const selected = selectedPhoto(); if (!removeProduct && !selected) return;
+      busy = true; updateDeleteState(); primaryButton.disabled = true; productDeleteButton.disabled = true;
+      try {
+        token = token || await login();
+        const response = await fetch("/api/product-images", { method: removeProduct ? "DELETE" : "PATCH", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ slug: root.dataset.slug, brand: root.dataset.brand, ...(removeProduct ? { action: "delete-product" } : { src: storedSource(selected!) }) }) });
+        const result = await response.json();
+        if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa lưu được thay đổi."); }
+        status.textContent = result.message;
+        if (removeProduct) { productDialog.close(); window.location.assign("/vat-lieu"); return; }
+        root.dataset.primary = result.primary; root.dataset.extraCount = String(result.galleryCount);
+        gallery.querySelectorAll<HTMLElement>("[data-gallery-thumb] span").forEach(label => { label.textContent = storedSource(label.parentElement as HTMLButtonElement) === result.primary ? "Ảnh chính" : "Ảnh bổ sung"; });
+      } catch (error) { productDialog.close(); status.textContent = error instanceof Error ? error.message : "Chưa lưu được thay đổi."; }
+      finally { busy = false; primaryButton.disabled = false; productDeleteButton.disabled = false; updateDeleteState(); }
+    };
+    primaryButton.addEventListener("click", () => manage(false));
+    root.querySelector("[data-product-delete-confirm]")!.addEventListener("click", () => manage(true));
     form.addEventListener("submit", async event => {
       event.preventDefault(); if (busy || processing || !form.reportValidity()) return;
-      const file = preparedFile; if (!file) return;
+      if (!pendingFiles.length) return;
+      let savedCount = 0;
       busy = true; save.disabled = true; open.disabled = true; updateDeleteState();
-      fileInput.disabled = true; sharpenInput.disabled = true; altInput.disabled = true; captionInput.disabled = true;
+      fileInput.disabled = true; sharpenInput.disabled = true;
       try {
         // Open the popup during the user gesture so browser popup blockers allow it.
         const authentication = token ? Promise.resolve(token) : login();
         status.textContent = "Đang xác nhận quyền chỉnh sửa và lưu ảnh…";
         token = await authentication;
-        await preview.decode();
-        const width = preview.naturalWidth; const height = preview.naturalHeight;
-        const body = new FormData(); body.set("file", file); body.set("slug", root.dataset.slug!); body.set("brand", root.dataset.brand!);
-        body.set("alt", altInput.value.trim()); body.set("caption", captionInput.value.trim()); body.set("width", String(width)); body.set("height", String(height));
-        const response = await fetch("/api/product-images", { method: "POST", headers: { Authorization: `Bearer ${token}` }, body });
-        const result = await response.json();
-        if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa lưu được ảnh. Vui lòng thử lại."); }
-        const savedPreview = URL.createObjectURL(file);
-        showInGallery(savedPreview, result.photo.alt, result.photo.caption || "Ảnh vật liệu vừa tải lên.", width, height, result.photo.src);
-        root.dataset.extraCount = String(Number(root.dataset.extraCount || 0) + 1);
-        status.textContent = result.message;
-        form.reset(); preparedFile = null; preview.hidden = true; if (previewUrl) URL.revokeObjectURL(previewUrl); previewUrl = null;
-      } catch (error) { status.textContent = error instanceof Error ? error.message : "Chưa lưu được ảnh. Vui lòng thử lại."; }
-      finally { busy = false; save.disabled = false; open.disabled = false; fileInput.disabled = false; sharpenInput.disabled = false; altInput.disabled = false; captionInput.disabled = false; updateDeleteState(); }
+        for (const file of [...pendingFiles]) {
+          const decoded = await createImageBitmap(file);
+          const width = decoded.width; const height = decoded.height; decoded.close();
+          const body = new FormData(); body.set("file", file); body.set("slug", root.dataset.slug!); body.set("brand", root.dataset.brand!);
+          body.set("alt", ""); body.set("caption", ""); body.set("width", String(width)); body.set("height", String(height));
+          const response = await fetch("/api/product-images", { method: "POST", headers: { Authorization: `Bearer ${token}` }, body });
+          const result = await response.json();
+          if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa lưu được ảnh. Vui lòng thử lại."); }
+          const savedPreview = URL.createObjectURL(file);
+          showInGallery(savedPreview, result.photo.alt, result.photo.title || result.photo.alt, result.photo.caption || "Ảnh vật liệu vừa tải lên.", width, height, result.photo.src);
+          root.dataset.extraCount = String(Number(root.dataset.extraCount || 0) + 1);
+          pendingFiles.shift(); savedCount++; status.textContent = `Đã lưu ${savedCount} ảnh. Website đang cập nhật.`;
+        }
+        batchUrls.forEach(url => URL.revokeObjectURL(url)); batchUrls = []; root.querySelector("[data-upload-previews]")!.replaceChildren();
+        form.reset(); preparedFile = null; pendingFiles = []; preview.hidden = true; if (previewUrl) URL.revokeObjectURL(previewUrl); previewUrl = null;
+      } catch (error) { status.textContent = `${savedCount ? `Đã lưu ${savedCount} ảnh. ` : ""}${error instanceof Error ? error.message : "Chưa lưu được ảnh."} Bấm lưu để thử lại những ảnh còn lại.`; }
+      finally { busy = false; save.disabled = false; open.disabled = false; fileInput.disabled = false; sharpenInput.disabled = false; updateDeleteState(); }
     });
   });
 </script>
