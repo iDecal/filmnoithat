@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAF",
   "category": "van-go",
-  "image": "/images/catalogue/corance/caf501.webp",
+  "image": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-a36e59c9cf08.webp",
   "application": null,
   "sourcePage": 5,
-  "imageWidth": 1042,
-  "imageHeight": 246,
+  "imageWidth": 1168,
+  "imageHeight": 779,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -19,13 +19,9 @@
     "value": "#a09786"
   },
   "order": 472,
-  "gallery": [
-    {
-      "src": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-a36e59c9cf08.webp",
-      "alt": "CAF501",
-      "caption": "",
-      "width": 1168,
-      "height": 779
-    }
+  "gallery": [],
+  "imageAlt": "CAF501",
+  "hiddenImages": [
+    "/images/catalogue/corance/caf501.webp"
   ]
 }
