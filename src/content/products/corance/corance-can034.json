@@ -21,11 +21,12 @@
   "order": 505,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-can034/film-dan-noi-that-corance-can034-a4d3254a4250.webp",
+      "src": "/images/uploads/products/corance-can034/film-dan-noi-that-corance-can034-c3f80f2ce053.webp",
       "alt": "Bề mặt Film dán nội thất Vân vải & da CAN034 – Corance",
-      "title": "Film dán nội thất Vân vải & da CAN034 – Corance",
-      "width": 822,
-      "height": 822
+      "caption": "",
+      "width": 1168,
+      "height": 779,
+      "title": "Film dán nội thất Vân vải & da CAN034 – Corance"
     },
     {
       "src": "/images/uploads/products/corance-can034/film-dan-noi-that-corance-can034-0d713db8d00f.webp",
@@ -44,12 +45,11 @@
       "title": "Film dán nội thất Vân vải & da CAN034 – Corance"
     },
     {
-      "src": "/images/uploads/products/corance-can034/film-dan-noi-that-corance-can034-c3f80f2ce053.webp",
+      "src": "/images/uploads/products/corance-can034/film-dan-noi-that-corance-can034-a4d3254a4250.webp",
       "alt": "Bề mặt Film dán nội thất Vân vải & da CAN034 – Corance",
-      "caption": "",
-      "width": 1168,
-      "height": 779,
-      "title": "Film dán nội thất Vân vải & da CAN034 – Corance"
+      "title": "Film dán nội thất Vân vải & da CAN034 – Corance",
+      "width": 822,
+      "height": 822
     }
   ],
   "hiddenImages": [
