@@ -18,5 +18,14 @@
     "family": "Be",
     "value": "#b6a07e"
   },
-  "order": 484
+  "order": 484,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-cam002/film-dan-noi-that-corance-cam002-b857d44d03eb.jpg",
+      "alt": "Phim dán nội thất vân kim loại CORANCE CSM 002",
+      "caption": "Phim dán nội thất vân kim loại CORANCE CSM 002",
+      "width": 1254,
+      "height": 1254
+    }
+  ]
 }
