@@ -19,7 +19,16 @@
     "value": "#dad3c8"
   },
   "order": 505,
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-can034/film-dan-noi-that-corance-can034-a4d3254a4250.webp",
+      "alt": "Bề mặt Film dán nội thất Vân vải & da CAN034 – Corance",
+      "caption": "",
+      "width": 822,
+      "height": 822,
+      "title": "Film dán nội thất Vân vải & da CAN034 – Corance"
+    }
+  ],
   "hiddenImages": [
     "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp"
   ]
