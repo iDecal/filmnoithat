@@ -21,6 +21,14 @@
   "order": 472,
   "gallery": [
     {
+      "src": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-5044376466b2.webp",
+      "alt": "Bề mặt Film dán nội thất Vân gỗ CAF501 – Corance",
+      "caption": "",
+      "width": 1168,
+      "height": 779,
+      "title": "Film dán nội thất Vân gỗ CAF501 – Corance"
+    },
+    {
       "src": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-e39f7d0a1741.webp",
       "alt": "sâccá",
       "caption": "",
@@ -50,19 +58,12 @@
       "width": 1168,
       "height": 779,
       "title": "Film dán nội thất Vân gỗ CAF501 – Corance"
-    },
-    {
-      "src": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-5044376466b2.webp",
-      "alt": "Bề mặt Film dán nội thất Vân gỗ CAF501 – Corance",
-      "caption": "",
-      "width": 1168,
-      "height": 779,
-      "title": "Film dán nội thất Vân gỗ CAF501 – Corance"
     }
   ],
   "imageAlt": "CAF501",
   "hiddenImages": [
     "/images/catalogue/corance/caf501.webp",
     "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp"
-  ]
+  ],
+  "imageTitle": "CAF501"
 }
