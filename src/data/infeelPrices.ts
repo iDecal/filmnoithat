@@ -18,7 +18,7 @@ export function infeelPrice(code: string) {
   if (!pricePerMetre) throw new Error(`Missing INFEEL retail price: ${code}`);
   return {
     pricePerMetre,
-    rollSpecification: prefix === "LT" ? "1,23 m × 30 m" : prefix === "PW" ? "1,06 m × 25 m" : "1,23 m × 50 m",
+    rollSpecification: "1,23 m × 50 m",
   };
 }
 export const formatRetailPrice = (price: number) => `${new Intl.NumberFormat("vi-VN").format(price)}đ`;
