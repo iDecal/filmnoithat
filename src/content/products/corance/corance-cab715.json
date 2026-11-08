@@ -18,5 +18,15 @@
     "family": "Xám",
     "value": "#4d4640"
   },
-  "order": 404
+  "order": 404,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-cab715/film-dan-noi-that-corance-cab715-aabafa882093.webp",
+      "alt": "Bề mặt Film dán nội thất Vân gỗ CAB715 – Corance",
+      "caption": "",
+      "width": 1280,
+      "height": 1707,
+      "title": "Film dán nội thất Vân gỗ CAB715 – Corance"
+    }
+  ]
 }
