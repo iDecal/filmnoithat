@@ -19,7 +19,15 @@
     "value": "#a09786"
   },
   "order": 472,
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-e39f7d0a1741.webp",
+      "alt": "sâccá",
+      "caption": "",
+      "width": 853,
+      "height": 931
+    }
+  ],
   "imageAlt": "CAF501",
   "hiddenImages": [
     "/images/catalogue/corance/caf501.webp"
