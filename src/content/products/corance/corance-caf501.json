@@ -18,5 +18,14 @@
     "family": "Nâu",
     "value": "#a09786"
   },
-  "order": 472
+  "order": 472,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-caf501/film-dan-noi-that-corance-caf501-a36e59c9cf08.webp",
+      "alt": "CAF501",
+      "caption": "",
+      "width": 1168,
+      "height": 779
+    }
+  ]
 }
