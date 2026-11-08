@@ -43,18 +43,13 @@
       "width": 500,
       "height": 712,
       "title": "Film dán nội thất Vân gỗ CAA051 – Corance"
-    },
-    {
-      "src": "/images/catalogue/corance/caa051.webp",
-      "alt": "Corance CAA051",
-      "width": 1042,
-      "height": 250
     }
   ],
   "imageAlt": "Bề mặt Film dán nội thất Vân gỗ CAA051 – Corance",
   "imageTitle": "Film dán nội thất Vân gỗ CAA051 – Corance",
   "hiddenImages": [
-    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp"
+    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
+    "/images/catalogue/corance/caa051.webp"
   ],
   "pricePerMetre": 270000
 }
