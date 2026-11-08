@@ -1,6 +1,6 @@
 {
   "slug": "corance-cab701",
-  "code": "CAB701",
+  "code": "CAB631",
   "name": "Vân gỗ",
   "group": "Corance CAB",
   "category": "van-go",
@@ -49,5 +49,6 @@
     "/images/catalogue/corance/cab701.webp"
   ],
   "imageAlt": "Bề mặt Film dán nội thất Vân gỗ CAB701 – Corance",
-  "imageTitle": "Film dán nội thất Vân gỗ CAB701 – Corance"
+  "imageTitle": "Film dán nội thất Vân gỗ CAB701 – Corance",
+  "pricePerMetre": 280000
 }
