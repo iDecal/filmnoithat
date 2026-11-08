@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAD",
   "category": "van-go",
-  "image": "/images/catalogue/corance/cad402.webp",
+  "image": "/images/uploads/products/corance-cad402/film-dan-noi-that-corance-cad402-4b019ef31ec3.webp",
   "application": null,
   "sourcePage": 19,
-  "imageWidth": 1042,
-  "imageHeight": 254,
+  "imageWidth": 2048,
+  "imageHeight": 1365,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -21,13 +21,6 @@
   "order": 421,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-cad402/film-dan-noi-that-corance-cad402-4b019ef31ec3.webp",
-      "alt": "âcscs",
-      "caption": "",
-      "width": 2048,
-      "height": 1365
-    },
-    {
       "src": "/images/uploads/products/corance-cad402/film-dan-noi-that-corance-cad402-9449dfb7356b.webp",
       "alt": "sdcsdcdsc",
       "caption": "",
@@ -36,6 +29,8 @@
     }
   ],
   "hiddenImages": [
-    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp"
-  ]
+    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
+    "/images/catalogue/corance/cad402.webp"
+  ],
+  "imageAlt": "âcscs"
 }
