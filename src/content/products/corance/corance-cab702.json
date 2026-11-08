@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAB",
   "category": "van-go",
-  "image": "/images/catalogue/corance/cab702.webp",
+  "image": "/images/uploads/products/corance-cab702/film-dan-noi-that-corance-cab702-ec9fdf65bc88.webp",
   "application": null,
   "sourcePage": 14,
-  "imageWidth": 581,
-  "imageHeight": 246,
+  "imageWidth": 1280,
+  "imageHeight": 1707,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -20,14 +20,6 @@
   },
   "order": 391,
   "gallery": [
-    {
-      "src": "/images/uploads/products/corance-cab702/film-dan-noi-that-corance-cab702-ec9fdf65bc88.webp",
-      "alt": "Bề mặt Film dán nội thất Vân gỗ CAB702 – Corance",
-      "caption": "",
-      "width": 1280,
-      "height": 1707,
-      "title": "Film dán nội thất Vân gỗ CAB702 – Corance"
-    },
     {
       "src": "/images/uploads/products/corance-cab702/film-dan-noi-that-corance-cab702-fda12c140a20.webp",
       "alt": "Bề mặt Film dán nội thất Vân gỗ CAB702 – Corance",
@@ -54,6 +46,9 @@
     }
   ],
   "hiddenImages": [
-    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp"
-  ]
+    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
+    "/images/catalogue/corance/cab702.webp"
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Vân gỗ CAB702 – Corance",
+  "imageTitle": "Film dán nội thất Vân gỗ CAB702 – Corance"
 }
