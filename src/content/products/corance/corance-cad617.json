@@ -18,5 +18,14 @@
     "family": "Nâu",
     "value": "#ad916e"
   },
-  "order": 447
+  "order": 447,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-cad617/film-dan-noi-that-corance-cad617-b3345a050d02.webp",
+      "alt": "dfc",
+      "caption": "sdcsdcdsc",
+      "width": 2048,
+      "height": 1365
+    }
+  ]
 }
