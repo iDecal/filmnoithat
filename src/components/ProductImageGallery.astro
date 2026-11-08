@@ -21,7 +21,7 @@ const first=images[0];
     const dialog=root.querySelector<HTMLDialogElement>("dialog")!;
     const thumbs=[...root.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]")];
     thumbs.forEach(button=>button.addEventListener("click",()=>{
-      thumbs.forEach(thumb=>thumb.setAttribute("aria-pressed",String(thumb===button)));
+      root.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]").forEach(thumb=>thumb.setAttribute("aria-pressed",String(thumb===button)));
       [main,zoom].forEach(image=>{image.src=button.dataset.src!;image.alt=button.dataset.alt!;image.width=Number(button.dataset.width);image.height=Number(button.dataset.height);});
       root.querySelector("[data-open-sample]")!.setAttribute("aria-label",`Phóng lớn ảnh: ${button.dataset.alt}`);
       caption.textContent=button.dataset.caption!;zoomCaption.textContent=button.dataset.caption!;
@@ -31,7 +31,7 @@ const first=images[0];
   });
 </script>
 <style>
-  .gallery-thumb[aria-pressed="true"] { border-color: rgb(var(--color-primary-500)); }
+  [data-product-gallery] :global(.gallery-thumb[aria-pressed="true"]) { border-color: rgb(var(--color-primary-500)); }
   .sample-dialog { width: min(56rem,calc(100% - 2rem)); max-height:92dvh; overflow-y:auto; }
   .sample-dialog::backdrop { background:rgb(7 19 33 / .75); }
 </style>

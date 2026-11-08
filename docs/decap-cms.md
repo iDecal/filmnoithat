@@ -20,7 +20,7 @@ Không đưa Client Secret vào chat, GitHub, `public/admin/config.yml` hoặc m
 
 Triển khai mã tích hợp cùng thư mục `functions/` bằng Git integration của Cloudflare Pages. Giữ lệnh build `npm run build` và output `dist`. Sau khi thêm các biến, chạy lại deployment để bindings được áp dụng. Trang `/admin/` sẽ có nút **Đăng nhập bằng GitHub**. Tài khoản đăng nhập phải có quyền ghi vào `iDecal/filmnoithat`; với tổ chức có SSO, cần được tổ chức cho phép dùng OAuth App.
 
-Cloudflare Pages tự biên dịch các endpoint `/api/auth` và `/api/callback`. `_routes.json` chỉ định hai route này chạy Functions; các trang nội dung khác tiếp tục được phục vụ tĩnh. `/admin/` và config là tài nguyên công khai; quyền ghi nội dung do GitHub xác thực và kiểm soát. Nếu chưa có bindings OAuth, endpoint đăng nhập trả 503 với hướng dẫn cấu hình thay vì cố đăng nhập.
+Cloudflare Pages tự biên dịch các endpoint `/api/auth`, `/api/callback` và `/api/product-images`. `_routes.json` chỉ định các route này chạy Functions; các trang nội dung khác tiếp tục được phục vụ tĩnh. `/admin/` và config là tài nguyên công khai; quyền ghi nội dung do GitHub xác thực và kiểm soát. Nếu chưa có bindings OAuth, endpoint đăng nhập trả 503 với hướng dẫn cấu hình thay vì cố đăng nhập.
 
 Nếu đổi sang tên miền riêng, cập nhật đồng thời `backend.base_url`, `site_url`, `display_url` trong `public/admin/config.yml`, biến `CMS_SITE_URL`, và callback URL trong OAuth App. Không dùng địa chỉ deployment preview làm origin đăng nhập Production.
 
@@ -68,3 +68,26 @@ Website đọc sản phẩm từ `src/content/products/infeel/*.json`, `src/cont
 `src/data/catalogue.json`, `src/data/corance.json` và các bảng giá theo tiền tố cũ chỉ còn là nguồn nhập catalogue ban đầu. Các script nhập PDF trước đây ghi ra những nguồn này, không cập nhật sản phẩm đang quản lý bằng CMS. Không chạy lại chúng rồi kỳ vọng nội dung trực tiếp thay đổi; cần kiểm tra và chuyển bản cập nhật nhập liệu sang hồ sơ sản phẩm trước khi triển khai.
 
 Các trường SEO và ALT riêng có thể để trống để tiếp tục dùng nội dung tự sinh. Thêm ảnh ứng dụng sẽ sinh thêm một trang tham khảo theo mã sản phẩm. Khi thêm sản phẩm, chọn đúng nhóm vật liệu, ảnh thực sự tồn tại và giá INFEEL lớn hơn 0. Build sẽ chặn trùng slug, trùng mã cùng thương hiệu, sai đường dẫn ảnh hoặc thiếu giá. Giá thấp nhất ở trang chủ được tính trực tiếp từ dữ liệu giá từng sản phẩm, không lấy từ bảng giá tiền tố cũ.
+
+## Tải thêm ảnh cho từng sản phẩm
+
+Trong `/admin/`, mở **Sản phẩm INFEEL**, **Sản phẩm Corance** hoặc **Sản phẩm TODA**, rồi chọn mã cần sửa:
+
+1. Tìm **Ảnh vật liệu bổ sung** và bấm **Add ảnh vật liệu**.
+2. Ở trường **Tải ảnh vật liệu lên**, bấm **Chọn một hình**, rồi tải tệp từ máy trong thư viện ảnh.
+3. Chọn ảnh vừa tải, nhập ALT mô tả đúng ảnh; có thể thêm chú thích và kích thước gốc nếu biết.
+4. Lưu và xuất bản nội dung theo quy trình CMS. Ảnh sẽ hiện trong thư viện ảnh của sản phẩm sau khi Cloudflare build xong.
+
+Ảnh bổ sung không thay ảnh chính từ catalogue. Nếu muốn thay ảnh chính, dùng trường **Ảnh bề mặt chính** ở phía trên. Thư viện sản phẩm giữ tất cả ảnh bổ sung, có chọn ảnh thu nhỏ và phóng lớn; ALT/chú thích được giữ khi chuyển ảnh. Đường dẫn ảnh được đưa vào dữ liệu Product để công cụ tìm kiếm đọc được.
+
+Trang `/vat-lieu/` có bộ lọc thương hiệu. Bộ lọc kết hợp với phong cách, cập nhật số mẫu của từng nhóm, và mang lựa chọn thương hiệu sang trang nhóm vật liệu. URL `?brand=TODA` (hoặc `INFEEL`, `Corance`) có thể chia sẻ và tải lại.
+
+## Tải ảnh trực tiếp ngay trang sản phẩm
+
+Mỗi trang `/vat-lieu/mau/<slug>/` có nút **Tải ảnh vật liệu lên** ngay dưới thư viện ảnh. Bấm để mở form, chọn tệp JPG/PNG/WebP (tối đa 5 MB), nhập ALT và chú thích, rồi bấm **Lưu ảnh vào sản phẩm**. Lần lưu đầu mở popup đăng nhập GitHub; chỉ tài khoản có quyền ghi repository được lưu ảnh. Không cần chuyển vào CMS.
+
+Ảnh xem trước hiển thị ngay trong form. Khi lưu thành công, ảnh cũng được thêm ngay vào thư viện của trang đang mở bằng bản xem trước cục bộ; các lần truy cập khác nhận ảnh mới sau khi Cloudflare triển khai xong. Thông báo trạng thái phân biệt lưu thành công với việc website đang cập nhật. Ảnh catalogue chính và các ảnh bổ sung cũ được giữ nguyên.
+
+Khác quy trình bản nháp của CMS, nút lưu ngay trang sản phẩm ghi trực tiếp lên `main` và kích hoạt triển khai. API `/api/product-images` kiểm tra origin, token GitHub, quyền ghi repository, thương hiệu/slug, chữ ký tệp ảnh và giới hạn dung lượng. Ảnh và bản cập nhật hồ sơ được ghi trong cùng một commit. Khi có sửa đổi đồng thời, API đọc lại phiên bản mới và bổ sung ảnh, không force push hay ghi đè các ảnh vừa được biên tập viên khác thêm.
+
+Không lưu token vào localStorage hoặc đưa token trong URL. Luồng dùng lại OAuth App hiện có, không cần thêm secret triển khai. Astro dev không chạy Cloudflare Functions; kiểm thử trình duyệt cục bộ mô phỏng popup OAuth và phản hồi lưu, còn kiểm thử Node xác minh các lệnh GitHub API. Chỉ xác nhận một ảnh đã được lưu thực tế sau khi nhận phản hồi thành công từ GitHub trên bản triển khai.

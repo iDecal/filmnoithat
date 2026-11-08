@@ -1,12 +1,13 @@
 ---
-interface Props { filters: { label: string; value: string }[]; noun: string }
-const { filters, noun } = Astro.props;
+interface Props { filters: { label: string; value: string }[]; noun: string; brands?: string[] }
+const { filters, noun, brands = [] } = Astro.props;
 ---
 <div data-filter-gallery data-noun={noun}>
-  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+  <div class="flex flex-col md:flex-row md:flex-wrap md:items-center justify-between gap-4 mb-8">
     <div class="flex flex-wrap gap-2" role="group" aria-label={`Lọc ${noun}`}>
       {filters.map((filter, index) => <button type="button" data-gallery-filter={filter.value} aria-pressed={index === 0 ? "true" : "false"} class="filter-chip min-h-11 rounded-full px-4 py-2 border border-base-200 text-sm font-medium hover:border-primary-400 transition-colors">{filter.label}</button>)}
     </div>
+    {brands.length > 0 && <label class="text-sm font-medium flex items-center gap-3">Thương hiệu<select data-gallery-brand class="min-h-11 rounded-lg border border-base-300 bg-white px-3 py-2 font-normal"><option value="">Tất cả thương hiệu</option>{brands.map(brand => <option value={brand}>{brand}</option>)}</select></label>}
     <p data-gallery-count role="status" aria-live="polite" class="text-sm text-base-600 shrink-0"><slot name="count" /></p>
   </div>
   <slot />
@@ -16,16 +17,41 @@ const { filters, noun } = Astro.props;
     const buttons = [...gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-filter]")];
     const cards = [...gallery.querySelectorAll<HTMLElement>("[data-filter-card]")];
     const count = gallery.querySelector<HTMLElement>("[data-gallery-count]");
-    buttons.forEach(button => button.addEventListener("click", () => {
-      const filter = button.dataset.galleryFilter;
+    const brandSelect = gallery.querySelector<HTMLSelectElement>("[data-gallery-brand]");
+    let activeFilter = "all";
+    const requestedBrand = new URL(window.location.href).searchParams.get("brand");
+    if (brandSelect && [...brandSelect.options].some(option => option.value === requestedBrand)) brandSelect.value = requestedBrand!;
+    const update = () => {
+      const brand = brandSelect?.value || "";
       let visible = 0;
+      let matchingSamples = 0;
       cards.forEach(card => {
-        card.hidden = filter !== "all" && card.dataset.filterCard !== filter;
-        if (!card.hidden) visible += 1;
+        const counts: Record<string, number> = JSON.parse(card.dataset.brandCounts || "{}");
+        const total = Object.values(counts).reduce((sum, value) => sum + value, 0);
+        const sampleCount = brand ? counts[brand] || 0 : total;
+        card.hidden = (activeFilter !== "all" && card.dataset.filterCard !== activeFilter) || (!!brand && !sampleCount);
+        if (!card.hidden) { visible += 1; matchingSamples += sampleCount; }
+        const sampleLabel = card.querySelector<HTMLElement>("[data-gallery-sample-count]");
+        if (sampleLabel) sampleLabel.textContent = sampleCount ? `${sampleCount} mẫu · ` : "";
+        card.querySelectorAll<HTMLAnchorElement>("[data-material-link]").forEach(link => {
+          const url = new URL(link.dataset.materialLink!, window.location.origin);
+          if (brand) { url.searchParams.set("brand", brand); url.hash = "mau-vat-lieu"; }
+          link.href = url.pathname + url.search + url.hash;
+        });
       });
-      buttons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
-      if (count) count.textContent = `${visible} ${gallery.dataset.noun}`;
-    }));
+      buttons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.galleryFilter === activeFilter)));
+      if (count) count.textContent = `${visible} ${gallery.dataset.noun}${brand ? ` · ${matchingSamples} mẫu ${brand}` : ""}`;
+    };
+    buttons.forEach(button => button.addEventListener("click", () => { activeFilter = button.dataset.galleryFilter!; update(); }));
+    if (brandSelect) {
+      brandSelect.addEventListener("change", () => {
+        const url = new URL(window.location.href);
+        if (brandSelect.value) url.searchParams.set("brand", brandSelect.value); else url.searchParams.delete("brand");
+        window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+        update();
+      });
+      update();
+    }
   });
 </script>
 <style>

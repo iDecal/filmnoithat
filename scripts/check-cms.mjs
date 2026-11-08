@@ -62,6 +62,11 @@ for (const folder of ['infeel', 'corance', 'toda']) {
     for (const key of ['code','name','group','collection','rollSpecification']) assert.ok(product[key]?.trim(), `${file}: missing ${key}`);
     image(product.image);
     if (product.application) image(product.application);
+    assert.ok(!product.gallery || Array.isArray(product.gallery), `${file}: gallery must be a list`);
+    for (const photo of product.gallery || []) {
+      image(photo.src); assert.ok(photo.alt?.trim(), `${file}: additional image needs ALT`);
+      for (const dimension of ['width','height']) if (photo[dimension] != null) assert.ok(Number.isInteger(photo[dimension]) && photo[dimension] > 0, `${file}: invalid image ${dimension}`);
+    }
     assert.ok(Number.isInteger(product.imageWidth) && product.imageWidth > 0 && Number.isInteger(product.imageHeight) && product.imageHeight > 0, `${file}: invalid dimensions`);
     assert.ok(Number.isInteger(product.sourcePage) && product.sourcePage > 0 && Number.isInteger(product.order) && product.order >= 0, `${file}: invalid catalogue page or sort order`);
     assert.match(product.color.value, /^#[0-9a-fA-F]{6}$/);

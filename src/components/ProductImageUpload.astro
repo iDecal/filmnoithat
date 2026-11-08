@@ -1,0 +1,105 @@
+---
+import type { CatalogueSample } from "../data/catalogue";
+interface Props { sample: CatalogueSample }
+const { sample } = Astro.props;
+---
+<div class="mt-5" data-product-upload data-slug={sample.slug} data-brand={sample.brand}>
+  <button type="button" data-upload-open aria-expanded="false" class="button-secondary w-full">Tải ảnh vật liệu lên</button>
+  <form data-upload-form hidden class="mt-4 rounded-2xl border border-base-200 bg-white p-5 space-y-4">
+    <p class="font-medium">Thêm ảnh cho mẫu {sample.brand} {sample.code}</p>
+    <label class="block text-sm font-medium">Chọn ảnh từ máy<input data-upload-file type="file" accept="image/jpeg,image/png,image/webp" required class="block w-full mt-2 text-sm" /></label>
+    <p class="text-xs text-base-600">JPG, PNG hoặc WebP, tối đa 5 MB. Ảnh mới được thêm vào thư viện, giữ nguyên ảnh chính.</p>
+    <img data-upload-preview hidden alt="Xem trước ảnh đã chọn" class="w-full max-h-72 object-contain rounded-lg bg-base-50" />
+    <label class="block text-sm font-medium">ALT – mô tả nội dung ảnh<input data-upload-alt type="text" required maxlength="500" placeholder="Ví dụ: Bề mặt vân gỗ mẫu đang chụp dưới ánh sáng tự nhiên" class="block w-full mt-2 min-h-11 rounded-lg border border-base-300 px-3 py-2 font-normal" /></label>
+    <label class="block text-sm font-medium">Chú thích ảnh <span class="font-normal text-base-600">(không bắt buộc)</span><textarea data-upload-caption maxlength="1500" rows="2" class="block w-full mt-2 rounded-lg border border-base-300 px-3 py-2 font-normal" /></label>
+    <p class="text-sm text-base-600">Khi lưu, đăng nhập GitHub bằng tài khoản có quyền chỉnh sửa website. Không cần mở trang quản trị. Ảnh được lưu trực tiếp và hiển thị công khai sau khi website cập nhật.</p>
+    <div class="flex flex-wrap gap-3"><button data-upload-save type="submit" class="button-primary">Lưu ảnh vào sản phẩm</button><button data-upload-cancel type="button" class="button-secondary">Đóng</button></div>
+  </form>
+  <p data-upload-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3"></p>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>("[data-product-upload]").forEach(root => {
+    const form = root.querySelector<HTMLFormElement>("[data-upload-form]")!;
+    const open = root.querySelector<HTMLButtonElement>("[data-upload-open]")!;
+    const fileInput = root.querySelector<HTMLInputElement>("[data-upload-file]")!;
+    const altInput = root.querySelector<HTMLInputElement>("[data-upload-alt]")!;
+    const captionInput = root.querySelector<HTMLTextAreaElement>("[data-upload-caption]")!;
+    const preview = root.querySelector<HTMLImageElement>("[data-upload-preview]")!;
+    const save = root.querySelector<HTMLButtonElement>("[data-upload-save]")!;
+    const status = root.querySelector<HTMLElement>("[data-upload-status]")!;
+    let token: string | null = null;
+    let previewUrl: string | null = null;
+    let busy = false;
+    const close = () => { if (busy) return; form.hidden = true; open.setAttribute("aria-expanded", "false"); };
+    open.addEventListener("click", () => { form.hidden = !form.hidden; open.setAttribute("aria-expanded", String(!form.hidden)); });
+    root.querySelector("[data-upload-cancel]")!.addEventListener("click", close);
+    fileInput.addEventListener("change", () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = null; preview.hidden = true; status.textContent = "";
+      const file = fileInput.files?.[0]; if (!file) return;
+      if (!["image/jpeg","image/png","image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024) { status.textContent = "Chọn ảnh JPG, PNG hoặc WebP, tối đa 5 MB."; fileInput.value = ""; return; }
+      previewUrl = URL.createObjectURL(file); preview.src = previewUrl; preview.hidden = false;
+    });
+    const login = () => new Promise<string>((resolve, reject) => {
+      const popup = window.open("/api/auth?provider=github", "product-image-login", "width=700,height=750");
+      if (!popup) { reject(new Error("Hãy cho phép cửa sổ đăng nhập GitHub bật lên rồi thử lại.")); return; }
+      const origin = window.location.origin;
+      let finished = false;
+      const cleanup = () => { finished = true; window.removeEventListener("message", receive); window.clearInterval(watch); window.clearTimeout(timeout); };
+      const receive = (event: MessageEvent) => {
+        if (event.origin !== origin || event.source !== popup || typeof event.data !== "string") return;
+        if (event.data === "authorizing:github") { popup.postMessage(event.data, origin); return; }
+        if (event.data.startsWith("authorization:github:success:")) {
+          try {
+            const data = JSON.parse(event.data.slice("authorization:github:success:".length));
+            if (typeof data.token !== "string" || !data.token) throw new Error();
+            cleanup(); popup.close(); resolve(data.token);
+          } catch { cleanup(); popup.close(); reject(new Error("Không nhận được phiên đăng nhập GitHub hợp lệ.")); }
+        } else if (event.data.startsWith("authorization:github:error:")) { cleanup(); popup.close(); reject(new Error("Đăng nhập GitHub chưa thành công.")); }
+      };
+      window.addEventListener("message", receive);
+      const watch = window.setInterval(() => { if (!finished && popup.closed) { cleanup(); reject(new Error("Đã đóng đăng nhập. Bạn có thể bấm lưu để thử lại.")); } }, 500);
+      const timeout = window.setTimeout(() => { cleanup(); popup.close(); reject(new Error("Đăng nhập hết thời gian. Vui lòng thử lại.")); }, 180000);
+    });
+    const showInGallery = (url: string, alt: string, caption: string, width: number, height: number) => {
+      const gallery = root.parentElement?.querySelector<HTMLElement>("[data-product-gallery]"); if (!gallery) return;
+      const button = document.createElement("button"); button.type = "button";
+      button.className = "gallery-thumb w-16 sm:w-20 rounded-lg overflow-hidden bg-white border-2 border-transparent";
+      button.dataset.galleryThumb = ""; button.dataset.src = url;
+      button.setAttribute("aria-label", `Ảnh vừa tải lên: ${alt}`);
+      const thumbnail = document.createElement("img"); thumbnail.src = url; thumbnail.alt = ""; thumbnail.className = "w-full aspect-[4/3] object-cover";
+      const label = document.createElement("span"); label.textContent = "Vừa tải lên"; label.className = "block text-[10px] sm:text-xs py-1.5 text-base-700";
+      button.append(thumbnail, label);
+      button.addEventListener("click", () => {
+        gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]").forEach(thumb => thumb.setAttribute("aria-pressed", String(thumb === button)));
+        gallery.querySelectorAll<HTMLImageElement>("[data-gallery-main], [data-gallery-zoom]").forEach(image => { image.src = url; image.alt = alt; image.width = width; image.height = height; });
+        gallery.querySelectorAll<HTMLElement>("[data-gallery-caption], [data-gallery-zoom-caption]").forEach(element => { element.textContent = caption; });
+      });
+      gallery.querySelector('[role="group"]')?.append(button); button.click();
+    };
+    form.addEventListener("submit", async event => {
+      event.preventDefault(); if (busy || !form.reportValidity()) return;
+      const file = fileInput.files?.[0]; if (!file) return;
+      busy = true; save.disabled = true; open.disabled = true;
+      fileInput.disabled = true; altInput.disabled = true; captionInput.disabled = true;
+      try {
+        // Open the popup during the user gesture so browser popup blockers allow it.
+        const authentication = token ? Promise.resolve(token) : login();
+        status.textContent = "Đang xác nhận quyền chỉnh sửa và lưu ảnh…";
+        token = await authentication;
+        await preview.decode();
+        const width = preview.naturalWidth; const height = preview.naturalHeight;
+        const body = new FormData(); body.set("file", file); body.set("slug", root.dataset.slug!); body.set("brand", root.dataset.brand!);
+        body.set("alt", altInput.value.trim()); body.set("caption", captionInput.value.trim()); body.set("width", String(width)); body.set("height", String(height));
+        const response = await fetch("/api/product-images", { method: "POST", headers: { Authorization: `Bearer ${token}` }, body });
+        const result = await response.json();
+        if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa lưu được ảnh. Vui lòng thử lại."); }
+        const savedPreview = URL.createObjectURL(file);
+        showInGallery(savedPreview, result.photo.alt, result.photo.caption || "Ảnh vật liệu vừa tải lên.", width, height);
+        status.textContent = result.message;
+        form.reset(); preview.hidden = true; if (previewUrl) URL.revokeObjectURL(previewUrl); previewUrl = null;
+      } catch (error) { status.textContent = error instanceof Error ? error.message : "Chưa lưu được ảnh. Vui lòng thử lại."; }
+      finally { busy = false; save.disabled = false; open.disabled = false; fileInput.disabled = false; altInput.disabled = false; captionInput.disabled = false; }
+    });
+  });
+</script>

@@ -4,6 +4,7 @@ export interface ProductRecord {
   slug: string; code: string; name: string; group: string; category: string;
   brand: "INFEEL" | "Corance" | "TODA"; collection: string; pdf: string;
   image: string; imageAlt?: string; imageWidth: number; imageHeight: number;
+  gallery?: { src: string; alt: string; caption?: string; width?: number; height?: number }[];
   application?: string | null; applicationAlt?: string;
   sourcePage: number; imageSource?: { pdf: string; page: number };
   pricePerMetre?: number | null; rollSpecification: string;
