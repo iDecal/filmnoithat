@@ -4,11 +4,11 @@
   "name": "Hiệu ứng kim loại",
   "group": "Corance CAM",
   "category": "kim-loai",
-  "image": "/images/catalogue/corance/cam002.webp",
+  "image": "/images/uploads/products/corance-cam002/film-dan-noi-that-corance-cam002-b857d44d03eb.jpg",
   "application": null,
   "sourcePage": 9,
-  "imageWidth": 1042,
-  "imageHeight": 268,
+  "imageWidth": 1254,
+  "imageHeight": 1254,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -21,13 +21,6 @@
   "order": 484,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-cam002/film-dan-noi-that-corance-cam002-b857d44d03eb.jpg",
-      "alt": "Phim dán nội thất vân kim loại CORANCE CSM 002",
-      "caption": "Phim dán nội thất vân kim loại CORANCE CSM 002",
-      "width": 1254,
-      "height": 1254
-    },
-    {
       "src": "/images/uploads/products/corance-cam002/film-dan-noi-that-corance-cam002-d417e9655d2e.webp",
       "alt": "Bề mặt Film dán nội thất Hiệu ứng kim loại CAM002 – Corance",
       "caption": "",
@@ -37,6 +30,9 @@
     }
   ],
   "hiddenImages": [
-    "/images/cong-trinh/dan-film-noi-that-thang-may.jpg"
-  ]
+    "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
+    "/images/catalogue/corance/cam002.webp"
+  ],
+  "imageAlt": "Phim dán nội thất vân kim loại CORANCE CSM 002",
+  "imageTitle": "Phim dán nội thất vân kim loại CORANCE CSM 002"
 }
