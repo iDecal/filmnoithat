@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAD",
   "category": "van-go",
-  "image": "/images/catalogue/corance/cad617.webp",
+  "image": "/images/uploads/products/corance-cad617/film-dan-noi-that-corance-cad617-b3345a050d02.webp",
   "application": null,
   "sourcePage": 22,
-  "imageWidth": 1042,
-  "imageHeight": 318,
+  "imageWidth": 2048,
+  "imageHeight": 1365,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -19,13 +19,9 @@
     "value": "#ad916e"
   },
   "order": 447,
-  "gallery": [
-    {
-      "src": "/images/uploads/products/corance-cad617/film-dan-noi-that-corance-cad617-b3345a050d02.webp",
-      "alt": "dfc",
-      "caption": "sdcsdcdsc",
-      "width": 2048,
-      "height": 1365
-    }
+  "gallery": [],
+  "imageAlt": "dfc",
+  "hiddenImages": [
+    "/images/catalogue/corance/cad617.webp"
   ]
 }
