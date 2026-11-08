@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Đăng nhập quản trị | Film Nội Thất" description="Đăng nhập tài khoản quản trị để cập nhật sản phẩm và hình ảnh.">
+  <section class="container py-16 sm:py-24 min-h-[50vh]">
+    <h1 class="text-3xl font-semibold">Quản trị website</h1>
+    <div data-admin-entry-content class="mt-6 max-w-xl">
+      <p class="mb-5">Đăng nhập bằng tài khoản GitHub có quyền chỉnh sửa website để thêm, sửa, xóa sản phẩm và quản lý ảnh.</p>
+      <button type="button" data-admin-login-primary class="button-primary">Đăng nhập quản trị bằng GitHub</button>
+      <p data-admin-entry-status role="status" aria-live="polite" class="mt-4 text-sm"></p>
+      <noscript>Vui lòng bật JavaScript để đăng nhập quản trị.</noscript>
+    </div>
+    <p class="mt-6 text-sm text-base-600">Sau khi đăng nhập, bấm “Quản lý sản phẩm” ở góc dưới bên phải. Để sửa một mẫu cụ thể, mở trang chi tiết của mẫu đó.</p>
+  </section>
+</BaseLayout>

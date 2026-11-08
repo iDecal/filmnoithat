@@ -1,4 +1,7 @@
-<div data-admin-entry hidden class="fixed bottom-4 right-4 z-40"><button data-admin-login class="button-secondary shadow-lg">Đăng nhập quản trị</button><p data-admin-status role="status" class="bg-white text-sm max-w-xs mt-2"></p></div>
+---
+const adminOrigin = Astro.site?.origin || "https://filmnoithat.pages.dev";
+---
+<div data-admin-entry data-admin-origin={adminOrigin} hidden class="fixed bottom-4 right-4 z-40"><button data-admin-login class="button-secondary shadow-lg">Đăng nhập quản trị</button><p data-admin-status role="status" class="bg-white text-sm max-w-xs mt-2"></p></div>
 <div data-admin-only data-admin-bar hidden class="fixed bottom-4 right-4 z-40 flex flex-wrap gap-2 rounded-xl border border-base-200 bg-white p-3 shadow-xl max-w-[calc(100%-2rem)]">
   <button data-admin-open class="button-primary">Quản lý sản phẩm</button><button data-admin-logout class="button-secondary">Đăng xuất</button>
 </div>
@@ -24,10 +27,23 @@
   const brand = document.querySelector<HTMLSelectElement>("[data-admin-brand]")!;
   const edit = document.querySelector<HTMLButtonElement>("[data-admin-edit]")!;
   const photos = document.querySelector<HTMLButtonElement>("[data-admin-photos]")!;
-  const enabled = new URLSearchParams(location.search).get("admin") === "1";
-  entry.hidden = !enabled;
+  const dedicated = location.pathname.replace(/\/$/, "") === "/quan-tri";
+  const requested = dedicated || new URLSearchParams(location.search).get("admin") === "1";
+  let enabled = requested;
+  try {
+    if (requested) sessionStorage.setItem("filmnoithat-admin-mode", "1");
+    enabled = requested || sessionStorage.getItem("filmnoithat-admin-mode") === "1";
+  } catch { /* login still works without persistent storage */ }
+  if (enabled && ["filmnoithat.vn", "www.filmnoithat.vn"].includes(location.hostname)) {
+    location.replace(new URL("/quan-tri/", entry.dataset.adminOrigin!).href);
+  }
+  entry.hidden = !enabled || dedicated;
+  const primaryEntry = document.querySelector<HTMLElement>("[data-admin-entry-content]");
+  const primaryStatus = document.querySelector<HTMLElement>("[data-admin-entry-status]");
+  const message = (value: string) => { status.textContent = value; if (primaryStatus) primaryStatus.textContent = value; };
   const show = () => {
     entry.hidden = true;
+    if (primaryEntry) primaryEntry.hidden = true;
     document.querySelectorAll<HTMLElement>("[data-admin-only]").forEach(node => { node.hidden = false; });
     edit.hidden = photos.hidden = !product;
     if (product) brand.value = product.dataset.brand!.toLowerCase();
@@ -35,15 +51,16 @@
   window.addEventListener("admin-login", show);
   window.addEventListener("admin-logout", () => {
     document.querySelectorAll<HTMLElement>("[data-admin-only]").forEach(node => { node.hidden = true; });
-    menu.close(); editor.close(); frame.removeAttribute("src"); entry.hidden = !enabled;
+    menu.close(); editor.close(); frame.removeAttribute("src"); entry.hidden = !enabled || dedicated;
+    if (primaryEntry) primaryEntry.hidden = false;
   });
-  if (hasAdminSession()) restoreAdmin().then(ok => { if (!ok && enabled) status.textContent = "Vui lòng đăng nhập lại để quản trị."; });
-  const login = document.querySelector<HTMLButtonElement>("[data-admin-login]")!;
-  login.addEventListener("click", async () => {
-    login.disabled = true; status.textContent = "Đang xác minh quyền quản trị…";
-    try { await loginAdmin(); status.textContent = ""; } catch (error) { status.textContent = error instanceof Error ? error.message : "Chưa đăng nhập được."; }
-    finally { login.disabled = false; }
-  });
+  if (hasAdminSession()) restoreAdmin().then(ok => { if (!ok && enabled) message("Vui lòng đăng nhập lại để quản trị."); });
+  const loginButtons = document.querySelectorAll<HTMLButtonElement>("[data-admin-login], [data-admin-login-primary]");
+  loginButtons.forEach(login => login.addEventListener("click", async () => {
+    loginButtons.forEach(button => { button.disabled = true; }); message("Đang xác minh quyền quản trị…");
+    try { await loginAdmin(); message(""); } catch (error) { message(error instanceof Error ? error.message : "Chưa đăng nhập được."); }
+    finally { loginButtons.forEach(button => { button.disabled = false; }); }
+  }));
   document.querySelector("[data-admin-logout]")!.addEventListener("click", logoutAdmin);
   document.querySelector("[data-admin-open]")!.addEventListener("click", () => { if (!bar.hidden) menu.showModal(); });
   document.querySelector("[data-admin-menu-close]")!.addEventListener("click", () => menu.close());

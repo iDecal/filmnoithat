@@ -124,3 +124,7 @@ Mở `/vat-lieu/?admin=1` (hoặc thêm `?admin=1` vào trang sản phẩm) rồ
 Trong **Quản lý sản phẩm**, chọn thương hiệu để **Thêm sản phẩm**, hoặc mở **Sửa sản phẩm này** trên trang chi tiết. Hai chức năng này dùng trình biên tập Decap hiện có trong popup, giữ nguyên luồng bản nháp/xuất bản của CMS. Decap có thể yêu cầu đăng nhập riêng trong lần mở đầu tiên; liên kết mở trong tab mới có sẵn nếu cần. **Ảnh & xóa sản phẩm** mở popup quản lý ảnh và xác nhận xóa trực tiếp.
 
 Phiên quản trị trực tiếp được lưu trong `sessionStorage` của tab, kiểm tra lại quyền trên mỗi lần tải trang và xóa khi đăng xuất hoặc xác minh thất bại. Không truyền token qua URL. API tải ảnh, đổi ảnh chính và xóa vẫn tự kiểm tra quyền khi ghi dữ liệu; việc hiện thanh công cụ không thay thế kiểm tra máy chủ. Đăng xuất ở thanh công cụ kết thúc phiên quản trị trực tiếp; phiên đăng nhập riêng của Decap được quản lý trong Decap.
+
+#### Đường vào quản trị dễ tìm
+
+Dùng `/quan-tri/` để thấy nút **Đăng nhập quản trị bằng GitHub** ngay trong nội dung trang. Chế độ hiện nút đăng nhập được giữ trong tab khi chuyển sang trang vật liệu hoặc sản phẩm, nhưng không cấp quyền quản trị. Khách chưa mở chế độ quản trị vẫn không thấy các nút này. Khi vào quản trị từ tên miền `filmnoithat.vn`, trình duyệt đưa về `https://filmnoithat.pages.dev/quan-tri/` để dùng đúng origin và callback đã đăng ký của OAuth. Trang tiện ích này được đặt `noindex` và loại khỏi sitemap.
