@@ -177,3 +177,153 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Minimal Luxury for the remaining public pages; homepage keeps its theme. */
+body:not(:has(.home-luxe)) {
+  --font-heading: "Montserrat", system-ui, sans-serif;
+  --font-body: "Wix Madefor Text", system-ui, sans-serif;
+  font-family: var(--font-body);
+  background-color: #0b1824;
+  color: #ffffff;
+}
+body:not(:has(.home-luxe)) .font-heading { font-family: var(--font-heading); }
+body:not(:has(.home-luxe)) main {
+  --luxe-text: #ffffff;
+  --luxe-muted: #c7d0d8;
+  --luxe-highlight: #d1b581;
+  --luxe-border: #33424f;
+  --luxe-panel: #132532;
+  color: var(--luxe-text);
+}
+body:not(:has(.home-luxe)) main :is(.bg-base-50, .warm-surface, .surface-gradient, .ink-gradient, .bg-base-900):not(dialog, dialog *) {
+  background-color: #0b1824;
+  background-image: none;
+  color: var(--luxe-text);
+}
+body:not(:has(.home-luxe)) main :is(.bg-white, [class*="bg-white/"], .bg-base-100):not(dialog, dialog *) {
+  background-color: var(--luxe-panel);
+  color: var(--luxe-text);
+}
+body:not(:has(.home-luxe)) main > section.bg-white { background-color: #0b1824; }
+body:not(:has(.home-luxe)) main :is(.bg-base-900, .ink-gradient):not(dialog, dialog *) {
+  --luxe-text: #ffffff;
+  --luxe-muted: #c7d0d8;
+  --luxe-highlight: #d1b581;
+  --luxe-border: #33424f;
+  --luxe-panel: #132532;
+}
+/* White reading aids balance the navy article without a large sand panel. */
+body:not(:has(.home-luxe)) main > article > div.bg-white > div > nav[aria-label="Mục lục bài viết"],
+body:not(:has(.home-luxe)) main > article > div.bg-white aside {
+  --luxe-text: #0b1824;
+  --luxe-muted: #4b5863;
+  --luxe-highlight: #876a37;
+  --luxe-border: #e0e5e8;
+  --luxe-panel: #f5f7f9;
+  background-color: #ffffff;
+  color: var(--luxe-text);
+}
+body:not(:has(.home-luxe)) main :is(.text-base-900, .text-base-800, .text-base-950):not(dialog, dialog *) { color: var(--luxe-text); }
+body:not(:has(.home-luxe)) main :is(.text-base-500, .text-base-600, .text-base-700):not(dialog, dialog *) { color: var(--luxe-muted); }
+body:not(:has(.home-luxe)) main .text-base-400:not(dialog, dialog *) { color: #9eaebc; }
+body:not(:has(.home-luxe)) main [class*="text-primary-"]:not(dialog, dialog *) { color: var(--luxe-text); }
+body:not(:has(.home-luxe)) main :is(.eyebrow, [class*="text-accent-"]):not(dialog, dialog *) { color: var(--luxe-highlight); }
+body:not(:has(.home-luxe)) main [class*="bg-accent-"]:not(dialog, dialog *) { background-color: transparent; }
+body:not(:has(.home-luxe)) main :is([class*="border-base-"], [class*="border-white/"]):not(dialog, dialog *),
+body:not(:has(.home-luxe)) main [class*="divide-base-"] > :not([hidden], dialog, dialog *) ~ :not([hidden], dialog, dialog *) { border-color: var(--luxe-border); }
+body:not(:has(.home-luxe)) main :is(a, summary):hover:not(dialog, dialog *) { color: var(--luxe-highlight); }
+body:not(:has(.home-luxe)) main .group:hover h3:not(dialog, dialog *) { color: var(--luxe-highlight); }
+body:not(:has(.home-luxe)) main :is(.button-primary, .button-accent):not(dialog, dialog *) {
+  background-color: #d1b581;
+  border-color: #d1b581;
+  color: #0b1824;
+}
+body:not(:has(.home-luxe)) main :is(.button-primary, .button-accent):hover:not(dialog, dialog *) {
+  background-color: #e1c99d;
+  border-color: #e1c99d;
+  color: #0b1824;
+}
+body:not(:has(.home-luxe)) main .button-secondary:not(dialog, dialog *) {
+  background-color: transparent;
+  border-color: #d1b581;
+  color: var(--luxe-text);
+}
+body:not(:has(.home-luxe)) main .button-secondary:hover:not(dialog, dialog *) {
+  background-color: #1c303f;
+  border-color: #e1c99d;
+  color: #ffffff;
+}
+body:not(:has(.home-luxe)) main :is(input, select, textarea)[class]:not(dialog, dialog *) {
+  background-color: #ffffff;
+  color: #0b1824;
+  border-color: #b39a6e;
+  accent-color: #876a37;
+}
+body:not(:has(.home-luxe)) main input::placeholder { color: #586673; }
+body:not(:has(.home-luxe)) main .filter-chip[aria-pressed="true"] {
+  background-color: #d1b581;
+  border-color: #d1b581;
+  color: #0b1824;
+}
+body:not(:has(.home-luxe)) main :is(.service-jump-link, .related-services-list a):not(dialog, dialog *) { color: var(--luxe-text); }
+body:not(:has(.home-luxe)) main .service-jump-link:is(:hover, [aria-current="location"]) {
+  color: #d1b581;
+  border-bottom-color: #d1b581;
+}
+body:not(:has(.home-luxe)) main .service-timeline::before { background-color: #33424f; }
+body:not(:has(.home-luxe)) :is(.mobile-service-actions, .related-services-list a) {
+  background-color: #132532;
+  border-color: #33424f;
+}
+/* Admin dialogs remain light and readable; the Decap app is independent. */
+body:not(:has(.home-luxe)) :is(dialog, [data-admin-bar], [data-admin-entry]) { color: #0b1824; }
+body:not(:has(.home-luxe)) :is(dialog, [data-admin-bar]) {
+  --font-heading: "Montserrat", system-ui, sans-serif;
+  --font-body: "Wix Madefor Text", system-ui, sans-serif;
+}
+body:not(:has(.home-luxe)) main :focus-visible:not(dialog, dialog *) { outline-color: var(--luxe-highlight); }
+
+body:not(:has(.home-luxe)) .site-header {
+  background-color: #0b1824;
+  color: #ffffff;
+  border-color: #33424f;
+}
+body:not(:has(.home-luxe)) .site-header .font-heading,
+body:not(:has(.home-luxe)) footer .font-heading { font-family: var(--font-heading); }
+body:not(:has(.home-luxe)) .site-header .text-base-900,
+body:not(:has(.home-luxe)) .site-header [class*="text-primary-"] { color: #ffffff; }
+body:not(:has(.home-luxe)) .site-header .text-base-500,
+body:not(:has(.home-luxe)) .site-header .text-base-600 { color: #c7d0d8; }
+body:not(:has(.home-luxe)) .site-header .submenu-panel,
+body:not(:has(.home-luxe)) #mobileMenu { background-color: #0b1824; }
+body:not(:has(.home-luxe)) .site-header [class*="border-base-"] { border-color: #33424f; }
+body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-color: #132532; }
+body:not(:has(.home-luxe)) .site-header .nav-top-link:hover,
+body:not(:has(.home-luxe)) .site-header .nav-child-link:hover,
+body:not(:has(.home-luxe)) .site-header .submenu-toggle:hover {
+  color: #d1b581;
+  background-color: #132532;
+}
+body:not(:has(.home-luxe)) .site-header .button-primary {
+  background-color: #d1b581;
+  border-color: #d1b581;
+  color: #0b1824;
+}
+body:not(:has(.home-luxe)) .site-header .button-primary:hover {
+  background-color: #e1c99d;
+  border-color: #e1c99d;
+}
+body:not(:has(.home-luxe)) footer { background-color: #07121c; }
+body:not(:has(.home-luxe)) footer .text-accent-200 { color: #ffffff; }
+body:not(:has(.home-luxe)) footer .footer-link:hover { color: #d1b581; }
+body:not(:has(.home-luxe)) footer a.bg-white {
+  background-color: #d1b581;
+  color: #0b1824;
+}
+body:not(:has(.home-luxe)) footer a.bg-white:hover { background-color: #e1c99d; }
+body:not(:has(.home-luxe)) :focus-visible { outline-color: #d1b581; }
+body:not(:has(.home-luxe)) ::selection { background-color: #d1b581; color: #0b1824; }
+body:not(:has(.home-luxe)) main :is(.bg-primary-50, .bg-primary-100):not(dialog, dialog *) { background-color: var(--luxe-panel); }
+body:not(:has(.home-luxe)) main [data-gallery-thumb][aria-pressed="true"] { border-color: #d1b581; }
+body:not(:has(.home-luxe)) main a.bg-primary-500 { background-color: #d1b581; color: #0b1824; }
+body:not(:has(.home-luxe)) main a.bg-primary-500:hover { background-color: #e1c99d; color: #0b1824; }
