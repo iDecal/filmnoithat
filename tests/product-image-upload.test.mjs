@@ -108,3 +108,24 @@ test('product deletion removes only the product JSON, requires permission, and r
  }
  const mock=github({push:false});assert.equal((await deleteProductImage({request:managementRequest('DELETE',{action:'delete-product'}),env:{}},mock.fetcher)).status,403);
 });
+test('reordering promotes the first image globally and preserves metadata, remaining photos and hidden associations',async()=>{
+ const extra={src:'/images/extra.webp',alt:'Extra',title:'Extra title',width:222,height:111};
+ const product={...record,imageAlt:'Original',imageWidth:100,imageHeight:80,gallery:[...record.gallery,extra,{src:'/images/hidden.webp',alt:'Hidden'}],hiddenImages:['/images/hidden.webp']};
+ const m=github({product});const baseOrder=[record.image,record.gallery[0].src,extra.src];const order=[extra.src,record.image,record.gallery[0].src];
+ const response=await deleteProductImage({request:managementRequest('PATCH',{action:'reorder',order,baseOrder}),env:{}},m.fetcher);assert.equal(response.status,200);
+ const saved=JSON.parse(Buffer.from(m.calls.find(c=>c.url.endsWith('/git/blobs')).body.content,'base64').toString());
+ assert.equal(saved.image,extra.src);assert.equal(saved.imageAlt,extra.alt);assert.equal(saved.imageTitle,extra.title);assert.equal(saved.imageWidth,222);assert.equal(saved.imageHeight,111);
+ assert.deepEqual(saved.gallery.map(p=>p.src),[record.image,record.gallery[0].src,'/images/hidden.webp']);assert.deepEqual(saved.hiddenImages,product.hiddenImages);assert.deepEqual((await response.json()).order,order);
+});
+test('reorder rejects duplicates, reference images, omitted photos and anonymous writes',async()=>{
+ const baseOrder=[record.image,record.gallery[0].src];
+ for(const order of [[record.image,record.image],['/images/reference.webp',record.image],[record.image]]){
+  const m=github();const response=await deleteProductImage({request:managementRequest('PATCH',{action:'reorder',order,baseOrder}),env:{}},m.fetcher);assert.ok([400,409].includes(response.status));assert.ok(!m.calls.some(c=>c.method==='POST'));
+ }
+ assert.equal((await deleteProductImage({request:managementRequest('PATCH',{action:'reorder',order:baseOrder,baseOrder},false),env:{}},()=>{throw new Error();})).status,401);
+});
+test('a concurrent new upload blocks stale reorder without losing another editor’s photo',async()=>{
+ const m=github({race:true});const baseOrder=[record.image,record.gallery[0].src];
+ const response=await deleteProductImage({request:managementRequest('PATCH',{action:'reorder',order:[...baseOrder].reverse(),baseOrder}),env:{}},m.fetcher);
+ assert.equal(response.status,409);assert.equal(m.calls.filter(c=>c.method==='PATCH').length,1);
+});

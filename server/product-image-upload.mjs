@@ -105,13 +105,16 @@ export async function deleteProductImage({ request, env }, fetcher = fetch) {
   const authorization = request.headers.get('Authorization') || '';
   if (!/^Bearer [^\s]+$/.test(authorization)) return reply('Vui lòng đăng nhập GitHub để xóa ảnh.', 401);
   let input;
-  try { input = JSON.parse(new TextDecoder().decode(await limitedBytes(request, 8192))); }
+  try { input = JSON.parse(new TextDecoder().decode(await limitedBytes(request, 65536))); }
   catch { return reply('Yêu cầu xóa không hợp lệ.'); }
   if (!input || typeof input !== 'object' || Array.isArray(input)) return reply('Yêu cầu không hợp lệ.');
   const { slug, brand, src } = input;
   const removeProduct = request.method === 'DELETE' && input.action === 'delete-product';
-  const setPrimary = request.method === 'PATCH';
-  if (typeof slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !['INFEEL','Corance','TODA'].includes(brand) || (!removeProduct && (typeof src !== 'string' || !src.startsWith('/images/') || src.includes('..') || src.length > 1500))) return reply('Ảnh hoặc sản phẩm không hợp lệ.');
+  const reorder = request.method === 'PATCH' && input.action === 'reorder';
+  const setPrimary = request.method === 'PATCH' && !reorder;
+  const validOrder = value => Array.isArray(value) && value.length > 0 && value.length <= 150 && new Set(value).size === value.length && value.every(src => typeof src === 'string' && src.startsWith('/images/') && !src.includes('..') && src.length <= 1500);
+  if (reorder && (!validOrder(input.order) || !validOrder(input.baseOrder))) return reply('Thứ tự ảnh không hợp lệ.');
+  if (typeof slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !['INFEEL','Corance','TODA'].includes(brand) || (!removeProduct && !reorder && (typeof src !== 'string' || !src.startsWith('/images/') || src.includes('..') || src.length > 1500))) return reply('Ảnh hoặc sản phẩm không hợp lệ.');
   const headers = { Authorization: authorization, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json', 'User-Agent': 'filmnoithat-product-upload' };
   const api = async (path, method = 'GET', data) => {
     const response = await fetcher(`${API}${path}`, { method, headers, ...(data ? { body: JSON.stringify(data) } : {}) });
@@ -130,7 +133,17 @@ export async function deleteProductImage({ request, env }, fetcher = fetch) {
       const product = JSON.parse(decode(current.data.content));
       if (product.slug !== slug || product.brand !== brand) return reply('Thông tin sản phẩm không khớp.', 409);
       const hidden = new Set(product.hiddenImages || []);
-      if (setPrimary) {
+      if (reorder) {
+        const visible = [{ src: product.image, alt: product.imageAlt || `${product.brand} ${product.code}`, title: product.imageTitle, width: product.imageWidth, height: product.imageHeight }, ...(product.gallery || []).filter(photo => !hidden.has(photo.src))];
+        const currentOrder = [...new Set(visible.map(photo => photo.src))];
+        if (JSON.stringify(currentOrder) !== JSON.stringify(input.baseOrder) || input.order.length !== currentOrder.length || input.order.some(src => !currentOrder.includes(src))) return reply('Thư viện ảnh vừa thay đổi. Hãy tải lại trang để lấy thư viện mới trước khi sắp xếp.', 409);
+        const ordered = input.order.map(src => visible.find(photo => photo.src === src));
+        const first = ordered[0];
+        if (product.image !== first.src) delete product.imageSource;
+        product.image = first.src; product.imageAlt = first.alt; product.imageTitle = first.title || first.alt;
+        product.imageWidth = first.width || 1000; product.imageHeight = first.height || 750;
+        product.gallery = [...ordered.slice(1), ...(product.gallery || []).filter(photo => hidden.has(photo.src))];
+      } else if (setPrimary) {
         const selected = (product.gallery || []).find(photo => photo.src === src && !hidden.has(src));
         if (src !== product.image && !selected) return reply('Chỉ chọn ảnh vật liệu của sản phẩm làm ảnh chính.', 409);
         if (selected) {
@@ -145,7 +158,7 @@ export async function deleteProductImage({ request, env }, fetcher = fetch) {
         product.imageWidth = replacement.width || 1000; product.imageHeight = replacement.height || 750;
         product.gallery = (product.gallery || []).filter(photo => photo.src !== replacement.src);
       }
-      if (!setPrimary && !removeProduct) {
+      if (!setPrimary && !removeProduct && !reorder) {
         product.gallery = (product.gallery || []).filter(photo => photo.src !== src);
         hidden.add(src); product.hiddenImages = [...hidden];
       }
@@ -155,10 +168,10 @@ export async function deleteProductImage({ request, env }, fetcher = fetch) {
       // Remove the product association, never a shared catalogue/media file.
       const tree = await api('/git/trees', 'POST', { base_tree: parent.data.tree.sha, tree: [{ path, mode: '100644', type: 'blob', sha: removeProduct ? null : blob.data.sha }] });
       if (!tree.response.ok) throw new Error();
-      const commit = await api('/git/commits', 'POST', { message: `${removeProduct ? 'Delete product' : setPrimary ? 'Set primary photo for' : 'Remove photo from'} ${brand} ${product.code}`, parents: [sha], tree: tree.data.sha });
+      const commit = await api('/git/commits', 'POST', { message: `${removeProduct ? 'Delete product' : reorder ? 'Reorder photos for' : setPrimary ? 'Set primary photo for' : 'Remove photo from'} ${brand} ${product.code}`, parents: [sha], tree: tree.data.sha });
       if (!commit.response.ok) throw new Error();
       const update = await api('/git/refs/heads/main', 'PATCH', { sha: commit.data.sha, force: false });
-      if (update.response.ok) return reply(removeProduct ? 'Đã xóa sản phẩm. Website đang cập nhật.' : setPrimary ? 'Đã đặt ảnh chính. Website đang cập nhật.' : 'Đã xóa ảnh khỏi sản phẩm. Website đang cập nhật.', 200, { deletedProduct: removeProduct, deletedSrc: src, primary: product.image, galleryCount: (product.gallery || []).length });
+      if (update.response.ok) return reply(removeProduct ? 'Đã xóa sản phẩm. Website đang cập nhật.' : reorder ? 'Đã lưu thứ tự ảnh. Ảnh đầu tiên là ảnh chính trên toàn website.' : setPrimary ? 'Đã đặt ảnh chính. Website đang cập nhật.' : 'Đã xóa ảnh khỏi sản phẩm. Website đang cập nhật.', 200, { deletedProduct: removeProduct, deletedSrc: src, primary: product.image, galleryCount: (product.gallery || []).filter(photo => !hidden.has(photo.src)).length, ...(reorder ? { order: input.order } : {}) });
       if (![409,422].includes(update.response.status)) throw new Error();
     }
     return reply('Có thay đổi mới trong lúc xóa. Vui lòng thử lại.', 409);

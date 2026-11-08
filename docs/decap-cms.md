@@ -136,3 +136,9 @@ Sau khi đăng nhập, mở trang một mẫu → **Quản lý sản phẩm → 
 **Lưu thay đổi** ghi trực tiếp vào `main`, giữ URL sản phẩm và các ảnh không chỉnh sửa. Đổi thương hiệu chuyển bản ghi sang thư mục tương ứng bằng một commit; đổi mã kiểm tra trùng mã trong thương hiệu. Có thể để giá trống cho bất kỳ thương hiệu nào để hiển thị liên hệ báo giá. SEO trống sử dụng nội dung tự tạo sẵn của website. Phần xem trước tìm kiếm mang tính minh họa; kết quả tìm kiếm thực tế do công cụ tìm kiếm quyết định.
 
 API `/api/products` chỉ cho tài khoản có quyền `push` đọc/sửa. Khi lưu, API so dữ liệu gốc của từng trường và từng ảnh với bản mới nhất, báo xung đột nếu có người khác sửa cùng thông tin; các lần tải ảnh hoặc sửa trường khác được giữ nguyên. Bản đang sửa không mất khi lưu lỗi hay đóng/mở lại popup trong cùng trang. **Tải lại bản đã lưu** có xác nhận nếu có thay đổi chưa lưu. Người dùng vẫn cần chờ Cloudflare cập nhật trước khi khách thấy bản mới. **Thêm sản phẩm** tiếp tục dùng Decap; phần sửa sản phẩm không còn mở iframe Decap.
+
+### Thứ tự ảnh sản phẩm
+
+Các nút thao tác ảnh hiển thị cùng hàng trên máy tính, tự xuống dòng trên màn hình nhỏ. Trong popup, kéo thả thẻ ảnh hoặc dùng nút **← / →**, sau đó bấm **Lưu thứ tự**. Thẻ đầu tiên có nhãn **1 · Ảnh chính**; khi lưu, ảnh này chuyển vào trường `image` của sản phẩm để dùng nhất quán trong danh sách vật liệu, sản phẩm liên quan và các vị trí giới thiệu. Các ảnh còn lại được lưu theo thứ tự trong `gallery`; ALT, tiêu đề và kích thước được giữ lại. **Hủy sắp xếp** bỏ thay đổi thứ tự chưa lưu.
+
+Ảnh tham khảo không nằm trong thứ tự ảnh vật liệu. API chỉ chấp nhận đầy đủ các ảnh vật liệu hiện có; nếu có ảnh mới được tải lên, xóa hoặc đổi thứ tự từ nơi khác trong khi sửa, thao tác lưu báo xung đột để tránh mất ảnh. Tải lại trang trước khi sắp xếp lại. Phần “Ứng dụng và cách chọn film dán nội thất” đã được bỏ khỏi mẫu trang chi tiết sản phẩm.
