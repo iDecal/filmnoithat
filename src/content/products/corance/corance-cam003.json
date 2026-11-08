@@ -4,11 +4,11 @@
   "name": "Hiệu ứng kim loại",
   "group": "Corance CAM",
   "category": "kim-loai",
-  "image": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-c8d4bb129937.jpg",
+  "image": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-adcc1b9051ec.webp",
   "application": null,
   "sourcePage": 9,
-  "imageWidth": 1254,
-  "imageHeight": 1254,
+  "imageWidth": 1170,
+  "imageHeight": 780,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -21,13 +21,6 @@
   "order": 485,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-adcc1b9051ec.webp",
-      "alt": "cam003",
-      "caption": "",
-      "width": 1170,
-      "height": 780
-    },
-    {
       "src": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-d0b7cc3a80b9.webp",
       "alt": "Phim CAM003",
       "caption": "",
@@ -37,7 +30,8 @@
   ],
   "hiddenImages": [
     "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
-    "/images/catalogue/corance/cam003.webp"
+    "/images/catalogue/corance/cam003.webp",
+    "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-c8d4bb129937.jpg"
   ],
-  "imageAlt": "èwèwe"
+  "imageAlt": "cam003"
 }
