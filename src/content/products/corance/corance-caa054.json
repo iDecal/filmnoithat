@@ -1,6 +1,6 @@
 {
   "slug": "corance-caa054",
-  "code": "CAA054",
+  "code": "CAA069",
   "name": "Vân gỗ",
   "group": "Corance CAA",
   "category": "van-go",
@@ -57,5 +57,6 @@
   "hiddenImages": [
     "/images/catalogue/corance/caa054.webp",
     "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp"
-  ]
+  ],
+  "pricePerMetre": 268000
 }
