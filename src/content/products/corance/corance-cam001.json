@@ -21,13 +21,6 @@
   "order": 483,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-cam001/film-dan-noi-that-corance-cam001-95e68e88668c.webp",
-      "alt": "âcsc",
-      "caption": "",
-      "width": 1170,
-      "height": 780
-    },
-    {
       "src": "/images/uploads/products/corance-cam001/film-dan-noi-that-corance-cam001-0abff9e2d165.webp",
       "alt": "ấccsac",
       "caption": "",
@@ -45,6 +38,7 @@
   "imageAlt": "[CORANCE] Film Dán Nội Thất Vân Kim Loại CAM001",
   "hiddenImages": [
     "/images/catalogue/corance/cam001.webp",
-    "/images/cong-trinh/dan-film-noi-that-thang-may.jpg"
+    "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
+    "/images/uploads/products/corance-cam001/film-dan-noi-that-corance-cam001-95e68e88668c.webp"
   ]
 }
