@@ -7,10 +7,10 @@
   "brand": "TODA",
   "collection": "TODA Interior Film Vol.02",
   "pdf": "/catalogues/toda-vol-02.pdf",
-  "image": "/images/catalogue/toda/film-dan-noi-that-toda-925-01.webp",
-  "imageAlt": "Bề mặt film dán nội thất TODA 925-01, dòng Concrete, trích từ catalogue Vol.02",
-  "imageWidth": 1054,
-  "imageHeight": 637,
+  "image": "/images/uploads/products/toda-925-01/film-dan-noi-that-toda-925-01-d7a06240f011.webp",
+  "imageAlt": "Concrete",
+  "imageWidth": 1080,
+  "imageHeight": 1080,
   "application": null,
   "sourcePage": 41,
   "rollSpecification": "1,23 m × 50 m",
@@ -22,16 +22,10 @@
   "order": 1074,
   "seoTitle": "Film dán nội thất TODA 925-01 – Vân bê tông | Tư vấn mẫu",
   "seoDescription": "Mẫu film dán nội thất TODA 925-01, dòng Concrete. Xem ảnh bề mặt trích từ catalogue TODA Vol.02, đối chiếu trang 41 và liên hệ tư vấn vật liệu, báo giá.",
-  "gallery": [
-    {
-      "src": "/images/uploads/products/toda-925-01/film-dan-noi-that-toda-925-01-d7a06240f011.webp",
-      "alt": "Concrete",
-      "caption": "",
-      "width": 1080,
-      "height": 1080
-    }
-  ],
+  "gallery": [],
   "hiddenImages": [
-    "/images/bo-suu-tap/film-noi-that-mat-ban-sang-mau.webp"
-  ]
+    "/images/bo-suu-tap/film-noi-that-mat-ban-sang-mau.webp",
+    "/images/catalogue/toda/film-dan-noi-that-toda-925-01.webp"
+  ],
+  "imageTitle": "Concrete"
 }
