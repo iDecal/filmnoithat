@@ -4,7 +4,7 @@
   "name": "Vân gỗ",
   "group": "Corance CAA",
   "category": "van-go",
-  "image": "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-bd1b50a3321d.webp",
+  "image": "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-237853f13fe0.webp",
   "application": null,
   "sourcePage": 12,
   "imageWidth": 2048,
@@ -21,14 +21,6 @@
   "order": 371,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-237853f13fe0.webp",
-      "alt": "Bề mặt Film dán nội thất Vân gỗ CAA055 – Corance",
-      "caption": "",
-      "width": 2048,
-      "height": 1365,
-      "title": "Film dán nội thất Vân gỗ CAA055 – Corance"
-    },
-    {
       "src": "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-b74762886385.webp",
       "alt": "Bề mặt Film dán nội thất Vân gỗ CAA055 – Corance",
       "title": "Film dán nội thất Vân gỗ CAA055 – Corance",
@@ -41,7 +33,8 @@
   "hiddenImages": [
     "/images/catalogue/corance/caa055.webp",
     "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
-    "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-e0c96b25b95f.webp"
+    "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-e0c96b25b95f.webp",
+    "/images/uploads/products/corance-caa055/film-dan-noi-that-corance-caa055-bd1b50a3321d.webp"
   ],
   "pricePerMetre": 268000
 }
