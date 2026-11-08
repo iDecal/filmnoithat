@@ -61,6 +61,8 @@ for (const folder of ['infeel', 'corance', 'toda']) {
     assert.ok(materialSlugs.includes(product.category), `${file}: invalid material category`);
     for (const key of ['code','name','group','collection','rollSpecification']) assert.ok(product[key]?.trim(), `${file}: missing ${key}`);
     image(product.image);
+    assert.ok(!product.hiddenImages || (Array.isArray(product.hiddenImages) && product.hiddenImages.every(src => typeof src === 'string' && src.startsWith('/images/') && !src.includes('..'))), `${file}: invalid hidden images`);
+    assert.ok(!(product.hiddenImages || []).includes(product.image), `${file}: primary image cannot be hidden`);
     if (product.application) image(product.application);
     assert.ok(!product.gallery || Array.isArray(product.gallery), `${file}: gallery must be a list`);
     for (const photo of product.gallery || []) {

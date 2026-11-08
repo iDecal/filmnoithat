@@ -1,21 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { uploadProductImage } from '../server/product-image-upload.mjs';
+import { uploadProductImage, deleteProductImage } from '../server/product-image-upload.mjs';
 const origin='https://filmnoithat.pages.dev';
 const record={slug:'toda-922-03',brand:'TODA',code:'922-03',image:'/images/original.webp',gallery:[{src:'/images/existing.webp',alt:'Existing'}]};
 function request({alt='Wood texture',slug=record.slug,brand='TODA',type='image/png',bytes=new Uint8Array([137,80,78,71,13,10,26,10,1,2,3]),auth=true,site=origin}={}) {
  const body=new FormData();body.set('file',new File([bytes],'material.png',{type}));body.set('slug',slug);body.set('brand',brand);body.set('alt',alt);body.set('caption','Sample photo');body.set('width','100');body.set('height','100');
  return new Request(`${origin}/api/product-images`,{method:'POST',headers:{Origin:site,...(auth?{Authorization:'Bearer test-token'}:{})},body});
 }
-function github({push=true,race=false}={}) {
+function github({push=true,race=false,product=record}={}) {
  const calls=[];let patches=0;let records=0;
  const fetcher=async(url,options)=>{
   const method=options.method;const body=options.body?JSON.parse(options.body):null;calls.push({url,method,body});
   if(url.endsWith('/filmnoithat'))return Response.json({permissions:{push}});
   if(url.endsWith('/git/ref/heads/main'))return Response.json({object:{sha:patches?'head-2':'head-1'}});
   if(url.includes('/contents/')){
-   const product=patches?{...record,gallery:[...record.gallery,{src:'/images/concurrent.webp',alt:'Another edit'}]}:record;
-   return Response.json({type:'file',encoding:'base64',content:Buffer.from(JSON.stringify(product)).toString('base64')});
+   const currentProduct=patches?{...product,gallery:[...(product.gallery||[]),{src:'/images/concurrent.webp',alt:'Another edit'}]}:product;
+   return Response.json({type:'file',encoding:'base64',content:Buffer.from(JSON.stringify(currentProduct)).toString('base64')});
   }
   if(method==='GET'&&url.includes('/git/commits/'))return Response.json({tree:{sha:'base-tree'}});
   if(url.endsWith('/git/blobs'))return Response.json({sha:++records===1?'image-blob':`record-blob-${records}`});
@@ -54,4 +54,26 @@ test('retries against the latest HEAD on concurrent edits without dropping anoth
  const records=mock.calls.filter(call=>call.url.endsWith('/git/blobs')).slice(1).map(call=>JSON.parse(Buffer.from(call.body.content,'base64').toString()));
  assert.equal(records[1].gallery.length,3);assert.equal(records[1].gallery[1].alt,'Another edit');
  const commits=mock.calls.filter(call=>call.method==='POST'&&call.url.endsWith('/git/commits'));assert.deepEqual(commits[1].body.parents,['head-2']);
+});
+function deleteRequest(src='/images/existing.webp',{auth=true,site=origin}={}) {
+ return new Request(`${origin}/api/product-images`,{method:'DELETE',headers:{Origin:site,'Content-Type':'application/json',...(auth?{Authorization:'Bearer test-token'}:{})},body:JSON.stringify({slug:record.slug,brand:'TODA',src})});
+}
+test('deletion requires origin and write permission',async()=>{
+ for(const options of [{auth:false},{site:'https://attacker.example'}])assert.ok([401,403].includes((await deleteProductImage({request:deleteRequest(undefined,options),env:{}},()=>{throw new Error('unexpected');})).status));
+ const mock=github({push:false});assert.equal((await deleteProductImage({request:deleteRequest(),env:{}},mock.fetcher)).status,403);
+});
+test('deleting an additional photo removes only the association and leaves shared media and the main image intact',async()=>{
+ const mock=github();const response=await deleteProductImage({request:deleteRequest(),env:{}},mock.fetcher);assert.equal(response.status,200);
+ const blob=mock.calls.find(call=>call.url.endsWith('/git/blobs'));const product=JSON.parse(Buffer.from(blob.body.content,'base64').toString());
+ assert.equal(product.image,record.image);assert.equal(product.gallery.length,0);assert.deepEqual(product.hiddenImages,['/images/existing.webp']);
+ const tree=mock.calls.find(call=>call.url.endsWith('/git/trees')).body;assert.equal(tree.tree.length,1);assert.ok(tree.tree[0].path.startsWith('src/content/products/'));assert.notEqual(tree.tree[0].sha,null);
+});
+test('deleting a main photo promotes an uploaded alternative, but the last material image cannot be removed',async()=>{
+ const mock=github({product:{...record,imageSource:{pdf:'/catalogue.pdf',page:1}}});assert.equal((await deleteProductImage({request:deleteRequest(record.image),env:{}},mock.fetcher)).status,200);
+ const product=JSON.parse(Buffer.from(mock.calls.find(call=>call.url.endsWith('/git/blobs')).body.content,'base64').toString());assert.equal(product.image,'/images/existing.webp');assert.equal(product.imageAlt,'Existing');assert.equal(product.imageSource,undefined);
+ const last=github({product:{...record,gallery:[]}});assert.equal((await deleteProductImage({request:deleteRequest(record.image),env:{}},last.fetcher)).status,409);assert.equal(last.calls.filter(call=>call.method==='POST').length,0);
+});
+test('deletion retries concurrent edits and retains another editor’s uploaded photo',async()=>{
+ const mock=github({race:true});assert.equal((await deleteProductImage({request:deleteRequest(),env:{}},mock.fetcher)).status,200);
+ const blobs=mock.calls.filter(call=>call.url.endsWith('/git/blobs'));const product=JSON.parse(Buffer.from(blobs.at(-1).body.content,'base64').toString());assert.equal(product.gallery.length,1);assert.equal(product.gallery[0].src,'/images/concurrent.webp');
 });

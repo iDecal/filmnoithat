@@ -59,7 +59,7 @@ export function websiteSchema({ origin, path, title, description, image, supplie
       ...(sample.pricePerMetre ? { offers: { "@type": "Offer", url, price: sample.pricePerMetre, priceCurrency: "VND", seller: ref(orgId),
         priceSpecification: { "@type": "UnitPriceSpecification", price: sample.pricePerMetre, priceCurrency: "VND",
           referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MTR", unitText: "mét dài" } } } } : {}),
-      color: sample.color.name, image: [...new Set([absolute(sample.image), ...(sample.gallery || []).map(photo => absolute(photo.src)), ...(sample.application ? [absolute(sample.application)] : [])])],
+      color: sample.color.name, image: [...new Set([absolute(sample.image), ...(sample.gallery || []).filter(photo => !(sample.hiddenImages || []).includes(photo.src)).map(photo => absolute(photo.src)), ...(sample.application && !(sample.hiddenImages || []).includes(sample.application) ? [absolute(sample.application)] : [])])],
       additionalProperty: [{ "@type": "PropertyValue", name: "Quy cách cuộn", value: sample.rollSpecification },
         { "@type": "PropertyValue", name: "Dòng bề mặt", value: sample.group },
         { "@type": "PropertyValue", name: "Tông màu", value: `${sample.color.name} (tham khảo)` }], mainEntityOfPage: ref(pageId) });

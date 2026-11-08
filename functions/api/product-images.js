@@ -1,2 +1,2 @@
-import { uploadProductImage } from '../../server/product-image-upload.mjs';
-export const onRequest = context => uploadProductImage(context);
+import { uploadProductImage, deleteProductImage } from '../../server/product-image-upload.mjs';
+export const onRequest = context => context.request.method === 'DELETE' ? deleteProductImage(context) : uploadProductImage(context);

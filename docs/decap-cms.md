@@ -91,3 +91,19 @@ Mỗi trang `/vat-lieu/mau/<slug>/` có nút **Tải ảnh vật liệu lên** n
 Khác quy trình bản nháp của CMS, nút lưu ngay trang sản phẩm ghi trực tiếp lên `main` và kích hoạt triển khai. API `/api/product-images` kiểm tra origin, token GitHub, quyền ghi repository, thương hiệu/slug, chữ ký tệp ảnh và giới hạn dung lượng. Ảnh và bản cập nhật hồ sơ được ghi trong cùng một commit. Khi có sửa đổi đồng thời, API đọc lại phiên bản mới và bổ sung ảnh, không force push hay ghi đè các ảnh vừa được biên tập viên khác thêm.
 
 Không lưu token vào localStorage hoặc đưa token trong URL. Luồng dùng lại OAuth App hiện có, không cần thêm secret triển khai. Astro dev không chạy Cloudflare Functions; kiểm thử trình duyệt cục bộ mô phỏng popup OAuth và phản hồi lưu, còn kiểm thử Node xác minh các lệnh GitHub API. Chỉ xác nhận một ảnh đã được lưu thực tế sau khi nhận phản hồi thành công từ GitHub trên bản triển khai.
+
+## Tự động làm nét khi tải ảnh trên trang sản phẩm
+
+Form tải ảnh trực tiếp bật sẵn **Tự động làm nét nhẹ**. Sau khi chọn tệp, trình duyệt xử lý và hiển thị bản xem trước; bỏ chọn để dùng nguyên ảnh gốc. Bản được gửi khi bấm lưu chính là bản xem trước đang chọn. Quy trình này áp dụng cho nút tải ảnh trên trang sản phẩm, không tự xử lý ảnh tải qua thư viện CMS.
+
+Bộ lọc tăng nhẹ tương phản chi tiết theo độ sáng, bỏ qua vùng phẳng và vùng có độ trong suốt; không phóng lớn ảnh nhỏ hoặc sinh thêm vân. Ảnh lớn được giới hạn cạnh dài 2048 px và xuất WebP chất lượng cao, trong giới hạn 5 MB. Việc mã hóa lại có thể có sai khác nén nhỏ; hãy xem trước và đối chiếu mẫu thật khi cần đánh giá màu. Các ảnh catalogue và ảnh đã lưu trước đó không bị sửa.
+
+Nếu trình duyệt không xử lý được tệp, có thể tắt làm nét để dùng ảnh gốc. Tính năng chuẩn bị ảnh được kiểm thử riêng về vùng màu đồng nhất, độ mạnh của cạnh và độ trong suốt, đồng thời kiểm thử trên trình duyệt để xác nhận kích thước, chế độ giữ ảnh gốc và tệp thực sự được gửi lên.
+
+## Xóa ảnh ngay trên trang sản phẩm
+
+Chọn ảnh thu nhỏ rồi bấm **Xóa ảnh đang chọn**. Hộp xác nhận hiển thị đúng ảnh; bấm **Xác nhận xóa** và đăng nhập GitHub nếu cần. Sau khi lưu thành công, ảnh được gỡ ngay khỏi giao diện đang mở; các lần truy cập khác cập nhật sau triển khai.
+
+Sản phẩm luôn giữ ít nhất một ảnh vật liệu. Khi ảnh chính là ảnh vật liệu cuối cùng, nút xóa bị vô hiệu hóa và có hướng dẫn tải ảnh mới. Nếu đã có ảnh vật liệu bổ sung, xóa ảnh chính sẽ chuyển ảnh bổ sung đầu tiên thành ảnh chính. Các ảnh tham khảo có thể được xóa khỏi sản phẩm riêng lẻ mà không tác động ảnh dùng chung ở trang khác.
+
+API xóa chỉ cập nhật hồ sơ sản phẩm và danh sách `hiddenImages`, không xóa tệp media dùng chung. Trong CMS, mục **Ảnh đã xóa khỏi sản phẩm** cho phép bỏ đường dẫn khỏi danh sách để ảnh tham khảo xuất hiện lại; ảnh vật liệu bổ sung đã gỡ có thể được chọn lại từ thư viện và thêm vào `gallery`. Xóa ảnh dùng cùng kiểm tra origin, quyền ghi GitHub và cơ chế cập nhật không force như khi tải ảnh.

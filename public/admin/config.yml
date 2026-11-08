@@ -763,6 +763,18 @@
           "value_type": "int",
           "min": 0,
           "default": 10000
+        },
+        {
+          "name": "hiddenImages",
+          "label": "Ảnh đã xóa khỏi sản phẩm",
+          "widget": "list",
+          "required": false,
+          "hint": "Bỏ đường dẫn khỏi danh sách để cho phép ảnh tham khảo xuất hiện lại. Tệp gốc không bị xóa khỏi thư viện.",
+          "field": {
+            "name": "src",
+            "label": "Đường dẫn ảnh",
+            "widget": "string"
+          }
         }
       ]
     },
@@ -1006,6 +1018,18 @@
           "value_type": "int",
           "min": 0,
           "default": 10000
+        },
+        {
+          "name": "hiddenImages",
+          "label": "Ảnh đã xóa khỏi sản phẩm",
+          "widget": "list",
+          "required": false,
+          "hint": "Bỏ đường dẫn khỏi danh sách để cho phép ảnh tham khảo xuất hiện lại. Tệp gốc không bị xóa khỏi thư viện.",
+          "field": {
+            "name": "src",
+            "label": "Đường dẫn ảnh",
+            "widget": "string"
+          }
         }
       ]
     },
@@ -1249,6 +1273,18 @@
           "value_type": "int",
           "min": 0,
           "default": 10000
+        },
+        {
+          "name": "hiddenImages",
+          "label": "Ảnh đã xóa khỏi sản phẩm",
+          "widget": "list",
+          "required": false,
+          "hint": "Bỏ đường dẫn khỏi danh sách để cho phép ảnh tham khảo xuất hiện lại. Tệp gốc không bị xóa khỏi thư viện.",
+          "field": {
+            "name": "src",
+            "label": "Đường dẫn ảnh",
+            "widget": "string"
+          }
         }
       ]
     },

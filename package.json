@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "node scripts/check-cms.mjs && astro build",
     "preview": "astro preview",
-    "test:cms": "node --test tests/cms-oauth.test.mjs tests/product-image-upload.test.mjs"
+    "test:cms": "node --test tests/cms-oauth.test.mjs tests/product-image-upload.test.mjs tests/product-image-preparation.test.mjs"
   },
   "dependencies": {
     "astro": "^4.0.0"
