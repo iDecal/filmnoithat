@@ -116,3 +116,11 @@ API xóa chỉ cập nhật hồ sơ sản phẩm và danh sách `hiddenImages`,
 - Chọn một ảnh vật liệu trong thư viện rồi bấm **Đặt ảnh đang chọn làm ảnh chính**. Ảnh chính cũ chuyển vào thư viện bổ sung. Ảnh tham khảo không được dùng làm ảnh chính.
 - **Xóa sản phẩm này** mở hộp xác nhận. Khi xác nhận, API xóa riêng bản ghi JSON sản phẩm khỏi nhánh `main`, giữ các tệp ảnh dùng chung và đưa người quản trị về `/vat-lieu`. Website cập nhật sau khi Cloudflare hoàn tất triển khai.
 - Các thao tác lưu, đổi ảnh chính và xóa vẫn yêu cầu đăng nhập GitHub có quyền sửa repository, kiểm tra origin và cập nhật Git không dùng force. Nội dung có thể khôi phục qua lịch sử Git.
+
+### Popup quản trị riêng trên website
+
+Mở `/vat-lieu/?admin=1` (hoặc thêm `?admin=1` vào trang sản phẩm) rồi bấm **Đăng nhập quản trị**. Máy chủ xác minh tài khoản GitHub có quyền `push` đối với repository trước khi hiện thanh công cụ. Khách truy cập thông thường không thấy nút đăng nhập hay các thao tác quản trị; tham số `admin=1` chỉ hiện nút đăng nhập, không cấp quyền.
+
+Trong **Quản lý sản phẩm**, chọn thương hiệu để **Thêm sản phẩm**, hoặc mở **Sửa sản phẩm này** trên trang chi tiết. Hai chức năng này dùng trình biên tập Decap hiện có trong popup, giữ nguyên luồng bản nháp/xuất bản của CMS. Decap có thể yêu cầu đăng nhập riêng trong lần mở đầu tiên; liên kết mở trong tab mới có sẵn nếu cần. **Ảnh & xóa sản phẩm** mở popup quản lý ảnh và xác nhận xóa trực tiếp.
+
+Phiên quản trị trực tiếp được lưu trong `sessionStorage` của tab, kiểm tra lại quyền trên mỗi lần tải trang và xóa khi đăng xuất hoặc xác minh thất bại. Không truyền token qua URL. API tải ảnh, đổi ảnh chính và xóa vẫn tự kiểm tra quyền khi ghi dữ liệu; việc hiện thanh công cụ không thay thế kiểm tra máy chủ. Đăng xuất ở thanh công cụ kết thúc phiên quản trị trực tiếp; phiên đăng nhập riêng của Decap được quản lý trong Decap.

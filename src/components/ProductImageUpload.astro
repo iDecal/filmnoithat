@@ -3,7 +3,9 @@ import type { CatalogueSample } from "../data/catalogue";
 interface Props { sample: CatalogueSample }
 const { sample } = Astro.props;
 ---
-<div class="mt-5" data-product-upload data-slug={sample.slug} data-brand={sample.brand} data-primary={sample.image} data-extra-count={(sample.gallery || []).filter(photo => !(sample.hiddenImages || []).includes(photo.src)).length}>
+<div hidden data-admin-only class="mt-5" data-product-upload data-slug={sample.slug} data-brand={sample.brand} data-primary={sample.image} data-extra-count={(sample.gallery || []).filter(photo => !(sample.hiddenImages || []).includes(photo.src)).length}>
+  <dialog data-product-tools class="rounded-2xl bg-white p-5 sm:p-7 w-[min(42rem,calc(100%-2rem))] max-h-[90dvh] overflow-y-auto" aria-label="Quản lý ảnh và sản phẩm"><div class="flex justify-between items-center gap-3 mb-4"><h2 class="text-xl font-semibold">Quản lý mẫu {sample.brand} {sample.code}</h2><button type="button" data-product-tools-close class="button-secondary">Đóng ×</button></div>
+  <p class="text-sm mb-4">Chọn ảnh trong thư viện bên dưới để đặt ảnh chính hoặc xóa ảnh.</p><div data-admin-photo-picker class="flex flex-wrap gap-2 mb-4"></div>
   <button type="button" data-upload-open aria-expanded="false" class="button-secondary w-full">Tải ảnh vật liệu lên</button>
   <button type="button" data-image-primary class="button-secondary w-full mt-3">Đặt ảnh đang chọn làm ảnh chính</button>
   <button type="button" data-product-delete class="button-secondary w-full mt-3">Xóa sản phẩm này</button>
@@ -27,8 +29,10 @@ const { sample } = Astro.props;
     <div class="flex flex-wrap gap-3"><button data-upload-save type="submit" class="button-primary">Lưu ảnh vào sản phẩm</button><button data-upload-cancel type="button" class="button-secondary">Đóng</button></div>
   </form>
   <p data-upload-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3"></p>
+  </dialog>
 </div>
 <script>
+  import { loginAdmin, logoutAdmin } from "../lib/admin-session";
   import { prepareProductImage } from "../lib/product-image-preparation.mjs";
   document.querySelectorAll<HTMLElement>("[data-product-upload]").forEach(root => {
     const form = root.querySelector<HTMLFormElement>("[data-upload-form]")!;
@@ -39,12 +43,29 @@ const { sample } = Astro.props;
     const save = root.querySelector<HTMLButtonElement>("[data-upload-save]")!;
     const status = root.querySelector<HTMLElement>("[data-upload-status]")!;
     const gallery = root.parentElement!.querySelector<HTMLElement>("[data-product-gallery]")!;
+    const tools = root.querySelector<HTMLDialogElement>("[data-product-tools]")!;
+    const picker = root.querySelector<HTMLElement>("[data-admin-photo-picker]")!;
+    const syncPicker = () => {
+      picker.replaceChildren();
+      gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]").forEach(thumb => {
+        const button = document.createElement("button"); button.type = "button"; button.className = "rounded-lg border-2 p-1";
+        button.style.borderColor = thumb.getAttribute("aria-pressed") === "true" ? "#a35e24" : "transparent";
+        button.setAttribute("aria-label", thumb.dataset.alt || "Chọn ảnh");
+        button.setAttribute("aria-pressed", thumb.getAttribute("aria-pressed") || "false");
+        const img = document.createElement("img"); img.src = thumb.dataset.src!; img.alt = ""; img.className = "w-16 h-16 object-cover";
+        button.append(img); button.addEventListener("click", () => { thumb.click(); syncPicker(); }); picker.append(button);
+      });
+    };
+    window.addEventListener("admin-product-tools", () => { if (!root.hidden) { syncPicker(); tools.showModal(); } });
+    root.querySelector("[data-product-tools-close]")!.addEventListener("click", () => tools.close());
+    window.addEventListener("admin-logout", () => { root.querySelectorAll("dialog").forEach(dialog => dialog.close()); root.hidden = true; });
     const deleteButton = root.querySelector<HTMLButtonElement>("[data-image-delete]")!;
     const deleteHint = root.querySelector<HTMLElement>("[data-delete-hint]")!;
     const deleteDialog = root.querySelector<HTMLDialogElement>("[data-delete-dialog]")!;
     const deleteConfirm = root.querySelector<HTMLButtonElement>("[data-delete-confirm]")!;
     let deleteTarget: HTMLButtonElement | null = null;
     let token: string | null = null;
+    window.addEventListener("admin-logout", () => { token = null; });
     let previewUrl: string | null = null;
     let busy = false;
     let processing = false;
@@ -57,6 +78,7 @@ const { sample } = Astro.props;
     const updateDeleteState = () => {
       fileInput.disabled = busy; sharpenInput.disabled = busy; open.disabled = busy;
       save.disabled = busy || processing || !pendingFiles.length;
+      syncPicker();
       const selected = selectedPhoto();
       const lastMaterial = selected && storedSource(selected) === root.dataset.primary && Number(root.dataset.extraCount || 0) < 1;
       root.querySelector<HTMLButtonElement>("[data-image-primary]")!.disabled = busy || processing || !selected || storedSource(selected) === root.dataset.primary || !(storedSource(selected) === root.dataset.primary || selected.dataset.material === "true");
@@ -113,27 +135,7 @@ const { sample } = Astro.props;
     };
     fileInput.addEventListener("change", prepare);
     sharpenInput.addEventListener("change", prepare);
-    const login = () => new Promise<string>((resolve, reject) => {
-      const popup = window.open("/api/auth?provider=github", "product-image-login", "width=700,height=750");
-      if (!popup) { reject(new Error("Hãy cho phép cửa sổ đăng nhập GitHub bật lên rồi thử lại.")); return; }
-      const origin = window.location.origin;
-      let finished = false;
-      const cleanup = () => { finished = true; window.removeEventListener("message", receive); window.clearInterval(watch); window.clearTimeout(timeout); };
-      const receive = (event: MessageEvent) => {
-        if (event.origin !== origin || event.source !== popup || typeof event.data !== "string") return;
-        if (event.data === "authorizing:github") { popup.postMessage(event.data, origin); return; }
-        if (event.data.startsWith("authorization:github:success:")) {
-          try {
-            const data = JSON.parse(event.data.slice("authorization:github:success:".length));
-            if (typeof data.token !== "string" || !data.token) throw new Error();
-            cleanup(); popup.close(); resolve(data.token);
-          } catch { cleanup(); popup.close(); reject(new Error("Không nhận được phiên đăng nhập GitHub hợp lệ.")); }
-        } else if (event.data.startsWith("authorization:github:error:")) { cleanup(); popup.close(); reject(new Error("Đăng nhập GitHub chưa thành công.")); }
-      };
-      window.addEventListener("message", receive);
-      const watch = window.setInterval(() => { if (!finished && popup.closed) { cleanup(); reject(new Error("Đã đóng đăng nhập. Bạn có thể bấm lưu để thử lại.")); } }, 500);
-      const timeout = window.setTimeout(() => { cleanup(); popup.close(); reject(new Error("Đăng nhập hết thời gian. Vui lòng thử lại.")); }, 180000);
-    });
+    const login = loginAdmin;
     const showInGallery = (url: string, alt: string, title: string, caption: string, width: number, height: number, storedSrc: string) => {
       const gallery = root.parentElement?.querySelector<HTMLElement>("[data-product-gallery]"); if (!gallery) return;
       const button = document.createElement("button"); button.type = "button";
@@ -159,7 +161,7 @@ const { sample } = Astro.props;
         token = token || await login();
         const response = await fetch("/api/product-images", { method: "DELETE", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ slug: root.dataset.slug, brand: root.dataset.brand, src }) });
         const result = await response.json();
-        if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa xóa được ảnh."); }
+        if (!response.ok) { if (response.status === 401) { token = null; logoutAdmin(); } throw new Error(result.message || "Chưa xóa được ảnh."); }
         root.dataset.primary = result.primary; root.dataset.extraCount = String(result.galleryCount);
         target.remove(); gallery.querySelector<HTMLButtonElement>("[data-gallery-thumb]")?.click();
         deleteDialog.close(); status.textContent = result.message;
@@ -179,7 +181,7 @@ const { sample } = Astro.props;
         token = token || await login();
         const response = await fetch("/api/product-images", { method: removeProduct ? "DELETE" : "PATCH", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ slug: root.dataset.slug, brand: root.dataset.brand, ...(removeProduct ? { action: "delete-product" } : { src: storedSource(selected!) }) }) });
         const result = await response.json();
-        if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa lưu được thay đổi."); }
+        if (!response.ok) { if (response.status === 401) { token = null; logoutAdmin(); } throw new Error(result.message || "Chưa lưu được thay đổi."); }
         status.textContent = result.message;
         if (removeProduct) { productDialog.close(); window.location.assign("/vat-lieu"); return; }
         root.dataset.primary = result.primary; root.dataset.extraCount = String(result.galleryCount);
@@ -207,7 +209,7 @@ const { sample } = Astro.props;
           body.set("alt", ""); body.set("caption", ""); body.set("width", String(width)); body.set("height", String(height));
           const response = await fetch("/api/product-images", { method: "POST", headers: { Authorization: `Bearer ${token}` }, body });
           const result = await response.json();
-          if (!response.ok) { if (response.status === 401) token = null; throw new Error(result.message || "Chưa lưu được ảnh. Vui lòng thử lại."); }
+          if (!response.ok) { if (response.status === 401) { token = null; logoutAdmin(); } throw new Error(result.message || "Chưa lưu được ảnh. Vui lòng thử lại."); }
           const savedPreview = URL.createObjectURL(file);
           showInGallery(savedPreview, result.photo.alt, result.photo.title || result.photo.alt, result.photo.caption || "Ảnh vật liệu vừa tải lên.", width, height, result.photo.src);
           root.dataset.extraCount = String(Number(root.dataset.extraCount || 0) + 1);

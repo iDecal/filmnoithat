@@ -1,0 +1,58 @@
+<div data-admin-entry hidden class="fixed bottom-4 right-4 z-40"><button data-admin-login class="button-secondary shadow-lg">Đăng nhập quản trị</button><p data-admin-status role="status" class="bg-white text-sm max-w-xs mt-2"></p></div>
+<div data-admin-only data-admin-bar hidden class="fixed bottom-4 right-4 z-40 flex flex-wrap gap-2 rounded-xl border border-base-200 bg-white p-3 shadow-xl max-w-[calc(100%-2rem)]">
+  <button data-admin-open class="button-primary">Quản lý sản phẩm</button><button data-admin-logout class="button-secondary">Đăng xuất</button>
+</div>
+<dialog data-admin-menu class="rounded-2xl bg-white p-5 sm:p-7 w-[min(38rem,calc(100%-2rem))]" aria-label="Quản trị sản phẩm">
+  <div class="flex justify-between items-center gap-3"><h2 class="text-xl font-semibold">Quản trị sản phẩm</h2><button data-admin-menu-close class="button-secondary">Đóng ×</button></div>
+  <label class="block mt-5">Thương hiệu sản phẩm mới<select data-admin-brand class="block border rounded-lg p-2 mt-2 w-full"><option value="infeel">INFEEL</option><option value="corance">Corance</option><option value="toda">TODA</option></select></label>
+  <div class="flex flex-wrap gap-3 mt-5"><button data-admin-create class="button-primary">Thêm sản phẩm</button><button data-admin-edit hidden class="button-secondary">Sửa sản phẩm này</button><button data-admin-photos hidden class="button-secondary">Ảnh & xóa sản phẩm</button></div>
+</dialog>
+<dialog data-admin-editor class="rounded-xl bg-white p-3 w-[96vw] max-w-none h-[92dvh] max-h-none" aria-label="Biên tập sản phẩm">
+  <div class="flex items-center justify-between gap-3 mb-3"><a data-admin-editor-link href="/admin/" target="_blank" rel="noopener" class="underline text-sm">Mở trình quản trị trong tab mới</a><button data-admin-editor-close class="button-secondary">Đóng ×</button></div>
+  <iframe data-admin-frame title="Thêm và sửa sản phẩm" class="w-full h-[calc(100%-4rem)] border-0" loading="lazy"></iframe>
+</dialog>
+<style is:global>[data-admin-only][hidden], [data-admin-entry][hidden] { display:none !important; }</style>
+<script>
+  import { hasAdminSession, loginAdmin, logoutAdmin, restoreAdmin } from "../lib/admin-session";
+  const entry = document.querySelector<HTMLElement>("[data-admin-entry]")!;
+  const bar = document.querySelector<HTMLElement>("[data-admin-bar]")!;
+  const menu = document.querySelector<HTMLDialogElement>("[data-admin-menu]")!;
+  const editor = document.querySelector<HTMLDialogElement>("[data-admin-editor]")!;
+  const frame = document.querySelector<HTMLIFrameElement>("[data-admin-frame]")!;
+  const status = document.querySelector<HTMLElement>("[data-admin-status]")!;
+  const product = document.querySelector<HTMLElement>("[data-product-upload]");
+  const brand = document.querySelector<HTMLSelectElement>("[data-admin-brand]")!;
+  const edit = document.querySelector<HTMLButtonElement>("[data-admin-edit]")!;
+  const photos = document.querySelector<HTMLButtonElement>("[data-admin-photos]")!;
+  const enabled = new URLSearchParams(location.search).get("admin") === "1";
+  entry.hidden = !enabled;
+  const show = () => {
+    entry.hidden = true;
+    document.querySelectorAll<HTMLElement>("[data-admin-only]").forEach(node => { node.hidden = false; });
+    edit.hidden = photos.hidden = !product;
+    if (product) brand.value = product.dataset.brand!.toLowerCase();
+  };
+  window.addEventListener("admin-login", show);
+  window.addEventListener("admin-logout", () => {
+    document.querySelectorAll<HTMLElement>("[data-admin-only]").forEach(node => { node.hidden = true; });
+    menu.close(); editor.close(); frame.removeAttribute("src"); entry.hidden = !enabled;
+  });
+  if (hasAdminSession()) restoreAdmin().then(ok => { if (!ok && enabled) status.textContent = "Vui lòng đăng nhập lại để quản trị."; });
+  const login = document.querySelector<HTMLButtonElement>("[data-admin-login]")!;
+  login.addEventListener("click", async () => {
+    login.disabled = true; status.textContent = "Đang xác minh quyền quản trị…";
+    try { await loginAdmin(); status.textContent = ""; } catch (error) { status.textContent = error instanceof Error ? error.message : "Chưa đăng nhập được."; }
+    finally { login.disabled = false; }
+  });
+  document.querySelector("[data-admin-logout]")!.addEventListener("click", logoutAdmin);
+  document.querySelector("[data-admin-open]")!.addEventListener("click", () => { if (!bar.hidden) menu.showModal(); });
+  document.querySelector("[data-admin-menu-close]")!.addEventListener("click", () => menu.close());
+  const openEditor = (path: string) => {
+    if (bar.hidden) return;
+    menu.close(); frame.src = path; document.querySelector<HTMLAnchorElement>("[data-admin-editor-link]")!.href = path; editor.showModal();
+  };
+  document.querySelector("[data-admin-create]")!.addEventListener("click", () => openEditor(`/admin/#/collections/products_${brand.value}/new`));
+  edit.addEventListener("click", () => { if (product) openEditor(`/admin/#/collections/products_${product.dataset.brand!.toLowerCase()}/entries/${product.dataset.slug}`); });
+  photos.addEventListener("click", () => { if (!bar.hidden) { menu.close(); window.dispatchEvent(new Event("admin-product-tools")); } });
+  document.querySelector("[data-admin-editor-close]")!.addEventListener("click", () => { editor.close(); frame.removeAttribute("src"); });
+</script>

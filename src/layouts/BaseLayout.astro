@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { site } from "../data/site";
 import { websiteSchema } from "../data/structuredData";
 import Header from "../components/Header.astro";
+import AdminToolbar from "../components/AdminToolbar.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
@@ -64,6 +65,7 @@ const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Ast
     </main>
 
     <Footer brandName={brandName} />
+    <AdminToolbar />
 
   </body>
 </html>
