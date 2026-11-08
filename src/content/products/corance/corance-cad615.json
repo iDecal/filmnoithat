@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAD",
   "category": "van-go",
-  "image": "/images/catalogue/corance/cad615.webp",
+  "image": "/images/uploads/products/corance-cad615/film-dan-noi-that-corance-cad615-85a5415ae1ca.webp",
   "application": null,
   "sourcePage": 22,
-  "imageWidth": 1042,
-  "imageHeight": 254,
+  "imageWidth": 900,
+  "imageHeight": 1200,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -20,14 +20,6 @@
   },
   "order": 446,
   "gallery": [
-    {
-      "src": "/images/uploads/products/corance-cad615/film-dan-noi-that-corance-cad615-85a5415ae1ca.webp",
-      "alt": "Bề mặt Film dán nội thất Vân gỗ CAD615 – Corance",
-      "caption": "",
-      "width": 900,
-      "height": 1200,
-      "title": "Film dán nội thất Vân gỗ CAD615 – Corance"
-    },
     {
       "src": "/images/uploads/products/corance-cad615/film-dan-noi-that-corance-cad615-4eba3d1c3896.webp",
       "alt": "Bề mặt Film dán nội thất Vân gỗ CAD615 – Corance",
@@ -60,5 +52,10 @@
       "height": 1365,
       "title": "Film dán nội thất Vân gỗ CAD615 – Corance"
     }
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Vân gỗ CAD615 – Corance",
+  "imageTitle": "Film dán nội thất Vân gỗ CAD615 – Corance",
+  "hiddenImages": [
+    "/images/catalogue/corance/cad615.webp"
   ]
 }
