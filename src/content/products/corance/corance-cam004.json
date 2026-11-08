@@ -1,8 +1,8 @@
 {
   "slug": "corance-cam004",
-  "code": "CAM004",
+  "code": "CSM004",
   "name": "Hiệu ứng kim loại",
-  "group": "Corance CAM",
+  "group": "Corance CSM",
   "category": "kim-loai",
   "image": "/images/uploads/products/corance-cam004/film-dan-noi-that-corance-cam004-2ae228821a62.webp",
   "application": null,
@@ -32,5 +32,6 @@
     "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
     "/images/catalogue/corance/cam004.webp"
   ],
-  "imageAlt": "CSM004"
+  "imageAlt": "CSM004",
+  "pricePerMetre": 425000
 }
