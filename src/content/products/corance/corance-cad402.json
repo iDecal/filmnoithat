@@ -18,5 +18,14 @@
     "family": "Nâu",
     "value": "#7b6244"
   },
-  "order": 421
+  "order": 421,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-cad402/film-dan-noi-that-corance-cad402-4b019ef31ec3.webp",
+      "alt": "âcscs",
+      "caption": "",
+      "width": 2048,
+      "height": 1365
+    }
+  ]
 }
