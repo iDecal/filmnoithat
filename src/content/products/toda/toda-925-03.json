@@ -7,10 +7,10 @@
   "brand": "TODA",
   "collection": "TODA Interior Film Vol.02",
   "pdf": "/catalogues/toda-vol-02.pdf",
-  "image": "/images/catalogue/toda/film-dan-noi-that-toda-925-03.webp",
-  "imageAlt": "Bề mặt film dán nội thất TODA 925-03, dòng Concrete, trích từ catalogue Vol.02",
-  "imageWidth": 481,
-  "imageHeight": 634,
+  "image": "/images/uploads/products/toda-925-03/film-dan-noi-that-toda-925-03-f0650eb45f64.webp",
+  "imageAlt": "Bề mặt Film dán nội thất Vân bê tông 925-03 – TODA",
+  "imageWidth": 400,
+  "imageHeight": 400,
   "application": null,
   "sourcePage": 42,
   "rollSpecification": "1,23 m × 50 m",
@@ -24,15 +24,14 @@
   "seoDescription": "Mẫu film dán nội thất TODA 925-03, dòng Concrete. Xem ảnh bề mặt trích từ catalogue TODA Vol.02, đối chiếu trang 42 và liên hệ tư vấn vật liệu, báo giá.",
   "gallery": [
     {
-      "src": "/images/uploads/products/toda-925-03/film-dan-noi-that-toda-925-03-f0650eb45f64.webp",
-      "alt": "Bề mặt Film dán nội thất Vân bê tông 925-03 – TODA",
-      "caption": "",
-      "width": 400,
-      "height": 400,
-      "title": "Film dán nội thất Vân bê tông 925-03 – TODA"
+      "src": "/images/catalogue/toda/film-dan-noi-that-toda-925-03.webp",
+      "alt": "Bề mặt film dán nội thất TODA 925-03, dòng Concrete, trích từ catalogue Vol.02",
+      "width": 481,
+      "height": 634
     }
   ],
   "hiddenImages": [
     "/images/bo-suu-tap/film-noi-that-mat-ban-sang-mau.webp"
-  ]
+  ],
+  "imageTitle": "Film dán nội thất Vân bê tông 925-03 – TODA"
 }
