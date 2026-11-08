@@ -74,7 +74,7 @@ export async function uploadProductImage({ request, env }, fetcher = fetch) {
       if (!current.response.ok || current.data?.encoding !== 'base64' || current.data?.type !== 'file') return reply('Không tìm thấy sản phẩm để lưu ảnh.', 404);
       const product = JSON.parse(decode(current.data.content));
       if (product.slug !== slug || product.brand !== brand || (product.gallery && !Array.isArray(product.gallery))) return reply('Thông tin sản phẩm không khớp.', 409);
-      photo.title = `Film dán nội thất ${product.name || ''} ${product.code} – ${product.brand}`.replace(/\s+/g, ' ').trim();
+      photo.title = `Film dán nội thất ${product.name || ''} ${product.code} – ${product.brand}`.replace(/\s+/g, ' ').trim().slice(0,250);
       photo.alt = alt || `Bề mặt ${photo.title}`;
       const parent = await api(`/git/commits/${headSha}`); if (!parent.response.ok) throw new Error('github');
       if (!imageBlob) {

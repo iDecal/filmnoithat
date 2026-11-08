@@ -128,3 +128,11 @@ Phiên quản trị trực tiếp được lưu trong `sessionStorage` của tab
 #### Đường vào quản trị dễ tìm
 
 Dùng `/quan-tri/` để thấy nút **Đăng nhập quản trị bằng GitHub** ngay trong nội dung trang. Chế độ hiện nút đăng nhập được giữ trong tab khi chuyển sang trang vật liệu hoặc sản phẩm, nhưng không cấp quyền quản trị. Khách chưa mở chế độ quản trị vẫn không thấy các nút này. Khi vào quản trị từ tên miền `filmnoithat.vn`, trình duyệt đưa về `https://filmnoithat.pages.dev/quan-tri/` để dùng đúng origin và callback đã đăng ký của OAuth. Trang tiện ích này được đặt `noindex` và loại khỏi sitemap.
+
+### Sửa sản phẩm trực quan
+
+Sau khi đăng nhập, mở trang một mẫu → **Quản lý sản phẩm → Sửa sản phẩm này**. Popup tải bản ghi mới nhất từ GitHub rồi cho sửa tên, mã, thương hiệu, nhóm vật liệu, dòng bề mặt, bộ sưu tập, tông màu, quy cách, giá theo mét dài, tiêu đề/mô tả SEO và tiêu đề/ALT từng ảnh. Cột xem trước thay đổi theo dữ liệu đang nhập. Các chức năng kéo thả/tải nhiều ảnh, làm nét nhẹ, chọn ảnh chính và xóa ảnh/sản phẩm nằm bên dưới trong cùng popup.
+
+**Lưu thay đổi** ghi trực tiếp vào `main`, giữ URL sản phẩm và các ảnh không chỉnh sửa. Đổi thương hiệu chuyển bản ghi sang thư mục tương ứng bằng một commit; đổi mã kiểm tra trùng mã trong thương hiệu. Có thể để giá trống cho bất kỳ thương hiệu nào để hiển thị liên hệ báo giá. SEO trống sử dụng nội dung tự tạo sẵn của website. Phần xem trước tìm kiếm mang tính minh họa; kết quả tìm kiếm thực tế do công cụ tìm kiếm quyết định.
+
+API `/api/products` chỉ cho tài khoản có quyền `push` đọc/sửa. Khi lưu, API so dữ liệu gốc của từng trường và từng ảnh với bản mới nhất, báo xung đột nếu có người khác sửa cùng thông tin; các lần tải ảnh hoặc sửa trường khác được giữ nguyên. Bản đang sửa không mất khi lưu lỗi hay đóng/mở lại popup trong cùng trang. **Tải lại bản đã lưu** có xác nhận nếu có thay đổi chưa lưu. Người dùng vẫn cần chờ Cloudflare cập nhật trước khi khách thấy bản mới. **Thêm sản phẩm** tiếp tục dùng Decap; phần sửa sản phẩm không còn mở iframe Decap.

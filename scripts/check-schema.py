@@ -44,7 +44,7 @@ for file in pages:
         assert expected['rollSpecification'] in visible
         assert product['additionalProperty'][0]['value']==expected['rollSpecification']
         assert all(k not in product for k in ['aggregateRating','review'])
-        if expected['brand']=='INFEEL':
+        if expected.get('pricePerMetre'):
             offer=product['offers'];assert offer['priceCurrency']=='VND'
             assert isinstance(offer['price'],int) and offer['price']>0
             assert offer['price']==expected['pricePerMetre']

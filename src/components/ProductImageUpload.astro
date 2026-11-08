@@ -1,10 +1,13 @@
 ---
+import ProductEditor from "./ProductEditor.astro";
 import type { CatalogueSample } from "../data/catalogue";
 interface Props { sample: CatalogueSample }
 const { sample } = Astro.props;
 ---
 <div hidden data-admin-only class="mt-5" data-product-upload data-slug={sample.slug} data-brand={sample.brand} data-primary={sample.image} data-extra-count={(sample.gallery || []).filter(photo => !(sample.hiddenImages || []).includes(photo.src)).length}>
-  <dialog data-product-tools class="rounded-2xl bg-white p-5 sm:p-7 w-[min(42rem,calc(100%-2rem))] max-h-[90dvh] overflow-y-auto" aria-label="Quản lý ảnh và sản phẩm"><div class="flex justify-between items-center gap-3 mb-4"><h2 class="text-xl font-semibold">Quản lý mẫu {sample.brand} {sample.code}</h2><button type="button" data-product-tools-close class="button-secondary">Đóng ×</button></div>
+  <dialog data-product-tools class="rounded-2xl bg-white p-5 sm:p-7 w-[min(72rem,calc(100%-2rem))] max-h-[90dvh] overflow-y-auto" aria-label="Quản lý ảnh và sản phẩm"><div class="flex justify-between items-center gap-3 mb-4"><h2 data-product-tools-title class="text-xl font-semibold">Sửa sản phẩm {sample.brand} {sample.code}</h2><button type="button" data-product-tools-close class="button-secondary">Đóng ×</button></div>
+  <ProductEditor />
+  <h3 class="text-lg font-semibold mt-6 mb-3">Ảnh sản phẩm</h3>
   <p class="text-sm mb-4">Chọn ảnh trong thư viện bên dưới để đặt ảnh chính hoặc xóa ảnh.</p><div data-admin-photo-picker class="flex flex-wrap gap-2 mb-4"></div>
   <button type="button" data-upload-open aria-expanded="false" class="button-secondary w-full">Tải ảnh vật liệu lên</button>
   <button type="button" data-image-primary class="button-secondary w-full mt-3">Đặt ảnh đang chọn làm ảnh chính</button>
@@ -20,7 +23,7 @@ const { sample } = Astro.props;
   </dialog>
   <form data-upload-form hidden class="mt-4 rounded-2xl border border-base-200 bg-white p-5 space-y-4">
     <p class="font-medium">Thêm ảnh cho mẫu {sample.brand} {sample.code}</p>
-    <label class="block text-sm font-medium">Chọn ảnh từ máy<input data-upload-file type="file" multiple accept="image/jpeg,image/png,image/webp" required class="block w-full mt-2 text-sm" /></label>
+    <label data-upload-drop class="block text-sm font-medium rounded-xl border-2 border-dashed border-base-300 p-5">Kéo thả ảnh vào đây hoặc chọn ảnh từ máy<input data-upload-file type="file" multiple accept="image/jpeg,image/png,image/webp" required class="block w-full mt-2 text-sm" /></label>
     <p class="text-xs text-base-600">JPG, PNG hoặc WebP, tối đa 5 MB mỗi ảnh. Có thể chọn nhiều ảnh. Tiêu đề và ALT được tự điền theo tên sản phẩm và thương hiệu. Ảnh mới được thêm vào thư viện, giữ nguyên ảnh chính.</p>
     <label class="flex items-start gap-3 text-sm"><input data-upload-sharpen type="checkbox" checked class="mt-1" /><span>Tự động làm nét nhẹ<span class="block text-xs text-base-600 mt-1">Xem trước ảnh đã xử lý; bỏ chọn để giữ ảnh gốc.</span></span></label>
     <div data-upload-previews class="flex flex-wrap gap-2"></div>
@@ -57,7 +60,7 @@ const { sample } = Astro.props;
       });
     };
     window.addEventListener("admin-product-tools", () => { if (!root.hidden) { syncPicker(); tools.showModal(); } });
-    root.querySelector("[data-product-tools-close]")!.addEventListener("click", () => tools.close());
+    root.querySelector("[data-product-tools-close]")!.addEventListener("click", () => { if (!busy && root.dataset.editorBusy !== "true") tools.close(); });
     window.addEventListener("admin-logout", () => { root.querySelectorAll("dialog").forEach(dialog => dialog.close()); root.hidden = true; });
     const deleteButton = root.querySelector<HTMLButtonElement>("[data-image-delete]")!;
     const deleteHint = root.querySelector<HTMLElement>("[data-delete-hint]")!;
@@ -76,16 +79,28 @@ const { sample } = Astro.props;
     const selectedPhoto = () => gallery.querySelector<HTMLButtonElement>('[data-gallery-thumb][aria-pressed="true"]');
     const storedSource = (button: HTMLButtonElement) => button.dataset.storedSrc || button.dataset.src || "";
     const updateDeleteState = () => {
-      fileInput.disabled = busy; sharpenInput.disabled = busy; open.disabled = busy;
-      save.disabled = busy || processing || !pendingFiles.length;
+      const blocked = busy || processing || root.dataset.editorBusy === "true";
+      root.dataset.mediaBusy = String(busy || processing);
+      fileInput.disabled = blocked; sharpenInput.disabled = blocked; open.disabled = blocked;
+      save.disabled = blocked || !pendingFiles.length;
       syncPicker();
       const selected = selectedPhoto();
       const lastMaterial = selected && storedSource(selected) === root.dataset.primary && Number(root.dataset.extraCount || 0) < 1;
-      root.querySelector<HTMLButtonElement>("[data-image-primary]")!.disabled = busy || processing || !selected || storedSource(selected) === root.dataset.primary || !(storedSource(selected) === root.dataset.primary || selected.dataset.material === "true");
-      root.querySelector<HTMLButtonElement>("[data-product-delete]")!.disabled = busy || processing;
-      deleteButton.disabled = busy || processing || !selected || !!lastMaterial;
+      root.querySelector<HTMLButtonElement>("[data-image-primary]")!.disabled = blocked || !selected || storedSource(selected) === root.dataset.primary || !(storedSource(selected) === root.dataset.primary || selected.dataset.material === "true");
+      root.querySelector<HTMLButtonElement>("[data-product-delete]")!.disabled = blocked;
+      deleteButton.disabled = blocked || !selected || !!lastMaterial;
       deleteHint.textContent = lastMaterial ? "Để xóa ảnh chính, hãy tải thêm một ảnh vật liệu trước." : "Chọn ảnh trong thư viện rồi bấm xóa.";
     };
+    root.addEventListener("product-editor-lock", updateDeleteState);
+    root.addEventListener("product-editor-saved", event => {
+      const product = (event as CustomEvent).detail;
+      root.querySelector<HTMLElement>("[data-product-tools-title]")!.textContent = `Sửa sản phẩm ${product.brand} ${product.code}`;
+      gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]").forEach(thumb => {
+        const src = storedSource(thumb); const photo = src === product.image ? {alt: product.imageAlt, title: product.imageTitle} : (product.gallery || []).find((item: {src: string}) => item.src === src);
+        if (photo) { thumb.dataset.alt = photo.alt || thumb.dataset.alt || ""; thumb.dataset.title = photo.title || photo.alt || thumb.dataset.title || ""; }
+      });
+      selectedPhoto()?.click();
+    });
     gallery.addEventListener("click", updateDeleteState);
     updateDeleteState();
     deleteButton.addEventListener("click", () => {
@@ -133,6 +148,10 @@ const { sample } = Astro.props;
         status.textContent = error instanceof Error ? error.message : "Không đọc được ảnh. Hãy thử ảnh khác hoặc tắt làm nét.";
       } finally { if (version === preparation) { processing = false; save.disabled = !preparedFile; updateDeleteState(); } }
     };
+    const drop = root.querySelector<HTMLElement>("[data-upload-drop]")!;
+    drop.addEventListener("dragover", event => { event.preventDefault(); if (!fileInput.disabled) drop.classList.add("bg-base-100"); });
+    drop.addEventListener("dragleave", () => drop.classList.remove("bg-base-100"));
+    drop.addEventListener("drop", event => { event.preventDefault(); drop.classList.remove("bg-base-100"); if (fileInput.disabled || !event.dataTransfer?.files.length) return; fileInput.files = event.dataTransfer.files; prepare(); });
     fileInput.addEventListener("change", prepare);
     sharpenInput.addEventListener("change", prepare);
     const login = loginAdmin;
@@ -148,7 +167,7 @@ const { sample } = Astro.props;
       button.append(thumbnail, label);
       button.addEventListener("click", () => {
         gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]").forEach(thumb => thumb.setAttribute("aria-pressed", String(thumb === button)));
-        gallery.querySelectorAll<HTMLImageElement>("[data-gallery-main], [data-gallery-zoom]").forEach(image => { image.src = url; image.alt = alt; image.title = title; image.width = width; image.height = height; });
+        gallery.querySelectorAll<HTMLImageElement>("[data-gallery-main], [data-gallery-zoom]").forEach(image => { image.src = url; image.alt = button.dataset.alt || alt; image.title = button.dataset.title || title; image.width = width; image.height = height; });
         gallery.querySelectorAll<HTMLElement>("[data-gallery-caption], [data-gallery-zoom-caption]").forEach(element => { element.textContent = caption; });
       });
       gallery.querySelector('[role="group"]')?.append(button); button.click();
@@ -164,7 +183,7 @@ const { sample } = Astro.props;
         if (!response.ok) { if (response.status === 401) { token = null; logoutAdmin(); } throw new Error(result.message || "Chưa xóa được ảnh."); }
         root.dataset.primary = result.primary; root.dataset.extraCount = String(result.galleryCount);
         target.remove(); gallery.querySelector<HTMLButtonElement>("[data-gallery-thumb]")?.click();
-        deleteDialog.close(); status.textContent = result.message;
+        deleteDialog.close(); status.textContent = result.message; root.dispatchEvent(new Event("product-media-saved"));
       } catch (error) { status.textContent = error instanceof Error ? error.message : "Chưa xóa được ảnh."; deleteDialog.close(); }
       finally { busy = false; deleteConfirm.disabled = false; save.disabled = processing || (!!fileInput.files?.length && !preparedFile); open.disabled = false; fileInput.disabled = false; sharpenInput.disabled = false; updateDeleteState(); }
     });
@@ -183,8 +202,9 @@ const { sample } = Astro.props;
         const result = await response.json();
         if (!response.ok) { if (response.status === 401) { token = null; logoutAdmin(); } throw new Error(result.message || "Chưa lưu được thay đổi."); }
         status.textContent = result.message;
-        if (removeProduct) { productDialog.close(); window.location.assign("/vat-lieu"); return; }
+        if (removeProduct) { root.dispatchEvent(new Event("product-deleted")); productDialog.close(); window.location.assign("/vat-lieu"); return; }
         root.dataset.primary = result.primary; root.dataset.extraCount = String(result.galleryCount);
+        root.dispatchEvent(new Event("product-media-saved"));
         gallery.querySelectorAll<HTMLElement>("[data-gallery-thumb] span").forEach(label => { label.textContent = storedSource(label.parentElement as HTMLButtonElement) === result.primary ? "Ảnh chính" : "Ảnh bổ sung"; });
       } catch (error) { productDialog.close(); status.textContent = error instanceof Error ? error.message : "Chưa lưu được thay đổi."; }
       finally { busy = false; primaryButton.disabled = false; productDeleteButton.disabled = false; updateDeleteState(); }
@@ -216,6 +236,7 @@ const { sample } = Astro.props;
           pendingFiles.shift(); savedCount++; status.textContent = `Đã lưu ${savedCount} ảnh. Website đang cập nhật.`;
         }
         batchUrls.forEach(url => URL.revokeObjectURL(url)); batchUrls = []; root.querySelector("[data-upload-previews]")!.replaceChildren();
+        root.dispatchEvent(new Event("product-media-saved"));
         form.reset(); preparedFile = null; pendingFiles = []; preview.hidden = true; if (previewUrl) URL.revokeObjectURL(previewUrl); previewUrl = null;
       } catch (error) { status.textContent = `${savedCount ? `Đã lưu ${savedCount} ảnh. ` : ""}${error instanceof Error ? error.message : "Chưa lưu được ảnh."} Bấm lưu để thử lại những ảnh còn lại.`; }
       finally { busy = false; save.disabled = false; open.disabled = false; fileInput.disabled = false; sharpenInput.disabled = false; updateDeleteState(); }

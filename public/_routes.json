@@ -4,7 +4,8 @@
     "/api/auth",
     "/api/callback",
     "/api/product-images",
-    "/api/admin-session"
+    "/api/admin-session",
+    "/api/products"
   ],
   "exclude": []
 }

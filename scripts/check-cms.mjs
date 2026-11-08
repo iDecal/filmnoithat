@@ -74,8 +74,7 @@ for (const folder of ['infeel', 'corance', 'toda']) {
     assert.match(product.color.value, /^#[0-9a-fA-F]{6}$/);
     assert.ok(product.color.name?.trim() && product.color.family?.trim(), `${file}: missing color labels`);
     assert.ok(product.pdf?.startsWith('/catalogues/') && !product.pdf.includes('..') && existsSync(resolve(root,'public',product.pdf.slice(1))), `${file}: missing catalogue PDF`);
-    if (product.brand === 'INFEEL') assert.ok(Number.isInteger(product.pricePerMetre) && product.pricePerMetre > 0, `${file}: INFEEL requires a positive VND price per metre`);
-    else assert.ok(!product.pricePerMetre, `${file}: Corance and TODA currently use contact pricing`);
+    if (product.pricePerMetre != null) assert.ok(Number.isSafeInteger(product.pricePerMetre) && product.pricePerMetre > 0, `${file}: price must be a positive VND integer`);
     products.push(product);
   }
 }

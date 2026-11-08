@@ -1,0 +1,116 @@
+---
+import { materials } from "../data/materials";
+---
+<div data-visual-product-editor>
+  <p data-editor-status role="status" aria-live="polite" class="text-sm text-base-600 my-3"></p>
+  <form data-editor-form hidden>
+    <div class="grid lg:grid-cols-[minmax(0,1fr)_18rem] gap-6 items-start">
+      <div class="space-y-5 min-w-0">
+        <fieldset data-editor-fields class="space-y-4" disabled>
+          <legend class="font-semibold text-lg mb-3">Thông tin sản phẩm</legend>
+          <label class="block text-sm">Tên sản phẩm<input name="name" required maxlength="200" class="editor-input" /></label>
+          <div class="grid sm:grid-cols-2 gap-4"><label class="block text-sm">Mã sản phẩm<input name="code" required maxlength="80" class="editor-input" /></label><label class="block text-sm">Thương hiệu<select name="brand" class="editor-input"><option>INFEEL</option><option>Corance</option><option>TODA</option></select></label></div>
+          <div class="grid sm:grid-cols-2 gap-4"><label class="block text-sm">Nhóm vật liệu<select name="category" class="editor-input">{materials.map(material=><option value={material.slug}>{material.shortName}</option>)}</select></label><label class="block text-sm">Dòng bề mặt<input name="group" required maxlength="200" class="editor-input" /></label></div>
+          <label class="block text-sm">Bộ sưu tập<input name="collection" required maxlength="200" class="editor-input" /></label>
+          <div class="grid sm:grid-cols-2 gap-4"><label class="block text-sm">Giá / mét dài (VND)<input name="pricePerMetre" type="number" min="1" max="1000000000" step="1" class="editor-input" /><span class="block text-xs mt-1 text-base-600">Để trống để hiển thị “Liên hệ báo giá”.</span></label><label class="block text-sm">Quy cách cuộn<input name="rollSpecification" required maxlength="100" class="editor-input" /></label></div>
+          <div class="grid sm:grid-cols-3 gap-4"><label class="block text-sm">Tên tông màu<input name="colorName" required maxlength="100" class="editor-input" /></label><label class="block text-sm">Nhóm màu<input name="colorFamily" required maxlength="100" class="editor-input" /></label><label class="block text-sm">Màu đại diện<input name="colorValue" type="color" class="editor-input h-11" /></label></div>
+          <details open class="rounded-xl border p-4"><summary class="font-semibold cursor-pointer">SEO</summary><label class="block text-sm mt-4">Tiêu đề SEO<input name="seoTitle" maxlength="250" class="editor-input" /></label><label class="block text-sm mt-4">Mô tả SEO<textarea name="seoDescription" maxlength="1000" rows="3" class="editor-input"></textarea></label><p class="text-xs mt-2 text-base-600">Để trống để website tự tạo theo mẫu sản phẩm.</p></details>
+          <details class="rounded-xl border p-4"><summary class="font-semibold cursor-pointer">Tiêu đề & ALT từng ảnh</summary><div data-editor-photo-fields class="space-y-4 mt-4"></div></details>
+        </fieldset>
+      </div>
+      <aside class="rounded-xl border bg-base-50 p-4 lg:sticky lg:top-0 min-w-0" aria-label="Xem trước sản phẩm">
+        <p class="eyebrow mb-3">Xem trước</p><img data-editor-preview-image alt="Xem trước ảnh chính sản phẩm" class="w-full aspect-[4/3] object-cover rounded-lg" /><p data-editor-preview-name class="font-semibold text-lg mt-3 break-words"></p><p data-editor-preview-brand class="text-sm mt-2"></p><p data-editor-preview-price class="text-primary-600 font-semibold mt-3"></p><p data-editor-preview-spec class="text-sm mt-2"></p>
+        <div class="border-t mt-4 pt-4"><p class="text-xs text-base-600 mb-2">Hiển thị trên tìm kiếm (xem trước)</p><p data-editor-preview-seo class="text-blue-700 break-words"></p><p data-editor-preview-description class="text-sm mt-2 break-words"></p></div>
+      </aside>
+    </div>
+    <div class="sticky bottom-0 bg-white border-t py-4 mt-5 flex flex-wrap gap-3 items-center"><button data-editor-save type="submit" class="button-primary">Lưu thay đổi</button><button data-editor-reload type="button" class="button-secondary">Tải lại bản đã lưu</button><span data-editor-dirty class="text-sm text-base-600"></span></div>
+  </form>
+</div>
+<style>.editor-input { display:block;width:100%;margin-top:.5rem;min-height:2.75rem;border:1px solid #d3cbc3;border-radius:.5rem;padding:.6rem .75rem;background:white; } </style>
+<script>
+  import { loginAdmin, logoutAdmin } from "../lib/admin-session";
+  document.querySelectorAll<HTMLElement>("[data-visual-product-editor]").forEach(editor => {
+    const root=editor.closest<HTMLElement>("[data-product-upload]")!;
+    const form=editor.querySelector<HTMLFormElement>("[data-editor-form]")!;
+    const fields=editor.querySelector<HTMLFieldSetElement>("[data-editor-fields]")!;
+    const status=editor.querySelector<HTMLElement>("[data-editor-status]")!;
+    const save=editor.querySelector<HTMLButtonElement>("[data-editor-save]")!;
+    const reload=editor.querySelector<HTMLButtonElement>("[data-editor-reload]")!;
+    const dirtyLabel=editor.querySelector<HTMLElement>("[data-editor-dirty]")!;
+    const photoFields=editor.querySelector<HTMLElement>("[data-editor-photo-fields]")!;
+    const tools=root.querySelector<HTMLDialogElement>("[data-product-tools]")!;
+    let original: any=null;let busy=false;let dirty=false;let generation=0;
+    const input=(name:string)=>form.elements.namedItem(name) as HTMLInputElement;
+    const text=(selector:string,value:string)=>{editor.querySelector<HTMLElement>(selector)!.textContent=value;};
+    const values=()=>({name:input("name").value.trim(),code:input("code").value.trim(),brand:input("brand").value,category:input("category").value,group:input("group").value.trim(),collection:input("collection").value.trim(),pricePerMetre:input("pricePerMetre").value===""?null:Number(input("pricePerMetre").value),rollSpecification:input("rollSpecification").value.trim(),color:{name:input("colorName").value.trim(),family:input("colorFamily").value.trim(),value:input("colorValue").value},seoTitle:input("seoTitle").value.trim(),seoDescription:input("seoDescription").value.trim()});
+    const allPhotos=(product:any)=>[{src:product.image,alt:product.imageAlt||'',title:product.imageTitle||''},...(product.gallery||[]).filter((photo:any)=>!(product.hiddenImages||[]).includes(photo.src))];
+    const imageURL=(src:string)=>{
+      const gallery=root.parentElement!.querySelector("[data-product-gallery]");
+      const thumb=[...(gallery?.querySelectorAll<HTMLButtonElement>("[data-gallery-thumb]")||[])].find(item=>(item.dataset.storedSrc||item.dataset.src)===src);
+      return thumb?.dataset.src||src;
+    };
+    const same=(a:any,b:any)=>JSON.stringify(a??null)===JSON.stringify(b??null);
+    const patch=()=>{
+      const changes:Record<string,any>={};const base:Record<string,any>={};
+      for(const [key,value]of Object.entries(values())){
+        const previous = key==='seoTitle'||key==='seoDescription' ? original[key]??'' : original[key]??null;
+        if(!same(value,previous)){changes[key]=value;base[key]=original[key]??null;}
+      }
+      const photos=[...photoFields.querySelectorAll<HTMLElement>("[data-photo-edit]")].map(card=>{
+        const photo=allPhotos(original).find((p:any)=>p.src===card.dataset.src)!;
+        return {src:photo.src,alt:card.querySelector<HTMLInputElement>('[data-photo-alt]')!.value.trim(),title:card.querySelector<HTMLInputElement>('[data-photo-title]')!.value.trim(),base:{alt:photo.alt||'',title:photo.title||''}};
+      }).filter(photo=>photo.alt!==photo.base.alt||photo.title!==photo.base.title);
+      return {changes,base,photos};
+    };
+    const preview=()=>{
+      if(!original)return;const current=values();const changes=patch();dirty=!!Object.keys(changes.changes).length||!!changes.photos.length;
+      dirtyLabel.textContent=dirty?"Có thay đổi chưa lưu":"Đã đồng bộ bản đã lưu";
+      text('[data-editor-preview-name]',`${current.name} ${current.code}`);text('[data-editor-preview-brand]',current.brand);text('[data-editor-preview-price]',current.pricePerMetre?`${new Intl.NumberFormat('vi-VN').format(current.pricePerMetre)}đ / mét dài`:'Liên hệ báo giá');text('[data-editor-preview-spec]',current.rollSpecification);text('[data-editor-preview-seo]',current.seoTitle||`Film dán nội thất ${current.code} – Mẫu ${current.brand} & tư vấn`);text('[data-editor-preview-description]',current.seoDescription||`Mẫu ${current.name} ${current.brand} ${current.code}, tông ${current.color.name}.`);
+    };
+    const populate=(product:any)=>{
+      original=structuredClone(product);
+      for(const [key,value]of Object.entries(original))if(form.elements.namedItem(key)&&key!=='color')input(key).value=String(value??'');
+      input('pricePerMetre').value=String(product.pricePerMetre??'');input('seoTitle').value=product.seoTitle??'';input('seoDescription').value=product.seoDescription??'';
+      input('colorName').value=product.color.name;input('colorFamily').value=product.color.family;input('colorValue').value=product.color.value;
+      editor.querySelector<HTMLImageElement>('[data-editor-preview-image]')!.src=imageURL(product.image);
+      photoFields.replaceChildren();
+      for(const photo of allPhotos(product)){
+        const card=document.createElement('div');card.dataset.photoEdit='';card.dataset.src=photo.src;card.className='border rounded-lg p-3';
+        const image=document.createElement('img');image.src=imageURL(photo.src);image.alt=photo.alt;image.className='w-24 h-20 object-cover rounded-lg mb-3';card.append(image);
+        for(const [key,label,max]of [['title','Tiêu đề ảnh',250],['alt','ALT – mô tả ảnh',500]] as const){const node=document.createElement('label');node.className='block text-sm mt-2';node.textContent=label;const field=document.createElement('input');field.dataset[key==='alt'?'photoAlt':'photoTitle']='';field.value=photo[key]||'';field.maxLength=max;field.required=key==='alt'&&!!photo.alt;field.className='block w-full rounded-lg border p-2 mt-1';node.append(field);card.append(node);}
+        photoFields.append(card);
+      }
+      preview();
+    };
+    const request=async(method:string,body?:any)=>{
+      const token=await loginAdmin();const query=new URLSearchParams({slug:root.dataset.slug!,brand:root.dataset.brand!});
+      const response=await fetch(`/api/products${method==='GET'?`?${query}`:''}`,{method,headers:{Authorization:`Bearer ${token}`,...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{}),cache:'no-store'});
+      const result=await response.json();if(!response.ok){if(response.status===401)logoutAdmin();throw new Error(result.message||'Không lưu được sản phẩm.');}return result;
+    };
+    const lock=(value:boolean)=>{busy=value;fields.disabled=value;save.disabled=value;reload.disabled=value;root.dataset.editorBusy=String(value);root.dispatchEvent(new Event('product-editor-lock'));};
+    const load=async()=>{
+      if(busy||root.hidden)return;
+      const version=++generation;lock(true);status.textContent='Đang tải sản phẩm mới nhất…';
+      try{const result=await request('GET');if(version!==generation)return;populate(result.product);form.hidden=false;status.textContent='Sửa thông tin, xem trước rồi bấm Lưu thay đổi.';}
+      catch(error){if(version===generation)status.textContent=error instanceof Error?error.message:'Không tải được sản phẩm.';}
+      finally{if(version===generation)lock(false);}
+    };
+    window.addEventListener('admin-product-tools',()=>{if(!dirty)load();});
+    form.addEventListener('input',preview);
+    reload.addEventListener('click',()=>{if(!dirty||confirm('Bỏ các thay đổi chưa lưu và tải lại bản đã lưu?'))load();});
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();if(busy||!original||!form.reportValidity())return;
+      if(root.dataset.mediaBusy==='true'){status.textContent='Hãy chờ thao tác ảnh hoàn tất rồi lưu thông tin.';return;}
+      const body={slug:root.dataset.slug,brand:root.dataset.brand,...patch()};if(!Object.keys(body.changes).length&&!body.photos.length){status.textContent='Không có thay đổi cần lưu.';return;}
+      const version=++generation;lock(true);status.textContent='Đang lưu sản phẩm…';
+      try{const result=await request('PATCH',body);if(version!==generation)return;populate(result.product);root.dataset.brand=result.product.brand;root.dataset.slug=result.product.slug;root.dispatchEvent(new CustomEvent('product-editor-saved',{detail:result.product}));status.textContent=result.message;}
+      catch(error){if(version===generation)status.textContent=error instanceof Error?error.message:'Không lưu được sản phẩm.';}
+      finally{if(version===generation)lock(false);}
+    });
+    tools.addEventListener('cancel',event=>{if(busy||dirty&&!confirm('Đóng trình sửa? Các thay đổi chưa lưu vẫn được giữ trong popup.'))event.preventDefault();});
+    root.addEventListener('product-deleted',()=>{dirty=false;});
+    window.addEventListener('beforeunload',event=>{if(dirty){event.preventDefault();event.returnValue='';}});
+    window.addEventListener('admin-logout',()=>{generation++;lock(false);original=null;dirty=false;form.hidden=true;photoFields.replaceChildren();});
+    root.addEventListener('product-media-saved',()=>{if(!dirty&&!busy)load();else if(dirty)status.textContent='Ảnh đã cập nhật. Lưu thông tin đang sửa rồi tải lại để sửa ALT của ảnh mới.';});
+  });
+</script>

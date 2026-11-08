@@ -587,7 +587,8 @@
           "widget": "number",
           "value_type": "int",
           "min": 1,
-          "hint": "Giá cho một mét dài theo khổ cuộn, không phải giá mỗi m²."
+          "hint": "Giá cho một mét dài theo khổ cuộn, không phải giá mỗi m².",
+          "required": false
         },
         {
           "name": "image",
@@ -1054,6 +1055,14 @@
             "label": "Đường dẫn ảnh",
             "widget": "string"
           }
+        },
+        {
+          "name": "pricePerMetre",
+          "label": "Giá vật liệu / mét dài (VND)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1,
+          "required": false
         }
       ]
     },
@@ -1321,6 +1330,14 @@
             "label": "Đường dẫn ảnh",
             "widget": "string"
           }
+        },
+        {
+          "name": "pricePerMetre",
+          "label": "Giá vật liệu / mét dài (VND)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1,
+          "required": false
         }
       ]
     },

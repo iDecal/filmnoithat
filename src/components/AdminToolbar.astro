@@ -69,7 +69,7 @@ const adminOrigin = Astro.site?.origin || "https://filmnoithat.pages.dev";
     menu.close(); frame.src = path; document.querySelector<HTMLAnchorElement>("[data-admin-editor-link]")!.href = path; editor.showModal();
   };
   document.querySelector("[data-admin-create]")!.addEventListener("click", () => openEditor(`/admin/#/collections/products_${brand.value}/new`));
-  edit.addEventListener("click", () => { if (product) openEditor(`/admin/#/collections/products_${product.dataset.brand!.toLowerCase()}/entries/${product.dataset.slug}`); });
+  edit.addEventListener("click", () => { if (product && !bar.hidden) { menu.close(); window.dispatchEvent(new Event("admin-product-tools")); } });
   photos.addEventListener("click", () => { if (!bar.hidden) { menu.close(); window.dispatchEvent(new Event("admin-product-tools")); } });
   document.querySelector("[data-admin-editor-close]")!.addEventListener("click", () => { editor.close(); frame.removeAttribute("src"); });
 </script>
