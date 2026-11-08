@@ -4,7 +4,7 @@ import ProductImageUpload from "../../../components/ProductImageUpload.astro";
 import ProductImageGallery from "../../../components/ProductImageGallery.astro";
 import ProductProjectSlider from "../../../components/ProductProjectSlider.astro";
 import Icon from "../../../components/Icon.astro";
-import { categoryIcon } from "../../../data/icons";
+import { categoryIcon, type IconName } from "../../../data/icons";
 import { productSeoTitle, productHeading } from "../../../data/seoTitles";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
@@ -22,6 +22,15 @@ const related = catalogue.filter(item => item.category === sample.category && it
 const relatedServices = services.filter(service => material.services.includes(service.slug));
 const description = sample.seoDescription || `${productHeading(sample)}, dòng ${sample.group} trong catalogue ${sample.collection}. Xem ảnh bề mặt, tham khảo ứng dụng và liên hệ tư vấn mua film hoặc thi công.`;
 const priceText = sample.pricePerMetre ? " Giá vật liệu: " + formatRetailPrice(sample.pricePerMetre) + "/mét dài." : "";
+const productDetails: {label: string; value: string; icon: IconName}[] = [
+  {label: "Mã sản phẩm", value: sample.code, icon: "tag"},
+  {label: "Thương hiệu", value: sample.brand, icon: "check"},
+  {label: "Bộ sưu tập", value: sample.collection, icon: "layers"},
+  {label: "Dòng bề mặt", value: sample.group, icon: categoryIcon(sample.category) || "swatches"},
+  {label: "Tông màu", value: `${sample.color.name} (tham khảo)`, icon: "swatches"},
+  {label: "Quy cách cuộn", value: sample.rollSpecification, icon: "ruler"},
+  {label: "Tình trạng cung cấp", value: sample.pricePerMetre ? "Liên hệ xác nhận số lượng và giao hàng" : "Liên hệ báo giá theo số lượng", icon: "package"},
+];
 const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — ${sample.title} (${sample.group}). Quy cách cuộn: ${sample.rollSpecification}.${priceText} Nhu cầu: mua film / thi công. Kích thước, số lượng: … Địa điểm: …`;
 ---
 <BaseLayout title={sample.seoTitle || productSeoTitle(sample)} description={description} image={sample.image} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:material.name,path:materialHref(material)},{name:`${sample.title} ${sample.code}`,path:sampleHref(sample)}])]}>
@@ -29,12 +38,19 @@ const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — 
     <Breadcrumbs items={[{ label:"Vật liệu",href:"/vat-lieu/" },{label:material.name,href:materialHref(material)},{label:sample.code}]} />
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
       <div class="min-w-0"><ProductImageGallery sample={sample} /><ProductImageUpload sample={sample} /></div>
-      <div class="min-w-0"><p class="eyebrow mb-3">{sample.collection} / {sample.group}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{productHeading(sample)}</h1><p class="text-lg text-primary-600 font-semibold mt-4">Mã mẫu: {sample.code}</p><p class="text-base-600 mt-5">Mẫu film dán nội thất {sample.brand} {sample.code} thuộc nhóm {material.shortName.toLowerCase()}, tông {sample.color.name.toLowerCase()}, để tham khảo khi phối bàn, tủ hoặc vách. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
-        {sample.pricePerMetre && <div class="mt-6" data-product-price data-price={sample.pricePerMetre}><p class="text-sm text-base-600">Giá vật liệu / mét dài</p><p class="text-2xl sm:text-3xl font-semibold text-primary-600 mt-1">{formatRetailPrice(sample.pricePerMetre)}<span class="text-sm sm:text-base font-normal text-base-600 ml-2">/ mét dài</span></p><p class="text-xs text-base-600 mt-2">Giá cho 1 mét dài theo khổ cuộn của mẫu, không phải giá theo m². Chưa gồm công thi công; chi phí giao hàng và tổng đơn được xác nhận khi đặt.</p></div>}
-        <dl class="grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-3 mt-6 text-sm border-y border-base-200 py-5"><dt class="text-base-600">Bộ sưu tập</dt><dd>{sample.collection}</dd><dt class="text-base-600">Dòng bề mặt</dt><dd>{sample.group}</dd><dt class="text-base-600">Tông màu</dt><dd>{sample.color.name} <span class="text-base-600">(tham khảo)</span></dd><dt class="text-base-600">Quy cách cuộn</dt><dd>{sample.rollSpecification}</dd><dt class="text-base-600">Tình trạng cung cấp</dt><dd>{sample.pricePerMetre ? "Liên hệ xác nhận số lượng và giao hàng" : "Liên hệ báo giá theo số lượng"}</dd></dl>
+      <div class="min-w-0" data-product-summary>
+        <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{productHeading(sample)}</h1>
+        <div class="mt-5" data-product-price data-price={sample.pricePerMetre}>
+          <p class="text-sm text-base-600">Giá bán{sample.pricePerMetre ? " / mét dài" : ""}</p>
+          <p class="text-2xl sm:text-3xl font-semibold text-primary-600 mt-1">{sample.pricePerMetre ? formatRetailPrice(sample.pricePerMetre) : "Liên hệ báo giá"}{sample.pricePerMetre && <span class="text-sm sm:text-base font-normal text-base-600 ml-2">/ mét dài</span>}</p>
+          {sample.pricePerMetre && <p class="text-xs text-base-600 mt-2 leading-relaxed">Giá cho 1 mét dài theo khổ cuộn của mẫu, không phải giá theo m². Chưa gồm công thi công; chi phí giao hàng và tổng đơn được xác nhận khi đặt.</p>}
+        </div>
+        <p data-product-short-description class="text-[15px] leading-relaxed text-base-600 mt-5">Mẫu film dán nội thất {sample.brand} {sample.code} thuộc nhóm {material.shortName.toLowerCase()}, tông {sample.color.name.toLowerCase()}, để tham khảo khi phối bàn, tủ hoặc vách. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
+        <section data-product-information aria-labelledby="product-information-title" class="mt-6 rounded-2xl border border-base-200 bg-white/70 p-4 sm:p-5">
+          <h2 id="product-information-title" class="text-base font-semibold mb-2">Thông tin sản phẩm</h2>
+          <dl class="divide-y divide-base-200 text-sm">{productDetails.map(detail => <div class="grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-3 py-3 items-start"><dt class="flex items-center gap-2 text-base-600"><span class="inline-flex w-7 h-7 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600"><Icon name={detail.icon} size={17} /></span><span>{detail.label}</span></dt><dd class="pt-1 font-medium break-words">{detail.value}</dd></div>)}</dl>
+        </section>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn mẫu {sample.code} qua Zalo</a><button type="button" data-copy-request class="button-secondary" data-request={request}>Sao chép yêu cầu mẫu</button></div><p data-copy-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3">Sao chép yêu cầu rồi gửi qua Zalo để trao đổi đúng mã mẫu.</p>
-        {sample.imageSource && <a href={`${sample.imageSource.pdf}#page=${sample.imageSource.page}`} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-medium mt-3 mr-5 hover:underline">Nguồn ảnh từ catalogue bổ sung ↗</a>}
-        <a href={`${sample.pdf}#page=${sample.sourcePage}`} class="inline-flex items-center min-h-11 text-sm text-primary-600 font-medium mt-4 hover:underline">Đối chiếu trong catalogue gốc ↗</a>
       </div>
     </div>
   </div></section>

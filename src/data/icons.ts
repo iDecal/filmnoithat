@@ -1,4 +1,9 @@
 export const iconPaths = {
+  tag: "M3 3h7l11 11-7 7L3 10V3M7 7h.01",
+  layers: "m12 3 10 5-10 5L2 8l10-5M2 12l10 5 10-5M2 16l10 5 10-5",
+  ruler: "m3 16 13-13 5 5L8 21l-5-5M12 7l2 2M9 10l2 2M6 13l2 2",
+  package: "m3 7 9-4 9 4v10l-9 4-9-4V7M3 7l9 4 9-4M12 11v10M7.5 5l9 4",
+
   interior: "M3 21V4a1 1 0 0 1 1-1h11v18M3 21h18M7 7h4M7 11h4M7 15h4M18 10h3v11M17 14h4M17 18h4",
   table: "M3 9h18v4H3zM5 13v8M19 13v8M5 17h14M7 5h10",
   cabinet: "M4 4h16v16H4zM4 11h16M12 4v16M9 7v1M15 7v1M9 14v2M15 14v2M6 20v2M18 20v2",
