@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAA",
   "category": "van-go",
-  "image": "/images/catalogue/corance/caa051.webp",
+  "image": "/images/uploads/products/corance-caa051/film-dan-noi-that-corance-caa051-4b77c663862d.webp",
   "application": null,
   "sourcePage": 11,
-  "imageWidth": 1042,
-  "imageHeight": 250,
+  "imageWidth": 2048,
+  "imageHeight": 1365,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -20,6 +20,12 @@
   },
   "order": 367,
   "gallery": [
+    {
+      "src": "/images/catalogue/corance/caa051.webp",
+      "alt": "Corance CAA051",
+      "width": 1042,
+      "height": 250
+    },
     {
       "src": "/images/uploads/products/corance-caa051/film-dan-noi-that-corance-caa051-1e4549ce3f7f.webp",
       "alt": "Bề mặt Film dán nội thất Vân gỗ CAA051 – Corance",
@@ -43,14 +49,8 @@
       "width": 2048,
       "height": 1365,
       "title": "Film dán nội thất Vân gỗ CAA051 – Corance"
-    },
-    {
-      "src": "/images/uploads/products/corance-caa051/film-dan-noi-that-corance-caa051-4b77c663862d.webp",
-      "alt": "Bề mặt Film dán nội thất Vân gỗ CAA051 – Corance",
-      "caption": "",
-      "width": 2048,
-      "height": 1365,
-      "title": "Film dán nội thất Vân gỗ CAA051 – Corance"
     }
-  ]
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Vân gỗ CAA051 – Corance",
+  "imageTitle": "Film dán nội thất Vân gỗ CAA051 – Corance"
 }
