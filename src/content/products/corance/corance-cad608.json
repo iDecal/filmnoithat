@@ -4,11 +4,11 @@
   "name": "Vân gỗ",
   "group": "Corance CAD",
   "category": "van-go",
-  "image": "/images/catalogue/corance/cad608.webp",
+  "image": "/images/uploads/products/corance-cad608/film-dan-noi-that-corance-cad608-762a52f4fe04.webp",
   "application": null,
   "sourcePage": 21,
-  "imageWidth": 504,
-  "imageHeight": 252,
+  "imageWidth": 900,
+  "imageHeight": 1200,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -20,14 +20,6 @@
   },
   "order": 442,
   "gallery": [
-    {
-      "src": "/images/uploads/products/corance-cad608/film-dan-noi-that-corance-cad608-762a52f4fe04.webp",
-      "alt": "Bề mặt Film dán nội thất Vân gỗ CAD608 – Corance",
-      "caption": "",
-      "width": 900,
-      "height": 1200,
-      "title": "Film dán nội thất Vân gỗ CAD608 – Corance"
-    },
     {
       "src": "/images/uploads/products/corance-cad608/film-dan-noi-that-corance-cad608-3be1083f09f8.webp",
       "alt": "Bề mặt Film dán nội thất Vân gỗ CAD608 – Corance",
@@ -62,6 +54,9 @@
     }
   ],
   "hiddenImages": [
-    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp"
-  ]
+    "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
+    "/images/catalogue/corance/cad608.webp"
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Vân gỗ CAD608 – Corance",
+  "imageTitle": "Film dán nội thất Vân gỗ CAD608 – Corance"
 }
