@@ -4,11 +4,11 @@
   "name": "Hiệu ứng kim loại",
   "group": "Corance CAM",
   "category": "kim-loai",
-  "image": "/images/catalogue/corance/cam003.webp",
+  "image": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-c8d4bb129937.jpg",
   "application": null,
   "sourcePage": 9,
-  "imageWidth": 1043,
-  "imageHeight": 269,
+  "imageWidth": 1254,
+  "imageHeight": 1254,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -21,13 +21,6 @@
   "order": 485,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-c8d4bb129937.jpg",
-      "alt": "èwèwe",
-      "caption": "fwèwèwe",
-      "width": 1254,
-      "height": 1254
-    },
-    {
       "src": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-adcc1b9051ec.webp",
       "alt": "cam003",
       "caption": "",
@@ -36,6 +29,8 @@
     }
   ],
   "hiddenImages": [
-    "/images/cong-trinh/dan-film-noi-that-thang-may.jpg"
-  ]
+    "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
+    "/images/catalogue/corance/cam003.webp"
+  ],
+  "imageAlt": "èwèwe"
 }
