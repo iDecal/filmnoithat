@@ -1,0 +1,23 @@
+{
+  "slug": "lw-721",
+  "code": "LW 721",
+  "name": "Vân vải",
+  "group": "Fabric",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lw-721.jpeg",
+  "application": null,
+  "sourcePage": 47,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#d7caa7"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 357
+}

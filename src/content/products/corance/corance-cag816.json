@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cag816",
+  "code": "CAG816",
+  "name": "Vân đá",
+  "group": "Corance CAG",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/corance/cag816.webp",
+  "application": null,
+  "sourcePage": 10,
+  "imageWidth": 1042,
+  "imageHeight": 257,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#807c76"
+  },
+  "order": 482
+}

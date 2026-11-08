@@ -1,0 +1,23 @@
+{
+  "slug": "hg-980",
+  "code": "HG 980",
+  "name": "Đơn sắc bóng",
+  "group": "High-gloss",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/hg-980.jpeg",
+  "application": null,
+  "sourcePage": 26,
+  "imageWidth": 322,
+  "imageHeight": 400,
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#fbfbfd"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 371800,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 50
+}

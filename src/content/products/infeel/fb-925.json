@@ -1,0 +1,23 @@
+{
+  "slug": "fb-925",
+  "code": "FB 925",
+  "name": "Vân vải",
+  "group": "Fabric",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/fb-925.jpeg",
+  "application": null,
+  "sourcePage": 46,
+  "imageWidth": 700,
+  "imageHeight": 397,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#fcfbf7"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 353
+}

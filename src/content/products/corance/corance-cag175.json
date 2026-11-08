@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cag175",
+  "code": "CAG175",
+  "name": "Vân đá",
+  "group": "Corance CAG",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/corance/cag175.webp",
+  "application": null,
+  "sourcePage": 10,
+  "imageWidth": 1042,
+  "imageHeight": 246,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#c9c5bf"
+  },
+  "order": 478
+}

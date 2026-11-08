@@ -1,0 +1,23 @@
+{
+  "slug": "wd-058",
+  "code": "WD 058",
+  "name": "Vân gỗ sồi",
+  "group": "Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-058.jpeg",
+  "application": null,
+  "sourcePage": 40,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#74716c"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 290
+}

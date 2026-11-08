@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad608",
+  "code": "CAD608",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad608.webp",
+  "application": null,
+  "sourcePage": 21,
+  "imageWidth": 504,
+  "imageHeight": 252,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu đậm",
+    "family": "Nâu",
+    "value": "#554539"
+  },
+  "order": 442
+}

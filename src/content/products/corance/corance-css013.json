@@ -1,0 +1,22 @@
+{
+  "slug": "corance-css013",
+  "code": "CSS013",
+  "name": "Đơn sắc",
+  "group": "Corance CSS",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/css013.webp",
+  "application": null,
+  "sourcePage": 8,
+  "imageWidth": 503,
+  "imageHeight": 200,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xanh dương đậm",
+    "family": "Xanh dương",
+    "value": "#426770"
+  },
+  "order": 551
+}

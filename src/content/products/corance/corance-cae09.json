@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cae09",
+  "code": "CAE09",
+  "name": "Vân gỗ",
+  "group": "Corance CAE",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cae09.webp",
+  "application": null,
+  "sourcePage": 24,
+  "imageWidth": 504,
+  "imageHeight": 260,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Đỏ",
+    "family": "Đỏ",
+    "value": "#421a1a"
+  },
+  "order": 458
+}

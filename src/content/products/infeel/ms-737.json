@@ -1,0 +1,23 @@
+{
+  "slug": "ms-737",
+  "code": "MS 737",
+  "name": "Kim loại ánh bóng",
+  "group": "Metal Shiny",
+  "category": "kim-loai",
+  "image": "/images/catalogue/infeel-2026/ms-737.jpeg",
+  "application": "/images/catalogue/infeel-2026/ms-737-ung-dung.jpeg",
+  "sourcePage": 23,
+  "imageWidth": 700,
+  "imageHeight": 397,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#8c8c88"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 286000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 210
+}

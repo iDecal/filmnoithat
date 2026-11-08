@@ -1,0 +1,23 @@
+{
+  "slug": "hg-984",
+  "code": "HG 984",
+  "name": "Đơn sắc bóng",
+  "group": "High-gloss",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/hg-984.jpeg",
+  "application": null,
+  "sourcePage": 26,
+  "imageWidth": 322,
+  "imageHeight": 400,
+  "color": {
+    "name": "Đen",
+    "family": "Đen",
+    "value": "#0b0b13"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 371800,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 51
+}

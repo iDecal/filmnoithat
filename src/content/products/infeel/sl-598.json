@@ -1,0 +1,23 @@
+{
+  "slug": "sl-598",
+  "code": "SL 598",
+  "name": "Đơn sắc",
+  "group": "Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sl-598.jpeg",
+  "application": null,
+  "sourcePage": 8,
+  "imageWidth": 125,
+  "imageHeight": 95,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#ccc7b3"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 127
+}

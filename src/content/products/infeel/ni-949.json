@@ -1,0 +1,23 @@
+{
+  "slug": "ni-949",
+  "code": "NI 949",
+  "name": "Maron Emperador",
+  "group": "Maron Emperador",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/ni-949.jpeg",
+  "application": null,
+  "sourcePage": 27,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Nâu đậm",
+    "family": "Nâu",
+    "value": "#64533b"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 371800,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 18
+}

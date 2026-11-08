@@ -1,0 +1,23 @@
+{
+  "slug": "wd-049",
+  "code": "WD 049",
+  "name": "Acacia",
+  "group": "Acacia",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-049.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#9e836a"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 213
+}

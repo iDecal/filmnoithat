@@ -1,0 +1,22 @@
+{
+  "slug": "corance-caa052",
+  "code": "CAA052",
+  "name": "Vân gỗ",
+  "group": "Corance CAA",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/caa052.webp",
+  "application": null,
+  "sourcePage": 11,
+  "imageWidth": 1042,
+  "imageHeight": 244,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#a2855f"
+  },
+  "order": 368
+}

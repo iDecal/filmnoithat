@@ -1,0 +1,23 @@
+{
+  "slug": "sm-845",
+  "code": "SM 845",
+  "name": "Đơn sắc mờ",
+  "group": "Solid Matt",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sm-845.jpeg",
+  "application": "/images/catalogue/infeel-2026/sm-845-ung-dung.jpeg",
+  "sourcePage": 7,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#c3c2bd"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 180
+}

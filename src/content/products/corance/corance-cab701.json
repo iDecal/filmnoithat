@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cab701",
+  "code": "CAB701",
+  "name": "Vân gỗ",
+  "group": "Corance CAB",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cab701.webp",
+  "application": null,
+  "sourcePage": 14,
+  "imageWidth": 581,
+  "imageHeight": 246,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#d3d0c9"
+  },
+  "order": 390
+}

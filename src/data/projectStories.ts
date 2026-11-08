@@ -18,7 +18,7 @@ export interface ProjectStory {
 const catalogueStories: ProjectStory[] = catalogue.filter(sample => sample.application).map(sample => ({
   slug: `ung-dung-${sample.slug}`, title: `Gợi ý ứng dụng ${sample.name.toLowerCase()} ${sample.code}`,
   kind: "catalogue", description: `Phối cảnh minh họa cho mẫu ${sample.code} trong catalogue ${sample.collection}. Tham khảo cách đặt chất liệu trong không gian và đối chiếu với mẫu thật trước khi chọn.`,
-  images: [{ src: sample.application!, alt: `Phối cảnh mẫu ${sample.code} từ catalogue ${sample.collection}` }],
+  images: [{ src: sample.application!, alt: sample.applicationAlt || `Phối cảnh mẫu ${sample.code} từ catalogue ${sample.collection}` }],
   sampleSlugs: [sample.slug], categories: [sample.category], scope: [], materials: [sample.title], sourcePage: sample.sourcePage,
 }));
 const referenceStories: ProjectStory[] = spaces.map((space,index) => ({

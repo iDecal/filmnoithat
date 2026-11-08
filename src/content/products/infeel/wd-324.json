@@ -1,0 +1,23 @@
+{
+  "slug": "wd-324",
+  "code": "WD 324",
+  "name": "Vân gỗ teak",
+  "group": "Teak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-324.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu đậm",
+    "family": "Nâu",
+    "value": "#685445"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 333
+}

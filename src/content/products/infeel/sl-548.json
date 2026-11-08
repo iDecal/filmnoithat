@@ -1,0 +1,27 @@
+{
+  "slug": "sl-548",
+  "code": "SL 548",
+  "name": "Đơn sắc",
+  "group": "Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-supplement/sl-548.jpeg",
+  "application": null,
+  "sourcePage": 8,
+  "imageWidth": 230,
+  "imageHeight": 230,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#8e8d88"
+  },
+  "imageSource": {
+    "pdf": "/catalogues/infeel-supplement.pdf",
+    "page": 21
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 98
+}

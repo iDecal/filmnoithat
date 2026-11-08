@@ -1,0 +1,22 @@
+{
+  "slug": "corance-can041",
+  "code": "CAN041",
+  "name": "Vân vải & da",
+  "group": "Corance CAN",
+  "category": "van-vai",
+  "image": "/images/catalogue/corance/can041.webp",
+  "application": null,
+  "sourcePage": 27,
+  "imageWidth": 503,
+  "imageHeight": 262,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,26 m × 150 m hoặc 1,24 m × 30 m (tùy phiên bản)",
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#bab7b3"
+  },
+  "order": 508
+}

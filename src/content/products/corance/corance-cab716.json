@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cab716",
+  "code": "CAB716",
+  "name": "Vân gỗ",
+  "group": "Corance CAB",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cab716.webp",
+  "application": null,
+  "sourcePage": 16,
+  "imageWidth": 504,
+  "imageHeight": 602,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu đậm",
+    "family": "Nâu",
+    "value": "#463931"
+  },
+  "order": 405
+}

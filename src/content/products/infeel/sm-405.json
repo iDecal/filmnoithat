@@ -1,0 +1,23 @@
+{
+  "slug": "sm-405",
+  "code": "SM 405",
+  "name": "Đơn sắc mờ",
+  "group": "Solid Matt",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sm-405.png",
+  "application": null,
+  "sourcePage": 6,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#fff9f0"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 169
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cae23",
+  "code": "CAE23",
+  "name": "Đơn sắc",
+  "group": "Corance CAE",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/cae23.webp",
+  "application": null,
+  "sourcePage": 25,
+  "imageWidth": 504,
+  "imageHeight": 252,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Đỏ",
+    "family": "Đỏ",
+    "value": "#942420"
+  },
+  "order": 468
+}

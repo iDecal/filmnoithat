@@ -1,0 +1,23 @@
+{
+  "slug": "wd-325",
+  "code": "WD 325",
+  "name": "Vân gỗ phong",
+  "group": "Maple",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-325.jpeg",
+  "application": null,
+  "sourcePage": 43,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#d3b07d"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 259
+}

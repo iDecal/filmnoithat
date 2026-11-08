@@ -1,0 +1,23 @@
+{
+  "slug": "se-291",
+  "code": "SE 291",
+  "name": "Đơn sắc dập nổi",
+  "group": "Solid Emboss",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/se-291.jpeg",
+  "application": null,
+  "sourcePage": 11,
+  "imageWidth": 325,
+  "imageHeight": 159,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c4beb0"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 165
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "lw-722",
+  "code": "LW 722",
+  "name": "Vân vải",
+  "group": "Fabric",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lw-722.jpeg",
+  "application": null,
+  "sourcePage": 47,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Xanh dương",
+    "family": "Xanh dương",
+    "value": "#6a7e7f"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 358
+}

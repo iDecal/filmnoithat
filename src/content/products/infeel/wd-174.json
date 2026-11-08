@@ -1,0 +1,23 @@
+{
+  "slug": "wd-174",
+  "code": "WD 174",
+  "name": "Real Panel Oak",
+  "group": "Real Panel Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-174.jpeg",
+  "application": null,
+  "sourcePage": 42,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Vàng",
+    "family": "Vàng",
+    "value": "#eadaa7"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 318
+}

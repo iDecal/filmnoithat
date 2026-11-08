@@ -1,0 +1,23 @@
+{
+  "slug": "lw-723",
+  "code": "LW 723",
+  "name": "Vân vải",
+  "group": "Fabric",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lw-723.jpeg",
+  "application": null,
+  "sourcePage": 47,
+  "imageWidth": 325,
+  "imageHeight": 355,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#e6e0cf"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 359
+}

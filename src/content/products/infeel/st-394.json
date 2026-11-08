@@ -1,0 +1,23 @@
+{
+  "slug": "st-394",
+  "code": "ST 394",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-394.jpeg",
+  "application": null,
+  "sourcePage": 16,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#ccc5b5"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 42
+}

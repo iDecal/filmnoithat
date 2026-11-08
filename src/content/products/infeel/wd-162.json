@@ -1,0 +1,23 @@
+{
+  "slug": "wd-162",
+  "code": "WD 162",
+  "name": "Vân gỗ sồi",
+  "group": "Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-162.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#837a6e"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 296
+}

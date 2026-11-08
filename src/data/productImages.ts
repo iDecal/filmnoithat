@@ -5,7 +5,7 @@ export interface ProductImage {
   width: number; height: number;
 }
 export function imagesForProduct(sample: CatalogueSample): ProductImage[] {
-  const images: ProductImage[] = [{ src:sample.image, alt:`Film dán nội thất ${sample.title.toLowerCase()} ${sample.brand} ${sample.code} — ảnh bề mặt`, caption:`Ảnh bề mặt đúng mã ${sample.code}. Màu sắc cần đối chiếu mẫu thật.`, label:"Bề mặt", href:null, width:sample.imageWidth, height:sample.imageHeight }];
+  const images: ProductImage[] = [{ src:sample.image, alt:sample.imageAlt || `Film dán nội thất ${sample.title.toLowerCase()} ${sample.brand} ${sample.code} — ảnh bề mặt`, caption:`Ảnh bề mặt đúng mã ${sample.code}. Màu sắc cần đối chiếu mẫu thật.`, label:"Bề mặt", href:null, width:sample.imageWidth, height:sample.imageHeight }];
   for (const story of storiesForSample(sample)) {
     for (const photo of story.images) {
       if (images.some(image=>image.src===photo.src)) continue;

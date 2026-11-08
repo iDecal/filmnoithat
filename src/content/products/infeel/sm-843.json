@@ -1,0 +1,23 @@
+{
+  "slug": "sm-843",
+  "code": "SM 843",
+  "name": "Đơn sắc mờ",
+  "group": "Solid Matt",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sm-843.png",
+  "application": null,
+  "sourcePage": 7,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#d3cfbf"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 179
+}

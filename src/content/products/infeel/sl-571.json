@@ -1,0 +1,23 @@
+{
+  "slug": "sl-571",
+  "code": "SL 571",
+  "name": "Đơn sắc",
+  "group": "Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sl-571.jpeg",
+  "application": null,
+  "sourcePage": 9,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#fcfbf7"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 113
+}

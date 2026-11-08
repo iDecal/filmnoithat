@@ -1,0 +1,23 @@
+{
+  "slug": "sm-403",
+  "code": "SM 403",
+  "name": "Đơn sắc mờ",
+  "group": "Solid Matt",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sm-403.png",
+  "application": null,
+  "sourcePage": 4,
+  "imageWidth": 703,
+  "imageHeight": 888,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#fffcf8"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 168
+}

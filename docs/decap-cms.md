@@ -26,16 +26,20 @@ Nếu đổi sang tên miền riêng, cập nhật đồng thời `backend.base_
 
 ## Các mục đã kết nối
 
+- **Trang chủ**: SEO, thương hiệu hiển thị, banner và CTA, ảnh/ALT, tiêu đề các khối, bộ sưu tập nổi bật, lợi ích, quy trình, FAQ và khối tư vấn. Trường chứa `{gia_infeel}` tự lấy giá thấp nhất của các sản phẩm INFEEL; không cần nhập lại khi giá thay đổi.
+- **Sản phẩm INFEEL / Sản phẩm Corance / Sản phẩm TODA**: tìm theo mã, thêm mẫu mới, sửa tên bề mặt, nhóm, ảnh, ALT, ảnh ứng dụng, thông số cuộn, màu và SEO riêng. Giá INFEEL được nhập bằng VND cho một mét dài; Corance và TODA tiếp tục liên hệ báo giá. Giữ slug và tên tệp của sản phẩm đang có để bảo toàn URL. Xóa sản phẩm qua CMS được tắt để tránh làm mất các liên kết hiện hữu.
+- **Ảnh không gian trang chủ & công trình**: ba mục đầu hiển thị ở trang chủ; các mục còn lại cũng hiển thị trong trang Công trình. Duy trì ít nhất ba mục.
+
 - **Blog tủ bếp**: `src/data/kitchenPosts.json`, danh sách `posts`.
 - **Cẩm nang nội thất**: `src/data/guidePosts.json`, danh sách `posts`.
 - **Dịch vụ**: nội dung, ảnh, ALT, FAQ và SEO của 6 dịch vụ có sẵn; không tạo/xóa route dịch vụ bằng CMS.
-- **Nhóm vật liệu**: thông tin 7 nhóm, cách phối màu, ứng dụng và lưu ý. Không chỉnh danh mục 568 mẫu riêng lẻ trong phiên tích hợp này.
+- **Nhóm vật liệu**: thông tin 7 nhóm, cách phối màu, ứng dụng và lưu ý.
 - **Các trang & SEO**: tiêu đề SEO, mô tả, H1 và đoạn mở đầu của Giới thiệu, Công trình, Kiến thức nội thất, Liên hệ và trang tổng hợp Vật liệu. SEO của trang Dịch vụ nằm ở mục Dịch vụ.
 - **Thông tin liên hệ**: tên, mô tả ngắn, điện thoại, liên kết gọi điện, email, Zalo và phạm vi phục vụ. Số hiển thị và liên kết `tel:` cần cùng một số.
 
 Bài viết hỗ trợ đoạn văn, mục nhỏ, danh sách, liên kết, FAQ, ảnh đại diện và ảnh trong từng mục; chưa dùng Markdown/rich text. Các trường tiêu đề, ALT và chú thích được hiển thị trực tiếp trên website. Ảnh tải lên được lưu ở `public/images/uploads`; các ảnh cũ vẫn giữ nguyên đường dẫn. Khi thêm ảnh trong bài, ghi kích thước gốc để tránh nhảy bố cục. Khi sửa bài cũ, giữ nguyên slug để không đổi URL.
 
-Các bài trong hai nhóm blog phải có slug khác nhau. Chọn mã vật liệu/dịch vụ từ các mã đang dùng trong repository. `npm run build` kiểm tra dữ liệu CMS trước khi tạo trang, nhằm bắt slug trùng, ảnh bị thiếu hoặc tham chiếu không tồn tại. Mỗi nhóm bài được lưu thành một file JSON; tránh để nhiều người cùng sửa một nhóm đồng thời. Các phần bố cục và nội dung khác của trang chủ, nội dung chi tiết còn lại của trang tĩnh, hồ sơ công trình và dữ liệu mẫu catalogue vẫn được quản lý bằng mã nguồn.
+Các bài trong hai nhóm blog phải có slug khác nhau. Chọn mã vật liệu/dịch vụ từ các mã đang dùng trong repository. `npm run build` kiểm tra dữ liệu CMS trước khi tạo trang, nhằm bắt slug trùng, ảnh bị thiếu hoặc tham chiếu không tồn tại. Mỗi nhóm bài được lưu thành một file JSON; tránh để nhiều người cùng sửa một nhóm đồng thời. Bố cục giao diện, nội dung chi tiết còn lại của các trang tĩnh và hồ sơ công trình đã hoàn thành vẫn được quản lý bằng mã nguồn.
 
 ## Kiểm tra dành cho phát triển
 
@@ -56,3 +60,11 @@ XDG_CONFIG_HOME=/workspace/.onboarding/wrangler WRANGLER_SEND_METRICS=false \
 ```
 
 Decap 3.17.3 được nạp từ jsDelivr với phiên bản cố định và SRI; checksum script đã được đối chiếu với gói npm chính thức. Khi nâng phiên bản, kiểm tra lại integrity và giao diện CMS. Thông tin đăng nhập GitHub do người dùng cấp được trao đổi qua popup cùng origin; callback kiểm tra state cookie và quyền ghi repository trước khi trả token về Decap, không ghi log token hay Client Secret.
+
+## Dữ liệu sản phẩm
+
+Website đọc sản phẩm từ `src/content/products/infeel/*.json`, `src/content/products/corance/*.json` và `src/content/products/toda/*.json`. Mỗi mẫu có một tệp riêng, nên các biên tập viên có thể sửa các mẫu khác nhau mà không phải sửa một danh sách chung gồm hàng trăm dòng. Dữ liệu hiện có gồm 367 mẫu INFEEL, 201 mẫu Corance và 84 mẫu TODA; giá, thông số, thứ tự và URL hiện hữu đã được giữ lại.
+
+`src/data/catalogue.json`, `src/data/corance.json` và các bảng giá theo tiền tố cũ chỉ còn là nguồn nhập catalogue ban đầu. Các script nhập PDF trước đây ghi ra những nguồn này, không cập nhật sản phẩm đang quản lý bằng CMS. Không chạy lại chúng rồi kỳ vọng nội dung trực tiếp thay đổi; cần kiểm tra và chuyển bản cập nhật nhập liệu sang hồ sơ sản phẩm trước khi triển khai.
+
+Các trường SEO và ALT riêng có thể để trống để tiếp tục dùng nội dung tự sinh. Thêm ảnh ứng dụng sẽ sinh thêm một trang tham khảo theo mã sản phẩm. Khi thêm sản phẩm, chọn đúng nhóm vật liệu, ảnh thực sự tồn tại và giá INFEEL lớn hơn 0. Build sẽ chặn trùng slug, trùng mã cùng thương hiệu, sai đường dẫn ảnh hoặc thiếu giá. Giá thấp nhất ở trang chủ được tính trực tiếp từ dữ liệu giá từng sản phẩm, không lấy từ bảng giá tiền tố cũ.

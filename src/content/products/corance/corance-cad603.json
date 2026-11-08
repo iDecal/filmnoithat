@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad603",
+  "code": "CAD603",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad603.webp",
+  "application": null,
+  "sourcePage": 21,
+  "imageWidth": 1042,
+  "imageHeight": 258,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu đậm",
+    "family": "Nâu",
+    "value": "#6a5c42"
+  },
+  "order": 437
+}

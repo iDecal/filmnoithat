@@ -1,0 +1,23 @@
+{
+  "slug": "eh-139",
+  "code": "EH 139",
+  "name": "Vân đá cẩm thạch",
+  "group": "Marble",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/eh-139.jpeg",
+  "application": null,
+  "sourcePage": 25,
+  "imageWidth": 323,
+  "imageHeight": 397,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#cec3ae"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 286000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 10
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "ab-021",
+  "code": "AB 021",
+  "name": "Diaper",
+  "group": "Diaper",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/ab-021.jpeg",
+  "application": null,
+  "sourcePage": 48,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#c6cabe"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 429000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 350
+}

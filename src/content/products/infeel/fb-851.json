@@ -1,0 +1,23 @@
+{
+  "slug": "fb-851",
+  "code": "FB 851",
+  "name": "Vân vải",
+  "group": "Fabric",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/fb-851.jpeg",
+  "application": "/images/catalogue/infeel-2026/fb-851-ung-dung.jpeg",
+  "sourcePage": 47,
+  "imageWidth": 325,
+  "imageHeight": 355,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#d5cfc1"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 351
+}

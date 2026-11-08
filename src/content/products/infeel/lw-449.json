@@ -1,0 +1,23 @@
+{
+  "slug": "lw-449",
+  "code": "LW 449",
+  "name": "Vân bê tông",
+  "group": "Concrete",
+  "category": "be-tong",
+  "image": "/images/catalogue/infeel-2026/lw-449.jpeg",
+  "application": null,
+  "sourcePage": 20,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#a5aaa3"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 1
+}

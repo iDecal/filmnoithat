@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cab703",
+  "code": "CAB703",
+  "name": "Vân gỗ",
+  "group": "Corance CAB",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cab703.webp",
+  "application": null,
+  "sourcePage": 14,
+  "imageWidth": 504,
+  "imageHeight": 246,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c7b491"
+  },
+  "order": 392
+}

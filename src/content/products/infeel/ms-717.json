@@ -1,0 +1,23 @@
+{
+  "slug": "ms-717",
+  "code": "MS 717",
+  "name": "Kim loại ánh bóng",
+  "group": "Metal Shiny",
+  "category": "kim-loai",
+  "image": "/images/catalogue/infeel-2026/ms-717.jpeg",
+  "application": null,
+  "sourcePage": 23,
+  "imageWidth": 323,
+  "imageHeight": 397,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#aa8e5e"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 286000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 208
+}

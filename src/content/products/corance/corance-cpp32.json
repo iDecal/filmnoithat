@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cpp32",
+  "code": "CPP32",
+  "name": "Vân gỗ",
+  "group": "Corance CPP",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cpp32.webp",
+  "application": null,
+  "sourcePage": 30,
+  "imageWidth": 1042,
+  "imageHeight": 350,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c2a989"
+  },
+  "order": 538
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "corance-can028",
+  "code": "CAN028",
+  "name": "Vân vải & da",
+  "group": "Corance CAN",
+  "category": "van-vai",
+  "image": "/images/catalogue/corance/can028.webp",
+  "application": null,
+  "sourcePage": 27,
+  "imageWidth": 503,
+  "imageHeight": 192,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,26 m × 150 m hoặc 1,24 m × 30 m (tùy phiên bản)",
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#d1cabe"
+  },
+  "order": 501
+}

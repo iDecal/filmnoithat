@@ -1,0 +1,23 @@
+{
+  "slug": "lw-724",
+  "code": "LW 724",
+  "name": "Vân vải",
+  "group": "Fabric",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lw-724.jpeg",
+  "application": null,
+  "sourcePage": 47,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#676d65"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 360
+}

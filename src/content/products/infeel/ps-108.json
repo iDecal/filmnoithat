@@ -1,0 +1,23 @@
+{
+  "slug": "ps-108",
+  "code": "PS 108",
+  "name": "Đơn sắc cao cấp",
+  "group": "Premium Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/ps-108.jpeg",
+  "application": null,
+  "sourcePage": 10,
+  "imageWidth": 322,
+  "imageHeight": 397,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#717d73"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 286000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 64
+}

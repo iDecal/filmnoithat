@@ -1,0 +1,23 @@
+{
+  "slug": "lw-098",
+  "code": "LW 098",
+  "name": "Vân gỗ du",
+  "group": "Elm",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/lw-098.jpeg",
+  "application": null,
+  "sourcePage": 36,
+  "imageWidth": 325,
+  "imageHeight": 397,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#d2b68b"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 247
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "pw-426",
+  "code": "PW 426",
+  "name": "Vân đan",
+  "group": "Paper Weave",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/pw-426.jpeg",
+  "application": "/images/catalogue/infeel-2026/pw-426-ung-dung.jpeg",
+  "sourcePage": 48,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#bba27a"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 943800,
+  "rollSpecification": "1,06 m × 25 m",
+  "order": 365
+}

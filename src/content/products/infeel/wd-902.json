@@ -1,0 +1,23 @@
+{
+  "slug": "wd-902",
+  "code": "WD 902",
+  "name": "Vân gỗ thông",
+  "group": "Pine",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-902.jpeg",
+  "application": null,
+  "sourcePage": 41,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#eee2c0"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 315
+}

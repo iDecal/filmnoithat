@@ -1,0 +1,23 @@
+{
+  "slug": "eh-152",
+  "code": "EH 152",
+  "name": "Vân đá cẩm thạch",
+  "group": "Marble",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/eh-152.jpeg",
+  "application": null,
+  "sourcePage": 25,
+  "imageWidth": 325,
+  "imageHeight": 397,
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#e8e7e6"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 286000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 15
+}

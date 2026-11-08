@@ -1,0 +1,23 @@
+{
+  "slug": "lw-497",
+  "code": "LW 497",
+  "name": "Artificial Wood",
+  "group": "Artificial Wood",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/lw-497.jpeg",
+  "application": null,
+  "sourcePage": 37,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#bca16f"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 222
+}

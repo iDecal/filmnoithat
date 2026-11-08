@@ -1,0 +1,23 @@
+{
+  "slug": "hg-978",
+  "code": "HG 978",
+  "name": "Đơn sắc bóng",
+  "group": "High-gloss",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/hg-978.jpeg",
+  "application": null,
+  "sourcePage": 26,
+  "imageWidth": 322,
+  "imageHeight": 400,
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#94969a"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 371800,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 49
+}

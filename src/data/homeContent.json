@@ -1,0 +1,150 @@
+{
+  "brandName": "D-vinyl",
+  "seoTitle": "Film dán nội thất D-vinyl – Vân gỗ, vân đá & thi công",
+  "seoDescription": "Film dán nội thất D-vinyl: vân gỗ, vân đá, màu trơn. Giá vật liệu INFEEL từ {gia_infeel}/mét dài, cung cấp toàn quốc và tư vấn thi công.",
+  "hero": {
+    "eyebrow": "D-vinyl / FILM DÁN NỘI THẤT CAO CẤP",
+    "titleLead": "Film dán nội thất.",
+    "titleAccent": "Tinh tế từng không gian.",
+    "description": "Film dán nội thất D-vinyl giúp làm mới tủ bếp, cửa, bàn và vách với bề mặt vân gỗ, vân đá hoặc màu trơn. Chọn mua vật liệu hoặc tư vấn thi công theo nhu cầu để giữ lại kết cấu còn tốt và đổi diện mạo không gian.",
+    "primaryLabel": "Xem bộ sưu tập",
+    "primaryHref": "/vat-lieu/",
+    "secondaryLabel": "Nhận báo giá miễn phí",
+    "secondaryHref": "#bao-gia",
+    "priceNote": "INFEEL từ {gia_infeel}/mét dài · Cung cấp toàn quốc",
+    "image": {
+      "src": "/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp",
+      "alt": "Tủ bếp phối cánh tủ màu đậm và vân gỗ sáng – ảnh tham khảo film nội thất",
+      "title": "",
+      "width": 960,
+      "height": 1280
+    },
+    "caption": "Gợi ý phối chất liệu cho không gian bếp · Ảnh tham khảo"
+  },
+  "categories": {
+    "title": "Chọn chất liệu của bạn",
+    "linkLabel": "Tất cả"
+  },
+  "collections": {
+    "eyebrow": "01 / BỘ SƯU TẬP VẬT LIỆU",
+    "title": "Film dán nội thất cho từng phong cách.",
+    "linkLabel": "Xem bộ sưu tập",
+    "chooseLabel": "Chọn mẫu",
+    "concreteLabel": "Xem thêm film bê tông →",
+    "items": [
+      {
+        "slug": "van-go",
+        "title": "Film dán vân gỗ",
+        "text": "Ấm áp, tự nhiên, hợp phòng khách, phòng ngủ."
+      },
+      {
+        "slug": "da-cam-thach",
+        "title": "Film dán vân đá, marble",
+        "text": "Sang trọng như đá thật, nhẹ và rẻ hơn nhiều."
+      },
+      {
+        "slug": "don-sac",
+        "title": "Film dán màu trơn",
+        "text": "Hiện đại, tối giản, hợp tủ bếp, tủ quần áo."
+      },
+      {
+        "slug": "kim-loai",
+        "title": "Film dán kim loại, bê tông",
+        "text": "Phong cách industrial cho quán cà phê, showroom."
+      }
+    ]
+  },
+  "applications": {
+    "eyebrow": "02 / ỨNG DỤNG & THI CÔNG",
+    "titleLead": "Thi công film dán nội thất.",
+    "titleAccent": "Giữ kết cấu, đổi diện mạo.",
+    "description": "Film dán nội thất cho tủ bếp, bàn, cửa và vách. Từ nhà ở đến văn phòng, quán cà phê hay khách sạn, cùng chọn vật liệu và phương án phù hợp với hiện trạng.",
+    "linkLabel": "Khám phá dịch vụ"
+  },
+  "benefits": {
+    "eyebrow": "VÌ SAO CHỌN D-vinyl?",
+    "titleLead": "Đẹp từ lựa chọn.",
+    "titleAccent": "Rõ ràng đến hoàn thiện.",
+    "image": {
+      "src": "/images/thi-cong/thi-cong-film-van-go-bang-may-kho-o-mep-cong.webp",
+      "alt": "Thợ đeo găng dùng máy khò hỗ trợ uốn film vân gỗ theo mép cong",
+      "title": "Thi công film nội thất vân gỗ tại mép cong",
+      "width": 739,
+      "height": 415
+    },
+    "caption": "Chỉn chu ở từng chi tiết hoàn thiện · Ảnh tham khảo",
+    "items": [
+      {
+        "icon": "check",
+        "title": "Bề mặt dễ chăm sóc",
+        "text": "Film chống nước, chống xước, dễ vệ sinh. Chọn mã phù hợp với công năng và xử lý kỹ các mép dán."
+      },
+      {
+        "icon": "swatches",
+        "title": "Nhiều chất liệu để phối",
+        "text": "Vân gỗ, vân đá, màu trơn, kim loại và bê tông. So mẫu thật để chọn sắc độ hài hòa với nội thất sẵn có."
+      },
+      {
+        "icon": "phone",
+        "title": "Tư vấn rõ ràng trước khi đặt",
+        "text": "Giá vật liệu INFEEL từ {gia_infeel}/mét dài, niêm yết theo từng mã. Hỗ trợ chọn film, tính khối lượng và hướng dẫn thi công; có chính sách cho đại lý và nhà thầu."
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "DỄ CHỌN MẪU. RÕ CÁCH ĐẶT HÀNG.",
+    "title": "Từ chọn mẫu đến nhận film.",
+    "items": [
+      "Chọn mẫu film dán nội thất tại showroom hoặc qua catalogue.",
+      "Gửi kích thước, nhận báo giá nhanh qua Zalo.",
+      "Giao hàng toàn quốc hoặc hướng dẫn thi công.",
+      "Hỗ trợ kỹ thuật sau bán hàng."
+    ]
+  },
+  "inspiration": {
+    "eyebrow": "03 / CẢM HỨNG & CHẤT LIỆU",
+    "titleLead": "Ý tưởng cho không gian.",
+    "titleAccent": "Kiến thức để chọn đúng.",
+    "spacesLabel": "Xem không gian",
+    "blogLabel": "Xem bài viết",
+    "readingLabel": "ĐỌC THÊM TRƯỚC KHI CHỌN VẬT LIỆU",
+    "readMoreLabel": "Đọc bài viết"
+  },
+  "faqs": {
+    "eyebrow": "TRƯỚC KHI CHỌN MẪU",
+    "title": "Một vài điều bạn có thể đang hỏi.",
+    "linkLabel": "Đọc thêm cẩm nang",
+    "items": [
+      {
+        "question": "Film dán nội thất có bền không?",
+        "answer": "Film chất lượng tốt dùng được nhiều năm nếu dán đúng kỹ thuật trên bề mặt sạch, phẳng."
+      },
+      {
+        "question": "Có chống nước không?",
+        "answer": "Có, nhưng cần xử lý kỹ mép dán ở khu vực tiếp xúc nước nhiều."
+      },
+      {
+        "question": "Tự dán tại nhà được không?",
+        "answer": "Được với bề mặt nhỏ. Tủ bếp, cửa lớn nên nhờ thợ để tránh bọt khí, nhăn."
+      },
+      {
+        "question": "Giá film dán nội thất bao nhiêu?",
+        "answer": "Vật liệu INFEEL có giá từ {gia_infeel}/mét dài theo khổ cuộn của từng mẫu, chưa gồm công thi công. Corance liên hệ báo giá. Chi phí giao hàng và tổng đơn được xác nhận khi đặt."
+      },
+      {
+        "question": "Dán đè film cũ được không?",
+        "answer": "Nên bóc film cũ và vệ sinh sạch để bám tốt nhất."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "D-vinyl | filmnoithat.vn",
+    "title": "Bắt đầu từ không gian của bạn.",
+    "description": "Bạn cần mua film dán nội thất hay tìm đội ngũ thi công? Gửi mã mẫu, kích thước hoặc ảnh hiện trạng qua Zalo để D-vinyl tư vấn vật liệu và báo giá phù hợp.",
+    "address": "606/20 Quốc lộ 13, P. Hiệp Bình, TP.HCM",
+    "boxLabel": "Tư vấn chọn mẫu & báo giá trực tiếp",
+    "zaloLabel": "Tư vấn qua Zalo",
+    "phoneLabel": "Gọi trực tiếp",
+    "serviceNote": "Cung cấp film toàn quốc · Thi công theo nhu cầu"
+  }
+}

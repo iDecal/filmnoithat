@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cae22",
+  "code": "CAE22",
+  "name": "Đơn sắc",
+  "group": "Corance CAE",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/cae22.webp",
+  "application": null,
+  "sourcePage": 25,
+  "imageWidth": 503,
+  "imageHeight": 250,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#9e9e9e"
+  },
+  "order": 467
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "wd-793",
+  "code": "WD 793",
+  "name": "Vân gỗ bạch dương",
+  "group": "Birch",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-793.jpeg",
+  "application": null,
+  "sourcePage": 41,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#f7f0d8"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 236
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "wd-002",
+  "code": "WD 002",
+  "name": "Vân gỗ sồi",
+  "group": "Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-002.jpeg",
+  "application": "/images/catalogue/infeel-2026/wd-002-ung-dung.jpeg",
+  "sourcePage": 40,
+  "imageWidth": 700,
+  "imageHeight": 397,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#eae5db"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 281
+}

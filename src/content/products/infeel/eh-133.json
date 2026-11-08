@@ -1,0 +1,23 @@
+{
+  "slug": "eh-133",
+  "code": "EH 133",
+  "name": "Blanca",
+  "group": "Blanca",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/eh-133.jpeg",
+  "application": "/images/catalogue/infeel-2026/eh-133-ung-dung.jpeg",
+  "sourcePage": 24,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#d5d3c5"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 286000,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 9
+}

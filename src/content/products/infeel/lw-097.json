@@ -1,0 +1,23 @@
+{
+  "slug": "lw-097",
+  "code": "LW 097",
+  "name": "Vân gỗ sồi",
+  "group": "Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/lw-097.jpeg",
+  "application": null,
+  "sourcePage": 34,
+  "imageWidth": 700,
+  "imageHeight": 397,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#a89a86"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 271
+}

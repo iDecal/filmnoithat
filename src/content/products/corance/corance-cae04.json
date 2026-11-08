@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cae04",
+  "code": "CAE04",
+  "name": "Vân gỗ",
+  "group": "Corance CAE",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cae04.webp",
+  "application": null,
+  "sourcePage": 24,
+  "imageWidth": 1042,
+  "imageHeight": 245,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Cam",
+    "family": "Cam",
+    "value": "#d4a97c"
+  },
+  "order": 453
+}

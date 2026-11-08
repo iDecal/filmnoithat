@@ -1,0 +1,23 @@
+{
+  "slug": "sl-581",
+  "code": "SL 581",
+  "name": "Đơn sắc",
+  "group": "Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sl-581.jpeg",
+  "application": null,
+  "sourcePage": 9,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#fcfcfc"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 115
+}

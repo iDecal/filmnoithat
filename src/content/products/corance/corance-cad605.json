@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad605",
+  "code": "CAD605",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad605.webp",
+  "application": null,
+  "sourcePage": 21,
+  "imageWidth": 503,
+  "imageHeight": 255,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#d0c9b7"
+  },
+  "order": 439
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "sl-262",
+  "code": "SL 262",
+  "name": "Đơn sắc",
+  "group": "Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sl-262.jpeg",
+  "application": "/images/catalogue/infeel-2026/sl-262-ung-dung.jpeg",
+  "sourcePage": 8,
+  "imageWidth": 125,
+  "imageHeight": 95,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#e3d5c5"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 70
+}

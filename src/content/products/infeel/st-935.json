@@ -1,0 +1,23 @@
+{
+  "slug": "st-935",
+  "code": "ST 935",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-935.jpeg",
+  "application": null,
+  "sourcePage": 20,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#f2f1ec"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 47
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cpp22",
+  "code": "CPP22",
+  "name": "Đơn sắc",
+  "group": "Corance CPP",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/cpp22.webp",
+  "application": null,
+  "sourcePage": 30,
+  "imageWidth": 503,
+  "imageHeight": 261,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#f9f9f9"
+  },
+  "order": 532
+}

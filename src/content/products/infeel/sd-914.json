@@ -1,0 +1,23 @@
+{
+  "slug": "sd-914",
+  "code": "SD 914",
+  "name": "Đơn sắc họa tiết",
+  "group": "Solid Design",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sd-914.jpeg",
+  "application": null,
+  "sourcePage": 13,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c3bdaf"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 235950,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 161
+}

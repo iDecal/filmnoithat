@@ -1,0 +1,23 @@
+{
+  "slug": "wd-126",
+  "code": "WD 126",
+  "name": "Vân thông cổ điển",
+  "group": "Antique Pine",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-126.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#986d44"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 221
+}

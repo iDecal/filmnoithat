@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad403",
+  "code": "CAD403",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad403.webp",
+  "application": null,
+  "sourcePage": 19,
+  "imageWidth": 1042,
+  "imageHeight": 256,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c1ae95"
+  },
+  "order": 422
+}

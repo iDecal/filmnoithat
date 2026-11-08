@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cae19",
+  "code": "CAE19",
+  "name": "Đơn sắc",
+  "group": "Corance CAE",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/cae19.webp",
+  "application": null,
+  "sourcePage": 25,
+  "imageWidth": 504,
+  "imageHeight": 251,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#e4e9e3"
+  },
+  "order": 466
+}

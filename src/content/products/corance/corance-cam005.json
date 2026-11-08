@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cam005",
+  "code": "CAM005",
+  "name": "Hiệu ứng kim loại",
+  "group": "Corance CAM",
+  "category": "kim-loai",
+  "image": "/images/catalogue/corance/cam005.webp",
+  "application": null,
+  "sourcePage": 9,
+  "imageWidth": 1042,
+  "imageHeight": 266,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#acacac"
+  },
+  "order": 487
+}

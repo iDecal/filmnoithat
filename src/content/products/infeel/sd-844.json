@@ -1,0 +1,23 @@
+{
+  "slug": "sd-844",
+  "code": "SD 844",
+  "name": "Đơn sắc họa tiết",
+  "group": "Solid Design",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sd-844.jpeg",
+  "application": null,
+  "sourcePage": 13,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#faf7f0"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 235950,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 145
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "st-369",
+  "code": "ST 369",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-369.jpeg",
+  "application": null,
+  "sourcePage": 17,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#f1ebde"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 36
+}

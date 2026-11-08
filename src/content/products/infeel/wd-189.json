@@ -1,0 +1,23 @@
+{
+  "slug": "wd-189",
+  "code": "WD 189",
+  "name": "Vân gỗ óc chó",
+  "group": "Walnut",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-189.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu đậm",
+    "family": "Nâu",
+    "value": "#483b34"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 341
+}

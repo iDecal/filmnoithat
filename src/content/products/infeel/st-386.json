@@ -1,0 +1,23 @@
+{
+  "slug": "st-386",
+  "code": "ST 386",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-386.jpeg",
+  "application": null,
+  "sourcePage": 17,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c7c1b7"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 38
+}

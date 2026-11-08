@@ -1,0 +1,23 @@
+{
+  "slug": "mw-179",
+  "code": "MW 179",
+  "name": "Vân gỗ sồi",
+  "group": "Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/mw-179.jpeg",
+  "application": null,
+  "sourcePage": 30,
+  "imageWidth": 325,
+  "imageHeight": 397,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#bda888"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 276
+}

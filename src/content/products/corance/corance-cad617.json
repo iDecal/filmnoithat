@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad617",
+  "code": "CAD617",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad617.webp",
+  "application": null,
+  "sourcePage": 22,
+  "imageWidth": 1042,
+  "imageHeight": 318,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#ad916e"
+  },
+  "order": 447
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "md-974",
+  "code": "MD 974",
+  "name": "Bề mặt mờ",
+  "group": "Matt Design",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/md-974.jpeg",
+  "application": null,
+  "sourcePage": 14,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#f1ecdf"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 57
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "fb-933",
+  "code": "FB 933",
+  "name": "Vân vải linen",
+  "group": "Linen",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/fb-933.jpeg",
+  "application": null,
+  "sourcePage": 47,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#bbb4a1"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 364
+}

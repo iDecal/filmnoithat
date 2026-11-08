@@ -1,0 +1,23 @@
+{
+  "slug": "st-304",
+  "code": "ST 304",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-304.png",
+  "application": null,
+  "sourcePage": 19,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#f3f1ec"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 24
+}

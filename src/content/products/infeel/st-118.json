@@ -1,0 +1,23 @@
+{
+  "slug": "st-118",
+  "code": "ST 118",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-118.jpeg",
+  "application": null,
+  "sourcePage": 20,
+  "imageWidth": 322,
+  "imageHeight": 158,
+  "color": {
+    "name": "Trắng",
+    "family": "Trắng",
+    "value": "#f2efe5"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 23
+}

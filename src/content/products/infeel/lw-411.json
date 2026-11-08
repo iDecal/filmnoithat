@@ -1,0 +1,23 @@
+{
+  "slug": "lw-411",
+  "code": "LW 411",
+  "name": "Vân da",
+  "group": "Artificial Leather",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lw-411.jpeg",
+  "application": null,
+  "sourcePage": 48,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#9e8c6e"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 347
+}

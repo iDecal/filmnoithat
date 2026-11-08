@@ -1,0 +1,22 @@
+{
+  "slug": "corance-css009",
+  "code": "CSS009",
+  "name": "Đơn sắc",
+  "group": "Corance CSS",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/css009.webp",
+  "application": null,
+  "sourcePage": 8,
+  "imageWidth": 508,
+  "imageHeight": 189,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Đen",
+    "family": "Đen",
+    "value": "#1c1c1c"
+  },
+  "order": 547
+}

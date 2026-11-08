@@ -1,0 +1,23 @@
+{
+  "slug": "wd-302",
+  "code": "WD 302",
+  "name": "Sycamore",
+  "group": "Sycamore",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-302.jpeg",
+  "application": null,
+  "sourcePage": 43,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#d2aa67"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 326
+}

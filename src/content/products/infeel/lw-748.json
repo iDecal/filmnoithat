@@ -1,0 +1,23 @@
+{
+  "slug": "lw-748",
+  "code": "LW 748",
+  "name": "Bề mặt tinh giản",
+  "group": "Basic",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lw-748.jpeg",
+  "application": "/images/catalogue/infeel-2026/lw-748-ung-dung.jpeg",
+  "sourcePage": 48,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#fbf9ef"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 349
+}

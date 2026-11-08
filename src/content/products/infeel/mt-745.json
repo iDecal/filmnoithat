@@ -1,0 +1,23 @@
+{
+  "slug": "mt-745",
+  "code": "MT 745",
+  "name": "Hiệu ứng kim loại",
+  "group": "Metal",
+  "category": "kim-loai",
+  "image": "/images/catalogue/infeel-2026/mt-745.jpeg",
+  "application": null,
+  "sourcePage": 22,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#cdcecf"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 202
+}

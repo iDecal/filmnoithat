@@ -1,0 +1,23 @@
+{
+  "slug": "sl-565",
+  "code": "SL 565",
+  "name": "Đơn sắc",
+  "group": "Solid",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sl-565.jpeg",
+  "application": null,
+  "sourcePage": 8,
+  "imageWidth": 125,
+  "imageHeight": 95,
+  "color": {
+    "name": "Xanh dương đậm",
+    "family": "Xanh dương",
+    "value": "#204a7f"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 108
+}

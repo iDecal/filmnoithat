@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad507",
+  "code": "CAD507",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad507.webp",
+  "application": null,
+  "sourcePage": 20,
+  "imageWidth": 503,
+  "imageHeight": 257,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#a27a49"
+  },
+  "order": 432
+}

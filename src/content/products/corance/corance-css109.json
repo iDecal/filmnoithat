@@ -1,0 +1,22 @@
+{
+  "slug": "corance-css109",
+  "code": "CSS109",
+  "name": "Vân gỗ",
+  "group": "Corance CSS",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/css109.webp",
+  "application": null,
+  "sourcePage": 6,
+  "imageWidth": 504,
+  "imageHeight": 613,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#a1957b"
+  },
+  "order": 556
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad404",
+  "code": "CAD404",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad404.webp",
+  "application": null,
+  "sourcePage": 19,
+  "imageWidth": 1042,
+  "imageHeight": 259,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#95866b"
+  },
+  "order": 423
+}

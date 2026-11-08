@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
@@ -44,8 +44,51 @@ for (const service of services) {
 }
 // Every configured file must have the object structure expected by Decap's file collections.
 const config = read('public/admin/config.yml');
-for (const collection of config.collections) for (const file of collection.files) {
+for (const collection of config.collections) for (const file of collection.files || []) {
   const data = read(file.file);
   for (const field of file.fields) assert.ok(Object.hasOwn(data, field.name), `${file.file}: missing root field ${field.name}`);
 }
 console.log(`PASS CMS content: ${allPosts.length} posts, ${services.length} services, ${materials.length} material groups; valid routes, image files and editor data roots.`);
+
+const products = [];
+for (const folder of ['infeel', 'corance', 'toda']) {
+  const directory = `src/content/products/${folder}`;
+  for (const file of readdirSync(resolve(root, directory)).filter(file => file.endsWith('.json'))) {
+    const product = read(`${directory}/${file}`);
+    assert.equal(file, `${product.slug}.json`, `Product filename must match slug: ${file}`);
+    assert.match(product.slug, slugPattern);
+    assert.equal(product.brand.toLowerCase(), folder, `${file}: incorrect brand folder`);
+    assert.ok(materialSlugs.includes(product.category), `${file}: invalid material category`);
+    for (const key of ['code','name','group','collection','rollSpecification']) assert.ok(product[key]?.trim(), `${file}: missing ${key}`);
+    image(product.image);
+    if (product.application) image(product.application);
+    assert.ok(Number.isInteger(product.imageWidth) && product.imageWidth > 0 && Number.isInteger(product.imageHeight) && product.imageHeight > 0, `${file}: invalid dimensions`);
+    assert.ok(Number.isInteger(product.sourcePage) && product.sourcePage > 0 && Number.isInteger(product.order) && product.order >= 0, `${file}: invalid catalogue page or sort order`);
+    assert.match(product.color.value, /^#[0-9a-fA-F]{6}$/);
+    assert.ok(product.color.name?.trim() && product.color.family?.trim(), `${file}: missing color labels`);
+    assert.ok(product.pdf?.startsWith('/catalogues/') && !product.pdf.includes('..') && existsSync(resolve(root,'public',product.pdf.slice(1))), `${file}: missing catalogue PDF`);
+    if (product.brand === 'INFEEL') assert.ok(Number.isInteger(product.pricePerMetre) && product.pricePerMetre > 0, `${file}: INFEEL requires a positive VND price per metre`);
+    else assert.ok(!product.pricePerMetre, `${file}: Corance and TODA currently use contact pricing`);
+    products.push(product);
+  }
+}
+assert.equal(new Set(products.map(product => product.slug)).size, products.length, 'Product slugs must be unique across brands');
+assert.equal(new Set(products.map(product => `${product.brand}:${product.code.toUpperCase().replace(/\s/g,'')}`)).size, products.length, 'Product codes must be unique per brand');
+assert.ok(products.some(product => product.brand === 'INFEEL'), 'Homepage needs at least one INFEEL price');
+const home = read('src/data/homeContent.json');
+for (const pic of [home.hero.image, home.benefits.image]) {
+  image(pic.src); assert.ok(pic.alt?.trim() && pic.width > 0 && pic.height > 0, 'Homepage images need ALT and dimensions');
+}
+for (const value of [home.brandName,home.seoTitle,home.seoDescription,home.hero.titleLead,home.hero.titleAccent,home.hero.description]) assert.ok(typeof value === 'string' && value.trim(), 'Homepage metadata and hero text are required');
+for (const href of [home.hero.primaryHref,home.hero.secondaryHref]) assert.match(href,/^(?:\/(?!\/)|#[a-zA-Z0-9_-]+|https:\/\/)[^\s]*$/, 'Homepage CTA must use an internal URL, anchor or HTTPS URL');
+assert.ok(home.collections.items.length > 0 && home.collections.items.every(item => materialSlugs.includes(item.slug)), 'Homepage featured material is unknown');
+for (const item of home.benefits.items) assert.ok(['check','swatches','phone'].includes(item.icon), 'Unknown homepage benefit icon');
+assert.ok(Array.isArray(home.steps.items) && Array.isArray(home.faqs.items), 'Homepage steps and FAQs must be lists');
+const spaces = read('src/data/spacesContent.json').spaces;
+assert.ok(spaces.length >= 3, 'Homepage needs at least three reference spaces');
+for (const space of spaces) {
+  image(space.image);
+  assert.ok(serviceSlugs.some(slug => space.service === `/dich-vu/${slug}/`), 'Space points to an unknown service');
+  assert.ok(materialSlugs.some(slug => space.material === `/vat-lieu/${slug}/`), 'Space points to an unknown material');
+}
+console.log(`PASS homepage and products: ${products.length} products, valid prices, images, material links and homepage content.`);

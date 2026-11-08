@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cae13",
+  "code": "CAE13",
+  "name": "Vân đá",
+  "group": "Corance CAE",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/corance/cae13.webp",
+  "application": null,
+  "sourcePage": 10,
+  "imageWidth": 1042,
+  "imageHeight": 249,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám đậm",
+    "family": "Xám",
+    "value": "#5d5650"
+  },
+  "order": 461
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cam003",
+  "code": "CAM003",
+  "name": "Hiệu ứng kim loại",
+  "group": "Corance CAM",
+  "category": "kim-loai",
+  "image": "/images/catalogue/corance/cam003.webp",
+  "application": null,
+  "sourcePage": 9,
+  "imageWidth": 1043,
+  "imageHeight": 269,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#a8977b"
+  },
+  "order": 485
+}

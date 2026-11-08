@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cad300",
+  "code": "CAD300",
+  "name": "Vân gỗ",
+  "group": "Corance CAD",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cad300.webp",
+  "application": null,
+  "sourcePage": 17,
+  "imageWidth": 503,
+  "imageHeight": 258,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#9d8a61"
+  },
+  "order": 415
+}

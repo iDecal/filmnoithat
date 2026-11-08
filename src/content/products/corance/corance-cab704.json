@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cab704",
+  "code": "CAB704",
+  "name": "Vân gỗ",
+  "group": "Corance CAB",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/cab704.webp",
+  "application": null,
+  "sourcePage": 14,
+  "imageWidth": 504,
+  "imageHeight": 253,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Nâu đỏ",
+    "family": "Nâu",
+    "value": "#302420"
+  },
+  "order": 393
+}

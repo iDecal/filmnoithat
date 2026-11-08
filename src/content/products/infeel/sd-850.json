@@ -1,0 +1,23 @@
+{
+  "slug": "sd-850",
+  "code": "SD 850",
+  "name": "Đơn sắc họa tiết",
+  "group": "Solid Design",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sd-850.jpeg",
+  "application": null,
+  "sourcePage": 13,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Xám đậm",
+    "family": "Xám",
+    "value": "#56514d"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 235950,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 148
+}

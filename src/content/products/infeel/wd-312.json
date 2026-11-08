@@ -1,0 +1,23 @@
+{
+  "slug": "wd-312",
+  "code": "WD 312",
+  "name": "Vân gỗ anh đào",
+  "group": "Cherry",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-312.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#865534"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 240
+}

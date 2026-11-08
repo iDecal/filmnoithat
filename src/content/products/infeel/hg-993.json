@@ -1,0 +1,23 @@
+{
+  "slug": "hg-993",
+  "code": "HG 993",
+  "name": "Đơn sắc bóng",
+  "group": "High-gloss",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/hg-993.png",
+  "application": "/images/catalogue/infeel-2026/hg-993-ung-dung.jpeg",
+  "sourcePage": 26,
+  "imageWidth": 322,
+  "imageHeight": 400,
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#fcfcf3"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 371800,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 54
+}

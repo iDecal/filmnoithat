@@ -19,6 +19,1105 @@
   },
   "collections": [
     {
+      "name": "home",
+      "label": "Trang chủ",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "home",
+          "label": "Nội dung trang chủ",
+          "file": "src/data/homeContent.json",
+          "fields": [
+            {
+              "name": "brandName",
+              "label": "Tên thương hiệu trang chủ",
+              "widget": "string"
+            },
+            {
+              "name": "seoTitle",
+              "label": "Tiêu đề SEO",
+              "widget": "string"
+            },
+            {
+              "name": "seoDescription",
+              "label": "Mô tả SEO",
+              "widget": "text",
+              "hint": "Giữ {gia_infeel} để website tự lấy giá INFEEL thấp nhất từ danh mục sản phẩm."
+            },
+            {
+              "name": "hero",
+              "label": "Banner đầu trang",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleLead",
+                  "label": "Tiêu đề dòng đầu",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleAccent",
+                  "label": "Tiêu đề dòng nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Nội dung giới thiệu",
+                  "widget": "text"
+                },
+                {
+                  "name": "primaryLabel",
+                  "label": "Chữ nút chính",
+                  "widget": "string"
+                },
+                {
+                  "name": "primaryHref",
+                  "label": "Đường dẫn nút chính",
+                  "widget": "string",
+                  "pattern": [
+                    "^(?:/(?!/)|#[a-zA-Z0-9_-]+|https://)[^\\s]*$",
+                    "Dùng đường dẫn /trang/, #muc hoặc https://..."
+                  ]
+                },
+                {
+                  "name": "secondaryLabel",
+                  "label": "Chữ nút phụ",
+                  "widget": "string"
+                },
+                {
+                  "name": "secondaryHref",
+                  "label": "Đường dẫn nút phụ",
+                  "widget": "string",
+                  "pattern": [
+                    "^(?:/(?!/)|#[a-zA-Z0-9_-]+|https://)[^\\s]*$",
+                    "Dùng đường dẫn /trang/, #muc hoặc https://..."
+                  ]
+                },
+                {
+                  "name": "priceNote",
+                  "label": "Ghi chú giá",
+                  "widget": "string",
+                  "hint": "Giữ {gia_infeel} để website tự lấy giá INFEEL thấp nhất từ danh mục sản phẩm."
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Tệp ảnh",
+                      "widget": "image"
+                    },
+                    {
+                      "name": "alt",
+                      "label": "ALT – mô tả ảnh",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề",
+                      "widget": "string",
+                      "required": false
+                    },
+                    {
+                      "name": "width",
+                      "label": "Chiều rộng gốc (px)",
+                      "widget": "number",
+                      "value_type": "int",
+                      "min": 1
+                    },
+                    {
+                      "name": "height",
+                      "label": "Chiều cao gốc (px)",
+                      "widget": "number",
+                      "value_type": "int",
+                      "min": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "caption",
+                  "label": "Chú thích ảnh",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "categories",
+              "label": "Thanh danh mục chất liệu",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tiêu đề",
+                  "widget": "string"
+                },
+                {
+                  "name": "linkLabel",
+                  "label": "Chữ liên kết",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "collections",
+              "label": "Bộ sưu tập nổi bật",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề",
+                  "widget": "string"
+                },
+                {
+                  "name": "linkLabel",
+                  "label": "Chữ liên kết",
+                  "widget": "string"
+                },
+                {
+                  "name": "chooseLabel",
+                  "label": "Chữ nút chọn mẫu",
+                  "widget": "string"
+                },
+                {
+                  "name": "concreteLabel",
+                  "label": "Liên kết xem bê tông",
+                  "widget": "string"
+                },
+                {
+                  "name": "items",
+                  "label": "Danh sách nội dung",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "slug",
+                      "label": "Nhóm vật liệu",
+                      "widget": "select",
+                      "options": [
+                        "van-go",
+                        "don-sac",
+                        "van-vai",
+                        "be-tong",
+                        "kim-loai",
+                        "da-cam-thach",
+                        "trang-guong"
+                      ]
+                    },
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "text",
+                      "label": "Nội dung",
+                      "widget": "text"
+                    }
+                  ],
+                  "summary": "{{fields.title}}",
+                  "min": 1,
+                  "max": 7
+                }
+              ]
+            },
+            {
+              "name": "applications",
+              "label": "Ứng dụng & thi công",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleLead",
+                  "label": "Tiêu đề dòng đầu",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleAccent",
+                  "label": "Tiêu đề dòng nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Nội dung giới thiệu",
+                  "widget": "text"
+                },
+                {
+                  "name": "linkLabel",
+                  "label": "Chữ liên kết",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "benefits",
+              "label": "Lợi ích & ảnh thi công",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleLead",
+                  "label": "Tiêu đề dòng đầu",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleAccent",
+                  "label": "Tiêu đề dòng nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Tệp ảnh",
+                      "widget": "image"
+                    },
+                    {
+                      "name": "alt",
+                      "label": "ALT – mô tả ảnh",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "width",
+                      "label": "Chiều rộng gốc (px)",
+                      "widget": "number",
+                      "value_type": "int",
+                      "min": 1
+                    },
+                    {
+                      "name": "height",
+                      "label": "Chiều cao gốc (px)",
+                      "widget": "number",
+                      "value_type": "int",
+                      "min": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "caption",
+                  "label": "Chú thích ảnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "items",
+                  "label": "Danh sách nội dung",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "icon",
+                      "label": "Biểu tượng",
+                      "widget": "select",
+                      "options": [
+                        "check",
+                        "swatches",
+                        "phone"
+                      ]
+                    },
+                    {
+                      "name": "title",
+                      "label": "Tiêu đề",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "text",
+                      "label": "Nội dung",
+                      "widget": "text"
+                    }
+                  ],
+                  "summary": "{{fields.title}}"
+                }
+              ]
+            },
+            {
+              "name": "steps",
+              "label": "Quy trình đặt hàng",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề",
+                  "widget": "string"
+                },
+                {
+                  "name": "items",
+                  "label": "Danh sách nội dung",
+                  "widget": "list",
+                  "field": {
+                    "name": "value",
+                    "label": "Nội dung",
+                    "widget": "text"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "inspiration",
+              "label": "Cảm hứng & bài viết",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleLead",
+                  "label": "Tiêu đề dòng đầu",
+                  "widget": "string"
+                },
+                {
+                  "name": "titleAccent",
+                  "label": "Tiêu đề dòng nhấn mạnh",
+                  "widget": "string"
+                },
+                {
+                  "name": "spacesLabel",
+                  "label": "Liên kết xem không gian",
+                  "widget": "string"
+                },
+                {
+                  "name": "blogLabel",
+                  "label": "Liên kết xem blog",
+                  "widget": "string"
+                },
+                {
+                  "name": "readingLabel",
+                  "label": "Nhãn cẩm nang",
+                  "widget": "string"
+                },
+                {
+                  "name": "readMoreLabel",
+                  "label": "Chữ nút đọc bài",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "faqs",
+              "label": "Câu hỏi thường gặp",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề",
+                  "widget": "string"
+                },
+                {
+                  "name": "linkLabel",
+                  "label": "Chữ liên kết",
+                  "widget": "string"
+                },
+                {
+                  "name": "items",
+                  "label": "Danh sách nội dung",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "name": "question",
+                      "label": "Câu hỏi",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "answer",
+                      "label": "Trả lời",
+                      "widget": "text"
+                    }
+                  ],
+                  "summary": "{{fields.question}}"
+                }
+              ]
+            },
+            {
+              "name": "contact",
+              "label": "Khối tư vấn cuối trang",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Dòng nhãn phía trên",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Tiêu đề",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Nội dung giới thiệu",
+                  "widget": "text"
+                },
+                {
+                  "name": "address",
+                  "label": "Địa chỉ hiển thị",
+                  "widget": "string"
+                },
+                {
+                  "name": "boxLabel",
+                  "label": "Tiêu đề hộp liên hệ",
+                  "widget": "string"
+                },
+                {
+                  "name": "zaloLabel",
+                  "label": "Chữ nút Zalo",
+                  "widget": "string"
+                },
+                {
+                  "name": "phoneLabel",
+                  "label": "Chữ nút gọi điện",
+                  "widget": "string"
+                },
+                {
+                  "name": "serviceNote",
+                  "label": "Ghi chú phục vụ",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "products_infeel",
+      "label": "Sản phẩm INFEEL",
+      "label_singular": "Sản phẩm INFEEL",
+      "folder": "src/content/products/infeel",
+      "create": true,
+      "delete": false,
+      "extension": "json",
+      "format": "json",
+      "identifier_field": "slug",
+      "slug": "{{slug}}",
+      "summary": "{{code}} — {{name}}",
+      "sortable_fields": [
+        "code",
+        "name",
+        "category"
+      ],
+      "editor": {
+        "preview": false
+      },
+      "fields": [
+        {
+          "name": "slug",
+          "label": "Mã đường dẫn",
+          "widget": "string",
+          "hint": "Giữ nguyên slug của mẫu đã có để không mất liên kết.",
+          "pattern": [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "Chữ thường không dấu, số và gạch ngang"
+          ]
+        },
+        {
+          "name": "code",
+          "label": "Mã sản phẩm",
+          "widget": "string"
+        },
+        {
+          "name": "name",
+          "label": "Tên bề mặt",
+          "widget": "string"
+        },
+        {
+          "name": "group",
+          "label": "Dòng sản phẩm",
+          "widget": "string"
+        },
+        {
+          "name": "brand",
+          "label": "Thương hiệu",
+          "widget": "hidden",
+          "default": "INFEEL"
+        },
+        {
+          "name": "category",
+          "label": "Nhóm vật liệu",
+          "widget": "select",
+          "options": [
+            "van-go",
+            "don-sac",
+            "van-vai",
+            "be-tong",
+            "kim-loai",
+            "da-cam-thach",
+            "trang-guong"
+          ]
+        },
+        {
+          "name": "pricePerMetre",
+          "label": "Giá bán / mét dài (VND)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1,
+          "hint": "Giá cho một mét dài theo khổ cuộn, không phải giá mỗi m²."
+        },
+        {
+          "name": "image",
+          "label": "Ảnh bề mặt",
+          "widget": "image"
+        },
+        {
+          "name": "imageAlt",
+          "label": "ALT ảnh bề mặt",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "imageWidth",
+          "label": "Chiều rộng gốc (px)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1
+        },
+        {
+          "name": "imageHeight",
+          "label": "Chiều cao gốc (px)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1
+        },
+        {
+          "name": "application",
+          "label": "Ảnh ứng dụng",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "name": "applicationAlt",
+          "label": "ALT ảnh ứng dụng",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "color",
+          "label": "Tông màu",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Tên màu",
+              "widget": "string"
+            },
+            {
+              "name": "family",
+              "label": "Nhóm màu",
+              "widget": "string"
+            },
+            {
+              "name": "value",
+              "label": "Mã màu HEX",
+              "widget": "string",
+              "pattern": [
+                "^#[0-9a-fA-F]{6}$",
+                "Ví dụ #a5aaa3"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "collection",
+          "label": "Tên bộ sưu tập",
+          "widget": "string",
+          "default": "INFEEL 2026"
+        },
+        {
+          "name": "pdf",
+          "label": "Đường dẫn catalogue PDF",
+          "widget": "string",
+          "default": "/catalogues/infeel-2026.pdf"
+        },
+        {
+          "name": "sourcePage",
+          "label": "Trang catalogue gốc",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1,
+          "default": 1
+        },
+        {
+          "name": "rollSpecification",
+          "label": "Quy cách cuộn",
+          "widget": "string",
+          "default": "1,23 m × 50 m"
+        },
+        {
+          "name": "imageSource",
+          "label": "Nguồn ảnh catalogue bổ sung",
+          "widget": "object",
+          "required": false,
+          "fields": [
+            {
+              "name": "pdf",
+              "label": "Đường dẫn PDF",
+              "widget": "string"
+            },
+            {
+              "name": "page",
+              "label": "Trang PDF",
+              "widget": "number",
+              "value_type": "int",
+              "min": 1
+            }
+          ]
+        },
+        {
+          "name": "seoTitle",
+          "label": "Tiêu đề SEO riêng",
+          "widget": "string",
+          "required": false,
+          "hint": "Để trống để tự tạo từ nhóm vật liệu và mã sản phẩm."
+        },
+        {
+          "name": "seoDescription",
+          "label": "Mô tả SEO riêng",
+          "widget": "text",
+          "required": false
+        },
+        {
+          "name": "order",
+          "label": "Thứ tự sắp xếp",
+          "widget": "number",
+          "value_type": "int",
+          "min": 0,
+          "default": 10000
+        }
+      ]
+    },
+    {
+      "name": "products_corance",
+      "label": "Sản phẩm Corance",
+      "label_singular": "Sản phẩm Corance",
+      "folder": "src/content/products/corance",
+      "create": true,
+      "delete": false,
+      "extension": "json",
+      "format": "json",
+      "identifier_field": "slug",
+      "slug": "{{slug}}",
+      "summary": "{{code}} — {{name}}",
+      "sortable_fields": [
+        "code",
+        "name",
+        "category"
+      ],
+      "editor": {
+        "preview": false
+      },
+      "fields": [
+        {
+          "name": "slug",
+          "label": "Mã đường dẫn",
+          "widget": "string",
+          "hint": "Giữ nguyên slug của mẫu đã có để không mất liên kết.",
+          "pattern": [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "Chữ thường không dấu, số và gạch ngang"
+          ]
+        },
+        {
+          "name": "code",
+          "label": "Mã sản phẩm",
+          "widget": "string"
+        },
+        {
+          "name": "name",
+          "label": "Tên bề mặt",
+          "widget": "string"
+        },
+        {
+          "name": "group",
+          "label": "Dòng sản phẩm",
+          "widget": "string"
+        },
+        {
+          "name": "brand",
+          "label": "Thương hiệu",
+          "widget": "hidden",
+          "default": "Corance"
+        },
+        {
+          "name": "category",
+          "label": "Nhóm vật liệu",
+          "widget": "select",
+          "options": [
+            "van-go",
+            "don-sac",
+            "van-vai",
+            "be-tong",
+            "kim-loai",
+            "da-cam-thach",
+            "trang-guong"
+          ]
+        },
+        {
+          "name": "image",
+          "label": "Ảnh bề mặt",
+          "widget": "image"
+        },
+        {
+          "name": "imageAlt",
+          "label": "ALT ảnh bề mặt",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "imageWidth",
+          "label": "Chiều rộng gốc (px)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1
+        },
+        {
+          "name": "imageHeight",
+          "label": "Chiều cao gốc (px)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1
+        },
+        {
+          "name": "application",
+          "label": "Ảnh ứng dụng",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "name": "applicationAlt",
+          "label": "ALT ảnh ứng dụng",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "color",
+          "label": "Tông màu",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Tên màu",
+              "widget": "string"
+            },
+            {
+              "name": "family",
+              "label": "Nhóm màu",
+              "widget": "string"
+            },
+            {
+              "name": "value",
+              "label": "Mã màu HEX",
+              "widget": "string",
+              "pattern": [
+                "^#[0-9a-fA-F]{6}$",
+                "Ví dụ #a5aaa3"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "collection",
+          "label": "Tên bộ sưu tập",
+          "widget": "string",
+          "default": "Corance"
+        },
+        {
+          "name": "pdf",
+          "label": "Đường dẫn catalogue PDF",
+          "widget": "string",
+          "default": "/catalogues/corance.pdf"
+        },
+        {
+          "name": "sourcePage",
+          "label": "Trang catalogue gốc",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1,
+          "default": 1
+        },
+        {
+          "name": "rollSpecification",
+          "label": "Quy cách cuộn",
+          "widget": "string",
+          "default": "1,24 m × 50 m"
+        },
+        {
+          "name": "imageSource",
+          "label": "Nguồn ảnh catalogue bổ sung",
+          "widget": "object",
+          "required": false,
+          "fields": [
+            {
+              "name": "pdf",
+              "label": "Đường dẫn PDF",
+              "widget": "string"
+            },
+            {
+              "name": "page",
+              "label": "Trang PDF",
+              "widget": "number",
+              "value_type": "int",
+              "min": 1
+            }
+          ]
+        },
+        {
+          "name": "seoTitle",
+          "label": "Tiêu đề SEO riêng",
+          "widget": "string",
+          "required": false,
+          "hint": "Để trống để tự tạo từ nhóm vật liệu và mã sản phẩm."
+        },
+        {
+          "name": "seoDescription",
+          "label": "Mô tả SEO riêng",
+          "widget": "text",
+          "required": false
+        },
+        {
+          "name": "order",
+          "label": "Thứ tự sắp xếp",
+          "widget": "number",
+          "value_type": "int",
+          "min": 0,
+          "default": 10000
+        }
+      ]
+    },
+    {
+      "name": "products_toda",
+      "label": "Sản phẩm TODA",
+      "label_singular": "Sản phẩm TODA",
+      "folder": "src/content/products/toda",
+      "create": true,
+      "delete": false,
+      "extension": "json",
+      "format": "json",
+      "identifier_field": "slug",
+      "slug": "{{slug}}",
+      "summary": "{{code}} — {{name}}",
+      "sortable_fields": [
+        "code",
+        "name",
+        "category"
+      ],
+      "editor": {
+        "preview": false
+      },
+      "fields": [
+        {
+          "name": "slug",
+          "label": "Mã đường dẫn",
+          "widget": "string",
+          "hint": "Giữ nguyên slug của mẫu đã có để không mất liên kết.",
+          "pattern": [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "Chữ thường không dấu, số và gạch ngang"
+          ]
+        },
+        {
+          "name": "code",
+          "label": "Mã sản phẩm",
+          "widget": "string"
+        },
+        {
+          "name": "name",
+          "label": "Tên bề mặt",
+          "widget": "string"
+        },
+        {
+          "name": "group",
+          "label": "Dòng sản phẩm",
+          "widget": "string"
+        },
+        {
+          "name": "brand",
+          "label": "Thương hiệu",
+          "widget": "hidden",
+          "default": "TODA"
+        },
+        {
+          "name": "category",
+          "label": "Nhóm vật liệu",
+          "widget": "select",
+          "options": [
+            "van-go",
+            "don-sac",
+            "van-vai",
+            "be-tong",
+            "kim-loai",
+            "da-cam-thach",
+            "trang-guong"
+          ]
+        },
+        {
+          "name": "image",
+          "label": "Ảnh bề mặt",
+          "widget": "image"
+        },
+        {
+          "name": "imageAlt",
+          "label": "ALT ảnh bề mặt",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "imageWidth",
+          "label": "Chiều rộng gốc (px)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1
+        },
+        {
+          "name": "imageHeight",
+          "label": "Chiều cao gốc (px)",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1
+        },
+        {
+          "name": "application",
+          "label": "Ảnh ứng dụng",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "name": "applicationAlt",
+          "label": "ALT ảnh ứng dụng",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "color",
+          "label": "Tông màu",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Tên màu",
+              "widget": "string"
+            },
+            {
+              "name": "family",
+              "label": "Nhóm màu",
+              "widget": "string"
+            },
+            {
+              "name": "value",
+              "label": "Mã màu HEX",
+              "widget": "string",
+              "pattern": [
+                "^#[0-9a-fA-F]{6}$",
+                "Ví dụ #a5aaa3"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "collection",
+          "label": "Tên bộ sưu tập",
+          "widget": "string",
+          "default": "TODA Interior Film Vol.02"
+        },
+        {
+          "name": "pdf",
+          "label": "Đường dẫn catalogue PDF",
+          "widget": "string",
+          "default": "/catalogues/toda-vol-02.pdf"
+        },
+        {
+          "name": "sourcePage",
+          "label": "Trang catalogue gốc",
+          "widget": "number",
+          "value_type": "int",
+          "min": 1,
+          "default": 1
+        },
+        {
+          "name": "rollSpecification",
+          "label": "Quy cách cuộn",
+          "widget": "string",
+          "default": "Liên hệ xác nhận quy cách cuộn"
+        },
+        {
+          "name": "imageSource",
+          "label": "Nguồn ảnh catalogue bổ sung",
+          "widget": "object",
+          "required": false,
+          "fields": [
+            {
+              "name": "pdf",
+              "label": "Đường dẫn PDF",
+              "widget": "string"
+            },
+            {
+              "name": "page",
+              "label": "Trang PDF",
+              "widget": "number",
+              "value_type": "int",
+              "min": 1
+            }
+          ]
+        },
+        {
+          "name": "seoTitle",
+          "label": "Tiêu đề SEO riêng",
+          "widget": "string",
+          "required": false,
+          "hint": "Để trống để tự tạo từ nhóm vật liệu và mã sản phẩm."
+        },
+        {
+          "name": "seoDescription",
+          "label": "Mô tả SEO riêng",
+          "widget": "text",
+          "required": false
+        },
+        {
+          "name": "order",
+          "label": "Thứ tự sắp xếp",
+          "widget": "number",
+          "value_type": "int",
+          "min": 0,
+          "default": 10000
+        }
+      ]
+    },
+    {
       "name": "kitchen",
       "label": "Blog tủ bếp",
       "editor": {
@@ -1042,6 +2141,72 @@
               "name": "serviceArea",
               "label": "Phạm vi phục vụ",
               "widget": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spaces",
+      "label": "Ảnh không gian trang chủ & công trình",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "spaces",
+          "label": "Không gian tham khảo",
+          "file": "src/data/spacesContent.json",
+          "fields": [
+            {
+              "name": "spaces",
+              "label": "Danh sách không gian",
+              "widget": "list",
+              "min": 3,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Tên không gian",
+                  "widget": "string"
+                },
+                {
+                  "name": "category",
+                  "label": "Loại không gian",
+                  "widget": "select",
+                  "options": [
+                    "home",
+                    "office",
+                    "commercial"
+                  ]
+                },
+                {
+                  "name": "label",
+                  "label": "Nhãn hiển thị",
+                  "widget": "string"
+                },
+                {
+                  "name": "image",
+                  "label": "Ảnh",
+                  "widget": "image"
+                },
+                {
+                  "name": "text",
+                  "label": "Mô tả",
+                  "widget": "text"
+                },
+                {
+                  "name": "service",
+                  "label": "Liên kết dịch vụ",
+                  "widget": "string"
+                },
+                {
+                  "name": "material",
+                  "label": "Liên kết nhóm vật liệu",
+                  "widget": "string"
+                }
+              ],
+              "summary": "{{fields.title}}",
+              "hint": "Ba ảnh đầu hiển thị trên trang chủ; toàn bộ danh sách hiển thị trong trang Công trình."
             }
           ]
         }

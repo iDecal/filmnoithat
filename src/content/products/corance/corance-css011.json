@@ -1,0 +1,22 @@
+{
+  "slug": "corance-css011",
+  "code": "CSS011",
+  "name": "Đơn sắc",
+  "group": "Corance CSS",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/css011.webp",
+  "application": null,
+  "sourcePage": 8,
+  "imageWidth": 503,
+  "imageHeight": 197,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám sáng",
+    "family": "Xám",
+    "value": "#e0e2d4"
+  },
+  "order": 549
+}

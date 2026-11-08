@@ -1,0 +1,23 @@
+{
+  "slug": "wd-653",
+  "code": "WD 653",
+  "name": "Vân gỗ sồi",
+  "group": "Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-653.jpeg",
+  "application": null,
+  "sourcePage": 41,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c1b69b"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 309
+}

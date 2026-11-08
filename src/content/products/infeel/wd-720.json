@@ -1,0 +1,23 @@
+{
+  "slug": "wd-720",
+  "code": "WD 720",
+  "name": "Vân gỗ teak",
+  "group": "Teak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-720.jpeg",
+  "application": "/images/catalogue/infeel-2026/wd-720-ung-dung.jpeg",
+  "sourcePage": 42,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#cebb92"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 334
+}

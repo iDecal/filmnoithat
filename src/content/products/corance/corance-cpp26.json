@@ -1,0 +1,22 @@
+{
+  "slug": "corance-cpp26",
+  "code": "CPP26",
+  "name": "Đơn sắc",
+  "group": "Corance CPP",
+  "category": "don-sac",
+  "image": "/images/catalogue/corance/cpp26.webp",
+  "application": null,
+  "sourcePage": 30,
+  "imageWidth": 503,
+  "imageHeight": 254,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám",
+    "family": "Xám",
+    "value": "#706464"
+  },
+  "order": 535
+}

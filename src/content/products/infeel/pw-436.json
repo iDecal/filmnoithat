@@ -1,0 +1,23 @@
+{
+  "slug": "pw-436",
+  "code": "PW 436",
+  "name": "Vân đan",
+  "group": "Paper Weave",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/pw-436.jpeg",
+  "application": null,
+  "sourcePage": 48,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#7f6c4e"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 943800,
+  "rollSpecification": "1,06 m × 25 m",
+  "order": 366
+}

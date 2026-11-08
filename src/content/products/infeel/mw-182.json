@@ -1,0 +1,23 @@
+{
+  "slug": "mw-182",
+  "code": "MW 182",
+  "name": "Vân sồi tự nhiên",
+  "group": "Standard Oak",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/mw-182.jpeg",
+  "application": null,
+  "sourcePage": 32,
+  "imageWidth": 322,
+  "imageHeight": 397,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#b09c7e"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 300300,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 321
+}

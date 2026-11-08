@@ -1,0 +1,23 @@
+{
+  "slug": "st-319",
+  "code": "ST 319",
+  "name": "Vân đá",
+  "group": "Stone",
+  "category": "da-cam-thach",
+  "image": "/images/catalogue/infeel-2026/st-319.jpeg",
+  "application": "/images/catalogue/infeel-2026/st-319-ung-dung.jpeg",
+  "sourcePage": 18,
+  "imageWidth": 322,
+  "imageHeight": 396,
+  "color": {
+    "name": "Kem",
+    "family": "Kem",
+    "value": "#dcd3c1"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 27
+}

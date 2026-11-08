@@ -1,0 +1,22 @@
+{
+  "slug": "corance-css106",
+  "code": "CSS106",
+  "name": "Vân gỗ",
+  "group": "Corance CSS",
+  "category": "van-go",
+  "image": "/images/catalogue/corance/css106.webp",
+  "application": null,
+  "sourcePage": 7,
+  "imageWidth": 1042,
+  "imageHeight": 251,
+  "brand": "Corance",
+  "collection": "Corance",
+  "pdf": "/catalogues/corance.pdf",
+  "rollSpecification": "1,24 m × 50 m",
+  "color": {
+    "name": "Xám đậm",
+    "family": "Xám",
+    "value": "#4f4c46"
+  },
+  "order": 553
+}

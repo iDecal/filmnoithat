@@ -1,0 +1,23 @@
+{
+  "slug": "lt-708",
+  "code": "LT 708",
+  "name": "Vân da",
+  "group": "Leather",
+  "category": "van-vai",
+  "image": "/images/catalogue/infeel-2026/lt-708.jpeg",
+  "application": null,
+  "sourcePage": 48,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#c3b384"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 943800,
+  "rollSpecification": "1,23 m × 30 m",
+  "order": 361
+}

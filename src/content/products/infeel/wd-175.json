@@ -1,0 +1,23 @@
+{
+  "slug": "wd-175",
+  "code": "WD 175",
+  "name": "Real Panel Black",
+  "group": "Real Panel Black",
+  "category": "van-go",
+  "image": "/images/catalogue/infeel-2026/wd-175.jpeg",
+  "application": null,
+  "sourcePage": 45,
+  "imageWidth": 322,
+  "imageHeight": 159,
+  "color": {
+    "name": "Xám đậm",
+    "family": "Xám",
+    "value": "#474b46"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 214500,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 317
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "lw-380",
+  "code": "LW 380",
+  "name": "Vân gạch",
+  "group": "Brick",
+  "category": "be-tong",
+  "image": "/images/catalogue/infeel-2026/lw-380.jpeg",
+  "application": null,
+  "sourcePage": 20,
+  "imageWidth": 322,
+  "imageHeight": 352,
+  "color": {
+    "name": "Nâu",
+    "family": "Nâu",
+    "value": "#8f8373"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 243100,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 0
+}

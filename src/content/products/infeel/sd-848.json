@@ -1,0 +1,23 @@
+{
+  "slug": "sd-848",
+  "code": "SD 848",
+  "name": "Đơn sắc họa tiết",
+  "group": "Solid Design",
+  "category": "don-sac",
+  "image": "/images/catalogue/infeel-2026/sd-848.jpeg",
+  "application": null,
+  "sourcePage": 13,
+  "imageWidth": 322,
+  "imageHeight": 155,
+  "color": {
+    "name": "Be",
+    "family": "Be",
+    "value": "#d2d0c3"
+  },
+  "brand": "INFEEL",
+  "collection": "INFEEL 2026",
+  "pdf": "/catalogues/infeel-2026.pdf",
+  "pricePerMetre": 235950,
+  "rollSpecification": "1,23 m × 50 m",
+  "order": 147
+}
