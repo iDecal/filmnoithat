@@ -7,10 +7,10 @@
   "brand": "TODA",
   "collection": "TODA Interior Film Vol.02",
   "pdf": "/catalogues/toda-vol-02.pdf",
-  "image": "/images/catalogue/toda/film-dan-noi-that-toda-923-04.webp",
-  "imageAlt": "Bề mặt film dán nội thất TODA 923-04, dòng Stainless, trích từ catalogue Vol.02",
-  "imageWidth": 342,
-  "imageHeight": 1165,
+  "image": "/images/uploads/products/toda-923-04/film-dan-noi-that-toda-923-04-dd434061d4da.webp",
+  "imageAlt": "Bề mặt Film dán nội thất Kim loại 923-04 – TODA",
+  "imageWidth": 400,
+  "imageHeight": 400,
   "application": null,
   "sourcePage": 32,
   "rollSpecification": "1,23 m × 50 m",
@@ -22,14 +22,9 @@
   "order": 1061,
   "seoTitle": "Film dán nội thất TODA 923-04 – Kim loại | Tư vấn mẫu",
   "seoDescription": "Mẫu film dán nội thất TODA 923-04, dòng Stainless. Xem ảnh bề mặt trích từ catalogue TODA Vol.02, đối chiếu trang 32 và liên hệ tư vấn vật liệu, báo giá.",
-  "gallery": [
-    {
-      "src": "/images/uploads/products/toda-923-04/film-dan-noi-that-toda-923-04-dd434061d4da.webp",
-      "alt": "Bề mặt Film dán nội thất Kim loại 923-04 – TODA",
-      "caption": "",
-      "width": 400,
-      "height": 400,
-      "title": "Film dán nội thất Kim loại 923-04 – TODA"
-    }
+  "gallery": [],
+  "imageTitle": "Film dán nội thất Kim loại 923-04 – TODA",
+  "hiddenImages": [
+    "/images/catalogue/toda/film-dan-noi-that-toda-923-04.webp"
   ]
 }
