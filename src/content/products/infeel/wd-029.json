@@ -19,5 +19,15 @@
   "pdf": "/catalogues/infeel-2026.pdf",
   "pricePerMetre": 214500,
   "rollSpecification": "1,23 m × 50 m",
-  "order": 249
+  "order": 249,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/wd-029/film-dan-noi-that-infeel-wd-029-0e7fdcee6029.webp",
+      "alt": "Bề mặt Film dán nội thất Vân gỗ du WD 029 – INFEEL",
+      "caption": "",
+      "width": 940,
+      "height": 788,
+      "title": "Film dán nội thất Vân gỗ du WD 029 – INFEEL"
+    }
+  ]
 }
