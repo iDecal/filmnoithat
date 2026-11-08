@@ -18,5 +18,14 @@
     "family": "Nâu",
     "value": "#a8977b"
   },
-  "order": 485
+  "order": 485,
+  "gallery": [
+    {
+      "src": "/images/uploads/products/corance-cam003/film-dan-noi-that-corance-cam003-c8d4bb129937.jpg",
+      "alt": "èwèwe",
+      "caption": "fwèwèwe",
+      "width": 1254,
+      "height": 1254
+    }
+  ]
 }
