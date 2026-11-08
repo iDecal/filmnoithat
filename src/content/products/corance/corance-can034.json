@@ -18,5 +18,9 @@
     "family": "Kem",
     "value": "#dad3c8"
   },
-  "order": 505
+  "order": 505,
+  "gallery": [],
+  "hiddenImages": [
+    "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp"
+  ]
 }
