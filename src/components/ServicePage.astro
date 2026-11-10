@@ -1,4 +1,5 @@
 ---
+import { heroBackdrop } from "../data/heroBackdrops";
 import { uploadedImageAlt } from "../data/uploadedImages";
 import Icon from "./Icon.astro";
 import ServiceReferenceGallery from "./ServiceReferenceGallery.astro";
@@ -80,49 +81,50 @@ const steps = [
     </section>
 
     <nav class="service-jump-nav px-4 sm:px-6 bg-white border-y border-base-200 z-40" aria-label="Nội dung trang dịch vụ">
-      <div class="service-jump-strip max-w-7xl mx-auto flex gap-x-5 lg:gap-x-7 overflow-x-auto py-2">{navigation.map((item, index) => <a data-service-link href={`#${item.id}`} class="service-jump-link shrink-0 inline-flex items-center gap-2 py-3 text-sm font-medium whitespace-nowrap"><span aria-hidden="true" class="hidden lg:inline text-xs opacity-70">0{index + 1}</span>{item.label}</a>)}</div>
+      <div class="service-jump-strip max-w-7xl mx-auto flex gap-x-5 lg:gap-x-7 overflow-x-auto py-2">{navigation.map((item, index) => <a data-service-link href={`#${item.id}`} class="service-jump-link shrink-0 inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap"><span aria-hidden="true" class="text-xs opacity-60">0{index + 1}</span>{item.label}</a>)}</div>
     </nav>
 
-    <section id="pham-vi" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-white">
+    <section id="pham-vi" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-white">
       <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-6 lg:gap-14 mb-9"><div><p class="eyebrow mb-4">01 / PHẠM VI CÔNG VIỆC</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Ứng dụng film dán nội thất cho {target}</h2></div><p class="text-base-600 lg:pt-8">{service.intro}</p></div>
-        {overview ? <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">{services.filter(item => item.slug !== service.slug).map(item => <a href={serviceHref(item)} class="service-overview-card group rounded-2xl border border-base-200 overflow-hidden hover:border-primary-300 transition-colors"><img src={item.image} alt={`Tham khảo ${item.name.toLowerCase()}`} width="600" height="375" loading="lazy" class="w-full aspect-[16/10] object-cover" /><div class="p-6"><h3 class="flex items-center gap-2 text-lg font-semibold group-hover:text-primary-600"><Icon name={categoryIcon(item.slug)!} size={22} />{item.name}</h3><p class="service-overview-description text-sm text-base-600 mt-3">{getServiceLayout(item.slug).lead}</p><span class="inline-block text-primary-600 font-semibold text-sm mt-5">Xem hạng mục →</span></div></a>)}</div> : <div class="grid md:grid-cols-3 gap-5">{design.scope.map((item, index) => <details data-scope-detail open={index === 0} class="service-scope-card rounded-2xl border border-base-200 p-5 md:p-6 bg-base-50"><summary class="flex items-start gap-3 cursor-pointer list-none"><span class="text-primary-600 text-sm font-semibold pt-1">0{index + 1}</span><h3 class="text-lg font-semibold flex-1">{item.title}</h3><span class="service-detail-plus text-primary-600" aria-hidden="true">+</span></summary><p class="text-base-600 mt-4">{item.text}</p></details>)}</div>}
+        <div class="service-section-heading"><div><p class="eyebrow mb-3">01 / PHẠM VI CÔNG VIỆC</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">{design.scopeTitle}</h2></div><p class="text-base-600">{service.intro}</p></div>
+        <div class="service-scope-layout">
+          <figure class="service-scope-visual"><img src={heroBackdrop(Astro.url.pathname)} alt={`Ảnh tham khảo vật liệu và không gian cho ${service.name.toLowerCase()}`} width="1000" height="750" loading="lazy" class="w-full h-full object-cover" /><figcaption><span>ỨNG DỤNG THAM KHẢO</span><p>{design.accent}</p></figcaption></figure>
+          <div class="service-scope-list">{design.scope.map((item,index) => <details data-scope-detail open={index===0} class="service-scope-card"><summary><span class="service-card-number">0{index+1}</span><h3 class="text-lg font-semibold">{item.title}</h3><span class="service-detail-plus" aria-hidden="true">+</span></summary><p class="text-base-600">{item.text}</p></details>)}</div>
+        </div>
       </div>
     </section>
 
-    <section id="luu-y" data-service-section class="service-anchor bg-base-900 px-4 sm:px-6 py-9 md:py-16 lg:py-20">
+    <section id="luu-y" data-service-section class="service-anchor service-section service-surface-section px-4 sm:px-6">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] gap-9 lg:gap-16">
         <div><p class="text-accent-200 text-xs font-semibold tracking-widest mb-5">02 / HIỂU ĐÚNG BỀ MẶT</p><h2 class="text-white text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Đẹp từ mẫu.<br />Bền từ cách chuẩn bị.</h2><p class="text-white/80 mt-6">Film dán nội thất là lớp hoàn thiện bên ngoài. Hiện trạng nền và cách sử dụng quyết định những gì cần kiểm tra trước khi thi công.</p><a href="/blog/cach-chon-film-noi-that/" class="inline-block py-3 mt-5 text-accent-200 font-medium hover:underline">Đọc hướng dẫn chọn film →</a></div>
         <div class="space-y-7">{service.sections.map((section, index) => <details data-surface-detail open={index === 0} class="service-surface-detail border-b border-white/20 pb-5 last:border-0 last:pb-0"><summary class="flex items-start gap-3 cursor-pointer list-none"><span class="text-accent-200 text-sm font-semibold pt-1">0{index + 1}</span><h3 class="text-white text-lg md:text-lg font-semibold flex-1">{section.title}</h3><span class="service-detail-plus text-accent-200" aria-hidden="true">+</span></summary><p class="text-white/80 leading-relaxed mt-4 pl-8">{section.text}</p></details>)}</div>
       </div>
     </section>
 
-    <section id="mau-film" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-base-50">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.6fr)] gap-9 lg:gap-14">
-        <div><p class="eyebrow mb-4">03 / CHỌN VẬT LIỆU</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Chọn film dán nội thất cho {target}</h2><p class="text-base-600 mt-5">Các nhóm chất liệu để bắt đầu trao đổi cho {service.name.toLowerCase()}. So mẫu thực tế, hướng vân và thông số trước khi quyết định.</p><p class="text-sm text-base-600 mt-5">Giá và tình trạng cung cấp được xác nhận theo vật liệu, số lượng và thời điểm đặt hàng.</p><a href="/vat-lieu/" class="inline-block py-3 mt-5 text-primary-600 font-semibold hover:underline">Khám phá tất cả vật liệu →</a></div>
-        <div class="grid grid-cols-2 gap-3 sm:gap-5">{selectedMaterials.map(material => <a href={materialHref(material)} class="group bg-white rounded-2xl border border-base-200 overflow-hidden hover:border-primary-300 transition-colors"><div class="aspect-[4/3]"><MaterialPreview material={material} /></div><div class="p-3 sm:p-6"><Icon name={categoryIcon(material.slug)!} size={22} class="text-primary-600" /><h3 class="text-sm sm:text-lg font-semibold mt-3 group-hover:text-primary-600">{material.name}</h3><p class="hidden sm:block text-sm text-base-600 mt-3">{material.moodLabel}</p><span class="inline-flex items-center min-h-11 mt-2 text-primary-600 text-sm font-semibold">Xem chất liệu →</span></div></a>)}</div>
+    <section id="mau-film" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-base-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="service-section-heading"><div><p class="eyebrow mb-3">03 / CHỌN VẬT LIỆU</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Chọn film dán nội thất cho {target}</h2></div><div><p class="text-base-600">So mẫu thực tế, hướng vân và thông số trước khi quyết định. Giá và tình trạng cung cấp được xác nhận theo vật liệu, số lượng và thời điểm đặt.</p><a href="/vat-lieu/" class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold mt-2">Tất cả vật liệu <span aria-hidden="true" class="ml-2">→</span></a></div></div>
+        <div class="service-material-grid" style={{ "--service-material-count": selectedMaterials.length }}>{selectedMaterials.map(material => <a href={materialHref(material)} class="service-material-card group"><div class="service-material-preview overflow-hidden"><MaterialPreview material={material} /></div><div class="service-material-label"><span class="service-material-icon"><Icon name={categoryIcon(material.slug)!} size={20} /></span><div><h3 class="text-sm sm:text-lg font-semibold">{material.name}</h3><p class="text-xs text-base-600 mt-1">{material.moodLabel}</p></div><Icon name="arrow" size={16} class="shrink-0" /></div></a>)}</div>
       </div>
     </section>
 
-    <section id="quy-trinh" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-white">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-        <div><p class="eyebrow mb-4">04 / CÁCH CHÚNG TÔI LÀM VIỆC</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Quy trình khảo sát và thi công.</h2><figure class="hidden lg:block mt-7 rounded-2xl overflow-hidden border border-base-200"><img src="/images/thi-cong/thi-cong-film-van-go-bang-may-kho-o-mep-cong.webp" alt="Thợ đeo găng dùng máy khò hỗ trợ uốn film vân gỗ theo mép cong" title="Thi công film nội thất vân gỗ tại mép cong" width="739" height="415" loading="lazy" class="w-full aspect-[16/10] object-cover" /><figcaption class="p-4 text-sm text-base-600">Từ kiểm tra nền đến xử lý từng chi tiết hoàn thiện.</figcaption></figure></div>
-        <ol class="service-timeline">{steps.map((step, index) => <li class="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-5 pb-8 last:pb-0"><span class="service-step-number flex items-center justify-center w-11 h-11 rounded-full bg-accent-100 border border-accent-200 text-accent-700 font-semibold text-sm">0{index + 1}</span><div class="pb-7 border-b border-base-200"><h3 class="text-lg font-semibold pt-1">{step.title}</h3><p class="text-base-600 mt-3">{step.text}</p></div></li>)}</ol>
+    <section id="quy-trinh" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-white">
+      <div class="max-w-7xl mx-auto"><div class="service-section-heading"><div><p class="eyebrow mb-3">04 / CÁCH CHÚNG TÔI LÀM VIỆC</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Rõ từng bước. Gọn từng việc.</h2></div><p class="text-base-600">Từ ảnh hiện trạng đến kiểm tra hoàn thiện, phạm vi và phương án được trao đổi trước khi thi công.</p></div>
+        <ol class="service-process-grid">{steps.map((step,index) => <li><span class="service-process-number">0{index+1}</span><h3 class="text-lg font-semibold mt-4">{step.title}</h3><p class="text-sm text-base-600 mt-3">{step.text}</p></li>)}</ol>
       </div>
     </section>
 
-    <section id="nhan-tu-van" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-primary-50 surface-gradient border-y border-base-200">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] gap-9 lg:gap-16 items-start">
-        <div><p class="eyebrow mb-4">05 / NHẬN TƯ VẤN & BÁO GIÁ</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Một bức ảnh hiện trạng.<br />Một khởi đầu rõ ràng.</h2><p class="text-base-600 mt-5 max-w-2xl">Để tư vấn sát với công trình, hãy chuẩn bị những thông tin sau cho hạng mục {service.name.toLowerCase()}.</p><ol class="mt-7 space-y-4">{service.preparation.map((item, index) => <li class="flex gap-4"><span class="text-primary-600 font-semibold text-sm pt-1">0{index + 1}</span><span class="text-base-700">{item}</span></li>)}</ol><p class="text-sm text-base-600 mt-7 max-w-2xl">Báo giá phụ thuộc mã film, khối lượng, xử lý nền, góc cạnh, tháo lắp và điều kiện tiếp cận. Phạm vi và chi phí được thống nhất trước khi thi công.</p></div>
-        <aside class="rounded-3xl bg-white border border-base-200 p-6 sm:p-8" aria-labelledby="service-contact-title"><p class="eyebrow text-xs mb-4">TƯ VẤN MUA FILM & THI CÔNG</p><h2 id="service-contact-title" class="text-2xl font-semibold">Bạn gửi ảnh.<br />Cùng bàn phương án.</h2><p class="text-base-600 text-sm mt-4">Gửi qua Zalo để trao đổi mẫu vật liệu và các chi tiết của công trình.</p><a href={site.zaloHref} class="button-primary w-full mt-6">Gửi ảnh qua Zalo →</a><a href={site.phoneHref} class="button-secondary w-full mt-3">Gọi {site.phone}</a><div class="border-t border-base-200 mt-6 pt-5"><p class="text-xs text-base-600">CẦN GỬI THÔNG TIN CHI TIẾT?</p><a href={`mailto:${site.email}`} class="block text-sm font-medium text-primary-600 mt-2 py-2 break-words hover:underline">{site.email}</a><p class="text-xs text-base-600 mt-3">Khu vực thi công: {site.serviceArea}</p></div></aside>
+    <section id="nhan-tu-van" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-base-50">
+      <div class="max-w-7xl mx-auto service-quote-layout"><div class="service-quote-prep"><p class="eyebrow mb-3">05 / NHẬN TƯ VẤN & BÁO GIÁ</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Bắt đầu từ ảnh hiện trạng.</h2><p class="text-base-600 mt-4">Chuẩn bị thông tin cho hạng mục {service.name.toLowerCase()} để tư vấn sát nhu cầu.</p><ol class="service-preparation-list">{service.preparation.map((item,index)=><li><span>0{index+1}</span><p>{item}</p></li>)}</ol><p class="text-sm text-base-600 mt-5">Báo giá phụ thuộc mã film, khối lượng, xử lý nền, góc cạnh, tháo lắp và điều kiện tiếp cận. Phạm vi và chi phí được thống nhất trước khi thi công.</p></div>
+        <aside class="service-quote-card" aria-labelledby="service-contact-title"><p class="service-quote-kicker">TƯ VẤN VẬT LIỆU & THI CÔNG</p><h2 id="service-contact-title" class="text-2xl font-semibold mt-4">Bạn gửi ảnh.<br />Cùng bàn phương án.</h2><p class="service-quote-muted mt-4">Gửi ảnh, kích thước và địa điểm qua Zalo để trao đổi mẫu phù hợp.</p><div class="grid sm:grid-cols-2 gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn qua Zalo →</a><a href={site.phoneHref} class="button-secondary">Gọi {site.phone}</a></div><div class="service-quote-footer"><a href={`mailto:${site.email}`}>{site.email}</a><p>{site.serviceArea}</p></div></aside>
       </div>
     </section>
 
-    <section id="cau-hoi" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-white">
+    <section id="cau-hoi" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-white">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] gap-8 lg:gap-16"><div><p class="eyebrow mb-4">06 / GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-2xl sm:text-[1.625rem] font-semibold">Những điều<br />bạn có thể đang hỏi.</h2><a href="/lien-he/" class="inline-block mt-5 py-3 text-primary-600 font-semibold hover:underline">Trao đổi thêm với Film Nội Thất →</a></div><div class="space-y-4">{service.faqs.map(faq => <details class="service-faq rounded-2xl bg-base-50 border border-base-200 p-5 sm:p-6"><summary class="flex justify-between items-start gap-4 cursor-pointer list-none font-semibold"><span>{faq.question}</span><svg class="service-faq-icon w-5 h-5 shrink-0 text-primary-600 mt-1 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></summary><p class="text-base-600 mt-5">{faq.answer}</p></details>)}</div></div>
     </section>
 
-    <section id="cong-trinh-lien-quan" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 warm-surface" aria-labelledby="related-projects-title">
+    <section id="cong-trinh-lien-quan" data-service-section class="service-anchor service-section px-4 sm:px-6 warm-surface" aria-labelledby="related-projects-title">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-2xl mb-7"><p class="eyebrow mb-4">07 / CÔNG TRÌNH LIÊN QUAN</p><h2 id="related-projects-title" class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Từ hiện trạng đến hoàn thiện.</h2><p class="text-base-600 mt-4">Xem hình ảnh ứng dụng cho {service.name.toLowerCase()} để hình dung cách phối vật liệu. Hồ sơ công trình thực tế được bổ sung khi có thông tin và ảnh xác nhận.</p></div>
         {relatedProjects.length ? <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{relatedProjects.map(project => <article id={`cong-trinh-${project.id}`} class="min-w-0 border-t border-base-200 pt-5">
@@ -134,7 +136,7 @@ const steps = [
       </div>
     </section>
 
-    <section id="blog-tu-van" data-service-section class="service-anchor px-4 sm:px-6 py-9 md:py-16 lg:py-20 bg-white" aria-labelledby="service-blog-title">
+    <section id="blog-tu-van" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-white" aria-labelledby="service-blog-title">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7"><div class="max-w-2xl"><p class="eyebrow mb-4">08 / BLOG TƯ VẤN</p><h2 id="service-blog-title" class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Tìm hiểu kỹ trước khi chọn.</h2><p class="text-base-600 mt-4">Đọc thêm về chọn film, chuẩn bị bề mặt và dự toán chi phí. Bài viết cùng hạng mục được ưu tiên hiển thị trước.</p></div><a href="/blog/" class="inline-flex items-center min-h-11 text-sm font-semibold text-primary-600 shrink-0 hover:underline">Tất cả bài tư vấn →</a></div>
         <div class="grid md:grid-cols-3 gap-6">{relatedPosts.map(post => <article class="min-w-0 border-t border-base-200 pt-5"><a href={postHref(post)} class="group block"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="800" height="500" loading="lazy" class="w-full aspect-[16/10] object-cover rounded-xl" /><p class="text-xs text-base-600 mt-4">{post.services.includes(service.slug) ? "CÙNG HẠNG MỤC" : "KIẾN THỨC NỀN TẢNG"}</p><h3 class="text-lg font-medium mt-3 group-hover:text-primary-600">{post.title}</h3><p class="text-sm text-base-600 mt-3">{post.description}</p><span class="inline-flex items-center min-h-11 text-sm font-semibold text-primary-600 mt-3 group-hover:underline">Đọc bài tư vấn →</span></a></article>)}</div>
@@ -210,9 +212,6 @@ const steps = [
   .service-anchor { scroll-margin-top: calc(var(--service-header-height, 77px) + var(--service-nav-height, 60px) - 5rem); }
   .service-jump-link { color: rgb(var(--color-base-600)); border-bottom: 2px solid transparent; }
   .service-jump-link:hover, .service-jump-link[aria-current="location"] { color: rgb(var(--color-primary-600)); border-bottom-color: rgb(var(--color-primary-500)); }
-  .service-timeline { position: relative; }
-  .service-timeline::before { content: ""; position: absolute; top: 1.5rem; bottom: 3rem; left: 1.375rem; width: 1px; background: rgb(var(--color-base-200)); }
-  .service-step-number { position: relative; z-index: 1; }
   .service-page summary::-webkit-details-marker { display: none; }
   .service-faq[open] .service-faq-icon { transform: rotate(45deg); }
   .service-detail-plus { font-size: 1.25rem; line-height: 1.5; transition: transform 150ms; }
@@ -228,14 +227,77 @@ const steps = [
     .service-hero-image { max-height: 240px; }
   }
   @media (max-width: 767px) {
-    .service-overview-card { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 14px; align-items: center; }
-    .service-overview-card > img { width: 88px; height: 104px; aspect-ratio: auto; border-radius: 10px; }
-    .service-overview-card > div { padding: 0; }
-    .service-overview-card h3 { font-size: 1rem; }
-    .service-overview-description { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 6px; }
-    .service-overview-card > div > span { margin-top: 8px; }
     .related-services-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .related-services-list > li { border: 0; }
     .related-services-list a { min-height: 44px; padding: 10px 12px; border: 1px solid rgb(var(--color-base-200)); border-radius: 10px; background: white; font-size: 0.875rem; }
   }
+
+  .service-section { padding-block: clamp(2.25rem, 5vw, 4.5rem); }
+  .service-section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; margin-bottom: 1.75rem; }
+  .service-section-heading > p { max-width: 36rem; }
+  .service-jump-strip { gap: .5rem; padding-block: .75rem; }
+  .service-jump-link { padding: .625rem .875rem; border: 1px solid transparent; border-radius: 999px; min-height: 2.75rem; }
+  .service-jump-link:hover, .service-jump-link[aria-current="location"] { border-color: #d1b581; background: #f1e6d3; }
+  .service-scope-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
+  .service-scope-visual { position: relative; min-height: 23rem; border-radius: 1.25rem; overflow: hidden; }
+  .service-scope-visual img { position: absolute; inset: 0; }
+  .service-scope-visual figcaption { position: absolute; bottom: 0; left: 0; right: 0; padding: 3rem 1.5rem 1.5rem; background: linear-gradient(transparent, rgb(11 30 46 / .9)); color: white; }
+  .service-scope-visual figcaption span { color: #e4cfaa; font-size: .6875rem; letter-spacing: .12em; }
+  .service-scope-visual figcaption p { margin-top: .5rem; font-family: "Playfair Display", Georgia, serif; font-size: 1.5rem; font-style: italic; }
+  .service-scope-list { display: grid; gap: .75rem; }
+  .service-scope-card { border: 1px solid #ded8cf; border-radius: 1rem; padding: 1.25rem; background: #faf8f4; }
+  .service-scope-card summary { display: flex; align-items: center; gap: .875rem; cursor: pointer; list-style: none; }
+  .service-scope-card h3 { flex: 1; }
+  .service-card-number { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: .625rem; background: #f1e6d3; color: #193b5b; font-size: .75rem; font-weight: 600; flex-shrink: 0; }
+  .service-scope-card > p { padding-left: 3.125rem; margin-top: .5rem; font-size: .875rem; }
+  .service-surface-section { background: #f1e9dd; }
+  .service-surface-section :is(h2,h3) { color: #193b5b; }
+  .service-surface-section p { color: #56636c; }
+  .service-surface-section :is(a, summary > span) { color: #765b32; }
+  .service-surface-section [data-surface-detail] { padding: 1.125rem 0; border-bottom: 1px solid #d7cbb9; }
+  .service-surface-section [data-surface-detail]:first-child { padding-top: 0; }
+  .service-material-grid { display: grid; grid-template-columns: repeat(var(--service-material-count, 3),minmax(0,1fr)); gap: 1rem; }
+  .service-material-card { min-width: 0; border: 1px solid #ded8cf; border-radius: 1rem; overflow: hidden; background: #fff; transition: border-color 150ms, box-shadow 150ms; }
+  .service-material-card:hover { border-color: #b99a67; box-shadow: 0 6px 22px rgb(16 42 67 / .07); }
+  .service-material-preview { height: 14rem; }
+  .service-material-label { display: flex; align-items: center; gap: .75rem; padding: 1rem; }
+  .service-material-label > div { flex: 1; }
+  .service-material-icon { color: #193b5b; }
+  .service-process-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; }
+  .service-process-grid li { padding: 1.5rem; border: 1px solid #ded8cf; border-radius: 1rem; background: #faf8f4; }
+  .service-process-number { display: inline-flex; padding-bottom: .75rem; border-bottom: 2px solid #d1b581; font-size: .875rem; font-weight: 600; color: #193b5b; }
+  .service-quote-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .service-preparation-list { margin-top: 1.5rem; display: grid; gap: .75rem; }
+  .service-preparation-list li { display: flex; align-items: baseline; gap: 1rem; padding-bottom: .75rem; border-bottom: 1px solid #ded8cf; }
+  .service-preparation-list li > span { font-size: .75rem; font-weight: 600; color: #193b5b; }
+  .service-preparation-list li > p { font-size: .875rem; }
+  .service-quote-card { padding: 2rem; border-radius: 1.25rem; background: #102a43; color: #fff; }
+  .service-quote-kicker { color: #e4cfaa; font-size: .6875rem; letter-spacing: .12em; font-weight: 600; }
+  .service-quote-muted { color: #d7e0e7; font-size: .875rem; }
+  .service-quote-footer { display: grid; gap: .5rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #456079; color: #d7e0e7; font-size: .75rem; }
+  .service-quote-footer a { overflow-wrap: anywhere; }
+  .service-faq { border-radius: .875rem; }
+  .service-faq summary { min-height: 1.5rem; }
+  @media(max-width: 1023px) {
+    .service-material-grid, .service-process-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .service-quote-layout { gap: 1.5rem; }
+    .service-quote-card { padding: 1.5rem; }
+  }
+  @media(max-width: 767px) {
+    .service-section-heading, .service-scope-layout, .service-quote-layout { grid-template-columns: 1fr; gap: 1.25rem; }
+    .service-section-heading { margin-bottom: 1.25rem; }
+    .service-scope-visual { min-height: 0; aspect-ratio: 16/9; }
+    .service-scope-card { padding: 1rem; }
+    .service-scope-card > p { padding-left: 0; margin-top: .875rem; }
+    .service-material-preview { height: auto; aspect-ratio: 4/3; }
+    .service-material-label { gap: .5rem; padding: .875rem; }
+    .service-material-icon { display: none; }
+    .service-process-grid { gap: .75rem; }
+    .service-process-grid li { padding: 1rem; }
+    .service-process-grid h3 { font-size: 1rem; }
+    .service-process-grid p { font-size: .8125rem; }
+    .service-jump-link { font-size: .8125rem; padding: .5rem .75rem; }
+    .service-jump-strip { padding-block: .5rem; }
+  }
+
 </style>
