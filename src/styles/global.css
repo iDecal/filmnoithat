@@ -448,3 +448,21 @@ body main .editorial-hero aside h2 { color: white !important; }
 }
 
 body main .editorial-hero [class*="text-accent-"] { color: #e4cfaa !important; }
+
+/* The homepage title is exactly two lines at every screen width. */
+body main .home-hero.editorial-hero > .grid { display: block; }
+body main .home-hero.editorial-hero > .grid > div:first-child { max-width: 52rem; }
+body main .home-hero.editorial-hero h1.home-title {
+  max-width: none;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1rem, 5.2vw, 3.5rem) !important;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+body main .home-hero.editorial-hero h1.home-title > span {
+  display: block;
+  white-space: nowrap;
+  font-family: "Playfair Display", Georgia, serif;
+}
+body main .home-hero.editorial-hero h1.home-title .home-title-lead { color: #ffffff !important; font-style: normal; font-weight: 500; }
+body main .home-hero.editorial-hero h1.home-title .home-title-accent { color: #e4cfaa !important; font-style: italic; font-weight: 400; margin-top: .1em; }

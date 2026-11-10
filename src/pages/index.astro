@@ -27,7 +27,7 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-8 lg:gap-14 items-center">
         <div>
           <p class="home-kicker mb-5">{home.hero.eyebrow}</p>
-          <h1 class="home-title">{home.hero.titleLead}<br /><span class="text-primary-500">{home.hero.titleAccent}</span></h1>
+          <h1 class="home-title"><span class="home-title-lead">{home.hero.titleLead}</span><span class="home-title-accent text-primary-500">{home.hero.titleAccent}</span></h1>
           <p class="text-base sm:text-lg text-base-600 mt-6 max-w-xl">{home.hero.description}</p>
           <div class="flex flex-col sm:flex-row gap-3 mt-7"><a href={home.hero.primaryHref} class="button-primary">{home.hero.primaryLabel} <Icon name="arrow" size={18} class="ml-2" /></a><a href={home.hero.secondaryHref} class="button-secondary">{home.hero.secondaryLabel}</a></div>
           <p class="text-xs sm:text-sm text-base-600 mt-6">{text(home.hero.priceNote)}</p>
