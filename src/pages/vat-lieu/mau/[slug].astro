@@ -25,11 +25,8 @@ const priceText = sample.pricePerMetre ? " Giá vật liệu: " + formatRetailPr
 const productDetails: {label: string; value: string; icon: IconName}[] = [
   {label: "Mã sản phẩm", value: sample.code, icon: "tag"},
   {label: "Thương hiệu", value: sample.brand, icon: "check"},
-  {label: "Bộ sưu tập", value: sample.collection, icon: "layers"},
-  {label: "Dòng bề mặt", value: sample.group, icon: categoryIcon(sample.category) || "swatches"},
   {label: "Tông màu", value: `${sample.color.name} (tham khảo)`, icon: "swatches"},
   {label: "Quy cách cuộn", value: sample.rollSpecification, icon: "ruler"},
-  {label: "Tình trạng cung cấp", value: sample.pricePerMetre ? "Liên hệ xác nhận số lượng và giao hàng" : "Liên hệ báo giá theo số lượng", icon: "package"},
 ];
 const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — ${sample.title} (${sample.group}). Quy cách cuộn: ${sample.rollSpecification}.${priceText} Nhu cầu: mua film / thi công. Kích thước, số lượng: … Địa điểm: …`;
 ---
