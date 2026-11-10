@@ -1,15 +1,15 @@
-/** Published retail prices in VND per linear metre; no supplier costs. */
+/** Published retail prices in VND per linear metre, rounded up to 5,000 VND; no supplier costs. */
 const retailByPrefix: Record<string, number> = {
-  WD: 214500, SL: 214500, SD: 235950,
-  SE: 243100, LW: 243100, FB: 243100, ST: 243100,
-  MW: 300300, SM: 300300, MD: 300300, MT: 300300,
-  PS: 286000, MS: 286000, EH: 286000, AT: 286000,
-  NI: 371800, HG: 371800, AS: 357500, AB: 429000,
-  LT: 943800, PW: 943800,
+  WD: 215000, SL: 215000, SD: 240000,
+  SE: 245000, LW: 245000, FB: 245000, ST: 245000,
+  MW: 305000, SM: 305000, MD: 305000, MT: 305000,
+  PS: 290000, MS: 290000, EH: 290000, AT: 290000,
+  NI: 375000, HG: 375000, AS: 360000, AB: 430000,
+  LT: 945000, PW: 945000,
 };
 const retailByCode: Record<string, number> = {
-  LW353: 271700, LW888: 271700, LW889: 271700, LW890: 271700,
-  MT725: 500500, MT726: 500500, MT729: 500500, MT762: 500500, MT782: 500500,
+  LW353: 275000, LW888: 275000, LW889: 275000, LW890: 275000,
+  MT725: 505000, MT726: 505000, MT729: 505000, MT762: 505000, MT782: 505000,
 };
 export function infeelPrice(code: string) {
   const normalized = code.toUpperCase().replace(/\s+/g, "");
