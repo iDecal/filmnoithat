@@ -1,6 +1,5 @@
 ---
 import Icon from "./Icon.astro";
-import SiteSearch from "./SiteSearch.astro";
 import { categoryIcon } from "../data/icons";
 import { site, navigation, isCurrentPage, isCurrentSection } from "../data/site";
 interface Props { brandName?: string }
@@ -8,7 +7,7 @@ const { brandName = site.name } = Astro.props;
 const pathname = Astro.url.pathname;
 ---
 
-<header class="site-header sticky top-0 z-50 border-b border-base-200 bg-white/95 backdrop-blur-md">
+<header class="site-header sticky top-0 z-50 border-b border-base-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
     <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${brandName} — Trang chủ`}>
       <img src="/logo.svg" alt="" width="44" height="44" class="w-11 h-11 shrink-0" />
@@ -35,7 +34,7 @@ const pathname = Astro.url.pathname;
       <a href="/lien-he/" class="button-primary shrink-0">Nhận tư vấn</a>
     </nav>
 
-    <div class="flex items-center gap-2 shrink-0"><SiteSearch />
+    <div class="flex xl:hidden items-center gap-2 shrink-0">
     <button type="button" id="menuBtn" class="xl:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button></div>
   </div>
 
@@ -107,6 +106,8 @@ const pathname = Astro.url.pathname;
 </script>
 
 <style>
+  .site-header { background: #e4cfaa; color: #102a43; border-color: #cdb387; }
+  #menuBtn { border-color: #bca37b; background: #f3e2c4; color: #102a43; }
   .submenu-panel[hidden] { display: none; }
   .submenu-toggle[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
   .submenu-toggle[aria-expanded="true"], a[aria-current="page"] { color: rgb(var(--color-primary-600)); background: rgb(var(--color-primary-50)); font-weight: 600; }

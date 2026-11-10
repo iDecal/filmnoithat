@@ -284,9 +284,9 @@ body:not(:has(.home-luxe)) :is(dialog, [data-admin-bar]) {
 body:not(:has(.home-luxe)) main :focus-visible:not(dialog, dialog *) { outline-color: var(--luxe-highlight); }
 
 body:not(:has(.home-luxe)) .site-header {
-  background-color: #ffffff;
+  background-color: #e4cfaa;
   color: #20313d;
-  border-color: #ded8cf;
+  border-color: #cdb387;
 }
 body:not(:has(.home-luxe)) .site-header .font-heading,
 body:not(:has(.home-luxe)) footer .font-heading { font-family: var(--font-heading); }
@@ -295,14 +295,14 @@ body:not(:has(.home-luxe)) .site-header [class*="text-primary-"] { color: #20313
 body:not(:has(.home-luxe)) .site-header .text-base-500,
 body:not(:has(.home-luxe)) .site-header .text-base-600 { color: #56636c; }
 body:not(:has(.home-luxe)) .site-header .submenu-panel,
-body:not(:has(.home-luxe)) #mobileMenu { background-color: #ffffff; }
-body:not(:has(.home-luxe)) .site-header [class*="border-base-"] { border-color: #ded8cf; }
-body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-color: #ffffff; }
+body:not(:has(.home-luxe)) #mobileMenu { background-color: #fbf4e7; }
+body:not(:has(.home-luxe)) .site-header [class*="border-base-"] { border-color: #cdb387; }
+body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-color: #f3e2c4; }
 body:not(:has(.home-luxe)) .site-header .nav-top-link:hover,
 body:not(:has(.home-luxe)) .site-header .nav-child-link:hover,
 body:not(:has(.home-luxe)) .site-header .submenu-toggle:hover {
   color: #193b5b;
-  background-color: #ffffff;
+  background-color: #fbf4e7;
 }
 body:not(:has(.home-luxe)) .site-header .button-primary {
   background-color: #193b5b;
