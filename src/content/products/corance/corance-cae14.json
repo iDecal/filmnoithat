@@ -4,11 +4,11 @@
   "name": "Đơn sắc",
   "group": "Corance CAE",
   "category": "don-sac",
-  "image": "/images/catalogue/corance/cae14.webp",
+  "image": "/images/uploads/products/corance-cae14/film-dan-noi-that-corance-cae14-5f1678d8a927.webp",
   "application": null,
   "sourcePage": 25,
-  "imageWidth": 504,
-  "imageHeight": 250,
+  "imageWidth": 1168,
+  "imageHeight": 779,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -20,14 +20,6 @@
   },
   "order": 462,
   "gallery": [
-    {
-      "src": "/images/uploads/products/corance-cae14/film-dan-noi-that-corance-cae14-5f1678d8a927.webp",
-      "alt": "Bề mặt Film dán nội thất Đơn sắc CAE14 – Corance",
-      "caption": "",
-      "width": 1168,
-      "height": 779,
-      "title": "Film dán nội thất Đơn sắc CAE14 – Corance"
-    },
     {
       "src": "/images/uploads/products/corance-cae14/film-dan-noi-that-corance-cae14-2fd48cd3bbbe.webp",
       "alt": "Bề mặt Film dán nội thất Đơn sắc CAE14 – Corance",
@@ -44,5 +36,10 @@
       "height": 779,
       "title": "Film dán nội thất Đơn sắc CAE14 – Corance"
     }
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Đơn sắc CAE14 – Corance",
+  "imageTitle": "Film dán nội thất Đơn sắc CAE14 – Corance",
+  "hiddenImages": [
+    "/images/catalogue/corance/cae14.webp"
   ]
 }
