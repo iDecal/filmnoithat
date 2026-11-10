@@ -37,10 +37,8 @@ const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — 
       <div class="min-w-0"><ProductImageGallery sample={sample} /><ProductImageUpload sample={sample} /></div>
       <div class="min-w-0" data-product-summary>
         <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{productHeading(sample)}</h1>
-        <div class="mt-5" data-product-price data-price={sample.pricePerMetre}>
-          <p class="text-sm text-base-600">Giá bán{sample.pricePerMetre ? " / mét dài" : ""}</p>
-          <p class="text-2xl sm:text-3xl font-semibold text-primary-600 mt-1">{sample.pricePerMetre ? formatRetailPrice(sample.pricePerMetre) : "Liên hệ báo giá"}{sample.pricePerMetre && <span class="text-sm sm:text-base font-normal text-base-600 ml-2">/ mét dài</span>}</p>
-          {sample.pricePerMetre && <p class="text-xs text-base-600 mt-2 leading-relaxed">Giá cho 1 mét dài theo khổ cuộn của mẫu, không phải giá theo m². Chưa gồm công thi công; chi phí giao hàng và tổng đơn được xác nhận khi đặt.</p>}
+        <div class="product-price" data-product-price data-price={sample.pricePerMetre}>
+          <p class="product-price-line"><span class="product-price-amount">{sample.pricePerMetre ? formatRetailPrice(sample.pricePerMetre) : "Liên hệ báo giá"}</span>{sample.pricePerMetre && <span class="product-price-unit">/ mét dài</span>}</p>
         </div>
         <p data-product-short-description class="text-[15px] leading-relaxed text-base-600 mt-5">Mẫu film dán nội thất {sample.brand} {sample.code} thuộc nhóm {material.shortName.toLowerCase()}, tông {sample.color.name.toLowerCase()}, để tham khảo khi phối bàn, tủ hoặc vách. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
         <section data-product-information aria-labelledby="product-information-title" class="mt-6 rounded-2xl border border-base-200 bg-white/70 p-4 sm:p-5">
@@ -64,3 +62,11 @@ const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — 
     catch { status.textContent = "Bạn có thể gửi trực tiếp mã mẫu trên trang qua Zalo để được tư vấn."; }
   });
 </script>
+
+<style>
+  .product-price { display: inline-block; max-width: 100%; margin-top: 1.25rem; padding: .875rem 1.125rem; border: 1px solid #e4cfaa; border-left: 3px solid #c2a16b; border-radius: .75rem; background: #faf5ec; }
+  .product-price-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: .375rem .625rem; line-height: 1.25; }
+  .product-price-amount { color: #193b5b; font-size: 1.875rem; font-weight: 600; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+  .product-price-unit { color: #56636c; font-size: .875rem; white-space: nowrap; }
+  @media(max-width: 639px) { .product-price { padding: .75rem 1rem; } .product-price-amount { font-size: 1.75rem; } }
+</style>
