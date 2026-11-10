@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-9 sm:gap-y-12 pb-12">
       <div class="col-span-2 lg:col-span-1 min-w-0">
         <a href="/" class="inline-block font-heading text-2xl font-semibold leading-snug" aria-label={`${brandName} — Trang chủ`}>{brandName}</a>
-        <p class="text-accent-700 text-sm font-medium mt-3">{site.tagline}</p>
+        <p class="text-primary-500 text-sm font-medium mt-3">{site.tagline}</p>
         <p class="text-base-600 text-sm leading-relaxed mt-5 max-w-sm">
           Cung cấp film trang trí và thi công cho bàn, tủ, tường, trần và thang máy. Cùng bạn chọn vật liệu phù hợp để làm mới không gian.
         </p>
@@ -20,24 +20,24 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <nav aria-labelledby="footer-services-title" class="min-w-0">
-        <h2 id="footer-services-title" class="text-lg font-semibold text-accent-700 mb-4"><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 hover:underline">Dịch vụ</a></h2>
+        <h2 id="footer-services-title" class="text-lg font-semibold text-primary-500 mb-4"><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 hover:underline">Dịch vụ</a></h2>
         <ul class="space-y-1 text-sm">
           {serviceLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
       <nav aria-labelledby="footer-materials-title" class="min-w-0">
-        <h2 id="footer-materials-title" class="text-lg font-semibold text-accent-700 mb-4"><a href="/vat-lieu/" class="inline-flex items-center min-h-11 hover:underline">Vật liệu</a></h2>
+        <h2 id="footer-materials-title" class="text-lg font-semibold text-primary-500 mb-4"><a href="/vat-lieu/" class="inline-flex items-center min-h-11 hover:underline">Vật liệu</a></h2>
         <ul class="space-y-1 text-sm">
           {materialLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
         </ul>
       </nav>
 
       <div class="col-span-2 lg:col-span-1 min-w-0">
-        <h2 class="text-lg font-semibold text-accent-700 mb-4">Liên hệ tư vấn</h2>
+        <h2 class="text-lg font-semibold text-primary-500 mb-4">Liên hệ tư vấn</h2>
         <address class="not-italic text-sm leading-relaxed">
           <p class="text-base-600">Hotline / Zalo</p>
-          <a href={site.phoneHref} class="inline-flex items-center min-h-11 text-xl font-semibold hover:text-accent-700 transition-colors">{site.phone}</a>
+          <a href={site.phoneHref} class="inline-flex items-center min-h-11 text-xl font-semibold hover:text-primary-500 transition-colors">{site.phone}</a>
           <a href={`mailto:${site.email}`} class="footer-link break-words">{site.email}</a>
           <p class="text-base-600 mt-5">Khu vực phục vụ</p>
           <p class="text-base-900 mt-1">{site.serviceArea}</p>
@@ -69,5 +69,5 @@ const currentYear = new Date().getFullYear();
     transition: color 150ms;
   }
   .icon-link { display: flex; align-items: center; gap: 0.5rem; }
-  .footer-link:hover { color: #705130; text-decoration-line: underline; }
+  .footer-link:hover { color: #193b5b; text-decoration-line: underline; }
 </style>

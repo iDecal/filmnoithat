@@ -22,8 +22,8 @@
   --color-primary-200: 189 207 230;
   --color-primary-300: 142 172 207;
   --color-primary-400: 91 128 176;
-  --color-primary-500: 32 63 104;
-  --color-primary-600: 25 51 84;
+  --color-primary-500: 25 59 91;
+  --color-primary-600: 16 42 67;
   --color-primary-700: 19 41 65;
   --color-primary-800: 16 34 54;
   --color-primary-900: 11 31 53;
@@ -190,7 +190,7 @@ body:not(:has(.home-luxe)) .font-heading { font-family: var(--font-heading); }
 body:not(:has(.home-luxe)) main {
   --luxe-text: #20313d;
   --luxe-muted: #56636c;
-  --luxe-highlight: #87643c;
+  --luxe-highlight: #193b5b;
   --luxe-border: #ded8cf;
   --luxe-panel: #ffffff;
   color: var(--luxe-text);
@@ -208,7 +208,7 @@ body:not(:has(.home-luxe)) main > section.bg-white { background-color: #ffffff; 
 body:not(:has(.home-luxe)) main :is(.bg-base-900, .ink-gradient):not(dialog, dialog *) {
   --luxe-text: #20313d;
   --luxe-muted: #56636c;
-  --luxe-highlight: #87643c;
+  --luxe-highlight: #193b5b;
   --luxe-border: #ded8cf;
   --luxe-panel: #ffffff;
 }
@@ -217,7 +217,7 @@ body:not(:has(.home-luxe)) main > article > div.bg-white > div > nav[aria-label=
 body:not(:has(.home-luxe)) main > article > div.bg-white aside {
   --luxe-text: #20313d;
   --luxe-muted: #4b5863;
-  --luxe-highlight: #876a37;
+  --luxe-highlight: #765b32;
   --luxe-border: #e0e5e8;
   --luxe-panel: #f5f7f9;
   background-color: #ffffff;
@@ -234,18 +234,18 @@ body:not(:has(.home-luxe)) main [class*="divide-base-"] > :not([hidden], dialog,
 body:not(:has(.home-luxe)) main :is(a, summary):hover:not(dialog, dialog *) { color: var(--luxe-highlight); }
 body:not(:has(.home-luxe)) main .group:hover h3:not(dialog, dialog *) { color: var(--luxe-highlight); }
 body:not(:has(.home-luxe)) main :is(.button-primary, .button-accent):not(dialog, dialog *) {
-  background-color: #87643c;
-  border-color: #87643c;
+  background-color: #193b5b;
+  border-color: #193b5b;
   color: #ffffff;
 }
 body:not(:has(.home-luxe)) main :is(.button-primary, .button-accent):hover:not(dialog, dialog *) {
-  background-color: #705130;
-  border-color: #705130;
+  background-color: #102a43;
+  border-color: #102a43;
   color: #ffffff;
 }
 body:not(:has(.home-luxe)) main .button-secondary:not(dialog, dialog *) {
   background-color: transparent;
-  border-color: #87643c;
+  border-color: #193b5b;
   color: var(--luxe-text);
 }
 body:not(:has(.home-luxe)) main .button-secondary:hover:not(dialog, dialog *) {
@@ -257,18 +257,18 @@ body:not(:has(.home-luxe)) main :is(input, select, textarea)[class]:not(dialog, 
   background-color: #ffffff;
   color: #20313d;
   border-color: #b39a6e;
-  accent-color: #876a37;
+  accent-color: #765b32;
 }
 body:not(:has(.home-luxe)) main input::placeholder { color: #586673; }
 body:not(:has(.home-luxe)) main .filter-chip[aria-pressed="true"] {
-  background-color: #87643c;
-  border-color: #87643c;
+  background-color: #193b5b;
+  border-color: #193b5b;
   color: #ffffff;
 }
 body:not(:has(.home-luxe)) main :is(.service-jump-link, .related-services-list a):not(dialog, dialog *) { color: var(--luxe-text); }
 body:not(:has(.home-luxe)) main .service-jump-link:is(:hover, [aria-current="location"]) {
-  color: #87643c;
-  border-bottom-color: #87643c;
+  color: #193b5b;
+  border-bottom-color: #193b5b;
 }
 body:not(:has(.home-luxe)) main .service-timeline::before { background-color: #ded8cf; }
 body:not(:has(.home-luxe)) :is(.mobile-service-actions, .related-services-list a) {
@@ -301,31 +301,31 @@ body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-colo
 body:not(:has(.home-luxe)) .site-header .nav-top-link:hover,
 body:not(:has(.home-luxe)) .site-header .nav-child-link:hover,
 body:not(:has(.home-luxe)) .site-header .submenu-toggle:hover {
-  color: #87643c;
+  color: #193b5b;
   background-color: #ffffff;
 }
 body:not(:has(.home-luxe)) .site-header .button-primary {
-  background-color: #87643c;
-  border-color: #87643c;
+  background-color: #193b5b;
+  border-color: #193b5b;
   color: #ffffff;
 }
 body:not(:has(.home-luxe)) .site-header .button-primary:hover {
-  background-color: #705130;
-  border-color: #705130;
+  background-color: #102a43;
+  border-color: #102a43;
 }
 body:not(:has(.home-luxe)) footer { background-color: #f0ebe3; }
 body:not(:has(.home-luxe)) footer .text-accent-200 { color: #20313d; }
-body:not(:has(.home-luxe)) footer .footer-link:hover { color: #87643c; }
+body:not(:has(.home-luxe)) footer .footer-link:hover { color: #193b5b; }
 body:not(:has(.home-luxe)) footer a.bg-white {
-  background-color: #87643c;
+  background-color: #193b5b;
   color: #ffffff;
 }
 body:not(:has(.home-luxe)) footer a.bg-white:hover { background-color: #eadbc5; }
-body:not(:has(.home-luxe)) :focus-visible { outline-color: #87643c; }
+body:not(:has(.home-luxe)) :focus-visible { outline-color: #193b5b; }
 body:not(:has(.home-luxe)) ::selection { background-color: #eadbc5; color: #20313d; }
 body:not(:has(.home-luxe)) main :is(.bg-primary-50, .bg-primary-100):not(dialog, dialog *) { background-color: var(--luxe-panel); }
-body:not(:has(.home-luxe)) main [data-gallery-thumb][aria-pressed="true"] { border-color: #87643c; }
-body:not(:has(.home-luxe)) main a.bg-primary-500 { background-color: #87643c; color: #ffffff; }
+body:not(:has(.home-luxe)) main [data-gallery-thumb][aria-pressed="true"] { border-color: #193b5b; }
+body:not(:has(.home-luxe)) main a.bg-primary-500 { background-color: #193b5b; color: #ffffff; }
 body:not(:has(.home-luxe)) main a.bg-primary-500:hover { background-color: #eadbc5; color: #20313d; }
 
 /* Former dark content panels now use soft cream with dark, readable text. */
@@ -339,3 +339,24 @@ body:not(:has(.home-luxe)) main [class*="text-white/"]:not(dialog, dialog *) { c
 body footer, body footer .text-white { color: #20313d; }
 body footer [class*="text-white/"], body footer .footer-link { color: #56636c; }
 body footer [class*="border-white/"] { border-color: #ded8cf; }
+
+/* Navy leads the interface; sand supports secondary actions and accents. */
+body:not(:has(.home-luxe)) main .button-secondary:not(dialog, dialog *),
+body:not(:has(.home-luxe)) main .button-accent:not(dialog, dialog *) {
+  background-color: #e4cfaa;
+  border-color: #d1b581;
+  color: #102a43;
+}
+body:not(:has(.home-luxe)) main :is(.button-secondary, .button-accent):hover:not(dialog, dialog *) {
+  background-color: #d1b581;
+  border-color: #b99a67;
+  color: #102a43;
+}
+body:not(:has(.home-luxe)) main [class*="bg-accent-"]:not(dialog, dialog *, .button-primary, .button-secondary, .button-accent) {
+  background-color: #f1e6d3;
+}
+body:not(:has(.home-luxe)) footer a.bg-white:hover {
+  background-color: #102a43;
+  color: #ffffff;
+}
+body footer h2, body footer > div > div > div > p.text-accent-700 { color: #193b5b; }

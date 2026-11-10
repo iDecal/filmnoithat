@@ -119,7 +119,7 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
   --font-heading: "Montserrat", system-ui, sans-serif;
   --font-body: "Wix Madefor Text", system-ui, sans-serif;
   --home-ink: #faf8f4;
-  --home-sand: #87643c;
+  --home-primary: #193b5b;
   font-family: var(--font-body);
   background-color: var(--home-ink);
 }
@@ -127,7 +127,7 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
   --home-text: #20313d;
   --home-muted: #56636c;
   --home-link: #20313d;
-  --home-highlight: #87643c;
+  --home-highlight: #193b5b;
   --home-border: #ded8cf;
   --home-panel: #ffffff;
   color: var(--home-text);
@@ -142,7 +142,7 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
   --home-text: #20313d;
   --home-muted: #4b5863;
   --home-link: #20313d;
-  --home-highlight: #876a37;
+  --home-highlight: #765b32;
   --home-border: #e0e5e8;
   --home-panel: #ffffff;
   background-color: #ffffff;
@@ -169,21 +169,21 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
 .home-luxe :global([class*="border-white/"]),
 .home-luxe :global([class*="divide-base-"] > :not([hidden]) ~ :not([hidden])) { border-color: var(--home-border); }
 .home-luxe :global(.button-primary) {
-  background-color: var(--home-sand);
-  border-color: var(--home-sand);
+  background-color: var(--home-primary);
+  border-color: var(--home-primary);
   color: #ffffff;
 }
 .home-luxe :global(.button-primary:hover) {
-  background-color: #705130;
-  border-color: #705130;
+  background-color: #102a43;
+  border-color: #102a43;
 }
 .home-luxe :global(.button-secondary) {
-  background-color: transparent;
+  background-color: #e4cfaa;
   color: var(--home-text);
-  border-color: var(--home-sand);
+  border-color: #d1b581;
 }
 .home-luxe :global(.button-secondary:hover) {
-  background-color: #f1e9dd;
+  background-color: #d1b581;
   color: #20313d;
   border-color: #eadbc5;
 }
@@ -209,27 +209,27 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
 :global(body:has(.home-luxe) .site-header .nav-top-link:hover),
 :global(body:has(.home-luxe) .site-header .nav-child-link:hover),
 :global(body:has(.home-luxe) .site-header .submenu-toggle:hover) {
-  color: #87643c;
+  color: #193b5b;
   background-color: #ffffff;
 }
 :global(body:has(.home-luxe) .site-header .button-primary) {
-  background-color: #87643c;
-  border-color: #87643c;
+  background-color: #193b5b;
+  border-color: #193b5b;
   color: #ffffff;
 }
 :global(body:has(.home-luxe) .site-header .button-primary:hover) {
-  background-color: #705130;
-  border-color: #705130;
+  background-color: #102a43;
+  border-color: #102a43;
 }
 :global(body:has(.home-luxe) footer) { background-color: #f0ebe3; }
 :global(body:has(.home-luxe) footer .text-accent-200) { color: #20313d; }
-:global(body:has(.home-luxe) footer .footer-link:hover) { color: #87643c; }
+:global(body:has(.home-luxe) footer .footer-link:hover) { color: #193b5b; }
 :global(body:has(.home-luxe) footer a.bg-white) {
-  background-color: #87643c;
+  background-color: #193b5b;
   color: #ffffff;
 }
-:global(body:has(.home-luxe) footer a.bg-white:hover) { background-color: #eadbc5; }
-:global(body:has(.home-luxe) :focus-visible) { outline-color: #87643c; }
+:global(body:has(.home-luxe) footer a.bg-white:hover) { background-color: #102a43; color: #ffffff; }
+:global(body:has(.home-luxe) :focus-visible) { outline-color: #193b5b; }
 .home-luxe :global(:focus-visible) { outline-color: var(--home-highlight); }
 :global(body:has(.home-luxe) ::selection) { background-color: #eadbc5; color: #20313d; }
 
@@ -237,5 +237,5 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
 .home-luxe :global([class*="text-white/"]) { color: var(--home-muted); }
 .home-luxe > section[aria-labelledby="applications-title"] { background-color: #f1e9dd; }
 .home-luxe > section.warm-surface { background-color: #f5f1eb; }
-.home-luxe :global(.category-icon) { background-color: #f1e9dd; }
+.home-luxe :global(.category-icon) { background-color: #e4cfaa; color: #193b5b; }
 </style>
