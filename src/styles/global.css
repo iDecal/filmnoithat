@@ -360,12 +360,3 @@ body:not(:has(.home-luxe)) footer a.bg-white:hover {
   color: #ffffff;
 }
 body footer h2, body footer > div > div > div > p.text-accent-700 { color: #193b5b; }
-
-/* Supplied TODA swatches include the film code along the image edge. */
-img[src^="/images/products/toda-solid/"] { object-fit: contain; }
-
-/* Fill catalogue cards while preserving the full image in the zoom view. */
-[data-catalogue-card] img[src^="/images/products/toda-solid/"] {
-  object-fit: cover;
-  object-position: center;
-}
