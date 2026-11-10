@@ -398,16 +398,13 @@ body main .editorial-hero .grid > div:has(> figure),
 body main .editorial-hero > div > img { display: none; }
 body main .editorial-hero h1 {
   color: #ffffff !important;
-  font-size: clamp(2.25rem, 4.6vw, 4.75rem) !important;
   text-wrap: initial;
-  line-height: 1.1;
-  font-weight: 500;
   max-width: 46rem;
-  letter-spacing: -.035em;
 }
-body main .editorial-hero h1 span[class] {
+body main .editorial-hero h1 span[class]:not(.home-title-lead),
+body main .editorial-hero .hero-title-accent {
   color: #e4cfaa !important;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 400;
 }
@@ -444,25 +441,26 @@ body main .editorial-hero aside h2 { color: white !important; }
   body main .editorial-hero { min-height: 32rem; padding-block: 2.75rem !important; }
   body main .editorial-hero::before { background-position: 65% center; }
   body main .editorial-hero::after { background: linear-gradient(90deg, rgb(11 30 46 / .96), rgb(11 30 46 / .83) 65%, rgb(11 30 46 / .65)); }
-  body main .editorial-hero h1 { font-size: clamp(2rem, 8vw, 3rem) !important; }
 }
 
 body main .editorial-hero [class*="text-accent-"] { color: #e4cfaa !important; }
 
-/* The homepage title is exactly two lines at every screen width. */
+/* Keep each page's original title font and size; only accents use Playfair. */
 body main .home-hero.editorial-hero > .grid { display: block; }
 body main .home-hero.editorial-hero > .grid > div:first-child { max-width: 52rem; }
-body main .home-hero.editorial-hero h1.home-title {
-  max-width: none;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1rem, 5.2vw, 3.5rem) !important;
-  line-height: 1.25;
-  letter-spacing: -.025em;
+body main .home-hero.editorial-hero h1.home-title { max-width: none; }
+body main .home-hero.editorial-hero h1.home-title > span { display: block; }
+body main .home-hero.editorial-hero h1.home-title .home-title-lead {
+  color: #ffffff !important;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
 }
-body main .home-hero.editorial-hero h1.home-title > span {
-  display: block;
-  white-space: nowrap;
+body main .home-hero.editorial-hero h1.home-title .home-title-accent {
+  color: #e4cfaa !important;
   font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: .1em;
 }
-body main .home-hero.editorial-hero h1.home-title .home-title-lead { color: #ffffff !important; font-style: normal; font-weight: 500; }
-body main .home-hero.editorial-hero h1.home-title .home-title-accent { color: #e4cfaa !important; font-style: italic; font-weight: 400; margin-top: .1em; }
+body main .editorial-hero .hero-title-accent { color: #e4cfaa !important; }
