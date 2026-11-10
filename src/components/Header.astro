@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import SiteSearch from "./SiteSearch.astro";
 import { categoryIcon } from "../data/icons";
 import { site, navigation, isCurrentPage, isCurrentSection } from "../data/site";
 interface Props { brandName?: string }
@@ -17,7 +18,7 @@ const pathname = Astro.url.pathname;
       </span>
     </a>
 
-    <nav class="hidden lg:flex items-center gap-3 text-sm font-medium" aria-label="Điều hướng chính">
+    <nav class="hidden xl:flex items-center gap-3 text-sm font-medium" aria-label="Điều hướng chính">
       {navigation.map((item, index) => item.children ? (
         <div data-nav-group class="nav-dropdown relative">
           <div class:list={["flex items-center rounded-lg", { "text-primary-600 bg-primary-50": isCurrentSection(pathname, item) }]}>
@@ -34,10 +35,11 @@ const pathname = Astro.url.pathname;
       <a href="/lien-he/" class="button-primary shrink-0">Nhận tư vấn</a>
     </nav>
 
-    <button type="button" id="menuBtn" class="lg:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
+    <div class="flex items-center gap-2 shrink-0"><SiteSearch />
+    <button type="button" id="menuBtn" class="xl:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button></div>
   </div>
 
-  <nav id="mobileMenu" class="hidden lg:hidden border-t border-base-200 bg-white max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain" aria-label="Điều hướng trên điện thoại">
+  <nav id="mobileMenu" class="hidden xl:hidden border-t border-base-200 bg-white max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain" aria-label="Điều hướng trên điện thoại">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-2">
       {navigation.map((item, index) => item.children ? (
         <div data-nav-group class="mobile-nav-group border-b border-base-200 pb-2">
@@ -101,7 +103,7 @@ const pathname = Astro.url.pathname;
     if (!header.contains(event.relatedTarget as Node | null)) { closeDropdowns(); setOpen(false); }
   });
   menu?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setOpen(false)));
-  window.matchMedia("(min-width: 1024px)").addEventListener("change", () => { setOpen(false); closeDropdowns(); });
+  window.matchMedia("(min-width: 1280px)").addEventListener("change", () => { setOpen(false); closeDropdowns(); });
 </script>
 
 <style>
