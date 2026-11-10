@@ -7,10 +7,10 @@
   "brand": "TODA",
   "collection": "TODA Interior Film Vol.02",
   "pdf": "/catalogues/toda-vol-02.pdf",
-  "image": "/images/catalogue/toda/film-dan-noi-that-toda-925-02.webp",
-  "imageAlt": "Bề mặt film dán nội thất TODA 925-02, dòng Concrete, trích từ catalogue Vol.02",
-  "imageWidth": 1054,
-  "imageHeight": 642,
+  "image": "/images/uploads/products/toda-925-02/film-dan-noi-that-toda-925-02-22b6bea90919.webp",
+  "imageAlt": "Bề mặt Film dán nội thất Vân bê tông 925-02 – TODA",
+  "imageWidth": 1254,
+  "imageHeight": 1254,
   "application": null,
   "sourcePage": 41,
   "rollSpecification": "1,23 m × 50 m",
@@ -22,14 +22,9 @@
   "order": 1075,
   "seoTitle": "Film dán nội thất TODA 925-02 – Vân bê tông | Tư vấn mẫu",
   "seoDescription": "Mẫu film dán nội thất TODA 925-02, dòng Concrete. Xem ảnh bề mặt trích từ catalogue TODA Vol.02, đối chiếu trang 41 và liên hệ tư vấn vật liệu, báo giá.",
-  "gallery": [
-    {
-      "src": "/images/uploads/products/toda-925-02/film-dan-noi-that-toda-925-02-22b6bea90919.webp",
-      "alt": "Bề mặt Film dán nội thất Vân bê tông 925-02 – TODA",
-      "caption": "",
-      "width": 1254,
-      "height": 1254,
-      "title": "Film dán nội thất Vân bê tông 925-02 – TODA"
-    }
+  "gallery": [],
+  "imageTitle": "Film dán nội thất Vân bê tông 925-02 – TODA",
+  "hiddenImages": [
+    "/images/catalogue/toda/film-dan-noi-that-toda-925-02.webp"
   ]
 }
