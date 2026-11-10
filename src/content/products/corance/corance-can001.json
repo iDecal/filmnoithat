@@ -4,11 +4,11 @@
   "name": "Vân vải & da",
   "group": "Corance CAN",
   "category": "van-vai",
-  "image": "/images/catalogue/corance/can001.webp",
+  "image": "/images/uploads/products/corance-can001/film-dan-noi-that-corance-can001-84852708ed64.webp",
   "application": null,
   "sourcePage": 26,
-  "imageWidth": 504,
-  "imageHeight": 266,
+  "imageWidth": 1168,
+  "imageHeight": 779,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -21,14 +21,6 @@
   "order": 489,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-can001/film-dan-noi-that-corance-can001-84852708ed64.webp",
-      "alt": "Bề mặt Film dán nội thất Vân vải & da CAN001 – Corance",
-      "caption": "",
-      "width": 1168,
-      "height": 779,
-      "title": "Film dán nội thất Vân vải & da CAN001 – Corance"
-    },
-    {
       "src": "/images/uploads/products/corance-can001/film-dan-noi-that-corance-can001-da7ac95c4e90.webp",
       "alt": "Bề mặt Film dán nội thất Vân vải & da CAN001 – Corance",
       "caption": "",
@@ -38,6 +30,9 @@
     }
   ],
   "hiddenImages": [
-    "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp"
-  ]
+    "/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp",
+    "/images/catalogue/corance/can001.webp"
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Vân vải & da CAN001 – Corance",
+  "imageTitle": "Film dán nội thất Vân vải & da CAN001 – Corance"
 }
