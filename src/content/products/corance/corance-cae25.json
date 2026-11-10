@@ -4,11 +4,11 @@
   "name": "Đơn sắc",
   "group": "Corance CAE",
   "category": "don-sac",
-  "image": "/images/catalogue/corance/cae25.webp",
+  "image": "/images/uploads/products/corance-cae25/film-dan-noi-that-corance-cae25-7e523e7dc0db.webp",
   "application": null,
   "sourcePage": 25,
-  "imageWidth": 504,
-  "imageHeight": 252,
+  "imageWidth": 1168,
+  "imageHeight": 779,
   "brand": "Corance",
   "collection": "Corance",
   "pdf": "/catalogues/corance.pdf",
@@ -21,12 +21,12 @@
   "order": 470,
   "gallery": [
     {
-      "src": "/images/uploads/products/corance-cae25/film-dan-noi-that-corance-cae25-7e523e7dc0db.webp",
-      "alt": "Bề mặt Film dán nội thất Đơn sắc CAE25 – Corance",
-      "caption": "",
-      "width": 1168,
-      "height": 779,
-      "title": "Film dán nội thất Đơn sắc CAE25 – Corance"
+      "src": "/images/catalogue/corance/cae25.webp",
+      "alt": "Corance CAE25",
+      "width": 504,
+      "height": 252
     }
-  ]
+  ],
+  "imageAlt": "Bề mặt Film dán nội thất Đơn sắc CAE25 – Corance",
+  "imageTitle": "Film dán nội thất Đơn sắc CAE25 – Corance"
 }
