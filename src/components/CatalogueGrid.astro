@@ -16,14 +16,17 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     <div class="catalogue-filter-panel">
       <div class="catalogue-controls hidden" data-catalogue-controls>
         <label class="catalogue-field catalogue-search-field"><span>Tìm mẫu</span><div class="catalogue-search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input type="search" data-catalogue-search placeholder="Tên, màu hoặc mã mẫu…" /></div></label>
+        <button type="button" class="catalogue-filter-toggle" data-catalogue-filter-toggle aria-expanded="false" aria-controls="catalogue-extra-filters"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6M15 14v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span data-catalogue-filter-label>Bộ lọc</span></button>
+        <div id="catalogue-extra-filters" class="catalogue-extra-filters" data-catalogue-extra-filters>
         <label class="catalogue-field"><span>Thương hiệu</span><select data-catalogue-brand><option value="">Tất cả</option>{brands.map(brand => <option value={brand}>{brand}</option>)}</select></label>
         <label class="catalogue-field"><span>Dòng vật liệu</span><select data-catalogue-group><option value="">Tất cả dòng</option>{groups.map(group => <option value={group}>{group}</option>)}</select></label>
         <label class="catalogue-field"><span>Tông màu</span><select data-catalogue-color><option value="">Mọi tông màu</option>{colors.map(color => <option value={color}>{color}</option>)}</select></label>
         <button type="button" data-catalogue-reset class="catalogue-reset"><span aria-hidden="true">↺</span> Đặt lại</button>
+        </div>
       </div>
       <div class="catalogue-filter-meta">
         <p data-catalogue-status role="status" aria-live="polite" aria-atomic="true">{samples.length} mẫu</p>
-        <details class="catalogue-notes"><summary>Lưu ý khi chọn mẫu <span aria-hidden="true">+</span></summary><p>Tông màu hỗ trợ tìm kiếm, cần so với mẫu thật. Giá INFEEL tính theo mét dài, chưa gồm công thi công; Corance và TODA liên hệ báo giá. Tình trạng cung cấp được xác nhận khi đặt. Quy cách cuộn được ghi riêng trên từng mẫu.</p></details>
+        <details class="catalogue-notes"><summary>Lưu ý chọn mẫu <span aria-hidden="true">+</span></summary><p>Tông màu hỗ trợ tìm kiếm, cần so với mẫu thật. Giá INFEEL tính theo mét dài, chưa gồm công thi công; Corance và TODA liên hệ báo giá. Tình trạng cung cấp được xác nhận khi đặt. Quy cách cuộn được ghi riêng trên từng mẫu.</p></details>
       </div>
     </div>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{samples.map(sample => <article data-catalogue-card data-slug={sample.slug} data-code={sample.code} data-search={`${sample.brand} ${sample.title} ${sample.code} ${sample.group} ${sample.color.family}`} data-brand={sample.brand} data-group={sample.group} data-color={sample.color.family} class="min-w-0"><a href={sampleHref(sample)} class="group block"><div class="bg-white rounded-xl overflow-hidden border border-base-200"><img src={sample.image} alt={sample.imageAlt || `${sample.title} — ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover object-center" /></div><p class="text-xs text-base-600 mt-3">{sample.brand} · {sample.group.replace(`${sample.brand} `, "")}</p><h3 class="text-sm sm:text-base font-medium mt-1 group-hover:text-primary-600">{sample.title}</h3><p class="text-sm text-primary-600 font-semibold mt-1">{sample.code}</p><p class="text-sm sm:text-base font-semibold mt-2" data-card-price={sample.pricePerMetre}>{sample.pricePerMetre ? `${formatRetailPrice(sample.pricePerMetre)} / mét dài` : "Liên hệ báo giá"}</p><span class="inline-flex items-center min-h-11 text-xs sm:text-sm text-base-700 mt-1 group-hover:underline">Xem mẫu & tư vấn →</span></a><button type="button" hidden data-admin-only data-quick-delete class="button-secondary mt-2 w-full" aria-label={`Xóa sản phẩm ${sample.brand} ${sample.code}`}>Xóa sản phẩm</button></article>)}</div>
@@ -53,9 +56,18 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     const status = root.querySelector<HTMLElement>("[data-catalogue-status]")!;
     const empty = root.querySelector<HTMLElement>("[data-catalogue-empty]")!;
     const normalize = (text: string) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "");
+    const filterToggle = root.querySelector<HTMLButtonElement>("[data-catalogue-filter-toggle]")!;
+    const extraFilters = root.querySelector<HTMLElement>("[data-catalogue-extra-filters]")!;
+    filterToggle.addEventListener("click", () => {
+      const expanded = filterToggle.getAttribute("aria-expanded") !== "true";
+      filterToggle.setAttribute("aria-expanded", String(expanded));
+      extraFilters.classList.toggle("is-open", expanded);
+    });
     const deleted = new Set<HTMLElement>();
     let limit = 24;
     const update = () => {
+      const activeFilters = [brand.value, group.value, color.value].filter(Boolean).length;
+      root.querySelector<HTMLElement>("[data-catalogue-filter-label]")!.textContent = activeFilters ? `Bộ lọc (${activeFilters})` : "Bộ lọc";
       const query = normalize(search.value);
       const isColorQuery = !!query && cards.some(card => normalize(card.dataset.color || "") === query);
       const matching = cards.filter(card => !deleted.has(card) && (isColorQuery ? normalize(card.dataset.color || "") === query : normalize(card.dataset.search || "").includes(query)) && (!brand.value || card.dataset.brand === brand.value) && (!group.value || card.dataset.group === group.value) && (!color.value || card.dataset.color === color.value));
@@ -135,6 +147,8 @@ const groups = [...new Set(samples.map(sample => sample.group))];
   .catalogue-download:hover { background: #f1e6d3; border-color: #d1b581; }
   .catalogue-filter-panel { border: 1px solid #ded8cf; background: #fff; border-radius: 1rem; padding: 1.25rem; margin-bottom: 1.75rem; box-shadow: 0 4px 20px rgb(16 42 67 / .03); }
   .catalogue-controls { grid-template-columns: minmax(0,1.5fr) repeat(3,minmax(0,1fr)) auto; gap: .875rem; align-items: end; }
+  .catalogue-extra-filters { display: contents; }
+  .catalogue-filter-toggle { display: none; }
   .catalogue-field { display: block; min-width: 0; color: #193b5b; font-size: .75rem; font-weight: 600; }
   .catalogue-field > span { display: block; margin-bottom: .375rem; }
   .catalogue-field input, .catalogue-field select { width: 100%; min-width: 0; height: 2.875rem; border: 1px solid #d7dee3; border-radius: .625rem; background: #fafbfc; color: #20313d; font-size: .875rem; font-weight: 400; padding: .625rem .75rem; }
@@ -157,12 +171,21 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     .catalogue-reset { grid-column: 1 / -1; justify-self: start; }
   }
   @media(max-width: 639px) {
-    .catalogue-filter-panel { padding: 1rem; }
-    .catalogue-controls { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+    #mau-vat-lieu { padding-block: 1.75rem; }
+    .catalogue-heading { gap: .625rem; margin-bottom: 1rem; }
+    .catalogue-downloads { gap: .375rem; }
+    .catalogue-download { min-height: 2.25rem; padding: .25rem .625rem; }
+    .catalogue-filter-panel { padding: .75rem; margin-bottom: 1.25rem; border-radius: .875rem; }
+    .catalogue-controls { grid-template-columns: minmax(0,1fr) auto; gap: .625rem; }
+    .catalogue-search-field { grid-column: auto; }
+    .catalogue-search-field > span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    .catalogue-filter-toggle { display: inline-flex; align-items: center; justify-content: center; gap: .375rem; height: 2.875rem; padding: .5rem .625rem; border: 1px solid #d1b581; border-radius: .625rem; background: #f1e6d3; color: #193b5b; font-size: .75rem; font-weight: 600; white-space: nowrap; }
+    .catalogue-filter-toggle[aria-expanded="true"] { background: #193b5b; color: #fff; border-color: #193b5b; }
+    .catalogue-extra-filters { display: none; }
+    .catalogue-extra-filters.is-open { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .625rem; padding-top: .375rem; }
     .catalogue-reset { grid-column: auto; align-self: end; justify-self: stretch; }
-    .catalogue-filter-meta { flex-direction: column; gap: .375rem; }
-    .catalogue-notes { text-align: left; }
-    .catalogue-field select { font-size: 1rem; }
-    .catalogue-field input { font-size: 1rem; }
+    .catalogue-filter-meta { flex-direction: row; flex-wrap: wrap; gap: .25rem .5rem; padding-top: .5rem; margin-top: .625rem; }
+    .catalogue-notes { text-align: right; flex: 1; min-width: 8rem; }
+    .catalogue-field select, .catalogue-field input { font-size: 1rem; }
   }
 </style>
