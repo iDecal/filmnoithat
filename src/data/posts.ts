@@ -7,6 +7,7 @@ export interface PostImage {
 
 export interface Post {
   slug: string;
+  category?: string;
   title: string;
   description: string;
   date: string;

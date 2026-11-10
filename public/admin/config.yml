@@ -1375,6 +1375,30 @@
                   "widget": "string"
                 },
                 {
+                  "label": "Chuyên mục",
+                  "name": "category",
+                  "widget": "select",
+                  "default": "thi-cong",
+                  "options": [
+                    {
+                      "label": "Chọn mẫu & phối màu",
+                      "value": "chon-mau"
+                    },
+                    {
+                      "label": "Thi công & cải tạo",
+                      "value": "thi-cong"
+                    },
+                    {
+                      "label": "Vệ sinh & bảo quản",
+                      "value": "bao-quan"
+                    },
+                    {
+                      "label": "Chi phí & báo giá",
+                      "value": "chi-phi"
+                    }
+                  ]
+                },
+                {
                   "name": "description",
                   "label": "Mô tả SEO",
                   "widget": "text"
@@ -1644,6 +1668,30 @@
                   "name": "title",
                   "label": "Tiêu đề bài / SEO",
                   "widget": "string"
+                },
+                {
+                  "label": "Chuyên mục",
+                  "name": "category",
+                  "widget": "select",
+                  "default": "thi-cong",
+                  "options": [
+                    {
+                      "label": "Chọn mẫu & phối màu",
+                      "value": "chon-mau"
+                    },
+                    {
+                      "label": "Thi công & cải tạo",
+                      "value": "thi-cong"
+                    },
+                    {
+                      "label": "Vệ sinh & bảo quản",
+                      "value": "bao-quan"
+                    },
+                    {
+                      "label": "Chi phí & báo giá",
+                      "value": "chi-phi"
+                    }
+                  ]
                 },
                 {
                   "name": "description",

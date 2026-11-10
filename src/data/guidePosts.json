@@ -74,7 +74,8 @@
       "services": [
         "dan-film-noi-that",
         "dan-film-tuong"
-      ]
+      ],
+      "category": "chon-mau"
     },
     {
       "slug": "dan-film-tu-bep-can-luu-y-gi",
@@ -145,7 +146,8 @@
       "services": [
         "dan-film-tu-bep",
         "dan-film-ban"
-      ]
+      ],
+      "category": "thi-cong"
     },
     {
       "slug": "bao-gia-dan-film",
@@ -215,7 +217,8 @@
         "dan-film-noi-that",
         "dan-film-tu-bep",
         "dan-film-thang-may"
-      ]
+      ],
+      "category": "chi-phi"
     }
   ]
 }

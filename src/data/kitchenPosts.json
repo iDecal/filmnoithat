@@ -106,7 +106,8 @@
       ],
       "imageCaption": "Tủ bếp vân gỗ nâu với dải đèn dưới tủ trên. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 640,
-      "imageHeight": 480
+      "imageHeight": 480,
+      "category": "chi-phi"
     },
     {
       "slug": "dan-film-tu-bep-nho-chon-mau",
@@ -238,7 +239,8 @@
       ],
       "imageCaption": "Tủ bếp trắng phối mặt gỗ trong góc bếp nhỏ. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 447,
-      "imageHeight": 447
+      "imageHeight": 447,
+      "category": "chon-mau"
     },
     {
       "slug": "dan-film-tu-bep-van-go-hay-don-sac",
@@ -354,7 +356,8 @@
       ],
       "imageCaption": "Tủ bếp vân gỗ sáng kết hợp cánh trắng và đảo bếp. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 576,
-      "imageHeight": 768
+      "imageHeight": 768,
+      "category": "chon-mau"
     },
     {
       "slug": "dan-film-tu-bep-mdf-melamine-laminate",
@@ -450,7 +453,8 @@
       ],
       "imageCaption": "Tủ bếp trắng phối gỗ sáng và kệ mở. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 768,
-      "imageHeight": 576
+      "imageHeight": 576,
+      "category": "thi-cong"
     },
     {
       "slug": "dan-film-tu-bep-hay-thay-canh-tu",
@@ -552,7 +556,8 @@
       ],
       "imageCaption": "Tủ bếp vân gỗ trung tính với đảo bếp và ghế tròn. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 1448,
-      "imageHeight": 1086
+      "imageHeight": 1086,
+      "category": "thi-cong"
     },
     {
       "slug": "dan-film-tu-bep-hay-son-lai",
@@ -647,7 +652,8 @@
       ],
       "imageCaption": "Tủ bếp vân gỗ nâu với cánh tủ và hông đồng màu. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 386,
-      "imageHeight": 518
+      "imageHeight": 518,
+      "category": "thi-cong"
     },
     {
       "slug": "ve-sinh-dau-mo-truoc-khi-dan-film-tu-bep",
@@ -741,7 +747,8 @@
       ],
       "imageCaption": "Tủ bếp sáng màu phối đảo bếp và ghế xanh. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 575,
-      "imageHeight": 533
+      "imageHeight": 533,
+      "category": "thi-cong"
     },
     {
       "slug": "dan-film-tu-bep-bi-bong-mep",
@@ -835,7 +842,8 @@
       ],
       "imageCaption": "Tủ bếp xanh đậm với cánh kính và tay nắm đồng. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 495,
-      "imageHeight": 619
+      "imageHeight": 619,
+      "category": "bao-quan"
     },
     {
       "slug": "ve-sinh-tu-bep-sau-khi-dan-film",
@@ -929,7 +937,8 @@
       ],
       "imageCaption": "Tủ bếp trắng và đảo bếp với bề mặt vân đá. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 741,
-      "imageHeight": 414
+      "imageHeight": 414,
+      "category": "bao-quan"
     },
     {
       "slug": "cach-do-tu-bep-truoc-khi-dan-film",
@@ -1035,7 +1044,8 @@
       ],
       "imageCaption": "Đảo bếp trắng phối mặt và hông vân gỗ. Ảnh tham khảo khi chọn film dán nội thất cho tủ bếp.",
       "imageWidth": 516,
-      "imageHeight": 387
+      "imageHeight": 387,
+      "category": "chi-phi"
     }
   ]
 }
