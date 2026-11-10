@@ -464,3 +464,11 @@ body main .home-hero.editorial-hero h1.home-title .home-title-accent {
   margin-top: .1em;
 }
 body main .editorial-hero .hero-title-accent { color: #e4cfaa !important; }
+
+/* Keep landscape backdrops near their native resolution behind the right side. */
+@media (min-width: 1024px) {
+  body main .editorial-hero::before {
+    left: 30%;
+    background-position: center;
+  }
+}

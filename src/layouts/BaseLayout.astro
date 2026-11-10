@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { heroBackdrop } from "../data/heroBackdrops";
 import { site } from "../data/site";
 import { websiteSchema } from "../data/structuredData";
 import Header from "../components/Header.astro";
@@ -57,7 +58,7 @@ const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Ast
 
   </head>
 
-  <body class="bg-base-50 text-base-900" style={{ "--hero-image": `url("${image === "/images/cong-trinh/banner-film-dan-noi-that.jpg" ? "/images/home/interior-kitchen.webp" : image}")` }}>
+  <body class="bg-base-50 text-base-900" style={{ "--hero-image": `url("${heroBackdrop(Astro.url.pathname)}")` }}>
 
     <a href="#main-content" class="skip-link button-primary">Đến nội dung chính</a>
     <Header brandName={brandName} />
