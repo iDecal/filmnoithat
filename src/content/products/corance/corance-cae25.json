@@ -19,14 +19,10 @@
     "value": "#4989b7"
   },
   "order": 470,
-  "gallery": [
-    {
-      "src": "/images/catalogue/corance/cae25.webp",
-      "alt": "Corance CAE25",
-      "width": 504,
-      "height": 252
-    }
-  ],
+  "gallery": [],
   "imageAlt": "Bề mặt Film dán nội thất Đơn sắc CAE25 – Corance",
-  "imageTitle": "Film dán nội thất Đơn sắc CAE25 – Corance"
+  "imageTitle": "Film dán nội thất Đơn sắc CAE25 – Corance",
+  "hiddenImages": [
+    "/images/catalogue/corance/cae25.webp"
+  ]
 }
