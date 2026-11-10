@@ -19,15 +19,11 @@
     "value": "#f4f4f4"
   },
   "order": 464,
-  "gallery": [
-    {
-      "src": "/images/catalogue/corance/cae16.webp",
-      "alt": "Corance CAE16",
-      "width": 504,
-      "height": 252
-    }
-  ],
+  "gallery": [],
   "imageAlt": "Bề mặt Film dán nội thất Đơn sắc CAE16 – Corance",
   "imageTitle": "Film dán nội thất Đơn sắc CAE16 – Corance",
-  "pricePerMetre": 250000
+  "pricePerMetre": 250000,
+  "hiddenImages": [
+    "/images/catalogue/corance/cae16.webp"
+  ]
 }
