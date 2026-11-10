@@ -360,3 +360,6 @@ body:not(:has(.home-luxe)) footer a.bg-white:hover {
   color: #ffffff;
 }
 body footer h2, body footer > div > div > div > p.text-accent-700 { color: #193b5b; }
+
+/* Supplied TODA swatches include the film code along the image edge. */
+img[src^="/images/products/toda-solid/"] { object-fit: contain; }
