@@ -23,7 +23,7 @@ const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
 ---
 <BaseLayout brandName={home.brandName} title={home.seoTitle} description={text(home.seoDescription)} image={home.hero.image.src} faqs={faqs}>
   <div class="home-luxe">
-    <section class="home-hero px-4 sm:px-6 bg-base-50 surface-gradient">
+    <section class="editorial-hero home-hero px-4 sm:px-6 bg-base-50 surface-gradient">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-8 lg:gap-14 items-center">
         <div>
           <p class="home-kicker mb-5">{home.hero.eyebrow}</p>

@@ -57,7 +57,7 @@ const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Ast
 
   </head>
 
-  <body class="bg-base-50 text-base-900">
+  <body class="bg-base-50 text-base-900" style={{ "--hero-image": `url("${image === "/images/cong-trinh/banner-film-dan-noi-that.jpg" ? "/images/home/interior-kitchen.webp" : image}")` }}>
 
     <a href="#main-content" class="skip-link button-primary">Đến nội dung chính</a>
     <Header brandName={brandName} />

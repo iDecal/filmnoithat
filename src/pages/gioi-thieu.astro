@@ -10,8 +10,8 @@ const principles = [
   { title: "Rõ ràng trước khi bắt đầu", text: "Vật liệu, số lượng, phần việc và chi phí được trao đổi trước khi xác nhận. Với thi công, hai bên cùng thống nhất cách xử lý nền, tiến độ và kiểm tra khi bàn giao." },
 ];
 ---
-<BaseLayout title={pageContent.about.title} description={pageContent.about.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Giới thiệu", path: "/gioi-thieu/" }])]}>
-  <section class="px-4 sm:px-6 section-space bg-base-50 surface-gradient">
+<BaseLayout image="/images/home/interior-kitchen.webp" title={pageContent.about.title} description={pageContent.about.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Giới thiệu", path: "/gioi-thieu/" }])]}>
+  <section class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient">
     <div class="max-w-7xl mx-auto">
       <Breadcrumbs items={[{ label: "Giới thiệu" }]} />
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">

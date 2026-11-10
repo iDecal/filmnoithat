@@ -15,8 +15,8 @@ interface Props {
 const { title, description, category, backHref, image, imageAlt, applications, notes } = Astro.props;
 ---
 
-<BaseLayout title={`${title} | Film Nội Thất`} description={description}>
-  <section class="px-6 py-20 bg-base-50">
+<BaseLayout image={image} title={`${title} | Film Nội Thất`} description={description}>
+  <section class="editorial-hero px-6 py-20 bg-base-50">
     <div class="max-w-6xl mx-auto">
       <a href={backHref} class="text-primary-600 hover:underline">← {category}</a>
       <h1 class="text-3xl md:text-[2.5rem] font-medium text-base-900 mt-8 mb-6">{title}</h1>

@@ -360,3 +360,91 @@ body:not(:has(.home-luxe)) footer a.bg-white:hover {
   color: #ffffff;
 }
 body footer h2, body footer > div > div > div > p.text-accent-700 { color: #193b5b; }
+
+/* Full-width editorial heroes: navy shade, sand accents and a photographic backdrop. */
+body main .editorial-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0b1e2e !important;
+  color: #ffffff !important;
+  padding-block: clamp(3.5rem, 7vw, 7rem) !important;
+  min-height: 36rem;
+  display: flex;
+  align-items: center;
+}
+body main .editorial-hero::before,
+body main .editorial-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+body main .editorial-hero::before {
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: 75% center;
+}
+body main .editorial-hero::after {
+  background: linear-gradient(90deg, #0b1e2e 0%, rgb(11 30 46 / .97) 29%, rgb(11 30 46 / .83) 47%, rgb(11 30 46 / .22) 77%, rgb(11 30 46 / .08) 100%);
+}
+body main .editorial-hero > div { width: 100%; }
+body main .editorial-hero > div > .grid { display: block; }
+body main .editorial-hero > div > .grid > div:first-child { max-width: 42rem; }
+body main .editorial-hero figure,
+body main .editorial-hero .grid > div:has(> img),
+body main .editorial-hero .grid > div:has(> figure),
+body main .editorial-hero > div > img { display: none; }
+body main .editorial-hero h1 {
+  color: #ffffff !important;
+  font-size: clamp(2.25rem, 4.6vw, 4.75rem) !important;
+  text-wrap: initial;
+  line-height: 1.1;
+  font-weight: 500;
+  max-width: 46rem;
+  letter-spacing: -.035em;
+}
+body main .editorial-hero h1 span[class] {
+  color: #e4cfaa !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+body main .editorial-hero :is(p, li, nav, [class*="text-base-"], [class*="text-primary-"]) {
+  color: #d7e0e7 !important;
+}
+body main .editorial-hero > div > :is(p, h1) { max-width: 42rem; }
+body main .editorial-hero :is(.eyebrow, .home-kicker) {
+  color: #e4cfaa !important;
+  letter-spacing: .14em;
+}
+body main .editorial-hero a:not(.button-primary, .button-secondary) { color: #ffffff !important; }
+body main .editorial-hero .button-primary {
+  background: #e4cfaa !important;
+  border-color: #e4cfaa !important;
+  color: #102a43 !important;
+}
+body main .editorial-hero .button-primary:hover { background: #f0dfc2 !important; }
+body main .editorial-hero .button-secondary {
+  background: transparent !important;
+  border-color: #adbdca !important;
+  color: #ffffff !important;
+}
+body main .editorial-hero .button-secondary:hover { background: #193b5b !important; }
+body main .editorial-hero [class*="border-base-"] { border-color: #5b6b78 !important; }
+body main .editorial-hero aside {
+  max-width: 42rem;
+  margin-top: 2rem;
+  background: rgb(11 30 46 / .8) !important;
+  color: white !important;
+}
+body main .editorial-hero aside h2 { color: white !important; }
+@media (max-width: 767px) {
+  body main .editorial-hero { min-height: 32rem; padding-block: 2.75rem !important; }
+  body main .editorial-hero::before { background-position: 65% center; }
+  body main .editorial-hero::after { background: linear-gradient(90deg, rgb(11 30 46 / .96), rgb(11 30 46 / .83) 65%, rgb(11 30 46 / .65)); }
+  body main .editorial-hero h1 { font-size: clamp(2rem, 8vw, 3rem) !important; }
+}
+
+body main .editorial-hero [class*="text-accent-"] { color: #e4cfaa !important; }
