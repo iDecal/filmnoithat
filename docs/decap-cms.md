@@ -142,3 +142,9 @@ API `/api/products` chỉ cho tài khoản có quyền `push` đọc/sửa. Khi 
 Các nút thao tác ảnh hiển thị cùng hàng trên máy tính, tự xuống dòng trên màn hình nhỏ. Trong popup, kéo thả thẻ ảnh hoặc dùng nút **← / →**, sau đó bấm **Lưu thứ tự**. Thẻ đầu tiên có nhãn **1 · Ảnh chính**; khi lưu, ảnh này chuyển vào trường `image` của sản phẩm để dùng nhất quán trong danh sách vật liệu, sản phẩm liên quan và các vị trí giới thiệu. Các ảnh còn lại được lưu theo thứ tự trong `gallery`; ALT, tiêu đề và kích thước được giữ lại. **Hủy sắp xếp** bỏ thay đổi thứ tự chưa lưu.
 
 Ảnh tham khảo không nằm trong thứ tự ảnh vật liệu. API chỉ chấp nhận đầy đủ các ảnh vật liệu hiện có; nếu có ảnh mới được tải lên, xóa hoặc đổi thứ tự từ nơi khác trong khi sửa, thao tác lưu báo xung đột để tránh mất ảnh. Tải lại trang trước khi sắp xếp lại. Phần “Ứng dụng và cách chọn film dán nội thất” đã được bỏ khỏi mẫu trang chi tiết sản phẩm.
+
+## Xóa nhanh trong danh sách mẫu vật liệu
+
+Sau khi đăng nhập quản trị bằng tài khoản GitHub có quyền ghi, mở trang nhóm vật liệu (ví dụ `/vat-lieu/van-go/`). Mỗi thẻ mẫu có nút **Xóa sản phẩm**. Hộp xác nhận hiển thị thương hiệu và mã mẫu; bấm **Hủy** để giữ lại hoặc **Xác nhận xóa** để gỡ hồ sơ sản phẩm.
+
+Nút sử dụng API xóa sản phẩm hiện có, tiếp tục kiểm tra quyền ghi ở máy chủ. Khi API xác nhận thành công, thẻ được ẩn ngay và số kết quả lọc được cập nhật; trang công khai cập nhật sau khi Cloudflare triển khai. Tệp ảnh được giữ lại. Khi yêu cầu thất bại, thẻ vẫn giữ nguyên và thông báo lỗi xuất hiện trong hộp xác nhận.
