@@ -284,34 +284,34 @@ body:not(:has(.home-luxe)) :is(dialog, [data-admin-bar]) {
 body:not(:has(.home-luxe)) main :focus-visible:not(dialog, dialog *) { outline-color: var(--luxe-highlight); }
 
 body:not(:has(.home-luxe)) .site-header {
-  background-color: #e4cfaa;
-  color: #20313d;
-  border-color: #cdb387;
+  background-color: #102a43;
+  color: #ffffff;
+  border-color: #36546c;
 }
 body:not(:has(.home-luxe)) .site-header .font-heading,
 body:not(:has(.home-luxe)) footer .font-heading { font-family: var(--font-heading); }
 body:not(:has(.home-luxe)) .site-header .text-base-900,
-body:not(:has(.home-luxe)) .site-header [class*="text-primary-"] { color: #20313d; }
+body:not(:has(.home-luxe)) .site-header [class*="text-primary-"] { color: #ffffff; }
 body:not(:has(.home-luxe)) .site-header .text-base-500,
-body:not(:has(.home-luxe)) .site-header .text-base-600 { color: #56636c; }
+body:not(:has(.home-luxe)) .site-header .text-base-600 { color: #d7e0e7; }
 body:not(:has(.home-luxe)) .site-header .submenu-panel,
-body:not(:has(.home-luxe)) #mobileMenu { background-color: #fbf4e7; }
-body:not(:has(.home-luxe)) .site-header [class*="border-base-"] { border-color: #cdb387; }
-body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-color: #f3e2c4; }
+body:not(:has(.home-luxe)) #mobileMenu { background-color: #193b5b; }
+body:not(:has(.home-luxe)) .site-header [class*="border-base-"] { border-color: #36546c; }
+body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-color: #254964; }
 body:not(:has(.home-luxe)) .site-header .nav-top-link:hover,
 body:not(:has(.home-luxe)) .site-header .nav-child-link:hover,
 body:not(:has(.home-luxe)) .site-header .submenu-toggle:hover {
-  color: #193b5b;
-  background-color: #fbf4e7;
+  color: #e4cfaa;
+  background-color: #193b5b;
 }
 body:not(:has(.home-luxe)) .site-header .button-primary {
-  background-color: #193b5b;
-  border-color: #193b5b;
-  color: #ffffff;
+  background-color: #e4cfaa;
+  border-color: #e4cfaa;
+  color: #102a43;
 }
 body:not(:has(.home-luxe)) .site-header .button-primary:hover {
-  background-color: #102a43;
-  border-color: #102a43;
+  background-color: #f0dfc2;
+  border-color: #f0dfc2;
 }
 body:not(:has(.home-luxe)) footer { background-color: #f0ebe3; }
 body:not(:has(.home-luxe)) footer .text-accent-200 { color: #20313d; }
