@@ -7,16 +7,16 @@
 @layer base {
   :root {
     --navy: #0B1B33;
-    --ivory: #EFE8DA;
+    --ivory: #F8F5EE;
     --gold: #D4BC8B;
     --pearl: #B9BEC7;
     --muted: #5C6573;
-    --canvas: #FAF8F4;
+    --canvas: #FDFCF9;
     --surface: #FFFFFF;
-    --canvas-rgb: 250 248 244;
+    --canvas-rgb: 253 252 249;
     --surface-rgb: 255 255 255;
     --navy-rgb: 11 27 51;
-    --ivory-rgb: 239 232 218;
+    --ivory-rgb: 248 245 238;
     --gold-rgb: 212 188 139;
     --pearl-rgb: 185 190 199;
     --muted-rgb: 92 101 115;
@@ -345,7 +345,7 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 input, select, textarea { accent-color: var(--navy); }
 :focus-visible { outline-color: var(--navy); }
 .sample-dialog { background: var(--surface); color: var(--navy); }
-:is(.site-header, footer) {
+footer {
   --color-base-500: var(--pearl-rgb);
   --color-base-600: var(--pearl-rgb);
   --color-primary-500: var(--gold-rgb);
@@ -355,7 +355,7 @@ input, select, textarea { accent-color: var(--navy); }
   color: var(--ivory);
   color-scheme: dark;
 }
-:is(.site-header, footer) .button-primary { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-:is(.site-header, footer) :focus-visible { outline-color: var(--gold); }
+footer .button-primary { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+footer :focus-visible { outline-color: var(--gold); }
 footer a.bg-white { background-color: var(--ivory); color: var(--navy); }
 footer a.bg-white:hover { background-color: var(--gold); color: var(--navy); }

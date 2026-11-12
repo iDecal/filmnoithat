@@ -12,12 +12,12 @@ const pathname = Astro.url.pathname;
     <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${brandName} — Trang chủ`}>
       <img src="/logo.svg" alt="" width="44" height="44" class="w-11 h-11 shrink-0" />
       <span>
-        <span class="block font-heading text-base font-semibold text-base-100 leading-snug">{brandName}</span>
+        <span class="block font-heading text-base font-semibold text-base-900 leading-snug">{brandName}</span>
         <span class="block text-xs text-base-500 mt-1">Vật liệu & thi công</span>
       </span>
     </a>
 
-    <nav class="hidden xl:flex items-center gap-3 text-sm font-medium" aria-label="Điều hướng chính">
+    <nav class="hidden xl:flex items-center gap-1 text-sm font-medium" aria-label="Điều hướng chính">
       {navigation.map((item, index) => item.children ? (
         <div data-nav-group class="nav-dropdown relative">
           <div class:list={["flex items-center rounded-lg", { "text-primary-600 bg-primary-50": isCurrentSection(pathname, item) }]}>
@@ -35,7 +35,7 @@ const pathname = Astro.url.pathname;
     </nav>
 
     <div class="flex xl:hidden items-center gap-2 shrink-0">
-    <button type="button" id="menuBtn" class="xl:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-100" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button></div>
+    <button type="button" id="menuBtn" class="xl:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button></div>
   </div>
 
   <nav id="mobileMenu" class="hidden xl:hidden border-t border-base-200 bg-white max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain" aria-label="Điều hướng trên điện thoại">
@@ -106,9 +106,13 @@ const pathname = Astro.url.pathname;
 </script>
 
 <style>
-  .site-header { background: var(--navy); color: var(--ivory); border-color: var(--gold); }
-  #menuBtn { border-color: var(--gold); background: var(--navy); color: var(--ivory); }
+  .site-header { background: var(--surface); color: var(--navy); border-color: rgb(var(--pearl-rgb) / .5); color-scheme: light; }
+  .site-header nav a { text-transform: uppercase; letter-spacing: .025em; }
+  .site-header .button-primary { background: var(--navy); color: var(--surface); border-color: var(--navy); }
+  .site-header .button-primary:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .site-header :focus-visible { outline-color: var(--navy); }
+  #menuBtn { border-color: var(--pearl); background: var(--ivory); color: var(--navy); }
   .submenu-panel[hidden] { display: none; }
   .submenu-toggle[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
-  .submenu-toggle[aria-expanded="true"], a[aria-current="page"] { color: var(--gold); background: var(--navy); font-weight: 600; }
+  .submenu-toggle[aria-expanded="true"], a[aria-current="page"] { color: var(--navy); background: var(--ivory); font-weight: 600; }
 </style>
