@@ -1,128 +1,181 @@
 ---
 import home from "../data/homeContent.json";
-import { catalogue } from "../data/catalogue";
+import { catalogue, sampleHref } from "../data/catalogue";
 import { formatRetailPrice } from "../data/infeelPrices";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
-import type { IconName } from "../data/icons";
-import MaterialPreview from "../components/MaterialPreview.astro";
 import { categoryIcon } from "../data/icons";
 import { materials, materialHref } from "../data/materials";
-import { services, serviceHref } from "../data/services";
 import { posts, postHref, formatDate } from "../data/posts";
-import { spaces } from "../data/spaces";
+import { projectStories, storyHref, storyLabel } from "../data/projectStories";
+import { heroBackdrop } from "../data/heroBackdrops";
 import { site } from "../data/site";
-const infeelPrices = catalogue.filter(sample => sample.brand === "INFEEL" && sample.pricePerMetre).map(sample => sample.pricePerMetre!);
-const infeelStartingPrice = infeelPrices.length ? formatRetailPrice(Math.min(...infeelPrices)) : "";
-const text = (value: string) => infeelStartingPrice ? value.replaceAll("{gia_infeel}", infeelStartingPrice) : value.replaceAll("từ {gia_infeel}/mét dài", "liên hệ báo giá");
-const featured = home.collections.items.map(item => ({ ...item, material: materials.find(material => material.slug === item.slug)! }));
-const serviceItems = services.filter(service => service.slug !== "dan-film-noi-that");
-const benefits = home.benefits.items.map(item => ({ ...item, icon: item.icon as IconName, text: text(item.text) }));
-const steps = home.steps.items;
+const prices = catalogue.filter(sample => sample.brand === "INFEEL" && sample.pricePerMetre).map(sample => sample.pricePerMetre!);
+const startingPrice = prices.length ? formatRetailPrice(Math.min(...prices)) : "";
+const text = (value: string) => startingPrice ? value.replaceAll("{gia_infeel}", startingPrice) : value.replaceAll("từ {gia_infeel}/mét dài", "liên hệ báo giá");
 const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
+const brands = [...new Set(catalogue.map(sample => sample.brand))];
+const collectionPhotos: Record<string,string> = {
+  "van-go": "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
+  "da-cam-thach": "/images/home/interior-kitchen.webp",
+  "don-sac": "/images/bo-suu-tap/film-noi-that-canh-tu-mau-kem.webp",
+  "kim-loai": "/images/bo-suu-tap/film-noi-that-quay-anh-kim-voi-duong-sang.webp",
+};
+const collections = home.collections.items.map(item => ({ ...item, material: materials.find(material => material.slug === item.slug)!, image: collectionPhotos[item.slug] }));
+const stories = [...projectStories.filter(story => story.kind === "reference"), ...projectStories.filter(story => story.kind !== "reference")].slice(0,6);
+const heroSlides = [
+  { src: heroBackdrop("/"), alt: "Không gian bếp phối gỗ và tông trung tính — ảnh tham khảo" },
+  { src: "/images/bo-suu-tap/film-noi-that-quay-va-vach-trong-khong-gian-tiep-don.webp", alt: "Quầy và vách nội thất trong không gian tiếp đón — ảnh tham khảo" },
+  { src: "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp", alt: "Bếp sáng phối chất liệu gỗ — ảnh tham khảo" },
+];
+const selected = new Set<string>();
+const featuredProducts = [
+  ["van-go","INFEEL"], ["van-go","Corance"], ["da-cam-thach","INFEEL"], ["da-cam-thach","TODA"],
+  ["don-sac","INFEEL"], ["don-sac","TODA"], ["kim-loai","INFEEL"], ["kim-loai","Corance"],
+].map(([category,brand]) => {
+  const sample = catalogue.find(item => item.category === category && item.brand === brand && !selected.has(item.slug)) || catalogue.find(item => item.category === category && !selected.has(item.slug))!;
+  selected.add(sample.slug); return sample;
+});
+const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice(0,4);
 ---
-<BaseLayout brandName={home.brandName} title={home.seoTitle} description={text(home.seoDescription)} image={home.hero.image.src} faqs={faqs}>
-  <div class="home-luxe">
-    <section class="editorial-hero home-hero px-4 sm:px-6 bg-base-50 surface-gradient">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-8 lg:gap-14 items-center">
-        <div>
-          <p class="home-kicker mb-5">{home.hero.eyebrow}</p>
-          <h1 class="home-title"><span class="home-title-lead">{home.hero.titleLead}</span><span class="home-title-accent text-primary-500">{home.hero.titleAccent}</span></h1>
-          <p class="text-base sm:text-lg text-base-600 mt-6 max-w-xl">{home.hero.description}</p>
-          <div class="flex flex-col sm:flex-row gap-3 mt-7"><a href={home.hero.primaryHref} class="button-primary">{home.hero.primaryLabel} <Icon name="arrow" size={18} class="ml-2" /></a><a href={home.hero.secondaryHref} class="button-secondary">{home.hero.secondaryLabel}</a></div>
-          <p class="text-xs sm:text-sm text-base-600 mt-6">{text(home.hero.priceNote)}</p>
-        </div>
-        <figure class="min-w-0"><img src={home.hero.image.src} alt={home.hero.image.alt} title={home.hero.image.title || undefined} width={home.hero.image.width} height={home.hero.image.height} fetchpriority="high" class="w-full aspect-[4/3] lg:aspect-[5/4] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">{home.hero.caption}</figcaption></figure>
-      </div>
+<BaseLayout brandName={home.brandName} title={home.seoTitle} description={text(home.seoDescription)} image={heroSlides[0].src} faqs={faqs}>
+  <div class="home-dom">
+    <section class="dom-hero" aria-labelledby="dom-title" aria-roledescription="trình chiếu" aria-label="Không gian nội thất tham khảo" data-home-slider>
+      <div class="dom-slides">{heroSlides.map((slide,index) => <img src={slide.src} alt={slide.alt} width="1448" height="1086" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} class:list={["dom-slide",{"is-active":index===0}]} aria-hidden={index !== 0 ? "true" : undefined} data-hero-slide />)}</div>
+      <div class="dom-shade" aria-hidden="true"></div>
+      <div class="dom-wrap dom-hero-copy"><p class="dom-label">{home.hero.eyebrow}</p><h1 id="dom-title">{home.hero.titleLead}<br />{home.hero.titleAccent}</h1><p class="dom-hero-description">{home.hero.description}</p><a href={home.hero.primaryHref} class="dom-button dom-button-orange">{home.hero.primaryLabel}<Icon name="arrow" size={17} /></a></div>
+      <button type="button" data-hero-prev class="dom-hero-arrow dom-prev" aria-label="Xem ảnh không gian trước">←</button><button type="button" data-hero-next class="dom-hero-arrow dom-next" aria-label="Xem ảnh không gian tiếp theo">→</button>
+      <div class="dom-dots" role="group" aria-label="Chọn ảnh không gian">{heroSlides.map((_,index) => <button type="button" data-hero-dot aria-label={`Xem ảnh ${index+1}`} aria-pressed={index===0 ? "true":"false"}><span></span></button>)}</div><p class="dom-hero-source">Ảnh không gian tham khảo</p><span class="dom-sr-only" data-hero-status role="status" aria-live="polite">Ảnh 1 / {heroSlides.length}</span>
     </section>
 
-    <section class="px-4 sm:px-6 py-8 sm:py-10 bg-base-50 border-y border-base-200" aria-labelledby="home-categories-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center gap-4 mb-6"><h2 id="home-categories-title" class="text-base font-semibold">{home.categories.title}</h2><a href="/vat-lieu/" class="text-sm text-primary-600 inline-flex items-center gap-2 min-h-11">{home.categories.linkLabel} <Icon name="arrow" size={17} /></a></div>
-        <nav class="category-rail flex gap-4 sm:gap-8 lg:justify-between overflow-x-auto pb-2" aria-label="Danh mục film nội thất">
-          {materials.map(material => <a href={materialHref(material)} class="category-shortcut flex flex-col items-center gap-3 text-center shrink-0 min-w-20 sm:min-w-24"><span class="category-icon bg-accent-100/60 rounded-xl flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 text-accent-700 transition-colors"><Icon name={categoryIcon(material.slug)!} size={28} /></span><span class="text-xs sm:text-sm font-medium">{material.shortName}</span></a>)}
-        </nav>
-      </div>
-    </section>
+    <section class="dom-section" aria-labelledby="dom-collections-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">CHỌN CHẤT LIỆU BẠN YÊU THÍCH</p><h2 id="dom-collections-title">Film dán nội thất cho từng<br class="dom-desktop-break" /> không gian của bạn.</h2><p>Đổi màu tủ, cửa và vách bằng chất liệu phù hợp với nội thất đang có.</p></header><div class="dom-collections">{collections.map(item => <a class="dom-collection" href={materialHref(item.material)}><img src={item.image} alt={`Gợi ý không gian cho ${item.material.name.toLowerCase()} — ảnh tham khảo`} width="700" height="900" loading="lazy" /><div class="dom-collection-shade"></div><div class="dom-collection-caption"><Icon name={categoryIcon(item.slug)!} size={25} /><h3>{item.material.shortName}</h3><span>Khám phá chất liệu ↗</span></div></a>)}</div></div></section>
 
+    <section class="dom-ribbon"><div class="dom-wrap dom-ribbon-inner"><h2>Chọn mẫu bạn thích.<br />Cùng lên phương án hoàn thiện.</h2><a class="dom-button dom-button-dark" href={site.zaloHref}>Trao đổi qua Zalo<Icon name="arrow" size={17} /></a></div></section>
 
-    <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="materials-title">
-      <div class="max-w-7xl mx-auto"><div class="home-section-heading"><div><p class="home-kicker mb-3">{home.collections.eyebrow}</p><h2 id="materials-title" class="home-heading">{home.collections.title}</h2></div><a href="/vat-lieu/" class="home-text-link shrink-0">{home.collections.linkLabel} <Icon name="arrow" size={18} /></a></div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7">{featured.map(item => <article class="min-w-0"><a href={`${materialHref(item.material)}#mau-vat-lieu`} class="block group"><div class="aspect-[4/3] rounded-xl overflow-hidden bg-base-100"><MaterialPreview material={item.material} /></div><div class="flex gap-2 items-start mt-4"><Icon name={categoryIcon(item.slug)!} size={21} class="text-primary-600 shrink-0 mt-0.5" /><h3 class="text-base sm:text-lg font-medium group-hover:text-primary-600">{item.title}</h3></div><p class="text-sm text-base-600 mt-2">{item.text}</p><span class="home-text-link text-sm mt-2">{home.collections.chooseLabel} <Icon name="arrow" size={16} /></span></a>{item.slug === "kim-loai" && <a href="/vat-lieu/be-tong/#mau-vat-lieu" class="text-sm text-primary-600 underline underline-offset-4 inline-flex min-h-11 items-center">{home.collections.concreteLabel}</a>}</article>)}</div>
-      </div>
-    </section>
+    <section class="dom-section" aria-labelledby="dom-about-title"><div class="dom-wrap"><div class="dom-about-grid"><div><p class="dom-label">HIỂU VẬT LIỆU. CHỌN ĐÚNG ỨNG DỤNG.</p><h2 id="dom-about-title">Chọn film dán nội thất<br />cho không gian của bạn.</h2><div class="dom-faq">{faqs.map((faq,index) => <details open={index===0}><summary><span>{faq.question}</span><span class="dom-faq-plus" aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div><div class="dom-about-visual"><figure><img src={home.benefits.image.src} alt={home.benefits.image.alt} width={home.benefits.image.width} height={home.benefits.image.height} loading="lazy" /><figcaption>{home.benefits.caption}</figcaption></figure><div class="dom-stats"><div><span>Mẫu film trên website</span><strong>{catalogue.length}</strong><span>Chọn theo vân và sắc độ</span></div><div><span>Bộ sưu tập vật liệu</span><strong>{brands.length}</strong><span>Thương hiệu trong danh mục</span></div></div></div></div><div class="dom-brands" aria-label="Các thương hiệu trong danh mục">{brands.map(brand => <a href={`/vat-lieu/van-go/?brand=${encodeURIComponent(brand)}#mau-vat-lieu`}>{brand}</a>)}</div></div></section>
 
-    <section class="home-section px-4 sm:px-6 bg-base-900 ink-gradient text-white" aria-labelledby="applications-title">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] gap-8 lg:gap-20">
-        <div><p class="home-kicker text-accent-200 mb-4">{home.applications.eyebrow}</p><h2 id="applications-title" class="home-heading text-white">{home.applications.titleLead}<br />{home.applications.titleAccent}</h2><p class="text-white/80 mt-6 max-w-md">{home.applications.description}</p><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center gap-3 min-h-12 mt-6 pb-2 border-b border-white/40 text-sm font-medium">{home.applications.linkLabel} <Icon name="arrow" size={18} /></a></div>
-        <div>{serviceItems.map(service => <a href={serviceHref(service)} class="home-service-link flex items-start sm:items-center gap-4 sm:gap-6 py-5 border-b border-white/20 first:pt-0"><span class="inline-flex w-10 h-10 items-center justify-center text-accent-200 shrink-0"><Icon name={categoryIcon(service.slug)!} size={27} /></span><div class="flex-1 min-w-0"><h3 class="text-lg font-medium">{service.name}</h3><p class="text-white/75 text-sm mt-2">{service.sections[0].title}</p></div><Icon name="arrow" size={18} class="text-accent-200 mt-3 sm:mt-0" /></a>)}</div>
-      </div>
-    </section>
+    <section aria-labelledby="dom-spaces-title"><div class="dom-wrap dom-gallery-heading"><p class="dom-label">CẢM HỨNG ỨNG DỤNG</p><h2 id="dom-spaces-title">Chất liệu trong không gian.</h2><p>Ảnh ứng dụng catalogue và không gian tham khảo. Xem nguồn và mã liên quan tại từng trang.</p></div><div class="dom-space-grid">{stories.map(story => <a class="dom-space" href={storyHref(story)}><figure><img src={story.images[0].src} alt={story.images[0].alt} width="1000" height="700" loading="lazy" /><figcaption><span>{storyLabel(story)}</span><h3>{story.title}</h3><span>Xem không gian ↗</span></figcaption></figure></a>)}</div></section>
 
-    <section class="home-section px-4 sm:px-6 bg-white" aria-labelledby="benefits-title">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <figure class="order-2 lg:order-1"><img src={home.benefits.image.src} alt={home.benefits.image.alt} title={home.benefits.image.title} width={home.benefits.image.width} height={home.benefits.image.height} loading="lazy" class="w-full aspect-[16/10] lg:aspect-[4/5] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">{home.benefits.caption}</figcaption></figure>
-        <div class="order-1 lg:order-2"><p class="home-kicker mb-4">{home.benefits.eyebrow}</p><h2 id="benefits-title" class="home-heading">{home.benefits.titleLead}<br />{home.benefits.titleAccent}</h2><div class="mt-7 divide-y divide-base-200">{benefits.map(item => <article class="flex gap-4 py-5"><span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-accent-100 text-accent-700 shrink-0"><Icon name={item.icon} size={22} /></span><div><h3 class="text-base sm:text-lg font-medium">{item.title}</h3><p class="text-sm text-base-600 mt-2">{item.text}</p></div></article>)}</div></div>
-      </div>
-    </section>
+    <section class="dom-section" aria-labelledby="dom-products-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">BỘ SƯU TẬP VẬT LIỆU</p><h2 id="dom-products-title">Mẫu film dán nội thất.</h2><p>Chọn mã để xem bề mặt, quy cách và tư vấn ứng dụng.</p></header><div class="dom-products">{featuredProducts.map(sample => <a href={sampleHref(sample)} class="dom-product"><div class="dom-product-image"><img src={sample.image} alt={sample.imageAlt || `${sample.title} ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" /></div><p class="dom-product-code">{sample.brand} / {sample.code}</p><h3>{sample.title}</h3><p class="dom-product-price">{sample.pricePerMetre ? formatRetailPrice(sample.pricePerMetre) : "Liên hệ báo giá"}{sample.pricePerMetre && <span> / mét dài</span>}</p></a>)}</div><div class="dom-center dom-section-action"><a class="dom-button dom-button-orange" href="/vat-lieu/">Xem tất cả mẫu film<Icon name="arrow" size={17} /></a></div></div></section>
 
-    <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="steps-title"><div class="max-w-7xl mx-auto"><p class="home-kicker mb-3">{home.steps.eyebrow}</p><h2 id="steps-title" class="home-heading">{home.steps.title}</h2><ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 mt-8">{steps.map((step,index) => <li class="border-t border-base-300 pt-5"><span class="text-accent-600 font-heading text-3xl font-medium">0{index+1}</span><p class="text-base-600 mt-4">{step}</p></li>)}</ol></div></section>
+    <section class="dom-assurance"><img src={heroSlides[1].src} alt="" width="1400" height="900" loading="lazy" class="dom-assurance-photo" /><div class="dom-shade" aria-hidden="true"></div><div class="dom-wrap dom-assurance-grid"><div class="dom-assurance-intro"><p class="dom-label">VẬT LIỆU & THI CÔNG THEO NHU CẦU</p><h2>Rõ ràng từ lựa chọn<br />đến hoàn thiện.</h2><p>Chốt mẫu, phạm vi và những chi tiết cần xử lý trước khi bắt đầu.</p><a href="/dich-vu/dan-film-noi-that/" class="dom-button dom-button-orange">Xem dịch vụ<Icon name="arrow" size={17} /></a></div><article class="dom-promise"><Icon name="swatches" size={29} /><h3>Chọn mẫu thực tế</h3><p>Đối chiếu màu, chiều vân và thông số của đúng mã film với không gian cần dán.</p><a href="/blog/cach-chon-film-noi-that/">Tìm hiểu cách chọn mẫu ↗</a></article><article class="dom-promise"><Icon name="check" size={29} /><h3>Thống nhất phạm vi</h3><p>Trao đổi xử lý nền, tháo lắp, chi phí, nghiệm thu và điều kiện bảo hành theo hạng mục.</p><a href="/blog/bao-gia-dan-film/">Cách đọc báo giá ↗</a></article></div></section>
 
-    <section id="cam-hung-chat-lieu" class="home-section px-4 sm:px-6 bg-white" aria-labelledby="home-inspiration-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="home-section-heading">
-          <div><p class="home-kicker mb-3">{home.inspiration.eyebrow}</p><h2 id="home-inspiration-title" class="home-heading">{home.inspiration.titleLead}<br />{home.inspiration.titleAccent}</h2></div>
-          <div class="flex flex-wrap gap-x-5 gap-y-1"><a href="/cong-trinh/" class="home-text-link text-sm">{home.inspiration.spacesLabel} <Icon name="arrow" size={17} /></a><a href="/blog/" class="home-text-link text-sm">{home.inspiration.blogLabel} <Icon name="arrow" size={17} /></a></div>
-        </div>
-        <div class="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-8 lg:gap-12">
-          <div>
-            <a href={spaces[0].service} class="space-feature group block"><img src={spaces[0].image} alt={spaces[0].title} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><div class="flex items-start justify-between gap-4 mt-4"><div><p class="text-xs text-base-600 mb-2">{spaces[0].label} · Hình tham khảo</p><h3 class="text-lg sm:text-xl font-medium">{spaces[0].title}</h3></div><Icon name="arrow" size={20} class="text-primary-600 mt-3" /></div></a>
-            <div class="grid grid-cols-2 gap-4 mt-6">{spaces.slice(1, 3).map(space => <a href={space.service} class="group"><img src={space.image} alt={space.title} width="450" height="280" loading="lazy" class="w-full aspect-[16/10] object-cover rounded-xl" /><p class="text-xs text-base-600 mt-3 mb-1">{space.label} · Tham khảo</p><h3 class="text-sm sm:text-base font-medium">{space.title}</h3></a>)}</div>
-          </div>
-          <div class="lg:border-l lg:border-base-200 lg:pl-10">
-            <p class="home-kicker mb-5">{home.inspiration.readingLabel}</p>
-            <div class="divide-y divide-base-200">{posts.slice(0,3).map(post => <a href={postHref(post)} class="group flex items-start gap-4 sm:gap-5 py-5 first:pt-0"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="140" height="140" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shrink-0" /><div class="min-w-0"><p class="text-xs text-base-600 mb-2"><time datetime={post.date}>{formatDate(post.date)}</time> / Cẩm nang</p><h3 class="text-base sm:text-lg font-medium">{post.title}</h3><span class="home-text-link text-sm mt-1">{home.inspiration.readMoreLabel} <Icon name="arrow" size={16} /></span></div></a>)}</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="dom-section" aria-labelledby="dom-posts-title"><div class="dom-wrap"><header class="dom-heading"><p class="dom-label">CẨM NANG FILM NỘI THẤT</p><h2 id="dom-posts-title">Đọc thêm trước khi chọn.</h2></header><div class="dom-posts">{latestPosts.map(post => <article><a href={postHref(post)}><div class="dom-post-photo"><img src={post.image} alt={post.imageAlt || post.title} width="700" height="500" loading="lazy" /></div><p class="dom-post-category">Tư vấn vật liệu & thi công</p><h3>{post.title}</h3><time datetime={post.date}>{formatDate(post.date)}</time><span class="dom-post-link">Đọc bài viết ↗</span></a></article>)}</div><a class="dom-text-link" href="/blog/">Xem tất cả bài viết<Icon name="arrow" size={17} /></a></div></section>
 
-    <section class="home-section px-4 sm:px-6 warm-surface" aria-labelledby="faq-title"><div class="max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.3fr)] gap-8 lg:gap-16"><div><p class="home-kicker mb-3">{home.faqs.eyebrow}</p><h2 id="faq-title" class="home-heading">{home.faqs.title}</h2><a href="/blog/" class="home-text-link mt-4">{home.faqs.linkLabel} <Icon name="arrow" size={18} /></a></div><div class="space-y-3">{faqs.map(faq => <details class="bg-white border border-base-200 rounded-xl p-5 sm:p-6"><summary class="font-medium cursor-pointer leading-relaxed">{faq.question}</summary><p class="text-base-600 mt-4 leading-relaxed">{faq.answer}</p></details>)}</div></div></section>
-
-    <section id="bao-gia" class="home-section px-4 sm:px-6 bg-white" aria-labelledby="quote-title">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <div><p class="home-kicker mb-3">{home.contact.eyebrow}</p><h2 id="quote-title" class="home-heading">{home.contact.title}</h2><p class="text-base-600 mt-5">{home.contact.description}</p><p class="text-base-600 mt-5">{home.contact.address}</p></div>
-        <div class="warm-surface rounded-2xl p-6 sm:p-8"><p class="text-sm text-base-600">{home.contact.boxLabel}</p><a href={site.phoneHref} class="flex items-center gap-3 min-h-11 text-primary-600 text-2xl font-semibold mt-3"><Icon name="phone" size={24} />{site.phone}</a><div class="flex flex-col sm:flex-row gap-3 mt-6"><a href={site.zaloHref} class="button-primary">{home.contact.zaloLabel} <Icon name="arrow" size={18} class="ml-2" /></a><a href={site.phoneHref} class="button-secondary">{home.contact.phoneLabel}</a></div><p class="text-sm text-base-600 mt-5">{home.contact.serviceNote}</p></div>
-      </div>
-    </section>
+    <section id="bao-gia" class="dom-contact"><div class="dom-wrap dom-contact-inner"><div><p class="dom-label">{home.contact.eyebrow}</p><h2>{home.contact.title}</h2><p>{home.contact.description}</p><p class="dom-contact-address">{home.contact.address}</p></div><div class="dom-contact-actions"><a href={site.zaloHref} class="dom-button dom-button-orange">{home.contact.zaloLabel}<Icon name="arrow" size={17} /></a><a href={site.phoneHref} class="dom-phone">{site.phone}</a><span>{home.contact.serviceNote}</span></div></div></section>
   </div>
 </BaseLayout>
 
-<style>
-.home-hero { padding-block: clamp(2rem, 5vw, 4rem); }
-.home-kicker { color: rgb(var(--color-accent-600)); font-size: .6875rem; line-height: 1.7; font-weight: 600; letter-spacing: .12em; }
-.home-kicker.text-accent-200 { color: rgb(var(--color-accent-200)); }
-.home-title { font-size: clamp(1.875rem, 3.4vw, 3rem); font-weight: 500; line-height: 1.25; letter-spacing: -.03em; }
-.home-heading { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.3; letter-spacing: -.025em; max-width: 40rem; }
-.home-section { padding-block: clamp(2.75rem, 5.5vw, 5rem); }
-.home-section-heading { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 1.25rem; margin-bottom: 2rem; }
-.home-text-link { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; padding-block: .5rem; color: rgb(var(--color-primary-600)); font-weight: 500; }
-.home-text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
-.home-service-link:hover h3 { color: rgb(var(--color-accent-200)); }
-.category-rail { scrollbar-width: thin; }
-.category-shortcut:hover .category-icon { color: rgb(var(--color-primary-600)); background: transparent; }
-#bao-gia { scroll-margin-top: 6rem; }
-@media(min-width:768px) { .home-section-heading { flex-direction: row; align-items: flex-end; gap: 2rem; } }
-
-/* Keep the current homepage typography; colors use the shared palette. */
-:global(body:has(.home-luxe)) {
-  --font-heading: "Montserrat", system-ui, sans-serif;
-  --font-body: "Wix Madefor Text", system-ui, sans-serif;
-  font-family: var(--font-body);
+<script>
+const slider = document.querySelector<HTMLElement>("[data-home-slider]");
+if (slider) {
+  const slides = [...slider.querySelectorAll<HTMLImageElement>("[data-hero-slide]")];
+  const dots = [...slider.querySelectorAll<HTMLButtonElement>("[data-hero-dot]")];
+  const status = slider.querySelector<HTMLElement>("[data-hero-status]")!;
+  let current = 0;
+  const show = (index: number) => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide,i) => { slide.classList.toggle("is-active",i===current); slide.setAttribute("aria-hidden",String(i!==current)); if (i===current) slide.loading="eager"; });
+    dots.forEach((dot,i) => dot.setAttribute("aria-pressed",String(i===current)));
+    status.textContent = `Ảnh ${current+1} / ${slides.length}`;
+  };
+  slider.querySelector("[data-hero-prev]")?.addEventListener("click",()=>show(current-1));
+  slider.querySelector("[data-hero-next]")?.addEventListener("click",()=>show(current+1));
+  dots.forEach((dot,i)=>dot.addEventListener("click",()=>show(i)));
+  slider.addEventListener("keydown",event=>{ if(event.key==="ArrowLeft"||event.key==="ArrowRight"){event.preventDefault();show(current+(event.key==="ArrowRight"?1:-1));} });
 }
-.home-luxe .home-title,
-.home-luxe .home-heading,
-.home-luxe :global(h2),
-.home-luxe :global(h3),
-.home-luxe :global(.font-heading) { font-family: var(--font-heading); }
+</script>
+
+<style>
+.home-dom { --dom-ink:#191919; --dom-muted:#555b61; --dom-orange:#e58b2a; --dom-orange-text:#914700; --dom-paper:#fff; --dom-soft:#f5f5f3; --dom-line:#dededb; color:var(--dom-ink); background:var(--dom-paper); }
+.dom-wrap { width:min(1240px,calc(100% - 40px)); margin-inline:auto; }
+.home-dom h1,.home-dom h2,.home-dom h3,.home-dom p { margin:0; }
+.home-dom h1 { font-size:clamp(2rem,4vw,3.75rem); font-weight:500; line-height:1.17; letter-spacing:-.035em; }
+.home-dom h2 { font-size:clamp(1.6rem,2.8vw,2.5rem); line-height:1.22; font-weight:500; letter-spacing:-.03em; }
+.home-dom h3 { font-weight:500; line-height:1.4; letter-spacing:-.015em; }
+.home-dom p { line-height:1.8; }
+.dom-section { padding-block:clamp(3.5rem,7vw,6.5rem); }
+.dom-center { text-align:center; }
+.dom-label { font-size:.6875rem; letter-spacing:.15em; font-weight:600; color:var(--dom-orange-text); text-transform:uppercase; }
+.dom-heading { margin-bottom:2.25rem; }
+.dom-heading h2 { margin-top:.7rem; }
+.dom-heading>p:last-child:not(.dom-label) { color:var(--dom-muted); max-width:42rem; margin:.9rem auto 0; font-size:.9375rem; }
+.dom-heading:not(.dom-center)>p:last-child { margin-left:0; }
+.dom-button { display:inline-flex; align-items:center; justify-content:center; gap:.8rem; min-height:48px; padding:.8rem 1.5rem; border:1px solid transparent; border-radius:999px; font-size:.8125rem; font-weight:500; line-height:1.5; transition:background-color .2s,color .2s; text-align:center; }
+.dom-button-orange { background:var(--dom-orange); color:var(--dom-ink); border-color:var(--dom-orange); }
+.dom-button-orange:hover { background:var(--dom-ink); color:var(--dom-paper); border-color:var(--dom-ink); }
+.dom-button-dark { background:var(--dom-ink); color:var(--dom-paper); border-color:var(--dom-ink); }
+.dom-button-dark:hover { background:var(--dom-paper); color:var(--dom-ink); }
+.dom-hero { position:relative; min-height:560px; min-height:clamp(560px,70svh,760px); display:flex; align-items:center; justify-content:center; isolation:isolate; background:var(--dom-ink); color:var(--dom-paper); padding:4rem 1.25rem 6rem; }
+.dom-slides,.dom-slide,.dom-shade { position:absolute; inset:0; width:100%; height:100%; }
+.dom-slide { object-fit:cover; opacity:0; transition:opacity .6s; }
+.dom-slide.is-active { opacity:1; }
+.dom-shade { background:var(--dom-ink); opacity:.64; pointer-events:none; }
+.dom-hero-copy { width:min(100%,1000px); position:relative; z-index:1; text-align:center; max-width:1000px; }
+.dom-hero .dom-label { color:var(--dom-paper); }
+.dom-hero h1 { margin:1rem auto 1.3rem; }
+.dom-hero-description { max-width:650px; margin:0 auto 1.7rem!important; font-size:.9375rem; }
+.dom-hero-arrow { position:absolute; z-index:2; top:auto; bottom:1.2rem; width:44px; height:44px; border-radius:50%; border:1px solid var(--dom-paper); background:var(--dom-ink); color:var(--dom-paper); font-size:18px; }
+.dom-prev { left:10px; }.dom-next { right:10px; }
+.dom-dots { position:absolute; z-index:2; bottom:1.2rem; display:flex; gap:.3rem; }
+.dom-dots button { width:44px; height:44px; display:grid; place-items:center; border:0; background:transparent; }
+.dom-dots span { width:8px; height:8px; border-radius:50%; border:1px solid var(--dom-paper); }
+.dom-dots [aria-pressed=true] span { background:var(--dom-paper); }
+.dom-hero-source { position:absolute; z-index:2; right:20px; bottom:12px; font-size:10px; }
+.dom-collections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.dom-collection { position:relative; display:block; aspect-ratio:3/4; overflow:hidden; background:var(--dom-ink); color:var(--dom-paper); }
+.dom-collection>img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.dom-collection:hover>img { transform:scale(1.03); }
+.dom-collection-shade { position:absolute; inset:55% 0 0; background:var(--dom-ink); opacity:.85; }
+.dom-collection-caption { position:absolute; left:1rem; right:1rem; bottom:1rem; }
+.dom-collection-caption :global(svg) { margin-bottom:.5rem; }
+.dom-collection-caption h3 { font-size:1rem; }
+.dom-collection-caption span { display:block; font-size:.7rem; margin-top:.3rem; }
+.dom-ribbon { padding-block:2.5rem; background:var(--dom-orange); color:var(--dom-ink); }
+.dom-ribbon-inner { display:flex; flex-direction:column; align-items:flex-start; gap:1.5rem; }
+.dom-ribbon h2 { font-size:clamp(1.5rem,2.5vw,2rem); }
+.dom-about-grid { display:grid; gap:2.5rem; align-items:center; }
+.dom-about-grid h2 { margin-top:.8rem; }
+.dom-faq { margin-top:1.5rem; }
+.dom-faq details { border-bottom:1px solid var(--dom-line); }
+.dom-faq summary { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; list-style:none; cursor:pointer; font-size:.875rem; font-weight:500; }
+.dom-faq summary::-webkit-details-marker { display:none; }
+.dom-faq p { font-size:.8125rem; padding:0 1.5rem 1rem 0; color:var(--dom-muted); }
+.dom-faq-plus { font-size:1.25rem; }.dom-faq [open] .dom-faq-plus { transform:rotate(45deg); }
+.dom-about-visual { min-width:0; }
+.dom-about-visual figure img { width:100%; aspect-ratio:4/5; object-fit:cover; }
+.dom-about-visual figcaption { color:var(--dom-muted); font-size:.6875rem; margin-top:.6rem; }
+.dom-stats { display:grid; grid-template-columns:1fr 1fr; position:relative; margin:-4rem 1rem 0; background:var(--dom-ink); color:var(--dom-paper); }
+.dom-stats>div { padding:1rem; }.dom-stats>div+div { border-left:1px solid var(--dom-muted); }
+.dom-stats span { display:block; font-size:.75rem; }.dom-stats strong { display:block; font-size:2.5rem; font-weight:500; line-height:1.5; }
+.dom-brands { display:flex; flex-wrap:wrap; justify-content:space-around; gap:1rem 2rem; margin-top:4rem; border-top:1px solid var(--dom-line); padding-top:2rem; }
+.dom-brands a { display:inline-flex; align-items:center; min-height:44px; color:var(--dom-muted); font-size:1.35rem; letter-spacing:.06em; font-weight:600; }
+.dom-gallery-heading { padding-bottom:1.75rem; }.dom-gallery-heading h2 { margin:.6rem 0 .9rem; }.dom-gallery-heading>p:last-child { color:var(--dom-muted); font-size:.875rem; }
+.dom-space-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px; }
+.dom-space { position:relative; display:block; overflow:hidden; }.dom-space figure { margin:0; }.dom-space img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .4s; }.dom-space:hover img { transform:scale(1.03); }
+.dom-space figcaption { position:absolute; inset:auto 0 0; padding:.75rem; color:var(--dom-paper); background:var(--dom-ink); }
+.dom-space figcaption h3 { font-size:.8125rem; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }.dom-space figcaption span { display:block; font-size:.6875rem; margin:.15rem 0; }
+.dom-products { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem 1rem; }.dom-product { display:block; min-width:0; text-align:center; }
+.dom-product-image { overflow:hidden; background:var(--dom-soft); }.dom-product img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .4s; }.dom-product:hover img { transform:scale(1.03); }
+.dom-product-code { font-size:.75rem; color:var(--dom-muted); margin-top:.75rem!important; }.dom-product h3 { font-size:.875rem; margin-top:.3rem; }.dom-product-price { font-size:.875rem; font-weight:500; margin-top:.5rem!important; }.dom-product-price span { font-size:.75rem; font-weight:400; }
+.dom-section-action { margin-top:2.5rem; }
+.dom-assurance { position:relative; isolation:isolate; padding-block:3.5rem; background:var(--dom-ink); }.dom-assurance-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.dom-assurance-grid { position:relative; display:grid; gap:1rem; align-items:center; }.dom-assurance-intro { color:var(--dom-paper); margin-bottom:.5rem; }.dom-assurance-intro .dom-label { color:var(--dom-paper); }.dom-assurance-intro h2 { margin:1rem 0; }.dom-assurance-intro>p { font-size:.875rem; }.dom-assurance-intro>a { margin-top:1.5rem; }
+.dom-promise { padding:1.75rem; background:var(--dom-paper); color:var(--dom-ink); }.dom-promise h3 { font-size:1.125rem; margin:1.25rem 0 .8rem; }.dom-promise p { font-size:.875rem; color:var(--dom-muted); }.dom-promise>a { display:inline-flex; align-items:center; min-height:44px; font-size:.75rem; font-weight:500; margin-top:.6rem; text-decoration:underline; text-underline-offset:4px; }
+.dom-posts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem 1rem; }.dom-posts article { min-width:0; }.dom-post-photo { overflow:hidden; }.dom-post-photo img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .4s; }.dom-posts a:hover img { transform:scale(1.03); }.dom-post-category { color:var(--dom-muted); font-size:.6875rem; text-transform:uppercase; letter-spacing:.04em; margin:.8rem 0 .4rem!important; }.dom-posts h3 { font-size:.9375rem; }.dom-posts time { display:block; font-size:.75rem; color:var(--dom-muted); margin-top:.6rem; }.dom-post-link { display:inline-flex; align-items:center; min-height:44px; font-size:.75rem; margin-top:.2rem; }.dom-text-link { display:inline-flex; align-items:center; gap:.75rem; min-height:44px; margin-top:2rem; font-size:.875rem; font-weight:500; }
+.dom-contact { background:var(--dom-soft); padding-block:3rem; }.dom-contact-inner { display:flex; flex-direction:column; gap:2rem; }.dom-contact h2 { margin:.7rem 0 1rem; }.dom-contact p { max-width:660px; font-size:.875rem; color:var(--dom-muted); }.dom-contact-address { margin-top:.8rem!important; }.dom-contact-actions { display:flex; flex-direction:column; gap:.8rem; align-items:flex-start; }.dom-phone { font-size:1.3rem; font-weight:500; min-height:44px; display:inline-flex; align-items:center; }.dom-contact-actions>span { font-size:.6875rem; color:var(--dom-muted); }
+.dom-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.home-dom :focus-visible { outline:2px solid var(--dom-orange-text); outline-offset:4px; }
+:global(body:has(.home-dom) .site-header) { background:var(--surface); color:var(--navy); border-color:var(--pearl); }
+:global(body:has(.home-dom) .site-header .font-heading) { color:var(--navy); }
+:global(body:has(.home-dom) .site-header .text-base-500) { color:var(--muted); }
+:global(body:has(.home-dom) .site-header .button-primary) { background:var(--navy); border-color:var(--navy); color:var(--ivory); border-radius:999px; }
+:global(body:has(.home-dom) .site-header .nav-top-link), :global(body:has(.home-dom) .site-header .submenu-toggle) { color:var(--navy); }
+@media(min-width:640px) { .dom-wrap { width:min(1240px,calc(100% - 64px)); }.dom-collections { gap:22px; }.dom-ribbon-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-collection-caption h3 { font-size:1.35rem; }.dom-about-visual figure img { aspect-ratio:5/4; }.dom-contact-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-contact-inner>div:first-child { max-width:65%; } }
+@media(min-width:1024px) { .dom-collections { grid-template-columns:repeat(4,minmax(0,1fr)); }.dom-hero { min-height:680px; padding:5rem 4rem 6rem; }.dom-hero-arrow { width:44px; height:44px; top:50%; bottom:auto; }.dom-prev { left:24px; }.dom-next { right:24px; }.dom-about-grid { grid-template-columns:1fr 1fr; gap:5rem; }.dom-about-visual { padding-left:1rem; }.dom-about-visual figure img { aspect-ratio:4/5; max-height:610px; }.dom-stats { margin-left:-3rem; margin-right:2rem; }.dom-stats>div { padding:1.4rem; }.dom-space-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.dom-space img { aspect-ratio:16/10; }.dom-space figcaption { padding:1rem 1.4rem; }.dom-space figcaption h3 { font-size:1.15rem; }.dom-space figcaption span { font-size:.7rem; }.dom-products,.dom-posts { grid-template-columns:repeat(4,minmax(0,1fr)); gap:2.5rem 1.5rem; }.dom-assurance-grid { grid-template-columns:1.05fr 1fr 1fr; gap:1.5rem; }.dom-assurance-intro { padding-right:1rem; }.dom-assurance-intro h2 { font-size:1.8rem; }.dom-promise { min-height:300px; padding:2rem; } }
+@media(hover:hover) and (pointer:fine) { .dom-space figcaption { opacity:0; transform:translateY(8px); transition:opacity .2s,transform .2s; }.dom-space:hover figcaption,.dom-space:focus-visible figcaption { opacity:1; transform:none; } }
+:global(body:has(.home-dom) .site-header .submenu-toggle[aria-expanded="true"]), :global(body:has(.home-dom) .site-header .nav-top-link[aria-current="page"]) { background:var(--ivory); color:var(--navy); }
+@media(max-width:639px) { .dom-space figcaption span:last-child { display:none; } }
+@media(max-width:420px) { .dom-hero-source { right:10px; font-size:8px; bottom:6px; }.dom-hero h1 { font-size:1.9rem; }.dom-product-price span { display:block; }.dom-desktop-break { display:none; } }
+@media(prefers-reduced-motion:reduce) { .home-dom *, .home-dom *::before, .home-dom *::after { transition:none!important; scroll-behavior:auto!important; } }
 </style>
