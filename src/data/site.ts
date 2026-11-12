@@ -30,6 +30,12 @@ export const materialLinks: NavigationLink[] = [
   { label: "Film tráng gương", href: "/vat-lieu/trang-guong/" },
 ];
 
+export const brandLinks: NavigationLink[] = [
+  { label: "Corance", href: "/thuong-hieu/corance/" },
+  { label: "TODA", href: "/thuong-hieu/toda/" },
+  { label: "INFEEL", href: "/thuong-hieu/infeel/" },
+];
+
 export const companyLinks: NavigationLink[] = [
   { label: "Giới thiệu", href: "/gioi-thieu/" },
   { label: "Công trình", href: "/cong-trinh/" },
@@ -46,7 +52,7 @@ export const navigation: NavigationItem[] = [
   {
     label: "Vật liệu",
     href: "/vat-lieu/",
-    children: materialLinks,
+    children: [...materialLinks, { label: "Tất cả thương hiệu", href: "/thuong-hieu/" }, ...brandLinks],
   },
   ...companyLinks,
 ];

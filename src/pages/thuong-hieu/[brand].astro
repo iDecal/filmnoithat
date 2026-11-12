@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BrandCatalogue from "../../components/BrandCatalogue.astro";
+import { brands, brandHref } from "../../data/brands";
+import { catalogue } from "../../data/catalogue";
+import { breadcrumbSchema } from "../../data/seo";
+export const getStaticPaths = () => brands.map(brand => ({ params: { brand: brand.slug }, props: { brand } }));
+const { brand } = Astro.props;
+const samples = catalogue.filter(sample => sample.brand === brand.name);
+const materialCount = new Set(samples.map(sample => sample.category)).size;
+---
+<BaseLayout title={`Film nội thất ${brand.name} — Mẫu vật liệu & giá theo mét dài`} description={brand.description} image={brand.image} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Thương hiệu", path: "/thuong-hieu/" }, { name: brand.name, path: brandHref(brand) }])]}>
+  <section class="brand-intro px-4 sm:px-6"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu", href: "/thuong-hieu/" }, { label: brand.name }]} /><div class="brand-intro-row"><div><p class="eyebrow mb-3">BỘ SƯU TẬP FILM NỘI THẤT</p><h1 class="text-3xl md:text-4xl font-medium">{brand.name}</h1><p class="brand-intro-description">{brand.description}</p></div><div class="brand-intro-stats"><strong>{samples.length}</strong><span>mẫu · {materialCount} nhóm vật liệu</span>{samples[0]?.pdf && <a href={samples[0].pdf} class="brand-pdf">Xem catalogue PDF <span aria-hidden="true">→</span></a>}</div></div><nav class="brand-tabs" aria-label="Chọn thương hiệu">{brands.map(item => <a href={brandHref(item)} aria-current={item.slug === brand.slug ? "page" : undefined}>{item.name}<span>{catalogue.filter(sample => sample.brand === item.name).length}</span></a>)}</nav></div></section>
+  <BrandCatalogue brand={brand.name} />
+</BaseLayout>
+<style>
+  .brand-intro { padding-top: 2.25rem; background: var(--canvas); }
+  .brand-intro-row { display: flex; justify-content: space-between; gap: 2rem; padding-bottom: 2rem; }
+  .brand-intro-description { max-width: 42rem; margin-top: 1rem; color: var(--muted); font-size: .9375rem; }
+  .brand-intro-stats { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; flex-shrink: 0; }
+  .brand-intro-stats strong { font-size: 2rem; font-weight: 500; line-height: 1.2; color: var(--navy); }
+  .brand-intro-stats > span { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
+  .brand-pdf { display: inline-flex; gap: .75rem; align-items: center; min-height: 2.75rem; font-size: .8125rem; color: var(--navy); text-decoration: underline; text-underline-offset: .3em; }
+  .brand-tabs { display: flex; gap: 1.75rem; border-bottom: 1px solid var(--pearl); }
+  .brand-tabs a { display: inline-flex; align-items: center; gap: .625rem; padding: .875rem .125rem; border-bottom: 2px solid transparent; margin-bottom: -1px; font-size: .875rem; color: var(--muted); }
+  .brand-tabs a[aria-current] { color: var(--navy); border-color: var(--navy); font-weight: 600; }
+  .brand-tabs span { font-size: .6875rem; padding: .125rem .4rem; background: var(--ivory); border-radius: 999px; color: var(--navy); }
+  @media(max-width: 639px) { .brand-intro { padding-top: 1.5rem; } .brand-intro-row { flex-direction: column; gap: 1rem; padding-bottom: 1.25rem; } .brand-intro-stats { align-items: flex-start; flex-direction: row; align-items: center; flex-wrap: wrap; gap: .5rem; } .brand-intro-stats strong { font-size: 1rem; } .brand-intro-stats > span { margin: 0; } .brand-intro-stats .brand-pdf { margin-left: auto; } .brand-tabs { justify-content: space-between; gap: .75rem; } }
+</style>

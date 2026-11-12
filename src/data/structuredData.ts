@@ -1,3 +1,4 @@
+import { brands, brandHref } from "./brands";
 import { productHeading } from "./seoTitles";
 import { site as business, internationalPhone } from "./site";
 import { catalogue, sampleHref } from "./catalogue";
@@ -43,6 +44,12 @@ export function websiteSchema({ origin, path, title, description, image, supplie
   if (path === "/") page.about = ref(orgId);
   if (path === "/gioi-thieu/") { page["@type"] = "AboutPage"; page.mainEntity = ref(orgId); }
   if (path === "/lien-he/") { page["@type"] = "ContactPage"; page.mainEntity = ref(orgId); }
+  if (path === "/thuong-hieu/") addList(brands.map(brand => ({ name: brand.name, path: brandHref(brand) })));
+  const brand = brands.find(item => brandHref(item) === path);
+  if (brand) {
+    addList(catalogue.filter(sample => sample.brand === brand.name).map(sample => ({ name: `${sample.code} ${sample.title}`, path: sampleHref(sample) })));
+    page.about = { "@type": "Brand", name: brand.name };
+  }
   if (path === "/vat-lieu/") addList(materials.map(material => ({name:material.name,path:materialHref(material)})));
   const material = materials.find(material => materialHref(material) === path);
   if (material) {

@@ -1,0 +1,190 @@
+---
+import { catalogue, sampleHref } from "../data/catalogue";
+import { materials } from "../data/materials";
+import { formatRetailPrice } from "../data/infeelPrices";
+interface Props { brand: string }
+const { brand } = Astro.props;
+const samples = catalogue.filter(sample => sample.brand === brand);
+const categories = materials.filter(material => samples.some(sample => sample.category === material.slug));
+const colors = [...new Set(samples.map(sample => sample.color.family))].sort((a,b) => a.localeCompare(b,"vi"));
+const groups = [...new Set(samples.map(sample => sample.group))].sort((a,b) => a.localeCompare(b,"vi"));
+const toneColor = (color: string) => samples.find(sample => sample.color.family === color)!.color.value;
+---
+<section class="brand-catalogue px-4 sm:px-6" data-brand-catalogue>
+  <div class="max-w-7xl mx-auto brand-layout">
+    <dialog id="brand-filter-dialog" data-brand-filters class="brand-filters" aria-labelledby="brand-filter-title">
+      <div class="brand-filter-heading"><h2 id="brand-filter-title">Bộ lọc</h2><button type="button" data-brand-close class="brand-filter-close" aria-label="Đóng bộ lọc">Đóng ×</button></div>
+      <form data-brand-filter-form>
+        <details open class="brand-filter-group"><summary>Nhóm vật liệu<span aria-hidden="true">−</span></summary><div>{categories.map(category => <label class="brand-check"><input type="checkbox" name="nhom" value={category.slug} /><span>{category.shortName}</span><span class="brand-facet-count" data-facet-count={category.slug}>{samples.filter(sample => sample.category === category.slug).length}</span></label>)}</div></details>
+        <details open class="brand-filter-group"><summary>Tông màu<span aria-hidden="true">−</span></summary><div>{colors.map(color => <label class="brand-check"><input type="checkbox" name="mau" value={color} /><span class="brand-swatch" style={{ backgroundColor: toneColor(color) }} aria-hidden="true"></span><span>{color}</span><span class="brand-facet-count" data-color-count={color}>{samples.filter(sample => sample.color.family === color).length}</span></label>)}</div></details>
+        <label class="brand-group-label" for="brand-group">Dòng vật liệu</label><select id="brand-group" name="dong" data-brand-group><option value="">Tất cả dòng</option>{groups.map(group => <option value={group}>{group}</option>)}</select>
+        <button type="button" data-brand-reset class="brand-reset">Xóa tất cả bộ lọc</button>
+      </form>
+      <div class="brand-filter-footer"><button type="button" data-brand-apply class="button-primary">Xem sản phẩm</button></div>
+    </dialog>
+    <div class="brand-results">
+      <div class="brand-tools"><label class="brand-search"><span class="sr-only">Tìm mẫu {brand}</span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input type="search" data-brand-search placeholder={`Tìm mã, màu, tên mẫu ${brand}…`} /></label><button type="button" data-brand-open class="brand-open" aria-haspopup="dialog" aria-controls="brand-filter-dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6M15 14v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span data-brand-filter-count>Bộ lọc</span></button><label class="brand-sort"><span class="sr-only">Sắp xếp sản phẩm</span><select data-brand-sort><option value="default">Thứ tự mặc định</option><option value="code">Mã sản phẩm A–Z</option><option value="price-asc">Giá: thấp đến cao</option><option value="price-desc">Giá: cao đến thấp</option></select></label><div class="brand-view" role="group" aria-label="Số cột sản phẩm"><button type="button" data-brand-view="3" aria-label="Hiển thị 3 cột" aria-pressed="true"><svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M1 3h4v6H1zm7 0h4v6H8zm7 0h4v6h-4zM1 11h4v6H1zm7 0h4v6H8zm7 0h4v6h-4z"/></svg></button><button type="button" data-brand-view="4" aria-label="Hiển thị 4 cột" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M1 3h3v6H1zm5 0h3v6H6zm5 0h3v6h-3zm5 0h3v6h-3zM1 11h3v6H1zm5 0h3v6H6zm5 0h3v6h-3zm5 0h3v6h-3z"/></svg></button></div></div>
+      <div class="brand-active" data-brand-active aria-label="Bộ lọc đang chọn"></div>
+      <p data-brand-status class="brand-status" role="status" aria-live="polite">{samples.length} sản phẩm {brand}</p>
+      <div data-brand-grid class="brand-product-grid">{samples.map((sample,index) => <article data-brand-card data-slug={sample.slug} data-category={sample.category} data-color={sample.color.family} data-group={sample.group} data-code={sample.code} data-price={sample.pricePerMetre || ""} data-order={index} data-search={`${sample.brand} ${sample.code} ${sample.title} ${sample.group} ${sample.color.family}`}><a href={sampleHref(sample)} class="brand-product-link"><div class="brand-product-image"><img src={sample.image} alt={sample.imageAlt || `${sample.brand} ${sample.code} — ${sample.title}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" /></div><p class="brand-product-code">{sample.code}</p><h3 class="brand-product-title">{sample.title}</h3><p class="brand-product-price">{sample.pricePerMetre ? formatRetailPrice(sample.pricePerMetre) : "Liên hệ báo giá"}{sample.pricePerMetre && <span> / mét dài</span>}</p></a></article>)}</div>
+      <p data-brand-empty hidden class="brand-empty">Chưa tìm thấy mẫu phù hợp. Thử từ khóa khác hoặc xóa bớt bộ lọc.</p>
+      <div class="brand-more-wrap"><button type="button" data-brand-more hidden class="button-secondary">Xem thêm mẫu</button></div>
+      <details class="brand-product-notes"><summary>Lưu ý khi chọn vật liệu</summary><p>Tông màu hỗ trợ tìm kiếm, cần đối chiếu mẫu thật. Giá niêm yết tính theo mét dài, chưa gồm công thi công; khổ cuộn và tình trạng cung cấp xem ở từng sản phẩm và xác nhận trước khi đặt.</p></details>
+      <noscript><p class="brand-product-notes">Bật JavaScript để tìm kiếm, lọc và sắp xếp. Toàn bộ sản phẩm vẫn được hiển thị phía trên.</p></noscript>
+    </div>
+  </div>
+</section>
+<script>
+  const root = document.querySelector<HTMLElement>("[data-brand-catalogue]")!;
+  const dialog = root.querySelector<HTMLDialogElement>("[data-brand-filters]")!;
+  const form = root.querySelector<HTMLFormElement>("form")!;
+  const search = root.querySelector<HTMLInputElement>("[data-brand-search]")!;
+  const group = root.querySelector<HTMLSelectElement>("[data-brand-group]")!;
+  const sort = root.querySelector<HTMLSelectElement>("[data-brand-sort]")!;
+  const grid = root.querySelector<HTMLElement>("[data-brand-grid]")!;
+  const cards = [...root.querySelectorAll<HTMLElement>("[data-brand-card]")];
+  const more = root.querySelector<HTMLButtonElement>("[data-brand-more]")!;
+  const checks = [...form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+  const normalize = (value: string) => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "");
+  let limit = 24;
+  let resultCount = cards.length;
+  const selected = (name: string) => checks.filter(input => input.name === name && input.checked).map(input => input.value);
+  const update = (save = true) => {
+    const categories = selected("nhom"), colors = selected("mau");
+    const terms = search.value.trim().split(/\s+/).map(normalize).filter(Boolean);
+    const matchesTextAndGroup = (card: HTMLElement) => terms.every(term => normalize(card.dataset.search || "").includes(term)) && (!group.value || card.dataset.group === group.value);
+    const matchesCategory = (card: HTMLElement) => !categories.length || categories.includes(card.dataset.category!);
+    const matchesColor = (card: HTMLElement) => !colors.length || colors.includes(card.dataset.color!);
+    const matching = cards.filter(card => matchesTextAndGroup(card) && matchesCategory(card) && matchesColor(card));
+    matching.sort((a,b) => {
+      if (sort.value === "code") return a.dataset.code!.localeCompare(b.dataset.code!, "vi", { numeric: true });
+      if (sort.value.startsWith("price-")) {
+        const pa = Number(a.dataset.price), pb = Number(b.dataset.price);
+        if (!pa || !pb) return !pa && !pb ? Number(a.dataset.order) - Number(b.dataset.order) : !pa ? 1 : -1;
+        return (sort.value === "price-asc" ? pa - pb : pb - pa) || Number(a.dataset.order) - Number(b.dataset.order);
+      }
+      return Number(a.dataset.order) - Number(b.dataset.order);
+    });
+    const visible = new Set(matching.slice(0,limit));
+    cards.forEach(card => { card.hidden = !visible.has(card); });
+    matching.forEach(card => grid.append(card));
+    resultCount = matching.length;
+    root.querySelector<HTMLElement>("[data-brand-status]")!.textContent = `Hiển thị ${Math.min(limit,resultCount)} / ${resultCount} sản phẩm`;
+    root.querySelector<HTMLElement>("[data-brand-empty]")!.hidden = resultCount > 0;
+    more.hidden = resultCount <= limit;
+    more.textContent = `Xem thêm ${Math.min(24,Math.max(0,resultCount-limit))} mẫu`;
+    const activeInputs = checks.filter(input => input.checked);
+    const count = activeInputs.length + Number(!!group.value);
+    root.querySelector<HTMLElement>("[data-brand-filter-count]")!.textContent = count ? `Bộ lọc (${count})` : "Bộ lọc";
+    root.querySelector<HTMLElement>("[data-brand-apply]")!.textContent = `Xem ${resultCount} sản phẩm`;
+    for (const input of checks) {
+      const count = cards.filter(card => matchesTextAndGroup(card) && (input.name === "nhom" ? matchesColor(card) && card.dataset.category === input.value : matchesCategory(card) && card.dataset.color === input.value)).length;
+      input.disabled = !count && !input.checked;
+      const label = input.closest("label")!;
+      label.classList.toggle("is-disabled", input.disabled);
+      label.querySelector<HTMLElement>(".brand-facet-count")!.textContent = String(count);
+    }
+    const tags = root.querySelector<HTMLElement>("[data-brand-active]")!;
+    tags.replaceChildren();
+    const addTag = (text: string, remove: () => void) => { const button = document.createElement("button"); button.type = "button"; button.textContent = `${text} ×`; button.setAttribute("aria-label", `Bỏ bộ lọc ${text}`); button.addEventListener("click", () => { remove(); limit = 24; update(); }); tags.append(button); };
+    for (const input of activeInputs) { const label = input.closest("label")!.querySelector<HTMLInputElement>('input')!.nextElementSibling; addTag(input.name === "nhom" ? label!.textContent! : input.value, () => { input.checked = false; }); }
+    if (group.value) addTag(group.value, () => { group.value = ""; });
+    if (search.value.trim()) addTag(`“${search.value.trim()}”`, () => { search.value = ""; });
+    if (save) {
+      const url = new URL(location.href);
+      ["nhom","mau","dong","q","sap-xep"].forEach(key => url.searchParams.delete(key));
+      categories.forEach(value => url.searchParams.append("nhom",value)); colors.forEach(value => url.searchParams.append("mau",value));
+      if (group.value) url.searchParams.set("dong",group.value);
+      if (search.value.trim()) url.searchParams.set("q",search.value.trim());
+      if (sort.value !== "default") url.searchParams.set("sap-xep",sort.value);
+      history.replaceState(null,"",url.pathname+url.search+url.hash);
+    }
+  };
+  const reset = () => { checks.forEach(input => { input.checked = false; }); search.value = ""; group.value = ""; sort.value = "default"; limit = 24; update(); };
+  const restore = () => { const params = new URLSearchParams(location.search); checks.forEach(input => { input.checked = params.getAll(input.name).includes(input.value); }); search.value = params.get("q") || ""; group.value = [...group.options].some(option => option.value === params.get("dong")) ? params.get("dong")! : ""; sort.value = [...sort.options].some(option => option.value === params.get("sap-xep")) ? params.get("sap-xep")! : "default"; limit = 24; update(false); };
+  form.addEventListener("submit", event => event.preventDefault());
+  form.addEventListener("change", () => { limit = 24; update(); });
+  search.addEventListener("input", () => { limit = 24; update(); });
+  sort.addEventListener("change", () => { limit = 24; update(); });
+  root.querySelector("[data-brand-reset]")!.addEventListener("click",reset);
+  more.addEventListener("click", () => { const previous = Math.min(limit,resultCount); limit += 24; update(); [...grid.querySelectorAll<HTMLElement>("[data-brand-card]")].filter(card => !card.hidden)[previous]?.querySelector<HTMLAnchorElement>("a")?.focus({ preventScroll: true }); });
+  root.querySelectorAll<HTMLButtonElement>("[data-brand-view]").forEach(button => button.addEventListener("click", () => { grid.style.setProperty("--brand-columns",button.dataset.brandView!); root.querySelectorAll("[data-brand-view]").forEach(item => item.setAttribute("aria-pressed",String(item === button))); }));
+  const desktop = matchMedia("(min-width: 1024px)");
+  let oldOverflow = "";
+  let scrollLocked = false;
+  const restoreScroll = () => { if (scrollLocked) document.documentElement.style.overflow = oldOverflow; scrollLocked = false; };
+  const openFilters = () => { if (desktop.matches || dialog.open) return; oldOverflow = document.documentElement.style.overflow; dialog.showModal(); scrollLocked = true; document.documentElement.style.overflow = "hidden"; };
+  const closeFilters = () => { dialog.close(); restoreScroll(); };
+  root.querySelector("[data-brand-open]")!.addEventListener("click",openFilters);
+  root.querySelector("[data-brand-close]")!.addEventListener("click",closeFilters);
+  root.querySelector("[data-brand-apply]")!.addEventListener("click",closeFilters);
+  dialog.addEventListener("close", restoreScroll);
+  dialog.addEventListener("cancel", restoreScroll);
+  dialog.addEventListener("click", event => { if (event.target !== dialog || desktop.matches) return; const box=dialog.getBoundingClientRect(); if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)closeFilters(); });
+  const layoutFilters = () => { closeFilters(); if (desktop.matches) dialog.open = true; };
+  desktop.addEventListener("change",layoutFilters);
+  window.addEventListener("popstate",restore);
+  layoutFilters(); restore();
+</script>
+<style>
+  .brand-catalogue { padding-block: 2rem 4rem; background: var(--canvas); color: var(--navy); }
+  .brand-layout { display: grid; grid-template-columns: 14rem minmax(0,1fr); gap: 2.5rem; align-items: start; }
+  .brand-filters { position: sticky; top: 7rem; width: 100%; max-width: none; max-height: calc(100dvh - 8rem); overflow-y: auto; margin: 0; padding: 0 .5rem 0 0; border: 0; background: transparent; color: var(--navy); }
+  .brand-filters:not([open]) { display: none; }
+  .brand-filter-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--pearl); }
+  .brand-filter-heading h2 { font-size: 1rem; font-weight: 600; }
+  .brand-filter-close { display: none; }
+  .brand-filter-group { padding: 1rem 0; border-bottom: 1px solid var(--pearl); }
+  .brand-filter-group summary { display: flex; align-items: center; justify-content: space-between; min-height: 2rem; font-size: .8125rem; font-weight: 600; cursor: pointer; list-style: none; }
+  .brand-filter-group summary::-webkit-details-marker { display: none; }
+  .brand-filter-group:not([open]) summary span { transform: rotate(90deg); }
+  .brand-filter-group > div { margin-top: .5rem; }
+  .brand-check { display: flex; align-items: center; gap: .625rem; min-height: 2.5rem; cursor: pointer; font-size: .8125rem; }
+  .brand-check input { width: 1rem; height: 1rem; accent-color: var(--navy); flex-shrink: 0; }
+  .brand-facet-count { margin-left: auto; font-size: .6875rem; color: var(--muted); }
+  .brand-check.is-disabled { opacity: .45; cursor: default; }
+  .brand-swatch { width: .875rem; height: .875rem; border: 1px solid var(--pearl); border-radius: 50%; flex-shrink: 0; }
+  .brand-group-label { display: block; margin: 1rem 0 .625rem; font-size: .8125rem; font-weight: 600; }
+  .brand-filters select { width: 100%; padding: .625rem; min-height: 2.75rem; background: var(--surface); border: 1px solid var(--pearl); border-radius: .5rem; color: var(--navy); font-size: .8125rem; }
+  .brand-reset { margin-top: .75rem; min-height: 2.75rem; font-size: .75rem; text-decoration: underline; text-underline-offset: .25em; color: var(--muted); }
+  .brand-filter-footer { display: none; }
+  .brand-results { min-width: 0; }
+  .brand-tools { display: flex; align-items: center; gap: .75rem; }
+  .brand-search { position: relative; flex: 1; min-width: 0; }
+  .brand-search svg { position: absolute; left: .875rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+  .brand-search input { min-height: 2.875rem; width: 100%; padding: .625rem .875rem .625rem 2.5rem; background: var(--surface); border: 1px solid var(--pearl); border-radius: .625rem; color: var(--navy); font-size: .875rem; }
+  .brand-sort select { min-height: 2.875rem; max-width: 12rem; background: var(--surface); border: 1px solid var(--pearl); border-radius: .625rem; padding: .625rem; color: var(--navy); font-size: .8125rem; }
+  .brand-view { display: flex; gap: .25rem; }
+  .brand-view button { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; color: var(--muted); border: 1px solid var(--pearl); border-radius: .5rem; }
+  .brand-view button[aria-pressed="true"] { background: var(--ivory); border-color: var(--gold); color: var(--navy); }
+  .brand-open { display: none; }
+  .brand-active { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .brand-active:empty { display: none; }
+  .brand-active :global(button) { margin-top: 1rem; padding: .375rem .625rem; border-radius: 999px; border: 1px solid var(--gold); font-size: .75rem; color: var(--navy); background: var(--ivory); }
+  .brand-status { margin: 1.25rem 0; font-size: .75rem; color: var(--muted); }
+  .brand-product-grid { display: grid; grid-template-columns: repeat(var(--brand-columns,3),minmax(0,1fr)); gap: 2rem 1.25rem; }
+  .brand-product-grid article { min-width: 0; }
+  .brand-product-image { overflow: hidden; aspect-ratio: 1; background: var(--surface); border: 1px solid rgb(var(--pearl-rgb) / .5); border-radius: .75rem; }
+  .brand-product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 250ms; }
+  .brand-product-link:hover img { transform: scale(1.025); }
+  .brand-product-code { margin-top: .875rem; font-size: .9375rem; font-weight: 600; color: var(--navy); }
+  .brand-product-title { margin-top: .25rem; font-size: .8125rem; font-weight: 400; color: var(--muted); line-height: 1.5; }
+  .brand-product-price { margin-top: .625rem; font-size: .875rem; font-weight: 600; color: var(--navy); }
+  .brand-product-price span { color: var(--muted); font-size: .6875rem; font-weight: 400; white-space: nowrap; }
+  .brand-empty { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .875rem; }
+  .brand-more-wrap { text-align: center; margin-top: 2rem; }
+  .brand-product-notes { margin-top: 2rem; border-top: 1px solid var(--pearl); padding-top: 1rem; font-size: .75rem; color: var(--muted); }
+  .brand-product-notes summary { cursor: pointer; min-height: 2rem; }
+  .brand-product-notes p { max-width: 45rem; margin-top: .5rem; }
+  [data-brand-card][hidden], [data-brand-empty][hidden], [data-brand-more][hidden] { display: none; }
+  @media(max-width: 1023px) {
+    .brand-layout { grid-template-columns: minmax(0,1fr); }
+    .brand-filters { position: fixed; inset: 0 0 0 auto; margin: 0 0 0 auto; width: min(25rem,100%); height: 100dvh; max-height: 100dvh; padding: 1.25rem; border-left: 1px solid var(--pearl); background: var(--canvas); }
+    .brand-filters::backdrop { background: rgb(var(--navy-rgb) / .65); }
+    .brand-filter-close { display: block; min-height: 2.75rem; font-size: .8125rem; }
+    .brand-filter-footer { display: block; position: sticky; bottom: -1.25rem; background: var(--canvas); padding: 1rem 0 max(1rem,env(safe-area-inset-bottom)); border-top: 1px solid var(--pearl); margin-top: .5rem; }
+    .brand-filter-footer button { width: 100%; }
+    .brand-open { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; min-height: 2.875rem; padding: .625rem .875rem; background: var(--ivory); color: var(--navy); border: 1px solid var(--gold); border-radius: .625rem; font-size: .8125rem; white-space: nowrap; }
+  }
+  @media(max-width: 767px) { .brand-catalogue { padding-top: 1.25rem; } .brand-tools { flex-wrap: wrap; gap: .625rem; } .brand-search { flex-basis: 100%; } .brand-search input { font-size: 1rem; } .brand-sort { margin-left: auto; } .brand-sort select { max-width: 11.5rem; } .brand-view { display: none; } .brand-product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem .875rem; } .brand-status { margin-block: 1rem; } .brand-product-code { font-size: .875rem; } .brand-product-title { font-size: .75rem; } .brand-filters select { font-size: 1rem; } }
+</style>

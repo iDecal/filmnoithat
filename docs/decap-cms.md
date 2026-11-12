@@ -148,3 +148,9 @@ Các nút thao tác ảnh hiển thị cùng hàng trên máy tính, tự xuốn
 Sau khi đăng nhập quản trị bằng tài khoản GitHub có quyền ghi, mở trang nhóm vật liệu (ví dụ `/vat-lieu/van-go/`). Mỗi thẻ mẫu có nút **Xóa sản phẩm**. Hộp xác nhận hiển thị thương hiệu và mã mẫu; bấm **Hủy** để giữ lại hoặc **Xác nhận xóa** để gỡ hồ sơ sản phẩm.
 
 Nút sử dụng API xóa sản phẩm hiện có, tiếp tục kiểm tra quyền ghi ở máy chủ. Khi API xác nhận thành công, thẻ được ẩn ngay và số kết quả lọc được cập nhật; trang công khai cập nhật sau khi Cloudflare triển khai. Tệp ảnh được giữ lại. Khi yêu cầu thất bại, thẻ vẫn giữ nguyên và thông báo lỗi xuất hiện trong hộp xác nhận.
+
+## Trang thương hiệu
+
+Các trang `/thuong-hieu/corance/`, `/thuong-hieu/toda/` và `/thuong-hieu/infeel/` tự lấy hồ sơ trong `src/content/products/` theo trường `brand`. Sản phẩm được thêm, sửa hoặc xóa qua CMS sẽ cập nhật trên trang thương hiệu sau khi triển khai.
+
+Bộ lọc gồm nhóm vật liệu, tông màu và dòng sản phẩm; tìm kiếm hỗ trợ gõ không dấu và mã không có khoảng trắng/gạch nối. Có sắp xếp giá tăng/giảm (mẫu liên hệ báo giá nằm cuối), mã sản phẩm và đổi 3/4 cột trên máy tính. Trên điện thoại, nút Bộ lọc mở bảng lựa chọn; nút Xem sản phẩm đóng bảng và trở lại kết quả. URL giữ các tham số `nhom`, `mau`, `dong`, `q`, `sap-xep` để chia sẻ hoặc tải lại bộ lọc.

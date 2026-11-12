@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { brands, brandHref } from "../../data/brands";
+import { catalogue } from "../../data/catalogue";
+import { breadcrumbSchema } from "../../data/seo";
+---
+<BaseLayout title="Thương hiệu film nội thất — Corance, TODA, INFEEL" description="Khám phá sản phẩm Corance, TODA và INFEEL. Tìm mẫu theo nhóm vật liệu, tông màu, dòng sản phẩm và giá theo mét dài." structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Thương hiệu", path: "/thuong-hieu/" }])]}>
+  <section class="px-4 sm:px-6 section-space"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu" }]} /><p class="eyebrow mb-3">BỘ SƯU TẬP VẬT LIỆU</p><h1 class="text-3xl md:text-4xl font-medium">Chọn thương hiệu bạn quan tâm.</h1><p class="text-base-600 max-w-2xl mt-5">Duyệt sản phẩm, lọc bề mặt và tông màu, xem giá cùng quy cách trên từng mẫu.</p><div class="grid md:grid-cols-3 gap-6 mt-8">{brands.map(brand => <a href={brandHref(brand)} class="brand-card"><img src={brand.image} alt={`Vật liệu và không gian tham khảo cho bộ sưu tập ${brand.name}`} width="800" height="600" loading="lazy" class="w-full aspect-[4/3] object-cover" /><div class="p-5"><div class="flex justify-between items-center gap-3"><h2 class="text-2xl font-medium">{brand.name}</h2><span class="text-xs text-base-600">{catalogue.filter(sample => sample.brand === brand.name).length} mẫu</span></div><p class="text-sm text-base-600 mt-3">{brand.description}</p><span class="inline-flex items-center min-h-11 mt-3 font-semibold text-sm">Khám phá sản phẩm →</span></div></a>)}</div></div></section>
+</BaseLayout>
+<style>.brand-card { overflow: hidden; border: 1px solid var(--pearl); border-radius: 1rem; background: var(--surface); transition: border-color 150ms; } .brand-card:hover { border-color: var(--gold); }</style>
