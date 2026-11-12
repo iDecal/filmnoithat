@@ -172,6 +172,10 @@ if (slider) {
 .home-dom :focus-visible { outline:2px solid var(--dom-label-color); outline-offset:4px; }
 @media(min-width:640px) { .dom-wrap { width:min(1240px,calc(100% - 64px)); }.dom-collections { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }.dom-ribbon-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-collection-caption h3 { font-size:1.35rem; }.dom-about-visual figure img { aspect-ratio:5/4; }.dom-contact-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-contact-inner>div:first-child { max-width:65%; } }
 @media(min-width:1024px) { .dom-collections { grid-template-columns:repeat(4,minmax(0,1fr)); }.dom-about-grid { grid-template-columns:1fr 1fr; gap:5rem; }.dom-about-visual { padding-left:1rem; }.dom-about-visual figure img { aspect-ratio:4/5; max-height:610px; }.dom-stats { margin-left:-3rem; margin-right:2rem; }.dom-stats>div { padding:1.4rem; }.dom-space-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.dom-space img { aspect-ratio:16/10; }.dom-space figcaption { padding:1rem 1.4rem; }.dom-space figcaption h3 { font-size:1.15rem; }.dom-space figcaption span { font-size:.7rem; }.dom-products,.dom-posts { grid-template-columns:repeat(4,minmax(0,1fr)); gap:2.5rem 1.5rem; }.dom-assurance-grid { grid-template-columns:1.05fr 1fr 1fr; gap:1.5rem; }.dom-assurance-intro { padding-right:1rem; }.dom-assurance-intro h2 { font-size:1.8rem; }.dom-promise { min-height:300px; padding:2rem; } }
+@media(min-width:1024px) and (hover:hover) and (pointer:fine) {
+  .dom-space figcaption { position:absolute; inset:auto 0 0; opacity:0; transform:translateY(100%); transition:opacity .2s,transform .2s; pointer-events:none; }
+  .dom-space:hover figcaption, .dom-space:focus-visible figcaption { opacity:1; transform:translateY(0); }
+}
 @media(max-width:639px) { .dom-space figcaption span:last-child { display:none; } }
 @media(max-width:420px) { .dom-desktop-break { display:none; } }
 @media(prefers-reduced-motion:reduce) { .home-dom *, .home-dom *::before, .home-dom *::after { transition:none!important; scroll-behavior:auto!important; } }
