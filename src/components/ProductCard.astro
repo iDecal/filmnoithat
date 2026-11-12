@@ -7,7 +7,7 @@ const { sample } = Astro.props;
 <a href={sampleHref(sample)} class="product-swatch" aria-label={`${sample.brand} ${sample.code} — ${sample.title}`}>
   <div class="product-swatch-image">
     <img src={sample.image} alt={sample.imageAlt || `${sample.title} — ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" />
-    <div class="product-swatch-label"><h3>{sample.code}</h3><p>{sample.color.name}</p></div>
+    <h3 class="product-swatch-label" title={`${sample.code} | ${sample.color.name}`}><span class="product-swatch-code">{sample.code}</span><span class="product-swatch-separator" aria-hidden="true">|</span><span class="product-swatch-tone">{sample.color.name}</span></h3>
   </div>
   <p class="product-swatch-price" data-card-price={sample.pricePerMetre}>{sample.pricePerMetre ? <><strong>{formatRetailPrice(sample.pricePerMetre)}</strong><span> / mét dài</span></> : <strong>Liên hệ báo giá</strong>}</p>
 </a>
@@ -16,15 +16,15 @@ const { sample } = Astro.props;
   .product-swatch-image { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: clamp(16px,2.5vw,28px); background: var(--surface); }
   .product-swatch-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 250ms; }
   .product-swatch:hover img { transform: scale(1.025); }
-  .product-swatch-label { position: absolute; bottom: 7%; left: 10%; right: 10%; padding: .625rem .5rem; border-radius: 999px; background: #fff; color: var(--navy); }
-  .product-swatch-label h3, .product-swatch-label p { margin: 0; font-size: .8125rem; line-height: 1.3; font-weight: 600; }
-  .product-swatch-label p { text-transform: uppercase; }
+  .product-swatch-label { position: absolute; bottom: 7%; left: 10%; right: 10%; padding: .625rem .5rem; border-radius: 999px; background: rgb(255 255 255 / .1); color: var(--navy); display: flex; align-items: center; justify-content: center; gap: .375rem; white-space: nowrap; margin: 0; font-size: .8125rem; line-height: 1.3; font-weight: 600; }
+  .product-swatch-code, .product-swatch-separator { flex-shrink: 0; }
+  .product-swatch-tone { min-width: 0; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
   .product-swatch-price { margin: .75rem 0 0; white-space: nowrap; font-size: .9375rem; line-height: 1.5; }
   .product-swatch-price strong { font-weight: 600; }
   .product-swatch-price span { font-size: .75rem; font-weight: 400; }
   @media(max-width:639px) {
     .product-swatch-label { padding: .5rem .375rem; left: 7%; right: 7%; }
-    .product-swatch-label h3, .product-swatch-label p { font-size: .6875rem; }
+    .product-swatch-label { font-size: .6875rem; gap: .25rem; }
     .product-swatch-price { font-size: clamp(.6875rem,3.1vw,.875rem); }
     .product-swatch-price span { font-size: .625rem; }
   }
