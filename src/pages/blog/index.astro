@@ -1,6 +1,5 @@
 ---
 import pageContent from "../../data/pageContent.json";
-import BlogHero from "../../components/BlogHero.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { posts, postHref, formatDate } from "../../data/posts";
@@ -8,7 +7,7 @@ import { blogCategories, blogCategory } from "../../data/blogCategories";
 import { breadcrumbSchema } from "../../data/seo";
 ---
 <BaseLayout title={pageContent.knowledge.title} description={pageContent.knowledge.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Kiến thức nội thất", path: "/blog/" }])]}>
-  <BlogHero title={pageContent.knowledge.headingLead} intro={pageContent.knowledge.intro} category="CẨM NANG CHỌN FILM & THI CÔNG"><Breadcrumbs items={[{label:"Kiến thức nội thất"}]} /></BlogHero>
+  <section class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Kiến thức nội thất" }]} /><p class="eyebrow mb-4">CẨM NANG CHỌN FILM & THI CÔNG</p><h1 class="text-[1.75rem] md:text-4xl font-medium">{pageContent.knowledge.headingLead}</h1><p class="text-base-600 text-lg mt-6 max-w-3xl">{pageContent.knowledge.intro}</p></div></section>
   <section id="bai-viet" class="px-4 sm:px-6 section-space bg-white" data-blog-browser><div class="max-w-7xl mx-auto">
     <div class="blog-toolbar"><div><p class="eyebrow mb-2">KHÁM PHÁ KIẾN THỨC</p><h2 class="text-2xl font-semibold">Đọc theo điều bạn quan tâm.</h2></div><label class="blog-filter"><span>LỌC CHUYÊN MỤC</span><select data-blog-filter aria-label="Lọc bài viết theo chuyên mục"><option value="all">Tất cả bài viết ({posts.length})</option>{blogCategories.map(category => <option value={category.value}>{category.label} ({posts.filter(post => blogCategory(post.category).value === category.value).length})</option>)}</select></label></div>
     <div class="blog-results-meta"><p data-blog-status role="status" aria-live="polite">{posts.length} bài viết</p><button type="button" data-blog-reset hidden>Đặt lại bộ lọc</button></div>
