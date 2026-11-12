@@ -1,4 +1,5 @@
 ---
+import CatalogueKnowledge from "../../components/CatalogueKnowledge.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
@@ -51,7 +52,8 @@ const preparation = [
     <section class="px-4 sm:px-6 section-space bg-base-50"><div class="max-w-7xl mx-auto grid lg:grid-cols-[0.8fr_1.4fr] gap-8 lg:gap-16"><div><p class="eyebrow mb-4">03 / CHUẨN BỊ ĐỂ BẮT ĐẦU</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Rõ nhu cầu.<br />Dễ chọn phương án.</h2><p class="text-base-600 mt-4">Film là lớp hoàn thiện. Nền ẩm, bong hoặc xuống cấp cần được đánh giá và xử lý trước.</p></div><ol class="space-y-6">{preparation.map((item,index) => <li class="flex gap-4 border-t border-base-200 pt-5"><span class="text-sm text-primary-600 pt-1">0{index+1}</span><div><h3 class="text-lg font-medium">{item.title}</h3><p class="text-sm text-base-600 mt-3">{item.text}</p></div></li>)}</ol></div></section>
 
     <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><div class="flex flex-wrap justify-between items-end gap-4 mb-7"><div><p class="eyebrow mb-4">04 / BLOG TƯ VẤN</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Tìm hiểu thêm trước khi quyết định.</h2></div><a href="/blog/" class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold hover:underline">Tất cả bài tư vấn →</a></div><div class="grid md:grid-cols-3 gap-6">{posts.slice(0,3).map(post => <a href={postHref(post)} class="group border-t border-base-200 pt-5"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="800" height="500" loading="lazy" class="w-full aspect-[16/10] object-cover rounded-xl" /><h3 class="text-lg font-medium mt-4 group-hover:text-primary-600">{post.title}</h3><p class="text-sm text-base-600 mt-3">{post.description}</p><span class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold mt-2">Đọc bài tư vấn →</span></a>)}</div><div class="max-w-3xl mt-10 border-t border-base-200 pt-6"><h2 class="text-2xl font-semibold mb-5">Một vài câu hỏi trước khi bắt đầu.</h2>{service.faqs.map(faq => <details class="border-b border-base-200 py-4"><summary class="font-medium cursor-pointer min-h-11 flex items-center">{faq.question}</summary><p class="text-sm text-base-600 mt-3 pb-3">{faq.answer}</p></details>)}</div></div></section>
-    <ContactCTA title="Bắt đầu từ bề mặt bạn muốn thay đổi." />
+    <CatalogueKnowledge />
+  <ContactCTA title="Bắt đầu từ bề mặt bạn muốn thay đổi." />
   </div>
 </BaseLayout>
 <style>

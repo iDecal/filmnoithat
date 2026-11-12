@@ -1,6 +1,7 @@
 ---
 import { heroBackdrop } from "../data/heroBackdrops";
 import { uploadedImageAlt } from "../data/uploadedImages";
+import CatalogueKnowledge from "./CatalogueKnowledge.astro";
 import Icon from "./Icon.astro";
 import ServiceReferenceGallery from "./ServiceReferenceGallery.astro";
 import { categoryIcon } from "../data/icons";
@@ -145,6 +146,7 @@ const steps = [
 
     <section class="px-4 sm:px-6 py-9 md:py-14 bg-base-50 border-t border-base-200"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-5">Khám phá thêm dịch vụ</h2><ul class="related-services-list grid md:grid-cols-2 gap-x-10">{relatedServices.map(item => <li class="border-b border-base-200"><a href={serviceHref(item)} class="flex items-center justify-between gap-3 py-4 text-base-700 font-medium hover:text-primary-600">{item.name}<span aria-hidden="true">→</span></a></li>)}</ul></div></section>
   </div>
+  <CatalogueKnowledge />
   <nav class="mobile-service-actions" aria-label="Liên hệ nhanh cho dịch vụ">
     <a href={site.phoneHref} class="button-secondary">Gọi ngay</a>
     <a href={site.zaloHref} class="button-primary">Tư vấn qua Zalo →</a>
