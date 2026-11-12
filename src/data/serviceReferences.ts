@@ -8,7 +8,7 @@ export interface ServiceReference {
 
 // Ảnh có sẵn dùng để tham khảo ứng dụng, chưa phải hồ sơ công trình đã xác nhận.
 export const serviceReferences: ServiceReference[] = [
-  { service: "dan-film-tu-bep", title: "Phối sắc gỗ cho hệ tủ bếp", image: "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp", caption: "Tham khảo cách phối cánh tủ với mặt bếp và ánh sáng. Cần kiểm tra nền, độ ẩm và vùng gần nguồn nhiệt trước khi dán.", material: "/vat-lieu/van-go/" },
+  { service: "dan-film-tu-bep", title: "Phối sắc gỗ cho hệ tủ bếp", image: "/images/perspectives/ivory-oak-kitchen.webp", caption: "Phối cảnh minh họa. Tham khảo cách phối cánh tủ với mặt bếp và ánh sáng. Cần kiểm tra nền, độ ẩm và vùng gần nguồn nhiệt trước khi dán.", material: "/vat-lieu/van-go/" },
   { service: "dan-film-tu-bep", title: "Tông bếp trầm, điểm nhấn gỗ sáng", image: "/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp", caption: "Gợi ý cân bằng màu tủ, mặt đá và tường bếp; màu film cần được so bằng mẫu thực tế.", material: "/vat-lieu/don-sac/" },
   { service: "dan-film-ban", title: "Mặt bàn trong không gian làm việc", image: "/images/cong-trinh/dan-film-noi-that-mat-ban.jpg", caption: "Tham khảo tỷ lệ mặt bàn và sắc gỗ trong không gian chung. Phạm vi dán cần tính cả cạnh, góc bo và vị trí phụ kiện.", material: "/vat-lieu/van-go/" },
   { service: "dan-film-ban", title: "Bàn nhỏ và mảng gỗ đồng điệu", image: "/images/blog/film-dan-noi-that-van-go.jpg", caption: "Gợi ý phối bàn với vách cho góc làm việc nhỏ. Kiểm tra nền và tần suất sử dụng khi chọn film.", material: "/vat-lieu/van-go/" },

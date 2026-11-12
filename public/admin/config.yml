@@ -146,6 +146,113 @@
                   "name": "caption",
                   "label": "Chú thích ảnh",
                   "widget": "string"
+                },
+                {
+                  "name": "slides",
+                  "label": "Các slide tiếp theo",
+                  "widget": "list",
+                  "required": false,
+                  "max": 4,
+                  "summary": "{{fields.titleLead}} — {{fields.titleAccent}}",
+                  "hint": "Nội dung phía trên là slide đầu tiên. Mỗi slide tiếp theo có ảnh, tiêu đề và nút riêng.",
+                  "fields": [
+                    {
+                      "name": "eyebrow",
+                      "label": "Dòng nhãn phía trên",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "titleLead",
+                      "label": "Tiêu đề dòng đầu",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "titleAccent",
+                      "label": "Tiêu đề dòng nhấn mạnh",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Nội dung giới thiệu",
+                      "widget": "text"
+                    },
+                    {
+                      "name": "primaryLabel",
+                      "label": "Chữ nút chính",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "primaryHref",
+                      "label": "Đường dẫn nút chính",
+                      "widget": "string",
+                      "pattern": [
+                        "^(?:/(?!/)|#[a-zA-Z0-9_-]+|https://)[^\\s]*$",
+                        "Dùng đường dẫn /trang/, #muc hoặc https://..."
+                      ]
+                    },
+                    {
+                      "name": "secondaryLabel",
+                      "label": "Chữ nút phụ",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "secondaryHref",
+                      "label": "Đường dẫn nút phụ",
+                      "widget": "string",
+                      "pattern": [
+                        "^(?:/(?!/)|#[a-zA-Z0-9_-]+|https://)[^\\s]*$",
+                        "Dùng đường dẫn /trang/, #muc hoặc https://..."
+                      ]
+                    },
+                    {
+                      "name": "priceNote",
+                      "label": "Ghi chú giá",
+                      "widget": "string",
+                      "hint": "Giữ {gia_infeel} để website tự lấy giá INFEEL thấp nhất từ danh mục sản phẩm."
+                    },
+                    {
+                      "name": "image",
+                      "label": "Ảnh",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "Tệp ảnh",
+                          "widget": "image"
+                        },
+                        {
+                          "name": "alt",
+                          "label": "ALT – mô tả ảnh",
+                          "widget": "string"
+                        },
+                        {
+                          "name": "title",
+                          "label": "Tiêu đề",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "width",
+                          "label": "Chiều rộng gốc (px)",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 1
+                        },
+                        {
+                          "name": "height",
+                          "label": "Chiều cao gốc (px)",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 1
+                        }
+                      ]
+                    },
+                    {
+                      "name": "caption",
+                      "label": "Chú thích ảnh",
+                      "widget": "string"
+                    }
+                  ]
                 }
               ]
             },

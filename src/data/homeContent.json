@@ -13,13 +13,53 @@
     "secondaryHref": "#bao-gia",
     "priceNote": "INFEEL từ {gia_infeel}/mét dài · Cung cấp toàn quốc",
     "image": {
-      "src": "/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp",
-      "alt": "Tủ bếp phối cánh tủ màu đậm và vân gỗ sáng – ảnh tham khảo film nội thất",
-      "title": "",
-      "width": 960,
-      "height": 1280
+      "src": "/images/perspectives/ivory-oak-kitchen.webp",
+      "alt": "Phối cảnh minh họa bếp hiện đại với tủ gỗ sáng, đảo đá ngà và ánh sáng tự nhiên",
+      "title": "Phối cảnh minh họa vật liệu nội thất",
+      "width": 1672,
+      "height": 941
     },
-    "caption": "Gợi ý phối chất liệu cho không gian bếp · Ảnh tham khảo"
+    "caption": "Phối cảnh minh họa",
+    "slides": [
+      {
+        "eyebrow": "ỨNG DỤNG / CHỌN THEO KHÔNG GIAN",
+        "titleLead": "Đổi sắc bề mặt.",
+        "titleAccent": "Giữ lại điều thân quen.",
+        "description": "Từ cánh cửa, hệ tủ đến mảng vách: chọn sắc gỗ, màu trơn hoặc hiệu ứng phù hợp với ánh sáng và nội thất đang có.",
+        "primaryLabel": "Khám phá ứng dụng",
+        "primaryHref": "/cong-trinh/",
+        "secondaryLabel": "Chọn nhóm vật liệu",
+        "secondaryHref": "/vat-lieu/",
+        "priceNote": "So màu, chiều vân và thông số với mẫu thực tế trước khi chọn.",
+        "image": {
+          "src": "/images/perspectives/oak-living-room.webp",
+          "alt": "Phối cảnh minh họa phòng khách với vách gỗ sồi, cửa phẳng và nội thất kem sáng",
+          "title": "Phối cảnh minh họa ứng dụng trong nhà",
+          "width": 1672,
+          "height": 941
+        },
+        "caption": "Phối cảnh minh họa"
+      },
+      {
+        "eyebrow": "THI CÔNG / TƯ VẤN THEO NHU CẦU",
+        "titleLead": "Từ hiện trạng.",
+        "titleAccent": "Đến phương án phù hợp.",
+        "description": "Gửi ảnh và kích thước bề mặt cần làm mới. Cùng kiểm tra nền, chọn mẫu và thống nhất phạm vi trước khi thi công.",
+        "primaryLabel": "Xem dịch vụ thi công",
+        "primaryHref": "/dich-vu/dan-film-noi-that/",
+        "secondaryLabel": "Gửi ảnh nhận tư vấn",
+        "secondaryHref": "#bao-gia",
+        "priceNote": "Trao đổi vật liệu, khối lượng và địa điểm để tư vấn sát nhu cầu.",
+        "image": {
+          "src": "/images/perspectives/modern-reception.webp",
+          "alt": "Phối cảnh minh họa sảnh tiếp đón sáng với quầy đá, vách gỗ và điểm nhấn xanh đậm",
+          "title": "Phối cảnh minh họa không gian thương mại",
+          "width": 1672,
+          "height": 941
+        },
+        "caption": "Phối cảnh minh họa"
+      }
+    ]
   },
   "categories": {
     "title": "Chọn chất liệu của bạn",

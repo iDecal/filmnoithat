@@ -477,20 +477,6 @@ export const uploadedImages = [
     "featured": false
   },
   {
-    "src": "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
-    "alt": "Phối gỗ sáng trong không gian bếp – tham khảo phối film nội thất",
-    "width": 1280,
-    "height": 1172,
-    "materials": [
-      "van-go"
-    ],
-    "services": [
-      "dan-film-tu-bep"
-    ],
-    "caption": "Phối gỗ sáng trong không gian bếp",
-    "featured": false
-  },
-  {
     "src": "/images/bo-suu-tap/film-noi-that-bang-phoi-mau-go-tu-nhien-01.webp",
     "alt": "Bảng phối mẫu gỗ tự nhiên 01 – tham khảo phối film nội thất",
     "width": 719,

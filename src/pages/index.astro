@@ -15,18 +15,14 @@ const text = (value: string) => startingPrice ? value.replaceAll("{gia_infeel}",
 const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
 const brands = [...new Set(catalogue.map(sample => sample.brand))];
 const collectionPhotos: Record<string,string> = {
-  "van-go": "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp",
+  "van-go": "/images/perspectives/ivory-oak-kitchen.webp",
   "da-cam-thach": "/images/home/interior-kitchen.webp",
   "don-sac": "/images/bo-suu-tap/film-noi-that-canh-tu-mau-kem.webp",
   "kim-loai": "/images/bo-suu-tap/film-noi-that-quay-anh-kim-voi-duong-sang.webp",
 };
 const collections = home.collections.items.map(item => ({ ...item, material: materials.find(material => material.slug === item.slug)!, image: collectionPhotos[item.slug] }));
 const stories = [...projectStories.filter(story => story.kind === "reference"), ...projectStories.filter(story => story.kind !== "reference")].slice(0,6);
-const heroSlides = [
-  { src: "/images/blog/tu-bep/film-noi-that-tu-bep-van-go-trung-tinh-voi-dao-bep-va-ghe-tron.webp", width: 1448, height: 1086, alt: "Phối cảnh bếp với tủ vân gỗ trung tính, đảo bếp sáng màu và ánh sáng tự nhiên — ảnh tham khảo" },
-  { src: "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp", width: 1280, height: 1172, alt: "Phối cảnh không gian bếp phối tủ gỗ sáng, mặt bàn đá và đèn hắt — ảnh tham khảo" },
-  { src: "/images/bo-suu-tap/film-noi-that-quay-trung-bay-op-sac-go.webp", width: 1280, height: 720, alt: "Phối cảnh quầy tiếp đón và vách ốp sắc gỗ trong không gian nội thất — ảnh tham khảo" },
-];
+const heroSlides = [home.hero, ...(home.hero.slides || [])];
 const selected = new Set<string>();
 const featuredProducts = [
   ["van-go","INFEEL"], ["van-go","Corance"], ["da-cam-thach","INFEEL"], ["da-cam-thach","TODA"],
@@ -37,12 +33,12 @@ const featuredProducts = [
 });
 const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice(0,4);
 ---
-<BaseLayout brandName={home.brandName} title={home.seoTitle} description={text(home.seoDescription)} image={heroSlides[0].src} faqs={faqs}>
+<BaseLayout brandName={home.brandName} title={home.seoTitle} description={text(home.seoDescription)} image={heroSlides[0].image.src} faqs={faqs}>
   <div class="home-dom">
     <section class="dom-hero" aria-labelledby="dom-title" aria-roledescription="trình chiếu" aria-label="Phối cảnh ứng dụng film dán nội thất" data-home-slider>
-      <div class="dom-slides">{heroSlides.map((slide,index) => <img src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} class:list={["dom-slide",{"is-active":index===0}]} aria-hidden={index !== 0 ? "true" : undefined} data-hero-slide />)}</div>
-      <div class="dom-hero-copy"><p class="dom-label">{home.hero.eyebrow}</p><h1 id="dom-title">{home.hero.titleLead}<br />{home.hero.titleAccent}</h1><div class="dom-hero-rule" aria-hidden="true"></div><p class="dom-hero-description">{home.hero.description}</p><div class="dom-hero-actions"><a href={home.hero.primaryHref} class="dom-button dom-button-accent">{home.hero.primaryLabel}<Icon name="arrow" size={17} /></a><a href={home.hero.secondaryHref} class="dom-button dom-button-outline">{home.hero.secondaryLabel}<Icon name="arrow" size={17} /></a></div><p class="dom-hero-note">{text(home.hero.priceNote)}</p></div>
-      <div class="dom-hero-controls"><button type="button" data-hero-prev class="dom-hero-arrow dom-prev" aria-label="Xem phối cảnh trước">←</button><div class="dom-dots" role="group" aria-label="Chọn phối cảnh">{heroSlides.map((_,index) => <button type="button" data-hero-dot aria-label={`Xem ảnh ${index+1}`} aria-pressed={index===0 ? "true":"false"}><span></span></button>)}</div><button type="button" data-hero-next class="dom-hero-arrow dom-next" aria-label="Xem phối cảnh tiếp theo">→</button></div><p class="dom-hero-source">Ảnh phối cảnh tham khảo</p><span class="dom-sr-only" data-hero-status role="status" aria-live="polite">Ảnh 1 / {heroSlides.length}</span>
+      <div class="dom-slides">{heroSlides.map((slide,index) => <img src={slide.image.src} alt={slide.image.alt} width={slide.image.width} height={slide.image.height} loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} class:list={["dom-slide",{"is-active":index===0}]} aria-hidden={index !== 0 ? "true" : undefined} data-hero-slide />)}</div>
+      {heroSlides.map((slide,index) => <div class="dom-hero-copy" data-hero-copy hidden={index!==0}><p class="dom-label">{slide.eyebrow}</p>{index===0 ? <h1 id="dom-title">{slide.titleLead}<br />{slide.titleAccent}</h1> : <h2 class="dom-hero-title">{slide.titleLead}<br />{slide.titleAccent}</h2>}<div class="dom-hero-rule" aria-hidden="true"></div><p class="dom-hero-description">{slide.description}</p><div class="dom-hero-actions"><a href={slide.primaryHref} class="dom-button dom-button-accent">{slide.primaryLabel}<Icon name="arrow" size={17} /></a><a href={slide.secondaryHref} class="dom-button dom-button-outline">{slide.secondaryLabel}<Icon name="arrow" size={17} /></a></div><p class="dom-hero-note">{text(slide.priceNote)}</p></div>)}
+      <div class="dom-hero-controls" role="group" aria-label="Chuyển slide"><button type="button" data-hero-prev class="dom-hero-arrow" aria-label="Slide trước"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></button><span data-hero-counter aria-hidden="true">01 / {String(heroSlides.length).padStart(2,"0")}</span><button type="button" data-hero-next class="dom-hero-arrow" aria-label="Slide tiếp theo"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></button></div><p class="dom-hero-source">Phối cảnh minh họa</p><span class="dom-sr-only" data-hero-status role="status" aria-live="polite">Slide 1 / {heroSlides.length}: {heroSlides[0].titleLead}</span>
     </section>
 
     <section class="dom-section" aria-labelledby="dom-collections-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">CHỌN CHẤT LIỆU BẠN YÊU THÍCH</p><h2 id="dom-collections-title">Film dán nội thất cho từng<br class="dom-desktop-break" /> không gian của bạn.</h2><p>Đổi màu tủ, cửa và vách bằng chất liệu phù hợp với nội thất đang có.</p></header><div class="dom-collections">{collections.map(item => <a class="dom-collection" href={materialHref(item.material)}><img src={item.image} alt={`Gợi ý không gian cho ${item.material.name.toLowerCase()} — ảnh tham khảo`} width="700" height="900" loading="lazy" /><div class="dom-collection-shade"></div><div class="dom-collection-caption"><Icon name={categoryIcon(item.slug)!} size={25} /><h3>{item.material.shortName}</h3><span>Khám phá chất liệu ↗</span></div></a>)}</div></div></section>
@@ -67,19 +63,22 @@ const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice
 const slider = document.querySelector<HTMLElement>("[data-home-slider]");
 if (slider) {
   const slides = [...slider.querySelectorAll<HTMLImageElement>("[data-hero-slide]")];
-  const dots = [...slider.querySelectorAll<HTMLButtonElement>("[data-hero-dot]")];
+  const copies = [...slider.querySelectorAll<HTMLElement>("[data-hero-copy]")];
+  const counter = slider.querySelector<HTMLElement>("[data-hero-counter]")!;
   const status = slider.querySelector<HTMLElement>("[data-hero-status]")!;
   let current = 0;
   const show = (index: number) => {
+    const focusInCopy = copies[current].contains(document.activeElement);
     current = (index + slides.length) % slides.length;
     slides.forEach((slide,i) => { slide.classList.toggle("is-active",i===current); slide.setAttribute("aria-hidden",String(i!==current)); if (i===current) slide.loading="eager"; });
-    dots.forEach((dot,i) => dot.setAttribute("aria-pressed",String(i===current)));
-    status.textContent = `Ảnh ${current+1} / ${slides.length}`;
+    copies.forEach((copy,i) => { copy.hidden = i!==current; });
+    if (focusInCopy) copies[current].querySelector<HTMLAnchorElement>("a")?.focus({ preventScroll: true });
+    counter.textContent = `${String(current+1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;
+    status.textContent = `Slide ${current+1} / ${slides.length}: ${copies[current].querySelector("h1,h2")?.textContent || ""}`;
   };
   slider.querySelector("[data-hero-prev]")?.addEventListener("click",()=>show(current-1));
   slider.querySelector("[data-hero-next]")?.addEventListener("click",()=>show(current+1));
-  dots.forEach((dot,i)=>dot.addEventListener("click",()=>show(i)));
-  slider.addEventListener("keydown",event=>{ if(event.key==="ArrowLeft"||event.key==="ArrowRight"){event.preventDefault();show(current+(event.key==="ArrowRight"?1:-1));} });
+  slider.addEventListener("keydown",event=>{ if((event.key==="ArrowLeft"||event.key==="ArrowRight") && !(event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement)){event.preventDefault();show(current+(event.key==="ArrowRight"?1:-1));} });
 }
 </script>
 
@@ -108,9 +107,9 @@ if (slider) {
 .dom-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:65% center; opacity:0; transition:opacity .6s; }
 .dom-slide.is-active { opacity:1; }
 .dom-shade { position:absolute; inset:0; width:100%; height:100%; background:var(--dom-ink); opacity:.64; pointer-events:none; }
-.dom-hero-copy { position:relative; z-index:1; width:calc(100% - 24px); margin:-24px auto 0; padding:28px 20px; border:1px solid rgb(var(--surface-rgb) / .6); border-radius:16px; background:var(--ivory); text-align:center; }
+.dom-hero-copy { position:relative; z-index:1; width:calc(100% - 24px); margin:-24px auto 0; padding:28px 20px; border:1px solid rgb(var(--surface-rgb) / .6); border-radius:16px; background:#fffdf7; text-align:center; }
 .dom-hero .dom-label { color:var(--navy); font-size:.625rem; letter-spacing:.12em; }
-.dom-hero h1 { margin:1rem auto; font-size:clamp(1.8rem,3.2vw,3.25rem); line-height:1.15; }
+.dom-hero h1, .dom-hero .dom-hero-title { margin:1rem auto; font-size:clamp(1.8rem,3.2vw,3.25rem); line-height:1.15; }
 .dom-hero-rule { height:1px; background:var(--gold); margin:1.25rem 0; }
 .dom-hero-description { max-width:36rem; margin:0 auto 1.5rem!important; color:var(--navy); font-size:.875rem; }
 .dom-hero-actions { display:grid; gap:10px; }
@@ -118,17 +117,15 @@ if (slider) {
 .dom-button-outline { background:transparent; color:var(--navy); border-color:var(--navy); }
 .dom-button-outline:hover { background:var(--navy); color:var(--ivory); }
 .dom-hero-note { margin-top:1rem!important; font-size:.6875rem; color:var(--navy); }
-.dom-hero-controls { position:absolute; z-index:2; bottom:22px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:6px; padding:0; }
-.dom-hero-arrow { display:grid; place-items:center; width:44px; height:44px; border-radius:50%; border:0; background:rgb(var(--ivory-rgb) / .9); color:var(--navy); font-size:18px; transition:background-color .2s,color .2s; }
-.dom-hero-arrow:hover { background:var(--navy); color:var(--ivory); }
-.dom-dots { display:flex; padding-inline:4px; border-radius:999px; background:rgb(var(--ivory-rgb) / .9); }
-.dom-dots button { width:30px; height:44px; display:grid; place-items:center; border:0; background:transparent; }
-.dom-dots span { width:7px; height:7px; border-radius:50%; border:1px solid var(--navy); transition:width .2s; }
-.dom-dots [aria-pressed=true] span { width:20px; border-radius:8px; background:var(--navy); }
-.dom-hero-source { position:absolute; z-index:2; right:16px; bottom:4px; font-size:9px; color:var(--navy); padding:0 5px; background:var(--ivory); border-radius:2px; }
-@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) { .dom-hero-copy { background:rgb(var(--ivory-rgb) / .72); -webkit-backdrop-filter:blur(22px); backdrop-filter:blur(22px); } }
+.dom-hero-copy[hidden] { display:none; }
+.dom-hero-controls { position:absolute; z-index:2; bottom:18px; right:18px; display:flex; align-items:center; gap:4px; padding:2px; border:1px solid rgb(var(--pearl-rgb) / .5); border-radius:8px; background:rgb(255 253 247 / .95); }
+.dom-hero-arrow { display:grid; place-items:center; width:44px; height:44px; border:0; border-radius:6px; background:transparent; color:var(--navy); transition:background-color .2s; }
+.dom-hero-arrow:hover { background:var(--ivory); }
+.dom-hero-controls > span { min-width:52px; text-align:center; font-size:.6875rem; font-variant-numeric:tabular-nums; color:var(--navy); }
+.dom-hero-source { position:absolute; z-index:2; left:16px; bottom:28px; font-size:9px; color:var(--navy); padding:2px 5px; background:#fffdf7; border-radius:2px; }
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) { .dom-hero-copy { background:rgb(255 253 247 / .97); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); } }
 @media(min-width:640px) { .dom-hero { margin:24px 24px 0; }.dom-hero-copy { padding:36px; }.dom-hero-actions { grid-template-columns:1fr 1fr; } }
-@media(min-width:1024px) { .dom-hero { min-height:590px; display:flex; align-items:center; padding:48px 48px 90px; margin:24px 28px 0; }.dom-slides { position:absolute; inset:0; height:100%; }.dom-hero-copy { width:49%; max-width:660px; margin:0; padding:40px 32px; }.dom-hero h1 { font-size:clamp(2rem,3vw,3rem); }.dom-hero-source { bottom:28px; right:24px; padding:3px 9px; font-size:10px; }.dom-hero-controls { bottom:22px; } }
+@media(min-width:1024px) { .dom-hero { min-height:590px; display:flex; align-items:center; padding:48px 48px 90px; margin:24px 28px 0; }.dom-slides { position:absolute; inset:0; height:100%; }.dom-hero-copy { width:49%; max-width:660px; margin:0; padding:40px 32px; }.dom-hero h1, .dom-hero .dom-hero-title { font-size:clamp(2rem,3vw,3rem); }.dom-hero-source { bottom:28px; left:48px; right:auto; padding:3px 9px; font-size:10px; }.dom-hero-controls { bottom:22px; right:24px; } }
 @media(min-width:1600px) { .dom-hero { min-height:680px; padding-inline:64px; }.dom-hero-copy { padding:48px; } }
 .dom-collections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
 .dom-collection { position:relative; display:block; aspect-ratio:3/4; overflow:hidden; background:var(--dom-ink); color:var(--dom-paper); }

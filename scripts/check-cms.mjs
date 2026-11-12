@@ -82,11 +82,16 @@ assert.equal(new Set(products.map(product => product.slug)).size, products.lengt
 assert.equal(new Set(products.map(product => `${product.brand}:${product.code.toUpperCase().replace(/\s/g,'')}`)).size, products.length, 'Product codes must be unique per brand');
 assert.ok(products.some(product => product.brand === 'INFEEL'), 'Homepage needs at least one INFEEL price');
 const home = read('src/data/homeContent.json');
-for (const pic of [home.hero.image, home.benefits.image]) {
+assert.ok(home.hero.slides == null || (Array.isArray(home.hero.slides) && home.hero.slides.length <= 4), 'Use at most four additional homepage slides');
+const heroSlides = [home.hero, ...(home.hero.slides || [])];
+for (const pic of [home.benefits.image, ...heroSlides.map(slide => slide.image)]) {
   image(pic.src); assert.ok(pic.alt?.trim() && pic.width > 0 && pic.height > 0, 'Homepage images need ALT and dimensions');
 }
-for (const value of [home.brandName,home.seoTitle,home.seoDescription,home.hero.titleLead,home.hero.titleAccent,home.hero.description]) assert.ok(typeof value === 'string' && value.trim(), 'Homepage metadata and hero text are required');
-for (const href of [home.hero.primaryHref,home.hero.secondaryHref]) assert.match(href,/^(?:\/(?!\/)|#[a-zA-Z0-9_-]+|https:\/\/)[^\s]*$/, 'Homepage CTA must use an internal URL, anchor or HTTPS URL');
+for (const value of [home.brandName,home.seoTitle,home.seoDescription]) assert.ok(typeof value === 'string' && value.trim(), 'Homepage metadata is required');
+for (const slide of heroSlides) {
+  for (const key of ['eyebrow','titleLead','titleAccent','description','primaryLabel','secondaryLabel','priceNote','caption']) assert.ok(typeof slide[key] === 'string' && slide[key].trim(), `Homepage slide needs ${key}`);
+  for (const href of [slide.primaryHref,slide.secondaryHref]) assert.match(href,/^(?:\/(?!\/)|#[a-zA-Z0-9_-]+|https:\/\/)[^\s]*$/, 'Homepage CTA must use an internal URL, anchor or HTTPS URL');
+}
 assert.ok(home.collections.items.length > 0 && home.collections.items.every(item => materialSlugs.includes(item.slug)), 'Homepage featured material is unknown');
 for (const item of home.benefits.items) assert.ok(['check','swatches','phone'].includes(item.icon), 'Unknown homepage benefit icon');
 assert.ok(Array.isArray(home.steps.items) && Array.isArray(home.faqs.items), 'Homepage steps and FAQs must be lists');
