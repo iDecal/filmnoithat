@@ -13,7 +13,7 @@ const materialCount = new Set(samples.map(sample => sample.category)).size;
 ---
 <BaseLayout title={`Film nội thất ${brand.name} — Mẫu vật liệu & giá theo mét dài`} description={brand.description} image={brand.image} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Thương hiệu", path: "/thuong-hieu/" }, { name: brand.name, path: brandHref(brand) }])]}>
   <section class="editorial-hero brand-intro px-4 sm:px-6"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu", href: "/thuong-hieu/" }, { label: brand.name }]} /><div class="brand-intro-row"><div><p class="eyebrow mb-3">BỘ SƯU TẬP FILM NỘI THẤT</p><h1 class="text-3xl md:text-4xl font-medium"><BrandLogo brand={brand} size="large" priority /></h1><p class="brand-intro-description">{brand.description}</p></div><div class="brand-intro-stats"><strong>{samples.length}</strong><span>mẫu · {materialCount} nhóm vật liệu</span>{samples[0]?.pdf && <a href={samples[0].pdf} class="brand-pdf">Xem catalogue PDF <span aria-hidden="true">→</span></a>}</div></div></div></section>
-  <div class="px-4 sm:px-6 pt-8"><div class="max-w-7xl mx-auto"><nav class="brand-tabs" aria-label="Chọn thương hiệu">{brands.map(item => <a href={brandHref(item)} aria-current={item.slug === brand.slug ? "page" : undefined}>{item.name}<span>{catalogue.filter(sample => sample.brand === item.name).length}</span></a>)}</nav></div></div>
+  <section class="brand-selector px-4 sm:px-6" aria-labelledby="brand-selector-title"><div class="max-w-7xl mx-auto"><h2 id="brand-selector-title">CHỌN THƯƠNG HIỆU</h2><nav class="brand-tabs" aria-label="Chọn thương hiệu">{brands.map(item => <a href={brandHref(item)} aria-current={item.slug === brand.slug ? "page" : undefined}><div class="brand-tab-logo"><BrandLogo brand={item} size="small" /></div><div class="brand-tab-caption"><strong>{item.name}</strong><span class="brand-tab-count">{catalogue.filter(sample => sample.brand === item.name).length}<span class="brand-tab-unit"> mẫu</span></span></div></a>)}</nav></div></section>
   <BrandCatalogue brand={brand.name} />
 </BaseLayout>
 <style>
@@ -24,9 +24,27 @@ const materialCount = new Set(samples.map(sample => sample.category)).size;
   .brand-intro-stats strong { font-size: 2rem; font-weight: 500; line-height: 1.2; color: var(--navy); }
   .brand-intro-stats > span { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
   .brand-pdf { display: inline-flex; gap: .75rem; align-items: center; min-height: 2.75rem; font-size: .8125rem; color: var(--navy); text-decoration: underline; text-underline-offset: .3em; }
-  .brand-tabs { display: flex; gap: 1.75rem; border-bottom: 1px solid var(--pearl); }
-  .brand-tabs a { display: inline-flex; align-items: center; gap: .625rem; padding: .875rem .125rem; border-bottom: 2px solid transparent; margin-bottom: -1px; font-size: .875rem; color: var(--muted); }
-  .brand-tabs a[aria-current] { color: var(--navy); border-color: var(--navy); font-weight: 600; }
-  .brand-tabs span { font-size: .6875rem; padding: .125rem .4rem; background: var(--ivory); border-radius: 999px; color: var(--navy); }
-  @media(max-width: 639px) { .brand-intro { padding-top: 1.5rem; } .brand-intro-row { flex-direction: column; gap: 1rem; padding-bottom: 1.25rem; } .brand-intro-stats { align-items: flex-start; flex-direction: row; align-items: center; flex-wrap: wrap; gap: .5rem; } .brand-intro-stats strong { font-size: 1rem; } .brand-intro-stats > span { margin: 0; } .brand-intro-stats .brand-pdf { margin-left: auto; } .brand-tabs { justify-content: space-between; gap: .75rem; } }
+  .brand-selector { padding-top: 2.5rem; padding-bottom: .5rem; }
+  .brand-selector h2 { text-align: center; font-size: .6875rem; font-weight: 600; letter-spacing: .14em; color: var(--muted); margin-bottom: 1rem; }
+  .brand-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,200px)); justify-content: center; gap: 1rem; }
+  .brand-tabs a { display: flex; flex-direction: column; align-items: stretch; gap: .875rem; padding: 1rem; border: 1px solid rgb(var(--pearl-rgb) / .55); border-radius: 16px; background: #f5f7f9; color: var(--navy); transition: background-color 160ms,border-color 160ms; }
+  .brand-tabs a:hover { border-color: var(--navy); background: #edf1f6; }
+  .brand-tabs a[aria-current] { color: white; border-color: var(--navy); background: var(--navy); }
+  .brand-tab-logo { display: flex; justify-content: center; align-items: center; min-height: 64px; background: white; border-radius: 10px; }
+  .brand-tab-caption { display: flex; align-items: center; justify-content: center; gap: .625rem; }
+  .brand-tab-caption strong { font-size: .875rem; font-weight: 600; }
+  .brand-tab-count { font-size: .6875rem; font-weight: 500; white-space: nowrap; }
+  .brand-tabs a:focus-visible { outline: 2px solid var(--navy); outline-offset: 4px; }
+  @media(max-width:639px) {
+    .brand-selector { padding-top: 2rem; }
+    .brand-tabs { gap: .5rem; }
+    .brand-tabs a { padding: .5rem; gap: .625rem; border-radius: 12px; }
+    .brand-tab-logo { min-height: 48px; border-radius: 7px; }
+    .brand-tab-logo :global(.brand-logo) { width: 100%; max-width: 108px; height: 40px; }
+    .brand-tab-caption { flex-wrap: wrap; gap: .125rem .375rem; }
+    .brand-tab-caption strong { font-size: .75rem; }
+    .brand-tab-count { font-size: .625rem; }
+    .brand-tab-unit { display: none; }
+  }
+  @media(max-width: 639px) { .brand-intro { padding-top: 1.5rem; } .brand-intro-row { flex-direction: column; gap: 1rem; padding-bottom: 1.25rem; } .brand-intro-stats { align-items: flex-start; flex-direction: row; align-items: center; flex-wrap: wrap; gap: .5rem; } .brand-intro-stats strong { font-size: 1rem; } .brand-intro-stats > span { margin: 0; } .brand-intro-stats .brand-pdf { margin-left: auto; } }
 </style>
