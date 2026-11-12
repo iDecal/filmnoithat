@@ -9,62 +9,57 @@ import { breadcrumbSchema } from "../../data/seo";
 <BaseLayout title={pageContent.knowledge.title} description={pageContent.knowledge.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Kiến thức nội thất", path: "/blog/" }])]}>
   <section class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Kiến thức nội thất" }]} /><p class="eyebrow mb-4">CẨM NANG CHỌN FILM & THI CÔNG</p><h1 class="text-[1.75rem] md:text-4xl font-medium">{pageContent.knowledge.headingLead}</h1><p class="text-base-600 text-lg mt-6 max-w-3xl">{pageContent.knowledge.intro}</p></div></section>
   <section id="bai-viet" class="px-4 sm:px-6 section-space bg-white" data-blog-browser><div class="max-w-7xl mx-auto">
-    <div class="blog-toolbar"><div><p class="eyebrow mb-2">KHÁM PHÁ KIẾN THỨC</p><h2 class="text-2xl font-semibold">Đọc theo điều bạn quan tâm.</h2></div><label class="blog-search"><span class="sr-only">Tìm bài viết</span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input type="search" data-blog-search placeholder="Tìm chủ đề, từ khóa…" /></label></div>
-    <nav class="blog-categories" aria-label="Chuyên mục kiến thức nội thất"><a href="/blog/#bai-viet" data-blog-category="all" aria-current="true">Tất cả <span>{posts.length}</span></a>{blogCategories.map(category => <a href={`/blog/?chuyen-muc=${category.value}#bai-viet`} data-blog-category={category.value}>{category.label}<span>{posts.filter(post => blogCategory(post.category).value === category.value).length}</span></a>)}</nav>
+    <div class="blog-toolbar"><div><p class="eyebrow mb-2">KHÁM PHÁ KIẾN THỨC</p><h2 class="text-2xl font-semibold">Đọc theo điều bạn quan tâm.</h2></div><label class="blog-filter"><span>LỌC CHUYÊN MỤC</span><select data-blog-filter aria-label="Lọc bài viết theo chuyên mục"><option value="all">Tất cả bài viết ({posts.length})</option>{blogCategories.map(category => <option value={category.value}>{category.label} ({posts.filter(post => blogCategory(post.category).value === category.value).length})</option>)}</select></label></div>
     <div class="blog-results-meta"><p data-blog-status role="status" aria-live="polite">{posts.length} bài viết</p><button type="button" data-blog-reset hidden>Đặt lại bộ lọc</button></div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-9">
-      {posts.map(post => <article class="group" data-blog-card data-category={blogCategory(post.category).value} data-search={`${post.title} ${post.description} ${blogCategory(post.category).label}`}><a href={postHref(post)} class="block group"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="600" height="400" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><div class="pt-4"><div class="flex flex-wrap items-center gap-x-3 gap-y-1"><span class="blog-category-badge">{blogCategory(post.category).label}</span><time datetime={post.date} class="text-xs text-base-600">{formatDate(post.date)}</time></div><h3 class="text-[1.375rem] font-semibold mt-3 group-hover:text-primary-600">{post.title}</h3><p class="text-sm text-base-600 mt-3">{post.description}</p><span class="outline-action text-sm font-medium mt-3">Đọc bài viết →</span></div></a></article>)}
+      {posts.map(post => <article class="group" data-blog-card data-category={blogCategory(post.category).value}><a href={postHref(post)} class="block group"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="600" height="400" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><div class="pt-4"><div class="flex flex-wrap items-center gap-x-3 gap-y-1"><span class="blog-category-badge">{blogCategory(post.category).label}</span><time datetime={post.date} class="text-xs text-base-600">{formatDate(post.date)}</time></div><h3 class="text-[1.375rem] font-semibold mt-3 group-hover:text-primary-600">{post.title}</h3><p class="text-sm text-base-600 mt-3">{post.description}</p><span class="blog-read-button text-sm font-medium mt-3">Đọc bài viết →</span></div></a></article>)}
     </div>
-    <p data-blog-empty hidden class="text-base-600 py-10 text-center">Chưa có bài viết phù hợp. Thử từ khóa khác hoặc đặt lại bộ lọc.</p>
+    <p data-blog-empty hidden class="text-base-600 py-10 text-center">Chưa có bài viết phù hợp. Chọn chuyên mục khác hoặc đặt lại bộ lọc.</p>
   </div></section>
 </BaseLayout>
 <script>
   const root = document.querySelector<HTMLElement>("[data-blog-browser]")!;
-  const links = [...root.querySelectorAll<HTMLAnchorElement>("[data-blog-category]")];
+  const filter = root.querySelector<HTMLSelectElement>("[data-blog-filter]")!;
   const cards = [...root.querySelectorAll<HTMLElement>("[data-blog-card]")];
-  const input = root.querySelector<HTMLInputElement>("[data-blog-search]")!;
   const reset = root.querySelector<HTMLButtonElement>("[data-blog-reset]")!;
-  const normalize = (value: string) => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
-  let category = "all";
   const update = (save = true) => {
-    const terms = normalize(input.value).trim().split(/\s+/).filter(Boolean);
     let count = 0;
     for (const card of cards) {
-      card.hidden = (category !== "all" && card.dataset.category !== category) || !terms.every(term => normalize(card.dataset.search || "").includes(term));
+      card.hidden = filter.value !== "all" && card.dataset.category !== filter.value;
       if (!card.hidden) count++;
     }
-    links.forEach(link => { if (link.dataset.blogCategory === category) link.setAttribute("aria-current", "true"); else link.removeAttribute("aria-current"); });
     root.querySelector<HTMLElement>("[data-blog-status]")!.textContent = `${count} / ${cards.length} bài viết`;
     root.querySelector<HTMLElement>("[data-blog-empty]")!.hidden = count > 0;
-    reset.hidden = category === "all" && !input.value;
+    reset.hidden = filter.value === "all";
     if (save) {
       const url = new URL(location.href);
-      if (category !== "all") url.searchParams.set("chuyen-muc", category); else url.searchParams.delete("chuyen-muc");
-      if (input.value.trim()) url.searchParams.set("q", input.value.trim()); else url.searchParams.delete("q");
+      if (filter.value !== "all") url.searchParams.set("chuyen-muc", filter.value); else url.searchParams.delete("chuyen-muc");
+      url.searchParams.delete("q");
       history.replaceState(null, "", url.pathname + url.search + url.hash);
     }
   };
-  const restore = () => { const params = new URLSearchParams(location.search); category = links.some(link => link.dataset.blogCategory === params.get("chuyen-muc")) ? params.get("chuyen-muc")! : "all"; input.value = params.get("q") || ""; update(false); };
-  links.forEach(link => link.addEventListener("click", event => { if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return; event.preventDefault(); category = link.dataset.blogCategory!; update(); }));
-  input.addEventListener("input", () => update());
-  reset.addEventListener("click", () => { category = "all"; input.value = ""; update(); input.focus(); });
+  const restore = () => {
+    const category = new URLSearchParams(location.search).get("chuyen-muc");
+    filter.value = [...filter.options].some(option => option.value === category) ? category! : "all";
+    update(false);
+  };
+  filter.addEventListener("change", () => update());
+  reset.addEventListener("click", () => { filter.value = "all"; update(); filter.focus(); });
   window.addEventListener("popstate", restore);
   restore();
 </script>
 <style>
   #bai-viet { scroll-margin-top: 6rem; }
   .blog-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.5rem; }
-  .blog-search { position: relative; width: min(100%, 21rem); flex-shrink: 0; }
-  .blog-search svg { position: absolute; left: .875rem; top: 50%; transform: translateY(-50%); color: var(--muted); }
-  .blog-search input { width: 100%; min-height: 2.875rem; border: 1px solid var(--gold); border-radius: .75rem; padding: .625rem .875rem .625rem 2.5rem; color: var(--navy); background: var(--ivory); font-size: 1rem; }
-  .blog-categories { display: flex; gap: .5rem; overflow-x: auto; padding: .375rem .25rem .75rem; scrollbar-width: thin; }
-  .blog-categories a { display: inline-flex; align-items: center; gap: .625rem; flex-shrink: 0; min-height: 2.75rem; padding: .5rem .875rem; border: 1px solid var(--gold); border-radius: 999px; font-size: .8125rem; color: var(--navy); }
-  .blog-categories a span { font-size: .6875rem; opacity: .75; }
-  .blog-categories a:hover { background: var(--gold); color: var(--navy); }
-  .blog-categories a[aria-current] { background: var(--gold); border-color: var(--navy); color: var(--navy); }
+  .blog-filter { display: flex; flex-direction: column; gap: .5rem; width: min(100%,22rem); flex-shrink: 0; }
+  .blog-filter > span { font-size: .625rem; letter-spacing: .1em; font-weight: 600; color: var(--muted); }
+  .blog-filter select { width: 100%; min-height: 48px; padding: .75rem 2.5rem .75rem 1rem; border: 1px solid rgb(var(--pearl-rgb) / .65); border-radius: 12px; background-color: #f5f7f9; color: var(--navy); font-size: .9375rem; cursor: pointer; }
+  .blog-filter select:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+  .blog-read-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .625rem 1.25rem; border: 1px solid var(--navy); border-radius: 999px; background: var(--navy); color: var(--ivory); transition: background-color 160ms, color 160ms; }
+  a:hover .blog-read-button, a:focus-visible .blog-read-button { background: #203b5e; border-color: #203b5e; color: white; }
   .blog-results-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: .5rem 0 1.5rem; font-size: .75rem; color: var(--muted); }
-  .blog-results-meta button { min-height: 2.75rem; color: var(--navy); text-decoration: underline; text-underline-offset: .2em; }
-  .blog-category-badge { display: inline-block; border-radius: 999px; background: var(--gold); color: var(--navy); padding: .25rem .625rem; font-size: .6875rem; font-weight: 600; }
+  .blog-results-meta button { min-height: 2.75rem; color: var(--navy); padding: .5rem .875rem; border: 1px solid var(--navy); border-radius: 999px; background: transparent; }
+  .blog-category-badge { display: inline-block; border-radius: 999px; background: #f1f4f7; color: var(--navy); padding: .375rem .75rem; font-size: .6875rem; font-weight: 600; }
   [data-blog-card][hidden], [data-blog-empty][hidden], [data-blog-reset][hidden] { display: none; }
-  @media(max-width: 767px) { .blog-toolbar { flex-direction: column; align-items: stretch; gap: 1rem; margin-bottom: .875rem; } .blog-search { width: 100%; } .blog-results-meta { margin-bottom: 1rem; } }
+  @media(max-width: 767px) { .blog-toolbar { flex-direction: column; align-items: stretch; gap: 1rem; margin-bottom: .875rem; } .blog-filter { width: 100%; } .blog-results-meta { margin-bottom: 1rem; } }
 </style>
