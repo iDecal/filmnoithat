@@ -15,10 +15,10 @@ const text = (value: string) => startingPrice ? value.replaceAll("{gia_infeel}",
 const faqs = home.faqs.items.map(faq => ({ ...faq, answer: text(faq.answer) }));
 const brands = [...new Set(catalogue.map(sample => sample.brand))];
 const collectionPhotos: Record<string,string> = {
-  "van-go": "/images/perspectives/ivory-oak-kitchen.webp",
-  "da-cam-thach": "/images/home/interior-kitchen.webp",
-  "don-sac": "/images/bo-suu-tap/film-noi-that-canh-tu-mau-kem.webp",
-  "kim-loai": "/images/bo-suu-tap/film-noi-that-quay-anh-kim-voi-duong-sang.webp",
+  "van-go": "/images/perspectives/oak-living-room.webp",
+  "da-cam-thach": "/images/perspectives/modern-reception.webp",
+  "don-sac": "/images/perspectives/ivory-oak-kitchen.webp",
+  "kim-loai": "/images/perspectives/champagne-metal-reception.webp",
 };
 const collections = home.collections.items.map(item => ({ ...item, material: materials.find(material => material.slug === item.slug)!, image: collectionPhotos[item.slug] }));
 const stories = [...projectStories.filter(story => story.kind === "reference"), ...projectStories.filter(story => story.kind !== "reference")].slice(0,6);
@@ -41,7 +41,7 @@ const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice
       <div class="dom-hero-controls" role="group" aria-label="Chuyển slide"><button type="button" data-hero-prev class="dom-hero-arrow" aria-label="Slide trước"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></button><span data-hero-counter aria-hidden="true">01 / {String(heroSlides.length).padStart(2,"0")}</span><button type="button" data-hero-next class="dom-hero-arrow" aria-label="Slide tiếp theo"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></button></div><p class="dom-hero-source">Phối cảnh minh họa</p><span class="dom-sr-only" data-hero-status role="status" aria-live="polite">Slide 1 / {heroSlides.length}: {heroSlides[0].titleLead}</span>
     </section>
 
-    <section class="dom-section" aria-labelledby="dom-collections-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">CHỌN CHẤT LIỆU BẠN YÊU THÍCH</p><h2 id="dom-collections-title">Film dán nội thất cho từng<br class="dom-desktop-break" /> không gian của bạn.</h2><p>Đổi màu tủ, cửa và vách bằng chất liệu phù hợp với nội thất đang có.</p></header><div class="dom-collections">{collections.map(item => <a class="dom-collection" href={materialHref(item.material)}><img src={item.image} alt={`Gợi ý không gian cho ${item.material.name.toLowerCase()} — ảnh tham khảo`} width="700" height="900" loading="lazy" /><div class="dom-collection-shade"></div><div class="dom-collection-caption"><Icon name={categoryIcon(item.slug)!} size={25} /><h3>{item.material.shortName}</h3><span>Khám phá chất liệu ↗</span></div></a>)}</div></div></section>
+    <section class="dom-section dom-material-collections" aria-labelledby="dom-collections-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">CHỌN CHẤT LIỆU BẠN YÊU THÍCH</p><h2 id="dom-collections-title">Film dán nội thất cho từng<br class="dom-desktop-break" /> không gian của bạn.</h2><p>Đổi màu tủ, cửa và vách bằng chất liệu phù hợp với nội thất đang có.</p></header><div class="dom-collections">{collections.map(item => <a class="dom-collection" href={materialHref(item.material)}><img src={item.image} alt={`Gợi ý không gian cho ${item.material.name.toLowerCase()} — ảnh tham khảo`} width="700" height="900" loading="lazy" /><div class="dom-collection-shade"></div><div class="dom-collection-caption"><Icon name={categoryIcon(item.slug)!} size={25} /><h3>{item.material.shortName}</h3><span>Khám phá chất liệu ↗</span></div></a>)}</div></div></section>
 
     <section class="dom-ribbon"><div class="dom-wrap dom-ribbon-inner"><h2>Chọn mẫu bạn thích.<br />Cùng lên phương án hoàn thiện.</h2><a class="dom-button dom-button-dark" href={site.zaloHref}>Trao đổi qua Zalo<Icon name="arrow" size={17} /></a></div></section>
 
@@ -127,11 +127,11 @@ if (slider) {
 @media(min-width:640px) { .dom-hero { margin:24px 24px 0; }.dom-hero-copy { padding:36px; }.dom-hero-actions { grid-template-columns:1fr 1fr; } }
 @media(min-width:1024px) { .dom-hero { min-height:590px; display:flex; align-items:center; padding:48px 48px 90px; margin:24px 28px 0; }.dom-slides { position:absolute; inset:0; height:100%; }.dom-hero-copy { width:49%; max-width:660px; margin:0; padding:40px 32px; }.dom-hero h1, .dom-hero .dom-hero-title { font-size:clamp(2rem,3vw,3rem); }.dom-hero-source { bottom:28px; left:48px; right:auto; padding:3px 9px; font-size:10px; }.dom-hero-controls { bottom:22px; right:24px; } }
 @media(min-width:1600px) { .dom-hero { min-height:680px; padding-inline:64px; }.dom-hero-copy { padding:48px; } }
-.dom-collections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.dom-collections { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; }
 .dom-collection { position:relative; display:block; aspect-ratio:3/4; overflow:hidden; background:var(--dom-ink); color:var(--dom-paper); }
 .dom-collection>img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
 .dom-collection:hover>img { transform:scale(1.03); }
-.dom-collection-shade { position:absolute; inset:55% 0 0; background:var(--dom-ink); opacity:.85; }
+.dom-collection-shade { position:absolute; inset:auto 0 0; height:124px; background:var(--dom-ink); opacity:.88; }
 .dom-collection-caption { position:absolute; left:1rem; right:1rem; bottom:1rem; }
 .dom-collection-caption :global(svg) { margin-bottom:.5rem; }
 .dom-collection-caption h3 { font-size:1rem; }
@@ -171,7 +171,7 @@ if (slider) {
 .dom-contact { background:var(--dom-soft); padding-block:3rem; }.dom-contact-inner { display:flex; flex-direction:column; gap:2rem; }.dom-contact h2 { margin:.7rem 0 1rem; }.dom-contact p { max-width:660px; font-size:.875rem; color:var(--dom-muted); }.dom-contact-actions { display:flex; flex-direction:column; gap:.8rem; align-items:flex-start; }.dom-phone { font-size:1.3rem; font-weight:500; min-height:44px; display:inline-flex; align-items:center; }
 .dom-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 .home-dom :focus-visible { outline:2px solid var(--dom-label-color); outline-offset:4px; }
-@media(min-width:640px) { .dom-wrap { width:min(1240px,calc(100% - 64px)); }.dom-collections { gap:22px; }.dom-ribbon-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-collection-caption h3 { font-size:1.35rem; }.dom-about-visual figure img { aspect-ratio:5/4; }.dom-contact-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-contact-inner>div:first-child { max-width:65%; } }
+@media(min-width:640px) { .dom-wrap { width:min(1240px,calc(100% - 64px)); }.dom-collections { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }.dom-ribbon-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-collection-caption h3 { font-size:1.35rem; }.dom-about-visual figure img { aspect-ratio:5/4; }.dom-contact-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-contact-inner>div:first-child { max-width:65%; } }
 @media(min-width:1024px) { .dom-collections { grid-template-columns:repeat(4,minmax(0,1fr)); }.dom-about-grid { grid-template-columns:1fr 1fr; gap:5rem; }.dom-about-visual { padding-left:1rem; }.dom-about-visual figure img { aspect-ratio:4/5; max-height:610px; }.dom-stats { margin-left:-3rem; margin-right:2rem; }.dom-stats>div { padding:1.4rem; }.dom-space-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.dom-space img { aspect-ratio:16/10; }.dom-space figcaption { padding:1rem 1.4rem; }.dom-space figcaption h3 { font-size:1.15rem; }.dom-space figcaption span { font-size:.7rem; }.dom-products,.dom-posts { grid-template-columns:repeat(4,minmax(0,1fr)); gap:2.5rem 1.5rem; }.dom-assurance-grid { grid-template-columns:1.05fr 1fr 1fr; gap:1.5rem; }.dom-assurance-intro { padding-right:1rem; }.dom-assurance-intro h2 { font-size:1.8rem; }.dom-promise { min-height:300px; padding:2rem; } }
 @media(hover:hover) and (pointer:fine) { .dom-space figcaption { opacity:0; transform:translateY(8px); transition:opacity .2s,transform .2s; }.dom-space:hover figcaption,.dom-space:focus-visible figcaption { opacity:1; transform:none; } }
 @media(max-width:639px) { .dom-space figcaption span:last-child { display:none; } }
@@ -182,4 +182,9 @@ if (slider) {
 .dom-assurance .dom-button-accent:hover { background:var(--ivory); color:var(--navy); border-color:var(--ivory); }
 .dom-assurance :focus-visible { outline-color:var(--gold); }
 :global(body:has(.home-dom) .site-header .button-primary) { border-radius:999px; }
+  @media(max-width:767px) {
+    .dom-collections { grid-template-columns: minmax(0,1fr); }
+    .dom-material-collections > .dom-wrap { width: 80%; }
+    .dom-collection-caption h3 { font-size: 1.25rem; }
+  }
 </style>

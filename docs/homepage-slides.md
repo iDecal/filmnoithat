@@ -9,3 +9,5 @@ Ba ảnh tại `public/images/perspectives/` là phối cảnh minh họa đư�
 - `modern-reception.webp`: sảnh tiếp đón với quầy đá và vách gỗ, dùng cho nội dung tư vấn thi công.
 
 Slide chuyển thủ công bằng hai nút mũi tên; hỗ trợ phím trái/phải, thông báo vị trí cho trình đọc màn hình và giảm chuyển động theo tùy chọn hệ thống. Ảnh nguyên gốc của các sản phẩm không thay đổi.
+
+The material collection card for metallic finishes uses `public/images/perspectives/champagne-metal-reception.webp`, a generated reference interior, not a photographed installation or an exact product swatch.
