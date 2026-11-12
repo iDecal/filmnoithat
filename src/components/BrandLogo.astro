@@ -1,0 +1,13 @@
+---
+import type { Brand } from "../data/brands";
+interface Props { brand: Brand; size?: "small" | "regular" | "large"; priority?: boolean }
+const { brand, size = "regular", priority = false } = Astro.props;
+const heights = { corance: 474, toda: 333, infeel: 345 };
+---
+<span class:list={["brand-logo",`brand-logo-${size}`]}><img src={brand.logo} alt={brand.name} width="1000" height={heights[brand.slug]} loading={priority ? "eager" : "lazy"} decoding="async" /></span>
+<style>
+  .brand-logo { display: inline-flex; width: 180px; height: 76px; align-items: center; justify-content: center; vertical-align: middle; }
+  .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .brand-logo-small { width: 108px; height: 44px; }
+  .brand-logo-large { width: min(280px,100%); height: 112px; }
+</style>

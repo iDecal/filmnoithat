@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string; intro: string; category: string; categoryHref?: string;
+  date?: string; dateLabel?: string;
+  image?: {src: string; alt: string; title?: string; width?: number; height?: number; caption?: string};
+}
+const { title, intro, category, categoryHref, date, dateLabel, image } = Astro.props;
+---
+<header class:list={["blog-reading-hero", {"blog-reading-archive": !image}]}>
+  <div class="blog-reading-wrap">
+    <slot />
+    <div class="blog-reading-meta">{categoryHref ? <a href={categoryHref}>{category}</a> : <span>{category}</span>}{date && <time datetime={date}>{dateLabel}</time>}</div>
+    <h1>{title}</h1>
+    {date && <p class="blog-reading-author">Biên soạn: Film Nội Thất</p>}
+    <p class="blog-reading-intro">{intro}</p>
+    {image && <figure><img src={image.src} alt={image.alt} title={image.title || image.alt} width={image.width || 1000} height={image.height || 563} fetchpriority="high" /><figcaption>{image.caption || "Ảnh tham khảo chất liệu và không gian nội thất."}</figcaption></figure>}
+  </div>
+</header>
+<style>
+  .blog-reading-hero { padding: 2rem 0 0; background: #fff; color: var(--navy); }
+  .blog-reading-wrap { width: min(896px,calc(100% - 40px)); margin-inline: auto; }
+  .blog-reading-archive { padding-bottom: 2.5rem; border-bottom: 1px solid rgb(var(--pearl-rgb) / .4); }
+  .blog-reading-archive .blog-reading-wrap { width: min(1280px,calc(100% - 40px)); }
+  .blog-reading-meta { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.25rem; font-size: .75rem; }
+  .blog-reading-meta > :first-child { display: inline-flex; align-items: center; min-height: 32px; padding: .375rem .75rem; border-radius: 999px; background: #f1f4f7; color: var(--navy); font-weight: 500; }
+  .blog-reading-meta time { color: var(--muted); }
+  .blog-reading-meta a:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .blog-reading-hero h1 { margin: 1rem 0; max-width: 52rem; font-size: 1.75rem; line-height: 1.25; font-weight: 500; text-wrap: balance; }
+  .blog-reading-author { font-size: .75rem; color: var(--muted); }
+  .blog-reading-intro { max-width: 50rem; margin-top: 1.25rem; font-size: 1rem; line-height: 1.85; color: var(--muted); }
+  .blog-reading-hero figure { margin: 2rem 0 0; }
+  .blog-reading-hero figure img { display: block; width: 100%; height: auto; border-radius: 16px; }
+  .blog-reading-hero figcaption { margin-top: .75rem; font-size: .75rem; line-height: 1.6; color: var(--muted); }
+  @media(min-width:640px) { .blog-reading-wrap { width: min(896px,calc(100% - 48px)); }.blog-reading-archive .blog-reading-wrap { width: min(1280px,calc(100% - 48px)); } }
+  @media(min-width:768px) { .blog-reading-hero { padding-top: 3rem; }.blog-reading-hero h1 { font-size: 2.25rem; }.blog-reading-archive { padding-bottom: 3rem; } }
+</style>

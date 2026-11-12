@@ -1,4 +1,5 @@
 ---
+import BrandLogo from "../../components/BrandLogo.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BrandCatalogue from "../../components/BrandCatalogue.astro";
@@ -11,7 +12,7 @@ const samples = catalogue.filter(sample => sample.brand === brand.name);
 const materialCount = new Set(samples.map(sample => sample.category)).size;
 ---
 <BaseLayout title={`Film nội thất ${brand.name} — Mẫu vật liệu & giá theo mét dài`} description={brand.description} image={brand.image} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Thương hiệu", path: "/thuong-hieu/" }, { name: brand.name, path: brandHref(brand) }])]}>
-  <section class="editorial-hero brand-intro px-4 sm:px-6"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu", href: "/thuong-hieu/" }, { label: brand.name }]} /><div class="brand-intro-row"><div><p class="eyebrow mb-3">BỘ SƯU TẬP FILM NỘI THẤT</p><h1 class="text-3xl md:text-4xl font-medium">{brand.name}</h1><p class="brand-intro-description">{brand.description}</p></div><div class="brand-intro-stats"><strong>{samples.length}</strong><span>mẫu · {materialCount} nhóm vật liệu</span>{samples[0]?.pdf && <a href={samples[0].pdf} class="brand-pdf">Xem catalogue PDF <span aria-hidden="true">→</span></a>}</div></div></div></section>
+  <section class="editorial-hero brand-intro px-4 sm:px-6"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu", href: "/thuong-hieu/" }, { label: brand.name }]} /><div class="brand-intro-row"><div><p class="eyebrow mb-3">BỘ SƯU TẬP FILM NỘI THẤT</p><h1 class="text-3xl md:text-4xl font-medium"><BrandLogo brand={brand} size="large" priority /></h1><p class="brand-intro-description">{brand.description}</p></div><div class="brand-intro-stats"><strong>{samples.length}</strong><span>mẫu · {materialCount} nhóm vật liệu</span>{samples[0]?.pdf && <a href={samples[0].pdf} class="brand-pdf">Xem catalogue PDF <span aria-hidden="true">→</span></a>}</div></div></div></section>
   <div class="px-4 sm:px-6 pt-8"><div class="max-w-7xl mx-auto"><nav class="brand-tabs" aria-label="Chọn thương hiệu">{brands.map(item => <a href={brandHref(item)} aria-current={item.slug === brand.slug ? "page" : undefined}>{item.name}<span>{catalogue.filter(sample => sample.brand === item.name).length}</span></a>)}</nav></div></div>
   <BrandCatalogue brand={brand.name} />
 </BaseLayout>

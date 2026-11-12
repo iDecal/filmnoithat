@@ -1,5 +1,6 @@
 ---
 import { formatRetailPrice } from "../../../data/infeelPrices";
+import BrandLogo from "../../../components/BrandLogo.astro";
 import ProductCard from "../../../components/ProductCard.astro";
 import ProductImageUpload from "../../../components/ProductImageUpload.astro";
 import ProductImageGallery from "../../../components/ProductImageGallery.astro";
@@ -46,7 +47,7 @@ const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — 
         <p data-product-short-description class="text-[15px] leading-relaxed text-base-600 mt-5">Mẫu film dán nội thất {sample.brand} {sample.code} thuộc nhóm {material.shortName.toLowerCase()}, tông {sample.color.name.toLowerCase()}, để tham khảo khi phối bàn, tủ hoặc vách. Cần xem mẫu thực tế và xác nhận thông số phù hợp với bề mặt dự kiến sử dụng.</p>
         <section data-product-information aria-labelledby="product-information-title" class="mt-6 rounded-2xl border border-base-200 bg-white/70 p-4 sm:p-5">
           <h2 id="product-information-title" class="text-base font-semibold mb-2">Thông tin sản phẩm</h2>
-          <dl class="divide-y divide-base-200 text-sm">{productDetails.map(detail => <div class="grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-3 py-3 items-start"><dt class="flex items-center gap-2 text-base-600"><span class="inline-flex w-7 h-7 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600"><Icon name={detail.icon} size={17} /></span><span>{detail.label}</span></dt><dd class="pt-1 font-medium break-words">{detail.label === "Thương hiệu" ? <a href={brandHref(productBrand)} class="underline underline-offset-4 hover:text-primary-600">{detail.value}</a> : detail.value}</dd></div>)}</dl>
+          <dl class="divide-y divide-base-200 text-sm">{productDetails.map(detail => <div class="grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-3 py-3 items-start"><dt class="flex items-center gap-2 text-base-600"><span class="inline-flex w-7 h-7 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600"><Icon name={detail.icon} size={17} /></span><span>{detail.label}</span></dt><dd class="pt-1 font-medium break-words">{detail.label === "Thương hiệu" ? <a href={brandHref(productBrand)} aria-label={`Xem thương hiệu ${productBrand.name}`}><BrandLogo brand={productBrand} size="small" /></a> : detail.value}</dd></div>)}</dl>
         </section>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn mẫu {sample.code} qua Zalo</a><button type="button" data-copy-request class="button-secondary" data-request={request}>Sao chép yêu cầu mẫu</button></div><p data-copy-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3">Sao chép yêu cầu rồi gửi qua Zalo để trao đổi đúng mã mẫu.</p>
       </div>
