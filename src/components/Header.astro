@@ -41,14 +41,12 @@ const pathname = Astro.url.pathname;
   <nav id="mobileMenu" class="hidden xl:hidden border-t border-base-200 bg-white overflow-y-auto overscroll-contain" aria-label="Điều hướng trên điện thoại">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
       {navigation.map((item, index) => item.children ? (
-        <div data-nav-group class="mobile-nav-group border-b border-base-200 pb-2">
-          <div class:list={["nav-trigger-group flex items-center justify-between gap-3", { "is-current": isCurrentSection(pathname, item) }]}>
-            <a href={item.href} aria-current={isCurrentPage(pathname, item.href) ? "page" : undefined} class="nav-top-link flex-1 py-3 font-medium rounded-lg">{item.label}</a>
-            <button type="button" data-nav-toggle data-label={item.label} aria-label={`${isCurrentSection(pathname, item) ? "Đóng" : "Mở"} danh mục ${item.label}`} aria-expanded={isCurrentSection(pathname, item) ? "true" : "false"} aria-controls={`mobile-submenu-${index}`} class="submenu-toggle flex items-center justify-center w-11 h-11 rounded-lg hover:bg-primary-50">
-              <svg class="nav-chevron w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-          <ul id={`mobile-submenu-${index}`} hidden={!isCurrentSection(pathname, item)} class="submenu-panel pl-3 pb-2 space-y-1 text-sm text-base-600">
+        <div data-nav-group class="mobile-nav-group border-b border-base-200">
+          <button type="button" data-nav-toggle data-label={item.label} aria-label={`Mở danh mục ${item.label}`} aria-expanded="false" aria-controls={`mobile-submenu-${index}`} class="mobile-nav-toggle nav-top-link">
+            <span>{item.label}</span><span class="mobile-nav-mark" aria-hidden="true"></span>
+          </button>
+          <ul id={`mobile-submenu-${index}`} hidden class="submenu-panel text-sm text-base-600">
+            <li><a href={item.href} aria-current={isCurrentPage(pathname,item.href) ? "page" : undefined} class="nav-child-link flex items-center px-3 py-3"><span>Xem tất cả {item.label.toLowerCase()}</span></a></li>
             {item.children.map(child => <li><a href={child.href} aria-current={isCurrentPage(pathname, child.href) ? "page" : undefined} class="nav-child-link flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-600">{categoryIcon(child.href) && <Icon name={categoryIcon(child.href)!} size={20} class="text-primary-600" />}<span>{child.label}</span></a></li>)}
           </ul>
         </div>
@@ -155,7 +153,16 @@ const pathname = Astro.url.pathname;
   .submenu-panel > li + li { border-top: 1px solid rgb(var(--pearl-rgb) / .4); margin-top: .375rem; padding-top: .375rem; }
   .nav-dropdown > .submenu-panel { width: 21rem; padding: .75rem; margin-top: .75rem; border-color: rgb(var(--pearl-rgb) / .6); border-radius: .875rem; box-shadow: 0 12px 30px rgb(var(--navy-rgb) / .08); }
   #mobileMenu > div { padding-block: 1.25rem; }
-  #mobileMenu .nav-top-link { padding-block: 1rem; }
+  #mobileMenu .nav-top-link { padding-block: .875rem; min-height: 52px; font-size: .875rem; white-space: nowrap; }
+  .mobile-nav-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; text-align: left; text-transform: uppercase; letter-spacing: .025em; border: 0; background: transparent; color: var(--navy); }
+  .mobile-nav-mark { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+  .mobile-nav-mark::before, .mobile-nav-mark::after { content: ""; position: absolute; background: currentColor; border-radius: 1px; }
+  .mobile-nav-mark::before { width: 12px; height: 1.5px; left: 2px; top: 7px; }
+  .mobile-nav-mark::after { width: 1.5px; height: 12px; left: 7px; top: 2px; transition: transform 160ms; }
+  .mobile-nav-toggle[aria-expanded="true"] .mobile-nav-mark::after { transform: rotate(90deg); }
+  #mobileMenu .submenu-panel { padding: 0 0 .75rem .5rem; }
+  #mobileMenu .nav-child-link { padding-block: .625rem; min-height: 44px; }
+  #mobileMenu .submenu-panel > li + li { margin-top: 0; padding-top: 0; }
   #mobileMenu .button-primary { margin-top: 1.5rem; }
   @media(min-width: 640px) { .header-shell { width: min(1280px,calc(100% - 48px)); } :global(body:has(.home-dom)) .header-shell { width: min(1240px,calc(100% - 64px)); } }
   @media(min-width: 1440px) { .desktop-navigation { gap: .875rem; } .desktop-navigation > .button-primary { margin-left: 1.25rem; } }

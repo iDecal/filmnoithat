@@ -2,7 +2,6 @@
 import pageContent from "../data/pageContent.json";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
-import ContactCTA from "../components/ContactCTA.astro";
 import { breadcrumbSchema } from "../data/seo";
 const principles = [
   { title: "Hiểu điều bạn cần", text: "Một góc bếp ấm hơn, mặt bàn hợp với căn phòng hay vách trang trí có điểm nhấn — chúng tôi bắt đầu từ cách bạn muốn sử dụng và cảm nhận không gian." },
@@ -60,6 +59,4 @@ const principles = [
       <p class="text-sm text-base-600 mt-8 pt-5 border-t border-base-200">Muốn tìm hiểu trước khi trao đổi? <a href="/blog/" class="inline-flex items-center min-h-11 text-primary-600 font-medium underline underline-offset-4">Đọc cẩm nang chọn film và chuẩn bị thi công.</a></p>
     </div>
   </section>
-
-  <ContactCTA title="Kể chúng tôi nghe về không gian của bạn." text="Một bức ảnh, một mẫu màu yêu thích hay một ý tưởng còn đang hình thành đều có thể là khởi đầu. Gửi nhu cầu mua film hoặc thi công để cùng tìm bước tiếp theo phù hợp." />
 </BaseLayout>

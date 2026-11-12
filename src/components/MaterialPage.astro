@@ -8,7 +8,6 @@ import { categoryIcon } from "../data/icons";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import MaterialPreview from "./MaterialPreview.astro";
-import ContactCTA from "./ContactCTA.astro";
 import { materials, materialHref, type Material } from "../data/materials";
 import { services, serviceHref } from "../data/services";
 import { site } from "../data/site";
@@ -41,5 +40,4 @@ const schema = [
   <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto rounded-2xl border border-base-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-5"><div><h2 class="text-2xl font-semibold">Chọn chất liệu sau khi xem mẫu thực tế.</h2><p class="text-base-600 mt-3 max-w-2xl">Gửi phong cách và ảnh không gian bạn yêu thích để trao đổi mẫu, thông số và tình trạng cung cấp phù hợp.</p></div><a href={site.zaloHref} class="button-primary shrink-0">Hỏi mẫu vật liệu</a></div></section>
   <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-6">Trước khi chốt vật liệu</h2><ul class="space-y-4 text-base-600">{material.notes.map(note => <li class="flex gap-3"><span aria-hidden="true" class="text-primary-600">✓</span><span>{note}</span></li>)}</ul></div><aside class="bg-base-50 border border-base-200 rounded-2xl p-6 md:p-8"><h2 class="text-2xl font-semibold mb-4">Từ mẫu film đến hoàn thiện</h2><p class="text-base-600 mb-5">Xem quy trình và những lưu ý riêng cho hạng mục bạn đang dự định làm mới.</p><ul class="space-y-3">{relatedServices.map(service => <li><a href={serviceHref(service)} class="inline-block py-2 text-primary-600 font-medium hover:underline">{service.name} →</a></li>)}</ul></aside></div></section>
   <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thử một cách phối khác</h2><div class="grid sm:grid-cols-3 gap-5">{relatedMaterials.map(item => <a href={materialHref(item)} class="group block"><div class="h-44 rounded-xl overflow-hidden"><MaterialPreview material={item} /></div><div class="pt-4"><h3 class="flex items-center gap-2 font-semibold"><Icon name={categoryIcon(item.slug)!} size={20} class="text-primary-600" />{item.name}</h3><p class="text-sm text-base-600 mt-2">{item.moodLabel} →</p></div></a>)}</div></div></section>
-  <ContactCTA />
 </BaseLayout>
