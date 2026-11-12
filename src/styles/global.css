@@ -306,3 +306,16 @@ footer .button-primary { background: var(--gold); border-color: var(--gold); col
 footer :focus-visible { outline-color: var(--gold); }
 footer a.bg-white { background-color: var(--ivory); color: var(--navy); }
 footer a.bg-white:hover { background-color: var(--gold); color: var(--navy); }
+
+/* Bordered actions for transparent article and content links. */
+.outline-action {
+  display: inline-flex; align-items: center; justify-content: center; gap: .75rem;
+  max-width: 100%; min-height: 44px; padding: .65rem 1.25rem;
+  border: 1px solid var(--navy); border-radius: 999px;
+  background: transparent; color: var(--navy); text-align: center; line-height: 1.5;
+  transition: background-color 160ms, color 160ms;
+}
+a.outline-action:hover, a:hover > .outline-action, a:hover .outline-action,
+a.outline-action:focus-visible, a:focus-visible .outline-action {
+  background: var(--navy); color: var(--ivory);
+}
