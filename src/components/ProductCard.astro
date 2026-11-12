@@ -16,7 +16,7 @@ const { sample } = Astro.props;
   .product-swatch-image { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: clamp(16px,2.5vw,28px); background: var(--surface); }
   .product-swatch-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 250ms; }
   .product-swatch:hover img { transform: scale(1.025); }
-  .product-swatch-label { position: absolute; bottom: 7%; left: 10%; right: 10%; padding: .625rem .5rem; border-radius: 999px; background: rgb(255 255 255 / .1); color: var(--navy); display: flex; align-items: center; justify-content: center; gap: .375rem; white-space: nowrap; margin: 0; font-size: .8125rem; line-height: 1.3; font-weight: 600; }
+  .product-swatch-label { position: absolute; bottom: 7%; left: 10%; right: 10%; padding: .625rem .5rem; border-radius: 999px; background: rgb(255 255 255 / .8); color: var(--navy); display: flex; align-items: center; justify-content: center; gap: .375rem; white-space: nowrap; margin: 0; font-size: .8125rem; line-height: 1.3; font-weight: 600; }
   .product-swatch-code, .product-swatch-separator { flex-shrink: 0; }
   .product-swatch-tone { min-width: 0; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
   .product-swatch-price { margin: .75rem 0 0; white-space: nowrap; font-size: .9375rem; line-height: 1.5; }
