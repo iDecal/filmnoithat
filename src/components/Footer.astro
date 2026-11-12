@@ -16,7 +16,7 @@ const columns = [
       <div class="footer-brand"><a href="/" class="footer-wordmark" aria-label={`${brandName} — Trang chủ`}>{brandName}</a><p class="footer-brand-line">VẬT LIỆU & THI CÔNG NỘI THẤT</p><p class="footer-intro">Chọn chất liệu phù hợp để làm mới tủ, cửa, bàn và vách. Bắt đầu từ một mẫu film và điều bạn muốn thay đổi.</p></div>
       <div class="footer-contact"><p class="footer-contact-label">CÙNG TRAO ĐỔI VỀ KHÔNG GIAN CỦA BẠN</p><a href={site.phoneHref} class="footer-phone">{site.phone}</a><div class="footer-contact-actions"><a href={site.zaloHref} class="footer-zalo">Tư vấn qua Zalo</a><a href={`mailto:${site.email}`} class="footer-email">{site.email}</a></div></div>
     </div>
-    <div class="footer-columns">{columns.map((column,index) => <nav aria-labelledby={`footer-column-${index}`}><h2 id={`footer-column-${index}`}><a class="footer-desktop-title" href={column.href}>{column.title}</a><button type="button" class="footer-toggle" aria-expanded="false" aria-controls={`footer-links-${index}`}>{column.title}<span aria-hidden="true">+</span></button></h2><ul id={`footer-links-${index}`}>{column.links.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}</ul></nav>)}</div>
+    <div class="footer-columns">{columns.map((column,index) => <nav aria-labelledby={`footer-column-${index}`}><h2 id={`footer-column-${index}`}><a class="footer-desktop-title" href={column.href}>{column.title}</a><button type="button" class="footer-toggle" aria-expanded="false" aria-controls={`footer-links-${index}`}>{column.title}<span class="footer-chevron" aria-hidden="true"></span></button></h2><ul id={`footer-links-${index}`}>{column.links.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}</ul></nav>)}</div>
     <div class="footer-bottom"><p>© {currentYear} {brandName}</p><p>Chọn vật liệu. Làm mới không gian.</p></div>
   </div>
 </footer>
@@ -25,14 +25,12 @@ const columns = [
   const mobileFooter = window.matchMedia("(max-width: 767px)");
   const syncFooter = () => footerToggles.forEach(toggle => {
     toggle.setAttribute("aria-expanded", "false");
-    toggle.querySelector("span")!.textContent = "+";
     document.getElementById(toggle.getAttribute("aria-controls")!)!.hidden = mobileFooter.matches;
   });
   footerToggles.forEach(toggle => toggle.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") !== "true";
     syncFooter();
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.querySelector("span")!.textContent = open ? "−" : "+";
     document.getElementById(toggle.getAttribute("aria-controls")!)!.hidden = !open;
   }));
   mobileFooter.addEventListener("change", syncFooter);
@@ -69,9 +67,10 @@ const columns = [
     .footer-columns nav + nav { border-top: 1px solid rgb(var(--pearl-rgb) / .24); }
     .footer-columns h2 { margin: 0; }
     .footer-columns h2 .footer-desktop-title { display: none; }
-    .footer-toggle { display: flex; width: 100%; min-height: 56px; align-items: center; justify-content: space-between; gap: 1rem; padding: .875rem 0; color: var(--gold); font: inherit; text-transform: inherit; letter-spacing: inherit; text-align: left; border: 0; background: transparent; }
-    .footer-toggle span { font-size: 1.25rem; font-weight: 400; }
+    .footer-toggle { display: flex; width: 100%; min-height: 64px; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.125rem 0; color: var(--gold); font: inherit; text-transform: inherit; letter-spacing: inherit; text-align: left; border: 0; background: transparent; }
+    .footer-chevron { width: 8px; height: 8px; margin-right: .375rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 180ms; }
+    .footer-toggle[aria-expanded="true"] .footer-chevron { transform: translateY(2px) rotate(225deg); }
     .footer-columns ul { padding-bottom: 1rem; }
-    .footer-link { width: 100%; min-height: 44px; }
+    .footer-link { width: 100%; min-height: 48px; }
   }
 </style>
