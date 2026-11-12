@@ -4,12 +4,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import MaterialCards from "../../components/MaterialCards.astro";
 import Icon from "../../components/Icon.astro";
-import { categoryIcon } from "../../data/icons";
 import { services, serviceHref } from "../../data/services";
 import { getServiceLayout } from "../../data/serviceLayouts";
 import { findMaterials } from "../../data/materials";
 import { posts, postHref } from "../../data/posts";
-import { spaces } from "../../data/spaces";
 import { breadcrumbSchema } from "../../data/seo";
 import { site, internationalPhone } from "../../data/site";
 const service = services.find(item => item.slug === "dan-film-noi-that")!;
@@ -26,7 +24,7 @@ const preparation = [
   { title: "Thống nhất trước khi làm", text: "Xác nhận vật tư, chi phí, phương án giao hàng hoặc lịch thi công và cách kiểm tra khi bàn giao." },
 ];
 ---
-<BaseLayout faqs={service.faqs} title={service.title} description={service.description} image="/images/home/interior-kitchen.webp" structuredData={schema}>
+<BaseLayout faqs={service.faqs} title={service.title} description={service.description} image={service.image} structuredData={schema}>
   <div class="service-overview">
     <section class="editorial-hero px-4 sm:px-6 pt-6 sm:pt-10 pb-10 sm:pb-16 bg-base-50 surface-gradient">
       <div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Dịch vụ" }]} />
@@ -37,25 +35,71 @@ const preparation = [
 
       </div>
     </section>
-<section class="px-4 sm:px-6"><div class="max-w-7xl mx-auto">        <nav aria-label="Chọn nhanh hạng mục dịch vụ" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-1 mt-8 pt-4 border-t border-base-200">{categories.map(item => <a href={serviceHref(item)} class="inline-flex items-center gap-2 py-3 min-h-11 text-sm font-medium hover:text-primary-600"><Icon name={categoryIcon(item.slug)!} size={20} /><span>{item.name}</span></a>)}</nav></div></section>
+    <div class="service-wrap service-shortcuts"><nav aria-label="Chọn nhanh hạng mục dịch vụ">{categories.map(item => <a href={serviceHref(item)}>{item.name}</a>)}</nav></div>
 
-    <section id="chon-dich-vu" class="overview-anchor px-4 sm:px-6 section-space bg-white" aria-labelledby="choose-service-title"><div class="max-w-7xl mx-auto">
-      <div class="max-w-2xl mb-8"><p class="eyebrow mb-4">01 / CHỌN HẠNG MỤC</p><h2 id="choose-service-title" class="text-2xl md:text-[1.875rem] font-semibold">Ứng dụng film dán nội thất theo từng hạng mục.</h2><p class="text-base-600 mt-4">Xem lưu ý, mẫu film và hình ảnh theo từng dịch vụ trước khi trao đổi chi tiết.</p></div>
-      <div class="grid md:grid-cols-2 gap-7 lg:gap-10">{categories.map((item, index) => <article class:list={["min-w-0 border-t border-base-200 pt-5", index === 0 && "md:col-span-2"]}><a href={serviceHref(item)} class:list={["group grid gap-5", index === 0 && "md:grid-cols-2 md:gap-8 md:items-center"]}><img src={item.slug === "dan-film-tran" ? spaces[3].image : item.image} alt={`Không gian tham khảo cho ${item.name.toLowerCase()}`} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><div><p class="text-xs text-base-600 mb-3">0{index + 1} / <span>ẢNH THAM KHẢO</span></p><h3 class="flex items-center gap-3 text-xl sm:text-2xl font-medium group-hover:text-primary-600"><Icon name={categoryIcon(item.slug)!} size={24} />{item.heading}</h3><p class="text-sm sm:text-base text-base-600 mt-4">{getServiceLayout(item.slug).lead}</p><span class="inline-flex items-center min-h-11 text-sm font-semibold text-primary-600 mt-3 group-hover:underline">Tìm hiểu dịch vụ →</span></div></a></article>)}</div>
+    <section id="chon-dich-vu" class="service-section overview-anchor" aria-labelledby="choose-service-title"><div class="service-wrap">
+      <header class="service-section-heading"><div><p class="eyebrow mb-3">01 / CHỌN HẠNG MỤC</p><h2 id="choose-service-title" class="text-2xl md:text-[1.875rem] font-semibold">Làm mới từng góc không gian.</h2></div><p>Chọn bề mặt bạn muốn thay đổi. Xem cách ứng dụng, lưu ý thi công và mẫu vật liệu cho từng hạng mục.</p></header>
+      <div class="service-card-grid">{categories.map((item,index) => <article class="service-category-card"><a href={serviceHref(item)} class="service-card-link"><div class="service-card-image"><img src={item.image} alt={item.imageAlt} width="1200" height="800" loading="lazy" decoding="async" /><span class="service-card-number">0{index+1}</span></div><div class="service-card-copy"><h3>{item.name}</h3><p>{getServiceLayout(item.slug).lead}</p><span class="service-card-action">Khám phá dịch vụ <Icon name="arrow" size={18} /></span></div></a></article>)}
+        <article class="service-category-card"><a href="/vat-lieu/" class="service-card-link"><div class="service-card-image"><img src="/images/cong-trinh/banner-film-dan-noi-that.jpg" alt="Các cuộn film nội thất với nhiều sắc độ và hiệu ứng bề mặt" width="2560" height="1438" loading="lazy" decoding="async" /><span class="service-card-number">VẬT LIỆU</span></div><div class="service-card-copy"><h3>Chọn mẫu film của bạn</h3><p>Khám phá vân gỗ, vân đá, đơn sắc và hiệu ứng kim loại. Chọn mã mẫu phù hợp trước khi lên phương án thi công.</p><span class="service-card-action">Xem bộ sưu tập <Icon name="arrow" size={18} /></span></div></a></article>
+      </div><p class="service-image-note">Phối cảnh minh họa ứng dụng. Màu sắc và bề mặt cần đối chiếu với mẫu film thực tế.</p>
     </div></section>
 
-    <section class="px-4 sm:px-6 section-space bg-base-900 ink-gradient text-white"><div class="max-w-7xl mx-auto"><p class="text-xs text-accent-200 font-semibold tracking-widest mb-4">02 / CHỌN THEO NHU CẦU</p><h2 class="text-white text-2xl md:text-[1.875rem] font-semibold">Mua film dán nội thất hay cần thi công?</h2><div class="grid md:grid-cols-2 gap-8 lg:gap-16 mt-8"><div class="border-t border-white/20 pt-6"><h3 class="text-white text-xl font-medium">Bạn đã có người thực hiện.</h3><p class="text-white/80 mt-4">Chọn nhóm vật liệu, trao đổi mẫu, số lượng và địa điểm nhận hàng. Khổ film, lượng dư và tình trạng cung cấp được xác nhận trước khi đặt.</p><a href="/vat-lieu/" class="inline-flex items-center min-h-11 text-accent-200 font-semibold text-sm mt-4 hover:underline">Chọn vật liệu →</a></div><div class="border-t border-white/20 pt-6"><h3 class="text-white text-xl font-medium">Bạn muốn được hỗ trợ thi công.</h3><p class="text-white/80 mt-4">Gửi hiện trạng để trao đổi khả năng dán, xử lý nền và phạm vi công việc. Chi phí và lịch thực hiện được thống nhất theo từng công trình.</p><a href={site.zaloHref} class="inline-flex items-center min-h-11 text-accent-200 font-semibold text-sm mt-4 hover:underline">Trao đổi phương án →</a></div></div></div></section>
+    <section class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">02 / THEO NHU CẦU CỦA BẠN</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bắt đầu từ điều bạn cần.</h2></div><p>Từ mua vật liệu đến hoàn thiện bề mặt, cùng làm rõ nhu cầu để chọn bước tiếp theo phù hợp.</p></header>
+      <div class="service-needs-grid"><article><span class="service-step">01</span><h3>Bạn cần mua film</h3><p>Đã có người thực hiện? Chọn mã mẫu, số lượng và xác nhận quy cách, giá vật tư cùng phương án giao hàng.</p><a href="/vat-lieu/" class="outline-action">Chọn vật liệu <Icon name="arrow" size={16} /></a></article><article><span class="service-step">02</span><h3>Bạn cần thi công</h3><p>Gửi ảnh, kích thước và địa điểm để trao đổi nền hiện trạng, chi tiết góc cạnh và phạm vi thực hiện.</p><a href={site.zaloHref} class="outline-action">Trao đổi phương án <Icon name="arrow" size={16} /></a></article><article><span class="service-step">03</span><h3>Bạn đang tìm ý tưởng</h3><p>Tham khảo cách phối chất liệu cho bàn, tủ và vách trước khi quyết định màu sắc hoặc nhóm bề mặt.</p><a href="/cong-trinh/" class="outline-action">Xem không gian <Icon name="arrow" size={16} /></a></article></div>
+    </div></section>
 
-    <MaterialCards materials={findMaterials(["van-go", "don-sac", "be-tong", "kim-loai"])} title="Chọn chất liệu cho ý tưởng của bạn." />
+    <MaterialCards materials={findMaterials(["van-go", "da-cam-thach", "don-sac"])} title="Chất liệu phù hợp với không gian." />
 
+    <section class="service-section"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">03 / CÁCH CHÚNG TÔI BẮT ĐẦU</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Rõ nhu cầu. Rõ phương án.</h2></div><p>Film là lớp hoàn thiện. Nền ẩm, bong hoặc xuống cấp cần được đánh giá và xử lý trước khi dán.</p></header><ol class="service-process-grid">{preparation.map((item,index) => <li><span class="service-step">0{index+1}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol></div></section>
 
-    <section class="px-4 sm:px-6 section-space bg-base-50"><div class="max-w-7xl mx-auto grid lg:grid-cols-[0.8fr_1.4fr] gap-8 lg:gap-16"><div><p class="eyebrow mb-4">03 / CHUẨN BỊ ĐỂ BẮT ĐẦU</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Rõ nhu cầu.<br />Dễ chọn phương án.</h2><p class="text-base-600 mt-4">Film là lớp hoàn thiện. Nền ẩm, bong hoặc xuống cấp cần được đánh giá và xử lý trước.</p></div><ol class="space-y-6">{preparation.map((item,index) => <li class="flex gap-4 border-t border-base-200 pt-5"><span class="text-sm text-primary-600 pt-1">0{index+1}</span><div><h3 class="text-lg font-medium">{item.title}</h3><p class="text-sm text-base-600 mt-3">{item.text}</p></div></li>)}</ol></div></section>
-
-    <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><div class="flex flex-wrap justify-between items-end gap-4 mb-7"><div><p class="eyebrow mb-4">04 / BLOG TƯ VẤN</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Tìm hiểu thêm trước khi quyết định.</h2></div><a href="/blog/" class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold hover:underline">Tất cả bài tư vấn →</a></div><div class="grid md:grid-cols-3 gap-6">{posts.slice(0,3).map(post => <a href={postHref(post)} class="group border-t border-base-200 pt-5"><img src={post.image} alt={post.imageAlt || post.title} title={post.imageTitle || post.title} width="800" height="500" loading="lazy" class="w-full aspect-[16/10] object-cover rounded-xl" /><h3 class="text-lg font-medium mt-4 group-hover:text-primary-600">{post.title}</h3><p class="text-sm text-base-600 mt-3">{post.description}</p><span class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold mt-2">Đọc bài tư vấn →</span></a>)}</div><div class="max-w-3xl mt-10 border-t border-base-200 pt-6"><h2 class="text-2xl font-semibold mb-5">Một vài câu hỏi trước khi bắt đầu.</h2>{service.faqs.map(faq => <details class="border-b border-base-200 py-4"><summary class="font-medium cursor-pointer min-h-11 flex items-center">{faq.question}</summary><p class="text-sm text-base-600 mt-3 pb-3">{faq.answer}</p></details>)}</div></div></section>
+    <section class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">04 / CẨM NANG NỘI THẤT</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Đọc thêm trước khi chọn.</h2></div><a href="/blog/" class="outline-action">Tất cả bài tư vấn <Icon name="arrow" size={16} /></a></header><div class="service-post-grid">{posts.slice(0,3).map(post => <article><a href={postHref(post)}><img src={post.image} alt={post.imageAlt || post.title} width="800" height="500" loading="lazy" /><h3>{post.title}</h3><p>{post.description}</p><span class="service-card-action">Đọc bài tư vấn <Icon name="arrow" size={16} /></span></a></article>)}</div></div></section>
+    <section class="service-section"><div class="service-wrap service-faq-layout"><div><p class="eyebrow mb-3">GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bạn muốn biết thêm?</h2><p class="text-base-600 mt-4">Một vài thông tin để chuẩn bị vật liệu và phạm vi thi công.</p></div><div>{service.faqs.map(faq => <details class="service-faq"><summary>{faq.question}<span aria-hidden="true">⌄</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
     <CatalogueKnowledge />
   </div>
 </BaseLayout>
 <style>
+  .service-overview { --color-base-200: 185 190 199; --color-base-300: 185 190 199; }
+  .service-wrap { width: min(1280px,calc(100% - 40px)); margin-inline: auto; }
+  .service-section { padding-block: clamp(3rem,6vw,5.5rem); }
+  .service-soft { background: #f7f8f9; }
   .overview-anchor { scroll-margin-top: 6rem; }
-  .service-overview :global(a:focus-visible), .service-overview :global(summary:focus-visible) { outline: 2px solid rgb(var(--color-primary-600)); outline-offset: 4px; }
+  .service-shortcuts nav { display: flex; gap: .625rem; flex-wrap: wrap; padding-top: 2rem; }
+  .service-shortcuts a { display: inline-flex; align-items: center; min-height: 44px; padding: .625rem 1rem; background: #f3f5f7; border-radius: 999px; font-size: .8125rem; color: var(--navy); }
+  .service-shortcuts a:hover { background: var(--navy); color: white; }
+  .service-section-heading { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.25rem; }
+  .service-section-heading > p { max-width: 26rem; font-size: .9375rem; color: var(--muted); }
+  .service-card-grid, .service-needs-grid, .service-process-grid, .service-post-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 2rem; }
+  .service-category-card { min-width: 0; }
+  .service-card-link { height: 100%; display: flex; flex-direction: column; }
+  .service-card-image { position: relative; overflow: hidden; border-radius: 18px; }
+  .service-card-image img { width: 100%; aspect-ratio: 3/2; object-fit: cover; transition: transform 250ms; }
+  .service-card-link:hover img { transform: scale(1.035); }
+  .service-card-number { position: absolute; top: 1rem; left: 1rem; padding: .375rem .625rem; border-radius: 999px; background: rgb(255 255 255 / .9); font-size: .6875rem; font-weight: 600; }
+  .service-card-copy { display: flex; flex-direction: column; flex: 1; padding: 1.375rem .125rem 0; }
+  .service-card-copy h3, .service-needs-grid h3, .service-process-grid h3, .service-post-grid h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+  .service-card-copy p, .service-needs-grid p, .service-process-grid p, .service-post-grid p { margin-top: .75rem; color: var(--muted); font-size: .875rem; line-height: 1.8; }
+  .service-card-action { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding-top: 1.25rem; margin-top: auto; min-height: 48px; font-size: .8125rem; font-weight: 600; color: var(--navy); }
+  .service-image-note { margin-top: 1.75rem; font-size: .75rem; color: var(--muted); }
+  .service-needs-grid article { display: flex; flex-direction: column; align-items: flex-start; padding: 1.75rem; border-radius: 18px; background: white; }
+  .service-step { display: block; margin-bottom: 1rem; font-size: .8125rem; color: var(--muted); }
+  .service-needs-grid .outline-action { margin-top: 1.5rem; font-size: .8125rem; }
+  .service-process-grid li { border-top: 1px solid rgb(var(--pearl-rgb) / .6); padding-top: 1.5rem; }
+  .service-post-grid img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 16px; margin-bottom: 1.25rem; }
+  .service-post-grid article, .service-post-grid article > a { display: flex; flex-direction: column; min-width: 0; height: 100%; }
+  .service-faq-layout { display: grid; gap: 2rem; }
+  .service-faq { border-bottom: 1px solid rgb(var(--pearl-rgb) / .6); }
+  .service-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; font-weight: 500; cursor: pointer; list-style: none; }
+  .service-faq summary::-webkit-details-marker { display: none; }
+  .service-faq[open] summary span { transform: rotate(180deg); }
+  .service-faq p { padding-bottom: 1.25rem; color: var(--muted); font-size: .875rem; }
+  .service-overview :global(.editorial-hero h1::after) { background: rgb(var(--pearl-rgb) / .7); }
+  .service-overview :global(a:focus-visible), .service-overview :global(summary:focus-visible) { outline: 2px solid var(--navy); outline-offset: 4px; }
+  @media(min-width:640px) { .service-wrap { width: min(1280px,calc(100% - 48px)); }.service-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media(min-width:1024px) {
+    .service-section-heading { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; }
+    .service-section-heading > div { max-width: 42rem; }
+    .service-card-grid, .service-needs-grid, .service-process-grid, .service-post-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2.5rem 1.75rem; }
+    .service-faq-layout { grid-template-columns: .8fr 1.2fr; gap: 5rem; }
+  }
+  @media(prefers-reduced-motion:reduce) { .service-card-image img { transition: none; } }
 </style>

@@ -11,3 +11,5 @@ Ba ảnh tại `public/images/perspectives/` là phối cảnh minh họa đư�
 Slide chuyển thủ công bằng hai nút mũi tên; hỗ trợ phím trái/phải, thông báo vị trí cho trình đọc màn hình và giảm chuyển động theo tùy chọn hệ thống. Ảnh nguyên gốc của các sản phẩm không thay đổi.
 
 The material collection card for metallic finishes uses `public/images/perspectives/champagne-metal-reception.webp`, a generated reference interior, not a photographed installation or an exact product swatch.
+
+Service category images `light-oak-workspace.webp`, `oak-ceiling-living-room.webp` and `walnut-elevator.webp` are generated reference interiors, not installation records. Service captions identify them as illustrative references.

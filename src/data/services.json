@@ -7,7 +7,7 @@
       "title": "Dịch Vụ Thi Công Phim Nội Thất & Decal Chuyên Nghiệp",
       "description": "Chuyên cung cấp dịch vụ thiết kế Decal, dán phim nội thất, giấy dán kính và decal trang trí trọn gói. Thi công nhanh chóng, chuẩn xác, bảo hành uy tín tại TP.HCM, Bình Dương, Đồng Nai, Vũng Tàu.",
       "intro": "Film dán nội thất là lớp hoàn thiện giúp thay đổi màu sắc, họa tiết của bàn, tủ và vách mà vẫn giữ lại kết cấu còn tốt. Vật liệu và phương án thi công được lựa chọn theo hiện trạng, công năng và nhu cầu của từng công trình.",
-      "image": "/images/cong-trinh/banner-film-dan-noi-that.jpg",
+      "image": "/images/perspectives/modern-reception.webp",
       "sections": [
         {
           "title": "Bề mặt nào phù hợp với film dán nội thất?",
@@ -42,7 +42,8 @@
           "question": "Giá dán film nội thất được tính thế nào?",
           "answer": "Báo giá phụ thuộc mã film, lượng vật tư, hiện trạng nền, số góc cạnh, mối nối, công tháo lắp và điều kiện tiếp cận. Cần xác nhận rõ phần vật tư, nhân công và xử lý bề mặt trong báo giá."
         }
-      ]
+      ],
+      "imageAlt": "Phối cảnh minh họa cho dán film nội thất — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
     },
     {
       "slug": "dan-film-tu-bep",
@@ -51,7 +52,7 @@
       "title": "Film dán nội thất tủ bếp – Thi công & tư vấn báo giá",
       "description": "Film dán nội thất cho tủ bếp với bề mặt vân gỗ, đơn sắc hoặc kim loại. Tìm hiểu xử lý dầu mỡ, độ ẩm và các mép cánh trước khi thi công.",
       "intro": "Film dán nội thất giúp đổi màu cánh tủ bếp và các phần hoàn thiện bên ngoài khi cốt tủ còn ổn định. Trước khi chọn mẫu, cần kiểm tra dầu mỡ, độ ẩm, cạnh cánh và khu vực gần bếp nấu, bồn rửa để xác định phạm vi thi công phù hợp.",
-      "image": "/images/bo-suu-tap/film-noi-that-tu-bep-phoi-mau-dam-va-go-sang.webp",
+      "image": "/images/perspectives/ivory-oak-kitchen.webp",
       "sections": [
         {
           "title": "Tủ bếp nào phù hợp với film dán nội thất?",
@@ -84,7 +85,8 @@
           "question": "Có phải tháo toàn bộ tủ bếp khi dán?",
           "answer": "Không nhất thiết. Tùy thiết kế, kỹ thuật viên có thể chỉ tháo cánh hoặc tay nắm. Phạm vi tháo lắp và thời gian ngừng sử dụng bếp cần được chốt khi khảo sát."
         }
-      ]
+      ],
+      "imageAlt": "Phối cảnh minh họa cho dán film tủ bếp — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
     },
     {
       "slug": "dan-film-ban",
@@ -93,7 +95,7 @@
       "title": "Film dán nội thất bàn & kệ – Thi công, tư vấn báo giá",
       "description": "Làm mới bàn và kệ bằng film dán nội thất. Chọn bề mặt theo tần suất sử dụng, kiểm tra lớp nền, góc mép và trao đổi báo giá thi công.",
       "intro": "Film dán nội thất là lựa chọn để làm mới mặt bàn, bàn làm việc, quầy và kệ khi kết cấu còn tốt. Cần chọn bề mặt theo tần suất sử dụng, khả năng vệ sinh và cách xử lý các cạnh, góc trước khi chốt vật liệu.",
-      "image": "/images/bo-suu-tap/film-noi-that-mat-ban-sang-mau.webp",
+      "image": "/images/perspectives/light-oak-workspace.webp",
       "sections": [
         {
           "title": "Chọn film dán nội thất cho bàn và kệ",
@@ -126,7 +128,8 @@
           "question": "Có dán riêng mặt bàn, giữ nguyên chân bàn được không?",
           "answer": "Có thể khảo sát phương án chỉ dán mặt và cạnh khi kết cấu còn tốt. Phạm vi dán, vị trí kết thúc film và việc tháo phụ kiện cần được thống nhất trước."
         }
-      ]
+      ],
+      "imageAlt": "Phối cảnh minh họa cho dán film bàn & kệ — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
     },
     {
       "slug": "dan-film-tuong",
@@ -135,7 +138,7 @@
       "title": "Film dán nội thất tường & vách – Tư vấn thi công, báo giá",
       "description": "Chọn film dán nội thất cho tường và vách với vân gỗ, vân vải hoặc bê tông. Khảo sát độ ẩm, độ phẳng và lớp nền trước khi thi công.",
       "intro": "Film dán nội thất tạo điểm nhấn cho tường và vách bằng màu sắc hoặc họa tiết phù hợp với không gian. Độ khô, độ phẳng và khả năng bám của lớp nền cần được kiểm tra trước; film không thay thế việc xử lý tường thấm hay bong tróc.",
-      "image": "/images/bo-suu-tap/film-noi-that-vach-va-cua-tong-go-sang.webp",
+      "image": "/images/perspectives/oak-living-room.webp",
       "sections": [
         {
           "title": "Film dán nội thất cho tường: kiểm tra lớp nền",
@@ -169,7 +172,8 @@
           "question": "Dán film tường có nhìn thấy mối nối không?",
           "answer": "Mức độ nhìn thấy phụ thuộc họa tiết, khổ vật liệu, ánh sáng và cách ghép. Vị trí mối nối cần được trao đổi trước thay vì mặc định bề mặt sẽ hoàn toàn liền mạch."
         }
-      ]
+      ],
+      "imageAlt": "Phối cảnh minh họa cho dán film tường — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
     },
     {
       "slug": "dan-film-tran",
@@ -178,7 +182,7 @@
       "title": "Film dán nội thất trần – Khảo sát, thi công & báo giá",
       "description": "Film dán nội thất cho trần giúp phối lại chất liệu và màu sắc. Tìm hiểu điều kiện nền, ánh sáng, vị trí kỹ thuật và phương án tiếp cận thi công.",
       "intro": "Film dán nội thất cho trần cần được chọn đồng bộ với tường, ánh sáng và đồ nội thất. Trước khi thi công, cần kiểm tra độ ổn định của nền, các vị trí kỹ thuật, mối ghép và điều kiện tiếp cận trên cao.",
-      "image": "/images/cong-trinh/banner-film-dan-noi-that.jpg",
+      "image": "/images/perspectives/oak-ceiling-living-room.webp",
       "sections": [
         {
           "title": "Film dán nội thất cho trần: khảo sát trước khi dán",
@@ -211,7 +215,8 @@
           "question": "Giá dán film trần có giống dán vách không?",
           "answer": "Không nhất thiết. Chiều cao, thiết bị tiếp cận, số chi tiết cần xử lý và điều kiện làm việc trên cao có thể làm thay đổi nhân công và tiến độ."
         }
-      ]
+      ],
+      "imageAlt": "Phối cảnh minh họa cho dán film trần — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
     },
     {
       "slug": "dan-film-thang-may",
@@ -220,7 +225,7 @@
       "title": "Film dán nội thất thang máy – Khảo sát & báo giá thi công",
       "description": "Tư vấn film dán nội thất cho cabin và vách thang máy. Khảo sát nền kim loại, phối mẫu và thống nhất phạm vi với đơn vị quản lý, bảo trì.",
       "intro": "Film dán nội thất giúp làm mới các bề mặt trang trí của cabin và sảnh thang máy sau khi khảo sát. Phương án cần phù hợp với vật liệu nền, tần suất sử dụng và yêu cầu kỹ thuật, đồng thời được thống nhất với đơn vị quản lý, bảo trì.",
-      "image": "/images/cong-trinh/dan-film-noi-that-thang-may.jpg",
+      "image": "/images/perspectives/walnut-elevator.webp",
       "sections": [
         {
           "title": "Film dán nội thất cho cabin: khảo sát phạm vi thi công",
@@ -253,7 +258,8 @@
           "question": "Film nào cũng dùng được trong cabin thang máy không?",
           "answer": "Không. Cần kiểm tra điều kiện sử dụng, yêu cầu của tòa nhà và tài liệu kỹ thuật của mã film, bao gồm các yêu cầu về an toàn vật liệu nếu được áp dụng."
         }
-      ]
+      ],
+      "imageAlt": "Phối cảnh minh họa cho dán film thang máy — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
     }
   ]
 }
