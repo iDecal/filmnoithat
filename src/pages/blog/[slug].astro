@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { blogCategory } from "../../data/blogCategories";
+import ArticleShare from "../../components/ArticleShare.astro";
 import BlogHero from "../../components/BlogHero.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -27,10 +28,14 @@ const schema = [
 ];
 ---
 <BaseLayout faqs={post.faqs || []} title={post.title} description={post.description} image={post.image} pageType="article" structuredData={schema}>
-  <article>
-    <BlogHero title={post.title} intro={post.intro} category={blogCategory(post.category).label} categoryHref={`/blog/?chuyen-muc=${blogCategory(post.category).value}#bai-viet`} date={post.date} dateLabel={formatDate(post.date)} image={{src: post.image, alt: post.imageAlt || post.title, title: post.imageTitle, width: post.imageWidth, height: post.imageHeight, caption: post.imageCaption}}><Breadcrumbs items={[{label:"Kiến thức nội thất",href:"/blog/"},{label:post.title}]} /></BlogHero>
-    <div class="px-4 sm:px-6 section-space bg-white"><div class="max-w-4xl mx-auto">
-      <nav aria-label="Mục lục bài viết" class="bg-base-50 border border-base-200 rounded-2xl p-6 mb-10"><h2 class="text-xl font-semibold mb-4">Trong bài viết này</h2><ol class="space-y-3">{post.sections.map(section => <li><a href={`#${section.id}`} class="text-primary-600 hover:underline">{section.title}</a></li>)}</ol></nav>
+  <article class="blog-article-layout">
+    <div class="blog-article-intro"><BlogHero title={post.title} intro={post.intro} category={blogCategory(post.category).label} categoryHref={`/blog/?chuyen-muc=${blogCategory(post.category).value}#bai-viet`} date={post.date} dateLabel={formatDate(post.date)} image={{src: post.image, alt: post.imageAlt || post.title, title: post.imageTitle, width: post.imageWidth, height: post.imageHeight, caption: post.imageCaption}}><Breadcrumbs items={[{label:"Kiến thức nội thất",href:"/blog/"},{label:post.title}]} /></BlogHero></div>
+    <aside class="blog-article-sidebar" aria-label="Mục lục và chia sẻ bài viết"><div class="blog-sidebar-sticky">      <nav aria-label="Mục lục bài viết" class="article-toc"><h2 class="text-base font-semibold mb-4">Trong bài viết này</h2><ol class="space-y-1">{post.sections.map(section => <li><a href={`#${section.id}`} class="article-toc-link text-primary-600 hover:underline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg><span>{section.title}</span></a></li>)}</ol></nav>
+      <ArticleShare title={post.title} url={new URL(postHref(post), Astro.site).href} />
+    </div></aside>
+
+    <div class="blog-article-content"><div>
+
       <div class="space-y-10">{post.sections.map(section => <section id={section.id} class="scroll-mt-28"><h2 class="text-2xl font-semibold mb-5">{section.title}</h2><div class="space-y-5 text-base-600 leading-relaxed">{section.paragraphs.map(text => <p>{text}</p>)}{section.image && <figure class="py-3"><img src={section.image.src} alt={section.image.alt} title={section.image.title || section.image.caption} width={section.image.width} height={section.image.height} loading="lazy" decoding="async" class="w-full h-auto rounded-xl" /><figcaption class="text-sm text-base-500 mt-3">{section.image.caption}</figcaption></figure>}{section.subsections?.map(subsection => <div class="pt-2"><h3 class="text-lg font-semibold text-base-900 mb-3">{subsection.title}</h3><div class="space-y-4">{subsection.paragraphs.map(text => <p>{text}</p>)}</div></div>)}{section.bullets && <ul class="list-disc pl-6 space-y-3">{section.bullets.map(text => <li>{text}</li>)}</ul>}{section.links && <ul class="space-y-2 pt-2">{section.links.map(link => <li><a href={link.href} class="text-primary-600 underline underline-offset-4 inline-flex min-h-11 items-center">{link.label} →</a></li>)}</ul>}</div></section>)}</div>
       {post.faqs && <section class="mt-12" aria-labelledby="article-faq-title"><h2 id="article-faq-title" class="text-2xl font-semibold mb-5">{post.focusKeyword === "dán film tủ bếp" ? "Câu hỏi thường gặp về dán film tủ bếp" : "Câu hỏi thường gặp về film dán nội thất"}</h2><div class="space-y-3">{post.faqs.map(faq => <details class="rounded-xl border border-base-200 p-5"><summary class="font-medium cursor-pointer">{faq.question}</summary><p class="text-base-600 leading-relaxed mt-4">{faq.answer}</p></details>)}</div></section>}
       <aside class="mt-12 p-6 border border-base-200 rounded-2xl bg-base-50"><h2 class="text-[1.375rem] font-semibold mb-4">Bạn đang chuẩn bị thi công?</h2><p class="text-base-600">Mỗi nền và mã film có điều kiện sử dụng riêng. Gửi ảnh hiện trạng để được tư vấn, xem mẫu và xác nhận phạm vi trước khi quyết định.</p><ul class="space-y-3 mt-5">{relatedServices.map(service => <li><a href={serviceHref(service)} class="text-primary-600 hover:underline">{service.name} →</a></li>)}</ul><a href={site.zaloHref} class="button-primary mt-6">Trao đổi qua Zalo</a></aside>
@@ -39,3 +44,24 @@ const schema = [
   <MaterialCards materials={findMaterials(post.materials)} title="Chất liệu được nhắc đến" />
   <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-4xl mx-auto"><h2 class="text-2xl font-semibold mb-6">Đọc tiếp</h2><ul class="space-y-4">{relatedPosts.map(item => <li><a href={postHref(item)} class="text-primary-600 hover:underline">{item.title} →</a></li>)}</ul></div></section>
 </BaseLayout>
+
+<style>
+  .blog-article-layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 2rem; width: min(1280px,calc(100% - 40px)); margin-inline: auto; padding-bottom: 3rem; background: white; }
+  .blog-article-intro, .blog-article-content, .blog-article-sidebar { min-width: 0; }
+  .blog-article-intro :global(.blog-reading-wrap) { width: 100%; max-width: none; }
+  .blog-article-content { font-size: 1rem; }
+  .blog-article-sidebar { align-self: start; }
+  .blog-sidebar-sticky { border-radius: 16px; padding: 1.25rem; background: #f5f7f9; }
+  .article-toc-link { font-size: .8125rem; }
+  .article-toc-link:hover, .article-toc-link[aria-current="location"] { color: var(--navy); text-decoration: underline; text-underline-offset: .2em; }
+  @media(min-width:640px) { .blog-article-layout { width: min(1280px,calc(100% - 48px)); } }
+  @media(min-width:1024px) {
+    .blog-article-layout { grid-template-columns: minmax(0,1fr) 300px; grid-template-areas: "intro sidebar" "content sidebar"; gap: 2.5rem 3rem; align-items: start; }
+    .blog-article-intro { grid-area: intro; }
+    .blog-article-content { grid-area: content; }
+    .blog-article-sidebar { grid-area: sidebar; position: sticky; top: 7rem; max-height: calc(100dvh - 8rem); overflow-y: auto; margin-top: 3rem; scrollbar-width: thin; }
+  }
+
+  .article-toc-link { display: flex; align-items: baseline; gap: .75rem; padding-block: .25rem; line-height: 1.6; }
+  .article-toc-link svg { flex-shrink: 0; align-self: flex-start; margin-top: .3em; }
+</style>

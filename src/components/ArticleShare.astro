@@ -1,0 +1,57 @@
+---
+interface Props { title: string; url: string }
+const { title, url } = Astro.props;
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+const links = [
+  { name: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` },
+  { name: "X", href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}` },
+  { name: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}` },
+  { name: "WhatsApp", href: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}` },
+];
+---
+<section class="article-share" aria-labelledby="article-share-title" data-article-share data-share-url={url} data-share-title={title}>
+  <h2 id="article-share-title">Chia sẻ bài viết</h2>
+  <div class="article-share-buttons">{links.map(link => <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Chia sẻ bài viết qua ${link.name}`}>{link.name}<span aria-hidden="true">↗</span></a>)}<button type="button" data-copy-article>Sao chép liên kết <span aria-hidden="true">↗</span></button><button type="button" data-native-share hidden>Chia sẻ khác <span aria-hidden="true">↗</span></button></div>
+  <p data-share-status role="status" aria-live="polite"></p>
+  <input data-share-fallback type="text" readonly value={url} aria-label="Liên kết bài viết để sao chép" hidden />
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>("[data-article-share]").forEach(root => {
+    const url = root.dataset.shareUrl!;
+    const title = root.dataset.shareTitle!;
+    const status = root.querySelector<HTMLElement>("[data-share-status]")!;
+    const fallback = root.querySelector<HTMLInputElement>("[data-share-fallback]")!;
+    root.querySelector<HTMLButtonElement>("[data-copy-article]")!.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        fallback.hidden = true;
+        status.textContent = "Đã sao chép liên kết bài viết.";
+      } catch {
+        fallback.hidden = false;
+        fallback.focus(); fallback.select();
+        status.textContent = "Chọn và sao chép liên kết bên dưới.";
+      }
+    });
+    const nativeShare = root.querySelector<HTMLButtonElement>("[data-native-share]")!;
+    if (typeof navigator.share === "function") {
+      nativeShare.hidden = false;
+      nativeShare.addEventListener("click", async () => {
+        try { await navigator.share({ title, url }); }
+        catch (error) { if (!(error instanceof DOMException && error.name === "AbortError")) status.textContent = "Bạn có thể sao chép liên kết hoặc chọn mạng xã hội ở trên."; }
+      });
+    }
+  });
+</script>
+<style>
+  .article-share { padding-top: 1.5rem; border-top: 1px solid rgb(var(--pearl-rgb) / .5); margin-top: 1.5rem; }
+  .article-share h2 { font-size: .9375rem; font-weight: 600; margin-bottom: 1rem; }
+  .article-share-buttons { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem; }
+  .article-share-buttons a, .article-share-buttons button { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 44px; padding: .625rem .75rem; border: 1px solid rgb(var(--pearl-rgb) / .65); border-radius: 10px; background: white; color: var(--navy); font-size: .75rem; text-align: left; }
+  .article-share-buttons [data-copy-article] { grid-column: 1/-1; background: var(--navy); border-color: var(--navy); color: var(--ivory); }
+  .article-share-buttons :is(a,button):hover { background: #eef2f6; color: var(--navy); }
+  .article-share-buttons button[hidden], input[hidden] { display: none; }
+  [data-share-status] { font-size: .75rem; color: var(--muted); }
+  [data-share-status]:not(:empty) { margin-top: .75rem; }
+  [data-share-fallback] { width: 100%; margin-top: .75rem; padding: .625rem; border: 1px solid var(--pearl); border-radius: 8px; font-size: .75rem; }
+</style>
