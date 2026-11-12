@@ -4,8 +4,8 @@ module.exports = {
     extend: {
       borderRadius: { xl: "0.625rem", "2xl": "0.75rem", "3xl": "1.125rem" },
       fontFamily: {
-        sans: ['"Inter"', 'system-ui', 'sans-serif'],
-        heading: ['"Wix Madefor Text"', 'system-ui', 'sans-serif'],
+        sans: ['"Google Sans Flex"', 'system-ui', 'sans-serif'],
+        heading: ['"Google Sans Flex"', 'system-ui', 'sans-serif'],
       },
       colors: {
         base: {

@@ -37,6 +37,8 @@ const schemaJson = JSON.stringify(websiteSchema({ origin: Astro.site!, path: Ast
 
     {Astro.url.pathname.replace(/\/$/, "") === "/quan-tri" && <meta name="robots" content="noindex, nofollow" />}
 
+    <link rel="preload" href="/fonts/google-sans-flex/google-sans-flex-latin-vietnamese-normal.woff2" as="font" type="font/woff2" crossorigin />
+
     <!-- SEO BASE -->
     <title>{title}</title>
     <meta name="description" content={description} />

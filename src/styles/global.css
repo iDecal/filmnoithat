@@ -54,10 +54,11 @@
     --color-accent-900: var(--gold-rgb);
     --color-accent-950: var(--gold-rgb);
     color-scheme: light;
-    --font-heading: "Wix Madefor Text", system-ui, sans-serif;
-    --font-body: "Inter", system-ui, sans-serif;
+    --font-heading: "Google Sans Flex", system-ui, sans-serif;
+    --font-body: "Google Sans Flex", system-ui, sans-serif;
     font-family: var(--font-body);
     font-synthesis: none;
+    font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
@@ -194,7 +195,7 @@
 }
 
 /* Preserve the current public-page typography. */
-body:not(:has(.home-luxe)) { --font-heading: "Montserrat", system-ui, sans-serif; --font-body: "Wix Madefor Text", system-ui, sans-serif; font-family: var(--font-body); }
+body:not(:has(.home-luxe)) { --font-heading: "Google Sans Flex", system-ui, sans-serif; --font-body: "Google Sans Flex", system-ui, sans-serif; font-family: var(--font-body); }
 body:not(:has(.home-luxe)) .font-heading,
 body:not(:has(.home-luxe)) .site-header .font-heading,
 body:not(:has(.home-luxe)) footer .font-heading { font-family: var(--font-heading); }
@@ -242,7 +243,7 @@ body main .editorial-hero h1 {
 body main .editorial-hero h1 span[class]:not(.home-title-lead),
 body main .editorial-hero .hero-title-accent {
   color: var(--navy) !important;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-heading);
   font-style: italic;
   font-weight: 400;
 }
@@ -283,7 +284,7 @@ body main .editorial-hero aside h2 { color: var(--navy) !important; }
 
 body main .editorial-hero [class*="text-accent-"] { color: var(--navy) !important; }
 
-/* Keep each page's original title font and size; only accents use Playfair. */
+/* Keep title sizes consistent; accents share the global typeface. */
 body main .home-hero.editorial-hero > .grid { display: block; }
 body main .home-hero.editorial-hero > .grid > div:first-child { max-width: 52rem; }
 body main .home-hero.editorial-hero h1.home-title { max-width: none; }
@@ -296,7 +297,7 @@ body main .home-hero.editorial-hero h1.home-title .home-title-lead {
 }
 body main .home-hero.editorial-hero h1.home-title .home-title-accent {
   color: var(--navy) !important;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-heading);
   font-style: italic;
   font-weight: 400;
   margin-top: .1em;
