@@ -1,7 +1,7 @@
 {
   "brandName": "D-vinyl",
   "seoTitle": "Film dán nội thất D-vinyl – Vân gỗ, vân đá & thi công",
-  "seoDescription": "Film dán nội thất D-vinyl: vân gỗ, vân đá, màu trơn. Giá vật liệu INFEEL từ {gia_infeel}/mét dài, cung cấp toàn quốc và tư vấn thi công.",
+  "seoDescription": "Film dán nội thất D-vinyl: vân gỗ, vân đá, màu trơn. Giá vật liệu INFEEL từ {gia_infeel}/mét dài, tư vấn vật liệu và thi công theo nhu cầu.",
   "hero": {
     "eyebrow": "D-vinyl / FILM DÁN NỘI THẤT CAO CẤP",
     "titleLead": "Film dán nội thất.",
@@ -11,7 +11,7 @@
     "primaryHref": "/vat-lieu/",
     "secondaryLabel": "Nhận báo giá miễn phí",
     "secondaryHref": "#bao-gia",
-    "priceNote": "INFEEL từ {gia_infeel}/mét dài · Cung cấp toàn quốc",
+    "priceNote": "INFEEL từ {gia_infeel}/mét dài",
     "image": {
       "src": "/images/perspectives/ivory-oak-kitchen.webp",
       "alt": "Phối cảnh minh họa bếp hiện đại với tủ gỗ sáng, đảo đá ngà và ánh sáng tự nhiên",
@@ -181,10 +181,8 @@
     "eyebrow": "D-vinyl | filmnoithat.vn",
     "title": "Bắt đầu từ không gian của bạn.",
     "description": "Bạn cần mua film dán nội thất hay tìm đội ngũ thi công? Gửi mã mẫu, kích thước hoặc ảnh hiện trạng qua Zalo để D-vinyl tư vấn vật liệu và báo giá phù hợp.",
-    "address": "606/20 Quốc lộ 13, P. Hiệp Bình, TP.HCM",
     "boxLabel": "Tư vấn chọn mẫu & báo giá trực tiếp",
     "zaloLabel": "Tư vấn qua Zalo",
-    "phoneLabel": "Gọi trực tiếp",
-    "serviceNote": "Cung cấp film toàn quốc · Thi công theo nhu cầu"
+    "phoneLabel": "Gọi trực tiếp"
   }
 }

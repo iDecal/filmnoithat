@@ -1,74 +1,45 @@
 ---
-import Icon from "./Icon.astro";
-import { categoryIcon } from "../data/icons";
 import { site, serviceLinks, materialLinks, brandLinks, companyLinks } from "../data/site";
 interface Props { brandName?: string }
 const { brandName = site.name } = Astro.props;
 const currentYear = new Date().getFullYear();
+const columns = [
+  { title: "Dịch vụ", href: "/dich-vu/dan-film-noi-that/", links: serviceLinks },
+  { title: "Vật liệu", href: "/vat-lieu/", links: materialLinks },
+  { title: "Thương hiệu", href: "/thuong-hieu/", links: brandLinks },
+  { title: "Khám phá", href: "/gioi-thieu/", links: companyLinks },
+];
 ---
-
-<footer class="bg-base-900 text-base-100 px-4 sm:px-6 pt-14 md:pt-20 pb-8">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-9 sm:gap-y-12 pb-12">
-      <div class="col-span-2 lg:col-span-1 min-w-0">
-        <a href="/" class="inline-block font-heading text-2xl font-semibold leading-snug" aria-label={`${brandName} — Trang chủ`}>{brandName}</a>
-        <p class="text-primary-500 text-sm font-medium mt-3">{site.tagline}</p>
-        <p class="text-base-600 text-sm leading-relaxed mt-5 max-w-sm">
-          Cung cấp film trang trí và thi công cho bàn, tủ, tường, trần và thang máy. Cùng bạn chọn vật liệu phù hợp để làm mới không gian.
-        </p>
-        <a href={site.zaloHref} class="inline-flex items-center justify-center min-h-11 px-5 py-3 mt-6 rounded-xl bg-white text-base-900 font-semibold text-sm hover:bg-primary-100 transition-colors">Tư vấn qua Zalo <span aria-hidden="true" class="ml-2">→</span></a>
-      </div>
-
-      <nav aria-labelledby="footer-services-title" class="min-w-0">
-        <h2 id="footer-services-title" class="text-lg font-semibold text-primary-500 mb-4"><a href="/dich-vu/dan-film-noi-that/" class="inline-flex items-center min-h-11 hover:underline">Dịch vụ</a></h2>
-        <ul class="space-y-1 text-sm">
-          {serviceLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
-        </ul>
-      </nav>
-
-      <nav aria-labelledby="footer-materials-title" class="min-w-0">
-        <h2 id="footer-materials-title" class="text-lg font-semibold text-primary-500 mb-4"><a href="/vat-lieu/" class="inline-flex items-center min-h-11 hover:underline">Vật liệu</a></h2>
-        <ul class="space-y-1 text-sm">
-          {materialLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
-          <li class="pt-4"><a href="/thuong-hieu/" class="footer-link font-semibold">Thương hiệu</a><div class="flex flex-wrap gap-x-4">{brandLinks.map(link => <a href={link.href} class="footer-link">{link.label}</a>)}</div></li>
-        </ul>
-      </nav>
-
-      <div class="col-span-2 lg:col-span-1 min-w-0">
-        <h2 class="text-lg font-semibold text-primary-500 mb-4">Liên hệ tư vấn</h2>
-        <address class="not-italic text-sm leading-relaxed">
-          <p class="text-base-600">Hotline / Zalo</p>
-          <a href={site.phoneHref} class="inline-flex items-center min-h-11 text-xl font-semibold hover:text-primary-500 transition-colors">{site.phone}</a>
-          <a href={`mailto:${site.email}`} class="footer-link break-words">{site.email}</a>
-          <p class="text-base-600 mt-5">Khu vực phục vụ</p>
-          <p class="text-base-900 mt-1">{site.serviceArea}</p>
-        </address>
-        <a href="/lien-he/" class="footer-link mt-4">Thông tin liên hệ <span aria-hidden="true">→</span></a>
-      </div>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div class="footer-brand"><a href="/" class="footer-wordmark" aria-label={`${brandName} — Trang chủ`}>{brandName}</a><p class="footer-brand-line">VẬT LIỆU & THI CÔNG NỘI THẤT</p><p class="footer-intro">Chọn chất liệu phù hợp để làm mới tủ, cửa, bàn và vách. Bắt đầu từ một mẫu film và điều bạn muốn thay đổi.</p></div>
+      <div class="footer-contact"><p class="footer-contact-label">CÙNG TRAO ĐỔI VỀ KHÔNG GIAN CỦA BẠN</p><a href={site.phoneHref} class="footer-phone">{site.phone}</a><div class="footer-contact-actions"><a href={site.zaloHref} class="footer-zalo">Tư vấn qua Zalo</a><a href={`mailto:${site.email}`} class="footer-email">{site.email}</a></div></div>
     </div>
-
-    <div class="border-t border-base-200 pt-6 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
-      <p class="text-sm text-base-600">© {currentYear} {brandName}</p>
-      <nav aria-label="Thông tin website">
-        <ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-          {companyLinks.map(link => <li><a href={link.href} class="footer-link icon-link">{categoryIcon(link.href) && <Icon name={categoryIcon(link.href)!} size={17} />}<span>{link.label}</span></a></li>)}
-        </ul>
-      </nav>
-    </div>
+    <div class="footer-columns">{columns.map((column,index) => <nav aria-labelledby={`footer-column-${index}`}><h2 id={`footer-column-${index}`}><a href={column.href}>{column.title}</a></h2><ul>{column.links.map(link => <li><a href={link.href} class="footer-link">{link.label}</a></li>)}</ul></nav>)}</div>
+    <div class="footer-bottom"><p>© {currentYear} {brandName}</p><p>Chọn vật liệu. Làm mới không gian.</p></div>
   </div>
 </footer>
-
 <style>
-  .footer-link {
-    display: block;
-    width: fit-content;
-    max-width: 100%;
-    padding-block: 0.625rem;
-    color: var(--pearl);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    transition: color 150ms;
-  }
-  .icon-link { display: flex; align-items: center; gap: 0.5rem; }
-  .footer-link:hover { color: var(--gold); text-decoration-line: underline; }
+  .site-footer { padding: 3.5rem 0 1.25rem; background: var(--navy); color: var(--ivory); border-top: 1px solid rgb(var(--gold-rgb) / .4); }
+  .footer-wrap { width: min(1240px,calc(100% - 40px)); margin-inline: auto; }
+  .footer-top { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; padding-bottom: 2.75rem; }
+  .footer-wordmark { display: inline-block; color: var(--surface); font-size: clamp(1.875rem,3vw,2.5rem); line-height: 1.2; font-weight: 500; letter-spacing: -.035em; }
+  .footer-brand-line { margin-top: .875rem; color: var(--gold); font-size: .625rem; letter-spacing: .16em; font-weight: 600; }
+  .footer-intro { max-width: 27rem; margin-top: 1rem; color: var(--pearl); font-size: .875rem; line-height: 1.8; }
+  .footer-contact { padding-top: .375rem; }
+  .footer-contact-label { color: var(--pearl); font-size: .625rem; letter-spacing: .12em; font-weight: 500; }
+  .footer-phone { display: inline-flex; align-items: center; min-height: 3.5rem; margin-top: .625rem; font-size: clamp(1.75rem,2.6vw,2.25rem); font-weight: 400; letter-spacing: -.025em; color: var(--surface); }
+  .footer-contact-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1rem; }
+  .footer-zalo { display: inline-flex; align-items: center; justify-content: center; min-height: 2.875rem; padding: .625rem 1.375rem; border: 1px solid var(--gold); border-radius: 999px; background: var(--gold); color: var(--navy); font-size: .8125rem; font-weight: 600; }
+  .footer-zalo:hover { background: var(--ivory); border-color: var(--ivory); }
+  .footer-email { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--pearl); font-size: .8125rem; overflow-wrap: anywhere; }
+  .footer-columns { display: grid; grid-template-columns: 1.1fr 1.1fr .85fr .85fr; gap: 2.5rem; padding: 2.5rem 0; border-top: 1px solid rgb(var(--pearl-rgb) / .24); }
+  .footer-columns h2 { color: var(--gold); font-size: .75rem; letter-spacing: .08em; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-columns h2 a { display: inline-flex; align-items: center; min-height: 2rem; }
+  .footer-link { display: inline-flex; align-items: center; min-height: 2.25rem; padding-block: .375rem; color: var(--pearl); font-size: .8125rem; line-height: 1.5; }
+  .footer-link:hover, .footer-email:hover, .footer-phone:hover { color: var(--surface); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: .3em; }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; border-top: 1px solid rgb(var(--pearl-rgb) / .24); padding-top: 1.25rem; color: var(--pearl); font-size: .6875rem; }
+  @media(min-width:640px) { .footer-wrap { width: min(1240px,calc(100% - 64px)); } }
+  @media(max-width:767px) { .site-footer { padding-top: 2.5rem; } .footer-top { grid-template-columns: 1fr; gap: 1.75rem; padding-bottom: 2rem; } .footer-columns { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.75rem 1rem; padding-block: 2rem; } .footer-columns h2 { margin-bottom: .625rem; } .footer-bottom { flex-direction: column; } }
 </style>

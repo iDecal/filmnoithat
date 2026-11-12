@@ -592,11 +592,6 @@
                   "widget": "text"
                 },
                 {
-                  "name": "address",
-                  "label": "Địa chỉ hiển thị",
-                  "widget": "string"
-                },
-                {
                   "name": "boxLabel",
                   "label": "Tiêu đề hộp liên hệ",
                   "widget": "string"
@@ -609,11 +604,6 @@
                 {
                   "name": "phoneLabel",
                   "label": "Chữ nút gọi điện",
-                  "widget": "string"
-                },
-                {
-                  "name": "serviceNote",
-                  "label": "Ghi chú phục vụ",
                   "widget": "string"
                 }
               ]

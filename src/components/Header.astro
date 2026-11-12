@@ -20,7 +20,7 @@ const pathname = Astro.url.pathname;
     <nav class="desktop-navigation hidden xl:flex items-center text-sm font-medium" aria-label="Điều hướng chính">
       {navigation.map((item, index) => item.children ? (
         <div data-nav-group class="nav-dropdown relative">
-          <div class:list={["flex items-center rounded-lg", { "text-primary-600 bg-primary-50": isCurrentSection(pathname, item) }]}>
+          <div class:list={["nav-trigger-group flex items-center", { "is-current": isCurrentSection(pathname, item) }]}>
             <a href={item.href} aria-current={isCurrentPage(pathname, item.href) ? "page" : undefined} class="nav-top-link px-2 py-3 rounded-lg hover:text-primary-600">{item.label}</a>
             <button type="button" data-nav-toggle data-label={item.label} aria-label={`Mở danh mục ${item.label}`} aria-expanded="false" aria-controls={`desktop-submenu-${index}`} class="submenu-toggle flex items-center justify-center w-11 h-11 rounded-lg hover:bg-primary-50 hover:text-primary-600">
               <svg class="nav-chevron w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -42,7 +42,7 @@ const pathname = Astro.url.pathname;
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-2">
       {navigation.map((item, index) => item.children ? (
         <div data-nav-group class="mobile-nav-group border-b border-base-200 pb-2">
-          <div class:list={["flex items-center justify-between gap-3", { "text-primary-600": isCurrentSection(pathname, item) }]}>
+          <div class:list={["nav-trigger-group flex items-center justify-between gap-3", { "is-current": isCurrentSection(pathname, item) }]}>
             <a href={item.href} aria-current={isCurrentPage(pathname, item.href) ? "page" : undefined} class="nav-top-link flex-1 py-3 font-medium rounded-lg">{item.label}</a>
             <button type="button" data-nav-toggle data-label={item.label} aria-label={`${isCurrentSection(pathname, item) ? "Đóng" : "Mở"} danh mục ${item.label}`} aria-expanded={isCurrentSection(pathname, item) ? "true" : "false"} aria-controls={`mobile-submenu-${index}`} class="submenu-toggle flex items-center justify-center w-11 h-11 rounded-lg hover:bg-primary-50">
               <svg class="nav-chevron w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -112,18 +112,27 @@ const pathname = Astro.url.pathname;
   .site-header .button-primary:hover { background: var(--ivory); color: var(--navy); border-color: var(--gold); }
   .site-header :focus-visible { outline-color: var(--navy); }
   #menuBtn { border-color: var(--pearl); background: var(--ivory); color: var(--navy); }
-  .header-shell { max-width: 90rem; gap: 2rem; }
-  .desktop-navigation { gap: .75rem; }
-  .desktop-navigation > .button-primary { margin-left: 1.25rem; }
+  .header-shell { width: min(1280px,calc(100% - 32px)); max-width: none; padding-inline: 0; gap: 1.25rem; }
+  :global(body:has(.home-dom)) .header-shell { width: min(1240px,calc(100% - 40px)); }
+  .desktop-navigation { gap: .5rem; }
+  .desktop-navigation > .button-primary { margin-left: .75rem; }
   .nav-child-link { gap: 1rem; padding-block: 1rem; }
   .submenu-panel > li + li { border-top: 1px solid rgb(var(--pearl-rgb) / .4); margin-top: .375rem; padding-top: .375rem; }
-  .nav-dropdown > .submenu-panel { width: 21rem; padding: .75rem; margin-top: .875rem; }
+  .nav-dropdown > .submenu-panel { width: 21rem; padding: .75rem; margin-top: .75rem; border-color: rgb(var(--pearl-rgb) / .6); border-radius: .875rem; box-shadow: 0 12px 30px rgb(var(--navy-rgb) / .08); }
   #mobileMenu > div { padding-block: 1.25rem; }
   #mobileMenu .nav-top-link { padding-block: 1rem; }
   #mobileMenu .button-primary { margin-top: 1.5rem; }
-  @media(min-width: 1440px) { .desktop-navigation { gap: 1.25rem; } .desktop-navigation > .button-primary { margin-left: 1.75rem; } .header-shell { gap: 3rem; } }
+  @media(min-width: 640px) { .header-shell { width: min(1280px,calc(100% - 48px)); } :global(body:has(.home-dom)) .header-shell { width: min(1240px,calc(100% - 64px)); } }
+  @media(min-width: 1440px) { .desktop-navigation { gap: .875rem; } .desktop-navigation > .button-primary { margin-left: 1.25rem; } }
   @media(max-width: 1279px) { .header-shell { gap: 1rem; } }
   .submenu-panel[hidden] { display: none; }
   .submenu-toggle[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
-  .submenu-toggle[aria-expanded="true"], a[aria-current="page"] { color: var(--navy); background: var(--ivory); font-weight: 600; }
+  .submenu-toggle[aria-expanded="true"] { color: var(--navy); background: transparent; }
+  .nav-top-link { position: relative; }
+  .nav-top-link::after { content: ""; position: absolute; height: 2px; left: .5rem; right: .5rem; bottom: .25rem; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 160ms; }
+  .nav-top-link:hover::after, .nav-top-link:focus-visible::after, .nav-top-link[aria-current="page"]::after,
+  .nav-trigger-group.is-current .nav-top-link::after, .nav-trigger-group:has(.submenu-toggle[aria-expanded="true"]) .nav-top-link::after { transform: scaleX(1); }
+  .nav-child-link > span { padding-bottom: .125rem; background-image: linear-gradient(var(--gold),var(--gold)); background-repeat: no-repeat; background-position: left bottom; background-size: 0 2px; transition: background-size 160ms; }
+  .nav-child-link:hover > span, .nav-child-link:focus-visible > span, .nav-child-link[aria-current="page"] > span { background-size: 100% 2px; }
+  .nav-child-link[aria-current="page"] { color: var(--navy); background: transparent; font-weight: 600; }
 </style>
