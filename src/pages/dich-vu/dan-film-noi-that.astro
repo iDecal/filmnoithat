@@ -12,6 +12,7 @@ import { breadcrumbSchema } from "../../data/seo";
 import { site, internationalPhone } from "../../data/site";
 const service = services.find(item => item.slug === "dan-film-noi-that")!;
 const categories = services.filter(item => item.slug !== service.slug);
+const relatedPosts = [...posts].reverse().filter(post => post.services.includes(service.slug)).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
 const schema = [breadcrumbSchema(Astro.site!, [{ name: "Dịch vụ", path: serviceHref(service) }]), {
   "@context": "https://schema.org", "@type": "Service", name: service.name, description: service.description,
   url: new URL(serviceHref(service), Astro.site).href,
@@ -44,7 +45,7 @@ const preparation = [
       </div><p class="service-image-note">Phối cảnh minh họa ứng dụng. Màu sắc và bề mặt cần đối chiếu với mẫu film thực tế.</p>
     </div></section>
 
-    <section class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">02 / THEO NHU CẦU CỦA BẠN</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bắt đầu từ điều bạn cần.</h2></div><p>Từ mua vật liệu đến hoàn thiện bề mặt, cùng làm rõ nhu cầu để chọn bước tiếp theo phù hợp.</p></header>
+    <section id="blog-tu-van" class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">02 / THEO NHU CẦU CỦA BẠN</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bắt đầu từ điều bạn cần.</h2></div><p>Từ mua vật liệu đến hoàn thiện bề mặt, cùng làm rõ nhu cầu để chọn bước tiếp theo phù hợp.</p></header>
       <div class="service-needs-grid"><article><span class="service-step">01</span><h3>Bạn cần mua film</h3><p>Đã có người thực hiện? Chọn mã mẫu, số lượng và xác nhận quy cách, giá vật tư cùng phương án giao hàng.</p><a href="/vat-lieu/" class="outline-action">Chọn vật liệu <Icon name="arrow" size={16} /></a></article><article><span class="service-step">02</span><h3>Bạn cần thi công</h3><p>Gửi ảnh, kích thước và địa điểm để trao đổi nền hiện trạng, chi tiết góc cạnh và phạm vi thực hiện.</p><a href={site.zaloHref} class="outline-action">Trao đổi phương án <Icon name="arrow" size={16} /></a></article><article><span class="service-step">03</span><h3>Bạn đang tìm ý tưởng</h3><p>Tham khảo cách phối chất liệu cho bàn, tủ và vách trước khi quyết định màu sắc hoặc nhóm bề mặt.</p><a href="/cong-trinh/" class="outline-action">Xem không gian <Icon name="arrow" size={16} /></a></article></div>
     </div></section>
 
@@ -53,7 +54,7 @@ const preparation = [
 
     <section class="service-section"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">03 / CÁCH CHÚNG TÔI BẮT ĐẦU</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Rõ nhu cầu. Rõ phương án.</h2></div><p>Film là lớp hoàn thiện. Nền ẩm, bong hoặc xuống cấp cần được đánh giá và xử lý trước khi dán.</p></header><ol class="service-process-grid">{preparation.map((item,index) => <li><span class="service-step">0{index+1}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol></div></section>
 
-    <section class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">04 / CẨM NANG NỘI THẤT</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Đọc thêm trước khi chọn.</h2></div><a href="/blog/" class="outline-action">Tất cả bài tư vấn <Icon name="arrow" size={16} /></a></header><div class="service-post-grid">{posts.slice(0,3).map(post => <article><a href={postHref(post)}><img src={post.image} alt={post.imageAlt || post.title} width="800" height="500" loading="lazy" /><h3>{post.title}</h3><p>{post.description}</p><span class="service-card-action">Đọc bài tư vấn <Icon name="arrow" size={16} /></span></a></article>)}</div></div></section>
+    <section id="blog-tu-van" class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">04 / CẨM NANG NỘI THẤT</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Đọc thêm trước khi chọn.</h2></div><a href="/blog/" class="outline-action">Tất cả bài tư vấn <Icon name="arrow" size={16} /></a></header><div class="service-post-grid">{relatedPosts.map(post => <article data-service-post><a href={postHref(post)}><img src={post.image} alt={post.imageAlt || post.title} width="800" height="500" loading="lazy" /><h3>{post.title}</h3><p>{post.description}</p><span class="service-card-action">Đọc bài tư vấn <Icon name="arrow" size={16} /></span></a></article>)}</div></div></section>
     <section class="service-section"><div class="service-wrap service-faq-layout"><div><p class="eyebrow mb-3">GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bạn muốn biết thêm?</h2><p class="text-base-600 mt-4">Một vài thông tin để chuẩn bị vật liệu và phạm vi thi công.</p></div><div>{service.faqs.map(faq => <details class="service-faq"><summary>{faq.question}<span aria-hidden="true">⌄</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
   </div>
 </BaseLayout>
