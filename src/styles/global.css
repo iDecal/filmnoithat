@@ -6,40 +6,50 @@
 
 @layer base {
   :root {
-  --color-base-50: 248 250 252;
-  --color-base-100: 240 244 248;
-  --color-base-200: 223 230 238;
-  --color-base-300: 189 202 216;
-  --color-base-400: 130 147 167;
-  --color-base-500: 83 98 120;
-  --color-base-600: 64 81 104;
-  --color-base-700: 48 66 90;
-  --color-base-800: 30 50 75;
-  --color-base-900: 11 28 48;
-  --color-base-950: 7 19 33;
-  --color-primary-50: 240 245 251;
-  --color-primary-100: 225 234 245;
-  --color-primary-200: 189 207 230;
-  --color-primary-300: 142 172 207;
-  --color-primary-400: 91 128 176;
-  --color-primary-500: 25 59 91;
-  --color-primary-600: 16 42 67;
-  --color-primary-700: 19 41 65;
-  --color-primary-800: 16 34 54;
-  --color-primary-900: 11 31 53;
-  --color-primary-950: 7 19 33;
-  --color-accent-50: 251 247 241;
-  --color-accent-100: 242 231 216;
-  --color-accent-200: 231 207 175;
-  --color-accent-300: 214 178 133;
-  --color-accent-400: 187 141 89;
-  --color-accent-500: 161 110 62;
-  --color-accent-600: 133 84 46;
-  --color-accent-700: 107 65 38;
-  --color-accent-800: 83 51 33;
-  --color-accent-900: 63 40 28;
-  --color-accent-950: 35 22 15;
-    color-scheme: light;
+    --navy: #0B1B33;
+    --ivory: #EFE8DA;
+    --gold: #D4BC8B;
+    --pearl: #B9BEC7;
+    --muted: #5C6573;
+    --navy-rgb: 11 27 51;
+    --ivory-rgb: 239 232 218;
+    --gold-rgb: 212 188 139;
+    --pearl-rgb: 185 190 199;
+    --muted-rgb: 92 101 115;
+    --color-base-50: var(--navy-rgb);
+    --color-base-100: var(--ivory-rgb);
+    --color-base-200: var(--gold-rgb);
+    --color-base-300: var(--pearl-rgb);
+    --color-base-400: var(--pearl-rgb);
+    --color-base-500: var(--pearl-rgb);
+    --color-base-600: var(--pearl-rgb);
+    --color-base-700: var(--ivory-rgb);
+    --color-base-800: var(--ivory-rgb);
+    --color-base-900: var(--navy-rgb);
+    --color-base-950: var(--navy-rgb);
+    --color-primary-50: var(--navy-rgb);
+    --color-primary-100: var(--navy-rgb);
+    --color-primary-200: var(--gold-rgb);
+    --color-primary-300: var(--gold-rgb);
+    --color-primary-400: var(--gold-rgb);
+    --color-primary-500: var(--gold-rgb);
+    --color-primary-600: var(--gold-rgb);
+    --color-primary-700: var(--gold-rgb);
+    --color-primary-800: var(--gold-rgb);
+    --color-primary-900: var(--navy-rgb);
+    --color-primary-950: var(--navy-rgb);
+    --color-accent-50: var(--ivory-rgb);
+    --color-accent-100: var(--ivory-rgb);
+    --color-accent-200: var(--gold-rgb);
+    --color-accent-300: var(--gold-rgb);
+    --color-accent-400: var(--gold-rgb);
+    --color-accent-500: var(--gold-rgb);
+    --color-accent-600: var(--gold-rgb);
+    --color-accent-700: var(--gold-rgb);
+    --color-accent-800: var(--gold-rgb);
+    --color-accent-900: var(--gold-rgb);
+    --color-accent-950: var(--gold-rgb);
+    color-scheme: dark;
     --font-heading: "Wix Madefor Text", system-ui, sans-serif;
     --font-body: "Inter", system-ui, sans-serif;
     font-family: var(--font-body);
@@ -92,14 +102,14 @@
 
   .surface-gradient {
     background-color: rgb(var(--color-base-50));
-    background-image: linear-gradient(120deg, #fbf7f1 0%, #f5efe6 42%, #edf2f8 100%);
+    background-image: none;
   }
 
   .warm-surface { background-color: rgb(var(--color-accent-50)); }
 
   .ink-gradient {
     background-color: rgb(var(--color-base-900));
-    background-image: radial-gradient(ellipse at 100% 0%, rgb(187 141 89 / 0.14), transparent 60%), linear-gradient(120deg, #071321 0%, #102a46 65%, #153b5e 100%);
+    background-image: none;
   }
 
   .button-primary, .button-secondary {
@@ -118,14 +128,15 @@
   }
 
   .button-primary {
-    background: rgb(var(--color-primary-500));
-    color: white;
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
   }
 
-  .button-primary:hover { background: rgb(var(--color-primary-600)); }
+  .button-primary:hover { background: transparent; color: rgb(var(--color-primary-600)); border-color: var(--gold); }
 
   .button-secondary {
-    background: white;
+    background: var(--ivory);
     color: rgb(var(--color-base-900));
     border-color: rgb(var(--color-base-300));
   }
@@ -136,12 +147,12 @@
   }
 
   .button-accent {
-    background: rgb(var(--color-accent-200));
+    background: var(--gold);
     color: rgb(var(--color-base-950));
     border-color: rgb(var(--color-accent-200));
   }
   .button-accent:hover {
-    background: rgb(var(--color-accent-100));
+    background: transparent;
     border-color: rgb(var(--color-accent-100));
   }
 
@@ -178,196 +189,19 @@
   }
 }
 
-/* Warm light palette shared by the public content pages. */
-body:not(:has(.home-luxe)) {
-  --font-heading: "Montserrat", system-ui, sans-serif;
-  --font-body: "Wix Madefor Text", system-ui, sans-serif;
-  font-family: var(--font-body);
-  background-color: #ffffff;
-  color: #20313d;
-}
-body:not(:has(.home-luxe)) .font-heading { font-family: var(--font-heading); }
-body:not(:has(.home-luxe)) main {
-  --luxe-text: #20313d;
-  --luxe-muted: #56636c;
-  --luxe-highlight: #193b5b;
-  --luxe-border: #ded8cf;
-  --luxe-panel: #ffffff;
-  color: var(--luxe-text);
-}
-body:not(:has(.home-luxe)) main :is(.bg-base-50, .warm-surface, .surface-gradient, .ink-gradient, .bg-base-900):not(dialog, dialog *) {
-  background-color: #ffffff;
-  background-image: none;
-  color: var(--luxe-text);
-}
-body:not(:has(.home-luxe)) main :is(.bg-white, [class*="bg-white/"], .bg-base-100):not(dialog, dialog *) {
-  background-color: var(--luxe-panel);
-  color: var(--luxe-text);
-}
-body:not(:has(.home-luxe)) main > section.bg-white { background-color: #ffffff; }
-body:not(:has(.home-luxe)) main :is(.bg-base-900, .ink-gradient):not(dialog, dialog *) {
-  --luxe-text: #20313d;
-  --luxe-muted: #56636c;
-  --luxe-highlight: #193b5b;
-  --luxe-border: #ded8cf;
-  --luxe-panel: #ffffff;
-}
-/* Reading aids use the same light surfaces as the article. */
-body:not(:has(.home-luxe)) main > article > div.bg-white > div > nav[aria-label="Mục lục bài viết"],
-body:not(:has(.home-luxe)) main > article > div.bg-white aside {
-  --luxe-text: #20313d;
-  --luxe-muted: #4b5863;
-  --luxe-highlight: #765b32;
-  --luxe-border: #e0e5e8;
-  --luxe-panel: #f5f7f9;
-  background-color: #ffffff;
-  color: var(--luxe-text);
-}
-body:not(:has(.home-luxe)) main :is(.text-base-900, .text-base-800, .text-base-950):not(dialog, dialog *) { color: var(--luxe-text); }
-body:not(:has(.home-luxe)) main :is(.text-base-500, .text-base-600, .text-base-700):not(dialog, dialog *) { color: var(--luxe-muted); }
-body:not(:has(.home-luxe)) main .text-base-400:not(dialog, dialog *) { color: #687782; }
-body:not(:has(.home-luxe)) main [class*="text-primary-"]:not(dialog, dialog *) { color: var(--luxe-text); }
-body:not(:has(.home-luxe)) main :is(.eyebrow, [class*="text-accent-"]):not(dialog, dialog *) { color: var(--luxe-highlight); }
-body:not(:has(.home-luxe)) main [class*="bg-accent-"]:not(dialog, dialog *) { background-color: transparent; }
-body:not(:has(.home-luxe)) main :is([class*="border-base-"], [class*="border-white/"]):not(dialog, dialog *),
-body:not(:has(.home-luxe)) main [class*="divide-base-"] > :not([hidden], dialog, dialog *) ~ :not([hidden], dialog, dialog *) { border-color: var(--luxe-border); }
-body:not(:has(.home-luxe)) main :is(a, summary):hover:not(dialog, dialog *) { color: var(--luxe-highlight); }
-body:not(:has(.home-luxe)) main .group:hover h3:not(dialog, dialog *) { color: var(--luxe-highlight); }
-body:not(:has(.home-luxe)) main :is(.button-primary, .button-accent):not(dialog, dialog *) {
-  background-color: #193b5b;
-  border-color: #193b5b;
-  color: #ffffff;
-}
-body:not(:has(.home-luxe)) main :is(.button-primary, .button-accent):hover:not(dialog, dialog *) {
-  background-color: #102a43;
-  border-color: #102a43;
-  color: #ffffff;
-}
-body:not(:has(.home-luxe)) main .button-secondary:not(dialog, dialog *) {
-  background-color: transparent;
-  border-color: #193b5b;
-  color: var(--luxe-text);
-}
-body:not(:has(.home-luxe)) main .button-secondary:hover:not(dialog, dialog *) {
-  background-color: #f1e9dd;
-  border-color: #eadbc5;
-  color: #20313d;
-}
-body:not(:has(.home-luxe)) main :is(input, select, textarea)[class]:not(dialog, dialog *) {
-  background-color: #ffffff;
-  color: #20313d;
-  border-color: #b39a6e;
-  accent-color: #765b32;
-}
-body:not(:has(.home-luxe)) main input::placeholder { color: #586673; }
-body:not(:has(.home-luxe)) main .filter-chip[aria-pressed="true"] {
-  background-color: #193b5b;
-  border-color: #193b5b;
-  color: #ffffff;
-}
-body:not(:has(.home-luxe)) main :is(.service-jump-link, .related-services-list a):not(dialog, dialog *) { color: var(--luxe-text); }
-body:not(:has(.home-luxe)) main .service-jump-link:is(:hover, [aria-current="location"]) {
-  color: #193b5b;
-  border-bottom-color: #193b5b;
-}
-body:not(:has(.home-luxe)) main .service-timeline::before { background-color: #ded8cf; }
-body:not(:has(.home-luxe)) :is(.mobile-service-actions, .related-services-list a) {
-  background-color: #ffffff;
-  border-color: #ded8cf;
-}
-/* Admin dialogs remain light and readable; the Decap app is independent. */
-body:not(:has(.home-luxe)) :is(dialog, [data-admin-bar], [data-admin-entry]) { color: #20313d; }
-body:not(:has(.home-luxe)) :is(dialog, [data-admin-bar]) {
-  --font-heading: "Montserrat", system-ui, sans-serif;
-  --font-body: "Wix Madefor Text", system-ui, sans-serif;
-}
-body:not(:has(.home-luxe)) main :focus-visible:not(dialog, dialog *) { outline-color: var(--luxe-highlight); }
-
-body:not(:has(.home-luxe)) .site-header {
-  background-color: #102a43;
-  color: #ffffff;
-  border-color: #36546c;
-}
+/* Preserve the current public-page typography. */
+body:not(:has(.home-luxe)) { --font-heading: "Montserrat", system-ui, sans-serif; --font-body: "Wix Madefor Text", system-ui, sans-serif; font-family: var(--font-body); }
+body:not(:has(.home-luxe)) .font-heading,
 body:not(:has(.home-luxe)) .site-header .font-heading,
 body:not(:has(.home-luxe)) footer .font-heading { font-family: var(--font-heading); }
-body:not(:has(.home-luxe)) .site-header .text-base-900,
-body:not(:has(.home-luxe)) .site-header [class*="text-primary-"] { color: #ffffff; }
-body:not(:has(.home-luxe)) .site-header .text-base-500,
-body:not(:has(.home-luxe)) .site-header .text-base-600 { color: #d7e0e7; }
-body:not(:has(.home-luxe)) .site-header .submenu-panel,
-body:not(:has(.home-luxe)) #mobileMenu { background-color: #193b5b; }
-body:not(:has(.home-luxe)) .site-header [class*="border-base-"] { border-color: #36546c; }
-body:not(:has(.home-luxe)) .site-header [class*="bg-primary-"] { background-color: #254964; }
-body:not(:has(.home-luxe)) .site-header .nav-top-link:hover,
-body:not(:has(.home-luxe)) .site-header .nav-child-link:hover,
-body:not(:has(.home-luxe)) .site-header .submenu-toggle:hover {
-  color: #e4cfaa;
-  background-color: #193b5b;
-}
-body:not(:has(.home-luxe)) .site-header .button-primary {
-  background-color: #e4cfaa;
-  border-color: #e4cfaa;
-  color: #102a43;
-}
-body:not(:has(.home-luxe)) .site-header .button-primary:hover {
-  background-color: #f0dfc2;
-  border-color: #f0dfc2;
-}
-body:not(:has(.home-luxe)) footer { background-color: #f0ebe3; }
-body:not(:has(.home-luxe)) footer .text-accent-200 { color: #20313d; }
-body:not(:has(.home-luxe)) footer .footer-link:hover { color: #193b5b; }
-body:not(:has(.home-luxe)) footer a.bg-white {
-  background-color: #193b5b;
-  color: #ffffff;
-}
-body:not(:has(.home-luxe)) footer a.bg-white:hover { background-color: #eadbc5; }
-body:not(:has(.home-luxe)) :focus-visible { outline-color: #193b5b; }
-body:not(:has(.home-luxe)) ::selection { background-color: #eadbc5; color: #20313d; }
-body:not(:has(.home-luxe)) main :is(.bg-primary-50, .bg-primary-100):not(dialog, dialog *) { background-color: var(--luxe-panel); }
-body:not(:has(.home-luxe)) main [data-gallery-thumb][aria-pressed="true"] { border-color: #193b5b; }
-body:not(:has(.home-luxe)) main a.bg-primary-500 { background-color: #193b5b; color: #ffffff; }
-body:not(:has(.home-luxe)) main a.bg-primary-500:hover { background-color: #eadbc5; color: #20313d; }
-
-/* Former dark content panels now use soft cream with dark, readable text. */
-body:not(:has(.home-luxe)) main :is(.bg-base-900, .ink-gradient):not(dialog, dialog *) {
-  background-color: #f1e9dd;
-}
-body:not(:has(.home-luxe)) main :is(.text-white, [class*="text-white/"]):not(dialog, dialog *) {
-  color: var(--luxe-text);
-}
-body:not(:has(.home-luxe)) main [class*="text-white/"]:not(dialog, dialog *) { color: var(--luxe-muted); }
-body footer, body footer .text-white { color: #20313d; }
-body footer [class*="text-white/"], body footer .footer-link { color: #56636c; }
-body footer [class*="border-white/"] { border-color: #ded8cf; }
-
-/* Navy leads the interface; sand supports secondary actions and accents. */
-body:not(:has(.home-luxe)) main .button-secondary:not(dialog, dialog *),
-body:not(:has(.home-luxe)) main .button-accent:not(dialog, dialog *) {
-  background-color: #e4cfaa;
-  border-color: #d1b581;
-  color: #102a43;
-}
-body:not(:has(.home-luxe)) main :is(.button-secondary, .button-accent):hover:not(dialog, dialog *) {
-  background-color: #d1b581;
-  border-color: #b99a67;
-  color: #102a43;
-}
-body:not(:has(.home-luxe)) main [class*="bg-accent-"]:not(dialog, dialog *, .button-primary, .button-secondary, .button-accent) {
-  background-color: #f1e6d3;
-}
-body:not(:has(.home-luxe)) footer a.bg-white:hover {
-  background-color: #102a43;
-  color: #ffffff;
-}
-body footer h2, body footer > div > div > div > p.text-accent-700 { color: #193b5b; }
 
 /* Full-width editorial heroes: navy shade, sand accents and a photographic backdrop. */
 body main .editorial-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #0b1e2e !important;
-  color: #ffffff !important;
+  background: var(--navy) !important;
+  color: var(--ivory) !important;
   padding-block: clamp(3.5rem, 7vw, 7rem) !important;
   min-height: 36rem;
   display: flex;
@@ -387,7 +221,7 @@ body main .editorial-hero::before {
   background-position: 75% center;
 }
 body main .editorial-hero::after {
-  background: linear-gradient(90deg, #0b1e2e 0%, rgb(11 30 46 / .97) 29%, rgb(11 30 46 / .83) 47%, rgb(11 30 46 / .22) 77%, rgb(11 30 46 / .08) 100%);
+  background: rgb(var(--navy-rgb) / .8);
 }
 body main .editorial-hero > div { width: 100%; }
 body main .editorial-hero > div > .grid { display: block; }
@@ -397,53 +231,53 @@ body main .editorial-hero .grid > div:has(> img),
 body main .editorial-hero .grid > div:has(> figure),
 body main .editorial-hero > div > img { display: none; }
 body main .editorial-hero h1 {
-  color: #ffffff !important;
+  color: var(--ivory) !important;
   text-wrap: initial;
   max-width: 46rem;
 }
 body main .editorial-hero h1 span[class]:not(.home-title-lead),
 body main .editorial-hero .hero-title-accent {
-  color: #e4cfaa !important;
+  color: var(--gold) !important;
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 400;
 }
 body main .editorial-hero :is(p, li, nav, [class*="text-base-"], [class*="text-primary-"]) {
-  color: #d7e0e7 !important;
+  color: var(--pearl) !important;
 }
 body main .editorial-hero > div > :is(p, h1) { max-width: 42rem; }
 body main .editorial-hero :is(.eyebrow, .home-kicker) {
-  color: #e4cfaa !important;
+  color: var(--gold) !important;
   letter-spacing: .14em;
 }
-body main .editorial-hero a:not(.button-primary, .button-secondary) { color: #ffffff !important; }
+body main .editorial-hero a:not(.button-primary, .button-secondary) { color: var(--ivory) !important; }
 body main .editorial-hero .button-primary {
-  background: #e4cfaa !important;
-  border-color: #e4cfaa !important;
-  color: #102a43 !important;
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--navy) !important;
 }
-body main .editorial-hero .button-primary:hover { background: #f0dfc2 !important; }
+body main .editorial-hero .button-primary:hover { background: transparent !important; color: var(--gold) !important; }
 body main .editorial-hero .button-secondary {
   background: transparent !important;
-  border-color: #adbdca !important;
-  color: #ffffff !important;
+  border-color: var(--gold) !important;
+  color: var(--ivory) !important;
 }
-body main .editorial-hero .button-secondary:hover { background: #193b5b !important; }
-body main .editorial-hero [class*="border-base-"] { border-color: #5b6b78 !important; }
+body main .editorial-hero .button-secondary:hover { background: var(--gold) !important; color: var(--navy) !important; }
+body main .editorial-hero [class*="border-base-"] { border-color: var(--gold) !important; }
 body main .editorial-hero aside {
   max-width: 42rem;
   margin-top: 2rem;
-  background: rgb(11 30 46 / .8) !important;
-  color: white !important;
+  background: rgb(var(--navy-rgb) / .8) !important;
+  color: var(--ivory) !important;
 }
-body main .editorial-hero aside h2 { color: white !important; }
+body main .editorial-hero aside h2 { color: var(--ivory) !important; }
 @media (max-width: 767px) {
   body main .editorial-hero { min-height: 32rem; padding-block: 2.75rem !important; }
   body main .editorial-hero::before { background-position: 65% center; }
-  body main .editorial-hero::after { background: linear-gradient(90deg, rgb(11 30 46 / .96), rgb(11 30 46 / .83) 65%, rgb(11 30 46 / .65)); }
+  body main .editorial-hero::after { background: rgb(var(--navy-rgb) / .8); }
 }
 
-body main .editorial-hero [class*="text-accent-"] { color: #e4cfaa !important; }
+body main .editorial-hero [class*="text-accent-"] { color: var(--gold) !important; }
 
 /* Keep each page's original title font and size; only accents use Playfair. */
 body main .home-hero.editorial-hero > .grid { display: block; }
@@ -451,19 +285,19 @@ body main .home-hero.editorial-hero > .grid > div:first-child { max-width: 52rem
 body main .home-hero.editorial-hero h1.home-title { max-width: none; }
 body main .home-hero.editorial-hero h1.home-title > span { display: block; }
 body main .home-hero.editorial-hero h1.home-title .home-title-lead {
-  color: #ffffff !important;
+  color: var(--ivory) !important;
   font-family: inherit;
   font-style: normal;
   font-weight: inherit;
 }
 body main .home-hero.editorial-hero h1.home-title .home-title-accent {
-  color: #e4cfaa !important;
+  color: var(--gold) !important;
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 400;
   margin-top: .1em;
 }
-body main .editorial-hero .hero-title-accent { color: #e4cfaa !important; }
+body main .editorial-hero .hero-title-accent { color: var(--gold) !important; }
 
 /* Keep landscape backdrops near their native resolution behind the right side. */
 @media (min-width: 1024px) {
@@ -472,3 +306,65 @@ body main .editorial-hero .hero-title-accent { color: #e4cfaa !important; }
     background-position: center;
   }
 }
+
+/* Ivory cards and dark sections share the same four brand colors.
+   Context tokens keep text readable when surfaces nest. */
+:where(.bg-white, .bg-white\/95, .bg-white\/70, .bg-base-100, .bg-base-100\/80, .product-price, .service-scope-card, .service-material-card, .service-process-grid li, .warm-surface, .bg-accent-100, .bg-accent-100\/60) {
+  --color-base-400: var(--muted-rgb);
+  --color-base-500: var(--muted-rgb);
+  --color-base-600: var(--muted-rgb);
+  --color-base-700: var(--navy-rgb);
+  --color-base-800: var(--navy-rgb);
+  --color-base-900: var(--navy-rgb);
+  --color-base-950: var(--navy-rgb);
+  --color-primary-500: var(--navy-rgb);
+  --color-primary-600: var(--navy-rgb);
+  --color-primary-700: var(--navy-rgb);
+  --color-accent-600: var(--navy-rgb);
+  --color-accent-700: var(--navy-rgb);
+  background-color: var(--ivory);
+  color: var(--navy);
+  color-scheme: light;
+}
+:where(section.bg-white, .bg-base-50, .bg-base-900, .bg-base-950, .bg-primary-50, .ink-gradient, .surface-gradient) {
+  --color-base-400: var(--pearl-rgb);
+  --color-base-500: var(--pearl-rgb);
+  --color-base-600: var(--pearl-rgb);
+  --color-base-700: var(--ivory-rgb);
+  --color-base-800: var(--ivory-rgb);
+  --color-base-900: var(--navy-rgb);
+  --color-base-950: var(--navy-rgb);
+  --color-primary-500: var(--gold-rgb);
+  --color-primary-600: var(--gold-rgb);
+  --color-primary-700: var(--gold-rgb);
+  --color-accent-600: var(--gold-rgb);
+  --color-accent-700: var(--gold-rgb);
+  background-color: var(--navy);
+  color: var(--ivory);
+  color-scheme: dark;
+}
+.text-white { color: var(--ivory); }
+.text-white\/75, .text-white\/80, .text-white\/90 { color: var(--pearl); }
+.bg-white { background-color: var(--ivory); }
+section.bg-white { background-color: var(--navy); }
+.border-white\/20, .border-white\/40 { border-color: var(--gold); }
+.button-primary, .button-accent { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.button-primary:hover, .button-accent:hover { background: transparent; color: rgb(var(--color-primary-600)); border-color: var(--gold); }
+.button-secondary { background: transparent; color: inherit; border-color: var(--gold); }
+.button-secondary:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+:focus-visible { outline-color: rgb(var(--color-primary-600)); }
+input, select, textarea { accent-color: var(--gold); }
+input.bg-white, select.bg-white, textarea.bg-white { border-color: var(--muted); }
+.sample-dialog { background: var(--ivory); color: var(--navy); }
+
+:is(a, button).bg-white:hover { background-color: var(--gold); color: var(--navy); }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+.bg-white\/95 { background-color: var(--ivory); }
+.text-base-900, .text-base-950 { color: inherit; }
+:is(.bg-white, .bg-white\/95, .bg-white\/70, .bg-base-100, .bg-base-100\/80, .product-price, .service-scope-card, .service-material-card, .service-process-grid li, .warm-surface, .bg-accent-100, .bg-accent-100\/60) { color: var(--navy); }
+:is(section.bg-white, .bg-base-50, .bg-base-900, .bg-base-950, .bg-primary-50, .ink-gradient, .surface-gradient) { color: var(--ivory); }
+.bg-white.text-base-900 { color: var(--navy); }
+
+.bg-base-100\/80 { background-color: var(--ivory); }
+
+.bg-white\/70 { background-color: var(--ivory); }

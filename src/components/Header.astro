@@ -12,7 +12,7 @@ const pathname = Astro.url.pathname;
     <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${brandName} — Trang chủ`}>
       <img src="/logo.svg" alt="" width="44" height="44" class="w-11 h-11 shrink-0" />
       <span>
-        <span class="block font-heading text-base font-semibold text-base-900 leading-snug">{brandName}</span>
+        <span class="block font-heading text-base font-semibold text-base-100 leading-snug">{brandName}</span>
         <span class="block text-xs text-base-500 mt-1">Vật liệu & thi công</span>
       </span>
     </a>
@@ -35,7 +35,7 @@ const pathname = Astro.url.pathname;
     </nav>
 
     <div class="flex xl:hidden items-center gap-2 shrink-0">
-    <button type="button" id="menuBtn" class="xl:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-900" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button></div>
+    <button type="button" id="menuBtn" class="xl:hidden min-w-11 min-h-11 rounded-xl border border-base-200 text-xl text-base-100" aria-label="Mở menu" aria-controls="mobileMenu" aria-expanded="false">☰</button></div>
   </div>
 
   <nav id="mobileMenu" class="hidden xl:hidden border-t border-base-200 bg-white max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain" aria-label="Điều hướng trên điện thoại">
@@ -106,9 +106,9 @@ const pathname = Astro.url.pathname;
 </script>
 
 <style>
-  .site-header { background: #102a43; color: #ffffff; border-color: #36546c; }
-  #menuBtn { border-color: #567087; background: #193b5b; color: #ffffff; }
+  .site-header { background: var(--navy); color: var(--ivory); border-color: var(--gold); }
+  #menuBtn { border-color: var(--gold); background: var(--navy); color: var(--ivory); }
   .submenu-panel[hidden] { display: none; }
   .submenu-toggle[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
-  .submenu-toggle[aria-expanded="true"], a[aria-current="page"] { color: #e4cfaa; background: #254964; font-weight: 600; }
+  .submenu-toggle[aria-expanded="true"], a[aria-current="page"] { color: var(--gold); background: var(--navy); font-weight: 600; }
 </style>

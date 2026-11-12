@@ -7,7 +7,7 @@ const { brandName = site.name } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-accent-50 text-base-900 px-4 sm:px-6 pt-14 md:pt-20 pb-8">
+<footer class="bg-base-900 text-base-100 px-4 sm:px-6 pt-14 md:pt-20 pb-8">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-9 sm:gap-y-12 pb-12">
       <div class="col-span-2 lg:col-span-1 min-w-0">
@@ -63,11 +63,11 @@ const currentYear = new Date().getFullYear();
     width: fit-content;
     max-width: 100%;
     padding-block: 0.625rem;
-    color: #56636c;
+    color: var(--pearl);
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
     transition: color 150ms;
   }
   .icon-link { display: flex; align-items: center; gap: 0.5rem; }
-  .footer-link:hover { color: #193b5b; text-decoration-line: underline; }
+  .footer-link:hover { color: var(--gold); text-decoration-line: underline; }
 </style>
