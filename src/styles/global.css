@@ -200,118 +200,65 @@ body:not(:has(.home-luxe)) .font-heading,
 body:not(:has(.home-luxe)) .site-header .font-heading,
 body:not(:has(.home-luxe)) footer .font-heading { font-family: var(--font-heading); }
 
-/* Full-width editorial heroes: navy shade, sand accents and a photographic backdrop. */
+/* Static page heroes share the homepage's photographic frame and glass panel. */
 body main .editorial-hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: var(--canvas) !important;
-  color: var(--navy) !important;
-  padding-block: clamp(3.5rem, 7vw, 7rem) !important;
-  min-height: 36rem;
-  display: flex;
-  align-items: center;
-}
-body main .editorial-hero::before,
-body main .editorial-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
+  position: relative; isolation: isolate; overflow: hidden;
+  margin: 16px 12px 0; padding: 0 0 24px !important;
+  border-radius: 20px; background: var(--ivory) !important; color: var(--navy);
 }
 body main .editorial-hero::before {
-  background-image: var(--hero-image);
-  background-size: cover;
-  background-position: 75% center;
+  content: ""; display: block; height: clamp(220px,65vw,380px);
+  background-image: var(--hero-image); background-size: cover; background-position: 65% center;
 }
-body main .editorial-hero::after {
-  background: rgb(var(--canvas-rgb) / .94);
+body main .editorial-hero > div {
+  position: relative; z-index: 1; width: calc(100% - 24px); max-width: none;
+  margin: -24px auto 0; padding: 28px 20px; border-radius: 16px;
+  border: 1px solid rgb(255 255 255 / .35); background: rgb(255 255 255 / .38);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); text-align: center;
 }
-body main .editorial-hero > div { width: 100%; }
 body main .editorial-hero > div > .grid { display: block; }
-body main .editorial-hero > div > .grid > div:first-child { max-width: 42rem; }
 body main .editorial-hero figure,
 body main .editorial-hero .grid > div:has(> img),
 body main .editorial-hero .grid > div:has(> figure),
 body main .editorial-hero > div > img { display: none; }
 body main .editorial-hero h1 {
-  color: var(--navy) !important;
-  text-wrap: initial;
-  max-width: 46rem;
+  color: var(--navy); font-size: clamp(1.8rem,3.2vw,3.25rem); line-height: 1.15;
+  font-weight: 500; max-width: none; margin: 1rem auto; text-wrap: balance;
 }
-body main .editorial-hero h1 span[class]:not(.home-title-lead),
-body main .editorial-hero .hero-title-accent {
-  color: var(--navy) !important;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 400;
+body main .editorial-hero h1 span, body main .editorial-hero .hero-title-accent {
+  color: inherit; font-family: inherit; font-style: normal; font-weight: inherit;
 }
-body main .editorial-hero :is(p, li, nav, [class*="text-base-"], [class*="text-primary-"]) {
-  color: var(--muted) !important;
+body main .editorial-hero h1::after { content: ""; display: block; height: 1px; background: var(--gold); margin: 1.25rem 0; }
+body main .editorial-hero :is(p,li,nav,[class*="text-base-"],[class*="text-primary-"]) { color: var(--navy); }
+body main .editorial-hero p { max-width: 36rem; margin-inline: auto; font-size: .875rem; }
+body main .editorial-hero .eyebrow { font-size: .625rem; letter-spacing: .12em; justify-content: center; }
+body main .editorial-hero nav[aria-label="Đường dẫn trang"] { margin-bottom: 1.25rem; font-size: .6875rem; }
+body main .editorial-hero nav[aria-label="Đường dẫn trang"] ol { justify-content: center; }
+body main .editorial-hero :is(.flex.flex-wrap,.grid.grid-cols-2) { justify-content: center; }
+body main .editorial-hero :is(.button-primary,.button-secondary) {
+  border-radius: 999px; min-height: 48px; padding: .85rem 1rem; font-size: .8125rem; text-align: center;
 }
-body main .editorial-hero > div > :is(p, h1) { max-width: 42rem; }
-body main .editorial-hero :is(.eyebrow, .home-kicker) {
-  color: var(--navy) !important;
-  letter-spacing: .14em;
+body main .editorial-hero :is(.flex.flex-wrap,.grid.grid-cols-2):has(> .button-primary) { display: grid; grid-template-columns: 1fr; gap: 10px; }
+body main .editorial-hero :is(.button-primary,.button-secondary) { width: 100%; }
+body main .editorial-hero .button-primary { background: var(--navy); border-color: var(--navy); color: var(--ivory); }
+body main .editorial-hero .button-primary:hover { background: var(--gold); color: var(--navy); }
+body main .editorial-hero .button-secondary { background: transparent; border-color: var(--navy); color: var(--navy); }
+body main .editorial-hero .button-secondary:hover { background: var(--navy); color: var(--ivory); }
+@media(min-width:640px) {
+  body main .editorial-hero { margin: 24px 24px 0; }
+  body main .editorial-hero > div { padding: 36px; }
+  body main .editorial-hero :is(.flex.flex-wrap,.grid.grid-cols-2):has(> .button-primary) { grid-template-columns: 1fr 1fr; }
 }
-body main .editorial-hero a:not(.button-primary, .button-secondary) { color: var(--navy) !important; }
-body main .editorial-hero .button-primary {
-  background: var(--gold) !important;
-  border-color: var(--navy) !important;
-  color: var(--navy) !important;
+@media(min-width:1024px) {
+  body main .editorial-hero { display: flex; align-items: center; min-height: 590px; padding: 48px 48px 90px !important; margin: 24px 28px 0; }
+  body main .editorial-hero::before { position: absolute; inset: 0; height: 100%; }
+  body main .editorial-hero > div { width: 49%; max-width: 660px; margin: 0; padding: 40px 32px; }
+  body main .editorial-hero h1 { font-size: clamp(2rem,3vw,3rem); }
 }
-body main .editorial-hero .button-primary:hover { background: var(--gold) !important; color: var(--navy) !important; }
-body main .editorial-hero .button-secondary {
-  background: transparent !important;
-  border-color: var(--navy) !important;
-  color: var(--navy) !important;
+@media(min-width:1600px) {
+  body main .editorial-hero { min-height: 680px; padding-inline: 64px !important; }
+  body main .editorial-hero > div { padding: 48px; }
 }
-body main .editorial-hero .button-secondary:hover { background: var(--gold) !important; color: var(--navy) !important; }
-body main .editorial-hero [class*="border-base-"] { border-color: var(--navy) !important; }
-body main .editorial-hero aside {
-  max-width: 42rem;
-  margin-top: 2rem;
-  background: rgb(var(--canvas-rgb) / .94) !important;
-  color: var(--navy) !important;
-}
-body main .editorial-hero aside h2 { color: var(--navy) !important; }
-@media (max-width: 767px) {
-  body main .editorial-hero { min-height: 32rem; padding-block: 2.75rem !important; }
-  body main .editorial-hero::before { background-position: 65% center; }
-  body main .editorial-hero::after { background: rgb(var(--canvas-rgb) / .94); }
-}
-
-body main .editorial-hero [class*="text-accent-"] { color: var(--navy) !important; }
-
-/* Keep title sizes consistent; accents share the global typeface. */
-body main .home-hero.editorial-hero > .grid { display: block; }
-body main .home-hero.editorial-hero > .grid > div:first-child { max-width: 52rem; }
-body main .home-hero.editorial-hero h1.home-title { max-width: none; }
-body main .home-hero.editorial-hero h1.home-title > span { display: block; }
-body main .home-hero.editorial-hero h1.home-title .home-title-lead {
-  color: var(--navy) !important;
-  font-family: inherit;
-  font-style: normal;
-  font-weight: inherit;
-}
-body main .home-hero.editorial-hero h1.home-title .home-title-accent {
-  color: var(--navy) !important;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 400;
-  margin-top: .1em;
-}
-body main .editorial-hero .hero-title-accent { color: var(--navy) !important; }
-
-/* Keep landscape backdrops near their native resolution behind the right side. */
-@media (min-width: 1024px) {
-  body main .editorial-hero::before {
-    left: 30%;
-    background-position: center;
-  }
-}
-
 
 /* Light reading surfaces; navy is reserved for navigation and small accents. */
 :where(.bg-white, .bg-white\/95, .bg-white\/70, .bg-base-100, .bg-base-100\/80, .product-price, .service-scope-card, .service-material-card, .service-process-grid li, .warm-surface, .bg-accent-100, .bg-accent-100\/60, .bg-base-50, .bg-primary-50, .ink-gradient, .surface-gradient, main .bg-base-900, main .bg-base-950) {

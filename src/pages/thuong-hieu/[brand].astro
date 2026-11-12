@@ -11,14 +11,15 @@ const samples = catalogue.filter(sample => sample.brand === brand.name);
 const materialCount = new Set(samples.map(sample => sample.category)).size;
 ---
 <BaseLayout title={`Film nội thất ${brand.name} — Mẫu vật liệu & giá theo mét dài`} description={brand.description} image={brand.image} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Thương hiệu", path: "/thuong-hieu/" }, { name: brand.name, path: brandHref(brand) }])]}>
-  <section class="brand-intro px-4 sm:px-6"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu", href: "/thuong-hieu/" }, { label: brand.name }]} /><div class="brand-intro-row"><div><p class="eyebrow mb-3">BỘ SƯU TẬP FILM NỘI THẤT</p><h1 class="text-3xl md:text-4xl font-medium">{brand.name}</h1><p class="brand-intro-description">{brand.description}</p></div><div class="brand-intro-stats"><strong>{samples.length}</strong><span>mẫu · {materialCount} nhóm vật liệu</span>{samples[0]?.pdf && <a href={samples[0].pdf} class="brand-pdf">Xem catalogue PDF <span aria-hidden="true">→</span></a>}</div></div><nav class="brand-tabs" aria-label="Chọn thương hiệu">{brands.map(item => <a href={brandHref(item)} aria-current={item.slug === brand.slug ? "page" : undefined}>{item.name}<span>{catalogue.filter(sample => sample.brand === item.name).length}</span></a>)}</nav></div></section>
+  <section class="editorial-hero brand-intro px-4 sm:px-6"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Thương hiệu", href: "/thuong-hieu/" }, { label: brand.name }]} /><div class="brand-intro-row"><div><p class="eyebrow mb-3">BỘ SƯU TẬP FILM NỘI THẤT</p><h1 class="text-3xl md:text-4xl font-medium">{brand.name}</h1><p class="brand-intro-description">{brand.description}</p></div><div class="brand-intro-stats"><strong>{samples.length}</strong><span>mẫu · {materialCount} nhóm vật liệu</span>{samples[0]?.pdf && <a href={samples[0].pdf} class="brand-pdf">Xem catalogue PDF <span aria-hidden="true">→</span></a>}</div></div></div></section>
+  <div class="px-4 sm:px-6 pt-8"><div class="max-w-7xl mx-auto"><nav class="brand-tabs" aria-label="Chọn thương hiệu">{brands.map(item => <a href={brandHref(item)} aria-current={item.slug === brand.slug ? "page" : undefined}>{item.name}<span>{catalogue.filter(sample => sample.brand === item.name).length}</span></a>)}</nav></div></div>
   <BrandCatalogue brand={brand.name} />
 </BaseLayout>
 <style>
   .brand-intro { padding-top: 2.25rem; background: var(--canvas); }
-  .brand-intro-row { display: flex; justify-content: space-between; gap: 2rem; padding-bottom: 2rem; }
+  .brand-intro-row { display: block; }
   .brand-intro-description { max-width: 42rem; margin-top: 1rem; color: var(--muted); font-size: .9375rem; }
-  .brand-intro-stats { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; flex-shrink: 0; }
+  .brand-intro-stats { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 1.25rem; flex-shrink: 0; }
   .brand-intro-stats strong { font-size: 2rem; font-weight: 500; line-height: 1.2; color: var(--navy); }
   .brand-intro-stats > span { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
   .brand-pdf { display: inline-flex; gap: .75rem; align-items: center; min-height: 2.75rem; font-size: .8125rem; color: var(--navy); text-decoration: underline; text-underline-offset: .3em; }
