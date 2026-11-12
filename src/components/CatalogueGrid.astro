@@ -1,6 +1,6 @@
 ---
-import { formatRetailPrice } from "../data/infeelPrices";
-import { samplesForMaterial, sampleHref } from "../data/catalogue";
+import ProductCard from "./ProductCard.astro";
+import { samplesForMaterial } from "../data/catalogue";
 interface Props { category: string }
 const samples = samplesForMaterial(Astro.props.category);
 const colors = [...new Set(samples.map(sample => sample.color.family))].sort((a,b) => a.localeCompare(b,"vi"));
@@ -29,7 +29,7 @@ const groups = [...new Set(samples.map(sample => sample.group))];
         <details class="catalogue-notes"><summary>Lưu ý chọn mẫu <span aria-hidden="true">+</span></summary><p>Tông màu hỗ trợ tìm kiếm, cần so với mẫu thật. Giá INFEEL tính theo mét dài, chưa gồm công thi công; Corance và TODA liên hệ báo giá. Tình trạng cung cấp được xác nhận khi đặt. Quy cách cuộn được ghi riêng trên từng mẫu.</p></details>
       </div>
     </div>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{samples.map(sample => <article data-catalogue-card data-slug={sample.slug} data-code={sample.code} data-search={`${sample.brand} ${sample.title} ${sample.code} ${sample.group} ${sample.color.family}`} data-brand={sample.brand} data-group={sample.group} data-color={sample.color.family} class="min-w-0"><a href={sampleHref(sample)} class="group block"><div class="bg-white rounded-xl overflow-hidden border border-base-200"><img src={sample.image} alt={sample.imageAlt || `${sample.title} — ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover object-center" /></div><p class="text-xs text-base-600 mt-3">{sample.brand} · {sample.group.replace(`${sample.brand} `, "")}</p><h3 class="text-sm sm:text-base font-medium mt-1 group-hover:text-primary-600">{sample.title}</h3><p class="text-sm text-primary-600 font-semibold mt-1">{sample.code}</p><p class="text-sm sm:text-base font-semibold mt-2" data-card-price={sample.pricePerMetre}>{sample.pricePerMetre ? `${formatRetailPrice(sample.pricePerMetre)} / mét dài` : "Liên hệ báo giá"}</p><span class="inline-flex items-center min-h-11 text-xs sm:text-sm text-base-700 mt-1 group-hover:underline">Xem mẫu & tư vấn →</span></a><button type="button" hidden data-admin-only data-quick-delete class="button-secondary mt-2 w-full" aria-label={`Xóa sản phẩm ${sample.brand} ${sample.code}`}>Xóa sản phẩm</button></article>)}</div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-7" data-catalogue-grid>{samples.map(sample => <article data-catalogue-card data-slug={sample.slug} data-code={sample.code} data-search={`${sample.brand} ${sample.title} ${sample.code} ${sample.group} ${sample.color.family}`} data-brand={sample.brand} data-group={sample.group} data-color={sample.color.family} class="min-w-0"><ProductCard sample={sample} /><button type="button" hidden data-admin-only data-quick-delete class="button-secondary mt-2 w-full" aria-label={`Xóa sản phẩm ${sample.brand} ${sample.code}`}>Xóa sản phẩm</button></article>)}</div>
     <p data-quick-delete-status role="status" aria-live="polite" class="text-sm text-base-700 mt-5"></p>
     <dialog data-quick-delete-dialog class="rounded-2xl bg-white p-5 sm:p-7 w-[min(30rem,calc(100%-2rem))]" aria-labelledby="quick-delete-title" aria-describedby="quick-delete-description">
       <h2 id="quick-delete-title" class="text-xl font-semibold">Xóa sản phẩm?</h2>
