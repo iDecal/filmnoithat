@@ -8,7 +8,6 @@ import { categoryIcon } from "../data/icons";
 import { materials, materialHref } from "../data/materials";
 import { posts, postHref, formatDate } from "../data/posts";
 import { projectStories, storyHref, storyLabel } from "../data/projectStories";
-import { heroBackdrop } from "../data/heroBackdrops";
 import { site } from "../data/site";
 const prices = catalogue.filter(sample => sample.brand === "INFEEL" && sample.pricePerMetre).map(sample => sample.pricePerMetre!);
 const startingPrice = prices.length ? formatRetailPrice(Math.min(...prices)) : "";
@@ -24,9 +23,9 @@ const collectionPhotos: Record<string,string> = {
 const collections = home.collections.items.map(item => ({ ...item, material: materials.find(material => material.slug === item.slug)!, image: collectionPhotos[item.slug] }));
 const stories = [...projectStories.filter(story => story.kind === "reference"), ...projectStories.filter(story => story.kind !== "reference")].slice(0,6);
 const heroSlides = [
-  { src: heroBackdrop("/"), alt: "Không gian bếp phối gỗ và tông trung tính — ảnh tham khảo" },
-  { src: "/images/bo-suu-tap/film-noi-that-quay-va-vach-trong-khong-gian-tiep-don.webp", alt: "Quầy và vách nội thất trong không gian tiếp đón — ảnh tham khảo" },
-  { src: "/images/bo-suu-tap/film-noi-that-phoi-go-sang-trong-khong-gian-bep.webp", alt: "Bếp sáng phối chất liệu gỗ — ảnh tham khảo" },
+  { src: "/images/cong-trinh/banner-film-dan-noi-that.jpg", width: 2560, height: 1438, alt: "Cận cảnh các cuộn film nội thất màu trung tính, thể hiện rõ vân bề mặt" },
+  { src: "/images/uploads/products/corance-cad403/film-dan-noi-that-corance-cad403-5ad7c0ef8d0f.webp", width: 2048, height: 1365, alt: "Cuộn film nội thất Corance CAD403 với vân gỗ sáng và bề mặt chi tiết" },
+  { src: "/images/uploads/products/corance-cam001/film-dan-noi-that-corance-cam001-0abff9e2d165.webp", width: 2048, height: 1366, alt: "Film nội thất Corance CAM001 với hiệu ứng kim loại màu vàng" },
 ];
 const selected = new Set<string>();
 const featuredProducts = [
@@ -40,12 +39,10 @@ const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice
 ---
 <BaseLayout brandName={home.brandName} title={home.seoTitle} description={text(home.seoDescription)} image={heroSlides[0].src} faqs={faqs}>
   <div class="home-dom">
-    <section class="dom-hero" aria-labelledby="dom-title" aria-roledescription="trình chiếu" aria-label="Không gian nội thất tham khảo" data-home-slider>
-      <div class="dom-slides">{heroSlides.map((slide,index) => <img src={slide.src} alt={slide.alt} width="1448" height="1086" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} class:list={["dom-slide",{"is-active":index===0}]} aria-hidden={index !== 0 ? "true" : undefined} data-hero-slide />)}</div>
-      <div class="dom-shade" aria-hidden="true"></div>
-      <div class="dom-wrap dom-hero-copy"><p class="dom-label">{home.hero.eyebrow}</p><h1 id="dom-title">{home.hero.titleLead}<br />{home.hero.titleAccent}</h1><p class="dom-hero-description">{home.hero.description}</p><a href={home.hero.primaryHref} class="dom-button dom-button-accent">{home.hero.primaryLabel}<Icon name="arrow" size={17} /></a></div>
-      <button type="button" data-hero-prev class="dom-hero-arrow dom-prev" aria-label="Xem ảnh không gian trước">←</button><button type="button" data-hero-next class="dom-hero-arrow dom-next" aria-label="Xem ảnh không gian tiếp theo">→</button>
-      <div class="dom-dots" role="group" aria-label="Chọn ảnh không gian">{heroSlides.map((_,index) => <button type="button" data-hero-dot aria-label={`Xem ảnh ${index+1}`} aria-pressed={index===0 ? "true":"false"}><span></span></button>)}</div><p class="dom-hero-source">Ảnh không gian tham khảo</p><span class="dom-sr-only" data-hero-status role="status" aria-live="polite">Ảnh 1 / {heroSlides.length}</span>
+    <section class="dom-hero" aria-labelledby="dom-title" aria-roledescription="trình chiếu" aria-label="Bộ sưu tập film dán nội thất" data-home-slider>
+      <div class="dom-slides">{heroSlides.map((slide,index) => <img src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} class:list={["dom-slide",{"is-active":index===0}]} aria-hidden={index !== 0 ? "true" : undefined} data-hero-slide />)}</div>
+      <div class="dom-hero-copy"><p class="dom-label">{home.hero.eyebrow}</p><h1 id="dom-title">{home.hero.titleLead}<br />{home.hero.titleAccent}</h1><div class="dom-hero-rule" aria-hidden="true"></div><p class="dom-hero-description">{home.hero.description}</p><div class="dom-hero-actions"><a href={home.hero.primaryHref} class="dom-button dom-button-accent">{home.hero.primaryLabel}<Icon name="arrow" size={17} /></a><a href={home.hero.secondaryHref} class="dom-button dom-button-outline">{home.hero.secondaryLabel}<Icon name="arrow" size={17} /></a></div><p class="dom-hero-note">{text(home.hero.priceNote)}</p></div>
+      <div class="dom-hero-controls"><button type="button" data-hero-prev class="dom-hero-arrow dom-prev" aria-label="Xem ảnh vật liệu trước">←</button><div class="dom-dots" role="group" aria-label="Chọn ảnh vật liệu">{heroSlides.map((_,index) => <button type="button" data-hero-dot aria-label={`Xem ảnh ${index+1}`} aria-pressed={index===0 ? "true":"false"}><span></span></button>)}</div><button type="button" data-hero-next class="dom-hero-arrow dom-next" aria-label="Xem ảnh vật liệu tiếp theo">→</button></div><p class="dom-hero-source">Ảnh vật liệu tham khảo</p><span class="dom-sr-only" data-hero-status role="status" aria-live="polite">Ảnh 1 / {heroSlides.length}</span>
     </section>
 
     <section class="dom-section" aria-labelledby="dom-collections-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">CHỌN CHẤT LIỆU BẠN YÊU THÍCH</p><h2 id="dom-collections-title">Film dán nội thất cho từng<br class="dom-desktop-break" /> không gian của bạn.</h2><p>Đổi màu tủ, cửa và vách bằng chất liệu phù hợp với nội thất đang có.</p></header><div class="dom-collections">{collections.map(item => <a class="dom-collection" href={materialHref(item.material)}><img src={item.image} alt={`Gợi ý không gian cho ${item.material.name.toLowerCase()} — ảnh tham khảo`} width="700" height="900" loading="lazy" /><div class="dom-collection-shade"></div><div class="dom-collection-caption"><Icon name={categoryIcon(item.slug)!} size={25} /><h3>{item.material.shortName}</h3><span>Khám phá chất liệu ↗</span></div></a>)}</div></div></section>
@@ -58,7 +55,7 @@ const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice
 
     <section class="dom-section" aria-labelledby="dom-products-title"><div class="dom-wrap"><header class="dom-heading dom-center"><p class="dom-label">BỘ SƯU TẬP VẬT LIỆU</p><h2 id="dom-products-title">Mẫu film dán nội thất.</h2><p>Chọn mã để xem bề mặt, quy cách và tư vấn ứng dụng.</p></header><div class="dom-products">{featuredProducts.map(sample => <a href={sampleHref(sample)} class="dom-product"><div class="dom-product-image"><img src={sample.image} alt={sample.imageAlt || `${sample.title} ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" /></div><p class="dom-product-code">{sample.brand} / {sample.code}</p><h3>{sample.title}</h3><p class="dom-product-price">{sample.pricePerMetre ? formatRetailPrice(sample.pricePerMetre) : "Liên hệ báo giá"}{sample.pricePerMetre && <span> / mét dài</span>}</p></a>)}</div><div class="dom-center dom-section-action"><a class="dom-button dom-button-accent" href="/vat-lieu/">Xem tất cả mẫu film<Icon name="arrow" size={17} /></a></div></div></section>
 
-    <section class="dom-assurance"><img src={heroSlides[1].src} alt="" width="1400" height="900" loading="lazy" class="dom-assurance-photo" /><div class="dom-shade" aria-hidden="true"></div><div class="dom-wrap dom-assurance-grid"><div class="dom-assurance-intro"><p class="dom-label">VẬT LIỆU & THI CÔNG THEO NHU CẦU</p><h2>Rõ ràng từ lựa chọn<br />đến hoàn thiện.</h2><p>Chốt mẫu, phạm vi và những chi tiết cần xử lý trước khi bắt đầu.</p><a href="/dich-vu/dan-film-noi-that/" class="dom-button dom-button-accent">Xem dịch vụ<Icon name="arrow" size={17} /></a></div><article class="dom-promise"><Icon name="swatches" size={29} /><h3>Chọn mẫu thực tế</h3><p>Đối chiếu màu, chiều vân và thông số của đúng mã film với không gian cần dán.</p><a href="/blog/cach-chon-film-noi-that/">Tìm hiểu cách chọn mẫu ↗</a></article><article class="dom-promise"><Icon name="check" size={29} /><h3>Thống nhất phạm vi</h3><p>Trao đổi xử lý nền, tháo lắp, chi phí, nghiệm thu và điều kiện bảo hành theo hạng mục.</p><a href="/blog/bao-gia-dan-film/">Cách đọc báo giá ↗</a></article></div></section>
+    <section class="dom-assurance"><img src="/images/bo-suu-tap/film-noi-that-quay-va-vach-trong-khong-gian-tiep-don.webp" alt="" width="1400" height="900" loading="lazy" class="dom-assurance-photo" /><div class="dom-shade" aria-hidden="true"></div><div class="dom-wrap dom-assurance-grid"><div class="dom-assurance-intro"><p class="dom-label">VẬT LIỆU & THI CÔNG THEO NHU CẦU</p><h2>Rõ ràng từ lựa chọn<br />đến hoàn thiện.</h2><p>Chốt mẫu, phạm vi và những chi tiết cần xử lý trước khi bắt đầu.</p><a href="/dich-vu/dan-film-noi-that/" class="dom-button dom-button-accent">Xem dịch vụ<Icon name="arrow" size={17} /></a></div><article class="dom-promise"><Icon name="swatches" size={29} /><h3>Chọn mẫu thực tế</h3><p>Đối chiếu màu, chiều vân và thông số của đúng mã film với không gian cần dán.</p><a href="/blog/cach-chon-film-noi-that/">Tìm hiểu cách chọn mẫu ↗</a></article><article class="dom-promise"><Icon name="check" size={29} /><h3>Thống nhất phạm vi</h3><p>Trao đổi xử lý nền, tháo lắp, chi phí, nghiệm thu và điều kiện bảo hành theo hạng mục.</p><a href="/blog/bao-gia-dan-film/">Cách đọc báo giá ↗</a></article></div></section>
 
     <section class="dom-section" aria-labelledby="dom-posts-title"><div class="dom-wrap"><header class="dom-heading"><p class="dom-label">CẨM NANG FILM NỘI THẤT</p><h2 id="dom-posts-title">Đọc thêm trước khi chọn.</h2></header><div class="dom-posts">{latestPosts.map(post => <article><a href={postHref(post)}><div class="dom-post-photo"><img src={post.image} alt={post.imageAlt || post.title} width="700" height="500" loading="lazy" /></div><p class="dom-post-category">Tư vấn vật liệu & thi công</p><h3>{post.title}</h3><time datetime={post.date}>{formatDate(post.date)}</time><span class="dom-post-link">Đọc bài viết ↗</span></a></article>)}</div><a class="dom-text-link" href="/blog/">Xem tất cả bài viết<Icon name="arrow" size={17} /></a></div></section>
 
@@ -106,22 +103,32 @@ if (slider) {
 .dom-button-accent:hover { background:var(--dom-accent); color:var(--dom-ink); border-color:var(--dom-ink); }
 .dom-button-dark { background:var(--dom-ink); color:var(--dom-paper); border-color:var(--dom-ink); }
 .dom-button-dark:hover { background:var(--dom-paper); color:var(--dom-ink); }
-.dom-hero { position:relative; min-height:560px; min-height:clamp(560px,70svh,760px); display:flex; align-items:center; justify-content:center; isolation:isolate; background:var(--dom-ink); color:var(--dom-paper); padding:4rem 1.25rem 6rem; }
-.dom-slides,.dom-slide,.dom-shade { position:absolute; inset:0; width:100%; height:100%; }
-.dom-slide { object-fit:cover; opacity:0; transition:opacity .6s; }
+.dom-hero { position:relative; isolation:isolate; overflow:hidden; margin:16px 12px 0; padding-bottom:80px; border-radius:20px; background:var(--ivory); color:var(--navy); }
+.dom-slides { position:relative; height:clamp(220px,65vw,380px); background:var(--pearl); }
+.dom-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:65% center; opacity:0; transition:opacity .6s; }
 .dom-slide.is-active { opacity:1; }
-.dom-shade { background:var(--dom-ink); opacity:.64; pointer-events:none; }
-.dom-hero-copy { width:min(100%,1000px); position:relative; z-index:1; text-align:center; max-width:1000px; }
-.dom-hero .dom-label { color:var(--dom-paper); }
-.dom-hero h1 { margin:1rem auto 1.3rem; }
-.dom-hero-description { max-width:650px; margin:0 auto 1.7rem!important; font-size:.9375rem; }
-.dom-hero-arrow { position:absolute; z-index:2; top:auto; bottom:1.2rem; width:44px; height:44px; border-radius:50%; border:1px solid var(--dom-paper); background:var(--dom-ink); color:var(--dom-paper); font-size:18px; }
-.dom-prev { left:10px; }.dom-next { right:10px; }
-.dom-dots { position:absolute; z-index:2; bottom:1.2rem; display:flex; gap:.3rem; }
-.dom-dots button { width:44px; height:44px; display:grid; place-items:center; border:0; background:transparent; }
-.dom-dots span { width:8px; height:8px; border-radius:50%; border:1px solid var(--dom-paper); }
-.dom-dots [aria-pressed=true] span { background:var(--dom-paper); }
-.dom-hero-source { position:absolute; z-index:2; right:20px; bottom:12px; font-size:10px; }
+.dom-shade { position:absolute; inset:0; width:100%; height:100%; background:var(--dom-ink); opacity:.64; pointer-events:none; }
+.dom-hero-copy { position:relative; z-index:1; width:calc(100% - 24px); margin:-24px auto 0; padding:28px 20px; border:1px solid var(--surface); border-radius:16px; background:rgb(var(--ivory-rgb) / .97); text-align:center; }
+.dom-hero .dom-label { color:var(--navy); font-size:.625rem; letter-spacing:.12em; }
+.dom-hero h1 { margin:1rem auto; font-size:clamp(1.8rem,3.2vw,3.25rem); line-height:1.15; }
+.dom-hero-rule { height:1px; background:var(--gold); margin:1.25rem 0; }
+.dom-hero-description { max-width:36rem; margin:0 auto 1.5rem!important; color:var(--navy); font-size:.875rem; }
+.dom-hero-actions { display:grid; gap:10px; }
+.dom-hero .dom-button { width:100%; padding:.85rem 1rem; }
+.dom-button-outline { background:transparent; color:var(--navy); border-color:var(--navy); }
+.dom-button-outline:hover { background:var(--navy); color:var(--ivory); }
+.dom-hero-note { margin-top:1rem!important; font-size:.6875rem; color:var(--muted); }
+.dom-hero-controls { position:absolute; z-index:2; bottom:22px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:12px; padding:2px 8px; border:1px solid var(--gold); border-radius:999px; background:var(--ivory); }
+.dom-hero-arrow { display:grid; place-items:center; width:44px; height:44px; border-radius:50%; border:1px solid var(--navy); background:transparent; color:var(--navy); font-size:18px; transition:background-color .2s,color .2s; }
+.dom-hero-arrow:hover { background:var(--navy); color:var(--ivory); }
+.dom-dots { display:flex; }
+.dom-dots button { width:30px; height:44px; display:grid; place-items:center; border:0; background:transparent; }
+.dom-dots span { width:7px; height:7px; border-radius:50%; border:1px solid var(--navy); transition:width .2s; }
+.dom-dots [aria-pressed=true] span { width:20px; border-radius:8px; background:var(--navy); }
+.dom-hero-source { position:absolute; z-index:2; right:16px; bottom:4px; font-size:9px; color:var(--navy); padding:0 5px; background:var(--ivory); border-radius:2px; }
+@media(min-width:640px) { .dom-hero { margin:24px 24px 0; }.dom-hero-copy { padding:36px; }.dom-hero-actions { grid-template-columns:1fr 1fr; } }
+@media(min-width:1024px) { .dom-hero { min-height:590px; display:flex; align-items:center; padding:48px 48px 90px; margin:24px 28px 0; }.dom-slides { position:absolute; inset:0; height:100%; }.dom-hero-copy { width:49%; max-width:660px; margin:0; padding:40px 32px; background:rgb(var(--ivory-rgb) / .95); backdrop-filter:blur(12px); }.dom-hero h1 { font-size:clamp(2rem,3vw,3rem); }.dom-hero-source { bottom:28px; right:24px; padding:3px 9px; font-size:10px; }.dom-hero-controls { bottom:22px; } }
+@media(min-width:1600px) { .dom-hero { min-height:680px; padding-inline:64px; }.dom-hero-copy { padding:48px; } }
 .dom-collections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
 .dom-collection { position:relative; display:block; aspect-ratio:3/4; overflow:hidden; background:var(--dom-ink); color:var(--dom-paper); }
 .dom-collection>img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
@@ -167,14 +174,14 @@ if (slider) {
 .dom-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 .home-dom :focus-visible { outline:2px solid var(--dom-label-color); outline-offset:4px; }
 @media(min-width:640px) { .dom-wrap { width:min(1240px,calc(100% - 64px)); }.dom-collections { gap:22px; }.dom-ribbon-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-collection-caption h3 { font-size:1.35rem; }.dom-about-visual figure img { aspect-ratio:5/4; }.dom-contact-inner { flex-direction:row; justify-content:space-between; align-items:center; }.dom-contact-inner>div:first-child { max-width:65%; } }
-@media(min-width:1024px) { .dom-collections { grid-template-columns:repeat(4,minmax(0,1fr)); }.dom-hero { min-height:680px; padding:5rem 4rem 6rem; }.dom-hero-arrow { width:44px; height:44px; top:50%; bottom:auto; }.dom-prev { left:24px; }.dom-next { right:24px; }.dom-about-grid { grid-template-columns:1fr 1fr; gap:5rem; }.dom-about-visual { padding-left:1rem; }.dom-about-visual figure img { aspect-ratio:4/5; max-height:610px; }.dom-stats { margin-left:-3rem; margin-right:2rem; }.dom-stats>div { padding:1.4rem; }.dom-space-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.dom-space img { aspect-ratio:16/10; }.dom-space figcaption { padding:1rem 1.4rem; }.dom-space figcaption h3 { font-size:1.15rem; }.dom-space figcaption span { font-size:.7rem; }.dom-products,.dom-posts { grid-template-columns:repeat(4,minmax(0,1fr)); gap:2.5rem 1.5rem; }.dom-assurance-grid { grid-template-columns:1.05fr 1fr 1fr; gap:1.5rem; }.dom-assurance-intro { padding-right:1rem; }.dom-assurance-intro h2 { font-size:1.8rem; }.dom-promise { min-height:300px; padding:2rem; } }
+@media(min-width:1024px) { .dom-collections { grid-template-columns:repeat(4,minmax(0,1fr)); }.dom-about-grid { grid-template-columns:1fr 1fr; gap:5rem; }.dom-about-visual { padding-left:1rem; }.dom-about-visual figure img { aspect-ratio:4/5; max-height:610px; }.dom-stats { margin-left:-3rem; margin-right:2rem; }.dom-stats>div { padding:1.4rem; }.dom-space-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.dom-space img { aspect-ratio:16/10; }.dom-space figcaption { padding:1rem 1.4rem; }.dom-space figcaption h3 { font-size:1.15rem; }.dom-space figcaption span { font-size:.7rem; }.dom-products,.dom-posts { grid-template-columns:repeat(4,minmax(0,1fr)); gap:2.5rem 1.5rem; }.dom-assurance-grid { grid-template-columns:1.05fr 1fr 1fr; gap:1.5rem; }.dom-assurance-intro { padding-right:1rem; }.dom-assurance-intro h2 { font-size:1.8rem; }.dom-promise { min-height:300px; padding:2rem; } }
 @media(hover:hover) and (pointer:fine) { .dom-space figcaption { opacity:0; transform:translateY(8px); transition:opacity .2s,transform .2s; }.dom-space:hover figcaption,.dom-space:focus-visible figcaption { opacity:1; transform:none; } }
 @media(max-width:639px) { .dom-space figcaption span:last-child { display:none; } }
-@media(max-width:420px) { .dom-hero-source { right:10px; font-size:8px; bottom:6px; }.dom-hero h1 { font-size:1.9rem; }.dom-product-price span { display:block; }.dom-desktop-break { display:none; } }
+@media(max-width:420px) { .dom-product-price span { display:block; }.dom-desktop-break { display:none; } }
 @media(prefers-reduced-motion:reduce) { .home-dom *, .home-dom *::before, .home-dom *::after { transition:none!important; scroll-behavior:auto!important; } }
 /* Use global dark-surface actions and focus colors. */
-.dom-hero .dom-button-accent, .dom-assurance .dom-button-accent { background:var(--gold); color:var(--navy); border-color:var(--gold); }
-.dom-hero .dom-button-accent:hover, .dom-assurance .dom-button-accent:hover { background:var(--ivory); color:var(--navy); border-color:var(--ivory); }
-.dom-hero :focus-visible, .dom-assurance :focus-visible { outline-color:var(--gold); }
+.dom-assurance .dom-button-accent { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+.dom-assurance .dom-button-accent:hover { background:var(--ivory); color:var(--navy); border-color:var(--ivory); }
+.dom-assurance :focus-visible { outline-color:var(--gold); }
 :global(body:has(.home-dom) .site-header .button-primary) { border-radius:999px; }
 </style>
