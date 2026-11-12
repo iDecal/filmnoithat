@@ -223,7 +223,7 @@ const steps = [
   @media (max-width: 1023px) {
     :global(body) { padding-bottom: calc(82px + env(safe-area-inset-bottom)); }
     :global(html) { scroll-padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
-    .mobile-service-actions { display: grid; grid-template-columns: 1fr 1.7fr; gap: 10px; position: fixed; bottom: 0; left: 0; right: 0; z-index: 45; padding: 12px 16px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid rgb(var(--color-base-200)); background: var(--navy); }
+    .mobile-service-actions { display: grid; grid-template-columns: 1fr 1.7fr; gap: 10px; position: fixed; bottom: 0; left: 0; right: 0; z-index: 45; padding: 12px 16px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid rgb(var(--color-base-200)); background: var(--surface); }
     .mobile-service-actions a { min-height: 48px; padding: 10px 12px; font-size: 0.875rem; }
     .service-hero-action { min-height: 48px; padding: 10px 12px; font-size: 0.875rem; }
     .service-hero-image { max-height: 240px; }
@@ -231,7 +231,7 @@ const steps = [
   @media (max-width: 767px) {
     .related-services-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .related-services-list > li { border: 0; }
-    .related-services-list a { min-height: 44px; padding: 10px 12px; border: 1px solid rgb(var(--color-base-200)); border-radius: 10px; background: var(--navy); font-size: 0.875rem; }
+    .related-services-list a { min-height: 44px; padding: 10px 12px; border: 1px solid rgb(var(--color-base-200)); border-radius: 10px; background: var(--surface); font-size: 0.875rem; }
   }
 
   .service-section { padding-block: clamp(2.25rem, 5vw, 4.5rem); }
@@ -252,10 +252,10 @@ const steps = [
   .service-scope-card h3 { flex: 1; }
   .service-card-number { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: .625rem; background: var(--ivory); color: var(--navy); font-size: .75rem; font-weight: 600; flex-shrink: 0; }
   .service-scope-card > p { padding-left: 3.125rem; margin-top: .5rem; font-size: .875rem; }
-  .service-surface-section { background: var(--navy); }
-  .service-surface-section :is(h2,h3) { color: var(--ivory); }
-  .service-surface-section p { color: var(--pearl); }
-  .service-surface-section :is(a, summary > span) { color: var(--gold); }
+  .service-surface-section { background: var(--ivory); }
+  .service-surface-section :is(h2,h3) { color: var(--navy); }
+  .service-surface-section p { color: var(--muted); }
+  .service-surface-section :is(a, summary > span) { color: var(--navy); }
   .service-surface-section [data-surface-detail] { padding: 1.125rem 0; border-bottom: 1px solid var(--gold); }
   .service-surface-section [data-surface-detail]:first-child { padding-top: 0; }
   .service-material-grid { display: grid; grid-template-columns: repeat(var(--service-material-count, 3),minmax(0,1fr)); gap: 1rem; }
@@ -271,7 +271,7 @@ const steps = [
   .service-quote-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .service-preparation-list { margin-top: 1.5rem; display: grid; gap: .75rem; }
   .service-preparation-list li { display: flex; align-items: baseline; gap: 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--gold); }
-  .service-preparation-list li > span { font-size: .75rem; font-weight: 600; color: var(--gold); }
+  .service-preparation-list li > span { font-size: .75rem; font-weight: 600; color: var(--navy); }
   .service-preparation-list li > p { font-size: .875rem; }
   .service-quote-card { padding: 2rem; border-radius: 1.25rem; background: var(--navy); color: var(--ivory); }
   .service-quote-kicker { color: var(--gold); font-size: .6875rem; letter-spacing: .12em; font-weight: 600; }

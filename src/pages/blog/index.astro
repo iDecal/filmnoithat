@@ -58,12 +58,12 @@ import { breadcrumbSchema } from "../../data/seo";
   .blog-search svg { position: absolute; left: .875rem; top: 50%; transform: translateY(-50%); color: var(--muted); }
   .blog-search input { width: 100%; min-height: 2.875rem; border: 1px solid var(--gold); border-radius: .75rem; padding: .625rem .875rem .625rem 2.5rem; color: var(--navy); background: var(--ivory); font-size: 1rem; }
   .blog-categories { display: flex; gap: .5rem; overflow-x: auto; padding: .375rem .25rem .75rem; scrollbar-width: thin; }
-  .blog-categories a { display: inline-flex; align-items: center; gap: .625rem; flex-shrink: 0; min-height: 2.75rem; padding: .5rem .875rem; border: 1px solid var(--gold); border-radius: 999px; font-size: .8125rem; color: var(--gold); }
+  .blog-categories a { display: inline-flex; align-items: center; gap: .625rem; flex-shrink: 0; min-height: 2.75rem; padding: .5rem .875rem; border: 1px solid var(--gold); border-radius: 999px; font-size: .8125rem; color: var(--navy); }
   .blog-categories a span { font-size: .6875rem; opacity: .75; }
   .blog-categories a:hover { background: var(--gold); color: var(--navy); }
-  .blog-categories a[aria-current] { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-  .blog-results-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: .5rem 0 1.5rem; font-size: .75rem; color: var(--pearl); }
-  .blog-results-meta button { min-height: 2.75rem; color: var(--gold); text-decoration: underline; text-underline-offset: .2em; }
+  .blog-categories a[aria-current] { background: var(--gold); border-color: var(--navy); color: var(--navy); }
+  .blog-results-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: .5rem 0 1.5rem; font-size: .75rem; color: var(--muted); }
+  .blog-results-meta button { min-height: 2.75rem; color: var(--navy); text-decoration: underline; text-underline-offset: .2em; }
   .blog-category-badge { display: inline-block; border-radius: 999px; background: var(--gold); color: var(--navy); padding: .25rem .625rem; font-size: .6875rem; font-weight: 600; }
   [data-blog-card][hidden], [data-blog-empty][hidden], [data-blog-reset][hidden] { display: none; }
   @media(max-width: 767px) { .blog-toolbar { flex-direction: column; align-items: stretch; gap: 1rem; margin-bottom: .875rem; } .blog-search { width: 100%; } .blog-results-meta { margin-bottom: 1rem; } }
