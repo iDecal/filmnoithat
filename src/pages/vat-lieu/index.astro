@@ -47,7 +47,7 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-summary > div > div { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; color: var(--muted); font-size: .8125rem; }
 .materials-summary strong { color: var(--navy); font-weight: 600; }
 
-.materials-wrap { width:min(1240px,calc(100% - 40px));margin-inline:auto; }
+.materials-wrap { width:calc(100% - 24px);margin-inline:auto; }
 .materials-list { padding-block:36px 48px;scroll-margin-top:6rem;background:#fff; }
 .materials-list-heading { margin-bottom:24px; }
 .materials-list-heading h2 { font-size:clamp(1.375rem,2.5vw,1.875rem);font-weight:500;margin-top:10px; }
@@ -64,11 +64,11 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-card-copy h2 { display:flex;align-items:center;gap:10px;font-size:1.375rem;font-weight:500;margin-top:10px; }
 .materials-card-description { font-size:.875rem;line-height:1.8;color:var(--muted);margin-top:14px; }
 .materials-applications { display:flex;flex-wrap:wrap;gap:6px;margin-block:18px; }
-.materials-applications li { font-size:.6875rem;padding:5px 9px;border-radius:6px;background:#f8f3ea;color:#69583e; }
+.materials-applications li { font-size:.6875rem;padding:5px 9px;border-radius:6px;background:#f0f1f2;color:#111; }
 .materials-card-footer { display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;border-top:1px solid #e9e9e6;font-size:.75rem;color:var(--muted); }
 .materials-card-footer > span:last-child { display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:500; }
-@media(min-width:640px) { .materials-wrap { width:min(1240px,calc(100% - 64px)); } }
-@media(min-width:1024px) { .materials-list { padding-top:48px; } }
+@media(min-width:640px) { .materials-wrap { width:calc(100% - 48px); } }
+@media(min-width:1024px) { .materials-wrap { width:calc(100% - 56px); }.materials-list { padding-top:48px; } }
 @media(prefers-reduced-motion:reduce) { .materials-card-photo :global(img) { transition:none; } }
 
 
