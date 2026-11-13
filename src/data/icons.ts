@@ -1,4 +1,7 @@
 export const iconPaths = {
+  message: "M21 11a8 8 0 0 1-8 8H7l-5 3 2-6a8 8 0 1 1 17-5M8 10h8M8 14h5",
+  camera: "M3 6h4l2-3h6l2 3h4v14H3V6M16 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0",
+  mail: "M3 5h18v14H3V5M3 6l9 7 9-7",
   tag: "M3 3h7l11 11-7 7L3 10V3M7 7h.01",
   layers: "m12 3 10 5-10 5L2 8l10-5M2 12l10 5 10-5M2 16l10 5 10-5",
   ruler: "m3 16 13-13 5 5L8 21l-5-5M12 7l2 2M9 10l2 2M6 13l2 2",

@@ -1,62 +1,46 @@
 ---
+import "../styles/company-pages.css";
 import pageContent from "../data/pageContent.json";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Icon from "../components/Icon.astro";
+import type { IconName } from "../data/icons";
+import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
-const principles = [
-  { title: "Hiểu điều bạn cần", text: "Một góc bếp ấm hơn, mặt bàn hợp với căn phòng hay vách trang trí có điểm nhấn — chúng tôi bắt đầu từ cách bạn muốn sử dụng và cảm nhận không gian." },
-  { title: "Chọn dựa trên thực tế", text: "Màu sắc, vân bề mặt, ánh sáng và tình trạng nền đều được cân nhắc. Mẫu film cần được đối chiếu với nội thất sẵn có và thông số của từng vật liệu." },
-  { title: "Rõ ràng trước khi bắt đầu", text: "Vật liệu, số lượng, phần việc và chi phí được trao đổi trước khi xác nhận. Với thi công, hai bên cùng thống nhất cách xử lý nền, tiến độ và kiểm tra khi bàn giao." },
+const principles: {title:string;text:string;icon:IconName}[] = [
+ {title:"Hiểu điều bạn cần",text:"Một góc bếp ấm hơn, mặt bàn hợp với căn phòng hay vách trang trí có điểm nhấn — chúng tôi bắt đầu từ cách bạn muốn sử dụng và cảm nhận không gian.",icon:"interior"},
+ {title:"Chọn dựa trên thực tế",text:"Màu sắc, vân bề mặt, ánh sáng và tình trạng nền đều được cân nhắc. Mẫu film cần được đối chiếu với nội thất sẵn có và thông số của từng vật liệu.",icon:"swatches"},
+ {title:"Rõ ràng trước khi bắt đầu",text:"Vật liệu, số lượng, phần việc và chi phí được trao đổi trước khi xác nhận. Với thi công, hai bên cùng thống nhất cách xử lý nền, tiến độ và kiểm tra khi bàn giao.",icon:"check"},
+];
+const steps=[
+ {title:"Chia sẻ nhu cầu",text:"Gửi ảnh hiện trạng, hạng mục muốn làm mới và địa điểm của bạn."},
+ {title:"Cùng chọn vật liệu",text:"Đối chiếu màu, vân và quy cách với công năng, ánh sáng và nội thất giữ lại."},
+ {title:"Thống nhất phương án",text:"Làm rõ lượng film, xử lý nền, phạm vi công việc, chi phí và thời gian trước khi xác nhận."},
+ {title:"Hoàn thiện & kiểm tra",text:"Kiểm tra bề mặt, góc mép và các chi tiết trong phạm vi thi công đã thống nhất."},
 ];
 ---
-<BaseLayout image="/images/home/interior-kitchen.webp" title={pageContent.about.title} description={pageContent.about.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Giới thiệu", path: "/gioi-thieu/" }])]}>
-  <section class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient">
-    <div class="max-w-7xl mx-auto">
-      <Breadcrumbs items={[{ label: "Giới thiệu" }]} />
-      <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <div>
-          <p class="eyebrow mb-4">VỀ FILM NỘI THẤT</p>
-          <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{pageContent.about.headingLead}<br /><span class="text-primary-500">{pageContent.about.headingAccent}</span></h1>
-          <p class="text-base sm:text-lg text-base-600 mt-6">{pageContent.about.intro}</p>
-          <p class="text-base text-base-600 mt-4">Film Nội Thất cung cấp film dán nội thất và nhận thi công theo nhu cầu. Chúng tôi cùng bạn tìm cách làm mới bàn, tủ, vách và các bề mặt nội thất, bắt đầu từ những gì bạn đang có.</p>
-          <a href="/dich-vu/dan-film-noi-that/" class="button-primary mt-7">Khám phá dịch vụ</a>
-        </div>
-        <figure>
-          <img src="/images/home/interior-kitchen.webp" alt="Không gian bếp tham khảo kết hợp sắc gỗ sáng, tường xanh trầm và mặt bàn trắng" class="w-full aspect-[5/4] object-cover rounded-2xl" width="810" height="543" fetchpriority="high" />
-          <figcaption class="pt-3 text-sm text-base-600">Không gian tham khảo — sắc gỗ, màu nền và ánh sáng cùng tạo nên cảm giác của căn phòng.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="px-4 sm:px-6 section-space bg-white">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-7 lg:gap-16">
-      <div><p class="eyebrow mb-4">ĐIỀU CHÚNG TÔI HƯỚNG ĐẾN</p><h2 class="text-2xl md:text-[1.625rem] font-semibold">Vật liệu hợp với bạn.<br />Hoàn thiện hợp với không gian.</h2></div>
-      <div class="space-y-5 text-base-600">
-        <p>Một lớp vân gỗ có thể làm góc bếp ấm hơn. Một tông màu dịu có thể nối liền bàn, tủ và những mảng vách. Khi chọn đúng, bề mặt mới trở thành một phần tự nhiên của căn phòng.</p>
-        <p>Vì thế, chúng tôi quan tâm đến cả hình thức lẫn cách sử dụng: bạn thích cảm giác gì, bề mặt được dùng ra sao và phần nội thất nào muốn giữ lại. Từ đó, việc chọn film có một hướng đi rõ ràng hơn.</p>
-        <p>Film phù hợp với những bề mặt có nền ổn định và được chuẩn bị đúng cách. Nếu có dấu hiệu ẩm, bong hoặc hư hỏng, chúng tôi sẽ trao đổi phần cần xử lý trước để bạn có đủ thông tin khi quyết định.</p>
-        <figure class="pt-2"><img src="/images/cong-trinh/dan-film-noi-that-nha-pho-hien-dai-mau-be-tong.webp" alt="Phòng ngủ tham khảo với vách đầu giường trung tính, chi tiết gỗ và ánh sáng dịu" width="500" height="500" loading="lazy" decoding="async" class="w-full aspect-[4/3] sm:aspect-[16/10] object-cover rounded-xl" /><figcaption class="text-xs text-base-600 pt-3">Không gian tham khảo — một hướng phối vách, sắc gỗ và nội thất trung tính.</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="px-4 sm:px-6 section-space warm-surface">
-    <div class="max-w-7xl mx-auto">
-      <p class="eyebrow mb-4">CÁCH CHÚNG TÔI ĐỒNG HÀNH</p>
-      <h2 class="text-2xl md:text-[1.625rem] font-semibold mb-7">Lắng nghe kỹ. Trao đổi rõ. Cùng chọn.</h2>
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-9">{principles.map((item, index) => <article class="border-t border-base-300 pt-6 pb-2"><span class="text-primary-600 text-sm font-semibold">0{index + 1}</span><h3 class="text-lg font-medium mt-4 mb-4">{item.title}</h3><p class="text-base-600">{item.text}</p></article>)}</div>
-    </div>
-  </section>
-
-  <section class="px-4 sm:px-6 section-space bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="max-w-2xl mb-8"><p class="eyebrow mb-4">THEO CÁCH BẠN CẦN</p><h2 class="text-2xl md:text-[1.625rem] font-semibold">Từ chọn film đến hoàn thiện.</h2><p class="text-base-600 mt-4">Bạn có thể mua riêng vật liệu hoặc trao đổi thêm phương án thi công. Chúng tôi tiếp nhận nhu cầu trên toàn quốc, với cách cung cấp và thực hiện được thống nhất theo từng địa điểm.</p></div>
-      <div class="grid md:grid-cols-2 gap-7 lg:gap-12">
-        <article class="border-t border-base-200 pt-6 min-w-0"><figure class="mb-5"><img src="/images/cong-trinh/banner-film-dan-noi-that.jpg" alt="Các cuộn vật liệu film với bề mặt và sắc độ khác nhau" width="2560" height="1438" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover rounded-xl" /><figcaption class="text-xs text-base-600 pt-3">Vật liệu tham khảo — so mẫu, màu và hiệu ứng bề mặt trước khi chọn.</figcaption></figure><h3 class="text-xl font-medium">Khi bạn cần mua film.</h3><p class="text-base-600 mt-4">Khám phá vân gỗ, đơn sắc, vân vải, bê tông, kim loại và những hiệu ứng trang trí khác. Gửi mẫu yêu thích, ứng dụng và số lượng dự kiến để trao đổi thông số, lượng vật tư và phương án giao hàng.</p><a href="/vat-lieu/" class="outline-action text-sm font-semibold mt-4">Tìm chất liệu phù hợp →</a></article>
-        <article class="border-t border-base-200 pt-6 min-w-0"><figure class="mb-5"><img src="/images/thi-cong/thi-cong-film-van-go-bang-may-kho-o-mep-cong.webp" alt="Thợ đeo găng dùng máy khò hỗ trợ uốn film vân gỗ theo mép cong" title="Thi công film nội thất vân gỗ tại mép cong" width="739" height="415" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover rounded-xl" /><figcaption class="text-xs text-base-600 pt-3">Thao tác tham khảo — hoàn thiện bề mặt bằng film trang trí.</figcaption></figure><h3 class="text-xl font-medium">Khi bạn cần thi công.</h3><p class="text-base-600 mt-4">Từ tủ bếp, bàn và kệ đến tường, trần hoặc vách cabin thang máy, mỗi hạng mục cần được xem xét theo hiện trạng. Bạn gửi ảnh, kích thước và địa điểm; chúng tôi cùng làm rõ phương án, phạm vi và chi phí trước khi thực hiện.</p><a href="/dich-vu/dan-film-noi-that/" class="outline-action text-sm font-semibold mt-4">Xem các dịch vụ thi công →</a></article>
-      </div>
-      <p class="text-sm text-base-600 mt-8 pt-5 border-t border-base-200">Muốn tìm hiểu trước khi trao đổi? <a href="/blog/" class="inline-flex items-center min-h-11 text-primary-600 font-medium underline underline-offset-4">Đọc cẩm nang chọn film và chuẩn bị thi công.</a></p>
-    </div>
-  </section>
+<BaseLayout image="/images/perspectives/oak-living-room.webp" title={pageContent.about.title} description={pageContent.about.description} structuredData={[breadcrumbSchema(Astro.site!,[{name:"Giới thiệu",path:"/gioi-thieu/"}])]}>
+ <section class="company-hero"><div class="company-shell">
+  <Breadcrumbs items={[{label:"Giới thiệu"}]} />
+  <div class="company-hero-grid"><div><p class="company-kicker mb-4"><Icon name="layers" size={20} />VỀ FILM NỘI THẤT</p><h1 class="company-title">{pageContent.about.headingLead}<br />{pageContent.about.headingAccent}</h1><p class="company-muted mt-5 text-base sm:text-lg">{pageContent.about.intro}</p><p class="company-muted mt-4 text-sm">Cung cấp film dán nội thất và nhận thi công theo nhu cầu. Cùng bạn tìm cách làm mới bàn, tủ và vách từ những gì đang có.</p><div class="company-actions"><a href="/vat-lieu/" class="button-primary">Khám phá vật liệu<Icon name="arrow" size={18} class="ml-3" /></a><a href="/lien-he/" class="button-secondary">Trao đổi nhu cầu</a></div></div>
+  <figure class="company-hero-photo"><img src="/images/perspectives/oak-living-room.webp" alt="Không gian tham khảo với tủ gỗ sáng, sofa màu be và ánh sáng tự nhiên" width="1672" height="941" fetchpriority="high" class="company-photo aspect-[5/4]" /><figcaption class="company-photo-caption">Không gian minh họa — gỗ sáng, sắc be và ánh sáng tự nhiên.</figcaption></figure></div>
+  <div class="company-feature-strip"><div><Icon name="swatches" size={21} /><span>Chọn film theo bề mặt & công năng</span></div><div><Icon name="package" size={21} /><span>Mua vật liệu hoặc trao đổi thi công</span></div><div><Icon name="interior" size={21} /><span>Tiếp nhận nhu cầu toàn quốc</span></div></div>
+ </div></section>
+ <section class="company-section company-soft"><div class="company-shell grid lg:grid-cols-[.8fr_1.2fr] gap-8 lg:gap-16 items-start"><div><p class="company-kicker mb-3">ĐIỀU CHÚNG TÔI HƯỚNG ĐẾN</p><h2 class="company-heading">Vật liệu hợp với bạn.<br />Hoàn thiện hợp với không gian.</h2><figure class="mt-5"><img src="/images/perspectives/ivory-oak-kitchen.webp" alt="Không gian bếp trắng ấm kết hợp gỗ sáng, minh họa cách phối film dán nội thất với bề mặt sẵn có" title="Gợi ý phối vật liệu cho không gian bếp sáng và ấm" width="1672" height="941" loading="lazy" decoding="async" sizes="(min-width:1024px) 460px, 100vw" class="company-photo company-story-image" /><figcaption class="company-photo-caption">Ảnh minh họa — phối bề mặt gỗ, màu trơn và mặt đá sáng.</figcaption></figure></div><div class="company-muted space-y-4"><p>Một lớp vân gỗ có thể làm góc bếp ấm hơn. Một tông màu dịu có thể nối liền bàn, tủ và những mảng vách. Khi chọn đúng, bề mặt mới trở thành một phần tự nhiên của căn phòng.</p><p>Chúng tôi quan tâm đến cả hình thức lẫn cách sử dụng: bạn thích cảm giác gì, bề mặt được dùng ra sao và phần nội thất nào muốn giữ lại. Từ đó, việc chọn film có một hướng đi rõ ràng hơn.</p><p class="company-quote text-sm">Film là lớp hoàn thiện trang trí. Bề mặt cần ổn định và được chuẩn bị đúng cách; các vùng ẩm, bong hoặc hư hỏng cần được xem xét trước khi dán.</p><a href="/huong-dan-phoi-mau/" class="company-link">Tham khảo cách phối màu và chất liệu<Icon name="arrow" size={18} /></a></div></div></section>
+ <section class="company-section"><div class="company-shell"><div class="max-w-2xl mb-7"><p class="company-kicker mb-3">CÁCH CHÚNG TÔI ĐỒNG HÀNH</p><h2 class="company-heading">Lắng nghe kỹ. Trao đổi rõ. Cùng chọn.</h2></div><div class="grid md:grid-cols-3 gap-5">{principles.map(item=><article class="company-card"><span class="company-icon"><Icon name={item.icon} size={23} /></span><h3 class="text-lg font-semibold mt-5">{item.title}</h3><p class="company-muted text-sm mt-3">{item.text}</p></article>)}</div></div></section>
+ <section class="company-section company-sand"><div class="company-shell"><p class="company-kicker mb-3">THEO CÁCH BẠN CẦN</p><h2 class="company-heading">Từ chọn film đến hoàn thiện</h2><p class="company-muted max-w-3xl mt-4 mb-7">Bạn có thể mua riêng vật liệu hoặc trao đổi thêm phương án thi công. Cách cung cấp và thực hiện được thống nhất theo từng nhu cầu và địa điểm.</p><div class="grid md:grid-cols-2 gap-6">
+  <article class="company-card flex flex-col"><img src="/images/cong-trinh/banner-film-dan-noi-that.jpg" alt="Các cuộn film nội thất với nhiều sắc độ và hiệu ứng bề mặt" width="2560" height="1438" loading="lazy" class="company-photo aspect-[16/9]" /><h3 class="text-xl font-semibold mt-5">Khi bạn cần mua film</h3><p class="company-muted text-sm mt-3">Khám phá vân gỗ, đơn sắc, vân vải, bê tông, kim loại và các hiệu ứng trang trí. Gửi mã yêu thích, ứng dụng và số lượng dự kiến để trao đổi thông số, lượng vật tư và phương án giao hàng.</p><a href="/vat-lieu/" class="company-link mt-auto pt-5">Tìm chất liệu phù hợp<Icon name="arrow" size={18} /></a></article>
+  <article class="company-card flex flex-col"><img src="/images/thi-cong/thi-cong-film-van-go-bang-may-kho-o-mep-cong.webp" alt="Thao tác tham khảo dùng máy khò hỗ trợ uốn film vân gỗ theo mép cong" width="739" height="415" loading="lazy" class="company-photo aspect-[16/9]" /><h3 class="text-xl font-semibold mt-5">Khi bạn cần thi công</h3><p class="company-muted text-sm mt-3">Từ tủ bếp, bàn và kệ đến tường, trần hay cabin thang máy, mỗi hạng mục cần được xem xét theo hiện trạng. Gửi ảnh, kích thước và địa điểm để cùng làm rõ phương án, phạm vi và chi phí.</p><a href="/dich-vu/dan-film-noi-that/" class="company-link mt-auto pt-5">Xem các dịch vụ thi công<Icon name="arrow" size={18} /></a></article>
+ </div></div></section>
+ <section class="company-section"><div class="company-shell"><p class="company-kicker mb-3">TỪ NHU CẦU ĐẾN PHƯƠNG ÁN</p><h2 class="company-heading mb-7">Bắt đầu bằng một cuộc trao đổi rõ ràng</h2>
+ <div class="grid sm:grid-cols-2 gap-5 mb-8" aria-label="Ảnh minh họa lựa chọn và hoàn thiện film">
+  <figure><img src="/images/thi-cong/cuon-film-noi-that-van-go-nhieu-sac-do.webp" alt="Các cuộn film dán nội thất vân gỗ từ sáng đến nâu trầm để đối chiếu màu và họa tiết" title="So sánh sắc độ và vân bề mặt trước khi chọn film" width="1024" height="768" loading="lazy" decoding="async" sizes="(min-width:640px) 600px, 100vw" class="company-photo company-process-image" /><figcaption class="company-photo-caption">Đối chiếu sắc độ, chiều vân và hiệu ứng của mẫu vật liệu.</figcaption></figure>
+  <figure><img src="/images/thi-cong/bo-film-van-go-theo-goc-canh-noi-that.webp" alt="Ảnh cận cảnh thao tác ôm film vân gỗ theo góc cạnh nội thất" title="Tham khảo cách hoàn thiện film tại góc và cạnh nội thất" width="547" height="365" loading="lazy" decoding="async" sizes="(min-width:640px) 550px, 100vw" class="company-photo company-process-image" /><figcaption class="company-photo-caption">Thao tác tham khảo — chú ý xử lý góc, cạnh và mối nối.</figcaption></figure>
+ </div><ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">{steps.map((step,index)=><li class="company-step"><span class="company-step-number">0{index+1}</span><h3 class="text-base font-semibold mt-3">{step.title}</h3><p class="company-muted text-sm mt-2">{step.text}</p></li>)}</ol></div></section>
+ <section class="company-section company-soft"><div class="company-shell flex flex-col lg:flex-row lg:items-center justify-between gap-6"><div><p class="company-kicker mb-3">KHÔNG GIAN CỦA BẠN, HƯỚNG ĐI CỦA BẠN</p><h2 class="company-heading">Bạn đang muốn làm mới hạng mục nào?</h2><p class="company-muted mt-3">Gửi ảnh hiện trạng để bắt đầu chọn vật liệu và cách thực hiện.</p></div><div class="flex flex-wrap gap-3"><a href={site.zaloHref} class="button-primary">Gửi ảnh qua Zalo</a><a href="/lien-he/" class="button-secondary">Thông tin liên hệ</a></div></div></section>
 </BaseLayout>
+
+<style>
+.company-story-image { aspect-ratio:16/9; max-height:210px; }
+.company-process-image { aspect-ratio:16/10; max-height:260px; }
+</style>
