@@ -1,6 +1,6 @@
 .company-shell { width:min(1240px,calc(100% - 40px)); margin-inline:auto; }
-.company-hero { padding-block:28px 48px; background:linear-gradient(115deg,#fffdf9 0%,#f8f2e7 55%,#f0e3cc 100%); }
-.company-section { padding-block:clamp(36px,5vw,64px); background:linear-gradient(115deg,#fffdf9 0%,#f8f2e7 55%,#f0e3cc 100%); }
+.company-hero { padding-block:28px 48px; background:#fff; }
+.company-section { padding-block:clamp(36px,5vw,64px); background:#fff; }
 .company-kicker { display:flex;align-items:center;gap:10px;font-size:.75rem;letter-spacing:.09em;font-weight:600;color:#876a37; }
 .company-title { font-size:clamp(2rem,3.5vw,3.25rem);line-height:1.15;letter-spacing:-.035em;font-weight:500; }
 .company-heading { font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.3;font-weight:500; }
