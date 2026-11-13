@@ -13,8 +13,8 @@ import { materials, materialHref, type Material } from "../data/materials";
 import { services, serviceHref } from "../data/services";
 import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
-interface Props { material: Material }
-const { material } = Astro.props;
+interface Props { material: Material; compactLowerContent?: boolean }
+const { material, compactLowerContent = false } = Astro.props;
 const categorySamples = samplesForMaterial(material.slug);
 const hasSamples = categorySamples.length > 0;
 const heroSample = categorySamples.find(sample => sample.application) || categorySamples[0];
@@ -36,24 +36,29 @@ const schema = [
     </div>
   </div></section>
   <CatalogueGrid category={material.slug} />
-  <section id="ung-dung" class="material-applications material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto">
+  <section id="ung-dung" class:list={["material-applications material-lower-section px-4 sm:px-6", {"material-compact": compactLowerContent}]}><div class="max-w-7xl mx-auto">
     <p class="eyebrow mb-2">PHỐI VẬT LIỆU THEO CÔNG NĂNG</p>
     <h2 class="text-2xl md:text-[1.625rem] font-semibold mb-5">Ứng dụng film dán nội thất {material.shortName.toLowerCase()}</h2>
     <div class="grid md:grid-cols-3 gap-4">{applicationLinks(material).map((item, index) => <a href={item.href} class="material-application-card group rounded-xl p-5 flex flex-col">
       <div class="flex items-center justify-between gap-4"><span class="application-icon inline-flex items-center justify-center w-9 h-9 rounded-lg"><Icon name={item.icon} size={21} /></span><span class="application-number text-sm font-semibold">0{index + 1}</span></div>
-      <h3 class="text-base font-semibold mt-3 mb-2">{index === 0 ? `Film dán nội thất cho ${item.title.toLowerCase()}` : item.title}</h3>
+      <h3 class="text-base font-semibold mt-3 mb-2">{index === 0 && !compactLowerContent ? `Film dán nội thất cho ${item.title.toLowerCase()}` : item.title}</h3>
       <p class="text-sm text-base-600">{item.text}</p>
       <span class="application-link flex items-center justify-between gap-3 mt-auto pt-4 text-xs sm:text-sm font-medium"><span>{item.linkLabel}</span><Icon name="arrow" size={18} /></span>
     </a>)}</div>
     <a href={colorGuideHref} class="inline-flex items-center gap-3 min-h-11 mt-3 text-sm font-medium text-primary-600 hover:underline"><Icon name="swatches" size={20} />Hướng dẫn phối màu và chất liệu nội thất<Icon name="arrow" size={17} /></a>
   </div></section>
+  {compactLowerContent ? (
+    <section class="material-selection material-lower-section material-compact px-4 sm:px-6"><div class="max-w-7xl mx-auto"><h2 class="text-xl font-semibold mb-4">Lưu ý khi chọn film vân gỗ</h2><ul class="grid md:grid-cols-3 gap-4">{material.notes.map(note => <li class="flex items-start gap-3 text-sm text-base-600"><Icon name="check" size={18} /><span>{note}</span></li>)}</ul></div></section>
+  ) : (<>
   <section class="material-selection material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold">Cách chọn mẫu {material.shortName.toLowerCase()} phù hợp</h2><div class="grid md:grid-cols-3 gap-6 mt-7">{materialGuides[material.slug].map(item => <article class="border-t border-base-200 pt-5"><h3 class="text-lg font-semibold">{item.title}</h3><p class="text-base-600 text-sm mt-3 leading-relaxed">{item.text}</p></article>)}</div></div></section>
   <section class="material-preparation material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-6">Trước khi chốt vật liệu</h2><ul class="space-y-4 text-base-600">{material.notes.map(note => <li class="flex gap-3"><span aria-hidden="true" class="text-primary-600">✓</span><span>{note}</span></li>)}</ul></div><aside class="material-service-panel bg-base-50 border border-base-200 rounded-2xl p-6 md:p-8"><h2 class="text-2xl font-semibold mb-4">Từ mẫu film đến hoàn thiện</h2><p class="text-base-600 mb-5">Xem quy trình và những lưu ý riêng cho hạng mục bạn đang dự định làm mới.</p><ul class="space-y-3">{relatedServices.map(service => <li><a href={serviceHref(service)} class="inline-block py-2 text-primary-600 font-medium hover:underline">{service.name} →</a></li>)}</ul></aside></div></section>
   <section class="material-alternatives material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thử một cách phối khác</h2><div class="grid sm:grid-cols-3 gap-5">{relatedMaterials.map(item => <a href={materialHref(item)} class="group block"><div class="h-44 rounded-xl overflow-hidden"><MaterialPreview material={item} /></div><div class="pt-4"><h3 class="flex items-center gap-2 font-semibold"><Icon name={categoryIcon(item.slug)!} size={20} class="text-primary-600" />{item.name}</h3><p class="text-sm text-base-600 mt-2">{item.moodLabel} →</p></div></a>)}</div></div></section>
+  </>)}
 </BaseLayout>
 
 <style>
 .material-lower-section { padding-block:clamp(2rem,3.3vw,3rem); }
+.material-compact { padding-block:28px; }
 .material-applications { background:#f1f5f8; }
 .material-selection { background:#f8f3ea; }
 .material-preparation { background:#edf3f5; }
