@@ -7,16 +7,16 @@
 @layer base {
   :root {
     --navy: #0B1B33;
-    --ivory: #F8F5EE;
+    --ivory: #FFFFFF;
     --gold: #D4BC8B;
     --pearl: #B9BEC7;
     --muted: #5C6573;
-    --canvas: #FDFCF9;
+    --canvas: #FFFFFF;
     --surface: #FFFFFF;
-    --canvas-rgb: 253 252 249;
+    --canvas-rgb: 255 255 255;
     --surface-rgb: 255 255 255;
     --navy-rgb: 11 27 51;
-    --ivory-rgb: 248 245 238;
+    --ivory-rgb: 255 255 255;
     --gold-rgb: 212 188 139;
     --pearl-rgb: 185 190 199;
     --muted-rgb: 92 101 115;
