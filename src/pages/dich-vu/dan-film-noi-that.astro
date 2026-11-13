@@ -1,5 +1,6 @@
 ---
 import { storiesForService, storyHref, storyLabel } from "../../data/projectStories";
+import ServiceHero from "../../components/ServiceHero.astro";
 import ColorGuideFeature from "../../components/ColorGuideFeature.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -29,15 +30,9 @@ const preparation = [
 ---
 <BaseLayout faqs={service.faqs} title={service.title} description={service.description} image={service.image} structuredData={schema}>
   <div class="service-overview">
-    <section class="editorial-hero px-4 sm:px-6 pt-6 sm:pt-10 pb-10 sm:pb-16 bg-base-50 surface-gradient">
-      <div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Dịch vụ" }]} />
-        <div class="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-16 items-center">
-          <div><p class="eyebrow text-xs mb-4">VẬT LIỆU & THI CÔNG THEO NHU CẦU</p><h1 class="text-[1.75rem] sm:text-4xl lg:text-[2.75rem] font-medium leading-tight">Film dán nội thất.<br /><span class="text-primary-500">Làm mới từng bề mặt.</span></h1><p class="text-base sm:text-lg text-base-600 mt-5 max-w-lg">Chọn film dán nội thất cho tủ bếp, bàn, tường, trần hoặc thang máy. Từ một cánh tủ đến nhiều mảng trong cùng không gian, cùng tìm chất liệu và phương án thi công phù hợp.</p><div class="flex flex-wrap gap-3 mt-6"><a href="#chon-dich-vu" class="button-primary">Chọn dịch vụ <span aria-hidden="true" class="ml-2">↓</span></a><a href="/vat-lieu/" class="button-secondary">Tôi muốn mua film</a></div><p class="text-sm text-base-600 mt-5">Cung cấp film toàn quốc · Thi công theo địa điểm công trình</p></div>
-          <figure><img src="/images/home/interior-kitchen.webp" alt="Film dán nội thất cho tủ bếp gỗ sáng — không gian tham khảo" width="810" height="543" fetchpriority="high" class="w-full aspect-[4/3] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-3">Gợi ý phối vật liệu cho không gian sống.</figcaption></figure>
-        </div>
-
-      </div>
-    </section>
+    <ServiceHero service={service}>
+<p class="eyebrow text-xs mb-4">VẬT LIỆU & THI CÔNG THEO NHU CẦU</p><h1 class="text-[1.75rem] sm:text-4xl lg:text-[2.75rem] font-medium leading-tight">Film dán nội thất.<br /><span class="text-primary-500">Làm mới từng bề mặt.</span></h1><p class="text-base sm:text-lg text-base-600 mt-5 max-w-lg">Chọn film dán nội thất cho tủ bếp, bàn, tường, trần hoặc thang máy. Từ một cánh tủ đến nhiều mảng trong cùng không gian, cùng tìm chất liệu và phương án thi công phù hợp.</p><div class="flex flex-wrap gap-3 mt-6"><a href="#chon-dich-vu" class="button-primary">Chọn dịch vụ <span aria-hidden="true" class="ml-2">↓</span></a><a href="/vat-lieu/" class="button-secondary">Tôi muốn mua film</a></div><p class="text-sm text-base-600 mt-5">Cung cấp film toàn quốc · Thi công theo địa điểm công trình</p>
+    </ServiceHero>
     <div class="service-wrap service-shortcuts"><nav aria-label="Chọn nhanh hạng mục dịch vụ">{categories.map(item => <a href={serviceHref(item)}>{item.name}</a>)}</nav></div>
 
     <section id="chon-dich-vu" class="service-section overview-anchor" aria-labelledby="choose-service-title"><div class="service-wrap">

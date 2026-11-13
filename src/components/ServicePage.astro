@@ -1,5 +1,6 @@
 ---
 import { heroBackdrop } from "../data/heroBackdrops";
+import ServiceHero from "./ServiceHero.astro";
 import { uploadedImageAlt } from "../data/uploadedImages";
 import Icon from "./Icon.astro";
 import ServiceReferenceGallery from "./ServiceReferenceGallery.astro";
@@ -59,12 +60,7 @@ const steps = [
 ---
 <BaseLayout faqs={service.faqs} title={service.title} description={service.description} image={service.image} structuredData={schema}>
   <div class="service-page">
-    <section class="editorial-hero service-hero px-4 sm:px-6 pt-4 pb-6 lg:pt-10 lg:pb-16 bg-base-50 surface-gradient">
-      <div class="max-w-7xl mx-auto">
-        <div class="hidden lg:block"><Breadcrumbs items={crumbs} /></div>
-        <a href={overview ? "/" : "/dich-vu/dan-film-noi-that/"} class="inline-flex items-center min-h-11 text-sm text-base-600 mb-2 lg:hidden">← {overview ? "Trang chủ" : "Tất cả dịch vụ"}</a>
-        <div class="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-5 lg:gap-14 items-center">
-          <div>
+    <ServiceHero service={service}>
             <p class="eyebrow flex items-center gap-2 text-xs mb-3 lg:mb-5"><Icon name={categoryIcon(service.slug)!} size={22} />THI CÔNG THEO NHU CẦU</p>
             <h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-medium leading-[1.18]">{service.heading}</h1>
             <p class="hero-title-accent hidden lg:block text-2xl font-medium text-primary-500 mt-4 leading-snug text-balance">{design.accent}</p>
@@ -72,14 +68,7 @@ const steps = [
             <p class="hidden lg:block text-lg text-base-600 mt-6 max-w-xl">{design.lead}</p>
             <div class="grid grid-cols-2 lg:flex lg:flex-wrap gap-3 mt-5 lg:mt-8"><a href="#nhan-tu-van" class="button-primary service-hero-action"><span class="lg:hidden">Nhận tư vấn</span><span class="hidden lg:inline">Nhận tư vấn & báo giá →</span></a><a href="#mau-film" class="button-secondary service-hero-action">Xem mẫu film</a></div>
             <ul class="hidden lg:flex flex-wrap gap-x-5 gap-y-2 mt-7 text-sm text-base-600"><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Xem mẫu trước</li><li><span aria-hidden="true" class="text-primary-600 mr-2">✓</span>Chốt rõ phạm vi</li></ul>
-          </div>
-          <div>
-            <figure class="relative rounded-2xl lg:rounded-3xl overflow-hidden bg-white border border-base-200"><img src={service.image} alt={service.imageAlt || uploadedImageAlt(service.image, `Hình tham khảo cho ${service.name.toLowerCase()}`)} width="1000" height="800" fetchpriority="high" class="service-hero-image w-full aspect-[16/9] lg:aspect-[5/4] object-cover" /><span class="absolute bottom-3 left-3 lg:hidden bg-white/95 text-base-700 text-xs px-3 py-1 rounded-full">Ảnh tham khảo</span><figcaption class="hidden lg:block px-5 py-4 text-sm text-base-600">{design.caption}</figcaption></figure>
-
-          </div>
-        </div>
-      </div>
-    </section>
+    </ServiceHero>
 
     <nav class="service-jump-nav px-4 sm:px-6 bg-white z-40" aria-label="Nội dung trang dịch vụ">
       <div class="service-jump-strip max-w-7xl mx-auto flex gap-x-5 lg:gap-x-7 overflow-x-auto py-2">{navigation.map((item, index) => <a data-service-link href={`#${item.id}`} class="service-jump-link shrink-0 inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap"><span aria-hidden="true" class="text-xs opacity-60">0{index + 1}</span>{item.label}</a>)}</div>
