@@ -4,6 +4,7 @@ import { uploadedImageAlt } from "../data/uploadedImages";
 import Icon from "./Icon.astro";
 import ServiceReferenceGallery from "./ServiceReferenceGallery.astro";
 import { categoryIcon } from "../data/icons";
+import ColorGuideFeature from "./ColorGuideFeature.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import { services, serviceHref, type Service } from "../data/services";
@@ -101,6 +102,7 @@ const steps = [
       </div>
     </section>
 
+    <ColorGuideFeature serviceSlug={service.slug} />
     <section id="mau-film" data-service-section class="service-anchor service-section px-4 sm:px-6 bg-base-50">
       <div class="max-w-7xl mx-auto">
         <div class="service-section-heading"><div><p class="eyebrow mb-3">03 / CHỌN VẬT LIỆU</p><h2 class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Chọn film dán nội thất cho {target}</h2></div><div><p class="text-base-600">So mẫu thực tế, hướng vân và thông số trước khi quyết định. Giá và tình trạng cung cấp được xác nhận theo vật liệu, số lượng và thời điểm đặt.</p><a href="/vat-lieu/" class="inline-flex items-center min-h-11 text-primary-600 text-sm font-semibold mt-2">Tất cả vật liệu <span aria-hidden="true" class="ml-2">→</span></a></div></div>

@@ -1,4 +1,5 @@
 ---
+import ColorGuideFeature from "../../components/ColorGuideFeature.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import MaterialCards from "../../components/MaterialCards.astro";
@@ -47,6 +48,7 @@ const preparation = [
       <div class="service-needs-grid"><article><span class="service-step">01</span><h3>Bạn cần mua film</h3><p>Đã có người thực hiện? Chọn mã mẫu, số lượng và xác nhận quy cách, giá vật tư cùng phương án giao hàng.</p><a href="/vat-lieu/" class="outline-action">Chọn vật liệu <Icon name="arrow" size={16} /></a></article><article><span class="service-step">02</span><h3>Bạn cần thi công</h3><p>Gửi ảnh, kích thước và địa điểm để trao đổi nền hiện trạng, chi tiết góc cạnh và phạm vi thực hiện.</p><a href={site.zaloHref} class="outline-action">Trao đổi phương án <Icon name="arrow" size={16} /></a></article><article><span class="service-step">03</span><h3>Bạn đang tìm ý tưởng</h3><p>Tham khảo cách phối chất liệu cho bàn, tủ và vách trước khi quyết định màu sắc hoặc nhóm bề mặt.</p><a href="/cong-trinh/" class="outline-action">Xem không gian <Icon name="arrow" size={16} /></a></article></div>
     </div></section>
 
+    <ColorGuideFeature serviceSlug={service.slug} />
     <MaterialCards materials={findMaterials(["van-go", "da-cam-thach", "don-sac"])} title="Chất liệu phù hợp với không gian." />
 
     <section class="service-section"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">03 / CÁCH CHÚNG TÔI BẮT ĐẦU</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Rõ nhu cầu. Rõ phương án.</h2></div><p>Film là lớp hoàn thiện. Nền ẩm, bong hoặc xuống cấp cần được đánh giá và xử lý trước khi dán.</p></header><ol class="service-process-grid">{preparation.map((item,index) => <li><span class="service-step">0{index+1}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol></div></section>

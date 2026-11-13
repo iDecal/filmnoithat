@@ -2,7 +2,8 @@ import { categoryIcon, type IconName } from "./icons";
 import type { Material } from "./materials";
 import { services, serviceHref } from "./services";
 
-export const colorGuideHref = "/huong-dan-phoi-mau/";
+import { colorGuideHref } from "./colorGuide";
+export { colorGuideHref };
 const destinations: Record<string, string[]> = {
   "van-go": ["dan-film-tu-bep", "dan-film-ban", "dan-film-tuong"],
   "don-sac": ["dan-film-tu-bep", "dan-film-ban", "phoi-mau"],

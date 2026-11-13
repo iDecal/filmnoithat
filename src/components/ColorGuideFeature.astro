@@ -1,0 +1,37 @@
+---
+import Icon from "./Icon.astro";
+import { colorGuideHref, colorPalettes, accentPalettes } from "../data/colorGuide";
+interface Props { prominent?: boolean; serviceSlug?: string }
+const { prominent=false, serviceSlug="" }=Astro.props;
+const contexts: Record<string,{title:string;copy:string;image:string;width:number;height:number;alt:string}>={
+ "dan-film-tu-bep":{title:"Chọn màu film tủ bếp hài hòa với mặt đá và sàn",copy:"Tham khảo cách phối màu cánh tủ, mặt bàn và các chi tiết giữ lại trước khi chọn mã film.",image:"ivory-oak-kitchen",width:1672,height:941,alt:"Bếp trắng ấm và gỗ sáng minh họa phối màu film tủ bếp"},
+ "dan-film-ban":{title:"Phối màu mặt bàn với ghế, kệ và không gian",copy:"So sánh vân gỗ, màu trơn và sắc độ trung tính để chọn hướng làm mới bàn hoặc quầy.",image:"light-oak-workspace",width:1536,height:1024,alt:"Bàn làm việc gỗ sáng kết hợp nền trung tính minh họa cách phối màu nội thất"},
+ "dan-film-tuong":{title:"Chọn màu cho vách điểm nhấn, cân bằng cả căn phòng",copy:"Xem cách phối nền sáng, vân gỗ và màu nhấn để mảng vách kết nối với nội thất đang có.",image:"modern-reception",width:1672,height:941,alt:"Vách gỗ, quầy sáng và ghế xanh đậm minh họa phối màu cho tường và vách"},
+ "dan-film-tran":{title:"Phối màu trần với sàn và các mảng tường",copy:"Tham khảo cách cân bằng gỗ ấm, bề mặt sáng và đường nét đậm trước khi chọn film cho trần.",image:"oak-ceiling-living-room",width:1536,height:1024,alt:"Trần gỗ ấm trong phòng khách nền sáng minh họa phối màu film trần"},
+ "dan-film-thang-may":{title:"Phối vách cabin với sàn và chi tiết kim loại",copy:"Chọn sắc gỗ, đá sáng và điểm nhấn ánh kim phù hợp để cabin có chiều sâu mà không nặng màu.",image:"walnut-elevator",width:1536,height:1024,alt:"Cabin thang máy phối gỗ nâu, sàn be và tay vịn kim loại để tham khảo màu sắc"},
+};
+const content=contexts[serviceSlug]||{title:"Hướng dẫn phối màu film dán nội thất",copy:"Khám phá các cách phối gỗ, màu trơn, vân vải và ánh kim qua ảnh không gian, bảng màu và gợi ý áp dụng theo từng hạng mục.",image:"modern-reception",width:1672,height:941,alt:"Không gian tiếp đón phối gỗ sáng, nền kem và ghế xanh đậm minh họa hướng dẫn phối màu film nội thất"};
+---
+<section class:list={["color-guide-feature px-4 sm:px-6",{"color-guide-prominent":prominent}]} aria-label="Cẩm nang phối màu nổi bật" data-color-guide-feature>
+ <div class="max-w-7xl mx-auto"><a href={colorGuideHref} class="color-guide-feature-card group">
+  <figure><img src={`/images/perspectives/${content.image}.webp`} alt={content.alt} width={content.width} height={content.height} loading="lazy" decoding="async" /><figcaption>Ảnh phối màu minh họa</figcaption></figure>
+  <div class="color-guide-feature-copy"><p class="color-guide-feature-label"><Icon name="swatches" size={20} />{prominent?"CẨM NANG NỔI BẬT":"GỢI Ý TRƯỚC KHI CHỌN FILM"}</p><h2>{content.title}</h2><p class="color-guide-feature-description">{content.copy}</p><div class="color-guide-feature-tags"><span>{colorPalettes.length} cách phối có ảnh</span><span>{accentPalettes.length} bảng màu nhấn</span><span>Theo từng hạng mục</span></div><span class="color-guide-feature-action">Xem hướng dẫn phối màu<Icon name="arrow" size={19} /></span></div>
+ </a></div>
+</section>
+<style>
+.color-guide-feature { padding-block:28px; }
+.color-guide-feature-card { display:grid; grid-template-columns:minmax(0,1fr); gap:20px; padding:20px; border:1px solid #dce4ea;border-radius:18px; background:linear-gradient(120deg,#edf4f9,#f9f4ec);color:var(--navy);transition:border-color .18s,box-shadow .18s; }
+.color-guide-feature-card:hover { border-color:var(--gold);box-shadow:0 6px 24px rgb(11 27 51 / .05); }
+.color-guide-feature figure { position:relative; min-width:0; }
+.color-guide-feature img { display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px; }
+.color-guide-feature figcaption { position:absolute;bottom:8px;left:8px;border-radius:6px;padding:3px 7px;background:rgb(255 255 255 / .92);font-size:.625rem;color:var(--navy); }
+.color-guide-feature-copy { align-self:center;min-width:0; }
+.color-guide-feature-label { display:flex;align-items:center;gap:10px;color:#876a37;font-size:.6875rem;letter-spacing:.08em;font-weight:600; }
+.color-guide-feature h2 { font-size:clamp(1.25rem,2.1vw,1.75rem);font-weight:500;margin-top:10px;line-height:1.3; }
+.color-guide-feature-description { color:var(--muted);font-size:.875rem;margin-top:12px; }
+.color-guide-feature-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:16px; }
+.color-guide-feature-tags span { padding:3px 9px;background:rgb(255 255 255 / .8);border:1px solid #e1e5e8;border-radius:999px;font-size:.6875rem; }
+.color-guide-feature-action { display:inline-flex;align-items:center;gap:14px;min-height:44px;font-size:.875rem;font-weight:500;margin-top:10px; }
+.color-guide-feature-card:hover .color-guide-feature-action { text-decoration:underline;text-underline-offset:4px; }
+@media(min-width:768px) { .color-guide-feature-card { grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr);gap:28px; }.color-guide-prominent .color-guide-feature-card { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);padding:28px;gap:36px; }.color-guide-feature img { height:100%;min-height:210px; }.color-guide-prominent img { min-height:270px; } }
+</style>

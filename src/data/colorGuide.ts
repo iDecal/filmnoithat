@@ -1,3 +1,4 @@
+export const colorGuideHref = "/huong-dan-phoi-mau-dilm-noi-that/";
 export const colorPalettes = [
   {
     "id": "trang-go-sang",
