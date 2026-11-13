@@ -7,7 +7,7 @@ const { brandName = site.name } = Astro.props;
 const pathname = Astro.url.pathname;
 ---
 
-<header class="site-header sticky top-0 z-50 border-b border-base-200">
+<header class="site-header sticky top-0 z-50">
   <div class="header-shell mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
     <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${brandName} — Trang chủ`}>
       <img src="/logo.svg" alt="" width="44" height="44" class="w-11 h-11 shrink-0" />
@@ -131,7 +131,7 @@ const pathname = Astro.url.pathname;
 </script>
 
 <style>
-  .site-header { background: var(--surface); color: var(--navy); border-color: rgb(var(--pearl-rgb) / .5); color-scheme: light; }
+  .site-header { background: var(--surface); color: var(--navy); color-scheme: light; }
   .site-header nav a { text-transform: uppercase; letter-spacing: .025em; }
   .site-header .button-primary { background: var(--gold); color: var(--navy); border-color: var(--gold); border-radius: 999px; padding-inline: 1.75rem; }
   .site-header .button-primary:hover { background: var(--ivory); color: var(--navy); border-color: var(--gold); }
