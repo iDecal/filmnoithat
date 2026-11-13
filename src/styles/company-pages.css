@@ -9,7 +9,7 @@
 .company-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:24px; }
 .company-card { border:1px solid #e1e6e9;border-radius:16px;background:#fff;padding:24px;min-width:0; }
 .company-icon { display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid #e6dcc9;border-radius:12px;background:#faf6ee;color:var(--navy);flex-shrink:0; }
-.company-soft { background:linear-gradient(115deg,#fffdf9 0%,#f8f2e7 55%,#f0e3cc 100%); }
+.company-soft { background:linear-gradient(115deg,#f0e3cc 0%,#f8f2e7 45%,#fffdf9 100%); }
 .company-sand { background:linear-gradient(115deg,#fffdf9 0%,#f8f2e7 55%,#f0e3cc 100%); }
 .company-card-link { display:flex;flex-direction:column;color:var(--navy);transition:border-color .18s,box-shadow .18s; }
 .company-card-link:hover { border-color:var(--gold);box-shadow:0 6px 24px rgb(11 27 51 / .05); }
