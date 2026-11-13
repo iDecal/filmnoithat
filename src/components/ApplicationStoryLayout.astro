@@ -4,7 +4,7 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import Icon from "./Icon.astro";
 import { type ProjectStory, storyHref } from "../data/projectStories";
 import { catalogue, sampleHref } from "../data/catalogue";
-import { materials, materialHref } from "../data/materials";
+import { materials } from "../data/materials";
 import { colorGuideHref } from "../data/colorGuide";
 import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
@@ -14,9 +14,9 @@ const sample=catalogue.find(sample=>story.sampleSlugs.includes(sample.slug))!;
 const material=materials.find(material=>material.slug===sample.category)!;
 const photo=story.images[0];
 const observations=[
- {icon:"wall" as const,title:"Nền sáng để chất liệu lên tiếng",text:"Các mảng tường tông kem làm nền cho khu vực trưng bày. Thử đặt mẫu vân đá cạnh màu tường và ánh sáng hiện có để xem độ chuyển sắc."},
- {icon:"wood" as const,title:"Cân bằng bằng sắc gỗ ấm",text:"Sàn và bệ gỗ bổ sung sắc ấm cho bề mặt sáng. Không cần dùng cùng một chất liệu ở mọi vị trí; hãy nhìn các mẫu cạnh nhau trong tổng thể."},
- {icon:"swatches" as const,title:"Nét đen tạo điểm nhấn",text:"Khung cửa và chi tiết kim loại tối tạo đường nét rõ trên nền trung tính. Có thể giữ màu đậm ở những chi tiết nhỏ để không gian vẫn nhẹ."},
+ {icon:"wall" as const,title:"Nền sáng để chất liệu lên tiếng",text:"Tường kem làm nền nhẹ cho bề mặt vân đá sáng."},
+ {icon:"wood" as const,title:"Cân bằng bằng sắc gỗ ấm",text:"Sàn và bệ gỗ mang lại sắc ấm, cân bằng bề mặt sáng."},
+ {icon:"swatches" as const,title:"Nét đen tạo điểm nhấn",text:"Khung cửa và kim loại tối tạo điểm nhấn trên nền trung tính."},
 ];
 ---
 <BaseLayout title={`${story.title} | Film Nội Thất`} description={story.description} image={photo.src} structuredData={[breadcrumbSchema(Astro.site!,[{name:"Công trình",path:"/cong-trinh/"},{name:story.title,path:storyHref(story)}])]}>
@@ -33,11 +33,7 @@ const observations=[
   </div>
  </div></section>
  <section id="phoi-chat-lieu" class="application-story-section application-story-soft"><div class="application-story-wrap"><div class="application-section-heading"><div><p class="application-story-kicker">GÓC NHÌN PHỐI CHẤT LIỆU</p><h2>Nhẹ màu, rõ đường nét.</h2></div><a href={colorGuideHref} class="application-story-text-link">Xem hướng dẫn phối màu<Icon name="arrow" size={18} /></a></div><div class="application-observations">{observations.map(item=><article><span class="application-story-icon"><Icon name={item.icon} size={24} /></span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
- <section class="application-story-section"><div class="application-story-wrap"><div class="application-material-grid">
-  <div><p class="application-story-kicker">TỪ PHỐI CẢNH ĐẾN MẪU THẬT</p><h2>Một bề mặt, nhiều khả năng ứng dụng.</h2><p class="application-material-intro">Phối cảnh giúp hình dung chất liệu trong không gian; mẫu thật giúp đối chiếu màu, vân và cảm giác bề mặt. Hãy xem mẫu {sample.code} cùng ánh sáng và những phần nội thất bạn muốn giữ lại.</p><a href={`${materialHref(material)}#mau-vat-lieu`} class="application-story-text-link">So sánh mẫu {material.shortName.toLowerCase()} cùng nhóm<Icon name="arrow" size={18} /></a></div>
-  <a href={sampleHref(sample)} class="application-material-card"><img src={sample.image} alt={sample.imageAlt || `Bề mặt film ${sample.brand} ${sample.code}, tông ${sample.color.name.toLowerCase()}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" /><div><p class="application-story-kicker">{sample.brand} / {sample.group}</p><h3>{sample.code}</h3><p class="application-material-name">{sample.title}</p><dl><div><dt>Bộ sưu tập</dt><dd>{sample.collection}</dd></div><div><dt>Quy cách cuộn</dt><dd>{sample.rollSpecification}</dd></div></dl><span class="application-story-text-link">Xem thông tin và ảnh vật liệu<Icon name="arrow" size={18} /></span></div></a>
- </div></div></section>
- <section class="application-story-section application-story-sand"><div class="application-story-wrap"><div class="application-section-heading"><div><p class="application-story-kicker">CHỌN HẠNG MỤC BẠN MUỐN LÀM MỚI</p><h2>Đưa ý tưởng về đúng bề mặt.</h2></div></div><div class="application-service-grid"><a href="/dich-vu/dan-film-tuong/"><Icon name="wall" size={25} /><div><h3>Tường & vách nội thất</h3><p>Tìm hiểu cách khảo sát nền, lựa chọn vật liệu và chuẩn bị thi công cho mảng vách.</p></div><Icon name="arrow" size={19} /></a><a href="/dich-vu/dan-film-ban/"><Icon name="table" size={25} /><div><h3>Bàn & quầy</h3><p>Xem phương án làm mới bề mặt, cách xử lý cạnh và những thông tin cần trao đổi trước.</p></div><Icon name="arrow" size={19} /></a></div><div class="application-story-closing"><div><h3>Bạn muốn tham khảo cách phối này?</h3><p>Gửi ảnh hiện trạng, kích thước và địa điểm để cùng chọn mẫu và hướng thực hiện phù hợp.</p></div><div class="application-story-actions"><a href={site.zaloHref} class="button-primary">Gửi ảnh qua Zalo</a><a href="/lien-he/" class="button-secondary">Liên hệ tư vấn</a></div></div></div></section>
+ <section class="application-story-section application-story-sand"><div class="application-story-wrap"><div class="application-story-closing"><div><h2>Bạn muốn phối mẫu {sample.code}?</h2><p>Gửi ảnh không gian để được tư vấn vật liệu và phương án phù hợp.</p></div><div class="application-story-actions"><a href={site.zaloHref} class="button-primary">Trao đổi qua Zalo</a></div></div></div></section>
  <dialog id="application-photo-dialog" data-story-zoom aria-label={`Ảnh ứng dụng ${sample.code} phóng lớn`}><div class="application-dialog-header"><p>{sample.brand} {sample.code} · Ảnh ứng dụng catalogue</p><form method="dialog"><button class="button-secondary" aria-label="Đóng ảnh phóng lớn">Đóng ×</button></form></div><img src={photo.src} alt={photo.alt} width="700" height="868" loading="lazy" /><p class="application-dialog-caption">{photo.alt}</p></dialog>
 </BaseLayout>
 <script>
@@ -76,29 +72,13 @@ const observations=[
 .application-story-icon { display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border:1px solid #d8e0e5;background:rgb(255 255 255 / .8);border-radius:12px; }
 .application-observations h3 { font-size:1rem;font-weight:600;margin-top:14px; }
 .application-observations p { color:var(--muted);font-size:.875rem;margin-top:10px; }
-.application-material-grid { display:grid;gap:28px;align-items:center; }
-.application-material-intro { color:var(--muted);font-size:.9375rem;margin-top:18px; }
-.application-material-card { display:grid;grid-template-columns:90px minmax(0,1fr);gap:18px;align-items:start;border:1px solid #e0e5e8;border-radius:18px;padding:20px;background:#fafbfc;transition:border-color .18s; }
-.application-material-card:hover { border-color:var(--gold); }
-.application-material-card > img { width:100%;height:auto;max-height:220px;object-fit:contain;border-radius:10px; }
-.application-material-card h3 { font-size:1.75rem;font-weight:500;margin-top:8px; }
-.application-material-name { color:var(--muted);font-size:.875rem;margin-top:4px; }
-.application-material-card dl { margin-top:14px;font-size:.75rem; }
-.application-material-card dl div { margin-top:7px; }
-.application-material-card dt { color:var(--muted); }.application-material-card dd { margin-top:2px; }
-.application-service-grid { display:grid;gap:16px; }
-.application-service-grid > a { display:flex;gap:16px;align-items:start;padding:22px;background:rgb(255 255 255 / .85);border:1px solid #e4ded3;border-radius:16px; }
-.application-service-grid > a:hover { border-color:var(--gold); }
-.application-service-grid > a > div { flex:1;min-width:0; }
-.application-service-grid h3 { font-size:1rem;font-weight:600; }
-.application-service-grid p { font-size:.875rem;color:var(--muted);margin-top:8px; }
-.application-story-closing { display:flex;flex-direction:column;gap:12px;margin-top:28px;border-top:1px solid #dfd5c4;padding-top:24px; }
-.application-story-closing h3 { font-size:1.25rem;font-weight:500; }.application-story-closing p { font-size:.875rem;color:var(--muted);margin-top:8px; }
+.application-story-closing { display:flex;flex-direction:column;gap:12px;margin-top:0; }
+.application-story-closing h2 { font-size:1.25rem;font-weight:500;margin:0; }.application-story-closing p { font-size:.875rem;color:var(--muted);margin-top:8px; }
 [data-story-zoom] { width:min(900px,calc(100% - 24px));max-height:92dvh;padding:18px;border-radius:18px;background:#fff;color:var(--navy); }
 [data-story-zoom]::backdrop { background:rgb(11 27 51 / .7); }
 .application-dialog-header { display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8125rem;margin-bottom:14px; }
 [data-story-zoom] > img { display:block;max-width:100%;width:auto;max-height:72dvh;height:auto;object-fit:contain;margin:auto; }
 .application-dialog-caption { color:var(--muted);font-size:.75rem;margin-top:10px; }
-@media(min-width:640px) { .application-story-wrap { width:min(1240px,calc(100% - 64px)); }.application-story-facts { grid-template-columns:repeat(3,minmax(0,1fr)); }.application-material-card { grid-template-columns:130px minmax(0,1fr);padding:28px; }.application-material-card dl div { display:flex;gap:14px;justify-content:space-between; }.application-material-card dd { margin:0;text-align:right; } }
-@media(min-width:1024px) { .application-story-grid { grid-template-columns:1.05fr 1fr;gap:56px; }.application-observations { grid-template-columns:repeat(3,minmax(0,1fr));gap:28px; }.application-section-heading { flex-direction:row;align-items:end;justify-content:space-between; }.application-material-grid { grid-template-columns:1fr 1fr;gap:56px; }.application-service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.application-story-closing { flex-direction:row;align-items:center;justify-content:space-between; }.application-story-closing .application-story-actions { margin:0; } }
+@media(min-width:640px) { .application-story-wrap { width:min(1240px,calc(100% - 64px)); }.application-story-facts { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media(min-width:1024px) { .application-story-grid { grid-template-columns:1.05fr 1fr;gap:56px; }.application-observations { grid-template-columns:repeat(3,minmax(0,1fr));gap:28px; }.application-section-heading { flex-direction:row;align-items:end;justify-content:space-between; }.application-story-closing { flex-direction:row;align-items:center;justify-content:space-between; }.application-story-closing .application-story-actions { margin:0; } }
 </style>
