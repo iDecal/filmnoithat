@@ -1,4 +1,5 @@
 ---
+import { applicationLinks, colorGuideHref } from "../data/materialApplications";
 import { materialGuides } from "../data/materialGuides";
 import { materialSeoTitle, materialHeading } from "../data/seoTitles";
 import Icon from "./Icon.astro";
@@ -35,9 +36,27 @@ const schema = [
     </div>
   </div></section>
   <CatalogueGrid category={material.slug} />
-  <section id="ung-dung" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><p class="eyebrow mb-3">PHỐI VẬT LIỆU THEO CÔNG NĂNG</p><h2 class="text-2xl md:text-[1.625rem] font-semibold mb-6">Ứng dụng film dán nội thất {material.shortName.toLowerCase()}</h2><div class="grid md:grid-cols-3 gap-6">{material.applications.map((item, index) => <div class="rounded-2xl border border-base-200 p-6 md:p-8"><span class="text-sm font-semibold text-primary-600">0{index + 1}</span><h3 class="text-lg font-semibold mt-4 mb-3">{index === 0 ? `Film dán nội thất cho ${item.title.toLowerCase()}` : item.title}</h3><p class="text-base-600">{item.text}</p></div>)}</div></div></section>
+  <section id="ung-dung" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto">
+    <p class="eyebrow mb-3">PHỐI VẬT LIỆU THEO CÔNG NĂNG</p>
+    <h2 class="text-2xl md:text-[1.625rem] font-semibold mb-6">Ứng dụng film dán nội thất {material.shortName.toLowerCase()}</h2>
+    <div class="grid md:grid-cols-3 gap-6">{applicationLinks(material).map((item, index) => <a href={item.href} class="material-application-card group rounded-2xl p-6 md:p-8 flex flex-col">
+      <div class="flex items-center justify-between gap-4"><span class="application-icon inline-flex items-center justify-center w-11 h-11 rounded-xl"><Icon name={item.icon} size={24} /></span><span class="application-number text-sm font-semibold">0{index + 1}</span></div>
+      <h3 class="text-lg font-semibold mt-5 mb-3">{index === 0 ? `Film dán nội thất cho ${item.title.toLowerCase()}` : item.title}</h3>
+      <p class="text-base-600">{item.text}</p>
+      <span class="application-link flex items-center justify-between gap-3 mt-auto pt-6 text-sm font-medium"><span>{item.linkLabel}</span><Icon name="arrow" size={18} /></span>
+    </a>)}</div>
+    <a href={colorGuideHref} class="inline-flex items-center gap-3 min-h-11 mt-5 text-sm font-medium text-primary-600 hover:underline"><Icon name="swatches" size={20} />Hướng dẫn phối màu và chất liệu nội thất<Icon name="arrow" size={17} /></a>
+  </div></section>
   <section class="px-4 sm:px-6 section-space warm-surface"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold">Cách chọn mẫu {material.shortName.toLowerCase()} phù hợp</h2><div class="grid md:grid-cols-3 gap-6 mt-7">{materialGuides[material.slug].map(item => <article class="border-t border-base-200 pt-5"><h3 class="text-lg font-semibold">{item.title}</h3><p class="text-base-600 text-sm mt-3 leading-relaxed">{item.text}</p></article>)}</div></div></section>
-  <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto rounded-2xl border border-base-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-5"><div><h2 class="text-2xl font-semibold">Chọn chất liệu sau khi xem mẫu thực tế.</h2><p class="text-base-600 mt-3 max-w-2xl">Gửi phong cách và ảnh không gian bạn yêu thích để trao đổi mẫu, thông số và tình trạng cung cấp phù hợp.</p></div><a href={site.zaloHref} class="button-primary shrink-0">Hỏi mẫu vật liệu</a></div></section>
   <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-6">Trước khi chốt vật liệu</h2><ul class="space-y-4 text-base-600">{material.notes.map(note => <li class="flex gap-3"><span aria-hidden="true" class="text-primary-600">✓</span><span>{note}</span></li>)}</ul></div><aside class="bg-base-50 border border-base-200 rounded-2xl p-6 md:p-8"><h2 class="text-2xl font-semibold mb-4">Từ mẫu film đến hoàn thiện</h2><p class="text-base-600 mb-5">Xem quy trình và những lưu ý riêng cho hạng mục bạn đang dự định làm mới.</p><ul class="space-y-3">{relatedServices.map(service => <li><a href={serviceHref(service)} class="inline-block py-2 text-primary-600 font-medium hover:underline">{service.name} →</a></li>)}</ul></aside></div></section>
   <section class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thử một cách phối khác</h2><div class="grid sm:grid-cols-3 gap-5">{relatedMaterials.map(item => <a href={materialHref(item)} class="group block"><div class="h-44 rounded-xl overflow-hidden"><MaterialPreview material={item} /></div><div class="pt-4"><h3 class="flex items-center gap-2 font-semibold"><Icon name={categoryIcon(item.slug)!} size={20} class="text-primary-600" />{item.name}</h3><p class="text-sm text-base-600 mt-2">{item.moodLabel} →</p></div></a>)}</div></div></section>
 </BaseLayout>
+
+<style>
+.material-application-card { border:1px solid #e5e8eb; background:#fafbfc; box-shadow:0 3px 14px rgb(11 27 51 / .025); color:var(--navy); transition:background-color .18s,border-color .18s,box-shadow .18s; }
+.material-application-card:hover, .material-application-card:focus-visible { background:#fff; border-color:var(--gold); box-shadow:0 6px 20px rgb(11 27 51 / .06); }
+.application-icon { background:#fff; color:var(--navy); border:1px solid #ece7de; }
+.application-number { color:#876a37; }
+.application-link { color:var(--navy); }
+.material-application-card:hover .application-link { text-decoration:underline; text-underline-offset:4px; }
+</style>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Icon from "../components/Icon.astro";
+import { breadcrumbSchema } from "../data/seo";
+const title = "Hướng dẫn phối màu film dán nội thất | D-vinyl";
+const description = "Cách phối màu film dán nội thất với tủ, bàn và vách: chọn tông chủ đạo, cân bằng vân gỗ, màu trơn và ánh kim, thử mẫu dưới ánh sáng thực tế.";
+const palettes = [
+  {title:"Sáng và ấm",text:"Giữ nền tường sáng, chọn vân gỗ làm lớp màu thứ hai và dùng chi tiết xanh đen để tạo điểm nhấn. Hợp để tham khảo khi làm mới tủ bếp hoặc góc làm việc.",colors:[{name:"Trắng ấm",hex:"#F3EFE7"},{name:"Gỗ sáng",hex:"#C99E6B"},{name:"Xanh đen",hex:"#0B1B33"}],materials:[{name:"Film vân gỗ",href:"/vat-lieu/van-go/"},{name:"Film đơn sắc",href:"/vat-lieu/don-sac/"}],service:{name:"Dán film tủ bếp",href:"/dich-vu/dan-film-tu-bep/"}},
+  {title:"Gọn và hiện đại",text:"Kết hợp nền trắng với xám trung tính, dùng ánh kim trên một phần nhỏ. Nếu mặt bàn đã có vân rõ, ưu tiên cánh tủ màu trơn để bề mặt không tranh nhau sự chú ý.",colors:[{name:"Trắng",hex:"#FFFFFF"},{name:"Xám",hex:"#A9ADB0"},{name:"Ánh kim",hex:"#777D82"}],materials:[{name:"Film đơn sắc",href:"/vat-lieu/don-sac/"},{name:"Film kim loại",href:"/vat-lieu/kim-loai/"}],service:{name:"Dán film bàn và quầy",href:"/dich-vu/dan-film-ban/"}},
+  {title:"Dịu và có chiều sâu",text:"Phối be, họa tiết vải và một sắc nâu trầm. Giữ các mảng lớn nhẹ màu, dành sắc đậm cho một chi tiết hoặc mảng nhỏ để tổng thể không bị nặng.",colors:[{name:"Be",hex:"#D9CEBA"},{name:"Xám vải",hex:"#B7B0A5"},{name:"Nâu trầm",hex:"#685044"}],materials:[{name:"Film vân vải",href:"/vat-lieu/van-vai/"},{name:"Film vân gỗ",href:"/vat-lieu/van-go/"}],service:{name:"Dán film tường và vách",href:"/dich-vu/dan-film-tuong/"}},
+];
+const steps = [
+ {title:"Bắt đầu từ phần giữ lại",text:"Ghi nhận màu sàn, tường, mặt đá, tay nắm và đồ nội thất chưa thay. Chọn film trong tương quan với những màu này thay vì xem từng mẫu riêng lẻ."},
+ {title:"Chọn một tông chủ đạo",text:"Ưu tiên hai hoặc ba nhóm màu. Có thể tham khảo tỷ lệ 60–30–10: phần lớn là nền, tiếp theo là vật liệu bổ trợ, phần nhỏ nhất là điểm nhấn. Đây là gợi ý linh hoạt, không phải công thức bắt buộc."},
+ {title:"Cân bằng độ ấm và họa tiết",text:"Gỗ ngả vàng hoặc đỏ thường tạo cảm giác ấm; xám và một số ánh kim thiên về lạnh. Thử đặt mẫu cạnh nhau. Khi một bề mặt có vân nổi bật, dùng bề mặt trơn hoặc vân nhẹ ở phần liền kề."},
+ {title:"Thử trên đúng vị trí",text:"Đặt mẫu thật cạnh bề mặt giữ lại, quan sát vào ban ngày và dưới đèn đang sử dụng. Kiểm tra thêm chiều vân, mức phản chiếu và diện tích dự định dán trước khi chốt mã."},
+];
+---
+<BaseLayout title={title} description={description} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:"Hướng dẫn phối màu",path:"/huong-dan-phoi-mau/"}])]}>
+  <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto">
+    <Breadcrumbs items={[{label:"Vật liệu",href:"/vat-lieu/"},{label:"Hướng dẫn phối màu"}]} />
+    <p class="eyebrow flex items-center gap-3 mb-4"><Icon name="swatches" size={24} />PHỐI MÀU & CHẤT LIỆU</p>
+    <h1 class="text-3xl md:text-4xl font-medium max-w-3xl">Hướng dẫn phối màu film dán nội thất</h1>
+    <p class="text-base-600 mt-5 max-w-3xl">Một bảng màu hài hòa bắt đầu từ không gian đang có. Chọn màu nền, cân bằng các bề mặt và thử mẫu thật trước khi quyết định màu film cho tủ, bàn hay vách.</p>
+    <nav aria-label="Nội dung hướng dẫn" class="flex flex-wrap gap-3 mt-6"><a href="#nguyen-tac" class="button-secondary">Nguyên tắc phối màu</a><a href="#bang-mau" class="button-secondary">Ba hướng phối tham khảo</a><a href="#theo-hang-muc" class="button-secondary">Chọn theo hạng mục</a></nav>
+  </div></section>
+  <section id="nguyen-tac" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Bốn bước để chọn màu có chủ đích</h2><ol class="grid md:grid-cols-2 gap-6">{steps.map((step,index)=><li class="guide-card rounded-2xl p-6 sm:p-8"><span class="text-sm font-semibold guide-number">0{index+1}</span><h3 class="text-lg font-semibold mt-4">{step.title}</h3><p class="text-base-600 mt-3">{step.text}</p></li>)}</ol></div></section>
+  <section id="bang-mau" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold">Ba hướng phối để bắt đầu</h2><p class="text-sm text-base-600 mt-3 mb-7">Các màu dưới đây minh họa ý tưởng phối, không đại diện cho một mã film cụ thể. Hãy đối chiếu với mẫu vật liệu thật.</p><div class="grid lg:grid-cols-3 gap-6">{palettes.map(palette=><article class="guide-card rounded-2xl p-6 flex flex-col"><h3 class="text-xl font-semibold">{palette.title}</h3><ul class="flex flex-wrap gap-4 mt-5">{palette.colors.map(color=><li class="flex items-center gap-2 text-sm"><span class="w-7 h-7 rounded-full border border-black/10" style={{backgroundColor:color.hex}} aria-hidden="true" />{color.name}</li>)}</ul><p class="text-base-600 mt-5">{palette.text}</p><div class="flex flex-wrap gap-x-4 gap-y-2 mt-5">{palette.materials.map(material=><a class="text-sm font-medium underline underline-offset-4 min-h-11 inline-flex items-center" href={material.href}>{material.name}</a>)}</div><a href={palette.service.href} class="flex items-center justify-between gap-3 text-sm font-medium mt-auto pt-5 min-h-11">{palette.service.name}<Icon name="arrow" size={18} /></a></article>)}</div></div></section>
+  <section id="theo-hang-muc" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Áp dụng vào từng hạng mục</h2><div class="grid md:grid-cols-3 gap-6">
+    <a href="/dich-vu/dan-film-tu-bep/" class="guide-card rounded-2xl p-6"><Icon name="cabinet" size={28} /><h3 class="text-lg font-semibold mt-4">Tủ bếp</h3><p class="text-base-600 mt-3">Đối chiếu màu cánh tủ với mặt đá, kính bếp và sàn. Nếu dùng hai màu tủ, thử mảng sáng phía trên và màu đậm hơn phía dưới.</p><span class="inline-flex items-center gap-3 mt-5 text-sm font-medium">Xem dịch vụ dán film tủ bếp<Icon name="arrow" size={18} /></span></a>
+    <a href="/dich-vu/dan-film-ban/" class="guide-card rounded-2xl p-6"><Icon name="table" size={28} /><h3 class="text-lg font-semibold mt-4">Bàn và quầy</h3><p class="text-base-600 mt-3">Chọn màu mặt bàn trong tương quan với chân bàn, ghế và tủ bên cạnh. Xem mẫu ở góc ngồi sử dụng để đánh giá vân và độ phản chiếu.</p><span class="inline-flex items-center gap-3 mt-5 text-sm font-medium">Xem dịch vụ dán film bàn<Icon name="arrow" size={18} /></span></a>
+    <a href="/dich-vu/dan-film-tuong/" class="guide-card rounded-2xl p-6"><Icon name="wall" size={28} /><h3 class="text-lg font-semibold mt-4">Tường và vách</h3><p class="text-base-600 mt-3">Chọn một mảng nhấn, giữ phần xung quanh nhẹ màu hơn. Với vân đá hoặc vân gỗ rõ, kiểm tra tỷ lệ họa tiết và vị trí mối nối trên diện tích thực tế.</p><span class="inline-flex items-center gap-3 mt-5 text-sm font-medium">Xem dịch vụ dán film tường<Icon name="arrow" size={18} /></span></a>
+  </div><a href="/vat-lieu/" class="button-secondary mt-7">Xem các nhóm vật liệu<Icon name="arrow" size={18} class="ml-3" /></a></div></section>
+</BaseLayout>
+<style>
+.guide-card { border:1px solid #e5e8eb; background:#fafbfc; color:var(--navy); }
+a.guide-card:hover { border-color:var(--gold); background:#fff; }
+.guide-number { color:#876a37; }
+</style>
