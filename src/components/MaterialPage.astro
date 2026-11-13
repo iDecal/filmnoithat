@@ -13,8 +13,8 @@ import { materials, materialHref, type Material } from "../data/materials";
 import { services, serviceHref } from "../data/services";
 import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
-interface Props { material: Material; catalogueOnly?: boolean }
-const { material, catalogueOnly = false } = Astro.props;
+interface Props { material: Material; catalogueOnly?: boolean; faqs?: {question: string; answer: string}[] }
+const { material, catalogueOnly = false, faqs = [] } = Astro.props;
 const categorySamples = samplesForMaterial(material.slug);
 const hasSamples = categorySamples.length > 0;
 const heroSample = categorySamples.find(sample => sample.application) || categorySamples[0];
@@ -25,7 +25,7 @@ const schema = [
   breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }, { name: material.name, path: materialHref(material) }]),
 ];
 ---
-<BaseLayout title={materialSeoTitle(material.slug)} description={material.description} image={heroSample?.application || heroSample?.image || material.image} structuredData={schema}>
+<BaseLayout faqs={faqs} title={materialSeoTitle(material.slug)} description={material.description} image={heroSample?.application || heroSample?.image || material.image} structuredData={schema}>
   <section class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Vật liệu", href: "/vat-lieu/" }, { label: material.name }]} />
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <div><p class="eyebrow flex items-center gap-3 mb-4"><Icon name={categoryIcon(material.slug)!} size={28} />{material.moodLabel}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium">{materialHeading(material.name)}</h1><p class="mt-6 text-lg text-base-600">{material.intro}</p>
@@ -36,7 +36,7 @@ const schema = [
     </div>
   </div></section>
   <CatalogueGrid category={material.slug} refined={catalogueOnly} />
-  {!catalogueOnly && <>
+  {!catalogueOnly && (Astro.slots.has("default") ? <slot /> : <>
   <section id="ung-dung" class:list={["material-applications material-lower-section px-4 sm:px-6", {"material-compact": catalogueOnly}]}><div class="max-w-7xl mx-auto">
     <p class="eyebrow mb-2">PHỐI VẬT LIỆU THEO CÔNG NĂNG</p>
     <h2 class="text-2xl md:text-[1.625rem] font-semibold mb-5">Ứng dụng film dán nội thất {material.shortName.toLowerCase()}</h2>
@@ -51,7 +51,7 @@ const schema = [
   <section class="material-selection material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold">Cách chọn mẫu {material.shortName.toLowerCase()} phù hợp</h2><div class="grid md:grid-cols-3 gap-6 mt-7">{materialGuides[material.slug].map(item => <article class="border-t border-base-200 pt-5"><h3 class="text-lg font-semibold">{item.title}</h3><p class="text-base-600 text-sm mt-3 leading-relaxed">{item.text}</p></article>)}</div></div></section>
   <section class="material-preparation material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-6">Trước khi chốt vật liệu</h2><ul class="space-y-4 text-base-600">{material.notes.map(note => <li class="flex gap-3"><span aria-hidden="true" class="text-primary-600">✓</span><span>{note}</span></li>)}</ul></div><aside class="material-service-panel bg-base-50 border border-base-200 rounded-2xl p-6 md:p-8"><h2 class="text-2xl font-semibold mb-4">Từ mẫu film đến hoàn thiện</h2><p class="text-base-600 mb-5">Xem quy trình và những lưu ý riêng cho hạng mục bạn đang dự định làm mới.</p><ul class="space-y-3">{relatedServices.map(service => <li><a href={serviceHref(service)} class="inline-block py-2 text-primary-600 font-medium hover:underline">{service.name} →</a></li>)}</ul></aside></div></section>
   <section class="material-alternatives material-lower-section px-4 sm:px-6"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thử một cách phối khác</h2><div class="grid sm:grid-cols-3 gap-5">{relatedMaterials.map(item => <a href={materialHref(item)} class="group block"><div class="h-44 rounded-xl overflow-hidden"><MaterialPreview material={item} /></div><div class="pt-4"><h3 class="flex items-center gap-2 font-semibold"><Icon name={categoryIcon(item.slug)!} size={20} class="text-primary-600" />{item.name}</h3><p class="text-sm text-base-600 mt-2">{item.moodLabel} →</p></div></a>)}</div></div></section>
-  </>}
+  </>)}
 </BaseLayout>
 
 <style>

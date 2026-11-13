@@ -1,7 +1,9 @@
 ---
+import MetalMaterialContent from "../../components/MetalMaterialContent.astro";
+import { metalMaterialFaqs } from "../../data/metalMaterialFaqs";
 import MaterialPage from "../../components/MaterialPage.astro";
 import { materials } from "../../data/materials";
 const material = materials.find(item => item.slug === "kim-loai")!;
 ---
 
-<MaterialPage material={material} />
+<MaterialPage material={material} faqs={metalMaterialFaqs}><MetalMaterialContent /></MaterialPage>
