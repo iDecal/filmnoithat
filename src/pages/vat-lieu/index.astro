@@ -1,4 +1,6 @@
 ---
+import BrandLogo from "../../components/BrandLogo.astro";
+import { brands as brandProfiles, brandHref } from "../../data/brands";
 import pageContent from "../../data/pageContent.json";
 import Icon from "../../components/Icon.astro";
 import { categoryIcon } from "../../data/icons";
@@ -18,13 +20,22 @@ const overviews: Record<string,string> = {
   "da-cam-thach": "Họa tiết đá và cẩm thạch tạo điểm nhấn cho bàn, quầy hoặc vách. Chọn tỷ lệ vân theo kích thước mảng dán và cân nhắc cách ghép tấm; film là lớp trang trí, không thay thế đặc tính của đá thật.",
   "trang-guong": "Bề mặt phản chiếu phù hợp với những chi tiết trang trí cần bắt sáng. Hiệu quả phụ thuộc độ phẳng của nền và góc nhìn; cần kiểm tra mẫu thật trước khi chọn cho mảng lớn.",
 };
+const faqs = [
+ {question:"Nên chọn loại film dán nội thất nào?",answer:"Bắt đầu từ bề mặt cần làm mới và màu nội thất đang có. Vân gỗ tạo cảm giác ấm, đơn sắc dễ phối, vân vải gợi sự mềm mại; đá, bê tông và kim loại phù hợp khi muốn tạo điểm nhấn. Sau đó đối chiếu mẫu thật để chọn đúng sắc độ và hiệu ứng."},
+ {question:"Film có thể dán lên những bề mặt nào?",answer:"Khả năng dán phụ thuộc độ ổn định, độ phẳng, độ khô và độ bám của nền. Tủ, bàn hoặc vách cần được kiểm tra hiện trạng; những vùng bong tróc, ẩm hoặc hư hỏng phải xử lý trước. Gửi ảnh để được tư vấn cho đúng hạng mục."},
+ {question:"Màu trên ảnh có giống mẫu thực tế không?",answer:"Ảnh giúp tham khảo họa tiết và sắc độ. Màn hình, ánh sáng và góc chụp có thể làm màu thay đổi, đặc biệt với bề mặt ánh kim hoặc phản chiếu. Nên xem mẫu thật dưới ánh sáng nơi sử dụng trước khi chốt."},
+ {question:"Giá vật liệu có bao gồm thi công không?",answer:"Giá vật liệu và chi phí thi công được trao đổi riêng. Xem đơn vị tính trên từng sản phẩm; với giá theo mét dài, cần đối chiếu khổ cuộn để dự tính lượng vật tư. Chi phí hoàn thiện còn phụ thuộc hiện trạng nền, góc cạnh, diện tích và địa điểm."},
+ {question:"Làm sao tìm mẫu của một thương hiệu cụ thể?",answer:"Chọn INFEEL, Corance hoặc TODA trong bộ lọc thương hiệu. Các nhóm vật liệu sẽ hiển thị số mẫu tương ứng; khi mở nhóm, lựa chọn thương hiệu được giữ lại để bạn tiếp tục tìm mẫu."},
+ {question:"Cần chuẩn bị gì để được tư vấn vật liệu?",answer:"Chuẩn bị ảnh hiện trạng, kích thước dự kiến, địa điểm và mã mẫu hoặc tông màu yêu thích nếu có. Chưa biết chính xác mã mẫu vẫn có thể bắt đầu từ một ảnh không gian tham khảo."},
+];
 const brands = [...new Set(catalogue.map(sample => sample.brand))];
 const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "Ấm áp", value: "warm" }, { label: "Trung tính", value: "neutral" }, { label: "Ánh kim & phản chiếu", value: "reflective" }];
 ---
-<BaseLayout title={pageContent.materials.title} description={pageContent.materials.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }])]}>
+<BaseLayout faqs={faqs} title={pageContent.materials.title} description={pageContent.materials.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }])]}>
   <section class="materials-intro"><div class="materials-wrap"><Breadcrumbs items={[{ label: "Vật liệu" }]} /><div class="materials-intro-grid"><div><p class="eyebrow mb-4">BẮT ĐẦU TỪ CHẤT LIỆU BẠN THÍCH</p><h1>{pageContent.materials.headingLead}<br /><span>{pageContent.materials.headingAccent}</span></h1><p class="materials-lead">{pageContent.materials.intro}</p><a href="#cac-loai-vat-lieu" class="button-secondary mt-6">Khám phá các loại vật liệu <Icon name="arrow" size={18} class="ml-3" /></a></div><aside class="materials-overview"><Icon name="swatches" size={30} /><h2>Một không gian, nhiều cách thể hiện.</h2><p>Tìm hiểu bề mặt, sắc độ và công năng trước khi chọn mẫu film dán nội thất.</p><div class="materials-numbers"><div><strong>{materials.length}</strong><span>nhóm bề mặt</span></div><div><strong>{catalogue.length}</strong><span>mẫu trong danh mục</span></div><div><strong>{brands.length}</strong><span>thương hiệu</span></div></div></aside></div></div></section>
   <section id="cac-loai-vat-lieu" class="materials-list"><div class="materials-wrap"><header class="materials-list-heading"><p class="eyebrow">TỔNG QUAN VẬT LIỆU</p><h2>Chọn bề mặt theo cách bạn muốn cảm nhận.</h2></header><FilterGallery filters={filters} noun="nhóm vật liệu" brands={brands}><span slot="count">{materials.length} nhóm vật liệu</span><div class="materials-cards">{materials.map((material,index) => <article class="materials-card" data-filter-card={material.mood} data-brand-counts={JSON.stringify(Object.fromEntries(brands.map(brand => [brand, samplesForMaterial(material.slug).filter(sample => sample.brand === brand).length])))}><a href={materialHref(material)} data-material-link={materialHref(material)} class="materials-card-link"><div class="materials-card-photo"><MaterialPreview material={material} /><span class="materials-card-number">0{index+1}</span></div><div class="materials-card-copy"><p class="eyebrow">{material.moodLabel}</p><h2><Icon name={categoryIcon(material.slug)!} size={25} />{material.name}</h2><p class="materials-card-description">{overviews[material.slug]}</p><ul class="materials-applications" aria-label="Ứng dụng tham khảo">{material.applications.map(item=><li>{item.title}</li>)}</ul><div class="materials-card-footer"><span data-gallery-sample-count>{samplesForMaterial(material.slug).length ? `${samplesForMaterial(material.slug).length} mẫu · ` : ""}</span><span>Khám phá chất liệu <Icon name="arrow" size={17} /></span></div></div></a></article>)}</div></FilterGallery></div></section>
-  <section class="px-4 sm:px-6 pb-10"><div class="max-w-7xl mx-auto rounded-2xl border border-base-200 p-5 sm:p-7"><div class="flex flex-wrap items-center justify-between gap-4"><div><p class="eyebrow mb-2">CHỌN THEO THƯƠNG HIỆU</p><h2 class="text-2xl font-semibold">Khám phá trọn bộ sưu tập.</h2></div><a href="/thuong-hieu/" class="inline-flex min-h-11 items-center text-sm font-semibold">Tất cả thương hiệu →</a></div><div class="flex flex-wrap gap-3 mt-5"><a href="/thuong-hieu/corance/" class="button-secondary">Corance</a><a href="/thuong-hieu/toda/" class="button-secondary">TODA</a><a href="/thuong-hieu/infeel/" class="button-secondary">INFEEL</a></div></div></section>
+  <section class="materials-brands"><div class="materials-wrap"><div class="materials-brand-heading"><div><p class="eyebrow">CHỌN THEO THƯƠNG HIỆU</p><h2>Khám phá trọn bộ sưu tập.</h2></div><a href="/thuong-hieu/" class="materials-all-brands">Tất cả thương hiệu <Icon name="arrow" size={18} /></a></div><div class="materials-brand-grid">{brandProfiles.map(brand=><a href={brandHref(brand)} class="materials-brand-card"><div class="materials-brand-photo"><img src={brand.image} alt={`Vật liệu và ứng dụng tham khảo trong bộ sưu tập ${brand.name}`} width="700" height="420" loading="lazy" /></div><div class="materials-brand-copy"><BrandLogo brand={brand} size="small" /><p>{brand.description}</p><span>Khám phá {brand.name}<Icon name="arrow" size={17} /></span></div></a>)}</div></div></section>
+  <section class="materials-faq"><div class="materials-wrap materials-faq-layout"><header><p class="eyebrow">GIẢI ĐÁP TRƯỚC KHI CHỌN</p><h2>Câu hỏi thường gặp về film dán nội thất</h2><p>Tìm hiểu thêm để chọn vật liệu phù hợp với không gian và nhu cầu sử dụng.</p><a href="/lien-he/" class="button-secondary mt-5">Liên hệ tư vấn<Icon name="arrow" size={18} class="ml-3" /></a></header><div>{faqs.map(faq=><details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
 </BaseLayout>
 
 <style>
@@ -59,7 +70,39 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-applications li { font-size:.6875rem;padding:5px 9px;border-radius:6px;background:#f8f3ea;color:#69583e; }
 .materials-card-footer { display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;border-top:1px solid #e9e9e6;font-size:.75rem;color:var(--muted); }
 .materials-card-footer > span:last-child { display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:500; }
-@media(min-width:640px) { .materials-wrap { width:min(1240px,calc(100% - 64px)); }.materials-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(min-width:640px) { .materials-wrap { width:min(1240px,calc(100% - 64px)); } }
 @media(min-width:1024px) { .materials-intro-grid { grid-template-columns:1.2fr 1fr;gap:64px; }.materials-intro { padding-bottom:64px; }.materials-list { padding-top:48px; } }
 @media(prefers-reduced-motion:reduce) { .materials-card-photo :global(img) { transition:none; } }
+
+
+.materials-brands { padding-block:40px;background:linear-gradient(115deg,#fffdf9,#f0e3cc); }
+.materials-brand-heading { display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:24px; }
+.materials-brand-heading h2 { font-size:clamp(1.5rem,2.5vw,1.875rem);font-weight:500;margin-top:10px; }
+.materials-all-brands { display:inline-flex;gap:10px;align-items:center;min-height:44px;font-size:.875rem; }
+.materials-brand-grid { display:grid;gap:20px; }
+.materials-brand-card { display:flex;flex-direction:column;overflow:hidden;border:1px solid #e7dcc9;border-radius:16px;background:#fff; }
+.materials-brand-card:hover { border-color:#b79b68; }
+.materials-brand-photo { aspect-ratio:16/9;overflow:hidden; }
+.materials-brand-photo img { width:100%;height:100%;object-fit:cover; }
+.materials-brand-copy { padding:22px;display:flex;flex-direction:column;align-items:start;flex:1; }
+.materials-brand-copy p { font-size:.875rem;color:var(--muted);line-height:1.8;margin-block:14px 20px; }
+.materials-brand-copy > span { display:inline-flex;gap:10px;align-items:center;margin-top:auto;font-size:.8125rem;font-weight:500; }
+.materials-faq { padding-block:48px;background:#fff; }
+.materials-faq-layout { display:grid;gap:28px; }
+.materials-faq h2 { font-size:clamp(1.5rem,2.4vw,1.875rem);line-height:1.35;font-weight:500;margin-top:12px; }
+.materials-faq header > p:last-of-type { font-size:.875rem;color:var(--muted);margin-top:16px; }
+.materials-faq details { border-bottom:1px solid #e4e5e5; }
+.materials-faq summary { display:flex;justify-content:space-between;gap:20px;align-items:start;cursor:pointer;list-style:none;padding-block:20px;font-size:.9375rem;font-weight:500; }
+.materials-faq summary::-webkit-details-marker { display:none; }
+.materials-faq summary span { color:#987744; }
+.materials-faq details[open] summary span { transform:rotate(45deg); }
+.materials-faq details > p { font-size:.875rem;line-height:1.8;color:var(--muted);padding-bottom:20px; }
+@media(min-width:768px) {
+ .materials-card-link { display:grid;grid-template-columns:1fr 1fr;align-items:stretch; }
+ .materials-card-photo { aspect-ratio:auto;min-height:320px; }
+ .materials-card-copy { padding:32px;justify-content:center; }
+ .materials-card-footer { margin-top:8px; }
+ .materials-brand-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media(min-width:1024px) { .materials-faq-layout { grid-template-columns:.8fr 1.2fr;gap:64px; }.materials-faq { padding-block:64px; }.materials-card-copy { padding:40px; } }
 </style>
