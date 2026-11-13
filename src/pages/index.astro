@@ -1,6 +1,4 @@
 ---
-import BrandLogo from "../components/BrandLogo.astro";
-import { brands as brandProfiles, brandHref } from "../data/brands";
 import ProductCard from "../components/ProductCard.astro";
 import home from "../data/homeContent.json";
 import { catalogue } from "../data/catalogue";
@@ -48,7 +46,7 @@ const latestPosts = [...posts].sort((a,b) => b.date.localeCompare(a.date)).slice
 
     <section class="dom-ribbon"><div class="dom-wrap dom-ribbon-inner"><h2>Chọn mẫu bạn thích.<br />Cùng lên phương án hoàn thiện.</h2><a class="dom-button dom-button-dark" href={site.zaloHref}>Trao đổi qua Zalo<Icon name="arrow" size={17} /></a></div></section>
 
-    <section class="dom-section" aria-labelledby="dom-about-title"><div class="dom-wrap"><div class="dom-about-grid"><div><p class="dom-label">HIỂU VẬT LIỆU. CHỌN ĐÚNG ỨNG DỤNG.</p><h2 id="dom-about-title">Chọn film dán nội thất<br />cho không gian của bạn.</h2><div class="dom-faq">{faqs.map((faq,index) => <details open={index===0}><summary><span>{faq.question}</span><span class="dom-faq-plus" aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div><div class="dom-about-visual"><figure><img src={home.benefits.image.src} alt={home.benefits.image.alt} width={home.benefits.image.width} height={home.benefits.image.height} loading="lazy" /><figcaption>{home.benefits.caption}</figcaption></figure><div class="dom-stats"><div><span>Mẫu film trên website</span><strong>{catalogue.length}</strong><span>Chọn theo vân và sắc độ</span></div><div><span>Bộ sưu tập vật liệu</span><strong>{brands.length}</strong><span>Thương hiệu trong danh mục</span></div></div></div></div><div class="dom-brands" aria-label="Các thương hiệu trong danh mục">{brandProfiles.map(brand => <a href={brandHref(brand)} aria-label={`Khám phá ${brand.name}`}><BrandLogo brand={brand} /></a>)}</div></div></section>
+    <section class="dom-section" aria-labelledby="dom-about-title"><div class="dom-wrap"><div class="dom-about-grid"><div><p class="dom-label">HIỂU VẬT LIỆU. CHỌN ĐÚNG ỨNG DỤNG.</p><h2 id="dom-about-title">Chọn film dán nội thất<br />cho không gian của bạn.</h2><div class="dom-faq">{faqs.map((faq,index) => <details open={index===0}><summary><span>{faq.question}</span><span class="dom-faq-plus" aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div><div class="dom-about-visual"><figure><img src={home.benefits.image.src} alt={home.benefits.image.alt} width={home.benefits.image.width} height={home.benefits.image.height} loading="lazy" /><figcaption>{home.benefits.caption}</figcaption></figure><div class="dom-stats"><div><span>Mẫu film trên website</span><strong>{catalogue.length}</strong><span>Chọn theo vân và sắc độ</span></div><div><span>Bộ sưu tập vật liệu</span><strong>{brands.length}</strong><span>Thương hiệu trong danh mục</span></div></div></div></div></div></section>
 
     <section aria-labelledby="dom-spaces-title"><div class="dom-wrap dom-gallery-heading"><p class="dom-label">CẢM HỨNG ỨNG DỤNG</p><h2 id="dom-spaces-title">Chất liệu trong không gian.</h2><p>Ảnh ứng dụng catalogue và không gian tham khảo. Xem nguồn và mã liên quan tại từng trang.</p></div><div class="dom-space-grid">{stories.map(story => <a class="dom-space" href={storyHref(story)}><figure><img src={story.images[0].src} alt={story.images[0].alt} width="1000" height="700" loading="lazy" /><figcaption><span>{storyLabel(story)}</span><h3>{story.title}</h3><span>Xem không gian ↗</span></figcaption></figure></a>)}</div></section>
 
@@ -156,8 +154,6 @@ if (slider) {
 .dom-stats { display:grid; grid-template-columns:1fr 1fr; position:relative; margin:-4rem 1rem 0; background:var(--dom-ink); color:var(--dom-paper); }
 .dom-stats>div { padding:1rem; }.dom-stats>div+div { border-left:1px solid var(--dom-muted); }
 .dom-stats span { display:block; font-size:.75rem; }.dom-stats strong { display:block; font-size:2.5rem; font-weight:500; line-height:1.5; }
-.dom-brands { display:flex; flex-wrap:wrap; justify-content:space-around; gap:1rem 2rem; margin-top:4rem; border-top:1px solid var(--dom-line); padding-top:2rem; }
-.dom-brands a { display:inline-flex; align-items:center; min-height:44px; color:var(--dom-muted); font-size:1.35rem; letter-spacing:.06em; font-weight:600; }
 .dom-gallery-heading { padding-bottom:1.75rem; }.dom-gallery-heading h2 { margin:.6rem 0 .9rem; }.dom-gallery-heading>p:last-child { color:var(--dom-muted); font-size:.875rem; }
 .dom-space-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px; }
 .dom-space { position:relative; display:block; overflow:hidden; }.dom-space figure { margin:0; height:100%; display:flex; flex-direction:column; }.dom-space img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .4s; }.dom-space:hover img { transform:scale(1.03); }
