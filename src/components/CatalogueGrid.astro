@@ -1,16 +1,17 @@
 ---
 import ProductCard from "./ProductCard.astro";
 import { samplesForMaterial } from "../data/catalogue";
-interface Props { category: string }
+interface Props { category: string; refined?: boolean }
+const { refined = false } = Astro.props;
 const samples = samplesForMaterial(Astro.props.category);
 const colors = [...new Set(samples.map(sample => sample.color.family))].sort((a,b) => a.localeCompare(b,"vi"));
 const brands = [...new Set(samples.map(sample => sample.brand))];
 const groups = [...new Set(samples.map(sample => sample.group))];
 ---
-{samples.length > 0 && <section id="mau-vat-lieu" class="px-4 sm:px-6 section-space warm-surface" aria-labelledby="catalogue-title" data-catalogue>
+{samples.length > 0 && <section id="mau-vat-lieu" class:list={["px-4 sm:px-6 section-space warm-surface", {"catalogue-refined": refined}]} aria-labelledby="catalogue-title" data-catalogue>
   <div class="max-w-7xl mx-auto">
     <div class="catalogue-heading">
-      <div><div class="catalogue-kicker"><p class="eyebrow">BỘ SƯU TẬP VẬT LIỆU</p><span class="catalogue-count">{samples.length} mẫu</span></div><h2 id="catalogue-title" class="text-2xl md:text-[1.875rem] font-semibold mt-2">Tìm bề mặt bạn yêu thích.</h2></div>
+      <div><div class="catalogue-kicker">{refined && <svg class="catalogue-heading-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>}<p class="eyebrow">BỘ SƯU TẬP VẬT LIỆU</p><span class="catalogue-count">{samples.length} mẫu</span></div><h2 id="catalogue-title" class="text-2xl md:text-[1.875rem] font-semibold mt-2">Tìm bề mặt bạn yêu thích.</h2></div>
       <nav class="catalogue-downloads" aria-label="Tải catalogue vật liệu"><span class="catalogue-download-label">Catalogue</span>{brands.map(brand => <a href={samples.find(sample => sample.brand === brand)!.pdf} class="catalogue-download">{brand}<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>)}</nav>
     </div>
     <div class="catalogue-filter-panel">
@@ -187,5 +188,27 @@ const groups = [...new Set(samples.map(sample => sample.group))];
     .catalogue-filter-meta { flex-direction: row; flex-wrap: wrap; gap: .25rem .5rem; padding-top: .5rem; margin-top: .625rem; }
     .catalogue-notes { text-align: right; flex: 1; min-width: 8rem; }
     .catalogue-field select, .catalogue-field input { font-size: 1rem; }
+  }
+
+  .catalogue-refined .catalogue-heading { margin-bottom:1.25rem; align-items:center; }
+  .catalogue-refined .catalogue-heading h2 { font-size:clamp(1.5rem,2.4vw,2rem); letter-spacing:-.035em; }
+  .catalogue-refined .catalogue-kicker { gap:.625rem; }
+  .catalogue-heading-icon { color:#987744; }
+  .catalogue-refined .eyebrow { font-size:.6875rem; letter-spacing:.12em; }
+  .catalogue-refined .catalogue-count { background:#edf3f6; color:#23435b; font-weight:500; }
+  .catalogue-refined .catalogue-download { border-color:#dfe5e9; border-radius:.625rem; background:white; }
+  .catalogue-refined .catalogue-download:hover { border-color:#bda273; background:#faf7f1; }
+  .catalogue-refined .catalogue-filter-panel { padding:1.125rem 1.25rem .75rem; border-color:#dce4e9; border-radius:1rem; background:linear-gradient(115deg,#f1f5f8,#faf8f3); box-shadow:none; margin-bottom:1.5rem; }
+  .catalogue-refined .catalogue-controls { gap:.75rem; }
+  .catalogue-refined .catalogue-field > span { font-size:.6875rem; color:#536779; margin-bottom:.375rem; }
+  .catalogue-refined .catalogue-field input, .catalogue-refined .catalogue-field select { background:#fff; border-color:#dce4e9; border-radius:.625rem; }
+  .catalogue-refined .catalogue-field input:focus-visible, .catalogue-refined .catalogue-field select:focus-visible { outline:2px solid #a78957; outline-offset:2px; }
+  .catalogue-refined .catalogue-reset { background:transparent; border-color:#c8d3db; }
+  .catalogue-refined .catalogue-reset:hover { background:#fff; border-color:#a78957; }
+  .catalogue-refined .catalogue-filter-meta { border-color:#dfe6ea; margin-top:.875rem; padding-top:.625rem; }
+  @media(max-width:639px) {
+    .catalogue-refined .catalogue-heading { gap:1rem; }
+    .catalogue-refined .catalogue-filter-panel { padding:.875rem; }
+    .catalogue-refined .catalogue-download-label { font-size:.6875rem; }
   }
 </style>
