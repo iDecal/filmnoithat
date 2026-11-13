@@ -1,4 +1,6 @@
 ---
+import ProjectConceptLayout from "../../components/ProjectConceptLayout.astro";
+import { projectConcepts } from "../../data/projectConcepts";
 import ApplicationStoryLayout from "../../components/ApplicationStoryLayout.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -11,8 +13,9 @@ const { story } = Astro.props;
 const linkedSamples = catalogue.filter(sample => story.sampleSlugs.includes(sample.slug));
 const linkedMaterials = materials.filter(material => story.categories.includes(material.slug));
 const actual = story.kind === "completed";
+const concept = projectConcepts.find(item => item.slug === story.slug);
 ---
-{story.slug === "ung-dung-st-319" ? <ApplicationStoryLayout story={story} /> : (
+{concept ? <ProjectConceptLayout concept={concept} /> : story.slug === "ung-dung-st-319" ? <ApplicationStoryLayout story={story} /> : (
 <BaseLayout title={`${story.title} | Film Nội Thất`} description={story.description} image={story.images[0].src} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Công trình",path:"/cong-trinh/"},{name:story.title,path:storyHref(story)}])]}>
   <section style={{ "--hero-image": `url("${story.images[0].src}")` }} class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{label:"Công trình",href:"/cong-trinh/"},{label:story.title}]} /><p class="eyebrow mb-4">{storyLabel(story)}</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium max-w-4xl">{story.title}</h1><p class="text-base-600 text-base sm:text-lg mt-5 max-w-3xl">{story.description}</p>{story.location && <p class="text-sm text-base-600 mt-4">Địa điểm: {story.location}</p>}{!actual && <p class="text-sm text-base-600 mt-5 max-w-3xl border-l-2 border-accent-300 pl-4">{story.kind === "catalogue" ? "Ảnh ứng dụng từ catalogue INFEEL 2026, không phải hồ sơ công trình do Film Nội Thất thi công." : "Hình ảnh tham khảo cách phối không gian. Chưa có xác nhận mã film hoặc hồ sơ thi công cho ảnh này."}</p>}</div></section>
   <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-6xl mx-auto space-y-8">{story.images.map((photo,index) => <figure><img src={photo.src} alt={photo.alt} width="1100" height="750" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} class="w-full max-h-[48rem] object-contain bg-base-50 rounded-xl" /><figcaption class="text-sm text-base-600 mt-3">{photo.alt}</figcaption></figure>)}</div></section>

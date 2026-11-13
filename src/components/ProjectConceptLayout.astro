@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import Icon from "./Icon.astro";
+import MaterialPreview from "./MaterialPreview.astro";
+import { materials, materialHref } from "../data/materials";
+import { services, serviceHref } from "../data/services";
+import { projectConcepts, type ProjectConcept } from "../data/projectConcepts";
+import { breadcrumbSchema } from "../data/seo";
+interface Props { concept: ProjectConcept }
+const { concept } = Astro.props;
+const linkedMaterials = materials.filter(item => concept.materials.includes(item.slug));
+const linkedServices = services.filter(item => concept.services.includes(item.slug));
+const related = projectConcepts.filter(item => item.slug !== concept.slug);
+const path = `/cong-trinh/${concept.slug}/`;
+---
+<BaseLayout title={`${concept.title} — Phương án minh họa | Film Nội Thất`} description={concept.description} image={concept.images[0].src} structuredData={[breadcrumbSchema(Astro.site!,[{name:"Công trình",path:"/cong-trinh/"},{name:concept.title,path}])]}>
+  <section class="editorial-hero" style={{"--hero-image":`url("${concept.images[0].src}")`}}><div><Breadcrumbs items={[{label:"Công trình",href:"/cong-trinh/"},{label:concept.title}]} /><p class="eyebrow">{concept.label} / PHƯƠNG ÁN MINH HỌA</p><h1>{concept.title}</h1><p>{concept.description}</p><p class="mt-4">Mẫu bố trí tham khảo, không phải hồ sơ công trình đã thi công. Vật liệu và phạm vi thực hiện cần được xác nhận từ hiện trạng.</p><div class="flex flex-wrap gap-3 mt-6"><a href="#huong-hoan-thien" class="button-primary">Xem phương án ↓</a><a href="#vat-lieu-goi-y" class="button-secondary">Vật liệu gợi ý →</a></div></div></section>
+  <section class="concept-section"><div class="concept-wrap concept-brief"><div><p class="eyebrow mb-3">ĐỊNH HƯỚNG KHÔNG GIAN</p><h2 class="concept-heading">Bắt đầu từ cách bạn sử dụng.</h2></div><ul>{concept.brief.map(item=><li><span class="concept-icon"><Icon name="check" size={20} /></span><p>{item}</p></li>)}</ul></div></section>
+  <section class="concept-section concept-soft" id="huong-hoan-thien"><div class="concept-wrap"><p class="eyebrow mb-3">HƯỚNG HOÀN THIỆN THAM KHẢO</p><h2 class="concept-heading">Chọn chất liệu cho từng điểm chạm.</h2><div class="concept-plan">{concept.plan.map((item,index)=><article><span class="concept-step">0{index+1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
+  <section class="concept-section"><div class="concept-wrap"><p class="eyebrow mb-3">HÌNH ẢNH MINH HỌA</p><h2 class="concept-heading">Hình dung trước khi chọn mẫu.</h2><div class="concept-gallery">{concept.images.map(photo=><figure><img src={photo.src} alt={photo.alt} width="1672" height="941" loading="lazy" decoding="async" /><figcaption>{photo.alt}. Ảnh tham khảo, không xác nhận mã film đã sử dụng.</figcaption></figure>)}</div></div></section>
+  <section class="concept-section concept-soft" id="vat-lieu-goi-y"><div class="concept-wrap"><header class="concept-section-heading"><div><p class="eyebrow mb-3">TỪ Ý TƯỞNG ĐẾN MẪU THẬT</p><h2 class="concept-heading">Nhóm vật liệu gợi ý.</h2></div><p>Các nhóm dưới đây là hướng chọn mẫu, không phải danh sách vật liệu đã thi công trong ảnh.</p></header><div class="concept-materials">{linkedMaterials.map(material=><a href={materialHref(material)}><div class="concept-material-photo"><MaterialPreview material={material} /></div><h3>{material.name}</h3><p>{material.moodLabel}</p><span>Xem mẫu film<Icon name="arrow" size={17} /></span></a>)}</div><div class="concept-services"><h3>Hạng mục cần tìm hiểu thêm</h3><div>{linkedServices.map(service=><a href={serviceHref(service)} class="outline-action">{service.name}<Icon name="arrow" size={16} /></a>)}</div></div></div></section>
+  <section class="concept-section"><div class="concept-wrap"><header class="concept-section-heading"><h2 class="concept-heading">Khám phá một hướng phối khác.</h2><a href="/cong-trinh/" class="outline-action">Tất cả công trình<Icon name="arrow" size={16} /></a></header><div class="concept-related">{related.map(item=><a href={`/cong-trinh/${item.slug}/`}><img src={item.images[0].src} alt={item.images[0].alt} width="1000" height="700" loading="lazy" /><h3>{item.title}</h3><span>Xem chi tiết →</span></a>)}</div></div></section>
+</BaseLayout>
+<style>
+  .concept-wrap { width: min(1280px,calc(100% - 40px)); margin-inline: auto; }
+  .concept-section { padding-block: clamp(3rem,6vw,5rem); }
+  .concept-soft { background: #f4f6f8; }
+  #huong-hoan-thien, #vat-lieu-goi-y { scroll-margin-top: 7rem; }
+  .concept-heading { font-size: 1.5rem; line-height: 1.4; font-weight: 500; }
+  .concept-brief { display: grid; gap: 2rem; }
+  .concept-brief ul { display: grid; gap: 1rem; }
+  .concept-brief li { display: flex; gap: 1rem; align-items: center; font-size: .9375rem; color: var(--muted); }
+  .concept-icon { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; background: #f3e5cc; color: var(--navy); }
+  .concept-plan { display: grid; gap: 1.25rem; margin-top: 2rem; }
+  .concept-plan article { padding: 1.5rem; background: white; border-radius: 16px; }
+  .concept-step { display: inline-block; margin-bottom: 1rem; color: var(--muted); font-size: .75rem; }
+  .concept-plan h3, .concept-materials h3, .concept-services h3, .concept-related h3 { font-size: 1.125rem; line-height: 1.5; font-weight: 500; }
+  .concept-plan p { margin-top: .75rem; font-size: .875rem; line-height: 1.8; color: var(--muted); }
+  .concept-gallery { display: grid; gap: 2rem; margin-top: 2rem; }
+  .concept-gallery img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 18px; }
+  .concept-gallery figcaption { margin-top: .75rem; font-size: .75rem; line-height: 1.7; color: var(--muted); }
+  .concept-section-heading { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem; }
+  .concept-section-heading > p { max-width: 26rem; font-size: .875rem; color: var(--muted); }
+  .concept-materials { display: grid; gap: 1.5rem; }
+  .concept-material-photo { overflow: hidden; aspect-ratio: 4/3; border-radius: 14px; }
+  .concept-materials h3 { margin-top: 1rem; }
+  .concept-materials p { margin-top: .375rem; font-size: .8125rem; color: var(--muted); }
+  .concept-materials a > span { display: flex; gap: .75rem; align-items: center; min-height: 44px; margin-top: .5rem; font-size: .8125rem; }
+  .concept-services { margin-top: 2rem; }
+  .concept-services > div { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+  .concept-services a, .concept-section-heading .outline-action { font-size: .8125rem; }
+  .concept-related { display: grid; gap: 1.5rem; }
+  .concept-related img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 14px; margin-bottom: 1rem; }
+  .concept-related a > span { display: inline-flex; align-items: center; min-height: 44px; margin-top: .5rem; font-size: .8125rem; }
+  @media(min-width:640px) { .concept-wrap { width: min(1280px,calc(100% - 48px)); }.concept-materials { grid-template-columns: repeat(3,minmax(0,1fr)); }.concept-related { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media(min-width:1024px) { .concept-brief { grid-template-columns: .8fr 1.2fr; gap: 4rem; }.concept-plan { grid-template-columns: repeat(3,minmax(0,1fr)); }.concept-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }.concept-section-heading { flex-direction: row; justify-content: space-between; align-items: flex-end; } }
+</style>

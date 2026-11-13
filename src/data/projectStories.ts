@@ -1,3 +1,4 @@
+import { projectConcepts } from "./projectConcepts";
 import { catalogue, type CatalogueSample } from "./catalogue";
 import { completedProjects } from "./projects";
 import { spaces } from "./spaces";
@@ -32,7 +33,11 @@ const actualStories: ProjectStory[] = completedProjects.map(project => ({
   sampleSlugs: project.sampleSlugs || [], categories: [...new Set((project.sampleSlugs || []).map(slug => catalogue.find(sample => sample.slug === slug)?.category).filter((category): category is string => !!category))],
   location: project.location, scope: project.scope, materials: project.materials,
 }));
-export const projectStories = [...actualStories, ...catalogueStories, ...referenceStories];
+const conceptStories: ProjectStory[] = projectConcepts.map(concept => ({
+  slug: concept.slug, title: concept.title, kind: "reference", description: concept.description,
+  images: concept.images, sampleSlugs: [], categories: concept.materials, scope: [], materials: [],
+}));
+export const projectStories = [...actualStories, ...conceptStories, ...catalogueStories, ...referenceStories];
 export const storyHref = (story: ProjectStory) => `/cong-trinh/${story.slug}/`;
 export const storyLabel = (story: ProjectStory) => ({ completed: "Công trình thực tế", catalogue: "Ảnh ứng dụng catalogue", reference: "Không gian tham khảo" })[story.kind];
 export const storiesForSample = (sample: CatalogueSample) => {

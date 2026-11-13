@@ -79,7 +79,7 @@ for file in pages:
             for item in value:visit(item)
     visit(schema)
 for file,ref in refs:assert ref in all_ids,(file,'unresolved schema reference',ref)
-assert counts['Product']==len(samples) and counts['BlogPosting']==sum(len(json.loads((ROOT/name).read_text())['posts']) for name in ['src/data/kitchenPosts.json','src/data/guidePosts.json']) and counts['Service']==6 and counts['ImageGallery']==sum(bool(sample.get('application')) for sample in samples)+len(json.loads((ROOT/'src/data/spacesContent.json').read_text())['spaces'])
+assert counts['Product']==len(samples) and counts['BlogPosting']==sum(len(json.loads((ROOT/name).read_text())['posts']) for name in ['src/data/kitchenPosts.json','src/data/guidePosts.json']) and counts['Service']==6 and counts['ImageGallery']==sum(bool(sample.get('application')) for sample in samples)+len(json.loads((ROOT/'src/data/spacesContent.json').read_text())['spaces'])+len(json.loads((ROOT/'src/data/projectConcepts.json').read_text())['projects'])
 assert counts['Organization']==len(pages) and counts['WebSite']==len(pages)
 print(f'PASS {len(pages)} pages: JSON-LD syntax, unique IDs, entity references, local URLs and visible FAQ/product/article content.')
 print(dict(sorted(counts.items())))

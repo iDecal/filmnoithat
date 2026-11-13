@@ -1,0 +1,139 @@
+{
+  "projects": [
+    {
+      "slug": "mau-bep-can-ho-go-sang-da-nga",
+      "title": "Bếp căn hộ: gỗ sáng và đá ngà",
+      "category": "home",
+      "label": "Nhà ở",
+      "description": "Phương án minh họa làm mới bếp bằng sắc gỗ sáng, cánh tủ màu kem và điểm nhấn vân đá. Tập trung giữ tổng thể nhẹ, dễ phối với nội thất hiện có.",
+      "images": [
+        {
+          "src": "/images/perspectives/ivory-oak-kitchen.webp",
+          "alt": "Phối cảnh minh họa bếp căn hộ với cánh tủ sáng, gỗ tự nhiên và đảo bếp vân đá"
+        },
+        {
+          "src": "/images/perspectives/oak-living-room.webp",
+          "alt": "Phối cảnh tham khảo cách nối tiếp sắc gỗ và nền sáng ở không gian sinh hoạt"
+        }
+      ],
+      "materials": [
+        "van-go",
+        "don-sac",
+        "da-cam-thach"
+      ],
+      "services": [
+        "dan-film-tu-bep",
+        "dan-film-tuong"
+      ],
+      "brief": [
+        "Giữ bảng màu sáng, ít tương phản gắt.",
+        "Kết nối màu cánh tủ với sàn và nội thất liền kề.",
+        "Kiểm tra nền cánh tủ, mép cạnh và vùng gần bếp nấu trước khi chọn film."
+      ],
+      "plan": [
+        {
+          "title": "Cánh tủ gọn và sáng",
+          "text": "Dùng sắc kem hoặc trắng ấm làm nền cho các mảng tủ trên. So mẫu cạnh màu tường và ánh sáng đèn để tránh lệch sắc độ."
+        },
+        {
+          "title": "Sắc gỗ tạo nhịp",
+          "text": "Tham khảo vân gỗ sáng cho một phần cánh tủ hoặc mảng nối không gian. Thống nhất chiều vân trước khi chia tấm."
+        },
+        {
+          "title": "Vân đá vừa đủ",
+          "text": "Đối chiếu tỷ lệ vân ở mảng trang trí. Vùng mặt bàn, nước và nhiệt cần kiểm tra điều kiện sử dụng của đúng mã vật liệu."
+        }
+      ]
+    },
+    {
+      "slug": "mau-goc-lam-viec-van-go-trung-tinh",
+      "title": "Góc làm việc: vân gỗ và màu trung tính",
+      "category": "office",
+      "label": "Văn phòng",
+      "description": "Phương án minh họa kết hợp mặt bàn vân gỗ, kệ và tông màu dịu cho góc làm việc. Chọn bề mặt theo tần suất sử dụng và cách bố trí ánh sáng.",
+      "images": [
+        {
+          "src": "/images/perspectives/light-oak-workspace.webp",
+          "alt": "Phối cảnh minh họa bàn làm việc vân gỗ sáng cùng kệ mở và ánh sáng tự nhiên"
+        },
+        {
+          "src": "/images/vat-lieu/van-go/CAD402-goc.jpg",
+          "alt": "Ảnh bề mặt film vân gỗ tham khảo để so chiều vân và sắc độ"
+        }
+      ],
+      "materials": [
+        "van-go",
+        "don-sac",
+        "be-tong"
+      ],
+      "services": [
+        "dan-film-ban",
+        "dan-film-tuong"
+      ],
+      "brief": [
+        "Bảng màu gọn để giảm cảm giác rối ở bàn làm việc.",
+        "Chọn mặt bàn và cạnh bàn theo mức độ tiếp xúc thực tế.",
+        "Giữ sự thống nhất giữa bàn, kệ và mảng vách phía sau."
+      ],
+      "plan": [
+        {
+          "title": "Mặt bàn là điểm chính",
+          "text": "So hướng vân và sắc gỗ trên diện tích dự kiến. Các cạnh bo, góc bàn và vị trí kẹp màn hình cần được xem xét riêng."
+        },
+        {
+          "title": "Kệ nối cùng bảng màu",
+          "text": "Có thể kết hợp gỗ với màu trơn để phân biệt vùng lưu trữ. Bố trí mối nối tại các vị trí ít gây chú ý."
+        },
+        {
+          "title": "Ánh sáng phù hợp",
+          "text": "Kiểm tra độ bóng dưới đèn bàn và ánh sáng cửa sổ. Đối chiếu mẫu thật trước khi chọn bề mặt trên mảng lớn."
+        }
+      ]
+    },
+    {
+      "slug": "mau-quay-tiep-don-champagne",
+      "title": "Quầy tiếp đón: điểm nhấn champagne",
+      "category": "commercial",
+      "label": "Không gian chung",
+      "description": "Phương án minh họa dùng hiệu ứng kim loại champagne tại quầy tiếp đón, phối nền sáng và gỗ. Tạo điểm nhấn có chủ đích, tránh quá nhiều bề mặt phản chiếu.",
+      "images": [
+        {
+          "src": "/images/perspectives/champagne-metal-reception.webp",
+          "alt": "Phối cảnh minh họa quầy tiếp đón cong với bề mặt ánh kim champagne"
+        },
+        {
+          "src": "/images/perspectives/modern-reception.webp",
+          "alt": "Phối cảnh tham khảo một hướng quầy tiếp đón vân đá sáng phối vách gỗ"
+        }
+      ],
+      "materials": [
+        "kim-loai",
+        "van-go",
+        "da-cam-thach"
+      ],
+      "services": [
+        "dan-film-ban",
+        "dan-film-tuong"
+      ],
+      "brief": [
+        "Dùng một mảng ánh kim làm điểm nhấn chính.",
+        "Giữ tường và sàn ở bảng màu trung tính để cân bằng ánh sáng.",
+        "Khảo sát nền, đường cong, góc cạnh và cách ghép trước khi chốt vật liệu."
+      ],
+      "plan": [
+        {
+          "title": "Mảng ánh kim chủ đạo",
+          "text": "Xem mẫu champagne dưới ánh sáng tại quầy, từ nhiều góc nhìn. Hướng vân và độ phản chiếu cần thống nhất giữa các tấm."
+        },
+        {
+          "title": "Gỗ và đá làm nền",
+          "text": "Thử phối với vân gỗ ấm hoặc vân đá sáng. Hai phối cảnh là hai hướng tham khảo, không phải ảnh trước và sau của một công trình."
+        },
+        {
+          "title": "Chi tiết sử dụng hằng ngày",
+          "text": "Mặt quầy, góc bo và phần chân quầy có mức độ tiếp xúc khác nhau. Xác nhận mã film, cách vệ sinh và phạm vi thực hiện theo từng vị trí."
+        }
+      ]
+    }
+  ]
+}
