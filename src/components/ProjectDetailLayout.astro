@@ -2,28 +2,22 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import Icon from "./Icon.astro";
-import MaterialPreview from "./MaterialPreview.astro";
-import ProductCard from "./ProductCard.astro";
 import ProjectBeforeAfter from "./ProjectBeforeAfter.astro";
 import { projectStories, storyHref, storyLabel, type ProjectStory } from "../data/projectStories";
 import type { ProjectConcept } from "../data/projectConcepts";
 import { catalogue } from "../data/catalogue";
-import { materials, materialHref } from "../data/materials";
-import { services, serviceHref } from "../data/services";
 import { breadcrumbSchema } from "../data/seo";
 interface Props { story: ProjectStory; concept?: ProjectConcept }
 const { story, concept } = Astro.props;
 const actual = story.kind === "completed";
 const linkedSamples = catalogue.filter(sample => story.sampleSlugs.includes(sample.slug));
-const linkedMaterials = materials.filter(item => story.categories.includes(item.slug));
-const linkedServices = concept ? services.filter(item => concept.services.includes(item.slug)) : [];
 const related = projectStories.filter(item => item.slug !== story.slug && item.kind !== "catalogue").sort((a,b) => b.categories.filter(category=>story.categories.includes(category)).length-a.categories.filter(category=>story.categories.includes(category)).length).slice(0,3);
 const formatDate = (value?: string) => {
   if (!value) return "Chưa cập nhật";
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat("vi-VN",{day:"2-digit",month:"2-digit",year:"numeric",timeZone:"UTC"}).format(date);
 };
-const materialNames = actual ? (story.materials.length ? story.materials.join(" · ") : linkedSamples.map(sample=>`${sample.brand} ${sample.code}`).join(" · ")) : "Chưa xác nhận — xem vật liệu gợi ý";
+const materialNames = actual ? (story.materials.length ? story.materials.join(" · ") : linkedSamples.map(sample=>`${sample.brand} ${sample.code}`).join(" · ")) : "Chưa cập nhật";
 const facts = [
   {icon:"interior" as const,label:"Địa điểm",value:story.location || (actual ? "Chưa cập nhật" : "Chưa có địa điểm thực tế")},
   {icon:"layers" as const,label:"Vật liệu sử dụng",value:materialNames || "Chưa cập nhật"},
@@ -33,15 +27,9 @@ const facts = [
 ---
 <BaseLayout title={`${story.title} | Film Nội Thất`} description={story.description} image={story.images[0].src} structuredData={[breadcrumbSchema(Astro.site!,[{name:"Công trình",path:"/cong-trinh/"},{name:story.title,path:storyHref(story)}])]}>
   <section id="thong-tin-cong-trinh" class="project-detail-intro"><div class="project-detail-wrap"><Breadcrumbs items={[{label:"Công trình",href:"/cong-trinh/"},{label:story.title}]} /><div class="project-detail-intro-grid"><div><p class="project-detail-kicker">{actual ? "CÔNG TRÌNH THỰC TẾ" : concept ? "PHƯƠNG ÁN MINH HỌA" : storyLabel(story).toUpperCase()}</p><h1>{story.title}</h1><p class="project-detail-lead">{story.description}</p><dl class="project-detail-facts">{facts.map(fact=><div><dt><span class="project-detail-icon"><Icon name={fact.icon} size={20} /></span>{fact.label}</dt><dd>{fact.date ? <time datetime={fact.date}>{fact.value}</time> : fact.value}</dd></div>)}</dl>{!actual&&<p class="project-detail-reference-note">Ảnh và vật liệu trên trang dùng để tham khảo phương án. Đây chưa phải hồ sơ công trình đã thi công; địa điểm, lịch thực hiện và ảnh trước–sau chưa được xác nhận.</p>}</div><figure class="project-detail-cover"><img src={story.images[0].src} alt={story.images[0].alt} width="1200" height="900" fetchpriority="high" /><figcaption>{actual ? story.images[0].alt : "Ảnh phương án tham khảo, không phải ảnh sau thi công."}</figcaption></figure></div></div></section>
-  <nav class="project-detail-nav" aria-label="Nội dung công trình"><div class="project-detail-wrap"><a href="#thong-tin-cong-trinh">Thông tin công trình</a><a href="#truoc-va-sau">Ảnh trước & sau</a><a href="#vat-lieu-su-dung">{actual ? "Vật liệu sử dụng" : "Vật liệu gợi ý"}</a><a href="#cong-trinh-lien-quan">Công trình liên quan</a></div></nav>
+  <nav class="project-detail-nav" aria-label="Nội dung công trình"><div class="project-detail-wrap"><a href="#thong-tin-cong-trinh">Thông tin công trình</a><a href="#truoc-va-sau">Ảnh trước & sau</a><a href="#cong-trinh-lien-quan">Công trình liên quan</a></div></nav>
 
   <section id="truoc-va-sau" class="project-detail-section project-detail-soft"><div class="project-detail-wrap"><header class="project-detail-section-heading"><div><p class="project-detail-kicker">HIỆN TRẠNG & KẾT QUẢ</p><h2>Ảnh trước và sau thi công.</h2></div><p>{story.beforeAfter?.length ? "Đối chiếu hình ảnh hiện trạng và hoàn thiện theo từng góc chụp." : "Khu vực ảnh trước–sau sẽ được bổ sung khi có hình ảnh thực tế của cùng hạng mục."}</p></header><ProjectBeforeAfter comparisons={story.beforeAfter} /></div></section>
-
-  {(concept || story.scope.length>0)&&<section class="project-detail-section"><div class="project-detail-wrap"><header class="project-detail-section-heading"><div><p class="project-detail-kicker">{actual ? "PHẠM VI THỰC HIỆN" : "ĐỊNH HƯỚNG HOÀN THIỆN"}</p><h2>{actual ? "Hạng mục trong công trình." : "Cách tiếp cận cho từng bề mặt."}</h2></div></header>{concept ? <><ul class="project-detail-brief">{concept.brief.map(item=><li><Icon name="check" size={18} /><span>{item}</span></li>)}</ul><div class="project-detail-plan">{concept.plan.map((item,index)=><article><span>0{index+1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></> : <ul class="project-detail-brief">{story.scope.map(item=><li><Icon name="check" size={18} /><span>{item}</span></li>)}</ul>}</div></section>}
-
-  {story.images.length>1&&<section class="project-detail-section project-detail-soft"><div class="project-detail-wrap"><header class="project-detail-section-heading"><div><p class="project-detail-kicker">{actual ? "HÌNH ẢNH CÔNG TRÌNH" : "HÌNH ẢNH THAM KHẢO"}</p><h2>{actual ? "Chi tiết không gian hoàn thiện." : "Tham khảo thêm chất liệu và cách phối."}</h2></div></header><div class="project-detail-gallery">{story.images.slice(1).map(photo=><figure><img src={photo.src} alt={photo.alt} width="1200" height="800" loading="lazy" decoding="async" /><figcaption>{photo.alt}</figcaption></figure>)}</div></div></section>}
-
-  <section id="vat-lieu-su-dung" class="project-detail-section"><div class="project-detail-wrap"><header class="project-detail-section-heading"><div><p class="project-detail-kicker">TỪ KHÔNG GIAN ĐẾN MẪU FILM</p><h2>{actual ? "Vật liệu sử dụng trong công trình." : "Vật liệu gợi ý cho phương án."}</h2></div><p>{actual ? "Đối chiếu mã mẫu và thông tin vật liệu của hạng mục." : "Các nhóm bề mặt dưới đây là gợi ý chọn mẫu, không xác nhận vật liệu đã sử dụng trong ảnh."}</p></header>{actual&&story.materials.length>0&&<ul class="project-detail-material-names">{story.materials.map(item=><li>{item}</li>)}</ul>}{linkedSamples.length>0 ? <div class="project-detail-product-grid">{linkedSamples.map(sample=><ProductCard sample={sample} />)}</div> : linkedMaterials.length>0 ? <div class="project-detail-material-grid">{linkedMaterials.map(material=><a href={materialHref(material)}><div class="project-detail-material-photo"><MaterialPreview material={material} /></div><h3>{material.name}</h3><p>{material.moodLabel}</p><span>Xem mẫu film<Icon name="arrow" size={17} /></span></a>)}</div> : <p class="project-detail-muted">Thông tin mã film và vật liệu đang chờ cập nhật.</p>}{linkedServices.length>0&&<div class="project-detail-service-links">{linkedServices.map(service=><a href={serviceHref(service)} class="outline-action">{service.name}<Icon name="arrow" size={16} /></a>)}</div>}</div></section>
 
   <section id="cong-trinh-lien-quan" class="project-detail-section project-detail-soft"><div class="project-detail-wrap"><header class="project-detail-section-heading"><div><p class="project-detail-kicker">KHÁM PHÁ THÊM</p><h2>Công trình liên quan.</h2></div><a href="/cong-trinh/" class="outline-action">Tất cả công trình<Icon name="arrow" size={17} /></a></header><div class="project-detail-related">{related.map(item=><a href={storyHref(item)}><img src={item.images[0].src} alt={item.images[0].alt} width="1000" height="700" loading="lazy" /><div><p>{storyLabel(item)}</p><h3>{item.title}</h3><span>Xem chi tiết<Icon name="arrow" size={16} /></span></div></a>)}</div></div></section>
 </BaseLayout>
@@ -70,32 +58,13 @@ const facts = [
   .project-detail-section-heading h2 { font-size: 1.5rem; line-height: 1.4; font-weight: 500; }
   .project-detail-section-heading > p { max-width: 28rem; font-size: .875rem; line-height: 1.8; color: var(--muted); }
   .project-detail-section-heading .outline-action { font-size: .8125rem; }
-  .project-detail-brief { display: grid; gap: 1rem; margin-bottom: 2rem; }
-  .project-detail-brief li { display: flex; align-items: baseline; gap: .75rem; font-size: .9375rem; line-height: 1.8; color: var(--muted); }
-  .project-detail-brief :global(svg) { align-self: flex-start; margin-top: .25rem; }
-  .project-detail-plan { display: grid; gap: 1.25rem; }
-  .project-detail-plan article { padding: 1.5rem; border-radius: 16px; background: #f3f5f7; }
-  .project-detail-plan article > span { font-size: .75rem; color: var(--muted); }
-  .project-detail-plan h3 { font-size: 1.125rem; font-weight: 500; margin-top: 1rem; }
-  .project-detail-plan p { font-size: .875rem; line-height: 1.8; margin-top: .75rem; color: var(--muted); }
-  .project-detail-gallery { display: grid; gap: 2rem; }
-  .project-detail-gallery img { width: 100%; height: auto; max-height: 640px; object-fit: contain; border-radius: 18px; }
-  .project-detail-gallery figcaption { margin-top: .75rem; color: var(--muted); font-size: .75rem; line-height: 1.7; }
-  .project-detail-material-grid, .project-detail-product-grid, .project-detail-related { display: grid; gap: 1.5rem; }
-  .project-detail-material-photo { aspect-ratio: 4/3; overflow: hidden; border-radius: 14px; }
-  .project-detail-material-grid h3 { margin-top: 1rem; font-size: 1.125rem; font-weight: 500; }
-  .project-detail-material-grid p { margin-top: .375rem; font-size: .8125rem; color: var(--muted); }
-  .project-detail-material-grid a > span { display: flex; align-items: center; gap: .75rem; min-height: 44px; margin-top: .5rem; font-size: .8125rem; }
-  .project-detail-service-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
-  .project-detail-service-links a { font-size: .8125rem; }
-  .project-detail-material-names { padding-left: 1.25rem; list-style: disc; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.8; }
-  .project-detail-muted { color: var(--muted); font-size: .9375rem; }
+  .project-detail-related { display: grid; gap: 1.5rem; }
   .project-detail-related > a { min-width: 0; overflow: hidden; border-radius: 16px; background: white; }
   .project-detail-related img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
   .project-detail-related a > div { padding: 1.25rem; }
   .project-detail-related p { font-size: .625rem; color: var(--muted); }
   .project-detail-related h3 { margin-top: .5rem; font-size: 1.125rem; font-weight: 500; line-height: 1.5; }
   .project-detail-related span { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 44px; margin-top: .75rem; font-size: .8125rem; }
-  @media(min-width:640px) { .project-detail-wrap { width: min(1280px,calc(100% - 48px)); }.project-detail-material-grid, .project-detail-related { grid-template-columns: repeat(2,minmax(0,1fr)); }.project-detail-product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-  @media(min-width:1024px) { .project-detail-intro { padding-top: 3rem; }.project-detail-intro-grid { grid-template-columns: 1.05fr .95fr; gap: 3rem; }.project-detail-intro h1 { font-size: 2.5rem; }.project-detail-section-heading { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; }.project-detail-material-grid, .project-detail-related, .project-detail-plan { grid-template-columns: repeat(3,minmax(0,1fr)); }.project-detail-product-grid { grid-template-columns: repeat(4,minmax(0,1fr)); } }
+  @media(min-width:640px) { .project-detail-wrap { width: min(1280px,calc(100% - 48px)); }.project-detail-related { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media(min-width:1024px) { .project-detail-intro { padding-top: 3rem; }.project-detail-intro-grid { grid-template-columns: 1.05fr .95fr; gap: 3rem; }.project-detail-intro h1 { font-size: 2.5rem; }.project-detail-section-heading { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; }.project-detail-related { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 </style>
