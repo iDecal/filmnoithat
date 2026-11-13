@@ -1,5 +1,4 @@
 ---
-import CatalogueKnowledge from "../../components/CatalogueKnowledge.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import MaterialCards from "../../components/MaterialCards.astro";
@@ -54,7 +53,6 @@ const preparation = [
 
     <section class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">04 / CẨM NANG NỘI THẤT</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Đọc thêm trước khi chọn.</h2></div><a href="/blog/" class="outline-action">Tất cả bài tư vấn <Icon name="arrow" size={16} /></a></header><div class="service-post-grid">{posts.slice(0,3).map(post => <article><a href={postHref(post)}><img src={post.image} alt={post.imageAlt || post.title} width="800" height="500" loading="lazy" /><h3>{post.title}</h3><p>{post.description}</p><span class="service-card-action">Đọc bài tư vấn <Icon name="arrow" size={16} /></span></a></article>)}</div></div></section>
     <section class="service-section"><div class="service-wrap service-faq-layout"><div><p class="eyebrow mb-3">GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bạn muốn biết thêm?</h2><p class="text-base-600 mt-4">Một vài thông tin để chuẩn bị vật liệu và phạm vi thi công.</p></div><div>{service.faqs.map(faq => <details class="service-faq"><summary>{faq.question}<span aria-hidden="true">⌄</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
-    <CatalogueKnowledge />
   </div>
 </BaseLayout>
 <style>
