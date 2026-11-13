@@ -1,7 +1,9 @@
 ---
+import MaterialLandingContent from "../../components/MaterialLandingContent.astro";
+import { materialLandingFaqs } from "../../data/materialLandingContent";
 import MaterialPage from "../../components/MaterialPage.astro";
 import { materials } from "../../data/materials";
 const material = materials.find(item => item.slug === "be-tong")!;
 ---
 
-<MaterialPage material={material} />
+<MaterialPage material={material} faqs={materialLandingFaqs(material)}><MaterialLandingContent material={material} /></MaterialPage>
