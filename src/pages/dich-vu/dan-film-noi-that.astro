@@ -1,4 +1,5 @@
 ---
+import { storiesForService, storyHref, storyLabel } from "../../data/projectStories";
 import ColorGuideFeature from "../../components/ColorGuideFeature.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -11,6 +12,7 @@ import { posts, postHref } from "../../data/posts";
 import { breadcrumbSchema } from "../../data/seo";
 import { site, internationalPhone } from "../../data/site";
 const service = services.find(item => item.slug === "dan-film-noi-that")!;
+const relatedProjects = storiesForService(service.slug);
 const categories = services.filter(item => item.slug !== service.slug);
 const relatedPosts = [...posts].reverse().filter(post => post.services.includes(service.slug)).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
 const schema = [breadcrumbSchema(Astro.site!, [{ name: "Dịch vụ", path: serviceHref(service) }]), {
@@ -57,6 +59,7 @@ const preparation = [
     <section id="blog-tu-van" class="service-section service-soft"><div class="service-wrap"><header class="service-section-heading"><div><p class="eyebrow mb-3">04 / CẨM NANG NỘI THẤT</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Đọc thêm trước khi chọn.</h2></div><a href="/blog/" class="outline-action">Tất cả bài tư vấn <Icon name="arrow" size={16} /></a></header><div class="service-post-grid">{relatedPosts.map(post => <article data-service-post><a href={postHref(post)}><img src={post.image} alt={post.imageAlt || post.title} width="800" height="500" loading="lazy" /><h3>{post.title}</h3><p>{post.description}</p><span class="service-card-action">Đọc bài tư vấn <Icon name="arrow" size={16} /></span></a></article>)}</div></div></section>
     <section class="service-section"><div class="service-wrap service-faq-layout"><div><p class="eyebrow mb-3">GIẢI ĐÁP TRƯỚC KHI LÀM</p><h2 class="text-2xl md:text-[1.875rem] font-semibold">Bạn muốn biết thêm?</h2><p class="text-base-600 mt-4">Một vài thông tin để chuẩn bị vật liệu và phạm vi thi công.</p></div><div>{service.faqs.map(faq => <details class="service-faq"><summary>{faq.question}<span aria-hidden="true">⌄</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
   </div>
+{relatedProjects.length > 0 && <section id="cong-trinh-lien-quan" class="px-4 sm:px-6 py-12 bg-base-50"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-medium mb-7">Công trình liên quan</h2><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{relatedProjects.map(project => <a href={storyHref(project)} class="block min-w-0"><img src={project.images[0].src} alt={project.images[0].alt} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" /><p class="text-xs text-base-600 mt-4">{storyLabel(project)}</p><h3 class="text-lg font-medium mt-3">{project.title}</h3><p class="text-sm text-base-600 mt-3">{project.description}</p><span class="inline-flex items-center min-h-11 mt-3 text-sm font-medium">Xem chi tiết công trình →</span></a>)}</div></div></section>}
 </BaseLayout>
 <style>
   .service-overview { --color-base-200: 185 190 199; --color-base-300: 185 190 199; }

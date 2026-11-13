@@ -5,10 +5,12 @@ import Icon from "./Icon.astro";
 import ProjectBeforeAfter from "./ProjectBeforeAfter.astro";
 import { projectStories, storyHref, storyLabel, type ProjectStory } from "../data/projectStories";
 import type { ProjectConcept } from "../data/projectConcepts";
+import { services, serviceHref } from "../data/services";
 import { catalogue } from "../data/catalogue";
 import { breadcrumbSchema } from "../data/seo";
 interface Props { story: ProjectStory; concept?: ProjectConcept }
 const { story, concept } = Astro.props;
+const selectedServices = services.filter(service => story.services.includes(service.slug));
 const actual = story.kind === "completed";
 const linkedSamples = catalogue.filter(sample => story.sampleSlugs.includes(sample.slug));
 const related = projectStories.filter(item => item.slug !== story.slug && item.kind !== "catalogue").sort((a,b) => b.categories.filter(category=>story.categories.includes(category)).length-a.categories.filter(category=>story.categories.includes(category)).length).slice(0,3);
@@ -26,7 +28,7 @@ const facts = [
 ];
 ---
 <BaseLayout title={`${story.title} | Film Nội Thất`} description={story.description} image={story.images[0].src} structuredData={[breadcrumbSchema(Astro.site!,[{name:"Công trình",path:"/cong-trinh/"},{name:story.title,path:storyHref(story)}])]}>
-  <section id="thong-tin-cong-trinh" class="project-detail-intro"><div class="project-detail-wrap"><Breadcrumbs items={[{label:"Công trình",href:"/cong-trinh/"},{label:story.title}]} /><div class="project-detail-intro-grid"><div><p class="project-detail-kicker">{actual ? "CÔNG TRÌNH THỰC TẾ" : concept ? "PHƯƠNG ÁN MINH HỌA" : storyLabel(story).toUpperCase()}</p><h1>{story.title}</h1><p class="project-detail-lead">{story.description}</p><dl class="project-detail-facts">{facts.map(fact=><div><dt><span class="project-detail-icon"><Icon name={fact.icon} size={20} /></span>{fact.label}</dt><dd>{fact.date ? <time datetime={fact.date}>{fact.value}</time> : fact.value}</dd></div>)}</dl>{!actual&&<p class="project-detail-reference-note">Ảnh và vật liệu trên trang dùng để tham khảo phương án. Đây chưa phải hồ sơ công trình đã thi công; địa điểm, lịch thực hiện và ảnh trước–sau chưa được xác nhận.</p>}</div><figure class="project-detail-cover"><img src={story.images[0].src} alt={story.images[0].alt} width="1200" height="900" fetchpriority="high" /><figcaption>{actual ? story.images[0].alt : "Ảnh phương án tham khảo, không phải ảnh sau thi công."}</figcaption></figure></div></div></section>
+  <section id="thong-tin-cong-trinh" class="project-detail-intro"><div class="project-detail-wrap"><Breadcrumbs items={[{label:"Công trình",href:"/cong-trinh/"},{label:story.title}]} /><div class="project-detail-intro-grid"><div><p class="project-detail-kicker">{actual ? "CÔNG TRÌNH THỰC TẾ" : concept ? "PHƯƠNG ÁN MINH HỌA" : storyLabel(story).toUpperCase()}</p><h1>{story.title}</h1><p class="project-detail-lead">{story.description}</p><dl class="project-detail-facts">{facts.map(fact=><div><dt><span class="project-detail-icon"><Icon name={fact.icon} size={20} /></span>{fact.label}</dt><dd>{fact.date ? <time datetime={fact.date}>{fact.value}</time> : fact.value}</dd></div>)}</dl>{selectedServices.length > 0 && <div class="project-selected-services"><p>Dịch vụ đã chọn</p><div>{selectedServices.map(service => <a href={serviceHref(service)}>{service.name}<Icon name="arrow" size={16} /></a>)}</div></div>}{!actual&&<p class="project-detail-reference-note">Ảnh và vật liệu trên trang dùng để tham khảo phương án. Đây chưa phải hồ sơ công trình đã thi công; địa điểm, lịch thực hiện và ảnh trước–sau chưa được xác nhận.</p>}</div><figure class="project-detail-cover"><img src={story.images[0].src} alt={story.images[0].alt} width="1200" height="900" fetchpriority="high" /><figcaption>{actual ? story.images[0].alt : "Ảnh phương án tham khảo, không phải ảnh sau thi công."}</figcaption></figure></div></div></section>
   <nav class="project-detail-nav" aria-label="Nội dung công trình"><div class="project-detail-wrap"><a href="#thong-tin-cong-trinh">Thông tin công trình</a><a href="#truoc-va-sau">Ảnh trước & sau</a><a href="#cong-trinh-lien-quan">Công trình liên quan</a></div></nav>
 
   <section id="truoc-va-sau" class="project-detail-section project-detail-soft"><div class="project-detail-wrap"><header class="project-detail-section-heading"><div><p class="project-detail-kicker">HIỆN TRẠNG & KẾT QUẢ</p><h2>Ảnh trước và sau thi công.</h2></div><p>{story.beforeAfter?.length ? "Đối chiếu hình ảnh hiện trạng và hoàn thiện theo từng góc chụp." : "Khu vực ảnh trước–sau sẽ được bổ sung khi có hình ảnh thực tế của cùng hạng mục."}</p></header><ProjectBeforeAfter comparisons={story.beforeAfter} /></div></section>
@@ -45,6 +47,10 @@ const facts = [
   .project-detail-facts dt { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-size: .6875rem; color: var(--muted); }
   .project-detail-icon { display: grid; place-items: center; width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; color: var(--navy); background: #f3e5cc; }
   .project-detail-facts dd { margin-top: .625rem; font-size: .8125rem; font-weight: 500; line-height: 1.6; overflow-wrap: anywhere; }
+  .project-selected-services { margin-top: 1.25rem; }
+  .project-selected-services > p { font-size: .8125rem; font-weight: 500; margin-bottom: .625rem; }
+  .project-selected-services > div { display: flex; flex-wrap: wrap; gap: .625rem; }
+  .project-selected-services a { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; padding: .625rem .875rem; border-radius: 10px; background: #f3f5f7; font-size: .8125rem; }
   .project-detail-reference-note { margin-top: 1rem; font-size: .75rem; line-height: 1.7; color: var(--muted); }
   .project-detail-cover img { width: 100%; aspect-ratio: 4/5; max-height: 640px; object-fit: cover; border-radius: 20px; }
   .project-detail-cover figcaption { margin-top: .75rem; font-size: .75rem; line-height: 1.6; color: var(--muted); }

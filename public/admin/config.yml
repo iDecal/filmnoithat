@@ -2580,6 +2580,211 @@
           ]
         }
       ]
+    },
+    {
+      "name": "project_details",
+      "label": "Công trình chi tiết",
+      "files": [
+        {
+          "name": "project_concepts",
+          "label": "Công trình mẫu / phương án minh họa",
+          "file": "src/data/projectConcepts.json",
+          "fields": [
+            {
+              "name": "projects",
+              "label": "Công trình",
+              "widget": "list",
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "slug",
+                  "label": "Đường dẫn",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Tên công trình",
+                  "widget": "string"
+                },
+                {
+                  "name": "category",
+                  "label": "category",
+                  "widget": "string"
+                },
+                {
+                  "name": "label",
+                  "label": "label",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Mô tả",
+                  "widget": "text"
+                },
+                {
+                  "name": "images",
+                  "label": "Ảnh đại diện và thư viện",
+                  "widget": "list",
+                  "required": false,
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "src",
+                      "widget": "image"
+                    },
+                    {
+                      "name": "alt",
+                      "label": "alt",
+                      "widget": "string"
+                    }
+                  ]
+                },
+                {
+                  "name": "materials",
+                  "label": "Nhóm vật liệu",
+                  "widget": "list",
+                  "required": false,
+                  "field": {
+                    "name": "value",
+                    "label": "Giá trị",
+                    "widget": "string"
+                  }
+                },
+                {
+                  "name": "services",
+                  "label": "Dịch vụ đã chọn",
+                  "widget": "select",
+                  "multiple": true,
+                  "required": false,
+                  "options": [
+                    {
+                      "label": "Dán film nội thất",
+                      "value": "dan-film-noi-that"
+                    },
+                    {
+                      "label": "Dán film tủ bếp",
+                      "value": "dan-film-tu-bep"
+                    },
+                    {
+                      "label": "Dán film bàn & kệ",
+                      "value": "dan-film-ban"
+                    },
+                    {
+                      "label": "Dán film tường",
+                      "value": "dan-film-tuong"
+                    },
+                    {
+                      "label": "Dán film trần",
+                      "value": "dan-film-tran"
+                    },
+                    {
+                      "label": "Dán film thang máy",
+                      "value": "dan-film-thang-may"
+                    }
+                  ],
+                  "hint": "Công trình tự xuất hiện trong các trang dịch vụ được chọn. Bỏ chọn để gỡ liên kết."
+                },
+                {
+                  "name": "brief",
+                  "label": "brief",
+                  "widget": "list",
+                  "required": false,
+                  "field": {
+                    "name": "value",
+                    "label": "Giá trị",
+                    "widget": "string"
+                  }
+                },
+                {
+                  "name": "plan",
+                  "label": "plan",
+                  "widget": "list",
+                  "required": false,
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Tên công trình",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "text",
+                      "label": "text",
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "location",
+                  "label": "Địa điểm",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "startDate",
+                  "label": "Ngày bắt đầu",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "completionDate",
+                  "label": "Ngày hoàn thành",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "beforeAfter",
+                  "label": "Ảnh trước và sau",
+                  "widget": "list",
+                  "required": false,
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Tên công trình",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "before",
+                      "label": "Trước thi công",
+                      "widget": "object",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "src",
+                          "widget": "image"
+                        },
+                        {
+                          "name": "alt",
+                          "label": "alt",
+                          "widget": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "after",
+                      "label": "Sau hoàn thiện",
+                      "widget": "object",
+                      "required": false,
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "src",
+                          "widget": "image"
+                        },
+                        {
+                          "name": "alt",
+                          "label": "alt",
+                          "widget": "string"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -12,7 +12,7 @@ import { getServiceLayout } from "../data/serviceLayouts";
 import MaterialPreview from "./MaterialPreview.astro";
 import { findMaterials, materialHref } from "../data/materials";
 import { posts, postHref } from "../data/posts";
-import { projectsForService } from "../data/projects";
+import { storiesForService, storyHref, storyLabel } from "../data/projectStories";
 import { site, internationalPhone } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
 interface Props { service: Service }
@@ -31,7 +31,7 @@ const mobileLeads: Record<string, string> = {
 const relatedServices = services.filter(item => item.slug !== service.slug);
 const matchingPosts = [...posts].reverse().filter(post => post.services.includes(service.slug)).sort((a, b) => b.date.localeCompare(a.date));
 const relatedPosts = [...matchingPosts, ...posts.filter(post => !matchingPosts.includes(post))].slice(0, 5);
-const relatedProjects = projectsForService(service.slug);
+const relatedProjects = storiesForService(service.slug);
 const selectedMaterials = findMaterials(service.materials);
 const crumbs = overview ? [{ label: "Dịch vụ dán film nội thất" }] : [{ label: "Dịch vụ", href: "/dich-vu/dan-film-noi-that/" }, { label: service.name }];
 const schema = [
@@ -129,12 +129,12 @@ const steps = [
     <section id="cong-trinh-lien-quan" data-service-section class="service-anchor service-section px-4 sm:px-6 warm-surface" aria-labelledby="related-projects-title">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-2xl mb-7"><p class="eyebrow mb-4">07 / CÔNG TRÌNH LIÊN QUAN</p><h2 id="related-projects-title" class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Từ hiện trạng đến hoàn thiện.</h2><p class="text-base-600 mt-4">Xem hình ảnh ứng dụng cho {service.name.toLowerCase()} để hình dung cách phối vật liệu. Hồ sơ công trình thực tế được bổ sung khi có thông tin và ảnh xác nhận.</p></div>
-        {relatedProjects.length ? <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{relatedProjects.map(project => <article id={`cong-trinh-${project.id}`} class="service-editorial-card min-w-0">
-          <img src={project.image} alt={project.title} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" />
-          {project.location && <p class="text-xs text-base-600 mt-4">{project.location}</p>}
-          <h3 class="text-lg font-medium mt-4">{project.title}</h3><p class="text-sm text-base-600 mt-3">{project.summary}</p>
-          <details class="service-project-detail mt-4"><summary class="min-h-11 py-3 text-sm text-primary-600 font-semibold cursor-pointer">Xem chi tiết công trình</summary><div class="text-sm text-base-600 pb-4"><p class="font-medium text-base-900 mb-2">Hạng mục thực hiện</p><ul class="list-disc pl-5 space-y-2">{project.scope.map(item => <li>{item}</li>)}</ul><p class="font-medium text-base-900 mt-4 mb-2">Vật liệu sử dụng</p><ul class="list-disc pl-5 space-y-2">{project.materials.map(item => <li>{item}</li>)}</ul>{project.gallery?.map(photo => <img src={photo.src} alt={photo.alt} width="900" height="600" loading="lazy" class="w-full h-auto rounded-xl mt-4" />)}</div></details>
-        </article>)}</div> : <ServiceReferenceGallery slug={service.slug} />}
+        {relatedProjects.length ? <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{relatedProjects.map(project => <article id={`cong-trinh-${project.slug}`} class="service-editorial-card min-w-0"><a href={storyHref(project)} class="block">
+          <img src={project.images[0].src} alt={project.images[0].alt} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" />
+          <p class="text-xs text-base-600 mt-4">{storyLabel(project)}{project.location && ` · ${project.location}`}</p>
+          <h3 class="text-lg font-medium mt-4">{project.title}</h3><p class="text-sm text-base-600 mt-3">{project.description}</p>
+          <span class="inline-flex items-center min-h-11 mt-3 text-sm font-medium">Xem chi tiết công trình →</span>
+        </a></article>)}</div> : <ServiceReferenceGallery slug={service.slug} />}
       </div>
     </section>
 
