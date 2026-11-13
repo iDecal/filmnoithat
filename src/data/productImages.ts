@@ -18,7 +18,7 @@ export function imagesForProduct(sample: CatalogueSample): ProductImage[] {
       if (hidden.has(photo.src) || images.some(image=>image.src===photo.src)) continue;
       const exact=story.sampleSlugs.includes(sample.slug);
       images.push({src:photo.src,alt:photo.alt,label:exact ? "Đúng mã" : "Tham khảo",
-        caption:exact ? (story.kind === "completed" ? `Công trình thực tế dùng mã ${sample.code}.` : `Ảnh ứng dụng đúng mã ${sample.code} từ catalogue, không phải công trình do Film Nội Thất thi công.`) : `${story.title}. Ảnh cùng nhóm vật liệu, không xác nhận dùng mã ${sample.code}.`,
+        caption:exact ? (story.kind === "completed" ? `Công trình thực tế dùng mã ${sample.code}.` : `Ảnh ứng dụng mã ${sample.code} từ catalogue.`) : `${story.title}. Ảnh tham khảo cùng nhóm vật liệu.`,
         href:storyHref(story),width:1100,height:750});
       if (images.length>=4) return images;
     }

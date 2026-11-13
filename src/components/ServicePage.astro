@@ -117,7 +117,7 @@ const steps = [
 
     <section id="cong-trinh-lien-quan" data-service-section class="service-anchor service-section px-4 sm:px-6 warm-surface" aria-labelledby="related-projects-title">
       <div class="max-w-7xl mx-auto">
-        <div class="max-w-2xl mb-7"><p class="eyebrow mb-4">07 / CÔNG TRÌNH LIÊN QUAN</p><h2 id="related-projects-title" class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Từ hiện trạng đến hoàn thiện.</h2><p class="text-base-600 mt-4">Xem hình ảnh ứng dụng cho {service.name.toLowerCase()} để hình dung cách phối vật liệu. Hồ sơ công trình thực tế được bổ sung khi có thông tin và ảnh xác nhận.</p></div>
+        <div class="max-w-2xl mb-7"><p class="eyebrow mb-4">07 / CÔNG TRÌNH LIÊN QUAN</p><h2 id="related-projects-title" class="text-2xl sm:text-[1.625rem] md:text-[1.875rem] font-semibold">Từ hiện trạng đến hoàn thiện.</h2><p class="text-base-600 mt-4">Xem hình ảnh ứng dụng cho {service.name.toLowerCase()} để hình dung cách phối vật liệu.</p></div>
         {relatedProjects.length ? <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{relatedProjects.map(project => <article id={`cong-trinh-${project.slug}`} class="service-editorial-card min-w-0"><a href={storyHref(project)} class="block">
           <img src={project.images[0].src} alt={project.images[0].alt} width="900" height="600" loading="lazy" class="w-full aspect-[3/2] object-cover rounded-xl" />
           <p class="text-xs text-base-600 mt-4">{storyLabel(project)}{project.location && ` · ${project.location}`}</p>

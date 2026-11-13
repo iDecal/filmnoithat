@@ -26,7 +26,7 @@ const observations=[
    <figure class="application-story-photo"><button type="button" data-story-zoom-open aria-haspopup="dialog" aria-controls="application-photo-dialog" aria-label={`Phóng to ảnh ứng dụng ${sample.code}`}><img src={photo.src} alt={photo.alt} width="700" height="868" fetchpriority="high" /><span class="application-zoom-label"><Icon name="expand" size={17} />Xem ảnh lớn</span></button><figcaption>Ảnh ứng dụng từ catalogue {sample.collection}{story.sourcePage ? ` · Trang ${story.sourcePage}` : ""}.</figcaption></figure>
    <div class="application-story-copy"><p class="application-story-kicker"><span></span>KHÔNG GIAN & CHẤT LIỆU</p><h1>{story.title}</h1><p class="application-story-description">{story.description}</p>
     <div class="application-story-facts"><div><span>Vật liệu minh họa</span><strong>{sample.brand} {sample.code}</strong></div><div><span>Nhóm bề mặt</span><strong>{material.shortName}</strong></div><div><span>Tông màu mẫu</span><strong>{sample.color.name}</strong></div></div>
-    <p class="application-story-note"><Icon name="layers" size={18} /><span>Ảnh phối cảnh tham khảo từ catalogue, không phải hồ sơ công trình do Film Nội Thất thi công.</span></p>
+    <p class="application-story-note"><Icon name="layers" size={18} /><span>Ảnh phối cảnh từ catalogue.</span></p>
     <div class="application-story-actions"><a href={sampleHref(sample)} class="button-primary">Xem mẫu {sample.code}<Icon name="arrow" size={18} class="ml-3" /></a><a href="#phoi-chat-lieu" class="button-secondary">Khám phá cách phối</a></div>
     <a href="/dich-vu/dan-film-tuong/" class="application-story-text-link"><Icon name="wall" size={19} />Xem dịch vụ dán film tường & vách<Icon name="arrow" size={17} /></a>
    </div>

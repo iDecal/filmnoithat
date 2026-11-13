@@ -43,7 +43,7 @@
           "answer": "Báo giá phụ thuộc mã film, lượng vật tư, hiện trạng nền, số góc cạnh, mối nối, công tháo lắp và điều kiện tiếp cận. Cần xác nhận rõ phần vật tư, nhân công và xử lý bề mặt trong báo giá."
         }
       ],
-      "imageAlt": "Phối cảnh minh họa cho dán film nội thất — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
+      "imageAlt": "Phối cảnh minh họa cho dán film nội thất — ảnh tham khảo ứng dụng"
     },
     {
       "slug": "dan-film-tu-bep",
@@ -86,7 +86,7 @@
           "answer": "Không nhất thiết. Tùy thiết kế, kỹ thuật viên có thể chỉ tháo cánh hoặc tay nắm. Phạm vi tháo lắp và thời gian ngừng sử dụng bếp cần được chốt khi khảo sát."
         }
       ],
-      "imageAlt": "Phối cảnh minh họa cho dán film tủ bếp — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
+      "imageAlt": "Phối cảnh minh họa cho dán film tủ bếp — ảnh tham khảo ứng dụng"
     },
     {
       "slug": "dan-film-ban",
@@ -129,7 +129,7 @@
           "answer": "Có thể khảo sát phương án chỉ dán mặt và cạnh khi kết cấu còn tốt. Phạm vi dán, vị trí kết thúc film và việc tháo phụ kiện cần được thống nhất trước."
         }
       ],
-      "imageAlt": "Phối cảnh minh họa cho dán film bàn & kệ — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
+      "imageAlt": "Phối cảnh minh họa cho dán film bàn & kệ — ảnh tham khảo ứng dụng"
     },
     {
       "slug": "dan-film-tuong",
@@ -173,7 +173,7 @@
           "answer": "Mức độ nhìn thấy phụ thuộc họa tiết, khổ vật liệu, ánh sáng và cách ghép. Vị trí mối nối cần được trao đổi trước thay vì mặc định bề mặt sẽ hoàn toàn liền mạch."
         }
       ],
-      "imageAlt": "Phối cảnh minh họa cho dán film tường — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
+      "imageAlt": "Phối cảnh minh họa cho dán film tường — ảnh tham khảo ứng dụng"
     },
     {
       "slug": "dan-film-tran",
@@ -216,7 +216,7 @@
           "answer": "Không nhất thiết. Chiều cao, thiết bị tiếp cận, số chi tiết cần xử lý và điều kiện làm việc trên cao có thể làm thay đổi nhân công và tiến độ."
         }
       ],
-      "imageAlt": "Phối cảnh minh họa cho dán film trần — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
+      "imageAlt": "Phối cảnh minh họa cho dán film trần — ảnh tham khảo ứng dụng"
     },
     {
       "slug": "dan-film-thang-may",
@@ -259,7 +259,7 @@
           "answer": "Không. Cần kiểm tra điều kiện sử dụng, yêu cầu của tòa nhà và tài liệu kỹ thuật của mã film, bao gồm các yêu cầu về an toàn vật liệu nếu được áp dụng."
         }
       ],
-      "imageAlt": "Phối cảnh minh họa cho dán film thang máy — ảnh tham khảo ứng dụng, không phải hồ sơ thi công"
+      "imageAlt": "Phối cảnh minh họa cho dán film thang máy — ảnh tham khảo ứng dụng"
     }
   ]
 }
