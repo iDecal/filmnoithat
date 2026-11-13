@@ -1,3 +1,5 @@
+export interface ProjectPhoto { src: string; alt: string }
+export interface ProjectComparison { title: string; before?: ProjectPhoto; after?: ProjectPhoto }
 export interface CompletedProject {
   id: string;
   title: string;
@@ -6,6 +8,9 @@ export interface CompletedProject {
   image: string;
   summary: string;
   location?: string;
+  startDate?: string;
+  completionDate?: string;
+  beforeAfter?: ProjectComparison[];
   scope: string[];
   materials: string[];
   gallery?: { src: string; alt: string }[];

@@ -43,7 +43,11 @@
           "title": "Vân đá vừa đủ",
           "text": "Đối chiếu tỷ lệ vân ở mảng trang trí. Vùng mặt bàn, nước và nhiệt cần kiểm tra điều kiện sử dụng của đúng mã vật liệu."
         }
-      ]
+      ],
+      "location": null,
+      "startDate": null,
+      "completionDate": null,
+      "beforeAfter": []
     },
     {
       "slug": "mau-goc-lam-viec-van-go-trung-tinh",
@@ -88,7 +92,11 @@
           "title": "Ánh sáng phù hợp",
           "text": "Kiểm tra độ bóng dưới đèn bàn và ánh sáng cửa sổ. Đối chiếu mẫu thật trước khi chọn bề mặt trên mảng lớn."
         }
-      ]
+      ],
+      "location": null,
+      "startDate": null,
+      "completionDate": null,
+      "beforeAfter": []
     },
     {
       "slug": "mau-quay-tiep-don-champagne",
@@ -133,7 +141,11 @@
           "title": "Chi tiết sử dụng hằng ngày",
           "text": "Mặt quầy, góc bo và phần chân quầy có mức độ tiếp xúc khác nhau. Xác nhận mã film, cách vệ sinh và phạm vi thực hiện theo từng vị trí."
         }
-      ]
+      ],
+      "location": null,
+      "startDate": null,
+      "completionDate": null,
+      "beforeAfter": []
     }
   ]
 }

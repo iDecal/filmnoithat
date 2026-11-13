@@ -1,0 +1,21 @@
+---
+import Icon from "./Icon.astro";
+import type { ProjectComparison } from "../data/projects";
+interface Props { comparisons?: ProjectComparison[] }
+const { comparisons = [] } = Astro.props;
+const pairs: ProjectComparison[] = comparisons.length ? comparisons : [{title:"Hiện trạng & hoàn thiện"}];
+---
+<div class="project-comparisons">{pairs.map(pair=><div class="project-comparison"><h3>{pair.title}</h3><div class="project-comparison-grid">{[{label:"Trước thi công",photo:pair.before},{label:"Sau hoàn thiện",photo:pair.after}].map(item=><figure><span class="comparison-label">{item.label}</span>{item.photo ? <img src={item.photo.src} alt={item.photo.alt} width="1200" height="800" loading="lazy" decoding="async" /> : <div class="comparison-empty"><span class="comparison-camera"><Icon name="camera" size={30} /></span><p>Chưa cập nhật ảnh {item.label.toLowerCase()}</p></div>}{item.photo&&<figcaption>{item.photo.alt}</figcaption>}</figure>)}</div></div>)}</div>
+<style>
+  .project-comparisons { display: grid; gap: 2rem; }
+  .project-comparison h3 { font-size: .9375rem; font-weight: 500; margin-bottom: 1rem; }
+  .project-comparison-grid { display: grid; gap: 1.25rem; }
+  .project-comparison figure { min-width: 0; }
+  .comparison-label { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: .75rem; padding: .375rem .75rem; border-radius: 999px; background: var(--navy); color: var(--ivory); font-size: .75rem; font-weight: 500; }
+  .project-comparison img { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 16px; }
+  .project-comparison figcaption { font-size: .75rem; line-height: 1.6; color: var(--muted); margin-top: .75rem; }
+  .comparison-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; min-height: 220px; padding: 2rem; background: #edf1f5; border-radius: 16px; text-align: center; }
+  .comparison-camera { display: grid; place-items: center; width: 64px; height: 64px; background: #f3e5cc; border-radius: 16px; color: var(--navy); }
+  .comparison-empty p { font-size: .8125rem; color: var(--muted); }
+  @media(min-width:768px) { .project-comparison-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; }.comparison-empty { aspect-ratio: 3/2; } }
+</style>

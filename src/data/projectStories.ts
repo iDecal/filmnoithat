@@ -1,6 +1,6 @@
 import { projectConcepts } from "./projectConcepts";
 import { catalogue, type CatalogueSample } from "./catalogue";
-import { completedProjects } from "./projects";
+import { completedProjects, type ProjectComparison } from "./projects";
 import { spaces } from "./spaces";
 
 export interface ProjectStory {
@@ -12,6 +12,9 @@ export interface ProjectStory {
   sampleSlugs: string[];
   categories: string[];
   location?: string;
+  startDate?: string;
+  completionDate?: string;
+  beforeAfter?: ProjectComparison[];
   scope: string[];
   materials: string[];
   sourcePage?: number;
@@ -31,11 +34,12 @@ const actualStories: ProjectStory[] = completedProjects.map(project => ({
   slug: project.id, title: project.title, kind: "completed", description: project.summary,
   images: [{ src: project.image, alt: project.title }, ...(project.gallery || [])],
   sampleSlugs: project.sampleSlugs || [], categories: [...new Set((project.sampleSlugs || []).map(slug => catalogue.find(sample => sample.slug === slug)?.category).filter((category): category is string => !!category))],
-  location: project.location, scope: project.scope, materials: project.materials,
+  location: project.location, startDate: project.startDate, completionDate: project.completionDate, beforeAfter: project.beforeAfter, scope: project.scope, materials: project.materials,
 }));
 const conceptStories: ProjectStory[] = projectConcepts.map(concept => ({
   slug: concept.slug, title: concept.title, kind: "reference", description: concept.description,
   images: concept.images, sampleSlugs: [], categories: concept.materials, scope: [], materials: [],
+  location: concept.location || undefined, startDate: concept.startDate || undefined, completionDate: concept.completionDate || undefined, beforeAfter: concept.beforeAfter,
 }));
 export const projectStories = [...actualStories, ...conceptStories, ...catalogueStories, ...referenceStories];
 export const storyHref = (story: ProjectStory) => `/cong-trinh/${story.slug}/`;

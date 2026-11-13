@@ -1,4 +1,5 @@
 export const iconPaths = {
+  calendar: "M4 5h16v16H4zM4 10h16M8 3v4M16 3v4M8 14h2M14 14h2M8 18h2",
   expand: "M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5",
   message: "M21 11a8 8 0 0 1-8 8H7l-5 3 2-6a8 8 0 1 1 17-5M8 10h8M8 14h5",
   camera: "M3 6h4l2-3h6l2 3h4v14H3V6M16 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0",
