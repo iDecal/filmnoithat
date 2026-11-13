@@ -1,15 +1,11 @@
 ---
+import { colorPalettes as palettes, accentPalettes } from "../data/colorGuide";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Icon from "../components/Icon.astro";
 import { breadcrumbSchema } from "../data/seo";
 const title = "Hướng dẫn phối màu film dán nội thất | D-vinyl";
 const description = "Cách phối màu film dán nội thất với tủ, bàn và vách: chọn tông chủ đạo, cân bằng vân gỗ, màu trơn và ánh kim, thử mẫu dưới ánh sáng thực tế.";
-const palettes = [
-  {title:"Sáng và ấm",text:"Giữ nền tường sáng, chọn vân gỗ làm lớp màu thứ hai và dùng chi tiết xanh đen để tạo điểm nhấn. Hợp để tham khảo khi làm mới tủ bếp hoặc góc làm việc.",colors:[{name:"Trắng ấm",hex:"#F3EFE7"},{name:"Gỗ sáng",hex:"#C99E6B"},{name:"Xanh đen",hex:"#0B1B33"}],materials:[{name:"Film vân gỗ",href:"/vat-lieu/van-go/"},{name:"Film đơn sắc",href:"/vat-lieu/don-sac/"}],service:{name:"Dán film tủ bếp",href:"/dich-vu/dan-film-tu-bep/"}},
-  {title:"Gọn và hiện đại",text:"Kết hợp nền trắng với xám trung tính, dùng ánh kim trên một phần nhỏ. Nếu mặt bàn đã có vân rõ, ưu tiên cánh tủ màu trơn để bề mặt không tranh nhau sự chú ý.",colors:[{name:"Trắng",hex:"#FFFFFF"},{name:"Xám",hex:"#A9ADB0"},{name:"Ánh kim",hex:"#777D82"}],materials:[{name:"Film đơn sắc",href:"/vat-lieu/don-sac/"},{name:"Film kim loại",href:"/vat-lieu/kim-loai/"}],service:{name:"Dán film bàn và quầy",href:"/dich-vu/dan-film-ban/"}},
-  {title:"Dịu và có chiều sâu",text:"Phối be, họa tiết vải và một sắc nâu trầm. Giữ các mảng lớn nhẹ màu, dành sắc đậm cho một chi tiết hoặc mảng nhỏ để tổng thể không bị nặng.",colors:[{name:"Be",hex:"#D9CEBA"},{name:"Xám vải",hex:"#B7B0A5"},{name:"Nâu trầm",hex:"#685044"}],materials:[{name:"Film vân vải",href:"/vat-lieu/van-vai/"},{name:"Film vân gỗ",href:"/vat-lieu/van-go/"}],service:{name:"Dán film tường và vách",href:"/dich-vu/dan-film-tuong/"}},
-];
 const steps = [
  {title:"Bắt đầu từ phần giữ lại",text:"Ghi nhận màu sàn, tường, mặt đá, tay nắm và đồ nội thất chưa thay. Chọn film trong tương quan với những màu này thay vì xem từng mẫu riêng lẻ."},
  {title:"Chọn một tông chủ đạo",text:"Ưu tiên hai hoặc ba nhóm màu. Có thể tham khảo tỷ lệ 60–30–10: phần lớn là nền, tiếp theo là vật liệu bổ trợ, phần nhỏ nhất là điểm nhấn. Đây là gợi ý linh hoạt, không phải công thức bắt buộc."},
@@ -17,16 +13,32 @@ const steps = [
  {title:"Thử trên đúng vị trí",text:"Đặt mẫu thật cạnh bề mặt giữ lại, quan sát vào ban ngày và dưới đèn đang sử dụng. Kiểm tra thêm chiều vân, mức phản chiếu và diện tích dự định dán trước khi chốt mã."},
 ];
 ---
-<BaseLayout title={title} description={description} structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:"Hướng dẫn phối màu",path:"/huong-dan-phoi-mau/"}])]}>
+<BaseLayout title={title} description={description} image="/images/perspectives/ivory-oak-kitchen.webp" structuredData={[breadcrumbSchema(Astro.site!, [{name:"Vật liệu",path:"/vat-lieu/"},{name:"Hướng dẫn phối màu",path:"/huong-dan-phoi-mau/"}])]}>
   <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto">
     <Breadcrumbs items={[{label:"Vật liệu",href:"/vat-lieu/"},{label:"Hướng dẫn phối màu"}]} />
     <p class="eyebrow flex items-center gap-3 mb-4"><Icon name="swatches" size={24} />PHỐI MÀU & CHẤT LIỆU</p>
     <h1 class="text-3xl md:text-4xl font-medium max-w-3xl">Hướng dẫn phối màu film dán nội thất</h1>
     <p class="text-base-600 mt-5 max-w-3xl">Một bảng màu hài hòa bắt đầu từ không gian đang có. Chọn màu nền, cân bằng các bề mặt và thử mẫu thật trước khi quyết định màu film cho tủ, bàn hay vách.</p>
-    <nav aria-label="Nội dung hướng dẫn" class="flex flex-wrap gap-3 mt-6"><a href="#nguyen-tac" class="button-secondary">Nguyên tắc phối màu</a><a href="#bang-mau" class="button-secondary">Ba hướng phối tham khảo</a><a href="#theo-hang-muc" class="button-secondary">Chọn theo hạng mục</a></nav>
+    <nav aria-label="Nội dung hướng dẫn" class="flex flex-wrap gap-3 mt-6"><a href="#nguyen-tac" class="button-secondary">Nguyên tắc phối màu</a><a href="#bang-mau" class="button-secondary">7 cách phối có ảnh minh họa</a><a href="#mau-nhan" class="button-secondary">Thêm màu nhấn</a><a href="#theo-hang-muc" class="button-secondary">Chọn theo hạng mục</a></nav>
+  </div></section>
+  <section class="guide-visual-intro px-4 sm:px-6 py-8 sm:py-12"><div class="max-w-7xl mx-auto grid lg:grid-cols-[1.3fr_1fr] gap-6 lg:gap-10 items-center">
+    <figure><img src="/images/perspectives/ivory-oak-kitchen.webp" alt="Không gian bếp phối trắng ấm và gỗ sáng minh họa cách chọn màu film dán nội thất" title="Gợi ý phối trắng ấm và gỗ sáng cho tủ bếp" width="1672" height="941" fetchpriority="high" class="w-full aspect-[16/9] object-cover rounded-2xl" /><figcaption class="text-xs text-base-600 mt-2">Ảnh minh họa phối màu, không xác nhận sử dụng một mã film cụ thể.</figcaption></figure>
+    <div><p class="eyebrow mb-3">NHÌN TỔNG THỂ TRƯỚC KHI CHỌN MẪU</p><h2 class="text-2xl font-semibold">Một màu nền, một lớp chất liệu, một điểm nhấn</h2><p class="text-base-600 mt-4">Bắt đầu từ những màu đã có trong nhà, rồi bổ sung film để kết nối tủ, bàn và vách. Có thể tham khảo tỷ lệ dưới đây và điều chỉnh theo diện tích thực tế.</p>
+    <div class="flex h-9 rounded-lg overflow-hidden border border-black/10 mt-5" aria-label="Minh họa tỷ lệ 60 phần trăm nền, 30 phần trăm vật liệu bổ trợ, 10 phần trăm điểm nhấn"><span style="width:60%;background:#EEE8DC" class="flex items-center justify-center text-xs">60%</span><span style="width:30%;background:#C09A6C" class="flex items-center justify-center text-xs">30%</span><span style="width:10%;background:#152A3D;color:#fff" class="flex items-center justify-center text-xs">10%</span></div><p class="text-xs text-base-600 mt-2">Nền sáng · Chất liệu bổ trợ · Màu nhấn — tỷ lệ gợi ý, không phải quy tắc cố định.</p></div>
   </div></section>
   <section id="nguyen-tac" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Bốn bước để chọn màu có chủ đích</h2><ol class="grid md:grid-cols-2 gap-6">{steps.map((step,index)=><li class="guide-card rounded-2xl p-6 sm:p-8"><span class="text-sm font-semibold guide-number">0{index+1}</span><h3 class="text-lg font-semibold mt-4">{step.title}</h3><p class="text-base-600 mt-3">{step.text}</p></li>)}</ol></div></section>
-  <section id="bang-mau" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold">Ba hướng phối để bắt đầu</h2><p class="text-sm text-base-600 mt-3 mb-7">Các màu dưới đây minh họa ý tưởng phối, không đại diện cho một mã film cụ thể. Hãy đối chiếu với mẫu vật liệu thật.</p><div class="grid lg:grid-cols-3 gap-6">{palettes.map(palette=><article class="guide-card rounded-2xl p-6 flex flex-col"><h3 class="text-xl font-semibold">{palette.title}</h3><ul class="flex flex-wrap gap-4 mt-5">{palette.colors.map(color=><li class="flex items-center gap-2 text-sm"><span class="w-7 h-7 rounded-full border border-black/10" style={{backgroundColor:color.hex}} aria-hidden="true" />{color.name}</li>)}</ul><p class="text-base-600 mt-5">{palette.text}</p><div class="flex flex-wrap gap-x-4 gap-y-2 mt-5">{palette.materials.map(material=><a class="text-sm font-medium underline underline-offset-4 min-h-11 inline-flex items-center" href={material.href}>{material.name}</a>)}</div><a href={palette.service.href} class="flex items-center justify-between gap-3 text-sm font-medium mt-auto pt-5 min-h-11">{palette.service.name}<Icon name="arrow" size={18} /></a></article>)}</div></div></section>
+  <section id="bang-mau" class="guide-palette-section px-4 sm:px-6 section-space"><div class="max-w-7xl mx-auto"><p class="eyebrow mb-3">7 KHÔNG GIAN · 7 CÁCH PHỐI</p><h2 class="text-2xl font-semibold">Chọn một cách phối gần với không gian của bạn</h2><p class="text-sm text-base-600 mt-3 mb-7">Ảnh và bảng màu minh họa ý tưởng, không đại diện cho mã film hay xác nhận công trình thực tế. Màu hiển thị trên màn hình cần đối chiếu với mẫu thật.</p>
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">{palettes.map((palette,index)=><article id={palette.id} class="palette-card rounded-2xl overflow-hidden flex flex-col">
+      <figure><img src={`/images/perspectives/${palette.image}.webp`} alt={palette.alt} title={`Phối màu film dán nội thất: ${palette.title}`} width={palette.width} height={palette.height} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover" /><figcaption class="px-5 pt-3 text-xs text-base-600">{palette.mood} · Ảnh minh họa</figcaption></figure>
+      <div class="p-5 flex flex-col flex-1"><div class="flex items-start gap-3"><span class="guide-number text-sm pt-1">0{index+1}</span><h3 class="text-xl font-semibold">{palette.title}</h3></div>
+        <ul class="palette-swatches grid grid-cols-3 gap-2 mt-5">{palette.colors.map(color=><li><span class="block h-10 rounded-lg border border-black/10" style={{backgroundColor:color.hex}} aria-hidden="true" /><span class="block text-xs mt-2">{color.name}</span></li>)}</ul>
+        <p class="text-sm text-base-600 mt-4">{palette.text}</p><p class="palette-tip text-sm mt-4 p-3 rounded-lg"><strong>Cách áp dụng: </strong>{palette.tip}</p>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4">{palette.materials.map(material=><a class="text-sm font-medium underline underline-offset-4 min-h-11 inline-flex items-center" href={`/vat-lieu/${material.href}/`}>{material.name}</a>)}</div>
+        <a href={`/dich-vu/${palette.service.href}/`} class="flex items-center justify-between gap-3 text-sm font-medium mt-auto pt-4 min-h-11">{palette.service.name}<Icon name="arrow" size={18} /></a>
+      </div>
+    </article>)}</div>
+  </div></section>
+  <section id="mau-nhan" class="guide-accent-section px-4 sm:px-6 section-space"><div class="max-w-7xl mx-auto"><p class="eyebrow mb-3">BIẾN TẤU TỪ NỀN TRUNG TÍNH</p><h2 class="text-2xl font-semibold">Thêm một chút màu để tạo cá tính</h2><p class="text-base-600 mt-3 mb-6 max-w-3xl">Nếu muốn khác biệt hơn các không gian ở trên, hãy thử một màu nhấn trong bảng sau. Các bảng này là gợi ý màu độc lập, chưa gắn với một mã vật liệu cụ thể.</p><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">{accentPalettes.map(palette=><article class="palette-card rounded-xl p-5"><h3 class="text-lg font-semibold">{palette.title}</h3><ul class="grid grid-cols-3 gap-2 mt-4">{palette.colors.map(color=><li><span class="block h-12 rounded-lg border border-black/10" style={{backgroundColor:color.hex}} aria-hidden="true" /><span class="block text-xs mt-2">{color.name}</span></li>)}</ul><p class="text-sm text-base-600 mt-4">{palette.text}</p></article>)}</div><a href="/vat-lieu/don-sac/" class="inline-flex gap-3 items-center min-h-11 mt-5 text-sm font-medium">Khám phá film đơn sắc để chọn màu nhấn<Icon name="arrow" size={18} /></a></div></section>
   <section id="theo-hang-muc" class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Áp dụng vào từng hạng mục</h2><div class="grid md:grid-cols-3 gap-6">
     <a href="/dich-vu/dan-film-tu-bep/" class="guide-card rounded-2xl p-6"><Icon name="cabinet" size={28} /><h3 class="text-lg font-semibold mt-4">Tủ bếp</h3><p class="text-base-600 mt-3">Đối chiếu màu cánh tủ với mặt đá, kính bếp và sàn. Nếu dùng hai màu tủ, thử mảng sáng phía trên và màu đậm hơn phía dưới.</p><span class="inline-flex items-center gap-3 mt-5 text-sm font-medium">Xem dịch vụ dán film tủ bếp<Icon name="arrow" size={18} /></span></a>
     <a href="/dich-vu/dan-film-ban/" class="guide-card rounded-2xl p-6"><Icon name="table" size={28} /><h3 class="text-lg font-semibold mt-4">Bàn và quầy</h3><p class="text-base-600 mt-3">Chọn màu mặt bàn trong tương quan với chân bàn, ghế và tủ bên cạnh. Xem mẫu ở góc ngồi sử dụng để đánh giá vân và độ phản chiếu.</p><span class="inline-flex items-center gap-3 mt-5 text-sm font-medium">Xem dịch vụ dán film bàn<Icon name="arrow" size={18} /></span></a>
@@ -37,4 +49,10 @@ const steps = [
 .guide-card { border:1px solid #e5e8eb; background:#fafbfc; color:var(--navy); }
 a.guide-card:hover { border-color:var(--gold); background:#fff; }
 .guide-number { color:#876a37; }
+.guide-visual-intro { background:#f1f5f7; }
+.guide-palette-section { background:#f5f7f9; }
+.guide-accent-section { background:#f8f3ea; }
+.palette-card { background:#fff; border:1px solid #e0e5e8; color:var(--navy); }
+.palette-tip { background:#f3f6f8; border-left:2px solid #d4bc8b; }
+.palette-card a:hover { text-decoration:underline; text-underline-offset:4px; }
 </style>
