@@ -11,10 +11,10 @@
     --gold: #D4BC8B;
     --pearl: #B9BEC7;
     --muted: #5C6573;
-    --canvas: #FFFFFF;
-    --surface: #FFFFFF;
-    --canvas-rgb: 255 255 255;
-    --surface-rgb: 255 255 255;
+    --canvas: #FAF7F0;
+    --surface: #FDFAF5;
+    --canvas-rgb: 250 247 240;
+    --surface-rgb: 253 250 245;
     --navy-rgb: 11 27 51;
     --ivory-rgb: 255 255 255;
     --gold-rgb: 212 188 139;
@@ -276,7 +276,7 @@ body main .editorial-hero .button-secondary:hover { background: var(--navy); col
 }
 :is(.bg-base-50, .surface-gradient, .ink-gradient, main .bg-base-900, main .bg-base-950) { background-color: var(--canvas); color: var(--navy); background-image: none; }
 :is(.bg-white, .bg-white\/95, .bg-white\/70, .bg-base-100\/80, .service-scope-card, .service-material-card, .service-process-grid li) { background-color: var(--surface); color: var(--navy); }
-:is(.warm-surface, .bg-base-100, .bg-accent-100, .bg-accent-100\/60, .bg-primary-50, .product-price) { background-color: var(--ivory); color: var(--navy); }
+:is(.warm-surface, .bg-base-100, .bg-accent-100, .bg-accent-100\/60, .bg-primary-50, .product-price) { background-color: var(--canvas); color: var(--navy); }
 .text-base-900, .text-base-950 { color: inherit; }
 main .text-white { color: var(--navy); }
 main :is(.text-white\/75, .text-white\/80, .text-white\/90) { color: var(--muted); }
