@@ -4,7 +4,6 @@ import BrandLogo from "../../components/BrandLogo.astro";
 import { brands as brandProfiles, brandHref } from "../../data/brands";
 import pageContent from "../../data/pageContent.json";
 import Icon from "../../components/Icon.astro";
-import { categoryIcon } from "../../data/icons";
 import { catalogue, samplesForMaterial } from "../../data/catalogue";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -35,7 +34,7 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 <BaseLayout faqs={faqs} title={pageContent.materials.title} description={pageContent.materials.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Vật liệu", path: "/vat-lieu/" }])]}>
   <StaticHero image="/images/perspectives/modern-reception.webp" imageAlt="Phối cảnh minh họa kết hợp vân gỗ, vân đá và sắc màu trung tính"><Breadcrumbs items={[{label:"Vật liệu"}]} /><p class="eyebrow">BẮT ĐẦU TỪ CHẤT LIỆU BẠN THÍCH</p><h1>{pageContent.materials.headingLead}<br />{pageContent.materials.headingAccent}</h1><p>{pageContent.materials.intro}</p><div class="hero-actions"><a href="#cac-loai-vat-lieu" class="button-primary">Khám phá vật liệu →</a><a href="/thuong-hieu/" class="button-secondary">Chọn thương hiệu →</a></div></StaticHero>
   <section class="materials-summary"><div class="materials-wrap"><p>Một không gian, nhiều cách thể hiện.</p><div><span><strong>{materials.length}</strong> nhóm bề mặt</span><span><strong>{catalogue.length}</strong> mẫu trong danh mục</span><span><strong>{brands.length}</strong> thương hiệu</span></div></div></section>
-  <section id="cac-loai-vat-lieu" class="materials-list"><div class="materials-wrap"><header class="materials-list-heading"><p class="eyebrow">TỔNG QUAN VẬT LIỆU</p><h2>Chọn bề mặt theo cách bạn muốn cảm nhận.</h2></header><FilterGallery filters={filters} noun="nhóm vật liệu" brands={brands}><span slot="count">{materials.length} nhóm vật liệu</span><div class="materials-cards">{materials.map((material,index) => <article class="materials-card" data-filter-card={material.mood} data-brand-counts={JSON.stringify(Object.fromEntries(brands.map(brand => [brand, samplesForMaterial(material.slug).filter(sample => sample.brand === brand).length])))}><a href={materialHref(material)} data-material-link={materialHref(material)} class="materials-card-link"><div class="materials-card-photo"><MaterialPreview material={material} /><span class="materials-card-number">0{index+1}</span></div><div class="materials-card-copy"><p class="eyebrow">{material.moodLabel}</p><h2><Icon name={categoryIcon(material.slug)!} size={25} />{material.name}</h2><p class="materials-card-description">{overviews[material.slug]}</p><ul class="materials-applications" aria-label="Ứng dụng tham khảo">{material.applications.map(item=><li>{item.title}</li>)}</ul><div class="materials-card-footer"><span data-gallery-sample-count>{samplesForMaterial(material.slug).length ? `${samplesForMaterial(material.slug).length} mẫu · ` : ""}</span><span>Khám phá chất liệu <Icon name="arrow" size={17} /></span></div></div></a></article>)}</div></FilterGallery></div></section>
+  <section id="cac-loai-vat-lieu" class="materials-list"><div class="materials-wrap"><header class="materials-list-heading"><p class="eyebrow">TỔNG QUAN VẬT LIỆU</p><h2>Chọn bề mặt theo cách bạn muốn cảm nhận.</h2></header><FilterGallery filters={filters} noun="nhóm vật liệu" brands={brands}><span slot="count">{materials.length} nhóm vật liệu</span><div class="materials-cards">{materials.map((material,index) => <article class="materials-card" data-filter-card={material.mood} data-brand-counts={JSON.stringify(Object.fromEntries(brands.map(brand => [brand, samplesForMaterial(material.slug).filter(sample => sample.brand === brand).length])))}><a href={materialHref(material)} data-material-link={materialHref(material)} class="materials-card-link"><div class="materials-card-photo"><MaterialPreview material={material} /><span class="materials-card-number">0{index+1}</span></div><div class="materials-card-copy"><h3>{material.name}</h3><p class="materials-card-description">{overviews[material.slug]}</p><div class="materials-card-footer"><span data-gallery-sample-count>{samplesForMaterial(material.slug).length ? `${samplesForMaterial(material.slug).length} mẫu · ` : ""}</span><span>Khám phá chất liệu <Icon name="arrow" size={17} /></span></div></div></a></article>)}</div></FilterGallery></div></section>
   <section class="materials-brands"><div class="materials-wrap"><div class="materials-brand-heading"><div><p class="eyebrow">CHỌN THEO THƯƠNG HIỆU</p><h2>Khám phá trọn bộ sưu tập.</h2></div><a href="/thuong-hieu/" class="materials-all-brands">Tất cả thương hiệu <Icon name="arrow" size={18} /></a></div><div class="materials-brand-grid">{brandProfiles.map(brand=><a href={brandHref(brand)} class="materials-brand-card"><div class="materials-brand-photo"><img src={brand.image} alt={`Vật liệu và ứng dụng tham khảo trong bộ sưu tập ${brand.name}`} width="700" height="420" loading="lazy" /></div><div class="materials-brand-copy"><BrandLogo brand={brand} size="small" /><p>{brand.description}</p><span>Khám phá {brand.name}<Icon name="arrow" size={17} /></span></div></a>)}</div></div></section>
   <section class="materials-faq"><div class="materials-wrap materials-faq-layout"><header><p class="eyebrow">GIẢI ĐÁP TRƯỚC KHI CHỌN</p><h2>Câu hỏi thường gặp về film dán nội thất</h2><p>Tìm hiểu thêm để chọn vật liệu phù hợp với không gian và nhu cầu sử dụng.</p><a href="/lien-he/" class="button-secondary mt-5">Liên hệ tư vấn<Icon name="arrow" size={18} class="ml-3" /></a></header><div>{faqs.map(faq=><details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
 </BaseLayout>
@@ -52,20 +51,20 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-list-heading { margin-bottom:24px; }
 .materials-list-heading h2 { font-size:clamp(1.375rem,2.5vw,1.875rem);font-weight:500;margin-top:10px; }
 .materials-cards { display:grid;gap:24px; }
-.materials-card { min-width:0;border:1px solid #e4e5e5;border-radius:18px;overflow:hidden;background:#fff;transition:border-color .18s,box-shadow .18s; }
-.materials-card:hover { border-color:#c9af7e;box-shadow:0 8px 24px rgb(11 27 51 / .05); }
+.materials-card { min-width:0;background:#fff; }
+
 .materials-card-link { display:flex;flex-direction:column;height:100%; }
-.materials-card-photo { position:relative;aspect-ratio:16/9;overflow:hidden;background:#f8f6f1; }
-.materials-card-photo :global(img) { transition:transform .25s; }
+.materials-card-photo { position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--surface-soft);border-radius:20px; }
+.materials-card-photo :global(img) { width:100%;height:100%;object-fit:cover;transition:transform .25s; }
 .materials-card:hover .materials-card-photo :global(img) { transform:scale(1.025); }
 .materials-card-number { position:absolute;top:16px;left:16px;background:rgb(255 255 255 / .94);border-radius:50%;width:36px;height:36px;display:grid;place-items:center;font-size:.75rem;font-weight:600; }
-.materials-card-copy { padding:24px;display:flex;flex-direction:column;flex:1; }
+.materials-card-copy { padding:22px 0 0;display:flex;flex-direction:column;flex:1; }
 .materials-card-copy > .eyebrow { font-size:.625rem; }
-.materials-card-copy h2 { display:flex;align-items:center;gap:10px;font-size:1.375rem;font-weight:500;margin-top:10px; }
+.materials-card-copy h3 { font-size:1.25rem;font-weight:500;line-height:1.4; }
 .materials-card-description { font-size:.875rem;line-height:1.8;color:var(--muted);margin-top:14px; }
 .materials-applications { display:flex;flex-wrap:wrap;gap:6px;margin-block:18px; }
 .materials-applications li { font-size:.6875rem;padding:5px 9px;border-radius:6px;background:var(--surface-soft);color:#111; }
-.materials-card-footer { display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;border-top:1px solid #e9e9e6;font-size:.75rem;color:var(--muted); }
+.materials-card-footer { display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:auto;padding-top:28px;font-size:.75rem;color:var(--muted); }
 .materials-card-footer > span:last-child { display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:500; }
 @media(min-width:640px) { .materials-wrap { width:calc(100% - 48px); } }
 @media(min-width:1024px) { .materials-wrap { width:calc(100% - 56px); }.materials-list { padding-top:48px; } }
@@ -95,11 +94,8 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-faq details[open] summary span { transform:rotate(45deg); }
 .materials-faq details > p { font-size:.875rem;line-height:1.8;color:var(--muted);padding-bottom:20px; }
 @media(min-width:768px) {
- .materials-card-link { display:grid;grid-template-columns:1fr 1fr;align-items:stretch; }
- .materials-card-photo { aspect-ratio:auto;min-height:320px; }
- .materials-card-copy { padding:32px;justify-content:center; }
- .materials-card-footer { margin-top:8px; }
+ .materials-cards { grid-template-columns:repeat(2,minmax(0,1fr));gap:32px; }
  .materials-brand-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
-@media(min-width:1024px) { .materials-faq-layout { grid-template-columns:.8fr 1.2fr;gap:64px; }.materials-faq { padding-block:64px; }.materials-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }.materials-card-link { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); }.materials-card-copy { min-width:0;padding:20px; }.materials-card-copy h2 { font-size:1.125rem;gap:8px; }.materials-card-photo { min-height:340px; }.materials-card-description { font-size:.8125rem; }.materials-card-footer { align-items:flex-start;flex-direction:column;gap:10px; } }
+@media(min-width:1024px) { .materials-faq-layout { grid-template-columns:.8fr 1.2fr;gap:64px; }.materials-faq { padding-block:64px; }.materials-cards { grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px; } }
 </style>
