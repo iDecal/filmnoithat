@@ -46,7 +46,7 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-summary > div > div { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; color: var(--muted); font-size: .8125rem; }
 .materials-summary strong { color: var(--navy); font-weight: 600; }
 
-.materials-wrap { width:calc(100% - 24px);margin-inline:auto; }
+.materials-wrap { width:min(1280px,calc(100% - 40px));margin-inline:auto; }
 .materials-list { padding-block:36px 48px;scroll-margin-top:6rem;background:#fff; }
 .materials-list-heading { margin-bottom:24px; }
 .materials-list-heading h2 { font-size:clamp(1.375rem,2.5vw,1.875rem);font-weight:500;margin-top:10px; }
@@ -66,8 +66,8 @@ const filters = [{ label: "Tất cả vật liệu", value: "all" }, { label: "�
 .materials-applications li { font-size:.6875rem;padding:5px 9px;border-radius:6px;background:var(--surface-soft);color:#111; }
 .materials-card-footer { display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:auto;padding-top:28px;font-size:.75rem;color:var(--muted); }
 .materials-card-footer > span:last-child { display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:500; }
-@media(min-width:640px) { .materials-wrap { width:calc(100% - 48px); } }
-@media(min-width:1024px) { .materials-wrap { width:calc(100% - 56px); }.materials-list { padding-top:48px; } }
+@media(min-width:640px) { .materials-wrap { width:min(1280px,calc(100% - 48px)); } }
+@media(min-width:1024px) { .materials-list { padding-top:48px; } }
 @media(prefers-reduced-motion:reduce) { .materials-card-photo :global(img) { transition:none; } }
 
 
