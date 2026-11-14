@@ -27,7 +27,7 @@ const materialCount = new Set(samples.map(sample => sample.category)).size;
   .brand-selector { padding-top: 2.5rem; padding-bottom: .5rem; }
   .brand-selector h2 { text-align: center; font-size: .6875rem; font-weight: 600; letter-spacing: .14em; color: var(--muted); margin-bottom: 1rem; }
   .brand-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,200px)); justify-content: center; gap: 1rem; }
-  .brand-tabs a { display: flex; flex-direction: column; align-items: stretch; gap: .875rem; padding: 1rem; border: 1px solid rgb(var(--pearl-rgb) / .55); border-radius: 16px; background: #f5f7f9; color: var(--navy); transition: background-color 160ms,border-color 160ms; }
+  .brand-tabs a { display: flex; flex-direction: column; align-items: stretch; gap: .875rem; padding: 1rem; border: 1px solid rgb(var(--pearl-rgb) / .55); border-radius: 16px; background: var(--surface-soft); color: var(--navy); transition: background-color 160ms,border-color 160ms; }
   .brand-tabs a:hover { border-color: var(--navy); background: #edf1f6; }
   .brand-tabs a[aria-current] { color: white; border-color: var(--navy); background: var(--navy); }
   .brand-tab-logo { display: flex; justify-content: center; align-items: center; min-height: 64px; background: white; border-radius: 10px; }
