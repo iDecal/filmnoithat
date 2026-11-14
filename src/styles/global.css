@@ -11,12 +11,12 @@
     --gold: #D4BC8B;
     --pearl: #B9BEC7;
     --muted: #5C6573;
-    --canvas: #FDFBF7;
-    --surface: #FFFEFA;
-    --surface-soft: #F7F4EE;
+    --canvas: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-soft: #F7F8FA;
     --champagne-soft: #F6EDDD;
-    --canvas-rgb: 253 251 247;
-    --surface-rgb: 255 254 250;
+    --canvas-rgb: 255 255 255;
+    --surface-rgb: 255 255 255;
     --navy-rgb: 11 27 51;
     --ivory-rgb: 255 255 255;
     --gold-rgb: 212 188 139;
