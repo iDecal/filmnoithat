@@ -20,7 +20,16 @@
   "pricePerMetre": 375000,
   "rollSpecification": "1,23 m × 50 m",
   "order": 18,
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/images/uploads/products/ni-949/film-dan-noi-that-infeel-ni-949-f8409d0d23e1.webp",
+      "alt": "Bề mặt Film dán nội thất Maron Emperador NI 949 – INFEEL",
+      "caption": "",
+      "width": 1536,
+      "height": 2048,
+      "title": "Film dán nội thất Maron Emperador NI 949 – INFEEL"
+    }
+  ],
   "hiddenImages": [
     "/images/perspectives/ivory-oak-kitchen.webp",
     "/images/perspectives/oak-living-room.webp",
