@@ -19,5 +19,9 @@
   "pdf": "/catalogues/infeel-2026.pdf",
   "pricePerMetre": 375000,
   "rollSpecification": "1,23 m × 50 m",
-  "order": 18
+  "order": 18,
+  "gallery": [],
+  "hiddenImages": [
+    "/images/perspectives/ivory-oak-kitchen.webp"
+  ]
 }
