@@ -48,14 +48,6 @@ const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — 
           <dl class="divide-y divide-base-200 text-sm">{productDetails.map(detail => <div class="grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] gap-3 py-3 items-start"><dt class="flex items-center gap-2 text-base-600"><span class="inline-flex w-7 h-7 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600"><Icon name={detail.icon} size={17} /></span><span>{detail.label}</span></dt><dd class="pt-1 font-medium break-words">{detail.label === "Thương hiệu" ? <a href={brandHref(productBrand)} aria-label={`Xem thương hiệu ${productBrand.name}`}><BrandLogo brand={productBrand} size="small" /></a> : detail.value}</dd></div>)}</dl>
         </section>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-6"><a href={site.zaloHref} class="button-primary">Tư vấn mẫu {sample.code} qua Zalo</a><button type="button" data-copy-request class="button-secondary" data-request={request}>Sao chép yêu cầu mẫu</button></div><p data-copy-status role="status" aria-live="polite" class="text-sm text-base-600 mt-3">Sao chép yêu cầu rồi gửi qua Zalo để trao đổi đúng mã mẫu.</p>
-        {sample.application && !sample.hiddenImages?.includes(sample.application) && (
-          <figure class="mt-6">
-            <a href={sample.application} class="block overflow-hidden rounded-xl">
-              <img src={sample.application} alt={sample.applicationAlt || `Ảnh phối cảnh ${sample.brand} ${sample.code}`} loading="lazy" class="h-auto w-full" />
-            </a>
-            <figcaption class="mt-2 text-sm text-base-600">Phối cảnh {sample.brand} {sample.code}</figcaption>
-          </figure>
-        )}
       </div>
     </div>
   </div></section>
