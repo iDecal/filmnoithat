@@ -6,14 +6,13 @@ import ProductImageUpload from "../../../components/ProductImageUpload.astro";
 import ProductImageGallery from "../../../components/ProductImageGallery.astro";
 import ProductProjectSlider from "../../../components/ProductProjectSlider.astro";
 import Icon from "../../../components/Icon.astro";
-import { categoryIcon, type IconName } from "../../../data/icons";
+import type { IconName } from "../../../data/icons";
 import { productSeoTitle, productHeading } from "../../../data/seoTitles";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { brands, brandHref } from "../../../data/brands";
 import { catalogue, sampleHref } from "../../../data/catalogue";
 import { materials, materialHref } from "../../../data/materials";
-import { services, serviceHref } from "../../../data/services";
 import { site } from "../../../data/site";
 import { breadcrumbSchema } from "../../../data/seo";
 export function getStaticPaths() {
@@ -23,7 +22,6 @@ const { sample } = Astro.props;
 const productBrand = brands.find(brand => brand.name === sample.brand)!;
 const material = materials.find(item => item.slug === sample.category)!;
 const related = catalogue.filter(item => item.category === sample.category && item.brand === sample.brand && item.slug !== sample.slug).sort((a,b) => Number(b.group === sample.group)-Number(a.group === sample.group)).slice(0,4);
-const relatedServices = services.filter(service => material.services.includes(service.slug));
 const description = sample.seoDescription || `${productHeading(sample)}, dòng ${sample.group} trong catalogue ${sample.collection}. Xem ảnh bề mặt, tham khảo ứng dụng và liên hệ tư vấn mua film hoặc thi công.`;
 const priceText = sample.pricePerMetre ? " Giá vật liệu: " + formatRetailPrice(sample.pricePerMetre) + "/mét dài." : "";
 const productDetails: {label: string; value: string; icon: IconName}[] = [
@@ -54,7 +52,6 @@ const request = `Tôi muốn tư vấn mẫu ${sample.brand} ${sample.code} — 
     </div>
   </div></section>
   <ProductProjectSlider sample={sample} />
-  <section class="px-4 sm:px-6 section-space bg-white"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-16"><div><h2 class="text-2xl font-semibold mb-5">Trước khi chọn film dán nội thất.</h2><ul class="list-disc pl-5 space-y-3 text-base-600"><li>Gửi mã {sample.code}, số lượng hoặc kích thước cần dán và địa điểm nhận hàng / công trình.</li><li>Xác nhận khổ film, thông số, lô màu, lượng dư và tình trạng cung cấp trước khi đặt.</li><li>So mẫu dưới ánh sáng thực tế. Đặc tính kỹ thuật cần theo hồ sơ của đúng mẫu và phiên bản vật liệu.</li><li>Nếu thuê thi công, cần đánh giá nền và thống nhất chi phí xử lý, tháo lắp cùng phạm vi thực hiện.</li></ul></div><div class="warm-surface rounded-xl p-6 sm:p-8"><p class="eyebrow mb-3">CẦN HOÀN THIỆN NỘI THẤT?</p><h2 class="text-2xl font-semibold mb-5">Xem thêm cách ứng dụng.</h2><ul class="space-y-2" data-product-applications>{relatedServices.map(service => <li><a href={serviceHref(service)} class="flex items-center gap-3 min-h-11 py-2 text-primary-600 font-medium hover:underline"><span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-accent-100 text-accent-700 shrink-0"><Icon name={categoryIcon(service.slug)!} size={23} /></span><span class="flex-1">{service.name}</span><Icon name="arrow" size={18} /></a></li>)}</ul><a href={`${materialHref(material)}#mau-vat-lieu`} class="inline-flex items-center min-h-11 mt-4 text-sm text-primary-600 font-semibold hover:underline">Trở lại bộ sưu tập {material.shortName.toLowerCase()} →</a></div></div></section>
   <section class="px-4 sm:px-6 section-space warm-surface"><div class="max-w-7xl mx-auto"><h2 class="text-2xl font-semibold mb-7">Thêm lựa chọn cùng nhóm.</h2><div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">{related.map(item => <ProductCard sample={item} />)}</div></div></section>
 
 </BaseLayout>
