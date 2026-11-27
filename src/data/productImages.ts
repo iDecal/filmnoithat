@@ -16,9 +16,8 @@ export function imagesForProduct(sample: CatalogueSample): ProductImage[] {
   for (const story of storiesForSample(sample)) {
     for (const photo of story.images) {
       if (hidden.has(photo.src) || images.some(image=>image.src===photo.src)) continue;
-      const exact=story.sampleSlugs.includes(sample.slug);
-      images.push({src:photo.src,alt:photo.alt,label:exact ? "Đúng mã" : "Tham khảo",
-        caption:exact ? (story.kind === "completed" ? `Công trình thực tế dùng mã ${sample.code}.` : `Ảnh ứng dụng mã ${sample.code} từ catalogue.`) : `${story.title}. Ảnh tham khảo cùng nhóm vật liệu.`,
+      images.push({src:photo.src,alt:photo.alt,label:"Đúng mã",
+        caption:story.kind === "completed" ? `Công trình thực tế dùng mã ${sample.code}.` : `Ảnh ứng dụng mã ${sample.code} từ catalogue.`,
         href:storyHref(story),width:1100,height:750});
       if (images.length>=4) return images;
     }

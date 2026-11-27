@@ -45,10 +45,7 @@ const conceptStories: ProjectStory[] = projectConcepts.map(concept => ({
 export const projectStories = [...actualStories, ...conceptStories, ...catalogueStories, ...referenceStories];
 export const storyHref = (story: ProjectStory) => `/cong-trinh/${story.slug}/`;
 export const storyLabel = (story: ProjectStory) => ({ completed: "Công trình thực tế", catalogue: "Ảnh ứng dụng catalogue", reference: "Không gian tham khảo" })[story.kind];
-export const storiesForSample = (sample: CatalogueSample) => {
-  const exact = projectStories.filter(story => story.sampleSlugs.includes(sample.slug));
-  const related = projectStories.filter(story => !exact.includes(story) && story.categories.includes(sample.category) && (story.kind !== "catalogue" || story.sampleSlugs.some(slug => catalogue.find(item => item.slug === slug)?.brand === sample.brand)));
-  return [...exact, ...related].slice(0, 5);
-};
+export const storiesForSample = (sample: CatalogueSample) =>
+  projectStories.filter(story => story.kind !== "reference" && story.sampleSlugs.includes(sample.slug)).slice(0, 5);
 
 export const storiesForService = (slug: string) => projectStories.filter(story => story.kind !== "catalogue" && (slug === "dan-film-noi-that" ? story.services.length > 0 : story.services.includes(slug)));

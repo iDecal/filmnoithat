@@ -55,6 +55,6 @@ Trình nâng cấp xác minh SHA-256 nguồn trước khi trích những ảnh �
 
 ## Bộ ảnh đầu trang sản phẩm
 
-`src/data/productImages.ts` chọn tối đa 4 ảnh không trùng: bề mặt của mã đang xem, ảnh ứng dụng đúng mã nếu có, rồi ảnh cùng nhóm vật liệu. Nhóm bê tông hiện chỉ có một không gian tham khảo nên có 2 ảnh tổng cộng; không tạo ảnh giả để đủ số lượng. Mọi ảnh tham khảo được chú thích và liên kết trang ứng dụng nguồn.
+Bộ ảnh đầu trang hiển thị ảnh bề mặt, ảnh vật liệu bổ sung và ảnh ứng dụng đúng mã nếu có chỗ trong bộ ảnh. Ảnh ứng dụng đúng mã được chú thích và liên kết tới trang nguồn. Mục công trình và ảnh ứng dụng chỉ xuất hiện khi có ảnh gắn với đúng mã sản phẩm.
 
 `ProductImageGallery.astro` hiển thị ảnh lớn 4:3, nút ảnh nhỏ, trạng thái `aria-pressed`, chú thích cập nhật và hộp thoại ảnh gốc. Khi tắt JavaScript, ảnh phụ có trong phần `noscript`. Ảnh ứng dụng khác mã không được thêm vào schema Product như ảnh xác nhận của mã đang xem.
