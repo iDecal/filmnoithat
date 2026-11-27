@@ -6,6 +6,8 @@ import { projectStories, storyHref, storyLabel } from "../../data/projectStories
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import FilterGallery from "../../components/FilterGallery.astro";
+import { catalogue, sampleHref } from "../../data/catalogue";
+import { materials } from "../../data/materials";
 import { spaces } from "../../data/spaces";
 import { breadcrumbSchema } from "../../data/seo";
 const projectCards = projectStories.filter(story => story.kind !== "catalogue").map(story => {
@@ -13,13 +15,62 @@ const projectCards = projectStories.filter(story => story.kind !== "catalogue").
   const index = Number(story.slug.match(/^khong-gian-tham-khao-(\d+)$/)?.[1]) - 1;
   return { story, category: concept?.category || spaces[index]?.category || "commercial", label: concept ? "PHƯƠNG ÁN MINH HỌA" : storyLabel(story) };
 });
-const applicationStories = projectStories.filter(story => story.kind === "catalogue");
+const applications = projectStories.flatMap(story => {
+  if (story.kind !== "catalogue") return [];
+  const sample = catalogue.find(item => item.slug === story.sampleSlugs[0]);
+  return sample ? [{ story, sample }] : [];
+});
+const applicationFilters = [
+  { label: "Tất cả vật liệu", value: "all" },
+  ...materials.filter(material => applications.some(({ sample }) => sample.category === material.slug))
+    .map(material => ({ label: material.shortName, value: material.slug })),
+];
+const featured = applications.find(({ sample }) => sample.slug === "ms-737") ?? applications[0];
 const filters = [{ label: "Tất cả không gian", value: "all" }, { label: "Nhà ở", value: "home" }, { label: "Văn phòng", value: "office" }, { label: "Không gian chung", value: "commercial" }];
 ---
 <BaseLayout title={pageContent.projects.title} description={pageContent.projects.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Công trình & ứng dụng", path: "/cong-trinh/" }])]}>
-  <section class="editorial-hero px-4 sm:px-6 section-space bg-base-50 surface-gradient"><div class="max-w-7xl mx-auto"><Breadcrumbs items={[{ label: "Công trình & ứng dụng" }]} /><p class="eyebrow mb-4">THAM KHẢO TỪNG KHÔNG GIAN</p><h1 class="text-[1.75rem] sm:text-3xl lg:text-4xl font-medium max-w-3xl">{pageContent.projects.headingLead}<br /><span class="text-primary-500">{pageContent.projects.headingAccent}</span></h1><p class="text-lg text-base-600 mt-6 max-w-2xl">{pageContent.projects.intro}</p><a href="/du-an/" class="inline-block py-3 mt-4 text-primary-600 font-semibold hover:underline">Cách chuẩn bị một phương án thi công →</a></div></section>
-  <section class="projects-section"><div class="projects-wrap"><header class="projects-heading"><div><p class="eyebrow mb-3">KHÁM PHÁ TỪNG KHÔNG GIAN</p><h2>Chọn ý tưởng. Xem cách hoàn thiện.</h2></div><p>Mỗi mẫu có trang chi tiết riêng với hướng phối và nhóm vật liệu gợi ý. Phương án minh họa được ghi rõ để bạn phân biệt với hồ sơ công trình thực tế.</p></header><FilterGallery filters={filters} noun="không gian"><span slot="count">{projectCards.length} không gian</span><div class="projects-grid">{projectCards.map(({story,category,label})=><article data-filter-card={category}><a href={storyHref(story)} class="project-card"><div class="project-card-photo"><img src={story.images[0].src} alt={story.images[0].alt} width="1000" height="700" loading="lazy" /><span>{label}</span></div><div class="project-card-copy"><h2>{story.title}</h2><p>{story.description}</p><span class="project-card-action">Xem công trình chi tiết<Icon name="arrow" size={18} /></span></div></a></article>)}</div></FilterGallery></div></section>
-  <section class="projects-section projects-applications"><div class="projects-wrap"><header class="projects-heading"><div><p class="eyebrow mb-3">TỪ ẢNH ỨNG DỤNG ĐẾN MẪU FILM</p><h2>Ảnh ứng dụng & vật liệu liên quan.</h2></div><a href="/vat-lieu/" class="outline-action">Khám phá vật liệu<Icon name="arrow" size={17} /></a></header><div class="projects-application-grid">{applicationStories.slice(0,10).map(story=><a href={storyHref(story)} class="application-story-card"><img src={story.images[0].src} alt={story.images[0].alt} width="800" height="600" loading="lazy" /><p>{storyLabel(story)}</p><h3>{story.title}</h3><span>Xem ứng dụng<Icon name="arrow" size={16} /></span></a>)}</div>{applicationStories.length>10&&<details class="projects-more"><summary>Xem thêm ảnh ứng dụng<span aria-hidden="true">⌄</span></summary><div class="projects-application-grid">{applicationStories.slice(10).map(story=><a href={storyHref(story)} class="application-story-card"><img src={story.images[0].src} alt={story.images[0].alt} width="800" height="600" loading="lazy" /><p>{storyLabel(story)}</p><h3>{story.title}</h3><span>Xem ứng dụng<Icon name="arrow" size={16} /></span></a>)}</div></details>}</div></section>
+  <section class="application-hero">
+    <div class="projects-wrap">
+      <Breadcrumbs items={[{ label: "Công trình & ứng dụng" }]} />
+      <div class="application-hero-grid">
+        <div class="application-hero-copy">
+          <h1>Ứng dụng<br />vật liệu</h1>
+          <p>Xem film nội thất trong từng phối cảnh và mở trang sản phẩm để đối chiếu đúng mã mẫu.</p>
+          <nav aria-label="Nội dung trang" class="flex flex-wrap gap-3">
+            <a href="#ung-dung-vat-lieu" class="button-primary">Xem phối cảnh</a>
+            <a href="#cong-trinh" class="button-secondary">Xem công trình</a>
+          </nav>
+        </div>
+        {featured && <figure class="application-feature">
+          <a href={storyHref(featured.story)}><img src={featured.story.images[0].src} alt={featured.story.images[0].alt} width="1000" height="650" fetchpriority="high" /></a>
+          <figcaption><span>{featured.sample.brand} · {featured.sample.code}</span><a href={sampleHref(featured.sample)}>Xem mẫu film <Icon name="arrow" size={16} /></a></figcaption>
+        </figure>}
+      </div>
+    </div>
+  </section>
+  <section id="ung-dung-vat-lieu" class="projects-section projects-applications">
+    <div class="projects-wrap">
+      <header class="projects-heading"><h2>Phối cảnh theo vật liệu</h2><a href="/vat-lieu/" class="outline-action">Xem danh mục vật liệu <Icon name="arrow" size={17} /></a></header>
+      <FilterGallery filters={applicationFilters} noun="phối cảnh">
+        <span slot="count">{applications.length} phối cảnh</span>
+        <div class="projects-application-grid">
+          {applications.map(({ story, sample }) => (
+            <article class="application-story-card" data-filter-card={sample.category}>
+              <a class="application-photo" href={storyHref(story)} aria-label={story.title}>
+                <img src={story.images[0].src} alt={story.images[0].alt} width="800" height="600" loading="lazy" />
+              </a>
+              <div class="application-card-copy">
+                <p>{sample.brand} · {sample.code}</p>
+                <h3><a href={storyHref(story)}>{sample.title}</a></h3>
+                <a class="application-product" href={sampleHref(sample)}>Xem mẫu film <Icon name="arrow" size={16} /></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </FilterGallery>
+    </div>
+  </section>
+  <section id="cong-trinh" class="projects-section"><div class="projects-wrap"><header class="projects-heading"><div><p class="eyebrow mb-3">KHÁM PHÁ TỪNG KHÔNG GIAN</p><h2>Công trình & ý tưởng theo không gian</h2></div><p>Mỗi mẫu có trang chi tiết riêng với hướng phối và nhóm vật liệu gợi ý. Phương án minh họa được ghi rõ để bạn phân biệt với hồ sơ công trình thực tế. <a href="/du-an/" class="font-semibold underline">Cách chuẩn bị dự án</a></p></header><FilterGallery filters={filters} noun="không gian"><span slot="count">{projectCards.length} không gian</span><div class="projects-grid">{projectCards.map(({story,category,label})=><article data-filter-card={category}><a href={storyHref(story)} class="project-card"><div class="project-card-photo"><img src={story.images[0].src} alt={story.images[0].alt} width="1000" height="700" loading="lazy" /><span>{label}</span></div><div class="project-card-copy"><h3>{story.title}</h3><p>{story.description}</p><span class="project-card-action">Xem công trình chi tiết<Icon name="arrow" size={18} /></span></div></a></article>)}</div></FilterGallery></div></section>
 </BaseLayout>
 
 <style>
@@ -36,22 +87,36 @@ const filters = [{ label: "Tất cả không gian", value: "all" }, { label: "Nh
   .project-card:hover img { transform: scale(1.025); }
   .project-card-photo > span { position: absolute; left: 1rem; bottom: 1rem; max-width: calc(100% - 2rem); padding: .375rem .625rem; border-radius: 7px; background: rgb(255 255 255 / .94); color: var(--navy); font-size: .625rem; font-weight: 600; }
   .project-card-copy { display: flex; flex-direction: column; flex: 1; padding: 1.5rem; }
-  .project-card-copy h2 { font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+  .project-card-copy h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
   .project-card-copy p { margin-top: .75rem; color: var(--muted); font-size: .875rem; line-height: 1.8; }
   .project-card-action { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding-top: 1.25rem; margin-top: auto; min-height: 44px; font-size: .8125rem; font-weight: 500; }
+  .application-hero { padding-block: 2rem clamp(3rem, 6vw, 5rem); background: var(--ivory); }
+  .application-hero-grid { display: grid; gap: 2rem; align-items: center; }
+  .application-hero-copy h1 { color: var(--navy); font-size: clamp(3rem, 7vw, 6.5rem); line-height: .98; letter-spacing: -.045em; font-weight: 600; }
+  .application-hero-copy p { max-width: 28rem; margin-block: 1.5rem; color: var(--muted); line-height: 1.7; }
+  .application-feature { overflow: hidden; border-radius: 20px; background: var(--navy); color: var(--ivory); }
+  .application-feature img { display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+  .application-feature figcaption { padding: .75rem 1rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; font-size: .875rem; font-weight: 600; }
+  .application-feature figcaption a, .application-product { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; }
+  .application-feature a:hover, .application-card-copy a:hover { text-decoration: underline; }
   .projects-applications { background: var(--surface-soft); }
-  .projects-heading .outline-action { font-size: .8125rem; }
-  .projects-application-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.75rem 1rem; }
-  .application-story-card { min-width: 0; }
-  .application-story-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; }
-  .application-story-card p { margin-top: .75rem; font-size: .625rem; color: var(--muted); }
-  .application-story-card h3 { margin-top: .375rem; font-size: .875rem; line-height: 1.5; font-weight: 500; }
-  .application-story-card > span { display: flex; align-items: center; gap: .5rem; min-height: 44px; margin-top: .25rem; font-size: .75rem; }
-  .projects-more { margin-top: 2rem; }
-  .projects-more summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: fit-content; min-height: 44px; padding: .625rem 1rem; border-radius: 999px; background: var(--navy); color: var(--ivory); font-size: .8125rem; list-style: none; cursor: pointer; margin: 0 auto 2rem; }
-  .projects-more summary::-webkit-details-marker { display: none; }
-  .projects-more[open] summary > span { transform: rotate(180deg); }
-  @media(min-width:640px) { .projects-wrap { width: min(1280px,calc(100% - 48px)); }.projects-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.projects-application-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-  @media(min-width:1024px) { .projects-heading { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; }.projects-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }.projects-application-grid { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 2rem 1.25rem; } }
+  .projects-application-grid { display: grid; gap: 1.25rem; }
+  .application-story-card { overflow: hidden; min-width: 0; background: white; border-radius: 16px; display: flex; flex-direction: column; }
+  .application-photo { display: block; }
+  .application-photo img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+  .application-card-copy { padding: 1rem 1.125rem .75rem; display: flex; flex-direction: column; flex: 1; }
+  .application-card-copy p { font-size: .75rem; color: var(--muted); }
+  .application-card-copy h3 { margin-block: .25rem .5rem; font-size: 1.125rem; font-weight: 600; }
+  .application-product { margin-top: auto; align-self: start; font-size: .875rem; font-weight: 600; }
+  #ung-dung-vat-lieu, #cong-trinh { scroll-margin-top: 6rem; }
+  @media (min-width: 640px) {
+    .projects-wrap { width: min(1280px, calc(100% - 48px)); }
+    .projects-grid, .projects-application-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .application-hero-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 3rem; }
+    .projects-heading { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; }
+    .projects-grid, .projects-application-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
   @media(prefers-reduced-motion:reduce) { .project-card-photo img { transition: none; } }
 </style>
