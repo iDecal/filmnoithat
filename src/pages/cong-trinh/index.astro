@@ -15,6 +15,7 @@ const projectCards = projectStories.filter(story => story.kind !== "catalogue").
   const index = Number(story.slug.match(/^khong-gian-tham-khao-(\d+)$/)?.[1]) - 1;
   return { story, category: concept?.category || spaces[index]?.category || "commercial", label: concept ? "PHƯƠNG ÁN MINH HỌA" : storyLabel(story) };
 });
+projectCards.sort((first, second) => Number(second.category === "office") - Number(first.category === "office"));
 const applications = projectStories.flatMap(story => {
   if (story.kind !== "catalogue") return [];
   const sample = catalogue.find(item => item.slug === story.sampleSlugs[0]);
@@ -25,8 +26,8 @@ const applicationFilters = [
   ...materials.filter(material => applications.some(({ sample }) => sample.category === material.slug))
     .map(material => ({ label: material.shortName, value: material.slug })),
 ];
-const featured = applications.find(({ sample }) => sample.slug === "ms-737") ?? applications[0];
-const filters = [{ label: "Tất cả không gian", value: "all" }, { label: "Nhà ở", value: "home" }, { label: "Văn phòng", value: "office" }, { label: "Không gian chung", value: "commercial" }];
+const featured = projectCards.find(({ category }) => category === "office") ?? projectCards[0];
+const filters = [{ label: "Tất cả không gian", value: "all" }, { label: "Văn phòng", value: "office" }, { label: "Nhà ở", value: "home" }, { label: "Không gian chung", value: "commercial" }];
 ---
 <BaseLayout title={pageContent.projects.title} description={pageContent.projects.description} structuredData={[breadcrumbSchema(Astro.site!, [{ name: "Công trình & ứng dụng", path: "/cong-trinh/" }])]}>
   <section class="application-hero">
@@ -34,20 +35,21 @@ const filters = [{ label: "Tất cả không gian", value: "all" }, { label: "Nh
       <Breadcrumbs items={[{ label: "Công trình & ứng dụng" }]} />
       <div class="application-hero-grid">
         <div class="application-hero-copy">
-          <h1>Ứng dụng<br />vật liệu</h1>
-          <p>Xem film nội thất trong từng phối cảnh và mở trang sản phẩm để đối chiếu đúng mã mẫu.</p>
+          <h1>Công trình<br />& ứng dụng</h1>
+          <p>Khám phá cách dùng film nội thất trong văn phòng, nhà ở và không gian chung.</p>
           <nav aria-label="Nội dung trang" class="flex flex-wrap gap-3">
-            <a href="#ung-dung-vat-lieu" class="button-primary">Xem phối cảnh</a>
-            <a href="#cong-trinh" class="button-secondary">Xem công trình</a>
+            <a href="#cong-trinh" class="button-primary">Xem công trình</a>
+            <a href="#ung-dung-vat-lieu" class="button-secondary">Xem phối cảnh vật liệu</a>
           </nav>
         </div>
         {featured && <figure class="application-feature">
           <a href={storyHref(featured.story)}><img src={featured.story.images[0].src} alt={featured.story.images[0].alt} width="1000" height="650" fetchpriority="high" /></a>
-          <figcaption><span>{featured.sample.brand} · {featured.sample.code}</span><a href={sampleHref(featured.sample)}>Xem mẫu film <Icon name="arrow" size={16} /></a></figcaption>
+          <figcaption><span>{featured.story.title}</span><a href={storyHref(featured.story)}>Xem chi tiết <Icon name="arrow" size={16} /></a></figcaption>
         </figure>}
       </div>
     </div>
   </section>
+  <section id="cong-trinh" class="projects-section"><div class="projects-wrap"><header class="projects-heading"><div><p class="eyebrow mb-3">KHÁM PHÁ TỪNG KHÔNG GIAN</p><h2>Công trình & ý tưởng theo không gian</h2></div><p>Mỗi mẫu có trang chi tiết riêng với hướng phối và nhóm vật liệu gợi ý. Phương án minh họa được ghi rõ để bạn phân biệt với hồ sơ công trình thực tế. <a href="/du-an/" class="font-semibold underline">Cách chuẩn bị dự án</a></p></header><FilterGallery filters={filters} noun="không gian"><span slot="count">{projectCards.length} không gian</span><div class="projects-grid">{projectCards.map(({story,category,label})=><article data-filter-card={category}><a href={storyHref(story)} class="project-card"><div class="project-card-photo"><img src={story.images[0].src} alt={story.images[0].alt} width="1000" height="700" loading="lazy" /><span>{label}</span></div><div class="project-card-copy"><h3>{story.title}</h3><p>{story.description}</p><span class="project-card-action">Xem công trình chi tiết<Icon name="arrow" size={18} /></span></div></a></article>)}</div></FilterGallery></div></section>
   <section id="ung-dung-vat-lieu" class="projects-section projects-applications">
     <div class="projects-wrap">
       <header class="projects-heading"><h2>Phối cảnh theo vật liệu</h2><a href="/vat-lieu/" class="outline-action">Xem danh mục vật liệu <Icon name="arrow" size={17} /></a></header>
@@ -70,7 +72,6 @@ const filters = [{ label: "Tất cả không gian", value: "all" }, { label: "Nh
       </FilterGallery>
     </div>
   </section>
-  <section id="cong-trinh" class="projects-section"><div class="projects-wrap"><header class="projects-heading"><div><p class="eyebrow mb-3">KHÁM PHÁ TỪNG KHÔNG GIAN</p><h2>Công trình & ý tưởng theo không gian</h2></div><p>Mỗi mẫu có trang chi tiết riêng với hướng phối và nhóm vật liệu gợi ý. Phương án minh họa được ghi rõ để bạn phân biệt với hồ sơ công trình thực tế. <a href="/du-an/" class="font-semibold underline">Cách chuẩn bị dự án</a></p></header><FilterGallery filters={filters} noun="không gian"><span slot="count">{projectCards.length} không gian</span><div class="projects-grid">{projectCards.map(({story,category,label})=><article data-filter-card={category}><a href={storyHref(story)} class="project-card"><div class="project-card-photo"><img src={story.images[0].src} alt={story.images[0].alt} width="1000" height="700" loading="lazy" /><span>{label}</span></div><div class="project-card-copy"><h3>{story.title}</h3><p>{story.description}</p><span class="project-card-action">Xem công trình chi tiết<Icon name="arrow" size={18} /></span></div></a></article>)}</div></FilterGallery></div></section>
 </BaseLayout>
 
 <style>

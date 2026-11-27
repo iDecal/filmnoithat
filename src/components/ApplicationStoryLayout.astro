@@ -4,7 +4,7 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import Icon from "./Icon.astro";
 import { type ProjectStory, storyHref } from "../data/projectStories";
 import { catalogue, sampleHref } from "../data/catalogue";
-import { materials } from "../data/materials";
+import { materials, materialHref } from "../data/materials";
 import { colorGuideHref } from "../data/colorGuide";
 import { site } from "../data/site";
 import { breadcrumbSchema } from "../data/seo";
@@ -12,7 +12,8 @@ interface Props { story: ProjectStory }
 const { story }=Astro.props;
 const sample=catalogue.find(sample=>story.sampleSlugs.includes(sample.slug))!;
 const material=materials.find(material=>material.slug===sample.category)!;
-const photo=story.images[0];
+const photo = story.images[0];
+const hasObservations = story.slug === "ung-dung-st-319";
 const observations=[
  {icon:"wall" as const,title:"Nền sáng để chất liệu lên tiếng",text:"Tường kem làm nền nhẹ cho bề mặt vân đá sáng."},
  {icon:"wood" as const,title:"Cân bằng bằng sắc gỗ ấm",text:"Sàn và bệ gỗ mang lại sắc ấm, cân bằng bề mặt sáng."},
@@ -23,18 +24,21 @@ const observations=[
  <section class="application-story-intro"><div class="application-story-wrap">
   <Breadcrumbs items={[{label:"Công trình",href:"/cong-trinh/"},{label:story.title}]} />
   <div class="application-story-grid">
-   <figure class="application-story-photo"><button type="button" data-story-zoom-open aria-haspopup="dialog" aria-controls="application-photo-dialog" aria-label={`Phóng to ảnh ứng dụng ${sample.code}`}><img src={photo.src} alt={photo.alt} width="700" height="868" fetchpriority="high" /><span class="application-zoom-label"><Icon name="expand" size={17} />Xem ảnh lớn</span></button><figcaption>Ảnh ứng dụng từ catalogue {sample.collection}{story.sourcePage ? ` · Trang ${story.sourcePage}` : ""}.</figcaption></figure>
-   <div class="application-story-copy"><p class="application-story-kicker"><span></span>KHÔNG GIAN & CHẤT LIỆU</p><h1>{story.title}</h1><p class="application-story-description">{story.description}</p>
+   <figure class="application-story-photo"><button type="button" data-story-zoom-open aria-haspopup="dialog" aria-controls="application-photo-dialog" aria-label={`Phóng to ảnh ứng dụng ${sample.code}`}><img src={photo.src} alt={photo.alt} fetchpriority="high" /><span class="application-zoom-label"><Icon name="expand" size={17} />Xem ảnh lớn</span></button><figcaption>Ảnh ứng dụng từ catalogue {sample.collection}{story.sourcePage ? ` · Trang ${story.sourcePage}` : ""}.</figcaption></figure>
+   <div class="application-story-copy"><p class="application-story-kicker">{material.shortName} · {sample.collection}</p><h1>{story.title}</h1><p class="application-story-description">{story.description}</p>
     <div class="application-story-facts"><div><span>Vật liệu minh họa</span><strong>{sample.brand} {sample.code}</strong></div><div><span>Nhóm bề mặt</span><strong>{material.shortName}</strong></div><div><span>Tông màu mẫu</span><strong>{sample.color.name}</strong></div></div>
-    <p class="application-story-note"><Icon name="layers" size={18} /><span>Ảnh phối cảnh từ catalogue.</span></p>
-    <div class="application-story-actions"><a href={sampleHref(sample)} class="button-primary">Xem mẫu {sample.code}<Icon name="arrow" size={18} class="ml-3" /></a><a href="#phoi-chat-lieu" class="button-secondary">Khám phá cách phối</a></div>
-    <a href="/dich-vu/dan-film-tuong/" class="application-story-text-link"><Icon name="wall" size={19} />Xem dịch vụ dán film tường & vách<Icon name="arrow" size={17} /></a>
+    <div class="application-story-swatch">
+      <img src={sample.image} alt={sample.imageAlt || `Bề mặt film ${sample.code}`} width={sample.imageWidth} height={sample.imageHeight} loading="lazy" />
+      <div><span>Mẫu bề mặt</span><strong>{sample.brand} {sample.code}</strong></div>
+    </div>
+    <div class="application-story-actions"><a href={sampleHref(sample)} class="button-primary">Xem mẫu {sample.code}<Icon name="arrow" size={18} class="ml-3" /></a><a href={`${materialHref(material)}#mau-vat-lieu`} class="button-secondary">Xem bộ sưu tập</a></div>
+    {sample.pdf && <a href={`${sample.pdf}${story.sourcePage ? `#page=${story.sourcePage}` : ""}`} class="application-story-text-link">Đối chiếu catalogue <Icon name="arrow" size={17} /></a>}
    </div>
   </div>
  </div></section>
- <section id="phoi-chat-lieu" class="application-story-section application-story-soft"><div class="application-story-wrap"><div class="application-section-heading"><div><p class="application-story-kicker">GÓC NHÌN PHỐI CHẤT LIỆU</p><h2>Nhẹ màu, rõ đường nét.</h2></div><a href={colorGuideHref} class="application-story-text-link">Xem hướng dẫn phối màu<Icon name="arrow" size={18} /></a></div><div class="application-observations">{observations.map(item=><article><span class="application-story-icon"><Icon name={item.icon} size={24} /></span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
+ {hasObservations && <section id="phoi-chat-lieu" class="application-story-section application-story-soft"><div class="application-story-wrap"><div class="application-section-heading"><div><p class="application-story-kicker">GÓC NHÌN PHỐI CHẤT LIỆU</p><h2>Nhẹ màu, rõ đường nét.</h2></div><a href={colorGuideHref} class="application-story-text-link">Xem hướng dẫn phối màu<Icon name="arrow" size={18} /></a></div><div class="application-observations">{observations.map(item=><article><span class="application-story-icon"><Icon name={item.icon} size={24} /></span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>}
  <section class="application-story-section application-story-sand"><div class="application-story-wrap"><div class="application-story-closing"><div><h2>Bạn muốn phối mẫu {sample.code}?</h2><p>Gửi ảnh không gian để được tư vấn vật liệu và phương án phù hợp.</p></div><div class="application-story-actions"><a href={site.zaloHref} class="button-primary">Trao đổi qua Zalo</a></div></div></div></section>
- <dialog id="application-photo-dialog" data-story-zoom aria-label={`Ảnh ứng dụng ${sample.code} phóng lớn`}><div class="application-dialog-header"><p>{sample.brand} {sample.code} · Ảnh ứng dụng catalogue</p><form method="dialog"><button class="button-secondary" aria-label="Đóng ảnh phóng lớn">Đóng ×</button></form></div><img src={photo.src} alt={photo.alt} width="700" height="868" loading="lazy" /><p class="application-dialog-caption">{photo.alt}</p></dialog>
+ <dialog id="application-photo-dialog" data-story-zoom aria-label={`Ảnh ứng dụng ${sample.code} phóng lớn`}><div class="application-dialog-header"><p>{sample.brand} {sample.code} · Ảnh ứng dụng catalogue</p><form method="dialog"><button class="button-secondary" aria-label="Đóng ảnh phóng lớn">Đóng ×</button></form></div><img src={photo.src} alt={photo.alt} loading="lazy" /><p class="application-dialog-caption">{photo.alt}</p></dialog>
 </BaseLayout>
 <script>
  const open=document.querySelector<HTMLButtonElement>('[data-story-zoom-open]');
@@ -52,13 +56,16 @@ const observations=[
 .application-story-photo figcaption { color:var(--muted);font-size:.75rem;margin-top:10px; }
 .application-zoom-label { display:inline-flex;align-items:center;gap:8px;position:absolute;bottom:14px;right:14px;padding:8px 12px;border-radius:999px;background:rgb(255 255 255 / .94);color:var(--navy);font-size:.75rem; }
 .application-story-kicker { display:flex;align-items:center;gap:9px;font-size:.6875rem;font-weight:600;letter-spacing:.08em;color:#876a37; }
-.application-story-kicker > span { width:8px;height:8px;background:#d4bc8b;border-radius:50%; }
 .application-story-copy h1 { font-size:clamp(1.875rem,3.2vw,2.75rem);line-height:1.2;font-weight:500;margin-top:16px; }
 .application-story-description { color:var(--muted);margin-top:20px;font-size:.9375rem; }
 .application-story-facts { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px;padding-block:20px;border-block:1px solid #e0e5e8; }
 .application-story-facts span { display:block;font-size:.75rem;color:var(--muted); }
 .application-story-facts strong { display:block;font-size:.875rem;font-weight:500;margin-top:4px; }
-.application-story-note { display:flex;align-items:start;gap:9px;font-size:.75rem;color:var(--muted);margin-top:18px; }
+.application-story-swatch { display:flex;align-items:center;gap:1rem;margin-top:1.25rem;border-radius:14px;padding:.75rem;background:var(--surface-soft); }
+.application-story-swatch img { width:4.5rem;height:4.5rem;object-fit:cover;border-radius:8px; }
+.application-story-swatch span,.application-story-swatch strong { display:block; }
+.application-story-swatch span { font-size:.75rem;color:var(--muted); }
+.application-story-swatch strong { margin-top:.25rem;font-weight:600; }
 .application-story-actions { display:flex;flex-wrap:wrap;gap:10px;margin-top:24px; }
 .application-story-text-link { display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:.8125rem;font-weight:500;margin-top:12px; }
 .application-story-text-link:hover { text-decoration:underline;text-underline-offset:4px; }
